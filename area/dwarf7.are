@@ -1,0 +1,3304 @@
+#AREA
+Bugbear lair~
+Rodric Kiian Florian~
+bugbear~
+
+20 0
+0
+#ROOMS
+
+#27750
+Damp Tunnel~
+Two tunnels branch off from this cavern.  Light streams in from the
+tunnel to the west while the cavernous passage to the north has a gentle
+upward gradient.  Dug into the eastern wall is a crude, roughly circular
+hole about five feet in diameter.  Beads of moisture gather on the
+limestone walls and collect in running rivulets.
+~
+*CF
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 27763 10 10 5
+D3
+~
+~
+0 -1 27751 10 10 5
+E
+hole 1 eastern crude circular wall~
+A hole has been dug in the eastern wall of the chamber.  Roughly circular
+in shape, the hole is about five feet wide and is very uneven along its
+edges.  It looks as though the hole were burrowed out by the claws of
+multiple creatures.
+~
+E
+limestone walls rivulets beads moisture~
+The air within this chamber is charged with moisture, causing your skin
+to feel clammy.  Some of the moisture has begun to collect on the
+limestone walls and trickles down them ever so slowly to create tiny
+streams of water along the base of the walls.  The streams of water 
+pool together in shallow depressions or puddles.
+~
+E
+depressions puddle~
+Several small puddles of water have been formed from conjoining rivulets
+of water that trickle down from moisture upon the walls.  Only one of the
+puddles looks clean enough to drink from.
+~
+A
+climb enter~
+hole 1 east~
+send_to_char( #message, ch );
+act_notchar( #message2, ch );
+i = 2d4;
+dam_message( ch, i, "One of the jagged edges of the hole" );
+inflict( ch, mob, i, "a jagged rock edge" );
+transfer( ch, find_room( 26507 ) );
+act_notchar( #message3, ch );
+loop( followers ) {
+  dam_message( rch, i, "One of the jagged edges of the hole" );
+  inflict( rch, mob, i, "a jagged rock edge" );
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 26507 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n comes through the hole in the western wall.
+~
+E
+f_leave~
+$n goes through the hole in the east wall.
+~
+E
+message3~
+$n pushes the boulder out of the way and climbs out of the
+small hole in the western wall.
+~
+E
+message2~
+$n climbs into the small hole.
+~
+E
+message~
+You climb into the small hole.
+~
+!
+0 0 0
+266 9 1509949540 3 0
+819 17 1509949540 -2 0
+-1
+S
+
+#27751
+Rough Passageway~
+A passageway, cut through limestone, extends west to east.  The edges of
+the passage are coarse and jagged, as if it was dug by some creature
+rather than mining tools.  Far from resembling the natural caverns that
+lie to the east, this passageway looks to have been shaped with a purpose
+other than nature's design.  A fair amount of luminescent algae clings to
+the moist walls.
+~
+*CF
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 27750 10 10 5
+D3
+~
+~
+0 -1 27752 10 10 5
+E
+luminescent algae~
+Several patches of blue-green algae cling to the walls of the chamber. 
+The moist limestone appears to be the perfect surface for its growth. 
+The algae glows with a soft, serene light, illuminating the room.
+~
+A
+get take~
+luminescent algae~
+act_tochar( #die, ch );
+act_notchar( #rdie, ch );
+~
+E
+die~
+As you touch the algae, it shrivels up and dies.
+~
+E
+rdie~
+$n tries getting a piece of algae but it shrivels and dies at
+$s touch.
+~
+!
+0 0 0
+-1
+S
+
+#27752
+Rough Passageway~
+This passageway is little more than a coarse, connecting tunnel.  Its
+jagged edges and unsmoothed surfaces give it the look of being dug by the
+claws of some creature rather than by either nature or a skillful hand.
+Unlit torches set in sconces line either side of the passage, which
+extends from the east into a large cavern to the west.
+~
+||Light torch||
+||get torch||
+*CF
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 27751 10 10 5
+D3
+~
+~
+0 -1 27753 10 10 5
+E
+unlit torches sconces~
+Simple wooden torches line either side of the passageway.  The torches
+have been set in crude, brass sconces that are green with corrosion. 
+Judging from the amount of soot that has accumulated upon the sconces,
+they have been in use for many years.
+~
+A
+light~
+torches sconces~
+act_tochar( #too, ch );
+act_notchar( #rtoo, ch );
+~
+E
+too~
+The torches are much too high to light.
+~
+E
+rtoo~
+$n reaches for the torches but they are much too high for $m.
+~
+!
+0 0 0
+A
+get take~
+torches sconces~
+act_tochar( #too, ch );
+act_notchar( #rtoo, ch );
+~
+E
+too~
+The torches are too high to get.
+~
+E
+rtoo~
+$n reaches for the torches but they are much too high for $m.
+~
+!
+0 0 0
+266 9 1509949540 3 0
+865 9 1509949540 3 0
+-1
+S
+
+#27753
+Central Cavern~
+Looming all around you and to the west stands an impressive cavern whose
+dimensions are overwhelming.  Composed mostly of limestone, the giant
+cavern looks to have been cut and altered into the lair of some
+creature or a group of creatures.  The floor has been polished and
+smoothed and a couple of the stalagmites rising from the ground have been
+cross-sectioned into crude seats.  A rough passageway leads off to the
+east, its edges sharp and jagged.
+~
+*CF
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 27754 10 10 5
+D1
+~
+~
+0 -1 27752 10 10 5
+D2
+~
+~
+0 -1 27755 10 10 5
+D3
+~
+~
+0 -1 27756 10 10 5
+265 9 1509949540 3 0
+265 9 1509949540 3 0
+270 9 1509949540 3 0
+265 9 1509949540 3 0
+265 9 1509949490 3 0
+2969 17 1509949540 -2 0
+2969 17 1509949540 -2 0
+2969 17 1509949540 -2 0
+2969 17 1509949540 -2 0
+-1
+S
+
+#27754
+Central Cavern~
+Roughly circular in shape, this large cavern has a domed ceiling that
+rises several hundred feet.  While completely natural, the limestone
+cavern has been altered slightly to fit the needs of its inhabitants it
+appears.  The floor has been ground down to smoothness and several once
+large stalagmites have been cross-sectioned, providing flat surfaces that
+are being used for tables and benches.  Piles of rubbish lie strewn about
+several of these makeshift pieces of furniture.  The cavern continues to
+the south and west.
+~
+*CF
+~
+301465604 0 7 0
+D2
+~
+~
+0 -1 27753 10 10 5
+D3
+~
+~
+0 -1 27757 10 10 5
+E
+tables benches cross-sectioned stalagmites~
+Cut horizontally across its middle, a large stalagmite has been fashioned
+into a makeshift chair.  The limestone formation is green and grey in
+color.  Flecks of dull metal, too small to pry loose or identify, lie
+within the limestone, trapped as the dripstone formed around them.  Three
+in number, the leveled stalactite surfaces are being used for tables and
+chairs.
+~
+E
+limestone floor~
+Like the walls and ceiling of this chamber, which looms some distance
+above your head, the floor of this chamber is formed from limestone. 
+Most of it has been smoothed out by repeated traffic and artificial
+polishing.
+~
+E
+domed ceiling~
+Above head, a domed ceiling rises and curves gently across the cavernous
+gallery.  The dome is smooth and looks completely natural in its origins.
+~
+E
+piles rubbish~
+The garbage surrounding the makeshift stalagmite furniture has the look
+of carelessly discarded picnic refuse.  Without care for where it might
+land, food of all types, though generally of the mostly eaten and rotten
+varieties, has been tossed about the cavern, creating piles of rubbish.
+~
+A
+~
+piles garbage rubbish~
+i = 1d10;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #metal, ch );
+    act_notchar( #rmetal, ch );
+    obj_to_char( oload( 728 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #metal, ch );
+    act_notchar( #rmetal, ch );
+    obj_to_char( oload( 661 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+metal~
+You search the piles of garbage, finding a piece of food.
+~
+E
+rmetal~
+$n searches the piles of garbage, finding a piece of food!
+~
+E
+nothing~
+After an extensive search, you find nothing in the garbage.
+~
+E
+rnothing~
+After an extensive search, $n finds nothing in the garbage.
+~
+!
+9 0 0
+265 9 1509949540 3 0
+265 9 1509949490 3 0
+265 9 1509949490 3 0
+2969 17 1509949540 -2 0
+2969 17 1509949540 -2 0
+2969 17 1509949540 -2 0
+-1
+S
+
+#27755
+Central Cavern~
+An immense cavern of limestone stretches before you to the north and west. 
+For the most part, the cavern looks completely natural except that the
+floor has been smoothed down and leveled.  A few moldy piles of straw and
+cracked barrels give this chamber the look of being used as a lair.  Bits
+of stone and other detritus have been stacked in the corner of this lair,
+in a trash pile.
+~
+*CF
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 27753 10 10 5
+D3
+~
+~
+0 -1 27758 10 10 5
+E
+moldy straw piles~
+A few piles of old straw have been stashed towards the back of the cavern. 
+The straw looks fairly old and damp.  Much of it has begun to mold.
+~
+E
+floor~
+The floor of the cavern, while made of limestone, is quite smooth.  In
+fact, it almost gleams from having been polished so well.  Someone has
+taken much effort in grinding down the floor.
+~
+E
+stone stones detritus rocks trash~
+Stacked off to the side of the cavern, towards the back, is a pile of
+stony debris.  Most of the trash pile looks to consist of limestone and
+other rock fragments.  This looks to be where someone has placed all the
+limestone scrappings from digging new passageways.
+~
+E
+stack old barrels cracked~
+Towards the back of the chamber several barrels have been stacked.  The
+stout, wooden barrels are banded with iron rings but look very old. 
+Rusting and pitted, the iron bands holding the barrels together look
+ready to split apart.  The wooden barrels are battered and bruised and a
+few of them are empty and cracked.
+~
+A
+~
+stony stones detritus rocks piles trash~
+i = 1d10;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 141 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark2, ch );
+    act_notchar( #rdark2, ch );
+    mload( 1, room );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+You find a large rock in the pile of detritus.
+~
+E
+rdark~
+$n finds a large rock in the pile of detritus.
+~
+E
+dark2~
+@RWhile searching through the detritus, you find a resting snake.  It
+does not look at all pleased with being disturbed!@n 
+~
+E
+rdark2~
+@RWhile searching through the detritus, $n finds a resting snake.  It
+does not look at all pleased with being disturbed!@n 
+~
+E
+nothing~
+Your search through the stony detritus turns up nothing.
+~
+E
+rnothing~
+$n searches through the stony detritus, turning up nothing.
+~
+!
+9 0 0
+A
+~
+moldy stacks straw~
+i = 1d33;
+if( rflag( reset1, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 1600 ), ch );
+    remove_rflag( reset1, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark2, ch );
+    act_notchar( #rdark2, ch );
+    mload( 1056, room );
+    remove_rflag( reset1, room );
+    }
+  if( i == 3 ) {
+    act_tochar( #dark3, ch );
+    act_notchar( #rdark3, ch );
+    obj_to_char( oload( 2982 ), ch );
+    remove_rflag( reset1, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset1, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+Searching through the straw, you find nothing.  However, a piece of straw
+clings to your hand as you finish searching.
+~
+E
+rdark~
+$n pulls something out of the straw.
+~
+E
+dark3~
+Searching through the straw, you find a needle made of iron!
+~
+E
+rdark3~
+$n pulls something sharp from the straw. It gleams like metal.
+~
+E
+dark2~
+@RA giant spider jump out of the straw as you look through it!@n
+~
+E
+rdark2~
+@RA giant spider jump out of the straw as $n looks through it!@n
+~
+E
+nothing~
+You find nothing of interest in the straw.
+~
+E
+rnothing~
+$n searches through the straw, but looks disappointed.
+~
+!
+9 0 0
+265 9 1509949540 3 0
+78 17 1509949465 -2 0
+2984 17 1509949450 -2 0
+2984 16 1509949450 -2 1
+2984 16 1509949450 -2 2
+2984 16 1509949450 -2 11
+2984 16 1509949450 -2 25
+2984 16 1509949450 -2 9
+2984 16 1509949450 -2 0
+2984 16 1509949450 -2 13
+2984 16 1509949450 -2 19
+2984 16 1509949450 -2 31
+-1
+S
+
+#27756
+Central Cavern~
+A very large, very tall cavern spreads before you in all directions.  The
+limestone ceiling above is domed and rises some two-hundred feet above
+the ground.  Several large rocks have been laid out in various spots and
+look to be used as crude pieces of furniture.  Behind a couple of the
+rocks, piles of garbage and rotten food scrapings have been stashed and
+hidden.  To the west, the ceiling drops in height.
+~
+*CF
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 27757 10 10 5
+D1
+~
+~
+0 -1 27753 10 10 5
+D2
+~
+~
+0 -1 27758 10 10 5
+D3
+~
+~
+0 -1 27777 10 10 5
+E
+crude rocks pieces furniture~
+Heavy granite boulders have been cut and scraped into the shape of
+crude tables.  The tables vary in shape and size, but uniformly, they are
+covered in grime and ichor.  Stashed to one side of a couple of the
+makeshift tables lie piles of garbage.
+~
+E
+piles garbage~
+Behind a couple of the larger rocks lie piles of garbage.  The rubbish
+looks mostly organic in nature.  Out of the corner of your eye, you catch
+a glimpse of one of the piles.  You think it just moved.
+~
+A
+~
+piles garbage rotten food~
+i = 1d10;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 702 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark2, ch );
+    act_notchar( #rdark2, ch );
+    mload( 6, room );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+You find a rotten apple at the bottom of one of the garbage piles.
+~
+E
+rdark~
+$n finds something while digging through the garbage.
+~
+E
+dark2~
+@RSearching through the garbage pile, you disturb something that was
+feeding on it!@n 
+~
+E
+rdark2~
+@R$n disturbs something in the garbage!@n
+~
+E
+rnothing~
+$n searches through the garbage piles but finds nothing.
+~
+E
+nothing~
+You search through the piles of garbage but find nothing.
+~
+!
+9 0 0
+265 9 1509949540 3 0
+265 9 1509949540 3 0
+265 9 1509949490 3 0
+865 9 1509949540 3 0
+938 17 1509949450 -1 0
+-1
+S
+
+#27757
+Central Cavern~
+Fed by scraps of wood, broken tree limbs, and chips of dung, a large
+campfire blazes at the back of this large cavern.  Two poles stand to
+either side of the fire, supporting a roasting spit in-between.  Old
+bones, shredded bits of hide and strips of rotten flesh lie scattered on
+the floor, in no particular pattern.  Crude shelves have been carved into
+the northern wall of the cavern and are being used for storage.
+~
+||Search shelves||
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 27754 10 10 5
+D2
+~
+~
+0 -1 27756 10 10 5
+E
+small campire~
+A small campfire, little more than a cooking area, has been built into
+the floor of this cavern.  Tendrils of smoke arise from the small fire,
+and judging by its aroma, it is being fueled by wood and dung.  Suspended
+over the fire is a roasting spit.
+~
+E
+roasting spit poles~
+A pole sticks up from either side of the small campfire in this chamber
+and across it a roasting spit has been laid.  While there is nothing
+cooking over the fire at present, bits of charred flesh still clinging to
+the spit provide testimony as to its recent use.
+~
+E
+old bones~
+To either side of the campfire are several old, broken bones.  For the
+most part, the bones appear to be those of deer and rabbits.
+~
+E
+1 northern wall crude shelves~
+The cavern wall to the north has had shelves carved into its coarse, grey
+face.  The crude shelving appears to be used for the storage of food,
+though you can see little that is edible upon them.  A puddle of green
+goo drips from one of the shelves onto the floor.
+~
+E
+puddle green goo~
+Upon the floor is a small puddle of goo.  The greenish ooze bubbles
+slightly.
+~
+E
+shredded bits hide strips rotten flesh~
+The discards from a previous feast lie scattered about the floor.  The
+strips of rotting flesh and swathes of molding hide appear to have been
+decaying around the campfire for quite a while.
+~
+A
+~
+crude shelves 1 northern wall~
+i = 1d10;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 36 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 54 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+On one of the crude shelves, you find something edible.
+~
+E
+rdark~
+$n pulls something edible off one of the crude shelves.
+~
+E
+nothing~
+You find nothing edible on the crude shelves.
+~
+E
+rnothing~
+$n searches through the crude shelves but finds nothing.
+~
+!
+9 0 0
+A
+~
+floor scraps bits hide strips flesh~
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+~
+E
+search~
+You search the floor but find nothing.
+~
+E
+rsearch~
+$n searches the floor but finds nothing.
+~
+!
+9 0 0
+265 9 1509949540 3 0
+270 9 1509949490 3 0
+265 9 1509949490 3 0
+269 9 1509949540 3 0
+6 49 1509949540 -1 0
+35 81 1509949460 -1 0
+36 81 1509949460 -1 0
+823 81 1509949490 -1 0
+2689 17 1509949540 -2 0
+-1
+S
+
+#27758
+Central Cavern~
+This looks to be the southern portion of a very large cavern.  Both
+its vertical and horizontal dimensions are mind-numbing.  Pillars of
+dripstone rise from the ground like giant teeth while a single spiraling
+stalactite hangs from the ceiling.  A few dusty mats lie up against the
+dripstone formations, using them as support.  It appears that a sizeable
+number of creatures has been using this cavern for their sleeping
+quarters.
+~
+*CF
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 27756 10 10 5
+D1
+~
+~
+0 -1 27755 10 10 5
+D3
+~
+~
+0 -1 27778 10 10 5
+E
+single spiraling stalactite~
+Descending from the ceiling is a single column of ecru-colored limestone. 
+As it gets closer to the cavern's floor, the stalactite twists gradually,
+until it spirals around like an alicorn's horn.
+~
+E
+pillars dripstone stalagmites~
+Rising from the floor of the cavern are a series of ecru-colored
+stalagmites.  Differing in size and shape, the fragile dripstone
+formations, lined in rows as they are, resemble the lower teeth of some
+great beast.  At the base of a couple of the stalagmites are woven mats
+covered with grime and dust.
+~
+E
+dusty mats woven~
+Lying on the floor of the cavern, near the base of a few of the
+stalagmites, are several woven grass mats.  The mats look to have been used
+for sleeping pallets.  Judging from the amount of grime and dust, they
+haven't been used for some time.
+~
+A
+~
+woven grass dusty mats~
+i = 1d10;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 1293 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark2, ch );
+    act_notchar( #rdark2, ch );
+    mload( 788, room );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+Underneath one of the woven mats, you find a cobalt blue gem!
+~
+E
+rdark~
+$n finds a blue gem somewhere near a stalagmite.
+~
+E
+dark2~
+@RSearching through the woven mats, you disturb a blood-red bug!@n
+~
+E
+rdark2~
+@R$n moves one of the woven mats around, shaking loose a blood-red bug!@n
+~
+E
+nothing~
+You find nothing in the dusty, woven mats.
+~
+E
+rnothing~
+$n searches through the woven mats but appears to find nothing.
+~
+!
+9 0 0
+270 9 1509949540 3 0
+265 9 1509949540 3 0
+270 9 1509949490 3 0
+270 9 1509949465 3 0
+265 9 1509949490 3 0
+-1
+S
+
+#27759
+Hallway~
+The limestone walls of this hallway have been carefully smoothed, giving
+the impression of a civilized abode.  Though not very tall, the hallway
+extends in a level path from a cavern to the east into a chamber to the
+west.  Within the western chamber, you can see a large throne.  The floor
+of the hallway, though level, is still nothing but crude and unpolished
+limestone.
+~
+*CF
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 27777 10 10 5
+D3
+~
+~
+0 -1 27760 10 10 5
+E
+1 western large throne~
+Just to the west, you can see a large throne.  However, while its size is
+quite impressive, the throne is extremely crude and does not look too
+comfortable.  Its bulky, uneven wooden form looks very unforgiving.
+~
+E
+crude unpolished floor limestone~
+The floor of this cavern, like the walls around it, is made of limestone. 
+The rough grey limestone has tiny impressions in it that look like the
+skeletons of tiny creatures no bigger than the size of your thumb.  Scuff
+marks score the floor as evidence of frequent travel.
+~
+E
+tiny little creatures skeletons~
+The tiny little skeletons in the limestone floor look to be of various
+types of creatures, including smaill snails, mollusks, and crabs.
+~
+-1
+S
+
+#27760
+Large Cavern~
+This cavern is very spacious.  Great effort has been taken to make the
+chamber resemble a throne room.  However, the effort, as it pertains to
+the rotten rug, uneven, wooden throne, and the cracked, broken table at
+the left hand of the throne, has been wasted.  A short but smooth hallway
+leads out of the throne room to the east while to the west there is small
+sleeping chamber.  A worn brass door that has seen much use has been set
+into the south wall of the chamber.  Branching to the north, you see a
+rough but even passageway.
+~
+||Move throne||
+rug installed
+*CF
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 27775 10 10 5
+D1
+~
+~
+0 -1 27759 10 10 5
+D2
+worn brass door~
+worn brass door~
+391 988 27762 10 10 5
+D3
+~
+~
+0 -1 27779 10 10 5
+D5
+wooden trapdoor~
+wooden trapdoor~
+235 -1 27783 10 10 5
+E
+rotten rug~
+Woven from cotton, a plush carpet leads from the foot of the throne to
+the entrance of the chamber to the east.  Dyed a shade of burgundy with
+fringes of blue, the rug has definitely seen better days.  There are
+several tears and rips in its fabric and most of it has begun to rot.
+~
+E
+cracked broken table~
+Carved from bone, a small white table stands at the left arm of the
+throne.  Etched into the surface of the table are tiny pictures.  The
+pictures depict large bugbears standing beside one another.  A sceptre is
+being passed from the hands of one to the eager hands of the other.  A
+large crack runs through the center of the table.
+~
+E
+uneven wooden throne~
+Situated in the middle of the chamber is a makeshift throne.  Its legs
+are of varying lengths, making it uneven.  In fact, it looks like one of
+its legs is standing partly in a hole.  No pillow cushions its hard seat
+nor does it look like any great effort has been made to smooth out any of
+the splinters which stick up out of the seat of the throne.
+~
+E
+worn brass door 1 south~
+Set into the south wall of the chamber is a large door.  It does not look
+like it fits well in the opening, though.  Its brass surface is worn and
+the heavy lock set upon it has thick green corrosion caking it.
+~
+A
+move push shoulder pull~
+uneven wooden throne~
+if( !mob_in_room( 267, room ) ) {
+  if( !mob_in_room( 266, room ) ) {
+    if( !is_open( room, down ) ) {
+      act_tochar( #open, ch );
+      act_notchar( #ropen, ch );
+      open( room, down );
+      }
+    else {
+      act_tochar( #close, ch );
+      act_notchar( #rclose, ch );
+      close( room, down );
+      }
+    }
+  else act_tochar( #guard, ch );
+    }
+else
+  act_tochar( #king, ch );
+~
+E
+open~
+You manage to shoulder the uneven, wooden throne aside, revealing a hole
+in the floor.
+~
+E
+ropen~
+$n manages to shoulder the uneven, wooden throne aside, revealing a hole
+in the floor.
+~
+E
+close~
+You move the throne directly over the hole in the floor.
+~
+E
+rclose~
+$n moves the throne directly over the hole in the floor.
+~
+E
+king~
+The chieftain might object to that. Call it a hunch.
+~
+E
+guard~
+You cannot move the throne just now. A bugbear guard is in the way.
+~
+!
+0 0 0
+A
+~
+rotten rug carpet~
+if( random( 1, 10 ) != 1 ) {
+  act_tochar( #search, ch );
+  act_notchar( #rsearch, ch );
+  }
+else if( rflag( reset2, room ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #rfind, ch );
+  obj_to_char( oload( 2952 ), ch );
+  remove_rflag( reset2, room );
+  }
+else {
+  act_tochar( #search, ch );
+  act_notchar( #rsearch, ch );
+  }
+~
+E
+search~
+You search through the rotten rug, but find nothing.
+~
+E
+rsearch~
+$n searches through the rotten rub but finds nothing.
+~
+E
+find~
+You find a scrap of paper tucked under the carpet!
+~
+E
+rfind~
+$n finds a scrap of paper beneath the rug.
+~
+!
+9 0 0
+267 9 1509949540 3 0
+266 9 1509949540 3 0
+266 9 1509949515 3 0
+865 9 1509949490 3 0
+2971 49 1509949540 -2 0
+3 65 1509949445 -2 0
+-1
+S
+
+#27761
+The Shaman's Lair~
+Medium-sized, this cavern has craggy walls and deep, shadowy crevices
+which are scored with enumerable small glyphs and symbols.  Perched
+within some of the crevices are strange shrines and blackened altars
+dedicated to unknown deities.  A large cauldron, made of iron, rests in
+the center of the cavern.  Hundreds of odd bones, feathers, pieces of
+leather, chips of wood and metal fragments lie scattered about the
+chamber, half-hazard.  Many of the fragments look to be what must remain
+from past rituals conducted by the resident of the chamber.
+~
+||Search fragments||search feathers||
+||toss fang||toss tongue||pray cauldron||stir cauldron||
+*cf
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 27776 10 10 5
+E
+odd bones~
+A variety of bones, too numerous to count, lie scattered about the floor. 
+For the most part, the bones are quite small and probably belong to
+nothing more than a rabbit, deer, or some small avian.  A few of the
+bones, though, look distinctly humanoid.
+~
+E
+feathers~
+Along the floor, you can see the remains of hundreds of little feathers. 
+Most of them are white in color and probably once belonged to a couple of
+unlucky chicken.  Among the white feathers, you can see a couple of
+darker feathers scattered in them.
+~
+E
+pieces leather~
+Strewn about the floor, among the feathers, bones, fragments of metal and
+wood are several pieces of cowhide.  Unfortunately, all the pieces appear
+to be rotten, for none of them have been cured properly.  A pungent from
+the leather.
+~
+E
+chips wood~
+Chips of wood, mere fragments of some larger piece of oak or pine, lie
+around near the back of the chamber.  The chips are arranged in neat
+little piles, as though they are the remains of someone's wood carving.
+~
+E
+metal fragments~
+Winking here and there about the chamber, you can see bright pieces of
+metal.  At best, the metallic fragments are the size and length of your
+finger and do not look particularly valuable.
+~
+E
+large iron cauldron empty~
+A very large, very heavy old iron cauldron covered with soot and grime sits in the middle of the cavern chamber. 
+It is covered with matter of every imaginable sort, and you think you
+spot a decayed eyeball or three smeared across its charred surface. 
+Beneath the cauldron, a blazing fire keeps its contents warm.
+~
+E
+shadowy crevices~
+Shadows creep along the edges of the cavern like living things conjured
+by some dark spell gone awry.  Created by the natural folds of the
+cavern, the crevices come in many shapes and sizes.  A couple form
+makeshift places where tiny altars now stand.  Glyphs and runes have been
+carved around many of these crevices and stained with blood.
+~
+E
+strange altars blackened shrines tiny~
+Perched within the dark crevices of the cavern are several altars.  Small
+in size, the altars have been carved from wood and metal and look to be
+dedicated to different dark powers.  Upon one altar sits a deformed
+bugbear with three eyes.  He stands before a miniature cauldron, stirring
+its contents.
+~
+A
+stir~
+cauldron iron large pot~
+if( obj_in_room( 987, room ) ) {
+if( !has_obj( 2027, ch ) ) {
+  if( !mob_in_room( 268, room ) ) {
+    if( rflag( reset0, room ) ) {
+      if( !mob_in_room( 545, room ) ) {
+        act_tochar( #stir, ch );
+        act_notchar( #rstir, ch );
+        remove_rflag( reset0, room );
+        wait( 1 );
+        act_room( #slime, ch );
+mload( 545, room );
+        }
+      else
+        act_tochar( #cantslime, ch );
+      }
+    else {
+      act_tochar( #empty, ch );
+      act_notchar( #rempty, ch );
+      }
+    }
+  else
+    act_tochar( #cantsham, ch );
+  }
+else
+  acode( room, 2 );
+}
+else
+act_tochar( #none, ch );
+~
+E
+stir~
+You stir the cauldron and it begins to bubble violently.
+~
+E
+rstir~
+@G$n stirs the cauldron and it begins to bubble violently!@n
+~
+E
+slime~
+@MA mass of ooze erupts from the cauldron and takes shape before you!@n
+~
+E
+cantslime~
+A slime stands between you and the cauldron. You can't stir it now.
+~
+E
+empty~
+You stir the cauldron with your hand, almost burning your hand.
+~
+E
+rempty~
+$n stirs the cauldron with $s hand, almost burning $s hand.
+~
+E
+cantsham~
+The bugbear shaman would probably object to you stirring his cauldron.
+~
+E
+none~
+<Type 'help' for help>
+~
+!
+0 0 0
+A
+~
+~
+if( !mob_in_room( 268, room ) ) {
+if( !rflag( reset1, room ) ) {
+  if( !rflag( reset2, room ) ) {
+    act_tochar( #stir, ch );
+    act_notchar( #rstir, ch );
+    remove_rflag( reset2, find_room( 27776 ) );
+    wait( 2 );
+    act_room( #mixed, ch );
+    }
+  else {
+    act_tochar( #explode, ch );
+    act_notchar( #rexplode, ch );
+    loop( all_in_room ) {
+      i = 2d40;
+      dam_message( rch, i, "The exploding cauldron" );
+      inflict( rch, mob, i, "a exploding cauldron" );
+      }
+    obj = obj_in_room( 987, room );
+    junk_obj( obj, 1 );
+    }
+  }
+else {
+  act_tochar( #explode, ch );
+  act_notchar( #rexplode, ch );
+  loop( all_in_room ) {
+    i = 2d40;
+    dam_message( rch, i, "The exploding cauldron" );
+    inflict( rch, mob, i, "a exploding cauldron" );
+    }
+  obj = obj_in_room( 987, room );
+  junk_obj( obj, 1 );
+  }
+}
+else
+act_tochar( #cant, ch );
+~
+E
+stir~
+You stir the cauldron and its contents with the alicorn.
+~
+E
+rstir~
+$n stirs the cauldron with a nearly-lifeless alicorn.
+~
+E
+mixed~
+A surprisingly pleasant smell rises from the cauldron.
+~
+E
+explode~
+@RAs you stir the cauldron, it suddenly explodes!@n
+~
+E
+rexplode~
+@RThe cauldron explodes as $n stirs it!@n
+~
+E
+cant~
+You cannot stir the cauldron with the bugbear shaman near it!
+~
+!
+0 0 0
+A
+toss throw put~
+bat tongue~
+if( obj_in_room( 987, room ) ) {
+  if( has_obj( 84, ch ) ) {
+    act_tochar( #toss, ch );
+    act_notchar( #rtoss, ch );
+    remove_rflag( reset1, room );
+    obj = has_obj( 84, ch );
+    junk_obj( obj, 1 );
+    }
+  else
+    act_tochar( #nohave, ch );
+  }
+else
+  act_tochar( #not, ch );
+~
+E
+toss~
+@CYou toss a bat's tongue into the cauldron of ooze.@n
+~
+E
+rtoss~
+@C$n tosses a bat's tongue into the cauldron of ooze.@n
+~
+E
+nohave~
+You don't have a bat's tongue to throw into the caldron.
+~
+E
+not~
+<Type 'help' for help>
+~
+!
+0 0 0
+A
+toss throw drop~
+spider's eye~
+if( obj_in_room( 987, room ) ) {
+  if( has_obj( 2267, ch ) ) {
+    act_tochar( #toss, ch );
+    act_notchar( #rtoss, ch );
+    remove_rflag( reset2, room );
+    obj = has_obj( 2267, ch );
+    junk_obj( obj, 1 );
+    }
+  else
+    act_tochar( #nohave, ch );
+  }
+else
+  act_tochar( #not, ch );
+~
+E
+not~
+<Type 'help' for help>
+~
+E
+toss~
+@YYou carefully place the eye of a spider in the cauldron.
+~
+E
+rtoss~
+$n drops a spider's eye into the oozing cauldron.
+~
+E
+nohave~
+You don't have any spider eyes for the task.
+~
+!
+0 0 0
+A
+pray bow~
+cauldron large iron~
+i = 1d33;
+if( obj_in_room( 987, room ) ) {
+  if( is_player( ch ) ) {
+    if( rflag( reset1, find_room( 27776 ) ) ) {
+      if( obj_in_room( 987, room ) ) {
+        if( !rflag( reset2, find_room( 27776 ) ) ) {
+          if( !rflag( status0, find_room( 27775 ) ) ) {
+            if( i == 1 ) {
+              remove_rflag( reset1, find_room( 27776 ) );
+              act_tochar( #pray, ch );
+              act_notchar( #rpray, ch );
+              wait( 1 );
+              act_tochar( #arises, ch );
+              act_notchar( #rarises, ch );
+              obj_to_char( oload( 2970 ), ch );
+              wait( 1 );
+              act_room( #sink, ch );
+              junk_obj( obj_in_room( 987, room ) );
+              }
+            else if( i > 1 ) {
+              act_tochar( #pray, ch );
+              act_notchar( #rpray, ch );
+              wait( 1 );
+              act_tochar( #arise2, ch );
+              act_notchar( #rarise2, ch );
+              obj_to_char( oload( 655 ), ch );
+              wait( 1 );
+              act_room( #sink, ch );
+              junk_obj( obj_in_room( 987, room ) );
+              }
+            }
+          else {
+            act_room( #time, ch );
+            mload( 545, room );
+            i = 2d40;
+            loop( all_in_room ) {
+              dam_message( rch, i, "The exploding cauldron" );
+              inflict( ch, mob, i, "an exploding cauldron" );
+              }
+            junk_obj( obj_in_room( 987, room ) );
+            }
+          }
+        else {
+          act_tochar( #angry, ch );
+          act_notchar( #rangry, ch );
+          i = 2d40;
+          loop( all_in_room ) {
+            inflict( rch, mob, i, "an exploding cauldron" );
+            inflict( ch, mob, i, "an exploding cauldron" );
+            }
+          junk_obj( obj_in_room( 987, room ) );
+          }
+        }
+      else
+        act_tochar( #cant, ch );
+      }
+    else
+      act_tochar( #none, ch );
+    }
+  else
+    act_tochar( #cant, ch );
+  }
+else
+  act_tochar( #none, ch );
+~
+E
+pray~
+You murmur a prayer over the cauldron.
+~
+E
+rpray~
+$n murmurs a prayer over the cauldron.
+~
+E
+arises~
+@CA silver claw arises from the depths of the cauldron and hands you a
+mace with a diamond head.@n 
+~
+E
+rarises~
+@CA silver claw arises from the depths of the cauldron and hands $n a
+mace with a diamond head.@n 
+~
+E
+sink~
+@CThe silvery claw sinks into the cauldron which suddenly vanishes!@n
+~
+E
+arise2~
+@CA silver claw arises from the depths of the cauldron and hands you a
+cyan potion.
+~
+E
+rarise2~
+@CA silver claw arises from the depths of the cauldron and hands $n a
+cyan potion.
+~
+E
+angry~
+@RAn angry, unearthy rumble echoes though the chamber and the iron
+cauldron suddenly explodes as you stir it!@n 
+~
+E
+rangry~
+@RAn angry, unearthy rumble echoes though the chamber and the iron
+cauldron suddenly explodes as $n stirs it!@n 
+~
+E
+cant~
+You cannot bring yourself to come near the cauldron.
+~
+E
+none~
+<Type 'help' for help>
+~
+E
+time~
+@CA voice booms through the chamber:@n
+
+@R"The time for prayer is not at hand!"@n
+~
+!
+0 0 0
+A
+~
+white chicken feathers dark~
+i = 1d10;
+if( rflag( reset1, find_room( 27775 ) ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 1148 ), ch );
+    remove_rflag( reset1, find_room( 27775 ) );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 585 ), ch );
+    remove_rflag( reset1, find_room( 27775 ) );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset1, find_room( 27775 ) );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+@gSearching through the white feathers, you find a darker one!@n
+~
+E
+rdark~
+$n finds something amidst the white feathers on the ground.
+~
+E
+nothing~
+You find nothing amidst the chicken feathers.
+~
+E
+rnothing~
+$n appears to be playing with a lot of white feathers.
+~
+!
+9 0 0
+A
+search get~
+metallic fragments~
+i = 1d10;
+if( rflag( reset2, find_room( 27775 ) ) ) {
+  if( i == 1 ) {
+    act_tochar( #metal, ch );
+    act_notchar( #rmetal, ch );
+    obj_to_char( oload( 2745 ), ch );
+    remove_rflag( reset2, find_room( 27775 ) );
+    }
+  else if( i == 2 ) {
+    act_tochar( #metal, ch );
+    act_notchar( #rmetal, ch );
+    obj_to_char( oload( 425 ), ch );
+    remove_rflag( reset2, find_room( 27775 ) );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset2, find_room( 27775 ) );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+metal~
+You find an interesting piece of metal among the fragments.
+~
+E
+rmetal~
+$n pockets a shiny bit of metal.
+~
+E
+nothing~
+You find nothing valuable among the metallic fragments.
+~
+E
+rnothing~
+$n finds nothing valuable among the metallic fragments.
+~
+!
+9 0 0
+268 9 1509949540 3 0
+987 17 1509949540 -2 37
+246 17 1509949445 -2 0
+-1
+S
+
+#27762
+Bare Cavern~
+The ceiling of this cavern is extremely low.  It rests barely ten feet
+from the limestone floor.  A simple chest, made of wood, rests against
+the back of the cavern.  Nothing else but dust and pebbles lies within
+the chamber.  A crude brass door, set into the mouth of the cavern, to the
+north seperates the chamber from the rest of the lair.
+~
+||Search floor||
+*CF
+~
+301465604 0 6 0
+D0
+worn brass door~
+worn brass door~
+391 988 27760 10 10 5
+E
+large empty chest wooden closed~
+Situated towards the back of this small, bare cavern lies a large chest. 
+Fashioned from pine, the wooden chest has a faint but pleasing odor about
+it.  A sturdy, brass lock has been mounted to its front and its hinges
+are such that you cannot pry them apart from the outside.
+~
+E
+limestone floor dust pebbles~
+The floor, like the walls of the cavern, is formed from limestone the
+color of ash.  Faint ripple patterns sweep across the floor, adding
+defintion to this otherwise blase surface.  A host of dust and pebbles
+litters the floor.
+~
+E
+crude brass door 1 north~
+A door has been set into a large hole in the northern wall.  It doesn't
+fit exactly in the hole, but it does serve as an adequate separating
+mechanism.  Made from brass, both the door and its lock are green from
+corrosion.
+~
+A
+~
+floor limestone pebbles dust~
+i = 1d10;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    act_tochar( #dark, ch );
+    act_notchar( #rdark, ch );
+    obj_to_char( oload( 78 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #dark2, ch );
+    act_notchar( #rnothing, ch );
+    obj_to_char( oload( 2827 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+dark~
+You find a nice-looking pebble amidst the dust of the floor.
+~
+E
+rdark~
+$n picks a pebble out of the dust on the floor. It looks nice-looking.
+~
+E
+dark2~
+You find an unusual bit of dust on the floor.
+~
+E
+nothing~
+You find nothing particularly interesting on the floor.
+~
+E
+rnothing~
+$n searches the floor, but justs ends up getting dusty.
+~
+!
+9 0 0
+266 9 1509949540 3 0
+266 9 1509949540 3 0
+167 49 1509949540 -2 0
+2 81 1509949515 -2 0
+12 81 1509949515 -2 0
+14 81 1509949515 -2 0
+804 81 1509949465 -2 0
+983 81 1509949465 -2 0
+12 81 1509949540 -2 0
+14 81 1509949540 -2 0
+901 81 1509949445 -2 0
+875 81 1509949465 -2 0
+898 81 1509949460 -2 0
+14 81 1509949490 -2 0
+2002 81 1509949455 -2 0
+2181 81 1509949455 -2 0
+3002 81 1509949465 -2 0
+910 81 5 -2 0
+938 81 5 -2 0
+1039 81 50 -2 0
+266 9 1509949490 3 0
+1155 81 1509949445 -2 0
+-1
+S
+
+#27763
+Damp Tunnel~
+The gradient of this passage slopes downward to the south where it
+connects to a much larger main cavern.  The sloping floor changes
+direction without warning, suddenly slanting down to the north.  A minute
+amount of light illuminates the passage to the south while there is
+nothing but shadows to the north.  Glistening beads of water roll down
+the walls to collect in tiny pools along the base of the limestone walls.
+~
+*H
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 27764 10 10 5
+D2
+~
+~
+0 -1 27750 10 10 5
+E
+beads water~
+The beads of water clinging to the walls run down in chaotic patterns. 
+Like the dendritic patterning of a river, the water branches out as it
+cascades into tiny rivulets that trickle down the limestone walls only
+to run down the floor to the north.
+~
+E
+pools tiny brackish~
+Tiny pools of water collect along the sides of the walls.  Beads of
+water, trickling down the walls, join together and drip down into these
+tiny puddles.  The water within the puddles does not appear too clear.
+~
+E
+1 south 1 north~
+Water runs along the floor, down the tunnel to the north.  To the south,
+you can see part of an opening or hole in the east wall.
+~
+1513 17 1509949540 -2 31
+-1
+S
+
+#27764
+Damp Tunnel~
+A tunnel leads from south to north and begins descending into what looks
+to be a subterranean lair to the north.  The downward slope to the north
+is gradual at first but becomes more distinct.  Every now and again, a
+few beads of moisture roll down the limestone walls and pool together,
+only to run down the sloped cavern floor.
+~
+*F
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 27765 10 10 5
+D2
+~
+~
+0 -1 27763 10 10 5
+E
+beads water~
+The beads of water clinging to the walls run down in chaotic patterns. 
+Like the dendritic patterning of a river, the water branches out as it
+cascades into tiny rivulets that trickles down the limestone walls only
+to run down the floor to the north.
+~
+A
+~
+~
+if( random( 1, 10 ) == 1 )
+if( i == 1 )
+act_room( #moist, ch );
+else
+act_room( #breath, ch );
+~
+E
+moist~
+A fine breeze of moist vapor brushes past your cheek.
+~
+E
+breath~
+As you breathe, the moisture-filled air makes it quite difficult.
+~
+!
+2 2000 0
+1388 17 1509949540 -2 31
+-1
+S
+
+#27765
+Damp Tunnel~
+This limestone tunnel travels north to south and constricts the further
+north it goes.  Beads of water roll down the pale, tan walls and collect
+in small pools.  The accumulated pools of water, which are no bigger than
+your hand, then trickle down the sloped, cavern tunnel northward.  The
+moisture here is much more pronounced than it is to the south.  A large
+source of the water, therefore, must lie to the north.
+~
+*F
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 27766 10 10 5
+D2
+~
+~
+0 -1 27764 10 10 5
+E
+beads water small pools walls~
+A heavy moisture hangs in the air and collects on the walls.  As the
+moisture beads together, it runs down the walls in small rivulets and
+gathers together in tiny pools of water.  A couple of the tiny pools are
+large enough to drink from.
+~
+59 9 1509949540 3 0
+1388 17 1509949540 -2 0
+-1
+S
+
+#27766
+Dead End~
+The small, cavernous tunnel dead ends abruptly.  At the northern end of
+the cavern, flush against the wall, you can see a large hole in the floor. 
+Down below the hole, you can see the faint shadow of a rushing river. 
+Above the hole, etched into the wall with something blunt, a message has
+been scratched.
+~
+*F
+||haven't done down yet||
+[Bandolin] is the hole in the north wall (as per the k/w rushing)
+[Bandolin] or is it in the floor as indicated in the room descrip?
+~
+301465612 0 5 0
+D2
+~
+~
+0 -1 27765 10 10 5
+E
+message wall~
+In an unsteady hand, the message reads, 
+
+beware...schools of fish they...swarm ...beware 
+
+...dont go...alone...
+~
+E
+rushing river shadow~
+Down below, beyond the hole, you can see the dark waters of a flowing
+river.  Shrouded by shadow as it is, it is very difficult to discern much
+about the river.  You can see several dark splashes rippling the surfaces
+of the water.
+~
+E
+hole~
+The hole cut into the wall of the cavern looks to have been dug by very
+large digging instruments or claws.  The edges of it are very rough and
+uneven.
+~
+A
+enter jump climb~
+hole 1 down~
+if( !is_player( ch ) ) { 
+  if( !can_fly( ch ) )
+    end;
+  else
+    continue;
+  }
+send_to_char( #youjump, ch );
+act_notchar( #theyjump, ch );
+transfer( ch, find_room( 27767 ) );
+act_notchar( #splash, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 27767 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n leaps down from above.
+~
+E
+f_leave~
+$n follows into the hole.
+~
+E
+splash~
+$n comes flying down from above and lands with a SPLASH! in the water.
+~
+E
+theyjump~
+$n jumps down the hole into the darkness.
+~
+E
+youjump~
+You jump down the hole and land in the river with a huge splash.
+~
+!
+0 0 0
+A
+~
+~
+ch = rand_player( room );
+act_room( #ch, ch );
+~
+E
+ch~
+@B@bYou jump as a large, toothy fish leaps out of the dark waters below,
+before returning with a splash to the murky depths.
+~
+!
+2 50 0
+59 9 1509949540 3 0
+-1
+S
+
+#27767
+An Underground River~
+You are swimming in a river.  The cavern roof is about ten feet above the
+water level.  There is a large hole in the roof of the cavern just above
+you.  Climbing up the wall and getting to the hole shouldn't be to
+difficult a task.  
+~
+[Irmo] rivr
+[Fyli] to should be too
+~
+301465605 8 6 0
+D1
+~
+~
+0 -1 27772 10 10 5
+D3
+~
+~
+0 -1 27768 10 10 5
+A
+climb~
+1 up hole~
+send_to_char( #message, ch );
+act_notchar( #message2, ch );
+transfer( ch, find_room( 27766 ) );
+act_notchar( #message3, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 27766 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n comes through the hole too.
+~
+E
+f_leave~
+$n leaves up the hole too.
+~
+E
+message3~
+$n climbs out of the hole.
+~
+E
+message2~
+$n climbs up the wall and into the hole.
+~
+E
+message~
+You climb up the wall and into the hole.
+~
+!
+0 0 0
+785 9 1509949540 3 0
+-1
+S
+
+#27768
+An Underground River~
+You are swimming along an underground river.  To the north, there is a
+large opening into a large dry cave, but wafting from it is an
+overpowering stench of decay and rotting meat.  Intermingling with this
+is an overpowering stench of lizard.  The river continues to the east and
+west.
+~
+~
+301465604 8 6 0
+D0
+~
+~
+0 -1 27769 10 10 5
+D1
+~
+~
+0 -1 27767 10 10 5
+D3
+~
+~
+0 -1 27770 10 10 5
+785 9 1509949465 3 0
+-1
+S
+
+#27769
+An Underground River~
+The river widens here, making its way toward the north, where it becomes
+more shallow.  The stench here is rancid, and permeates your nostrils;
+whatever died is close at hand to the north, and smells like a dead
+lizard.  Your surroundings make you feel ill at ease.
+~
+~
+301465604 8 6 0
+D0
+~
+~
+0 -1 27780 10 10 5
+D2
+~
+~
+0 -1 27768 10 10 5
+E
+old pile bones~
+One pile of bones catches your eye as you notice it could be hiding
+something.  
+~
+A
+search dig move~
+pile old bones~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #nothing, ch );
+  end;
+  }
+if( random( 1, 3 ) < 3 ) {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_char( oload( 378 ), ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+There doesn't seem to be anything in the pile of bones.
+~
+E
+room~
+$n digs through the pile of bones and finds a sword hilt.
+~
+E
+char~
+Digging through the pile of bones you find the hilt of a sword.
+~
+!
+0 0 0
+785 9 1509949540 3 0
+785 8 1509949490 3 0
+-1
+S
+
+#27770
+An Underground River~
+The current seems to pick up a bit.  To the west you hear the roar of a
+waterfall.  You struggle to not be dragged to the west, along with the
+current.  
+~
+~
+301465604 8 6 0
+D1
+~
+~
+0 -1 27768 10 10 5
+D3
+~
+~
+0 -1 27771 10 10 5
+785 9 1509949465 3 0
+-1
+S
+
+#27771
+At the Edge of a Waterfall~
+You are nearing the edge of a large waterfall.  Luckily here is a large
+rock outcropping here that you are able to grab hold of, and stop
+yourself from going over the waterfall.  The only safe exit seems to be
+to the east.
+~
+~
+301465604 8 6 0
+D1
+~
+~
+0 -1 27770 10 10 5
+785 9 1509949540 3 0
+-1
+S
+
+#27772
+An Underground River~
+There is no exit to the river in sight.  It looks as if it just leads
+east and west.  The current is going west, but it's not strong enough to
+cause you problems with your swimming.
+~
+~
+301465604 8 6 0
+D1
+~
+~
+0 -1 27773 10 10 5
+D3
+~
+~
+0 -1 27767 10 10 5
+785 9 1509949490 3 0
+-1
+S
+
+#27773
+An Underground River~
+You are swimming along a small underground river.  The river flows west
+from here.  A light mist is comming from the east.  
+~
+[Fyli] comming should be coming.
+~
+301465604 8 6 0
+D1
+~
+~
+0 -1 27774 10 10 5
+D3
+~
+~
+0 -1 27772 10 10 5
+-1
+S
+
+#27774
+An Underground River~
+You are standing before a large waterfall.  The water is coming down the
+eastern wall, emptying out into the underground river that you are
+swimming in.  There is no way you could climb up the waterfall, so it
+would seem as if your only exit is to the west, back down the river.  
+~
+~
+301465604 8 6 0
+D3
+~
+~
+0 -1 27773 10 10 5
+785 9 1509949540 3 0
+785 9 1509949465 3 0
+-1
+S
+
+#27775
+Rocky Corridor~
+A rough, rocky corridor extends from south to north.  Several large,
+granite boulders have been stacked up against the western wall as though
+to conceal something.  The floor of the cavern is uneven but dry and
+covered in dust.  Scores of tracks, both large and small, trail through
+the dust.
+~
+||West is a connection for something in the future||
+||move boulders||
+||reset1 -&- reset2 borrowed for shaman||
+*CF
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 27776 10 10 5
+D2
+~
+~
+0 -1 27760 10 10 5
+E
+1 western wall granite boulders large~
+Several boulders made of granite have been purposefully piled up against
+the western side of the cavern.  At one time, there might have been a
+mining tunnel or shaft to the west but the mammoth boulders have neatly
+sealed it off.  Etched into the surface of the granite boulders are
+fluid, angry runes.
+~
+E
+tracks~
+Several sets of tracks have been made in the dust that covers the floor
+of the cavern.  The tracks vary in size, but each set appears to be the
+same type.
+~
+E
+fluid angry runes~
+The runes etched into the surface of the granite boulders look to be
+glyphs of protection.  What they are protecting or providing protection
+against is uncertain.
+~
+A
+move push~
+large boulders granite~
+act_tochar( #cant, ch );
+act_notchar( #rcant, ch );
+~
+E
+cant~
+You try moving the boulders but they prove too heavy.
+~
+E
+rcant~
+$n struggles to move a boulder but it proves too heavy for $m.
+~
+!
+0 0 0
+A
+examine track~
+tracks~
+if( find_skill( ch, track ) > random( 2, 10 ) )
+  act_tochar( #desc, ch );
+else
+  act_tochar( #desc2, ch );
+~
+E
+desc2~
+Several sets of tracks lead to and from the area but you cannot tell what
+made them.
+~
+E
+desc~
+The tracks appear to be those of both bugbear children and adults.  Most
+of the tracks lead southward, out of this chamber.
+~
+!
+0 0 0
+A
+examine trace touch~
+runes~
+act_tochar( #trance, ch );
+act_notchar( #rtrace, ch );
+~
+E
+trance~
+You trace your finger along the protective runes on the granite boulders. 
+@GThe runes flare to life, protecting what lies beyond.
+~
+E
+rtrace~
+$n traces $s finger along the runes which adorn the granite rocks.
+@GThe runes flare to life as if protecting what lies beyond!
+~
+!
+0 0 0
+78 17 1509949445 -2 0
+265 9 1509949490 3 0
+-1
+S
+
+#27776
+Rocky Corridor~
+A dark corridor of uneven rock leads both south and west.  Low-lying, the
+ceiling hangs barely fifteen feet above the ground.  Huge slabs of cut
+stone lean against the eastern side of the chamber.  The slabs are
+positioned precariously and look very unstable.  Cobwebs cling to the
+furthest corners of the cavernous passage.
+~
+||get webs||search/enter hole||
+||reset1 -&- reset2 borrowed for shaman||
+*CF
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 27775 10 10 5
+D3
+~
+~
+0 -1 27761 10 10 5
+E
+huge slabs cut stone 1 eastern~
+Rectangular slabs of stone lean against the eastern wall of the chamber. 
+Six in number, the smooth, grey slabs balance against one another
+dangerously.  Just past the slabs, flush against the eastern part of the
+cavern, you can see a small hole.  Strands of cobwebs cling to the edges
+of the hole.
+~
+E
+hole~
+The hole concealed behind the huge slabs of stone looks to be all that
+remains of a large mining tunnel.  Across its top, you can see bits of a
+splintered support beam, as though the tunnel collapsed.  Nothing could
+possibly squeeze through the tiny space now.
+~
+E
+cobwebs webs corners~
+A few wispy strands of cobweb cling to the furthest corners of the
+passageway.  The thin, grey strands become increasingly thicker, though,
+around the slabs of stone stacked up against one another in the chamber,
+indicating a possible arachnid infestation.
+~
+A
+get~
+cobwebs webs~
+act_tochar( #get, ch );
+~
+E
+get~
+You can't reach the cobwebs.
+~
+!
+0 0 0
+A
+enter search~
+hole cobwebs webs~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 2 ) == 1 ) {
+    if( !mob_in_room( 293, room ) ) {
+      act_tochar( #spider, ch );
+      act_notchar( #rspider, ch );
+      mload( 293, room );
+      remove_rflag( reset0, room );
+      }
+    else
+      act_tochar( #cant, ch );
+    }
+  else {
+    act_tochar( #web, ch );
+    act_notchar( #rweb, ch );
+    obj_to_char( oload( 81 ), ch );
+    remove_rflag( reset0, room );
+    }
+}
+else
+act_tochar( #nothing, ch );
+~
+E
+spider~
+@RAs you disturb the webbing about the hole, a giant spider pops out of
+it!@n 
+~
+E
+rspider~
+@R$n disturbs the webbing around a hole near the slabs and a spider jumps
+out of it!@n 
+~
+E
+cant~
+You would find it difficult at best to do anything with the hole with a
+giant spider lurking in front of it.
+~
+E
+web~
+The hole is very small.  As you mess with it, a piece of webbing comes
+loose in your hand.
+~
+E
+rweb~
+$n tries to shake a piece of sticking webbing from $s hand.
+~
+E
+nothing~
+You discover nothing exciting about the hole and give up.
+~
+!
+9 0 0
+27 17 1509949445 -2 0
+-1
+S
+
+#27777
+Central Cavern~
+This looks to be the western part of a vast cavern which opens up into a
+grand gallery to the east.  The walls of this passage are rough limestone
+which do not reach far until they meet with ceiling.  Several small rocks
+lie scattered here and there.  To the west, it looks as if someone has
+made a great effort to turn the cavern into an even hallway.
+~
+*CF
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 27756 10 10 5
+D2
+~
+~
+0 -1 27778 10 10 5
+D3
+~
+~
+0 -1 27759 10 10 5
+E
+small rocks~
+Strewn across the uneven, limestone floor are several small stones. 
+Ranging from the size of a pebble to the size of your fist, the rocks
+look to be worthless chunks of granite and limestone.
+~
+A
+get take~
+small rocks limestone chunks granite~
+act_tochar( #cant, ch );
+~
+E
+cant~
+The small rocks are not worth bothering with.
+~
+!
+0 0 0
+78 17 1509949445 -2 0
+79 17 1509949450 -2 0
+-1
+S
+
+#27778
+Central Cavern~
+This section of the large cavern, which appears to be the southwestern
+corner, is much darker than the rest of the domed cavern.  A massive
+pillar of stone erupts from the floor, casting its shadow into this
+corner.  A pool of dark water lies just behind the stone pillar.
+Several large boulders lie scattered along the base of the stone
+formation like the hour marks of a sundial.
+~
+||look boulders||look pillar||move pillar||
+*CF
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 27777 10 10 5
+D1
+~
+~
+0 -1 27758 10 10 5
+E
+pool dark water~
+A shallow pool of water has gathered in a depression in the limestone
+floor at the base of a short stalagmite.  While you can barely make out
+the bottom of the pool, its waters are dark and murky.  Drinking the
+liquid would not be one of your better ideas.
+~
+E
+luminescent algae~
+On the back of the stone pillar you find a large amount of bright algae
+that seems to glow with a light of its own.  Not only is it enough to
+fill the cavern with light, but it also helps the pillar to cast a large
+shadow.
+~
+A
+1 look~
+15 null-and-void-now~
+if( !rflag( status0, find_room( 27778 ) ) ) {
+  act_tochar( #desc1, ch );
+  end; }
+  if( !rflag( status1, find_room( 27778 ) ) ) {
+    act_tochar( #desc2, ch );
+    end; }
+    if( !rflag( status2, find_room( 27778 ) ) ) {
+      act_tochar( #desc3, ch );
+      end; }
+      if( !rflag( status0, find_room( 27776 ) ) ) {
+        act_tochar( #desc4, ch );
+        end; }
+        if( !rflag( status1, find_room( 27776 ) ) ) {
+          act_tochar( #desc5, ch );
+          end; }
+          if( !rflag( status2, find_room( 27776 ) ) ) {
+            act_tochar( #desc6, ch );
+            end; }
+            if( !rflag( status0, find_room( 27775 ) ) ) {
+              act_tochar( #desc7, ch );
+              end; }
+              if( !rflag( status1, find_room( 27775 ) ) ) {
+                act_tochar( #desc8, ch );
+                end; }
+                if( !rflag( status2, find_room( 27775 ) ) ) {
+                  act_tochar( #desc9, ch );
+                  end; }
+                  else
+                    act_tochar( #none, ch );
+~
+E
+desc~
+Towards the back of the cavern, at the center of a semi-circle of large
+boulders, stands a pillar of stone.  The stone pillar is a soild pink
+color and looks to be a granite intrusion of sun sort.  As the pillar of
+stone rises, it casts a long shadow across the chamber, acting very much
+like a sundial.  There are nine boulders serving as time marks.
+~
+E
+none~
+The shadow of the stone pillar is not falling across any of the boulders
+currently.
+~
+E
+desc1~
+The shadow of the pillar falls across the first boulder.
+~
+E
+desc2~
+The shadow of the pillar falls across the second boulder.
+~
+E
+desc3~
+The shadow of the pillar falls across the third boulder.
+~
+E
+desc4~
+The shadow of the pillar falls across the fourth boulder.
+~
+E
+desc5~
+The shadow of the pillar falls across the fifth boulder.
+~
+E
+desc6~
+The shadow of the pillar falls across the sixth boulder.
+~
+E
+desc7~
+The shadow of the pillar falls across the seventh boulder.
+~
+E
+desc8~
+The shadow of the pillar falls across the eighth boulder.
+~
+E
+desc9~
+The shadow of the pillar falls across the ninth boulder.
+~
+E
+move~
+You push against the pillar of stone, moving it slightly.
+~
+E
+rmove~
+$n pushes against the pillar of stone, moving it slightly.
+~
+!
+0 0 0
+A
+move push shoulder~
+pillar stone pink granite~
+act_tochar( #move, ch );
+act_notchar( #rmove, ch );
+if( !rflag( status0, find_room( 27778 ) ) ) {
+  act_room( #moveto2, ch );
+  remove_rflag( status1, find_room( 27778 ) );
+  set_rflag( status0, find_room( 27778 ) );
+end;
+  }
+if( !rflag( status1, find_room( 27778 ) ) ) {
+  act_room( #moveto3, ch );
+  remove_rflag( status2, find_room( 27778 ) );
+  set_rflag( status1, find_room( 27778 ) );
+end;
+  }
+if( !rflag( status2, find_room( 27778 ) ) ) {
+  act_room( #moveto4, ch );
+  remove_rflag( status0, find_room( 27776 ) );
+  set_rflag( status2, find_room( 27778 ) );
+end;
+  }
+if( !rflag( status0, find_room( 27776 ) ) ) {
+  act_room( #moveto5, ch );
+  remove_rflag( status1, find_room( 27776 ) );
+  set_rflag( status0, find_room( 27776 ) );
+end;
+  }
+if( !rflag( status1, find_room( 27776 ) ) ) {
+  act_room( #moveto6, ch );
+  remove_rflag( status2, find_room( 27776 ) );
+  set_rflag( status1, find_room( 27776 ) );
+end;
+  }
+if( !rflag( status2, find_room( 27776 ) ) ) {
+  act_room( #moveto7, ch );
+  remove_rflag( status0, find_room( 27775 ) );
+  set_rflag( status2, find_room( 27776 ) );
+end;
+  }
+if( !rflag( status0, find_room( 27775 ) ) ) {
+  act_room( #moveto8, ch );
+  set_rflag( status0, find_room( 27775 ) );
+  remove_rflag( status1, find_room( 27775 ) );
+end;
+  }
+if( !rflag( status1, find_room( 27775 ) ) ) {
+  act_room( #moveto9, ch );
+  remove_rflag( status2, find_room( 27775 ) );
+  set_rflag( status1, find_room( 27775 ) );
+end;
+  }
+if( !rflag( status2, find_room( 27775 ) ) ) {
+  act_room( #moveto0, ch );
+  set_rflag( status2, find_room( 27775 ) );
+end;
+  }
+else {
+  act_room( #moveto1, ch );
+  remove_rflag( status0, find_room( 27778 ) );
+end;
+  }
+~
+E
+moveto2~
+The shadow of the pillar falls across the second boulder.
+~
+E
+moveto3~
+The shadow of the pillar falls across the third boulder.
+~
+E
+moveto4~
+The shadow of the pillar falls across the fourth boulder.
+~
+E
+moveto5~
+The shadow of the pillar falls across the fifth boulder.
+~
+E
+moveto6~
+The shadow of the pillar falls across the sixth boulder.
+~
+E
+moveto7~
+The shadow of the pillar falls across the seventh boulder.
+~
+E
+moveto8~
+The shadow of the pillar falls across the eighth boulder.
+~
+E
+moveto9~
+The shadow of the pillar falls across the ninth boulder.
+~
+E
+moveto0~
+The shadow of the pillar falls outside of the semi-circle of boulders.
+~
+E
+moveto1~
+The shadow of the pillar falls across the first boulder.
+~
+E
+move~
+You push against the pillar of stone, moving it slightly.
+~
+E
+rmove~
+$n pushes against the pillar of stone, moving it slightly.
+~
+!
+0 0 0
+A
+1 look pillar stone column pine granite~
+pink granite pillar stone column~
+act_tochar( #desc, ch );
+acode( room, 1 );
+~
+E
+desc~
+Towards the back of the cavern, at the center of a semi-circle of large
+boulders, stands a pillar of stone.  The stone pillar is a solid pink
+color and looks to be a granite intrusion of some sort.  As the pillar of
+stone rises, it casts a long shadow across the chamber, acting very much
+like a sundial.  There are nine boulders serving as time marks.  Growing
+on the back of the pillar is a large amount of luminescent algae.
+~
+!
+0 0 0
+A
+1 look~
+nine boulders~
+act_tochar( #desc, ch );
+acode( room, 1 );
+~
+E
+desc~
+A series of boulders stand in this part of the cavern.  In number,they
+total nine, though they vary in shape and size.  Each boulder, though, is
+made of dark grey granite.  At the center of the arrangement of boulders,
+which rest in a semi-circle, stands a pillar of stone with a long shadow.
+~
+!
+0 0 0
+A
+get take~
+green algae light luminescent~
+act_tochar( #cant, ch );
+~
+E
+cant~
+You cannot reach the algae on the stone pillar.
+~
+!
+0 0 0
+265 9 1509949490 3 0
+2438 17 1509949540 -2 14
+-1
+S
+
+#27779
+Sleeping Area~
+This small cavern has a much lower ceiling than those that lie to the
+east.  The walls are smooth and dry but covered in layers of filth.  Torn
+blankets, rotting cushions, and piles of garbage litter the ground.  Each
+has been arranged as a type of pallet, serving as a soft, but far from
+clean, place to rest.
+'clean, place' clean, place
+~
+||Search pallets|
+*CF
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 27760 10 10 5
+E
+torn blankets~
+Lying on the floor are several old blankets.  Many have been worn through
+with holes and all are dirty and soiled.  The blankets have been arranged
+as part of a pallet and still feel warm.
+~
+E
+rotting cushions~
+Stacked in the corner of this area is a pile of cushions.  Most are made
+of cotton and have been stuffed with rags and straw.  Every single one of the
+cushions is damp and covered with mold and mildew.
+~
+E
+piles garbage~
+A few piles of garbage lie stacked in this chamber, uncomfortably close
+to the sleeping pallets.  In fact, the rubbish piles have indentations in
+them, as though they too were being used as sleeping mats.  While most of
+the garbage consists of the perishable remains of food, parts of it are
+not as pleasant.
+~
+A
+~
+~
+ch = rand_player( room );
+act_room( #rise, ch );
+~
+E
+rise~
+A fetid stench rises up from the piles of garbage.
+~
+!
+2 100 0
+A
+~
+torn blankets rotting cushions piles garbage rubbish pallets~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 15 ) == 1 ) {
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 246 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else if( i == 2 ) {
+    act_tochar( #find2, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 2 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+find~
+Among the pallets and makeshift beds you find a charred stick.
+~
+E
+rfind~
+Among the pallets and makeshift beds $n finds something.
+~
+E
+find2~
+Among the pallets and makeshift beds you find a single gold coin!
+~
+E
+nothing~
+You find nothing at all in the makeshift pallets.
+~
+!
+9 0 0
+270 9 1509949490 3 0
+265 9 1509949490 3 0
+270 9 1509949490 3 0
+266 9 1509949540 3 0
+1106 17 1509949445 -1 0
+-1
+S
+
+#27780
+Cavern End~
+You stand in a large, domed, roughly circular cavern.  The water here is
+about a foot or two deep, and a steady drip of cool water falling against
+stone echoes throughout the chamber.  Several large boulders have been
+piled up near one corner of the cavern, along with what appears to be a
+collected mass of mud, twigs and general refuse.
+~
+no mob 
+no
+~
+301465612 13 9 0
+D2
+~
+~
+0 -1 27769 10 10 5
+E
+up boulders piled corner~
+Towards one corner of the room are a series of boulders.  Each looks to
+have been carfully piled up atop one other.
+~
+A
+search examine~
+nest ground hydra beneath~
+i = random( 1, 20 );
+room = find_Room( 27780 );
+if( mob_in_room( 784, room ) ) {
+  act_tochar( #no, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #search, ch );
+  act_notchar( #searches, ch );
+  obj_to_char( oload( 1039 ), ch );
+  obj_to_char( oload( 1039 ), ch );
+  obj_to_Char( oload( 983 ), ch );
+  if( i < 15 )
+    obj_To_char( oload( 1039 ), ch );
+  if( i < 10 )
+    obj_To_char( oload( 1039 ), ch );
+  if( i < 5 )
+    obj_to_char( oload( 998 ), ch );
+  if( i == 20 )
+    obj_to_char( oload( 1023 ), ch );
+  if( i == 1 )
+    obj_to_char( oload( 1023 ), ch );
+  end;
+  }
+else {
+  act_tochar( #nada, ch );
+  end;
+  }
+~
+E
+nada~
+You look through the nest but find nothing.
+~
+E
+searches~
+$n bends down and examines the ground where the hydra had stood.
+~
+E
+search~
+You look through the nest find several items!
+~
+E
+no~
+@R@bYou can't search there with an angry hydra sitting on it!
+~
+!
+0 0 0
+A
+climb~
+large boulders piles~
+if( find_skill( ch, climb ) > random( 2, 8 ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #rclimb, ch );
+  transfer( ch, find_room( 27781 ) );
+  act_notchar( #arrive, ch, obj, mob );
+  loop( followers ) {
+act_tochar( #climb, rch );
+    act_notchar( #rclimb, rch );
+    transfer( rch, find_room( 27781 ) );
+    act_notchar( #rfollow, rch );
+    }
+  }
+~
+E
+climb~
+You climb up the pile of boulders stacked in the corner.
+~
+E
+rclimb~
+$n climbs up the pile of boulders stacked in the corner.
+~
+E
+rfollow~
+$n follows up the pile after you.
+~
+E
+follow~
+$N follows up the pile after $n.
+~
+E
+arrive~
+$N arrives behind $n.
+~
+!
+0 0 0
+784 8 1509949540 3 0
+-1
+S
+
+#27781
+Small, Tapering Cavern~
+What stands here is little more than the remnants of a limestone cavern
+that should have collapsed long ago.  In fact, the walls are riddled with
+cracks and the floor is covered with detritus rock.  In the southeast
+corner of the cavern is a small, descending shaft.  Though the cavern
+appears to get smaller and begins tapering off, it does appear to
+continue to the north.
+~
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 27782 10 10 5
+D5
+~
+~
+0 -1 27780 10 10 5
+E
+walls limestone~
+The cracks running through the limestone walls are marks of stress.  It
+does not look like they are too stable or sturdy.
+~
+E
+floor detritus rock~
+The floor of this small cavern is covered in rocky debris.  Bits of
+limestone and more primative calcite rocks lie scattered about.  A few of
+the rocks are stained with dark splotches.
+~
+E
+dark splotches~
+Several of the limestone debris fragments are covered in dark,
+rust-colored splotched.  These particular rocks are seemingly arranged in
+a pattern.
+~
+E
+pattern~
+When examinted closely, the dark splotched stones have been been arranged
+into words.  Only partial fragments of a statement remain:
+
+    B E   A R    T    E    O    Z  E
+~
+-1
+S
+
+#27782
+Small, Tapering Cavern~
+This limestone cavern dead ends here as it tapers off completely to a
+near point to the north.  The ceiling of the cavern is rough and pitted
+though the floor is extremely smooth.  Two stalactites descend from the
+ceiling, framing the cavern that opens to the south.
+~
+~
+301465612 11 9 0
+D2
+~
+~
+0 -1 27781 10 10 5
+E
+near point north~
+The northern part of the cavern tapers off completely.  The tapering is not
+artificial but rather looks to be a natural folding of the rock.
+~
+E
+ceiling rough pitted~
+The ceiling of this cavern is rough and pitted.  Several stalactites too
+small to be of importance have begun to form along it, giving it a rough
+appearance.
+~
+E
+two stalactites~
+The two large stalactites descending from the ceiling frame the edges of
+the cavern as it broadens into another chamber to the south.  Both
+columns of dripstone looks extremely old and fragile.
+~
+E
+floor~
+The floor is extremely smooth and polished.  The texture of the floor,
+though, is too fine to have been polished by hand.  Rather, it looks to
+have been eaten away or sanded by something.
+~
+2009 9 1509949540 3 0
+-1
+S
+
+#27783
+Large, Circular Cavern~
+The walls of this cavern, while made of limestone, appear to have been
+ground down to a smoothness to rival glass.  Large enough to house twenty
+people comfortably, the pallets lying on the floor suggest only three
+occupy this chamber.  Up against the southern part of the circular cavern
+stands a floor-length mirror framed in bronze.  A wide, rickety ladder
+made from iron climbing spikes ascends through a hole cut through the
+ceiling of the cavern.  A trapdoor appears to cover much of the hole.
+~
+||Search silk||Search burlap||search cotton||gaze mirror||
+||Move trapdoor||
+*cf
+~
+301465604 0 9 0
+D4
+wooden trapdoor~
+wooden trapdoor~
+235 -1 27760 10 10 5
+E
+pallets rotten straw~
+Three pallets lie on the floor, as far away from one another as possible. 
+Each has been stuffed with straw and looks to be the home of various small
+bugs and mice.  Made from different types of cloth, the pallets speak of
+a hierarchy of sorts.  One pallet is made of silk, one of cotton, and one
+of burlap.
+~
+E
+silk~
+The pallet made of silk is the largest of the three.  It also smells the
+worst.  Though stuffed with straw, it is amazingly free of lumps.
+~
+E
+cotton~
+Once blue in color, the faded cotton pallet now looks like a misshapen
+sea whale.  Though large, the stuffed bedding appears to be the middle in
+size of the three pallets.  The pallet does not look very comfortable for
+it has several lumps in it.
+~
+E
+burlap~
+Sewn from burlap and stuffed with old straw, this pallet is quite lumpy. 
+It neither looks comfortable nor clean and you can't help but feel sorry
+for whoever sleeps on it.  Out of the three pallets within the cavern, it
+is by far the lumpiest.
+~
+E
+bronze frame mirror floor-length~
+The mirror which leans against the southern part of the chamber is
+mounted to a thick, bronze frame.  Unfortunately, little is left of it. 
+A jagged crack runs down its length vertically and several shards of the
+mirror are missing.  In places, the silver backing has begun to flake off. 
+Nevertheless, you are still able to see a partial reflection of yourself.
+~
+E
+iron spikes rungs ladder~
+Acting like a ladder, a series of iron spikes have been driven into the
+wall of the cavern just below a hole in the ceiling.  The spikes look
+fairly old and have long since begun to rust.
+~
+A
+1 look~
+trapdoor 1 up~
+if( !is_open( room, up ) )
+act_tochar( #trapdoor, ch );
+else
+act_tochar( #open, ch );
+~
+E
+trapdoor~
+In the top of the cavern, across a hole in the ceiling, is a wooden
+trapdoor of sorts.  It has no handle with which to open it, but looks
+loose.  A series of iron climbing spikes lead up to the trapdoor like a
+ladder.
+~
+E
+open~
+You can see very little of the trapdoor for it has been moved or pushed
+aside.  Up through the hole which the trapdoor once covered you can see
+another cavern.  A series of iron climbing spikes have been nailed into
+the wall and lead up to the open shaft.
+~
+!
+0 0 0
+A
+gaze stare see~
+mirror bronze floor-length reflection~
+i = 1d20;
+if( find_stat( ch, int ) > random( 10, 20 ) ) {
+  if( i == 1 )
+    act_tochar( #silk, ch );
+  else if( i == 2 )
+    act_tochar( #cotton, ch );
+  else if( i == 3 )
+    act_tochar( #burlap, ch );
+  else
+    act_tochar( #funny, ch );
+  }
+act_notchar( #rfunny, ch );
+~
+E
+silk~
+As you gaze into the cracked mirror, you think you see something stuffed
+underneath the pallet made of silk.
+~
+E
+cotton~
+Gazing into the broken mirror, you see the circular cavern in a twisted
+perspective.  As your gaze lingers, you see what looks to be something
+shoved beneath the cotton pallet.
+~
+E
+burlap~
+Though it could just be the way the mirror is distorting what you see,
+there looks to be something sticking out of the burlap pallet.
+~
+E
+funny~
+Gazing into the mirror, your entire body looks grossly misshapen.
+~
+E
+rfunny~
+$n stares into the broken mirror, $s reflection heavily distorted.
+~
+!
+0 0 0
+A
+~
+silk~
+if( !mob_in_room( 2074, room ) ) {
+  if( rflag( reset0, room ) ) {
+    if( random( 1, 15 ) == 1 ) {
+      act_tochar( #find, ch );
+      act_notchar( #rfind, ch );
+      obj_to_char( oload( 31 ), ch );
+      remove_rflag( reset0, room );
+      }
+    else {
+      act_tochar( #nothing, ch );
+      remove_rflag( reset0, room );
+      }
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+find~
+@RHidden beneath the pallet of silk you find a gleaming red ruby!@n
+~
+E
+rfind~
+@R$n finds something red and gleaming beneath the pallet of silk!@n
+~
+E
+nothing~
+You find nothing beneath the pallet of silk.
+~
+E
+cant~
+A female bugbear stands over the pallet protectively.
+~
+!
+9 0 0
+A
+~
+cotton~
+if( !mob_in_room( 2074, room ) ) {
+  if( rflag( reset1, room ) ) {
+    if( random( 1, 15 ) == 1 ) {
+      act_tochar( #find, ch );
+      act_notchar( #rfind, ch );
+      obj_to_char( oload( 196 ), ch );
+      remove_rflag( reset1, room );
+      }
+    else {
+      act_tochar( #nothing, ch );
+      remove_rflag( reset1, room );
+      }
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+find~
+@GYou find a small, pristine white scroll beneath the pallet made of
+cotton.@n 
+~
+E
+rfind~
+$n finds something stashed beneath the cotton pallet and quickly pockets
+it.
+~
+E
+nothing~
+You find nothing in the pallet made of cotton.
+~
+E
+cant~
+A female bugbear stands over the pallet protectively.
+~
+!
+9 0 0
+A
+~
+burlap~
+if( !mob_in_room( 2074, room ) ) {
+  if( rflag( reset2, room ) ) {
+    if( random( 1, 15 ) == 1 ) {
+      act_tochar( #find, ch );
+      act_notchar( #rfind, ch );
+      obj_to_char( oload( 2115 ), ch );
+      remove_rflag( reset2, room );
+      }
+    else {
+      act_tochar( #nothing, ch );
+      remove_rflag( reset2, room );
+      }
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+nothing~
+You find nothing in the pallet made of burlap.
+~
+E
+cant~
+A female bugbear stands over the pallet protectively.
+~
+E
+find~
+@GOf all things, you find a disembodied eye under the burlap pallet! Gross!@n
+~
+E
+rfind~
+$n finds something beneath the pallet made of burlap.
+~
+!
+9 0 0
+A
+move push pull~
+throne wooden trapdoor~
+if( find_stat( ch, str ) > random( 9, 20 ) ) {
+if( !is_open( room, up ) ) {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, up );
+}
+else {
+act_tochar( #close, ch );
+act_notchar( #rclose, ch );
+close( room, up );
+}
+}
+else {
+act_tochar( #strain, ch );
+act_notchar( #rstrain, ch );
+}
+~
+E
+open~
+Struggling, you push aside the wood covering the hole in the ceiling.
+~
+E
+ropen~
+Struggling, $n pushes aside the wood covering the hole in the ceiling.
+~
+E
+close~
+Grabbing ahold of the edge of the wood, you pull it over the hole in the
+ceiling.
+~
+E
+rclose~
+Grabbing ahold of the edge of the wood, $n pulls it over the hole in the
+ceiling.
+~
+E
+strain~
+You try to move the wooden trapdoor, but it proves too heavy.
+~
+E
+rstrain~
+$n gasps for air as $e fails to move the trapdoor.
+~
+!
+0 0 0
+2074 9 1509949540 3 0
+1642 17 1509949450 6 0
+2074 9 1509949540 3 0
+1643 17 1509949450 6 0
+2074 9 1509949540 3 0
+1644 17 1509949450 6 0
+210 17 1509949540 -2 0
+210 17 1509949465 -2 0
+-1
+S
+
+#0
+

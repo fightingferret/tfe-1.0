@@ -1,0 +1,4700 @@
+#AREA
+Pixie Forest~
+Phule Kreel~
+cyclops/pixies~
+
+40 0
+0
+#ROOMS
+
+#44750
+Amidst a Thick Treeline~
+Hereabouts the trees are mostly dark-needled pines, with a few scattered
+oaks in sight as well.  The dark, thick branches of the massive trees
+reach high overhead into a canopy of darkness which nearly shrouds the
+forest floor.  To the east the giant stone feet of the Cairn Mountains
+await, marking the boundary of a land where man is only a curious
+explorer at best.  No man is master of the mountains which have stood as
+long as time.
+~
+north is 42259
+w is 42262
+feet - nice :)
+~
+301465600 12 8 0
+D1
+~
+~
+0 -1 44763 10 10 5
+D2
+~
+~
+0 -1 44751 10 10 5
+D3
+~
+~
+0 -1 42262 10 10 5
+E
+prints~
+The prints appear to have been made by hooves, but are too large to have
+been made by any deer.
+~
+E
+path~
+The path is mostly just ground soil, worn by years of the weight of
+passing creatures pressing down upon it.  A few pine needles and leaves
+have found their way onto the path and have been crushed and ground into
+it.
+~
+958 9 1509949540 3 0
+-1
+S
+
+#44751
+A Worn Path in a Dense Forest~
+An old, decaying pine stands off to the side of the path amongst a few
+wide-trunked oaks and more pines.  You can travel north or south through
+the forest, leave it through the thick trees to a ruined road to the
+west, or down a slight slope behind the shagbark to the east toward a
+small clearing in the forest.  Aged oaks form a dense edge of trees to
+the west, seemingly lining an old road which winds its way northward.
+~
+w is 42263
+~
+301465600 12 8 0
+D0
+~
+~
+0 -1 44750 10 10 5
+D1
+~
+~
+0 -1 44756 10 10 5
+D2
+~
+~
+0 -1 44755 10 10 5
+D3
+~
+~
+0 -1 42263 10 10 5
+E
+shagbark hickory~
+This old tree's bark is peeling off in sheets from its gray and white
+trunk.  Looking closer at the tree, you notice that its trunk is open and
+hollow underneath.  You might be able to squeeze in there.
+~
+A
+squeeze enter~
+trunk~
+if( size( ch ) < 5 ) {
+  act_notchar( #leave, ch );
+  act_tochar( #sq, ch );
+  transfer( ch, find_room( 44752 ) );
+  act_notchar( #come, ch );
+  }
+else {
+  act_tochar( #nope, ch );
+act_notchar( #rno, ch );
+  end;
+  }
+~
+E
+rno~
+$n tries to squeeze into the hollow pine's trunk, but can't fit.
+~
+E
+nope~
+You can't fit in there.
+~
+E
+come~
+$n squeezes into the hollow trunk from the west.
+~
+E
+sq~
+You squeeze into the hollow trunk of the old pine.
+~
+E
+leave~
+$n squeezes into the trunk of the old pine.
+~
+!
+0 0 0
+959 9 1509949540 3 0
+961 9 1509949540 3 0
+962 9 1509949540 3 0
+960 9 1509949540 3 0
+-1
+S
+
+#44752
+Inside a Hollow Pine~
+You stand in the dark, decaying center of a dying shagbark hickory tree. 
+Bits of dirt and decayed wood fall in small crumbling showers around you. 
+The surface of the decaying wood is covered with moss and lichen, slowly
+eating the wood away until eventually the tree will come crashing down to
+the forest floor.  That event is still many years away, however.  It
+looks like you can either squeeze out of the trunk or up higher into the
+hollowing tree.
+~
+~
+301465604 0 4 0
+D4
+~
+~
+0 -1 44753 10 10 5
+A
+squeeze~
+out~
+act_tochar( #out, ch );
+act_notchar( #rout, ch );
+transfer( ch, find_room( 44751 ) );
+act_notchar( #rin, ch );
+end;
+~
+E
+out~
+You squeeze out of the old pine's trunk.
+~
+E
+rout~
+$n squeezes out of the old pine's trunk.
+~
+E
+rin~
+$n squeezes out of the old pine's trunk.
+~
+!
+0 0 0
+-1
+S
+
+#44753
+Inside a Hollow Pine~
+This dark cranny must be a nest of some sort, as myriad piles of pine
+needles and leaves have foudn their way here somehow.  A hole leads down
+into the trunk below, which looks rotted out, and you can leave the
+cranny to the west, where a large limb branches outward from the tree and
+overhangs the forest floor.
+~
+add to mprogs someday, phule
+[Inar] foudn
+~
+301465604 0 9 0
+D3
+~
+~
+0 -1 44754 10 10 5
+D5
+~
+~
+0 -1 44752 10 10 5
+1260 9 1509949540 3 0
+-1
+S
+
+#44754
+Out on a Limb~
+You stand precariously perched on a rotting branch of a once mighty pine
+tree.  The branch is not high enough to overlook the mighty forests
+around you, but it does give a nice view of the hard ground below. 
+Although the drop to the base of the tree is not a short one, you should
+be able to manage it without severely damaging yourself.
+~
+~
+301465604 0 4 0
+D1
+~
+~
+0 -1 44753 10 10 5
+A
+jump~
+down off~
+act_tochar( #char, ch );
+act_notchar( #dive, ch );
+transfer( ch, find_room( 44751 ) );
+act_notchar( #land, ch );
+~
+E
+dive~
+$n jumps off the branch to the ground below.
+~
+E
+land~
+$n jumps in from a branch above.
+~
+E
+char~
+You jump down from the branch, landing on the hard ground below.
+~
+!
+0 0 0
+-1
+S
+
+#44755
+A Forest of Mighty Pines~
+The chill, cool air of the Cairn Mountains wisps through the trunks of
+rising pine trees all around, but the fresh air still seems oddly
+stifled, as if the four winds have forsaken these woods.  Old trunks
+stand to the west, where the air stands still and forgotten amidst the
+knees of the mountains.  It appears that past that rugged treeline an old
+road winds its way northward.  Although more forest stands visible to the
+southeast, a narrow gorge which cuts jaggedly through the forest floor
+makes that forestland inaccessable at present.
+~
+w is 42264
+possibly a rope bridge across gorge someday.
+reread surrounding rooms
+dunno about the gorge - might leave it out as the space in that direction
+that we actually have is not that big 
+[Dovea] Dovie **heart** Arban
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44751 10 10 5
+D3
+~
+~
+0 -1 42264 10 10 5
+-1
+S
+
+#44756
+A Burnt Out Clearing~
+Some misfortune has claimed the pines in this area, and by the scorched
+looks of the ground it was more than likely a lightning strike.  To the
+west and south the pine forestry continues, but the edges of a stream can
+be seen to the east, and to the north you can see several large stones.
+~
+rdesc is now short since I axed (heh) the willow. will work on later.
+~
+301465600 3 8 0
+D0
+~
+~
+0 -1 44763 10 10 5
+D1
+~
+~
+0 -1 44757 10 10 5
+D2
+~
+~
+0 -1 44762 10 10 5
+D3
+~
+~
+0 -1 44751 10 10 5
+-1
+S
+
+#44757
+By the Cool Waters of a Mountain Stream~
+You stand between a small patch of lightning-struck earth to the west and
+a swiftly flowing mountain stream to the east.  Its chill waters flow by
+over smooth rocks, sparkling water clear as crystal which flows down from
+the metling snowcaps higher up in the mountains.  The terrain is bare
+next to the stream's edge, which can either be crossed or followed to
+either the north or south.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44758 10 10 5
+D1
+~
+~
+0 -1 44760 10 10 5
+D2
+~
+~
+0 -1 44761 10 10 5
+D3
+~
+~
+0 -1 44756 10 10 5
+E
+e east~
+You see a shallow stream of cold, clear water.
+~
+755 17 1509949540 -2 0
+-1
+S
+
+#44758
+By the Cool Waters of a Mountain Stream~
+A tall slab of stone leading from west to north marks the edge of the
+Cairn Mountains, a tiny part of the immense backbone of stone which
+crosses the northlands.  A small crack in the stone issues forth a steady
+gush of cold water which forms a stream which leads to the south into the
+forests south of the mountains.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 44759 10 10 5
+D2
+~
+~
+0 -1 44757 10 10 5
+E
+e east~
+You see the sparkling cold waters of a mountain stream.
+~
+961 9 1509949540 3 0
+960 9 1509949540 3 0
+962 9 1509949540 3 0
+959 9 1509949540 3 0
+-1
+S
+
+#44759
+In the Cool Waters of a Mountain Stream~
+You stand in about 3 feet of icy water which pours forth from a crack in
+the tall rock slab to the north, marking the edge of the Cairn Mountains. 
+The cold hard stones which form the stream's bed are easily visible
+through the water's crystal clearness.  You can wade down the wide,
+swiftly-flowing stream to the south or climb onto the west bank, but a
+jagged outcropping of rock prevents escape from the stream to the east.
+~
+~
+301465600 13 9 0
+D2
+~
+~
+0 -1 44760 10 10 5
+D3
+~
+~
+0 -1 44758 10 10 5
+398 17 1509949540 -2 0
+-1
+S
+
+#44760
+In the Cool Waters of a Mountain Stream~
+Chill waters rush beneath you, rising no more than 3 feet or so above
+smooth rocks which line this shallow, yet wide and strong-flowing stream. 
+Rapidly-flowing rapids are visible to the south, and a roar in that
+direction suggests that the rapids change quickly into a waterfall.  You
+can head upstream to the north or you can climb out of the water to the
+or east.
+~
+deadly rapids/falls south.
+[Merior] these water rooms should be marked as wet.. put out fireshields and all
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 44759 10 10 5
+D1
+~
+~
+0 -1 44764 10 10 5
+D3
+~
+~
+0 -1 44757 10 10 5
+A
+s so sou sout south~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You start to enter the rapids, but common sense turns you back.
+~
+!
+0 0 0
+398 17 1509949540 -2 0
+-1
+S
+
+#44761
+Beside a Violently-Flowing Mountain Stream~
+The calm, cold waters which are visible to the north form violent,
+churning rapids here as the water seems to deepen considerably.  A loud
+roaring sound to the south announces the presence of a waterfall, but as
+a gorge blocks movement to the south the size of the waterfall cannot be
+seen.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44757 10 10 5
+D3
+~
+~
+0 -1 44762 10 10 5
+-1
+S
+
+#44762
+Cairn Mountains Forest~
+The trickle of a mountain stream reaches your ears from the east, and to
+the north you can see a patch of burnt ground which is bare of forestry. 
+A jagged gorge separates this small section of forest from the pines to
+the south and west.  One out of place tree here in particular catches
+your eye.
+~
+reset for white birch tree/strip of white birch bark
+no birch trees here, there is a birch forest elsewhere and we can make more
+this forest is pine etc. think needles not leaves por favor buenos tacos cha cha cha :)
+[Bliss] white birch northeast of old forest road. Peel bark and the message says "You try to peel of a strip"
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44756 10 10 5
+D1
+~
+~
+0 -1 44761 10 10 5
+1323 17 1509949540 -2 0
+962 9 1509949540 3 0
+961 9 1509949540 3 0
+960 9 1509949540 3 0
+959 9 1509949540 3 0
+-1
+S
+
+#44763
+At the Feet of the Cairn Mountains~
+Huge slabs of stone which form the edge and base of the Cairn Mountains
+lie like towers to the east and north, yet still their mammoth presence
+is miniscule in comparison with the mighty girth of the Cairn Mountains. 
+It is said that human feet have not yet crossed many miles of the
+mountains, and even the dwarves have not explored many of the mountains
+peaks.  Still, if you want to explore the untamed might of the Cairn
+Mountains, this is not the place for your journey to start, as the sheer
+faces of the stones make thoughts of a climb futile ones.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 44756 10 10 5
+D3
+~
+~
+0 -1 44750 10 10 5
+A
+climb~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+Whatever that is, you cannot climb it.
+~
+!
+0 0 0
+-1
+S
+
+#44764
+East of a Chill Mountain Stream~
+A swiftly-flowing stream flows by to the west, heading for rapids visible
+to the south.  Mighty pines stand all around, dark trunks rising into the
+chill mountain air.  No paths can be seen, as man has evidently not found
+his way this deep into the forest in large numbers.  A few crushed
+pinecones announce the passage of someone or something, however.  You can
+follow the stream to the north or south, enter it to the west, or head
+into the dark pines to the east.
+~
+[Bowen] dra no
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44765 10 10 5
+D1
+~
+~
+0 -1 44766 10 10 5
+D2
+~
+~
+0 -1 44768 10 10 5
+D3
+~
+~
+0 -1 44760 10 10 5
+A
+~
+~
+act_tochar( #climb, ch );
+continue;
+~
+E
+climb~
+You follow a rise to the north.
+~
+!
+3 0 1
+-1
+S
+
+#44765
+Above a Chill Mountain Stream~
+This moss-covered stone overlooks a mountain stream to the west.  The
+water is so shallow at this point that a jump down into it would probably
+result in serious injury.  To the north another tall slab of stone marks
+the edge of the Cairn Mountains, an impassable barrier which cannot be
+climbed.  Tall pines stand to the east, earth-coloured trunks rising into
+dark-needled branches.
+~
+pull stone
+[Merior] on a british kick? coloured?
+[Merior] add message after pulling the the north opens up
+[Dax] if you can push stone, why cant you look at it
+[Lansharra] should be able to pull slab also
+~
+301465600 3 9 0
+D0
+stone~
+stone~
+235 -1 73500 10 10 5
+D1
+~
+~
+0 -1 44767 10 10 5
+D2
+~
+~
+0 -1 44764 10 10 5
+E
+stone~
+Although large, the stone appears to actually be a massive door leading
+into the mountain.
+~
+A
+pull~
+stone~
+if( is_open( room, north ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( find_stat( ch, str ) < 16 ) {
+  act_tochar( #nope, ch );
+  act_notchar( #rnope, ch );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  if( find_stat( ch, dex ) < 15 ) {
+    act_tochar( #hurt, ch );
+    act_notchar( #rhurt, ch );
+    i = 2d20;
+    dam_message( ch, i, "the stone's *crush*" );
+    inflict( ch, mob, i, "a foot-crushing stone" );
+    }
+  else {
+    act_tochar( #alude, ch );
+    act_notchar( #ralude, ch );
+    }
+  open( room, north );
+  send_to_room( #ok, room );
+  send_to_room( #room, find_room( 73500 ) );
+  }
+~
+E
+nope~
+You try to pull on the stone, but it is too heavy for the likes of you.
+~
+E
+rnope~
+$n tries to pull on the stone, but it is too heavy for the likes of $m.
+~
+E
+open~
+@b@YAs you pull open the stone it topples over and starts to fall.@n
+~
+E
+ropen~
+@b@YAs $n pulls open the stone it topples over and starts to fall on
+$m!!@n 
+~
+E
+rhurt~
+$n almost escapes the falling stone, but it @b@R*crunches*@n heavily on
+$s foot.
+~
+E
+hurt~
+You almost escape, but the stone falls and @b@R*crunches*@n heavily on
+your foot!.
+~
+E
+alude~
+You manage to avoid the stone's fall.
+~
+E
+ralude~
+$n manages to elude the falling stone.
+~
+E
+already~
+The stone is already open.
+~
+E
+ok~
+The stone no longer blocks the way down into the earth to the north.
+~
+E
+room~
+The stone is pulled away, revealing an opening.
+~
+!
+0 0 0
+-1
+S
+
+#44766
+Cairn Mountain Forest - Dark Pines~
+Mighty pines stand around you, a towering vanguard of an older age.  The
+air here is chill, even this low in the mountains, as if in the Cairn
+Mountains the very bones of the earth are frozen solid, and have in turn
+turned the air to ice.  To the north, east, and south you see naught but
+more of the pine forest and its green and orange pine needle floor, while
+to the west you see only beaten vegetation lining a stream.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44767 10 10 5
+D1
+~
+~
+0 -1 44775 10 10 5
+D2
+~
+~
+0 -1 44772 10 10 5
+D3
+~
+~
+0 -1 44764 10 10 5
+-1
+S
+
+#44767
+Cairn Mountain Forest - Dark Pines~
+Regal, aloof pines stand mightily overhead, thick trunks supporting
+complex branchwork which blots out the sky in a sheet of many-needled
+branches.  Fresh green, dying orange and dead brown are the colours of
+the fallen needles which cover the forest floor here, a soft layer which
+disguises the tracks of those who pass.  No beaten paths weave their way
+twixt the pines.  From the west you hear the sounds of a rushing stream,
+but to the south you see nothing but more pines.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44776 10 10 5
+D2
+~
+~
+0 -1 44766 10 10 5
+D3
+~
+~
+0 -1 44765 10 10 5
+-1
+S
+
+#44768
+Beside a Violently-Flowing Mountain Stream~
+The shallow mountain stream which flows from the north deepens here and
+quickens its pace drastically here, forming dangerous rapids with heavy
+undercurrents as leaves floating on the surface of the water are
+swallowed beneath its crystal surface, reappearing several feet
+downstream.  You hear the roar of a waterfall to the southwest as the
+stream plummets into the gaping gorge to the south.  A natural terrace
+has formed on this side of the ridge, however, forming a stone and earth
+staircase which leads down the side of the gorge.  The gorge follows to
+the east and west, but a forest of mighty pines appears across it as well
+as on this side as to the east the forest approaches the very edge of the
+gorge.
+~
+[Maveric] ard thanks
+[Fingolfin] Type look down here. Hehe
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 44764 10 10 5
+D1
+~
+~
+0 -1 44772 10 10 5
+D5
+~
+~
+0 -1 44769 10 10 5
+-1
+S
+
+#44769
+Beside a Waterfall~
+To your west you see a sheet of water pouring down the side of this gorge. 
+You are standing on a ledge on the side of the gorge beside the
+waterfall, accessable from the forest above by a natural terraced
+formation formed into the gorge wall above.  A ledge leads behind the
+waterfall to the west.
+~
+no_mob
+~
+301465612 11 8 0
+D3
+~
+~
+0 -1 44770 10 10 5
+D4
+~
+~
+0 -1 44768 10 10 5
+-1
+S
+
+#44770
+Behind the Waterfall~
+To the south a rush of water falls by in a roaring sheet, giving off a
+faint glow which almost lights the chamber.  A ledge leads east out from
+behind the waterfall and a small tunnel leads north into the rock beneath
+the stream above.  The sound here is almost deafening.  If someone tried
+to say something you doubt you could make it out over the rush of the
+water.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 44771 10 10 5
+D1
+~
+~
+0 -1 44769 10 10 5
+A
+say '~
+~
+act_tochar( #yell, ch );
+act_notchar( #ryell, ch );
+~
+E
+yell~
+You try to say something, but cannot even hear yourself over the rush of
+water.
+~
+E
+ryell~
+$n speaks, but $s voice is drowned by the roar of the waterfall.
+~
+!
+0 0 0
+1327 17 1509949540 -2 0
+-1
+S
+
+#44771
+A Small Chamber Behind the Waterfall~
+This rounded chamber drips with water from a crack in the ceiling, making
+the cave-like floor at your feet damp with water.  To the south you can
+see a solid sheet of water beyond a narrow ledge, a waterfall majestic to
+behold from this vantage.  The roar of the rushing water is loud, and
+echos heavily in this chamber, but it is as peaceful and reassuring as
+the crashing of the sea despite the intensity of the sound.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 44907 10 10 5
+D2
+~
+~
+0 -1 44770 10 10 5
+-1
+S
+
+#44772
+Cairn Mountain Forest - Dark Pines at the Edge of a Gorge~
+The mighty girth of the pines of the Cairn Mountains come to an abrupt
+end as the earth itself has been ripped apart, forming a gorge which has
+split the forest in twain.  Across the gorge to the south you see more
+mighty, endless forest, and the same to the north and east.  To the west
+you can see through the thick trunks and the odd low-hanging bough the
+rippling surface of a rapidly-flowing stream.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44766 10 10 5
+D1
+~
+~
+0 -1 44774 10 10 5
+D3
+~
+~
+0 -1 44768 10 10 5
+-1
+S
+
+#44773
+A Forest of Mighty Pines~
+Under Construction.
+~
+expansion site for forest across the gorge when i feel like adding it.
+~
+301465604 3 9 0
+-1
+S
+
+#44774
+Cairn Mountain Forest - Dark Pines at the Edge of a Gorge~
+A jagged gorge to the south separates this section of mighty pine forest
+from another across the gorge.  In all other directions the thick,
+tower-like trunks of mountain pine grow into the sky.  Fresh green and
+dying orange pine needles are scattered all over the ground, not quite a
+blanket over the hard, cold ground but nearly so.
+~
+nomob
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 44775 10 10 5
+D1
+~
+~
+0 -1 66519 10 10 5
+D3
+~
+~
+0 -1 44772 10 10 5
+1331 49 1509949540 -2 0
+46 81 1509949475 -2 0
+962 9 1509949540 3 0
+961 9 1509949540 3 0
+960 9 1509949540 3 0
+959 9 1509949540 3 0
+755 17 1509949540 -2 0
+-1
+S
+
+#44775
+Cairn Mountain Forest - Dark Pines~
+In all other directions you can see thick forestry, thick-trunked pines
+and other trees scores of years old.  Through a break in the pine
+branches you catch a glimpse of craggy peaks to the north.  Through the
+tree trunks to the southeast, you can make out what seems to be a wall of
+brown, or a very large tree trunk.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44776 10 10 5
+D1
+~
+~
+0 -1 66520 10 10 5
+D2
+~
+~
+0 -1 44774 10 10 5
+D3
+~
+~
+0 -1 44766 10 10 5
+-1
+S
+
+#44776
+Cairn Mountain Forest - Dark Pines~
+The pine forest reaches a stone-walled corner here, as huge slabs of rock
+jutting upward from the hard ground block movement to the east and north. 
+To the south and west you can see more pines and not much else.  High
+overhead in the not-so-distant north stands a ridge of craggy peaks, the
+Cairn Mountains.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 44775 10 10 5
+D3
+~
+~
+0 -1 44767 10 10 5
+-1
+S
+
+#44778
+Edge of the Mist~
+A wall of dark gray mist and pounding rain blocks movement to the south. 
+Dull, dissipated streaks of lightning flash deep within the depths of the
+rain, their light scattered to a faint, pallid gray.  To the north stand
+huge, dark, rain-soaked trees, and to the east and west the forest
+continues, skirting the edge of the misty wall.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44784 10 10 5
+D1
+~
+~
+0 -1 44786 10 10 5
+D3
+~
+~
+0 -1 44779 10 10 5
+E
+south wall fog rain mist~
+A wall of heavy, swirling fog and pounding rain blocks the way to the
+south.  It is a wall in every sense of the word--as if not made of fog,
+but of glass with a storm trapped behind it.
+~
+-1
+S
+
+#44779
+North of a Wall of Mist~
+To the south is a raging torrent of churning fog and mist, beaten by a
+hammer-like deluge of rain.  Angry flashes of lightning swell deep in the
+mist, throwing eerie shadows from vague, dark shapes that seem to move
+very slowly.  Despite its violence, however, the unearthly storm is
+utterly quiet.  To the north, east and west are tall, dark trees, their
+leaves glistening with droplets of rain.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44783 10 10 5
+D1
+~
+~
+0 -1 44778 10 10 5
+D3
+~
+~
+0 -1 44780 10 10 5
+E
+south wall fog mist shapes figures dark~
+Dark, slow-moving shapes appear only in pallid, blue-white flashes of
+lightning from deep within the mystic fog.  The wall is
+impassable--seemingly made of mist, but harder than steel.
+~
+1062 9 1509949540 3 0
+-1
+S
+
+#44780
+Edge of the Mist~
+In stark contrast to the earthy beauty of the surrounding forest, a
+raging wall of storms rises to the south, blocking movement.  The wall
+seems to be made of fog and lightning and an incredible, pounding deluge
+that blurs all vision.  The storm, however, is utterly silent, the
+flashes of lightning dull and diluted as the light dissipates
+iridescently in the fog.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44781 10 10 5
+D1
+~
+~
+0 -1 44779 10 10 5
+D3
+~
+~
+0 -1 44865 10 10 5
+E
+south wall fog storm rain~
+An unnatural storm rages to the south.  The storm seems contained,
+however, and though the wall seems made of fog, it is as solid as stone.
+~
+-1
+S
+
+#44781
+Among the Mushrooms~
+Thousands of mushrooms form a sort of miniature forest here as they
+sprout from the moist, nourishing soil.  The leaves rustle high above,
+and you hear, however distantly, the golden sound of a single voice
+rising in song.  The forest floor is clear of debris and underbrush, and
+shows no sign of a path, as if no foot has stepped here for ages.  Trees
+rise in every direction.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44790 10 10 5
+D1
+~
+~
+0 -1 44783 10 10 5
+D2
+~
+~
+0 -1 44780 10 10 5
+D3
+~
+~
+0 -1 44782 10 10 5
+E
+mushrooms~
+Thousands of mushrooms grow here.  Most look small and fragile, though
+some look large enough to pick.
+~
+A
+get pick take~
+mushrooms~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) < 6 ) {
+    act_tochar( #get, ch );
+    act_notchar( #rget, ch );
+    obj_to_char( oload( 885 ), ch );
+    }
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #no, ch );
+    act_notchar( #rno, ch );
+    }
+  }
+else {
+  act_tochar( #no, ch );
+  act_notchar( #rno, ch );
+  }
+~
+E
+get~
+You pick a large, spongy mushroom.
+~
+E
+no~
+You try to pick a mushroom, but it falls apart in your hands.
+~
+E
+rno~
+$n tries to pick a mushroom, which falls apart in $s hands.
+~
+E
+rget~
+$n picks a large mushroom.
+~
+!
+0 0 0
+-1
+S
+
+#44782
+Sinkholes in the Forest Floor~
+Several small sinkholes mark the earth where the springy soil has been
+eroded from below by groundwater.  The holes are far too small to enter,
+and appear too shallow to house anything other than a rabbit.  All around
+you stand massive trees with long, straight trunks, and their broad green
+leaves fan out to form a canopy a hundred feet above the forest floor.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44791 10 10 5
+D1
+~
+~
+0 -1 44781 10 10 5
+D2
+~
+~
+0 -1 44865 10 10 5
+D3
+~
+~
+0 -1 44866 10 10 5
+E
+sinkholes ground earth soil~
+The soft earth has sunken in places where groundwater has literally eaten
+the soil right away.  The sinkholes are far too small to enter.
+~
+A
+search~
+sinkholes holes~
+act_tochar( #haha, ch );
+act_notchar( #rhaha, ch );
+~
+E
+haha~
+You jam your hand down in the hole and feel around for a long time.  You
+have something!  You have a mud-covered hand.
+~
+E
+rhaha~
+$n feels around in a sinkhole, but comes away with a muddy arm
+and a look of disappointment.
+~
+!
+0 0 0
+-1
+S
+
+#44783
+Mist-Shrouded Forest~
+Enormous, dark-wood trees, unlike anything known in the common world,
+soar to the cloudless sky.  The soft, damp forest floor is a lush
+combination of long, dark grass and thick colonies of dark green moss. 
+The forest is quite clear, the floor free of debris or underbrush.  A
+soft wind rolls in from the east, shaking water droplets from the canopy
+of leaves, high above.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44789 10 10 5
+D1
+~
+~
+0 -1 44784 10 10 5
+D2
+~
+~
+0 -1 44779 10 10 5
+D3
+~
+~
+0 -1 44781 10 10 5
+E
+trees~
+The trees are enormous, their wood and bark almost pure black.  They have
+thick, broad dark leaves that glitter with droplets of recently fallen
+rain.
+~
+-1
+S
+
+#44784
+Mist-Shrouded Forest~
+Trees extend into the rain-choked distance.  The heavy fog that clings
+to the ground rolls and swells, licking the bases of trees and wrapping
+around your legs.  The loamy ground is soft and spongy, the grass
+mingling with large, luxuriant tufts of moss.  The forest extends in all
+directions.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44788 10 10 5
+D1
+~
+~
+0 -1 44785 10 10 5
+D2
+~
+~
+0 -1 44778 10 10 5
+D3
+~
+~
+0 -1 44783 10 10 5
+E
+mist fog~
+A heavy fog clings to the damp earth, as the forest seems to have seen a
+recent rainshower.
+~
+E
+grass~
+The grass here is lush, fed by rich, dark soil and steady rain.  It grows
+in long, luxuriant waves that mingle with patches of moss.
+~
+-1
+S
+
+#44785
+Mist-Shrouded Forest~
+To the east rises an impenetrable wall of fog, dark shapes churning deep
+within, hidden from sight.  Massive ancient trees of an unknown variety
+rise in all other directions, their leaves stirred with a faint,
+sweet-smelling wind.  The forest floor is clear of rocks, debris,
+underbrush, even fallen leaves.  Rather, the floor is thick and spongy
+with thick green moss.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44787 10 10 5
+D2
+~
+~
+0 -1 44786 10 10 5
+D3
+~
+~
+0 -1 44784 10 10 5
+E
+east wall fog~
+The unnatural, roiling fog is as solid as a wall, and ends abruptly in a
+sheer face.  Lightning flashes deep within the wall, briefly lighting
+dark shapes that seem to flee from the light.
+~
+E
+trees~
+These trees are huge, their bark a deep red, almost black.  Their glossy
+leaves are large and green.  The trees are mostly trunks, the first
+branches appearing fifty feet up.
+~
+1062 9 1509949540 3 0
+-1
+S
+
+#44786
+Mist-Shrouded Forest~
+The leaves rustle, and a soft wind carries a faint tinkling like distant
+chimes.  The think, musky scent of moss rises from the loamy earth,
+the cool air tastes clean.  To the south is a thick wall of fog,
+obscuring whatever lies beyond it, if anything.  To the east, a faint
+trail leads into a fog bank.  To the north and west stand tall, dark
+trees.
+~
+[Merior] not much armor for a level 10 mob
+[Phule] don't envision pixies in full plate, maybe a magic shield tho
+[Heliodora] "think" should be "thick"?
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44785 10 10 5
+D1
+temporary door~
+~
+0 -1 44909 10 10 5
+D3
+~
+~
+0 -1 44778 10 10 5
+E
+south wall fog~
+This is not like any normal fog.  Within its depths are fierce winds and
+hard, driving rain, yet all are silent.  The fog ends abruptbly in a
+sheer, upright wall.
+~
+E
+east trail~
+A faint, mist-wrapped trail heads east into a think bank of fog.
+~
+1062 9 1509949540 3 0
+-1
+S
+
+#44787
+Edge of the Mist~
+A heavy, roiling mist lies to the north and east, dark shapes churning
+within its depths.  The forest seems to turn unreal as it nears the mist,
+the grass losing color and the trees becoming vague and two-dimensional. 
+The air here is cold and silent, the only sound that of the leaves
+rustling gently.  To the west and south is forest.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 44785 10 10 5
+D3
+~
+~
+0 -1 44788 10 10 5
+E
+north east wall fog mist~
+An unnatural mist blocks the ways north and east.  The mist is churned by
+silent winds and lit by dissipated flashes of lightning.  The forest
+seems to lose touch with reality as it nears the fog--the grass becoming
+papery and losing color, the trees becoming thin, almost like cutouts.
+~
+1062 9 1509949540 3 0
+-1
+S
+
+#44788
+South of a Wall of Mist~
+A fog clings to the damp earth, and the dark green tree leaves glisten
+with glimmering beads of water.  To the north is a strange, roiling,
+ethereal wall formed of churning mist and a silent, pouding mystic rain. 
+The bounds of reality blur as the forest approaches the wall - the earth
+loses its color, and the trees become two-dimensional.  To the east,
+south and west the forest continues.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44787 10 10 5
+D2
+~
+~
+0 -1 44784 10 10 5
+D3
+~
+~
+0 -1 44789 10 10 5
+E
+wall north mist fog~
+The border of the forest seems to be this strange, stormy wall
+of mist, which extends to the east and west.  Deep within the mist are
+dark, amorphous globs, seen only in flashes of lightning.
+~
+-1
+S
+
+#44789
+Base of A Large Tree~
+An enormous tree, soaring thirty feet above the surrounding treetops,
+dominates this part of the forest.  The tree is obviously old, its dark
+surface chipped and scratched in places.  Like the rest of the strange,
+alien trees in this forest, its branches are very high--far too high to
+be reached--and its trunk is broad.  The mist-shrouded forest extends in
+all directions.
+~
+[Merior] need action for climbing tree
+[Kreel] That would be misleading.  There is nothing up there, and tree
+branches are far too high off ground to climb.  Action is to go beneath
+the tree.
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44856 10 10 5
+D1
+~
+~
+0 -1 44788 10 10 5
+D2
+~
+~
+0 -1 44783 10 10 5
+D3
+~
+~
+0 -1 44790 10 10 5
+D5
+blanket of moss~
+~
+203 -1 44913 10 10 9
+E
+tree~
+This huge tree is taller than any of the others that surround it.  Its
+ancient surface is rough and chipped.  A broad, thick mat of moss
+surrounds its base.
+~
+E
+base moss~
+A large mat of moss covers much of the ground here, creeping up the
+surround the base of the large, dark tree.
+~
+A
+move lift pull clear~
+moss mat~
+if( is_open( room, down ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, down );
+  }
+~
+E
+already~
+The moss has already been pulled aside, revealing a hole at the base of
+the tree.
+~
+E
+open~
+You pull aside the mat of thick moss, revealing a hole at the base of the
+tree.
+~
+E
+ropen~
+$n pulls aside the pad of moss, revealing a hole at the base of the tree.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #down, ch );
+close( room, down );
+~
+E
+down~
+As you emerge from the hole, the pad of moss swings down and covers it.
+~
+!
+1 0 32
+1062 9 1509949540 3 0
+-1
+S
+
+#44790
+Damp Forest~
+The forest smells of rain, though the sky is clear.  A light shower of
+cool water falls on you as a gentle breeze shakes the leaves high above. 
+A pool of crystal-clear water has gathered in a small basin of rock on
+the forest floor.  Trees rise in all directions.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44858 10 10 5
+D1
+~
+~
+0 -1 44789 10 10 5
+D2
+~
+~
+0 -1 44781 10 10 5
+D3
+~
+~
+0 -1 44791 10 10 5
+E
+pool ground~
+A clear, deep pool of water has gathered in a bowl-shaped stone
+outcropping on the ground.
+~
+1662 17 1509949540 -2 0
+-1
+S
+
+#44791
+At A Fallen Tree~
+An enormous, fallen tree lies here, old, long-dead and defoliated.  Age
+has eaten away its middle, as it is completely hollow, and large enough
+for an ogre to walk through.  In all other directions stand huge trees,
+their broad leaves forming a canopy high above.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44860 10 10 5
+D1
+~
+~
+0 -1 44790 10 10 5
+D2
+~
+~
+0 -1 44782 10 10 5
+D3
+~
+~
+0 -1 44861 10 10 5
+E
+log tree~
+A huge, fallen tree stands here.  Its now-hollow trunk is fully eight
+feet across, forming a kind of tunnel.  It is very dark inside.
+~
+A
+enter climb go~
+tree log tunnel hollow~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 44940 ) );
+loop( followers ) {
+  transfer( rch, find_room( 44940 ) );
+  act_notchar( #arr, rch );
+  }
+~
+E
+enter~
+You step into the massive, hollow log.
+~
+E
+renter~
+$n steps into the massive, hollow log.
+~
+E
+arr~
+$n steps in from outside.
+~
+!
+0 0 0
+1084 9 1509949540 3 0
+-1
+S
+
+#44856
+West of a Wall of Mist~
+Rising to the east is a wall of torrential rain, swirling with
+lightning-lit gray fog.  Moving within the fog are dark shapes that slip
+in and out of vision as blue-white flashes of lightning sear the entire
+wall.  The forest is quiet, and it becomes unreal as it nears the fog
+wall, the grass losing its color, the trees becoming thin like paper
+cutouts.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44857 10 10 5
+D2
+~
+~
+0 -1 44789 10 10 5
+D3
+~
+~
+0 -1 44858 10 10 5
+E
+east wall fog rain~
+Like a storm contained in a glass box, the roiling fog and rain are
+totally silent and do not enter the forest itself.  They seem to be the
+border of this strange forest.
+~
+E
+shapes~
+Flickering in and out on the edges of vision, these shapes are all but
+invisible until a flash of lightning reveals them.  They are as contained
+and quiet as the rain and fog.
+~
+-1
+S
+
+#44857
+Foot of A Steep Hill~
+To the north and east is a storm of mist and rain and iridiscent flashes
+of blue-white lightning.  It is impossible to move in those directions. 
+The earth here is soft and damp, long dark blades of grass poking up
+through thick mats of moss.  To the west is an enormous, grassy hill.  A
+path of sorts runs up the hill toward its crest.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 44856 10 10 5
+D4
+~
+~
+0 -1 44910 10 10 5
+E
+north east storm mist rain~
+The eerie storm forms the edges of the forest.  Despite is
+violences--roiling mist, pounding rain and searing flashes of
+lightning--the storm is utterly silent.
+~
+E
+hill west path~
+To the west is a large hill, whose top is almost as high as the trees
+themselves.  Though steep, the hill could probably be climbed.  A faint
+path leads upward.
+~
+-1
+S
+
+#44858
+South of A Large Hill~
+To the north is a large, nearly vertical hill, covered in grass and
+light-gray boulders that just break the loamy surface.  This portion of
+the forest is very still, the hill shielding the wind.  The forest
+floor is soft and damp, blanketed with prosperous colonies of moss.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44856 10 10 5
+D2
+~
+~
+0 -1 44790 10 10 5
+D3
+~
+~
+0 -1 44860 10 10 5
+E
+hill~
+A massive hill stands to the north, its crest nearly reaching the
+treetops.  From this angle, the hill is too steep to climb, as the few
+boulders that stick out are small and would make poor handholds.
+~
+1084 9 1509949540 3 0
+-1
+S
+
+#44860
+South of A Large Hill~
+To the north stands a nearly vertical hill, which rises almost to the
+treetops.  The hill's surface is covered with thick, dark green grass and
+is spotted with boulders that jut from the earth.  To the west, the trees
+grow close together, almost making a solid, wooden wall.  To the east and
+south, the quiet forest continues.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44858 10 10 5
+D2
+~
+~
+0 -1 44791 10 10 5
+E
+north hill~
+A large, grassy hill stands to the north, its side almost sheer..  Small,
+rough boulders protrude from the rock face.  The hill would be almost
+impossible to climb from this angle.
+~
+E
+west wall trees~
+The trees have grown close together, forming an impassable wall.
+~
+-1
+S
+
+#44861
+South of A Huge Boulder~
+To the north stand an enormous boulder, thirty feet high and twice and
+broad.  Its surface is sheer and slick with a thin layer of moisture. 
+Moss gathers around its base, nourished by the deep, rich soil.  The
+massive rocks streteches to the west, as does the forest.  To the east
+and south stand large, rain-coated trees.
+~
+[Merior] climb action?
+[Phule] will just say 'you can't climb that' which it already says without
+[Belgar] streetches -> stretches
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44791 10 10 5
+D2
+~
+~
+0 -1 44866 10 10 5
+D3
+~
+~
+0 -1 44872 10 10 5
+E
+north boulder~
+A massive, smooth-surfaced boulder stands to the north, glistening with a
+sheen of water.  Its face a sheer, flat drop, it looks insurmountable.
+~
+-1
+S
+
+#44862
+Foot of a Large Hill~
+To the north stand huge, ancient trees, grown so closely they block the
+way, and to the south stands a grove of trees, also too thick to pass
+through.  To the east, a slope leads to the crest of a large, grassy
+hill, which almost reaches the tops of the trees.  The trees recede a
+little to the west, opening a kind of trail into the forest.
+~
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 44864 10 10 5
+D4
+~
+~
+0 -1 44912 10 10 5
+E
+slope east hill~
+To the east, a grassy slope leads to the crest of a large hill.
+~
+-1
+S
+
+#44863
+Faint Forest Trail~
+A faint path heads through the forest of ancient, mountainous trees.  The
+path comes in from the north and heads to the west, where the vegetation
+has pulled back to form a kind of leafy avenue that leads into the forest. 
+To the south stands a massive boulder, thirty feet high, its surface
+sheer and slicked with a layer of water.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44864 10 10 5
+D3
+~
+~
+0 -1 44873 10 10 5
+E
+south boulder~
+A huge, light-gray boulder, its surface slick with water, blocks the way
+south.
+~
+-1
+S
+
+#44864
+Forest Junction~
+This part of the forest is a kind of junction.  To the north are thick
+dark trees that grow so closely together they form a wall.  To the east
+is a massive, grassy hill, and to the west is a tiny grove of almost
+milk-white young trees.  To the south, however, rise massive, ancient
+trees that appear to get older and large as the forest continues.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44862 10 10 5
+D2
+~
+~
+0 -1 44863 10 10 5
+D3
+~
+~
+0 -1 44874 10 10 5
+E
+grove~
+A strange grove likes to the west.  It is grassy with small, milk-white
+trees, which stand out starkly amid the massive, dark trees that surround
+you.
+~
+-1
+S
+
+#44865
+East of a Peaceful Glade~
+Thin streams of water drip from clear, cold pools gathered in the
+massive, bowl-shaped leaves high above.  The forest floor here is very
+wet, tufts of moss and grass poking up through the thin surface of water. 
+To the north, east and south the forest continues, its massive dark trees
+standing like towers.  To the west is a clear, sylvan glade.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44782 10 10 5
+D1
+~
+~
+0 -1 44780 10 10 5
+D2
+~
+~
+0 -1 44867 10 10 5
+D3
+~
+~
+0 -1 44875 10 10 5
+E
+west glade~
+To the west is a small, sylvan glade.  It looks clear and grassy.
+~
+1084 9 1509949540 3 0
+-1
+S
+
+#44866
+Mist-Shrouded Forest~
+Trees crowd in to the south, making a kind of wall, though in all other
+directions the forest is quite open.  The ground here is low and rocky,
+and consequently draws a great deal of ground water, which forms pools in
+several small, deep recesses.  Between the trees to the north, you see an
+enormous boulder rising more than thirty feet.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44861 10 10 5
+D1
+~
+~
+0 -1 44782 10 10 5
+D3
+~
+~
+0 -1 44871 10 10 5
+E
+pools~
+The water here is murky as it mixes with the soft, loamy soil.  The
+ground is somewhat lower than the areas around it, and consquently water
+tends to gather here.
+~
+E
+north boulder~
+In the distance to the north rises a large, light gray boulder.
+~
+E
+pools ground recesses~
+Recesses eroded in the earth hold the groundwater that seeps up through
+the damp soil.  The pools are dark and murky.
+~
+E
+north boulder~
+In the distance to the north, a massive boulder rises.
+~
+-1
+S
+
+#44867
+West of a Wall of Mist~
+A raging wall of fog and rain stands to the east, dark forms moving
+slowing within its stormy depths.  To the south stands a massive cluster
+of trees too thick to enter.  The forest continues to the north, and to
+the west is a kind of leafy avenue formed by two rows of trees that lean
+toward each other, leaving a broad space between them.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44865 10 10 5
+D3
+~
+~
+0 -1 44868 10 10 5
+E
+east wall fog forms~
+A stormy, mystic wall stands to the east, blocking the way.  Behind the
+wall, deep within the roiling fog, move shapes that are visible only in
+the periodic flashes of lightning.
+~
+E
+west avenue~
+A path leads west through the forest.  The path is broad and overhung by
+leafy bows, which form a kind of arch.
+~
+1084 9 1509949540 3 0
+-1
+S
+
+#44868
+Lane of Trees~
+This broad, clear lane heads east and west, with thick walls of trees on
+both sides and a leafy canopy high overhead.  The forest floor is clear,
+though not trampled, with the long, lush grass swaying with a soft breeze
+that comes from the west.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 44867 10 10 5
+D3
+~
+~
+0 -1 44869 10 10 5
+-1
+S
+
+#44869
+Beneath a Leafy Canopy~
+The forest closes in to the south and west, the trees growing very close
+together, their branches intertwining high above to form a leafy canopy
+that looks almost solid.  The air is moist and smells as though the
+forest has recently seen rain.  To the east is a long, leafy avenue where
+trees on either side have receded, leaving a broad path between.  To the
+north, the forest is thick but can be entered.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44870 10 10 5
+D1
+~
+~
+0 -1 44868 10 10 5
+E
+up canopy leaves~
+High above, thick leaves intermingle and large branches intertwine to
+make a leafy canopy that looks as solid as a ceiling.
+~
+-1
+S
+
+#44870
+Damp Forest~
+Trees close in to the east and west, and seem particularly thick to the
+north, though not so thick that they prevent movement.  This portion of
+the forest is quiet dark, and is particularly still.  The only sound is
+the soft, steady trickle of rainwater dripping from the leaves overhead
+to splash into puddles on the ground.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44871 10 10 5
+D2
+~
+~
+0 -1 44869 10 10 5
+E
+trees north growth underbrush~
+The trees to the north have grown close together, making travel in that
+direction difficult, though not impossible.
+~
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+You squeeze through the thick growth to the north.
+~
+!
+3 0 1
+1084 9 1509949540 3 0
+-1
+S
+
+#44871
+Mist-Shrouded Forest~
+Massive, broad-trunked trees grow close together to the west, forming an
+impenetrable wall that soars more than a hundred feet toward the sky. 
+The trees to the south have also grown closely together, though not so
+close that they cannot be passed.  To the north and east, the forest is
+clear and broad.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44872 10 10 5
+D1
+~
+~
+0 -1 44866 10 10 5
+D2
+~
+~
+0 -1 44870 10 10 5
+-1
+S
+
+#44872
+South of A Huge Boulder~
+A huge gray boulder, standing thirty feet tall, blocks the way north. 
+Its surface is slick with a glistening sheen of moisture as thin, watery
+tendrils slide along its length to gather in small puddles on the forest
+floor.  To the west, the trees have grown in a huge, thick cluster.  To
+the south the forest continues.  The massive boulder stretches off to the
+east.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44861 10 10 5
+D2
+~
+~
+0 -1 44871 10 10 5
+E
+north boulder~
+A massive boulder, its surface slick with water, prevents passage to the north.
+~
+E
+west trees~
+A thick cluster of trees blocks the way west.
+~
+1084 9 1509949540 3 0
+-1
+S
+
+#44873
+Faint Forest Trail~
+Closely grown, massive trees block the way to the north, though to the
+east and west the path is clear, and even hospitable.  The ground is soft
+and loamy, free from debris and unbrush.  To the south rises a large,
+light-gray boulder that stands almost as high as a city wall.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44863 10 10 5
+D3
+~
+~
+0 -1 44876 10 10 5
+E
+south boulder~
+A huge boulder, as high as a three-story building, blocks the south.
+~
+1089 9 1509949540 3 0
+-1
+S
+
+#44874
+Colorless Grove~
+The trees here are small, just taller than a man, and are milk-white from
+their roots to their leaves.  The earth here even seems to have lost its
+color - the grass is a faded, light green, and the soil that shows
+through is gray.  This place seems to be an anomaly, as the trees that
+rise in all other directions are huge and dark.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44864 10 10 5
+E
+trees~
+These small, young trees are as white as milk.  From their roots to their
+leaves, they are utterly colorless.  The smooth trunks glisten with a
+sheen of water.
+~
+1089 9 1509949540 3 0
+1267 137 1509949540 3 0
+-1
+S
+
+#44875
+Peaceful Glade~
+A ring of trees closes in this peaceful, grassy glade.  High above, the
+leafy canopy recedes, leaving an unobstructed view of the clear sky.  The
+air here is warm--the kind of warmth that envelopes you, permeates your
+entire body.  The ground is covered with soft, lush grass, sprinkled with
+small flowers with blue petals.  To the east, a kind of path leads into
+the depths of the pixie forest.
+~
+~
+301465610 3 9 0
+D1
+~
+~
+0 -1 44865 10 10 5
+E
+flowers~
+Tiny beads of moisture glisten on the silky blue petals of these small
+flowers.  The flowers are small and delicate, their petals swaying with
+the lightest touch of a breeze.
+~
+-1
+S
+
+#44876
+Faint Forest Trail~
+Trees close in to the north and west--ancient, massive pillars that grow
+tightly together, their far-reaching, leafy branches interlocking to form
+a nearly solid ceiling.  The ground here is soft and covered with thick
+green moss, which requires little light to grow.  A path of sorts heads
+through the trees to the south and east.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44873 10 10 5
+D2
+~
+~
+0 -1 44877 10 10 5
+-1
+S
+
+#44877
+Forest Junction~
+What might be a faint trail seems to head south, though it might not be a
+trail at all; the moss is merely pressed down more and a little thinner
+to the south.  To the east stands an impassable wall of trees, though to
+the west the forest opens up enough to allow passage.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44876 10 10 5
+D2
+~
+~
+0 -1 44879 10 10 5
+D3
+~
+~
+0 -1 44878 10 10 5
+-1
+S
+
+#44878
+Forest Path~
+Towering in the distant west, dwarfing even the most massive trees around
+it, rises an incredible, ancient tree, its shadow cast over the entire
+forest.  Even at so great a distance its branches and leaves stand out
+with perfect detail.  To the immediate west, and to the north, are thick
+clusters of trees that have grown closely together.  To the south and
+east are faint paths that lead into the forest.
+~
+[Merior] cant we get to the tree?
+[Kreel] We can.  Seek the path, Grasshopper.
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44877 10 10 5
+D2
+~
+~
+0 -1 44880 10 10 5
+E
+west tree~
+Even from this great distance you can feel the immensity of the tree that
+towers in the west, its long shadow covering the entire forest.  Its
+trunk is nearly black, and its leaves are a dark green.  It stands high
+atop a hill.
+~
+-1
+S
+
+#44879
+Faint Forest Path~
+The forest closes in to the east and west, forming a wooded tunnel that
+heads north and south through the dark pixie forest.  From the south
+comes a insistent breeze, accompanied by the golden sound of distant
+singing.  The forest floor is blanketed with thick, dark moss, which
+requires little light.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44877 10 10 5
+D2
+~
+~
+0 -1 44882 10 10 5
+A
+listen hear~
+sound music singing~
+act_tochar( #song, ch );
+~
+E
+song~
+The soft, golden sounds of singing drift from the distant west.
+~
+!
+0 0 0
+1089 9 1509949540 3 0
+-1
+S
+
+#44880
+Forest Path~
+To the south and east are thick, clotted clusters of ancient trees, their
+trunks grown so wide they are almost touching.  A gentle breeze rustles
+in their broad leaves, sending a cascade of collected rainwater showering
+down to moisten the dark, loamy soil.  Several rounded, light-gray stones
+jut upward, their bases covered with moss.  To the west, the soil looks
+rockier.  To the north, a faint path heads into the forest.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44878 10 10 5
+D3
+~
+~
+0 -1 44881 10 10 5
+E
+stones~
+The limestone bedrock pokes up through the soil, the gray tips of stones
+glistening with recently fallen rainwater.
+~
+-1
+S
+
+#44881
+At an Ancient Stone Marker~
+An weatherworn stone marker stands here, leaning precariously to the
+right.  Its surface is covered with undecipherable markings, which have
+all but been worn away by the passing of ages.  Fingers of moss reach up
+from the earth to grasp the stone's base, and dozens of small stones lie
+strewn about, buried in the waves of tall, green grass.  Trees lie in all
+directions, though only to the east is the forest open enough to be
+entered.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44880 10 10 5
+E
+stone marker~
+This marker is roughly obelisk-shaped, although the edges and point have
+been rounded by the passing of ages.  Its eastern face is covered with
+strange, alien markings, though they have all but been worn away.
+~
+A
+touch feel~
+stone marker obelisk~
+act_tochar( #vision, ch );
+act_notchar( #rvis, ch );
+wait( 1 );
+act_tochar( #end, ch );
+~
+E
+vision~
+Your hand grows warm as energy surges up through the stone!  Your eyes
+roll back, and your body feels very light.  Suddenly, your mind fills
+with a vision.  You stand high on a mountain, looking down on a fierce
+battle.  Magic crackles in their air as thousands of tiny, light-shrouded
+pixies hurl themselves against a great, multi-colored dragon.  The dragon
+sneers and vomits blazing energy, destroying hundreds of pixies at once. 
+The air seems to shriek.  One pixie, somewhat larger than the others,
+swells up from the throng, her magic boiling forward, wrapping the dragon
+in chains of searing energy.  The remaining pixies swarm over the dragon,
+light erupting from their hands.  The dragon rears and struggles in his
+magic chains.
+~
+E
+rvis~
+$n reaches out to touch the stone, then starts upright as $s
+eyes roll back in $s head.
+~
+E
+end~
+The vision fades and you back away, your hand slipping away from the
+stone.
+~
+!
+0 0 0
+-1
+S
+
+#44882
+Faint Forest Path~
+The forest encroaches to the south and east, the massive trees leaning
+over and shielding the sky with their broad, interlocking leaves.  Clear,
+shallow puddles gather in low places where bowl-shaped rocks poke through
+the soft, moss-covered earth.  Small, leafy shrubs dot the ground, their
+limbs swaying in a gentle breeze.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44879 10 10 5
+D3
+~
+~
+0 -1 44883 10 10 5
+E
+puddles pools ground water~
+Bowl shaped stones that jut from the earth hold small pools of cold,
+clear water.
+~
+-1
+S
+
+#44883
+Forested Tunnel~
+Ancient trees soar on either side of this faint path, which heads east
+and west through the forest.  The trees stand nearly two hundred feet
+tall, and are broader than warships.  The ground is covered with moss and
+fallen leaves the size of a dwarf.  Although the path is quiet clear, the
+forest to the north and south is thick with undergrowth as large, leafy
+shrubs overtake the soil.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44882 10 10 5
+D3
+~
+~
+0 -1 44884 10 10 5
+E
+leaves~
+These leaves are enormous--fully the size of a dwarf.  They are thick and
+heavy and have glossy surfaces.
+~
+1089 9 1509949540 3 0
+-1
+S
+
+#44884
+Forested Tunnel~
+This tunnel-like path through the pixie forest heads east and west
+underneath a ceiling of interlocking leaves.  The trees to the north and
+south are enormous--two hundred feet tall and twenty-five feet across. 
+Large, leafy shrubs have overtaken the forest floor, and have begun to
+encroach on the trail, their roots stretching out like fingers.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44883 10 10 5
+D3
+~
+~
+0 -1 44885 10 10 5
+E
+shrubs bushes~
+These large shrubs have small green leaves and are speckled with tiny,
+white flowers.  They grow thickly to the north and south, making
+impassable barriers.
+~
+-1
+S
+
+#44885
+Dead End on a Forest Trail~
+The faint forest path comes to a dead end, where it meets a thick cluster
+of trees and heavy underbrush.  A wall of large, leafy bushes stands to
+the north, and to the west and south are massive trees that soar toward
+the sky, their massive leaves darkening the entire forest.  A path heads
+eastward.
+~
+[Blades] add op bush to acode?
+~
+301465600 3 9 0
+D0
+~
+~
+203 -1 44886 10 10 5
+D1
+~
+~
+0 -1 44884 10 10 5
+E
+north wall shrubs underbrush bushes~
+A huge, leafy wall blocks the way north.  The bushes are large, their
+roots and branches reach out to cover the trail.
+~
+A
+open move clear pull~
+bushes trail shrubs path~
+if( is_open( room, north ) )
+act_tochar( #already, ch );
+else {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, north );
+}
+~
+E
+already~
+The bushes have already been pulled aside.
+~
+E
+open~
+You pull aside the wall of shrubs, opening a path to the north.
+~
+E
+ropen~
+$n pulls aside the wall of shrubs, opening a path to the north.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #close, ch );
+close( room, north );
+~
+E
+close~
+The wall of shrubs snaps back in place behind you.
+~
+!
+1 0 1
+1086 9 1509949540 3 0
+-1
+S
+
+#44886
+North of A Wall of Shrubs~
+The ground here is blanketed with thick, lush green grass.  To the east
+stands a grove of massive trees, and to the west is the grassy face of a
+steep hill.  The air smells sweet with the lingering scent of rain, and
+white-petaled jasmine that grows here fills the air with a kind of
+perfume.  To the south stands a massive wall of leafy underbrush, though
+to the north is a broad, open path through the grass.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44887 10 10 5
+D2
+~
+~
+203 -1 44885 10 10 5
+E
+east grove trees~
+To the east stands a grove of trees, which have grown very close to each
+other, so much so that their trunks nearly touch.
+~
+E
+south wall shrubs bushes underbrush~
+A wall of large, leafy bushes blocks the way south.  However, the
+branches seem somewhat thin toward the middle and could probably be
+moved aside.
+~
+E
+flowers jasmine~
+Jasmine plants grow here, their small, white flowers filling the air with
+sweet purfume.
+~
+A
+open move clear pull push~
+bushes shrubs wall~
+if( is_open( room, south ) )
+act_tochar( #already, ch );
+else {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, south );
+}
+~
+E
+already~
+The bushes have already been pushed aside.
+~
+E
+open~
+You move the wall of shrubs, opening a path to the south.
+~
+E
+ropen~
+$n moves the wall of shrubs, opening a path to the south.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #close, ch );
+close( room, south );
+~
+E
+close~
+The bushes snap back in place behind you.
+~
+!
+1 0 4
+-1
+S
+
+#44887
+Faint Forest Path~
+The broad, clear path turns here, heading to the south, or to the west
+toward a large, grassy hill.  This is the edge of a great, dark forest,
+which rolls out to the southeast and to the north.  The way east is
+blocked by wall of leafy shrubs covered in sweet-smelling flowers.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 44886 10 10 5
+D3
+~
+~
+0 -1 44888 10 10 5
+E
+west hill~
+A huge hill stands to the west, atop of which stands a mountainous tree
+whose branches reach almost to where you are standing.
+~
+1086 9 1509949540 3 0
+-1
+S
+
+#44888
+Foot of a Steep Slope~
+An enormous, grassy-covered hill rises to the west.  From here you can
+see a mountainous tree standing atop the hill--a tree so large its shadow
+seems to cover the entire forest.  To the east you see a massive, dark
+forest, which rolls into the distance with no apparent end.  A faint path
+seems to lead up the hill, although it will be a difficult climb.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 44887 10 10 5
+D4
+~
+~
+0 -1 44890 10 10 5
+E
+west hill~
+This is the foot of a large, grass-covered hill, which rises to the west. 
+Atop of the hill is an incredible tree.
+~
+E
+tree~
+A massive tree, larger than any seen outside this forest, rises in the
+distant west.  Its shadow covers the entire forest.
+~
+A
+u up~
+~
+if( random( 4, 8 ) < find_skill( ch, climb ) )
+continue;
+else
+act_tochar( #no, ch );
+~
+E
+no~
+You try to tackle the large hill, but come sliding back down its grassy
+side.
+~
+!
+0 0 0
+-1
+S
+
+#44890
+A Grassy Terrace~
+This is a small terrace half-way up a massive, grass-covered hill. 
+Rising like a wooden mountain to the west is a ancient tree whose very
+size staggers the imagination.  The trees enormous branches stretch out
+in every direction as if to embrace the very forest the tree overlooks. 
+A faint path leads down to the forest floor, or heads west toward the
+peak of this hill.  The terrace also heads north and south.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 44892 10 10 5
+D2
+~
+~
+0 -1 44893 10 10 5
+D3
+~
+~
+0 -1 44891 10 10 5
+D5
+~
+~
+0 -1 44888 10 10 5
+E
+west tree~
+Atop the crest of the hill to the west stands an enormous tree, baffling
+in its immensity.  Its roots reach out and break the surface of the earth
+even here.
+~
+1086 9 1509949540 3 0
+-1
+S
+
+#44891
+A Grassy Terrace~
+This is the exact center of a large, grassy terrance, which lies half-way
+up along the steep edge of a tall, rocky hill.  The grass extends in
+every direction.  In the distant east unfolds a huge, dark forest, its
+treetops swaying.  To the west is a steep incline, heading to the crest
+of this large hill, where a mountainous tree stands.  The sound of
+singing drifts quietly, carried by a soft, rain-scented breeze.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44895 10 10 5
+D1
+~
+~
+0 -1 44890 10 10 5
+D2
+~
+~
+0 -1 44896 10 10 5
+D3
+~
+~
+0 -1 44894 10 10 5
+-1
+S
+
+#44892
+A Grassy Terrace~
+This grassy terrace lies half-way up a massive hill, atop of which stands
+a huge tree, whose roots and branches reach out even to where you are
+standing.  To the east are the trunks of huge, ancient trees, which swell
+up from the forest floor far below.  To the west, the terrace continues
+toward the final slope of the hill, and to the south, a path moves along
+the terrace's edge.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 44890 10 10 5
+D3
+~
+~
+0 -1 44895 10 10 5
+E
+root~
+The roots are long and thick, having grown for many, many years.
+~
+-1
+S
+
+#44893
+A Grassy Terrace~
+To the east, a steep hillslope plummets into a thick, tangled grove of
+ancient trees, their limbs reaching out and intertwining.  This grassy
+terrace is cut into the hillside, and to the west slopes once again
+toward the hill's crest, where an ancient tree stands.
+~
+[Merior] is hillslope one word?
+[Phule] sure it is *wink*
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44890 10 10 5
+D3
+~
+~
+0 -1 44896 10 10 5
+-1
+S
+
+#44894
+Foot of A High Slope~
+A steep path leads up to the foot of a tree so large it dwarfs the
+surrounding trees, the hill, even the sky itself.  This grassy,
+rock-strewn terrace is cut into the hillside just below the tree.  The
+terrace extends in all directions, and in the far east sprawls a huge,
+dark forest, leading into the horizon.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44891 10 10 5
+D2
+~
+~
+0 -1 44898 10 10 5
+D4
+~
+~
+0 -1 44899 10 10 5
+E
+west hill path~
+To the west, the hill makes its final assent toward its crest, where a
+massive tree stands.
+~
+A
+up u~
+~
+if( random( 4, 10 ) < find_skill( ch, climb ) )
+continue;
+else
+act_tochar( #no, ch );
+~
+E
+no~
+You struggle up the steep slope, only to come sliding back down.
+~
+!
+0 0 0
+-1
+S
+
+#44895
+A Grassy Terrace~
+To the west, a grassy embankment juts out from the rest of the hill,
+blocking the way.  High above, on the hill's crest, an incredible,
+ancient tree soars toward the sky, its size baffling the senses.  The
+earth here is grassy, though hard, and fingers of rock poke through the
+earth.  To the east and south, this flat terrace continues.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44892 10 10 5
+D2
+~
+~
+0 -1 44891 10 10 5
+E
+fingers rock~
+Tiny fingers of the limestone bedrock jut up through the soil, roughening
+the path.
+~
+1086 9 1509949540 3 0
+-1
+S
+
+#44896
+A Grassy Terrace~
+To the south rises a high, solid rock wall, its surface covered with
+thick pads of dark green moss.  To the west, this grassy terrace
+continues, though far to the west, atop the crest of the hill, a massive
+tree stands, dwarfing everything around it.  The ground here is littered
+with small, light-gray rocks, their porous surfaces rounded with age.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44891 10 10 5
+D1
+~
+~
+0 -1 44893 10 10 5
+D3
+~
+~
+0 -1 44898 10 10 5
+E
+wall south~
+The wall is natural rock, where the soil has been eroded away leaving the
+stone exposed.  It is light gray and covered with thick moss.
+~
+E
+rocks~
+Small, light gray rocks are scattered about the soil.
+~
+-1
+S
+
+#44898
+A Grassy Terrace~
+Rocks almost entirely cover the ground of this dark, quiet corner of the
+terrace.  The air is still, shielded by the rock face to the south and
+the massive hillside to the west.  A massive, ancient tree towers above,
+its far-reaching branches casting enormous shadows.  To the north and
+east the terrace continues.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 44894 10 10 5
+D1
+~
+~
+0 -1 44896 10 10 5
+E
+ground rocks~
+Small, rounded rocks are scattered around this shady corner.
+~
+1086 9 1509949540 3 0
+-1
+S
+
+#44899
+Base of an Ancient Tree~
+Fully twenty-five feet across and three-hundred feet high, a massive tree
+towers here, casting a shadow across the entire forest that lies far to
+the east.  The tree's bark is a dark black, mottled here and there with
+patches of gray.  Its size seems to intimidate the very earth--the air is
+still, the sounds of the forest are no more than a whisper.  A kind of
+path moves around the tree to the north and west, while a tiny path heads
+toward a patch of grass to the south.  The tree is so enormous, its bark
+so thick, that the grooves make near-perfect handholds.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 44900 10 10 5
+D2
+~
+~
+0 -1 44901 10 10 5
+D3
+~
+~
+0 -1 44902 10 10 5
+D5
+~
+~
+0 -1 44894 10 10 5
+E
+tree~
+This tree is staggering in its immensity.  It is twenty-five feet across
+and over three-hundred feet high.  Its leaves are the size of horses. 
+Its bark is thick and rough, and would actually provide good handholds.
+~
+A
+climb fly~
+tree up~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 44903 ) );
+  act_notchar( #farr, ch );
+  end;
+  }
+else {
+  if( random( 5, 10 ) < find_skill( ch, climb ) ) {
+    act_tochar( #up, ch );
+    act_notchar( #rup, ch );
+    transfer( ch, find_room( 44903 ) );
+    act_notchar( #arrive, ch );
+    loop( followers ) {
+      ch = rch;
+      acode( room, 1 );
+      }
+    }
+  else {
+    act_tochar( #no, ch );
+    act_notchar( #rno, ch );
+    }
+  }
+~
+E
+fly~
+You fly up.
+~
+E
+rfly~
+$n flies up.
+~
+E
+farr~
+$n flies up from below.
+~
+E
+up~
+You grab the thick bark and begin to scale the massive tree.
+~
+E
+rup~
+$n climbs up the massive tree.
+~
+E
+arrive~
+$n climb up from below.
+~
+E
+no~
+You grab the thick tree bark and begin upwards, but come sliding back
+down.
+~
+E
+rno~
+$n tries to climb the massive tree but comes sliding back down.
+~
+!
+0 0 0
+-1
+S
+
+#44900
+Beneath an Ancient Tree~
+To the north is a roiling wall of mist and rain, lit in flashes by
+dissipated bolts of lightning.  It seems almost like a thunderstorm
+contained behind a wall of glass.  Depsite the violence of the storm,
+however, it is completely silent.  To the east is a sheer drop where the
+hill plummets toward a terrace on the hillside, and to the west is a
+massive tree that dwarfs everything around it.  A path to the south leads
+around the tree.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 44899 10 10 5
+E
+north wall mist rain~
+A strange wall of silent mist and rain closes in, blocking the way north.
+~
+1085 9 1509949540 3 0
+-1
+S
+
+#44901
+Beneath an Ancient Tree~
+This small, grassy enclave is set in a stone recess, with moss-covered
+gray slats of limestone rising to the west, south, and east.  The air
+here is quiet and smells of distant rain.  The soft, spongy earth is
+quite damp, feeding the moss that gathers at the base of the stone walls. 
+To the north rises a dark, massive tree.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 44899 10 10 5
+E
+wall enclave 1 east west south~
+Natural walls of stratified limestone rise to the east, south, and west. 
+The limestone is gray and covered with thick moss.
+~
+1085 9 1509949540 3 0
+-1
+S
+
+#44902
+Beneath an Ancient Tree~
+To the south and west stand large, limestone walls, their many gray slats
+covered with thick tendrils of dark green moss.  The ground here is
+rough, folded by the three-foot-wide tree roots that break the soil's
+surface.  To the north stands an enormous tree, its bark as black as
+night, its leaves as large as an ogre.  A path leads eastward around the
+tree.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 44899 10 10 5
+1085 9 1509949540 3 0
+-1
+S
+
+#44903
+High In An Ancient Tree~
+The branches of this tree are so large they make almost perfect bridges,
+and are easily wide enough to hold travellers.  A massive branch meets
+the trunk here--the closest branch the the ground, fifty feet below.  The
+horse-sized leaves rustle as a wind stirs through the entire tree
+accompanied by the sound of gentle singing.  The bark here is wide, rough
+and thick, providing perfect handholds for the climb down.  To the north,
+an enormous branch juts outward.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 44904 10 10 5
+E
+north branch~
+A massive branch, wide enough to walk on, juts northward.
+~
+A
+fly climb~
+down tree~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 44899 ) );
+  act_notchar( #farr, ch );
+  end;
+  }
+else {
+  if( random( 5, 10 ) < find_skill( ch, climb ) ) {
+    act_tochar( #up, ch );
+    act_notchar( #rup, ch );
+    transfer( ch, find_room( 44899 ) );
+    act_notchar( #arrive, ch );
+    loop( followers ) {
+      ch = rch;
+      acode( room, 1 );
+      }
+    }
+  else {
+    act_tochar( #no, ch );
+    act_notchar( #rno, ch );
+    transfer( ch, find_room( 44899 ) );
+    act_notchar( #fall, ch );
+    i = 15d5;
+    dam_message( ch, i, "The impact" );
+    inflict( ch, mob, i, "lack of balance" );
+    }
+  }
+~
+E
+fly~
+You fly down.
+~
+E
+rfly~
+$n flies down.
+~
+E
+farr~
+$n flies down from above.
+~
+E
+up~
+You climb down the massive tree trunk.
+~
+E
+rup~
+$n climbs down the massive tree trunk.
+~
+E
+arrive~
+$n climbs down from above.
+~
+E
+no~
+You try to climb down, then lose your footing and plummet!
+~
+E
+rno~
+$n tries to climb down, then loses $s footing and falls!
+~
+E
+fall~
+@b$n comes plummeting from the branches high above!@n
+~
+!
+0 0 0
+-1
+S
+
+#44904
+High in an Ancient Tree~
+This is the end of a huge branch, which juts out from the massive trunk
+to the south.  This seems to be one of the few places a person could
+reach, as the branches high above look far too widely spaced to be used
+for climbing.  The sound of singing comes from above.  Across a gap to
+the north is another large limb, which has grown from the west then
+curved around.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 44903 10 10 5
+E
+gap north branch~
+This large branch ends in a large gap between here and another branch, a
+few feet to the north.
+~
+A
+jump~
+across branch 1 north~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 44905 ) );
+  act_notchar( #flyarr, ch );
+  end;
+  }
+if( random( 1, 10 ) < 9 ) {
+  act_tochar( #jump, ch );
+  act_notchar( #rjump, ch );
+  transfer( ch, find_room( 44905 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 1 );
+    }
+  }
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rfall, ch );
+  send_to_room( #rfall, find_room( 44905 ) );
+  transfer( ch, find_room( 44900 ) );
+  act_notchar( #ouch, ch );
+  i = 15d5;
+  dam_message( ch, i, "The impact" );
+  inflict( ch, mob, i, "loss of balance" );
+  }
+~
+E
+jump~
+You jump across the gap to another large branch.
+~
+E
+rjump~
+$n jump across the gap to another large branch.
+~
+E
+arrive~
+$n comes leaping across the broad gap.
+~
+E
+fall~
+You leap across, but fall short, plummeting to the earth below!
+~
+E
+rfall~
+$n attempts the jump, but falls short and goes plummeting to the earth
+below!
+~
+E
+ouch~
+$n comes plummeting from above!
+~
+E
+fly~
+You fly north.
+~
+E
+rfly~
+$n flies north.
+~
+E
+flyarr~
+$n comes flying across the gap.
+~
+!
+0 0 0
+1085 9 1509949540 3 0
+-1
+S
+
+#44905
+High in an Ancient Tree~
+This is the tip of a huge, leaf-covered branch, which juts out from the
+west side of the massive tree then curves around to the east.  The
+enormous leaves rustle with a strong breeze, and the strangely warm air
+smells sweet.  Another large branch hangs above, its outer limbs dipping
+down within reach.
+~
+~
+301465600 4 9 0
+D4
+~
+~
+0 -1 44906 10 10 5
+E
+south gap~
+To the south, across a broad gap, is a large branch leading toward the
+trunk of this massive tree.
+~
+E
+up branch~
+Above you is a large branch, which dips down, easily within reach.
+~
+A
+jump leap~
+across 1 south~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 44904 ) );
+  act_notchar( #flyarr, ch );
+  end;
+  }
+if( random( 1, 10 ) < 9 ) {
+  act_tochar( #jump, ch );
+  act_notchar( #rjump, ch );
+  transfer( ch, find_room( 44904 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 1 );
+    }
+  }
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rfall, ch );
+  send_to_room( #rfall, find_room( 44904 ) );
+  transfer( ch, find_room( 44900 ) );
+  act_notchar( #ouch, ch );
+  i = 15d5;
+  dam_message( ch, i, "The impact" );
+  inflict( ch, mob, i, "loss of balance" );
+  }
+~
+E
+jump~
+You leap across the gap to another large branch.
+~
+E
+rjump~
+$n leaps southward to another large branch.
+~
+E
+arrive~
+$n comes leaping across from the north.
+~
+E
+fall~
+You try to jump across, but fail and go plummeting to the ground below!
+~
+E
+rfall~
+$n tries to jump across but fails and goes plummeting to the earth below!
+~
+E
+ouch~
+@b$n comes plummeting from high above!@n
+~
+E
+fly~
+You fly south.
+~
+E
+rfly~
+$n flies south.
+~
+E
+flyarr~
+$n comes flying across the gap.
+~
+!
+0 0 0
+1086 9 1509949540 3 0
+-1
+S
+
+#44906
+A Song-Filled Den of Leaves~
+Dozens of limbs have come together here and have intertwined to form a
+large, solid, bed of leaves.  Other branches form a leafy wall on all
+sides, except north, where a strange, shimmering sliver of light slashes
+a wall of mist.  The very air here sings--the song, a single, golden
+voice, seeming to come from all directions.  This place is warm and
+comfortable.
+~
+no_mob
+~
+301465609 4 9 0
+D5
+~
+~
+0 -1 44905 10 10 5
+E
+north sliver slash light~
+To the north, slashing a roiling wall of fog, is a sliver of blazing
+white light.  A faint wind comes through the sliver, along with small
+flecks of water.
+~
+A
+1~
+sliver rift light mist fog north~
+if( !is_player( ch ) ) {
+  act_notchar( #fear, ch );
+  end;
+  }
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+if( mob_in_room( 1262, room ) )
+  act_tochar( #sigh, ch );
+transfer( ch, find_room( 44927 ) );
+act_notchar( #arrive, ch );
+~
+E
+enter~
+@CYou step through the sliver of light.  You entire body seems to
+stretch, then with a blaze of light you find yourself in a void.@n 
+~
+E
+renter~
+@b$n steps through the sliver of light and disappears as a
+flash of light consumes $m.@n
+~
+E
+arrive~
+@b$n enters with a flash of light.@n
+~
+E
+fear~
+@Y$n approaches the light, then backs away $s body quaking with fear.@n
+~
+E
+sigh~
+You hear the pixie sorceres sigh sadly behind you.
+~
+!
+0 0 0
+A
+4 practice~
+3 replicate~
+if( is_player( ch ))
+if( has_obj( 2785, ch ) )
+if( !has_obj( 1435, ch ) )
+if( !has_obj( 1468, ch ) )
+if( !has_obj( 1656, ch ) ) {
+tell( mob, ch, #prove );
+continue;
+}
+else {
+mob = mob_in_room( 1262, room );
+tell( mob, ch, #circlet );
+act_notchar( #mad, ch );
+transfer( ch, find_room( 44769 ) );
+}
+else {
+mob = mob_in_room( 1262, room );
+tell( mob, ch, #chain );
+act_notchar( #mad, ch );
+transfer( ch, find_room( 44769 ) );
+}
+else {
+mob = mob_in_room( 1262, room );
+tell( mob, ch, #scarf );
+transfer( ch, find_room( 44769 ) );
+act_notchar( #mad, ch );
+}
+else
+act_tochar( #cant, ch );
+else
+act_tochar( #pet, ch );
+~
+E
+cant~
+I will only train you in this if you prove to me you are worthy.  Find
+for me and bring with you an ice figurine for when next we meet.
+~
+E
+circlet~
+That circlet looks like one of mine!  Thief!  I'll not teach you this day!
+~
+E
+scarf~
+That scarf looks like one of mine! Thief! I'll not teach you this day!
+~
+E
+chain~
+That length of electrum chain looks like one of mine!  Thief!  I'll not
+teach you this day!
+~
+E
+prove~
+You have proven yourself to me.
+~
+E
+mad~
+With an angry gesture, the pixie high sorceress casts $n away.
+~
+E
+pet~
+You have no need to practice anything but obeying your master.
+~
+!
+0 0 0
+1262 137 1509949540 3 0
+-1
+S
+
+#44907
+Narrow, Echoing Cavern~
+A penetrating roar rings off the walls and pounds in your ears.  This
+tunnel is narrow and dark, the cold stone glistening with a dark sheen of
+water.  The amazing, thrumming roar seems to come from the west, where
+the cavern looks lighter.  The cavern also heads east, where it looks
+more confined.  You cannot be certain--in the thick, roiling mist that
+fills the air it is difficult to see much of anything.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 44908 10 10 5
+D3
+~
+~
+0 -1 44771 10 10 5
+-1
+S
+
+#44908
+At A Strange Wall~
+A pall of silence fills the air, the very rock of this cavern.  Despite
+the mist and stirring wind, despite the chilling outside mountain air,
+this cavern is strangely warm.  Most of the cavern is solid rock, but the
+north wall defies explanation.  It is a rippling, upright sheet of thick,
+jet-black liquid.  It hums and crackles, its tiny ripples making soft
+lapping sounds.  A pallid glow flickers at dark wall's edges.
+~
+n is 44909
+~
+301465604 11 9 0
+D3
+~
+~
+0 -1 44907 10 10 5
+E
+wall liquid water~
+This might simply be water held in place by magic, or it might be much
+more.  The liquid is opaque and black, obscuring whatever is behind it. 
+It gives off a soft light, and it hums and crackles with contained energy.
+~
+A
+touch enter go~
+wall ripple energy north gate portal liquid water~
+Act_tochar( #go, ch );
+act_notchar( #rgo, ch );
+transfer( ch, find_room( 44909 ) );
+act_notchar( #enter, ch );
+~
+E
+go~
+@CSteeling yourself, you walk into the dark water.  Your face and hands
+tingle as the dark water flows over you.  Suddenly you cannot breath, and
+you feel as if your body is being torn in half.  An incredible pressure
+crushes your body from all sides, then suddenly the pressure lifts.  You
+are through.@n
+~
+E
+rgo~
+$n takes a deep breath and steps into the dark water.  In
+an instant $e disappears.
+~
+E
+enter~
+$n emerges through the rippling black water.
+~
+E
+not~
+You start to step into the gate, when a large, glowing face appears
+before you.  "This area is not yet open.  But aren't you clever for
+finding it?" The face disappears, his cackle fading with him.
+~
+E
+rnot~
+$n begins to step into the gate, when a large, glowing face appears.
+"This area is not yet open.  But aren't you clever for finding it?" The
+face disappears, his cackle fading with him.
+~
+!
+0 0 0
+-1
+S
+
+#44909
+Misty Passage~
+A thick, low mist blankets the spongy earth and wraps the large, leafy
+trees in glimmering shrouds of white.  A soft wind comes in from the
+east, rustling the leaves and stirring the mist into little eddies that
+dissipate as soon as they form.  The terrain does not seem quite real -
+the sky is a strange, flat, dark blue, somewhere between daylight and
+night.  This place is freakishly quiet.  A barely noticeable path,
+cloaked in mist, heads toward a massive forest to the west.  To the south
+stands a large, rippling sheet of dark liquid, standing out starkly in
+the diluted, pale colors that surround it.
+~
+s is 44908
+[Dalthas] (acode ent wall) breath should be breathe
+~
+301465604 11 6 0
+D3
+temporary door~
+~
+0 -1 44786 10 10 5
+E
+mist~
+The mist is thick and heavy, clinging to the ground as if attached to it. 
+The spiny, fog-wrapped tips of bushes poke up through the mist.  Large,
+dark trees stand here, their leaves cloaked in mist as if it were rain.
+~
+E
+sky~
+The sky, like the rest of this place, seems oddly flat.  It lacks depth
+or complex shades of color, and actually seems quite low to the ground. 
+Although this place is light, none of the trees cast shadows, giving this
+part of the forest the further appearance of being two-dimensional.
+~
+E
+path~
+A narrow, barely visible path heads west into a large forest.
+~
+E
+sheet door liquid south~
+The liquid gives off a soft, steady hum and is ripples back lapping
+noises that seem loud in the surrounding quiet.  The jet-black sheet
+obscures any attempt to look through it.
+~
+A
+enter walk move touch~
+liquid door portal south gate wall water~
+act_tochar( #go, ch );
+act_notchar( #rgo, ch );
+transfer( ch, find_room( 44908 ) );
+act_notchar( #arrive, ch );
+~
+E
+go~
+@CYou step into the dark liquid.  Your flesh begins to tingle, and a
+great weight begins to crush your body.  Then, in a sudden burst, you
+emerge on the other side.@n 
+~
+E
+rgo~
+$n steps into the dark liquid and disappears.
+~
+E
+arrive~
+With barely a faint stir in the air, $n emerges from the dark portal.
+~
+!
+0 0 0
+-1
+S
+
+#44910
+Atop A Large Hill~
+This hill rises high in the forest--nearly to the tops of the trees. 
+This is the edge of the forest, which stretches off to the south.  From
+this high vantage, you have a perfect view of a valley to the north,
+which extends to the horizon in a vast basin of gently rolling,
+grass-covered hills, which look almost like rumpled velvet.  The crest of
+the hill continues westward, and a slope leads downward to the forest
+floor.
+~
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 44911 10 10 5
+D5
+~
+~
+0 -1 44857 10 10 5
+E
+north valley~
+Sprawling out toward the northern horizon in a low, enormous valley of
+gently rolling, dark green hills.  The floor of the valley lies almost a
+thousand feet below.  You see no way of reaching there.
+~
+1089 9 1509949540 3 0
+-1
+S
+
+#44911
+Crest of a Large Hill~
+You are high enough to touch the leaves of the massive trees to the
+south, which soar upward from the forest floor.  The air here is crisp
+and invigorating and smells of distant rain.  From this high vantage, you
+can see a rolling, hilly basin, which stretches out endlessly to the
+north.  However, the basin seems oddly flat and lifeless, as if it were
+not real, but an incredibly detailed painting.  The crest of this hill
+heads east and west.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44910 10 10 5
+D3
+~
+~
+0 -1 44912 10 10 5
+E
+north basin valley~
+The valley to the north is beautiful, but strangely flat and calm.  The
+grass doesn't seem to move, despite the breeze, and there are no animals
+in sight.
+~
+E
+trees south~
+The treetops of the massive forest rise just above the crest of this
+large hill.  The trees stand to the south; the forest stretches out in
+all directions except north.
+~
+-1
+S
+
+#44912
+Atop a Large Hill~
+The hill slopes downward here and rejoins the dark forest floor far below. 
+You are high enough to see the forest in its entirety--it extends
+southeast for the most part, though there is still much to the southwest. 
+Far to the west you see another hill, atop of which is tree so large it
+defies imagination.  To the east, a grassy path of sorts leads along this
+hill's crest.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 44911 10 10 5
+D5
+~
+~
+0 -1 44862 10 10 5
+E
+west tree~
+Far to the west grows a tree so large it boggles the imagination. 
+Standing atop a large hill, it casts a shadow over the entire forest.
+~
+1089 9 1509949540 3 0
+-1
+S
+
+#44913
+In the Pixie Forest~
+This is a warm, cozy den beneath the roots of a large tree.  The mud
+walls are covered with small, intricate tapestries, the floor is dry and
+covered with leaves.  In the center of the floor is a small, wooden table
+abutted by a wooden chair.  The air here smells of sweet pipesmoke.  A
+hole above is covered with a large pad of moss.
+~
+[Merior] wall extra faeriefolks
+[Merior] floor extra here for padding
+[Merior] a biddlehoff? is there more then one?
+[Merior] not quite sure what a gnome is doing in here...
+~
+301465604 3 4 0
+D4
+blanket of moss~
+~
+203 -1 44789 10 10 5
+E
+tapestries walls~
+These tapestries are quite small, though very detailed, and show a great
+battle between faereiefolk and a great dragon.
+~
+E
+floor leaves~
+The leaves seem to have been placed her for padding.  Beneath them, the
+soil is quite damp.
+~
+E
+table chairs~
+A small table--a foot high and two feet across--sits in the center of
+this hole.  It is simple, but looks well made.  Three tiny chairs
+surround it.
+~
+A
+~
+~
+act_tochar( #close, ch );
+close( room, up );
+~
+E
+close~
+As you enter the small hole, the pad of moss swings back, covering the
+hole above you.
+~
+!
+1 0 16
+A
+move push pull open~
+moss mat pad~
+if( is_open( room, up ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, up );
+  }
+~
+E
+already~
+The moss overhead has already been pushed aside.
+~
+E
+open~
+You push aside the blanket of moss, revealing an opening overhead.
+~
+E
+ropen~
+$n pushes aside the moss overhead.
+~
+!
+0 0 0
+1266 9 1509949540 3 0
+-1
+S
+
+#44915
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.  Floating here before her
+is a @brift@n of blazing white light--a rip in the very fabric of reality.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44919 10 10 5
+D1
+~
+~
+0 -1 44924 10 10 5
+D2
+~
+~
+0 -1 44916 10 10 5
+D3
+~
+~
+0 -1 44935 10 10 5
+A
+enter~
+rift tear rip light~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 44906 ) );
+act_notchar( #arrive, ch );
+~
+E
+enter~
+@CYou step through the tear, then find your feet landing in a bed of
+leaves.@n 
+~
+E
+renter~
+@b$n enters the rift of light and disappears with a flash.@n
+~
+E
+arrive~
+@b$n steps in through the sliver of light.@n
+~
+!
+0 0 0
+-1
+S
+
+#44916
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44915 10 10 5
+D1
+~
+~
+0 -1 44923 10 10 5
+D2
+~
+~
+0 -1 44917 10 10 5
+D3
+~
+~
+0 -1 44936 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44917
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44916 10 10 5
+D1
+~
+~
+0 -1 44922 10 10 5
+D2
+~
+~
+0 -1 44918 10 10 5
+D3
+~
+~
+0 -1 44937 10 10 5
+-1
+S
+
+#44918
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44917 10 10 5
+D1
+~
+~
+0 -1 44921 10 10 5
+D2
+~
+~
+0 -1 44919 10 10 5
+D3
+~
+~
+0 -1 44938 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44919
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44918 10 10 5
+D1
+~
+~
+0 -1 44920 10 10 5
+D2
+~
+~
+0 -1 44915 10 10 5
+D3
+~
+~
+0 -1 44939 10 10 5
+-1
+S
+
+#44920
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44921 10 10 5
+D1
+~
+~
+0 -1 44929 10 10 5
+D2
+~
+~
+0 -1 44924 10 10 5
+D3
+~
+~
+0 -1 44919 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44921
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44922 10 10 5
+D1
+~
+~
+0 -1 44928 10 10 5
+D2
+~
+~
+0 -1 44920 10 10 5
+D3
+~
+~
+0 -1 44918 10 10 5
+-1
+S
+
+#44922
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44923 10 10 5
+D1
+~
+~
+0 -1 44927 10 10 5
+D2
+~
+~
+0 -1 44921 10 10 5
+D3
+~
+~
+0 -1 44917 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44923
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44924 10 10 5
+D1
+~
+~
+0 -1 44926 10 10 5
+D2
+~
+~
+0 -1 44922 10 10 5
+D3
+~
+~
+0 -1 44916 10 10 5
+-1
+S
+
+#44924
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44920 10 10 5
+D1
+~
+~
+0 -1 44925 10 10 5
+D2
+~
+~
+0 -1 44923 10 10 5
+D3
+~
+~
+0 -1 44915 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44925
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44929 10 10 5
+D1
+~
+~
+0 -1 44934 10 10 5
+D2
+~
+~
+0 -1 44926 10 10 5
+D3
+~
+~
+0 -1 44924 10 10 5
+-1
+S
+
+#44926
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44925 10 10 5
+D1
+~
+~
+0 -1 44933 10 10 5
+D2
+~
+~
+0 -1 44927 10 10 5
+D3
+~
+~
+0 -1 44923 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44927
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+Don't let the map confuse you.  Exits are all looped around, so you'll
+always been dead-center.  Because this is a void, all the rooms have the
+same room desc, except 44915, which is exit.
+ALSO...customs can be made from dragon's hide.  Onums are 1658, 1659,
+1660, 1661, 1663.
+Dragon loads in room 44939.
+~
+301465613 4 9 0
+D0
+~
+~
+0 -1 44926 10 10 5
+D1
+~
+~
+0 -1 44932 10 10 5
+D2
+~
+~
+0 -1 44928 10 10 5
+D3
+~
+~
+0 -1 44922 10 10 5
+-1
+S
+
+#44928
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44927 10 10 5
+D1
+~
+~
+0 -1 44931 10 10 5
+D2
+~
+~
+0 -1 44929 10 10 5
+D3
+~
+~
+0 -1 44921 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44929
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44928 10 10 5
+D1
+~
+~
+0 -1 44930 10 10 5
+D2
+~
+~
+0 -1 44925 10 10 5
+D3
+~
+~
+0 -1 44920 10 10 5
+-1
+S
+
+#44930
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44931 10 10 5
+D1
+~
+~
+0 -1 44939 10 10 5
+D2
+~
+~
+0 -1 44934 10 10 5
+D3
+~
+~
+0 -1 44929 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44931
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44932 10 10 5
+D1
+~
+~
+0 -1 44938 10 10 5
+D2
+~
+~
+0 -1 44930 10 10 5
+D3
+~
+~
+0 -1 44928 10 10 5
+-1
+S
+
+#44932
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44933 10 10 5
+D1
+~
+~
+0 -1 44937 10 10 5
+D2
+~
+~
+0 -1 44931 10 10 5
+D3
+~
+~
+0 -1 44927 10 10 5
+-1
+S
+
+#44933
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44934 10 10 5
+D1
+~
+~
+0 -1 44936 10 10 5
+D2
+~
+~
+0 -1 44932 10 10 5
+D3
+~
+~
+0 -1 44926 10 10 5
+-1
+S
+
+#44934
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44930 10 10 5
+D1
+~
+~
+0 -1 44935 10 10 5
+D2
+~
+~
+0 -1 44933 10 10 5
+D3
+~
+~
+0 -1 44925 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44935
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44939 10 10 5
+D1
+~
+~
+0 -1 44915 10 10 5
+D2
+~
+~
+0 -1 44936 10 10 5
+D3
+~
+~
+0 -1 44934 10 10 5
+-1
+S
+
+#44936
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44935 10 10 5
+D1
+~
+~
+0 -1 44916 10 10 5
+D2
+~
+~
+0 -1 44937 10 10 5
+D3
+~
+~
+0 -1 44933 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44937
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44936 10 10 5
+D1
+~
+~
+0 -1 44917 10 10 5
+D2
+~
+~
+0 -1 44938 10 10 5
+D3
+~
+~
+0 -1 44932 10 10 5
+-1
+S
+
+#44938
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44937 10 10 5
+D1
+~
+~
+0 -1 44918 10 10 5
+D2
+~
+~
+0 -1 44939 10 10 5
+D3
+~
+~
+0 -1 44931 10 10 5
+1269 9 1509949540 3 0
+-1
+S
+
+#44939
+The Ethereum~
+You stand in a formless void.  There is no space here, and no time. 
+Mottled, writhing gray extends in all directions.  Though there is no
+visible floor here, you can feel a solid mass beneath you, and you know
+you can walk here.  The very fabric of space seems to shift here--dark
+shapes in the distance suddenly grow quite large, as if nearing you, then
+fade away again.  A thunderous, pounding rain courses through the void,
+seeming to come from all directions.  Distant bolts of lightning flash,
+their light dissipated as if trapped in clouds.
+~
+~
+301465605 4 9 0
+D0
+~
+~
+0 -1 44938 10 10 5
+D1
+~
+~
+0 -1 44919 10 10 5
+D2
+~
+~
+0 -1 44935 10 10 5
+D3
+~
+~
+0 -1 44930 10 10 5
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( !rflag( reset0, room ) )
+  end;
+else {
+  if( random( 1, 5 ) > 3 ) {
+    remove_rflag( reset0, room );
+    act_tochar( #enter, ch );
+    mob_in_room( mload( 1271, room ), room );
+victim = ch;
+    mob = mob_in_room( 1271, room );
+    wait( 1 );
+    interpret( mob, "say Fools.  If your mortal flesh can pass through, my prison is open.  The world will feel the agony of your mistake." );
+    }
+  else
+    end;
+  }
+~
+E
+enter~
+@YYou hear a deafening shriek as a huge, dark shape boils out of the
+endless field of gray.  You have just a moment to realize what you're
+seeing before the massive of form of Kasikus the ethereal dragon is upon
+you.@n
+~
+!
+1 0 15
+-1
+S
+
+#44940
+Inside a Massive Log~
+The enormous, hollow log is like a tunnel, although the east end is
+jammed up against another tree trunk, blocking that way.  Tiny droplets
+of water drip in through cracks in the ancient, time-eaten wood.  The
+interior is covered with moss, and dark water congeals on the floor.
+~
+~
+301465604 3 9 0
+A
+leave climb exit~
+log room out up tunnel hollow tree~
+act_tochar( #leave, ch );
+act_notchar( #rleave, ch );
+transfer( ch, find_room( 44791 ) );
+loop( followers ) {
+  transfer( rch, find_room( 44791 ) );
+  act_notchar( #arr, rch );
+  }
+~
+E
+leave~
+You step out of the massive log.
+~
+E
+rleave~
+$n steps out of the massive log.
+~
+E
+arr~
+$n steps out of the massive log.
+~
+!
+0 0 0
+1270 9 1509949540 3 0
+-1
+S
+
+#0
+

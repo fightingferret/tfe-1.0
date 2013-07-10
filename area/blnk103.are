@@ -1,0 +1,1712 @@
+#AREA
+Nordun's Chambers~
+Nivel~
+Chamber of Nordun~
+
+85 0
+2
+#ROOMS
+
+#55500
+In a Dark Underground Chamber~
+Its floor tiled in an intricate mosaic, this large vaulted chamber is
+well decorated.  Two torches are lit at the east and west ends, giving
+this room a fair amount of light.  Several tapestries line the walls
+here, and the domed ceiling is covered by a large mural.  In the center
+of the room is a large @Gstaircase@n which entwines itself sinously about a
+white granite column.  It heads upwards, into darkness.  Four arched
+doorways lead further into the royal burial grounds.
+~
+[Nivel] Starshine's gone through it all, and I've done those revisals as pointed out.
+[Nivel] I'll be in Nordun's chamber getting eaten by him if you have any questions.
+[Starshine] giggle
+~
+301465605 0 8 0
+D0
+~
+~
+0 -1 55501 10 10 5
+D1
+~
+~
+0 -1 55511 10 10 5
+D2
+~
+~
+0 -1 55504 10 10 5
+D3
+~
+~
+0 -1 55512 10 10 5
+D5
+~
+~
+171 -1 55510 10 10 5
+E
+mural~
+@EWhile it is rather difficult to see in the dark, the mural is finely
+drawn.  Its background a light @Ccyan@E color, it looks like this:@n
+
+@I@I@I@I@I@I@I@I@I@I@I@E       @n
+@I@I@I@I@I@I@I@I@I@I@E           @n
+@I@I@I@I@I@I@I@I@I@I@I@I@E     @n
+@R                                 $$$$$$$$$
+@R                                $$$$$$$    @E    @n
+@R                                $$$$     @E            @n
+@R                               $$$            @E     @n
+@Y                             __||_
+@G                            /     \
+@G                           /       \
+@G                     @B^@G    ||||     |
+@G                    @B/ \@G   ||||     /
+@G                     @B=@G     \______/
+@B                     =      /@nU@B@nU@B@nU@B@nU@B@nU@B\
+@B                     =     /  @n@nU@B@nU@B@nU@B  \\
+@B                     =    |    @nU@B    \|
+@B                    / \   | \        \
+@B                    \ /   |  \        \
+@B                    /_\$___|___\      /
+@Y      __/\@n$$$$$$$$$@B(| c)             |
+@Y   __/+ \     \@n$$$$@B(|_|_____________/
+@Y  /            @n$$$$$@B@n$@B       \        |
+@Y  \_\\_          $$ @B/ \     /       /
+@Y     \\\___     //  @B\ /@Y/\@Y__@B/       /@Y____/\______   @n$$$$$$$$$$
+@Y      \\_  \   //   @B@B| | @Y\\@B/       /     @Y\ \     \@n$$$$$$$$$$$$
+@Y          \_/       @B@B| |  |@n@nU@B@nU@B@nU@B   /       @Y//        \
+@Y          \_/       @B@B| |  |@n@nU@B@nU@B@nU@B   /@Y       //        \
+@Y           /       \@B@B| |  \@nU@B@nU@B   /@Y        //        |
+@Y           |        @B| |   \@nU@B   \@Y=======// \       |
+@Y          _|        @B| |@Y/   @B\@nU@B   \@Y/                \
+@Y     ____/ /        @B| |     \@nU@B   \               @Y/
+@Y    / __   \     /__@B| |@Y_____|@B\@nU@B   \@Y_______      /
+@Y    | | | \_ /    /@B | |     |_|\   |     @Y/   __/
+@Y    | |   /    /    @B| |    //_\____|    @Y/   ^   \
+@Y    \ |   \   /     @B| |    /___/@Y_______/   /_\   \
+@Y     \ \   \   \    @B\ /       @Y\   _____/   /      /
+@Y      \|    \  \     @B#@Y     _   \_/     /  /_______/
+@Y             \  \____@B#@Y____/ /        /  /
+@Y             \____________/         / /
+@Y                                    / /
+@Y                                   /___\
+
+~
+E
+tapestries~
+They are mostly just your basic medieval tapestry.  A few naked ladies
+are eating apples on velvet benches, and some knights are fighting grand
+battles with large pieces of silverware.
+~
+E
+mosaic~
+This intricately tiled mosaic, when seen from a distance, is the letter
+'N'.  Green ivy twirls about the letter in painted flourishes, and
+several other scenes surround the letter, showing fishermen and armored
+men and crowned men wearing purple and many other activities.
+~
+A
+climb~
+staircase~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 55509 ) );
+act_notchar( #rrchar, ch );
+~
+E
+climb~
+You slowly climb the narrow granite staircase.
+~
+E
+rclimb~
+$n slowly climbs the narrow granite staircase.
+~
+E
+rrchar~
+$n arrives from below.
+~
+!
+0 0 0
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+A
+climb~
+staircase~
+acode( room, 1 );
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+} 
+~
+!
+0 0 0
+A
+~
+~
+if( !is_open( room, down ) ) {
+  if( !mob_in_room( 1448, find_room( 55508 ) ) ) {
+    if( !mob_in_room( 1690, find_room( 55507 ) ) ) {
+      if( !mob_in_room( 1691, find_room( 55514 ) ) ) {
+        if( !mob_in_room( 1692, find_room( 55513 ) ) ) {
+          if( !mob_in_room( 1693, find_room( 55506 ) ) ) {
+            if( !mob_in_room( 1694, find_room( 55505 ) ) ) {
+              act_room( #key, ch );
+              open( room, down );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+~
+E
+key~
+As you step upon the floor, a granite staircase is revealed to you!
+~
+!
+1 0 31
+-1
+S
+
+#55501
+Along a Dark Hallway~
+This short hallway is very dark.  Old unused sconces rest on the granite
+walls to the east and west.  They hold no torches, but have not rusted,
+and are useable.  A faint light comes from the south, but it is pitch
+black to the north.  Several tapestries line the wall here, some
+newer-looking, others decayed and disintegrating.  Some look like their
+seams would probably fall apart at the nearest touch.
+~
+~
+301465600 0 5 0
+D0
+great mahogany double-door~
+great mahogany double door~
+131 -1 55514 10 10 5
+D2
+~
+~
+0 -1 55500 10 10 5
+E
+tapestry tapestries~
+Many of them are faded and tearing.  One of them has a strange rune in
+the center of it, unlike any you've ever seen.  Most of the tapestries
+depict summer days and men and women enjoying themselves under the cool
+shade of what look to be elm or oak trees.
+~
+E
+rune~
+@B                         ____
+@B                         |  |
+@B               ___       |  |       __
+@B               \  \      |  |      /  /
+@B                \  \     |  |     /  /
+@B                 \  \    |  |    /  /
+@B                  \  \   |  |   /  /
+@B                   \  \  |  |  /  /
+@R                    \  \ |  | /  /
+@R                     \  \|  |/  /
+@Y@e                     |          |
+@G@e                     |          |
+@R                    /   /|  |\   \ 
+@R                   /   / |  | \   \
+@R                  /   /  |  |  \   \    
+@R                 /___/   |__|   \___\
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+-1
+S
+
+#55502
+Intersection along a Dark Hallway~
+This small room connects the hallway to the west with two dark
+bedchambers to your north and south.  Arched entrances guarded by solid
+mahogany doors lead into them, and there appears to be writing over each
+of the arches.  On the east wall, several marble stands hold various
+artworks. A great tapestry spans across it, depicting a magical
+battle between two sorcerors.  A gold-trimmed crimson carpet heads
+north-south, with a red seal woven into it.
+~
+~
+301465604 0 5 0
+D0
+great mahogany double-door~
+great mahogany double door~
+131 -1 55507 10 10 5
+D2
+great mahogany double-door~
+great mahogany door double~
+131 -1 55508 10 10 5
+D3
+~
+~
+0 -1 55511 10 10 5
+E
+north n~
+In faint script, it reads:
+@I@I@I@I@b@YHerein lies the bedchamber of Varconel, Head Mystic for King Nordun.@n
+~
+E
+s south~
+In faint script, it reads:
+@I@I@I@I@I@b@YHerein lies the bedchamber of Plithis, Head Healer for King Nordun.
+~
+E
+carpet seal~
+This crimson carpet is very soft and comfortable, almost nice enough to
+sleep on.  A great golden @Y'N'@n is woven into the center of the carpet,
+and the golden color sticks out a little from the rug's surface.
+~
+E
+artworks marble sculptures~
+They are sculptures of various men and women in different postures.  They
+are finely crafted, and must have taken years to create.
+~
+E
+tapestry~
+Two sorcerors stand opposite each other.  Strange blue and green flames
+leap from their hands, and they are both surrounded by an eerie-looking
+shield tinged white from fierce blasts on either side.  One is cloaked in
+white, the other in black.  The one in blank is holding a strange
+multicolored orb in his hands, his scarred face grinning evilly as the
+sorceror in white seems to be losing.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+-1
+S
+
+#55503
+Intersection along a Dark Hallway~
+This small room connects the hallway to the east with two chambers to
+your north and south.  Arched doorways lead into them, and there appears
+to be writing over each of the arches.  On the west wall, several marble
+stands hold sculptures and fine pottery.  A great tapestry lies on the
+west wall, over five paces in length, depicting a brutal battle scene.
+~
+~
+301465604 0 5 0
+D0
+great mahogany double-door~
+great mahogany double doors~
+131 -1 55506 10 10 6
+D1
+~
+~
+0 -1 55512 10 10 5
+D2
+great mahogany double-door~
+great mahogany double doors~
+131 -1 55505 10 10 5
+E
+n north~
+In a faint script, it reads:
+@I@I@b@YHerein lies the bedchamber of Israkth, Knight-Protectorate of King Nordun.
+~
+E
+s south~
+In a faint script, it reads:
+@I@I@b@YHerein lies the bedchamber of Joolan, Monk-guardian of King Nordun.@n
+~
+E
+s south~
+In a faint script, it reads:
+~
+E
+tapestry~
+This tapestry shows a score of armored, mounted knights and several
+hundred footmen marching toward a battlefront.  Many things are going on
+in the tapestry.  Some men are hiding in the forest, ready to attack the
+enemy.  Other parts of the tapestry show a few small battles where
+several men lay dead or dying, some being looked after by angelic figures. 
+In the center of the mass is a great warrior wielding a broadsword such
+as you have never seen.  Beside him runs a brown-robed figure.  A trail
+of fallen men lies behind the duo.
+~
+E
+pottery sculptures~
+The various sculptures and pottery all seem to depict bloody battles or
+war scenes.  Some of the sculptures show a short man in what appears to
+be a fighting position, while some others depict a great armored man
+wielding a massive sword.  The vases are similarly painted with emphasis
+on the two figures in battle.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+-1
+S
+
+#55504
+Along a Dark Hallway~
+This short hallway is very dark.  Old unused sconces rest on the granite
+walls to the east and west.  They hold no torches, but have not rusted,
+and appear useable.  Several old dusty tapestries line the wall here,
+most of them beginning to fall apart.  While you can discern a large
+chamber to the north, utter blackness envelops the area to the south,
+where you can barely make out the shape of two great black wooden
+double-doors blocking your way.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 55500 10 10 5
+D2
+great mahogany double-door~
+great mahogany double door~
+131 -1 55513 10 10 5
+E
+tapestry tapestries~
+Many of them are torn and are fading from years of age.  They depict
+battle scenes between men and dragons, and they are done in exquisite
+detail.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+-1
+S
+
+#55505
+Chamber of Joolan~
+Covered with thick cobwebs that block light from entering the bedchamber,
+this large room is mostly bare.  A few stray books lie on the floor near
+a small bed that has endured many years forgotten and unadorned.  A
+fireplace has been built into the western wall.  The floor is bare of
+cover, consisting of grey, granite rectangular stones that travel
+diagonally across from the northeast to southwest.  Several unlit sconces
+are mounted on the south wall, overlooking a @Ygolden-colored@n chair. 
+Several small candles dot the floors in a circular pattern around the
+middle of the room, but they shine no light as they are bereft of the
+courtesy of flame.  Two great arched mahoghany doors lead north out of
+the bedchamber.
+~
+[Isis] monk
+~
+301465604 0 5 0
+D0
+great mahogany double-door~
+great mahogany double-door~
+131 -1 55503 10 10 5
+E
+golden-colored chair~
+It sits broken, only three of its legs supporting it and one of its
+armrests hanging off to the side.
+~
+E
+fireplace~
+Black from former use, earth piles down from its interior, and it appears
+to have been caved in for quite some time.
+~
+E
+books~
+Lying on the floor, many are very old and crumbling.  Some of the titles
+you can read are @Y'History of the Kingdom of Ridania'@n and
+@YMeditation: a Formal Guide'@n.  Most appear to be unusable though, as
+the pages would be destroyed at a touch.
+~
+E
+candles~
+These small wax candles are flameless and the wicks have disintegrated. 
+They form a circular pattern around the middle of the room, but neither
+the pattern nor the candles seem to have any real use.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+A
+rest sit~
+chair~
+act_tochar( #sit, ch );
+act_notchar( #rsit, ch );
+~
+E
+sit~
+You try to sit on the golden-colored chair, but it feels too weak, and
+you step away before it breaks.
+~
+E
+rsit~
+$n tries to sit on the golden-colored chair, but shies away as it does
+not appear to be able to support $m.
+~
+!
+0 0 0
+A
+get~
+book~
+if( !rflag( reset1, room ) )
+  act_tochar( #no, ch );
+else if( random( 1, 5 ) == 3 ) {
+  act_tochar( #found, ch );
+  obj_to_char( oload( 2528 ), ch ); 
+  remove_rflag( reset1, room );
+  }
+else{
+  remove_rflag( reset1, room );
+  act_tochar( #no, ch );
+  }
+~
+E
+no~
+As you pick up one of the books, it crumbles and disintegrates in your hands.
+~
+E
+found~
+You pick up a leather-bound book, and it still appears to be intact.
+~
+!
+0 0 0
+1694 9 1509949540 3 0
+-1
+S
+
+#55506
+Chamber of Israkth~
+This large chamber is well-furnished, but feels cheerless and lonely. 
+Cobwebs weave themselves about the room as a canopy, adding a ghostly
+tinge to the chamber.  Several richly-embroidered books lie on a shelf on
+the west wall, covered in dust, their pages tinted a golden color on the
+verge of crumbling.  A massive bed lies to the north, its bedlegs
+twisting upwards and lacquered a tawny hue.  A dark, mahogany cabinet
+hugs the east wall, from which a three-sided mirror reflects the dim
+light around the room.  A long slender frieze depicting a great battle
+scene lines the walls of this room, and above the bedpost is a colorful
+painting.  Despite the grand appearance of this bedchamber, there is an
+unshakable feeling of being watched.  A cold shadow casts itself
+ominously about the room.
+~
+[Isis] warrior
+[Isis] room has an empty feeling, it makes sense. doesn't have anything to do with furnishings.
+[Nivel] wishy-washy people who kill both good and evil cannot have the sword.
+~
+301465604 0 5 0
+D2
+great mahogany double-door~
+great mahogany double doors~
+131 -1 55503 10 10 5
+E
+bed~
+Deep red sheets line the dusty mattress, but made of goosefeather, it is
+quite comfortable and is matched by a red pillow of soft down.  However,
+the bed could use quite a dusting, as cobwebs have strewn themselves all
+about it.
+~
+E
+frieze~
+The frieze tops each wall of the room, depicting several different scenes
+of a battle.  There appears to be a central figure in the frieze, a huge
+man wielding a broadsword, and as the scenes change, so does the man
+change, sometimes fighting, sometimes holding a holly branch in peace or
+knelt in prayer.
+~
+E
+painting~
+The painting depicts a knight kneeling as his lord presents upon him a
+fine chain wrought of gold.
+~
+E
+cabinet~
+This dark mahogany cabinet's legs are finely carved.  Its smooth top
+gleams coolly in the light, its well-polished surface dusty.  An equally
+dusty mirror sits atop it.
+~
+E
+books~
+These gold-bound books look like they would crumble at a touch.  They
+rest on a shelf, gathering cobwebs and dust.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+A
+1 look~
+mirror~
+act_tochar( #vain, ch );
+interpret( ch, "comb" );
+~
+E
+vain~
+@CYou vainly look at yourself in the mirror. Boy, your hair looks pretty bad.
+~
+!
+0 0 0
+A
+get~
+books~
+act_tochar( #crum, ch );
+~
+E
+crum~
+As you pick one of the books up, it disintigrates in your hand.
+~
+!
+0 0 0
+2526 17 1509949540 -2 0
+1693 9 1509949540 3 0
+-1
+S
+
+#55507
+Chamber of Varconel~
+A still, heavy air hangs in this lavish bedchamber.  A thick carpet of
+dust clings to the floor, and clouds of dust form at the tiniest movement. 
+Cobwebs have formed all across the ceiling and walls, even on the
+lacquered finish of the mahoghany doors.  In the eastern corner of the
+room lies a medium-sized bed of intricate design and a bedstand with a
+small candlestick and an unlit candle on it.  A @Ygold-rimmed@n glass
+chest encases several items where it rests on the western wall.  A
+strange-looking granite column is in the center of the room, and it
+appears to have to apparent purpose.
+~
+[Merior] search bed does nothing
+[Nivel] human was stupid typo, mage has it because the two items are magical.
+[Nivel] They are Varconel's little treasures.
+[Merior] if you randomly set it no.magic.. it never comes off
+[Nivel] it randomly removes no.magic flag.
+~
+301465604 0 5 0
+D2
+great mahogany double-door~
+great mahogany double-door~
+131 -1 55502 10 10 5
+E
+granite column ~
+It juts out at a perfect angle from the grey floor to stand at about
+waist's height, and its flat top gives it the look of a pedestal, but you
+cannot be certain of its use.
+~
+E
+bed bedstand~
+This small bed and bedstand are well-finished and look comfortable, but
+there appears to be nothing special about them.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+A
+smash hit break destroy shatter~
+glass gold-rimmed case chest~
+if( !mob_in_room( 1690, room ) )
+  {
+act_tochar( #noway, ch );
+act_notchar( #rnoway, ch );
+}
+else {
+act_tochar( #noway, ch );
+act_notchar( #rnoway, ch );
+mob = mob_in_room( 1690, room );
+interpret( mob, "snicker" );
+}
+~
+E
+noway~
+@eAs hard as you hit the @e@Ygold-rimmed@n@e case, you cannot put a scratch
+on it.@n 
+~
+E
+rnoway~
+$n tries to smash open the case, but is unable to.
+~
+!
+0 0 0
+A
+aim point use~
+ruby~
+if( !mob_in_room( 1690, room ) ) {
+  if( is_player( ch ) ) {
+    obj = has_obj( 2361, ch );
+    if( !obj )
+      act_tochar( #nope, ch );
+    else {
+      if( !rflag( reset1, room ) )
+        act_tochar( #nothing, ch );
+      else {
+        act_tochar( #bright, ch );
+        wait( 2 );
+        act_tochar( #out, ch );
+        wait( 1 );
+        act_tochar( #out1, ch );
+        junk_obj( obj, 1 );
+        wait( 1 );
+        act_tochar( #get, ch );
+        obj_to_char( oload( 2522 ), ch );
+        obj_to_char( oload( 2523 ), ch );
+        remove_rflag( reset1, room );
+        }
+      }
+    }
+  }
+else {
+act_tochar( #wont, ch );
+act_notchar( #rwont, ch );
+}
+~
+E
+nope~
+You do not have that item.
+~
+E
+nothing~
+The @Ygold-rimmed@n case has already been looted from, its charred, black
+remains the only thing left.
+~
+E
+bright~
+@eThe @Rbright-red ruby@n@e flares and starts to burn and melt through
+the gold-rimmed case!@n 
+~
+E
+get~
+@eSearching through the debris, you come upon the crimson-plumed visor
+and a beautiful-looking dagger, which seem to have survived the flames
+without so much as a black mar!@n 
+~
+E
+out~
+@MThe firey ruby starts to pulse faster!@n
+~
+E
+out1~
+@RThe red ruby starts to flare, and shatters into tiny pieces in your
+hand, the small shards still glowing weakly.@n 
+~
+E
+wont~
+@YVarconel prevents you from desicrating his chambers!@n
+~
+E
+rwont~
+@YVarconel prevents $n from desicrating his chambers!@n
+~
+!
+0 0 0
+A
+l look~
+gold-rimmed chest case~
+if( rflag( reset1, room ) )
+act_tochar( #already, ch );
+else
+act_tochar( #already1, ch );
+~
+E
+already~
+Encased in this @Ygold-rimmed@n case are several items, among which sit a
+jewel-encrusted @Mdagger@n and an odd-looking @Mvisor@n with @Rcrimson@n
+plumes.  However, while these items are pleasing to the eye, the glass
+looks solid and there doesn't seem to be a keyhole.
+~
+E
+already1~
+Smoldering, charred rubble remains of what looks to have been a glass
+case.  A heat hotter than a forge was probably necessary to melt the
+gold-rimmed lining of the now blackened case.
+~
+!
+0 0 0
+A
+search~
+bed mattress~
+if( !rflag( reset0, room ) )
+  act_tochar( "As much as you search the bed, you don't find so much as a ducat.", ch );
+else {
+  remove_rflag( reset0, room );
+  act_tochar( "You feel between the mattresses.", ch );
+  act_notchar( "$n feels between the bed's mattresses.", ch );
+  if( random( 0, 23 ) == 7 ) {
+    act_tochar( "You find a shiny platinum coin!", ch );
+    act_notchar( "$n finds a platinum coin between the mattresses.", ch );
+    if( random( 0, 2 ) == 1 )
+      obj_to_char( oload( 16 ), ch );
+    else
+      obj_to_char( oload( 16 ), ch );
+    }
+  else
+    act_tochar( "As much as you search the bed, you don't find so much as a ducat.", ch );
+  }
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( no.magic, room ) )
+  remove_rflag( no.magic, room );
+~
+!
+2 50 0
+A
+get~
+candle~
+if( !rflag( reset0, room ) )
+  act_tochar( "There is no candle on the candlestick. Some thief must have taken it.", ch );
+else {
+  remove_rflag( reset0, room );
+  act_tochar( "You grab the candle from the candlestick and look around greedily.", ch );
+  act_notchar( "$n grabs a candle from the candlestick and looks around greedily.", ch );
+  obj_to_char( oload( 27 ), ch );
+  }
+~
+!
+0 0 0
+1690 9 1509949540 3 0
+-1
+S
+
+#55508
+Chamber of Plithis~
+Several beds line the great chamber here.  A large one stands on the
+eastern wall, covered in dust and cobwebs, its frame finished in gold and
+its mattress and pillow covered with scarlet silk.  Three others lie
+facing it, all smaller and covered in white.  Small wooden bedstands lie
+between each of the smaller beds, upon which sit several candlesticks. 
+On the south wall a @Bportrait@n hangs.  Two great mahoghany doors lie to
+the north, their backsides covered in dust and web.  In the southeast
+corner sits a fireplace.  Several books are piled up in the northeast
+corner, near the bed, their titles hard to read from the dust and cobwebs
+surrounding them.
+~
+[Isis] cleric
+[Merior] not much armor on him - - this intentional?
+[Nivel] armor on mage and cleric is intentional.
+[Merior] why anti-evil robes?
+[Nivel] the robes are for healing, a cause that rejects evil.
+~
+301465604 0 5 0
+D0
+great mahogany double-door~
+great mahogany double door~
+131 -1 55502 10 10 5
+E
+portrait~
+It is a well-made portrait of a fair-faced man wearing a @Esilver circlet@n
+and @ewhite@n robes, and holding a @Esilver cross@n ornamented with ivory.
+~
+E
+fireplace~
+A mound of dirt covers its hole, having long since been swallowed by
+earth.
+~
+E
+candlesticks~
+The candlesticks are devoid of wax or wick, and are of little use, their
+brass well tarnished and dull.
+~
+E
+books~
+This pile of books lies on the ground here, its titles fading and
+impossible to read.  Their pages are tanned a golden color.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+1448 9 1509949540 3 0
+-1
+S
+
+#55509
+End of the Narrow Stairway~
+The stairway ends here at a flat landing.  A thick iron-bound mahogany
+door, rusted at the hinges and looking immovable, lies on the south wall
+here, although there hardly seems a purpose to it.  The stairs winding
+upwards are dirt-stained and barred by cobwebs in every direction. 
+Several insects have made their homes down here, and they crawl amongst
+the dirt and scurry about harmlessly.  A large earthen pile has covered a
+small part of this stairway, where a small lancet would have looked down
+upon the ground long ago.  Across from it a large brass sconce lies,
+embossed with a two-headed serpent, but it has been long since it has
+seen torchlight.  Built of solid granite and well-mortared, this
+fortification would probably have made a fine castle, from the looks of
+it.
+~
+[Isis] south is entrance
+[Isis] will have to have a nice entrace
+[Merior] why would a door have no purpose?
+[Nivel] door, no purpose because it is underground.
+[Nivel] was buried with the tower. I may add rooms south of here in the future, but not now.
+~
+301465604 3 5 0
+D4
+~
+~
+0 -1 55515 10 10 5
+D5
+~
+~
+235 -1 55500 10 10 5
+E
+sconce~
+This beautiful embossed sconce looks slightly out of place on the wall
+here, and there seems to be some sort of metal attachment behind it.  It
+seems to be loose.
+~
+E
+door~
+This thick, iron-bound door is ancient and rotting, but it is still
+pretty strudy and solid.  Lines of dirt act as a mortar across around it,
+packing it in and making it unmovable.
+~
+A
+d do dow down~
+~
+if( is_open( room, down ) ) {
+  if( find_stat( ch, level ) < 40 ) {
+    act_tochar( #no, ch );
+    end;
+    };
+  else
+    continue;
+  }
+else
+act_tochar( #nope, ch );
+~
+E
+no~
+An odd force keeps you back, you are not yet powerful enough to go down
+there.
+~
+E
+nope~
+There is no exit in that direction.
+~
+!
+0 0 0
+A
+open~
+door s so sou south ~
+act_tochar( #cant, ch );
+~
+E
+can~
+No description
+delete
+~
+E
+cant~
+Try as hard as you might, you cannot budge the thick iron-bound door. 
+~
+!
+0 0 0
+A
+pull ~
+sconce serpent brass~
+if( is_open( room, down ) )
+  act_tochar( #already, ch );
+else{
+  act_tochar( #pull, ch );
+  open( room, down );
+  }
+~
+E
+already~
+The sconce has already been pulled, revealing a stairway that leads downward.
+~
+E
+pull~
+@EPulling on the brass sconce, a narrow stairway reveals itself from the
+cracks in the landing floor, and you almost tumble downward with it!
+~
+!
+0 0 0
+A
+push~
+sconce serpent brass~
+if( !is_open( room, down ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #push, ch );
+  close( room, down );
+  }
+~
+E
+already~
+You push on the sconce, but nothing happens.  Perhaps you should try
+pulling.
+~
+E
+push~
+@gAs you push on the brass sconce, the narrow stairway below you closes.
+~
+!
+0 0 0
+-1
+S
+
+#55510
+Chamber of Nordun~
+This huge chamber is well-decorated.  A mural covers the entire southern
+end of this ovular chamber.  In the northeast corner a rough granite
+staircase makes its way upwards, where a small yellow outline on the
+northeastern end is projected from its entrance up above, giving the room
+its only light.  South of here, on the far end, lies an enormous mahogany
+bed.  A few feet from it, facing the center, lies a small golden chair. 
+To the right and left of the bed sit two bedstands.  The ground here is
+of a white marble which alternates black and white like a chessboard.  To
+the east lies a large walk-in closet, but it seems to be empty.  On the
+west end, a great mirror stretches across the wall, splitting the room's
+light and giving the bedchamber a larger look to it.  However, despite
+the splendour of this room, something is amiss, and trepidation seems to
+dwell in the air.
+~
+[Isis] Nordun here
+[Merior] shouldnt this be a quest or something?
+[Merior] why is the crown evil-only? how does it fit on the dragon?
+[Merior] is this dragon meant to be killed?
+[Nivel] I'm sure if enough people get a HUGE group together, it can be killed in the future.
+[Nivel] It is not a quest yet.
+It is a magic crown, it stays on his head because he is cursed to wear it in recognition of what he once was.
+[Starshine] extra of books sitting on the bedstand? or an indication that they cannot be read?
+[Starshine] Not sure I understand how one gets into this room *blush*
+~
+301465604 3 9 0
+D4
+~
+~
+171 -1 55500 10 10 5
+E
+mahogany bed~
+Its bedposts reach to the sky in magnificently carved spirals, and the bed
+is topped with a flower embroidered canopy of a cornflower silk.
+~
+E
+chair green velvet seat throne golden~
+Adorned with a lush green velvet seat, it sits throne-like, facing the
+center of the room.  Upon the back of the chair is engraved a large
+striped wildcat with sharp claws.  The cold golden eyes of the animal
+regard you menacingly.
+~
+E
+bedstands~
+Made of solid gold, they sit untouched.  A few faded, leather-bound books
+rest upon them.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+A
+~
+~
+act_room( #wow, ch );
+obj_to_room( oload( 521 ) );
+if( random( 0, 80 ) == 17 ) 
+  obj_to_room( oload( 2417 ), room );
+obj_to_room( oload( 197 ), room );
+~
+E
+wow~
+@BAs the elemental dragon slowly dies, the treasures he was hoarding
+suddenly appear in view underneath his carcass.@n 
+~
+!
+0 0 0
+1695 9 1509949540 3 0
+-1
+S
+
+#55511
+Along a Dark Hallway~
+Its ceiling arching a good twenty feet over your head, this wide hallway
+is very dark.  Small unlit crystal chandeliers hang from above,
+sprinkling about the little light in the room.  Several tapestries line
+the north and south corridor walls, most of them worn and falling apart. 
+A long red carpet runs the length of this corridor, also worn and its
+color fading.  A few sconces line the walls here, all torchless.  A faint
+light comes from the west, while darkness reaches out from the east.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 55502 10 10 5
+D3
+~
+~
+0 -1 55500 10 10 5
+E
+tapestries~
+These tapestries are very ancient, and dust has dulled their once bright
+shine.  Many of them depict beautiful scenery of a green and flowing
+land, but the dust has now dulled the green to a dirty color.  Some of
+the tapestries have large holes in them, as if the central person in the
+scene had been taken out deliberately.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+-1
+S
+
+#55512
+Along a Dark Hallway~
+Its ceiling arching a good twenty feet over your head, this wide hallway
+is very dark.  Empty sconces hang on the walls to the north and south.  A
+sculpture and a gilded, glass-encased bowl lie on stands on the walls to
+the north and south.  A rich tapestry, decayed with age, hangs on by its
+threads, while above you lies a great mural.  A well-worn carpet hugs the
+ground here, its red-fringed cloth beginning to fall apart.  To the east,
+a dimly lit chamber can be seen, while the hallway stretches on to the
+west, into blackness.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 55500 10 10 5
+D3
+~
+~
+0 -1 55503 10 10 5
+E
+mural~
+The mural depicts several angelic figures presenting a sword to a
+fierce-looking individual wearing blood-red armor.  Several other
+important-looking figures surround him in what was probably a moving
+ceremony.
+~
+E
+sculpture~
+This fine sculpture shows a man kneeling before a scantily-clad woman,
+his greatsword held out to her hilt first.  She lightly touches his cheek. 
+The subtle details of the artwork are extraordinary.
+~
+E
+bowl~
+A golden bowl, it is also a magnificent piece of art.  Within the bowl is
+a moving landscape with fields and farmers, all etched with great detail.
+~
+E
+tapestry~
+While the cloth is decaying and faded, it is easily recognizable as some
+religious ceremony.  Several hooded figures walk in a long column, robed
+in brown, while one at the head, robed in white cloth, has his arms open
+to the sky and his eyes closed in prayer.  Several other figures are
+present as well, from their gold and jewelry they watch the procession
+with solemn faces.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+-1
+S
+
+#55513
+Chamber of Maris~
+This dusty and ancient-looking bedchamber is dank and cold, and seems to
+swallow light.  Enormous damage has been done to it, but it must have
+been resplendant in its youth.  enormous damage done to it, but must have
+been resplendant in its youth.  On the south wall lies a magnificent
+canopy bed, but it looks to be in ruin.  On the western wall there is
+similar damage, where a burned tapestry hangs loosely from the wall.  A
+bookshelf on the eastern wall has a similar fault, as it too has been
+torn asunder, but it still stands, many of its middle books burned beyond
+recognition.  The floor seems to have suffered a similar fate.
+~
+[Isis] paladin
+~
+301465604 0 5 0
+D0
+great mahogany double-door~
+great mahogany double door~
+131 -1 55504 10 10 5
+E
+bed~
+Made of stout oak and with a shining finish despite years of age, it
+rests on the south wall in ruin.  Split directly in twain, the feather
+mattress upon it has let a great deal of down escape from it.  The canopy
+itself is split in two as well, and mere threads seem to hold it from
+crashing in on its base.
+~
+E
+tapestry western west~
+This once fine tapestry has been torn in half.  Charred burn marks line
+the split edges.  The two torn pieces hang from the wall, two flags
+unwavering in the still air.
+~
+E
+floor~
+Two great black scar marks criss-cross through the center of this
+carpeted floor.  They run from east to west and north to south, stopping
+just before the mahogany doors on the north end of the bedchamber.  The
+carpet, a rich blue rug, is now separated into quarters by whatever
+caused the damage.
+~
+E
+bookshelf shelf eastern east~
+It lies in ruin on the eastern wall, most of its books either burnt to
+cinders or decayed beyond recognition.  Most surprising of all is that
+the shelf was split at all; it is made of solid marble but has suffered
+the same burning scars as the rest of the room.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+1692 9 1509949540 3 0
+-1
+S
+
+#55514
+Chamber of Weiran~
+While this dark bedchamber is riddled with cobwebs and dust, giving it a
+silent, brooding look, there is a feeling of peacefulness in this room. 
+On the west wall hangs a finely woven tapestry of a wolf.  On the east
+wall, hangs another one, showing a bear.  A barren-looking bed hides
+itself in the corner.  A green carpet, dulled from motes of dust that
+have collected over the ages, has spread itself over the rough grey
+stones.
+~
+[Isis] ranger
+[Merior] level 59 for an object? is this a precise determination based on marek's formula? *wink*
+[Nivel] no, this isn't a strict determination on formula. I'm sick of seeing stuff only for levels divisble by 5. its stupid.
+~
+301465600 0 5 0
+D2
+great mahogany double-door~
+great mahogany double door~
+131 -1 55501 10 10 5
+E
+wolf tapestry~
+This finely woven tapestry depicts a wolf in midstride, running through a
+field, his tongue waggling about.  The wolf has a stoic grandeur about
+him.
+~
+E
+bear east~
+The colorful tapestry shows a bear on all fours, dipping his paw into a
+lake, while several bright pikefish jump out of the water, sporting with
+him.
+~
+E
+green carpet~
+This dusty green carpet has a brown rune looking like a backwards 'F'
+over the center of it.  It absorbs all your attention for a moment, but
+remains a mystery. 
+~
+E
+cobwebs dust~
+Cobwebs and dust cover nearly everything in this chamber, and they dull
+the light, giving the room an eerie shimmer.  Whether caused by the
+cobwebs or dust, this bedroom feels ancient and alive.
+~
+A
+cast~
+summon~
+act_tochar( #not, ch );
+act_notchar( #rnot, ch );
+end;
+~
+E
+not~
+The room seems to hum as you attempt to call upon the forces of your god
+to summon your victim.
+~
+E
+rnot~
+The room seems to hum as $n attempts to call upon the forces of $s god to
+summon $s victim.
+~
+!
+0 0 0
+1691 9 1509949540 3 0
+-1
+S
+
+#55515
+On a Narrow Stairway~
+Built of solid granite, this narrow stairway is covered with dust and
+cobwebs, giving it an ancient look.  However, the stairs are quite solid,
+leading around a thick granite column of horizontally placed cube stones. 
+They lead both upwards and downwards, both black and undistinguishable. 
+There are no windows or lancets in the room, and the air is heavy, making
+it a little hard to breathe.
+~
+~
+301465604 3 9 0
+D4
+~
+~
+0 -1 55516 10 10 5
+D5
+~
+~
+0 -1 55509 10 10 5
+-1
+S
+
+#55516
+At the Top of a Granite Watchtower~
+This room looks to be the top of a large watchtower.  Four large windows
+peer out from each direction, but all are blocked with earth and stone. 
+It seems that the watchtower was buried beneath the earth, and there is a
+narrow stairway leading deeper into the interior of the fortress.  The
+ground here is covered with dirt, but a towering ceiling above you and
+four heavy granite arches leading down to ground give a good impression
+of what the tower was once like.  Some loose dirt on the south wall
+catches your attention.
+~
+[Merior] i dont understand the tower being buried...
+[Nivel] need shovel to get in this area.
+[Nivel] tower was buried in an earthquake. read 'help chamber'
+~
+301465604 3 9 0
+D2
+~
+~
+235 -1 55517 10 10 5
+D5
+~
+~
+0 -1 55515 10 10 5
+A
+dig~
+s south~
+if( !is_open( room, south ) ) {    
+  if( has_obj( 1489, ch ) ) {   
+    act_tochar( #dig, ch );
+    act_notchar( #rdig, ch );
+    wait( 1 );
+    open( room, south );
+    remove_rflag( reset1, room );
+    }
+  else{
+    act_tochar( #cant, ch );
+    }; 
+  }
+else
+  act_tochar( #alread, ch );
+~
+E
+dig~
+You start to dig your way south through the thick dirt.
+~
+E
+rdig~
+$n starts digging his way south, creating a small dirt tunnel.
+~
+E
+cant~
+You don't have the tools for that.
+~
+E
+alread~
+There is already a tunnel south, there is no reason for digging.
+~
+!
+0 0 0
+A
+1 look~
+1 south wall loose dirt~
+if( rflag( reset1, room ) )
+  act_tochar( #closed, ch );
+else {
+  act_tochar( #open, ch );
+  };
+~
+E
+open~
+A small tunnel has been dug into the south window.
+~
+E
+closed~
+You think you the dirt on the south wall is a little less packed than the
+others.  Perhaps you could dig into it, if you had a shovel.
+~
+!
+0 0 0
+-1
+S
+
+#55517
+In a Dirt Tunnel~
+The air here is thick and musty, making it hard to breathe.  To the
+north, there appear to be granite slabs on either side of some soft brown
+dirt.  A small tunnel makes its way upwards, dirt packed on each side of
+it.
+~
+[Merior] this is a dead end?
+[Nivel] entrance to area. 
+~
+301465612 3 9 0
+D0
+~
+~
+235 -1 55516 10 10 5
+D4
+~
+~
+235 -1 55518 10 10 5
+E
+slabs granite~
+The granite slabs appear to be manmade.  Small cracks in the mortar can
+be distinguished.  There is packed dirt in between them, though, probably
+a hole of some kind.
+~
+A
+dig~
+n north~
+if( !is_open( room, north ) ) {
+  if( has_obj( 1489, ch ) ) {
+    act_tochar( #dig, ch );
+    act_notchar( #rdig, ch );
+    wait( 1 );
+    open( room, north );
+    remove_rflag( reset1, room );
+    }
+  else{
+    act_tochar( #cant, ch );
+    };
+  }
+else act_tochar( #already, ch );
+~
+E
+dig~
+You start to dig a path north with your shovel.
+~
+E
+rdig~
+$n starts to dig a path north with his shovel.
+~
+E
+cant~
+You cannot dig through the dirt with your bare hands, as the dirt is too
+well packed.
+~
+E
+already~
+The tunnel north is already open.
+~
+!
+0 0 0
+A
+1 look~
+1 north loose dirt~
+if( rflag( reset1, room ) )
+act_tochar( #closed, ch );
+else {
+act_tochar( #open, ch );
+};
+~
+E
+closed~
+You think you the dirt on the north wall is a little less packed than the
+others.  Perhaps you could dig into it, if you had a shovel.
+~
+E
+open~
+A small tunnel has been dug into the north wall.
+~
+!
+0 0 0
+A
+dig~
+1 up~
+if( !is_open( room, up ) ) {
+  if( has_obj( 1489, ch ) ) {
+    act_tochar( #dig, ch );
+    act_notchar( #rdig, ch );
+    wait( 1 );
+    open( room, up );
+    remove_rflag( reset2, room );
+    }
+  else{
+    act_tochar( #cant, ch );
+    };
+  }
+else act_tochar( #already, ch );
+~
+E
+dig~
+You start to dig a path upwards with your shovel.
+~
+E
+rdig~
+$n starts to dig a path upwards with his shovel.
+~
+E
+cant~
+You cannot dig through the dirt with your bare hands, as the dirt is too
+thick.
+~
+E
+already~
+A hole has already been formed, leading upwards.
+~
+!
+0 0 0
+-1
+S
+
+#55518
+In a Circle of Pines~
+White pines encircle a barren landscape of dirt.  The dark, loose black
+earth looks out of place from the brown soil.  The black, nutrient-rich
+soil in the middle is devoid of any grass or other plant life.  A tiny
+path leads south through a natural archway of two pines, and there
+appears to be a larger path south of here.
+~
+[Starshine] add extra pines/archway, path/south
+[Starshine] add earth keyword to extra 1
+~
+301465612 3 9 0
+D5
+~
+~
+235 -1 55517 10 10 5
+E
+soil dirt down~
+The black soil swirls about on the edges, creating a beautiful mixture of
+browns and blacks.  The dirt in the middle is especially loose.
+~
+A
+dig~
+1 down soil dirt black~
+if( !is_open( room, down ) ) {
+if( has_obj( 1489, ch ) ) {
+act_tochar( #dig, ch );
+act_notchar( #rdig, ch );
+wait( 1 );
+open( room, down );
+remove_rflag( reset2, room );
+}
+else{
+act_tochar( #cant, ch );
+};
+}
+else act_tochar( #already, ch );
+~
+E
+dig~
+You start to dig a path down into the black earth with your shovel.
+~
+E
+rdig~
+$n starts to dig a path into the black earth with his shovel.
+~
+E
+cant~
+You cannot dig through the dirt with your hands; it is too hard.
+~
+E
+already~
+A hole has already been formed in the earth below.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

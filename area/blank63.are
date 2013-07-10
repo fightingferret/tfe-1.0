@@ -1,0 +1,944 @@
+#AREA
+Giant Bumble Bees~
+Kabashira~
+Bumble Bees~
+
+15 0
+0
+#ROOMS
+
+#44250
+Deep Forest, Large Hole~
+The trees of the forest thin out here.  You notice a rather large, gaping
+hole in the ground, partially covered by a fallen tree.  Oddly, the soil
+around the hole looks fresh.  Around the periphery of the hole, tufts of
+bright green grass are growing.
+~
+[Merior] need extra for tree
+[Merior] the hole is just TOO obvious..  make them work a little bit to
+find the area...
+[Phule] this room can change, in conjunction with where it is put.
+~
+301465601 3 5 0
+D2
+~
+~
+0 -1 19152 10 10 5
+D5
+a hole!~
+a hole!~
+0 -1 44251 10 10 5
+E
+soil~
+The soil is freshly turned.  It has not had time to dry out yet, so
+something has definitely been here recently.
+~
+E
+hole~
+The hole appears to lead down into a tunnel of some sort.
+~
+E
+grass tufts~
+These bright green tufts of grass are rather unremarkable in appearance,
+other than the intensity of their green foliage.
+~
+-1
+S
+
+#44251
+Moist Tunnel~
+The exit above provides a slight breeze of fresh air in this cramped
+tunnel.  The earth is a ruddy brown color, and moist to the touch.  The
+breeze causes dirt from above to cascade down the tunnel walls, like
+miniature avalanches.
+~
+[Merior] if human sized.. big guys cant get in.. this intentional?
+~
+301465601 11 5 0
+D4
+~
+~
+0 -1 44250 10 10 5
+D5
+~
+~
+0 -1 44252 10 10 5
+A
+~
+~
+send_to_room( #dirt, room );
+~
+E
+dirt~
+Dirt cascades down from above, throwing dust everywhere.
+~
+E
+damage~
+~
+!
+2 400 0
+-1
+S
+
+#44252
+Moist Tunnel~
+This tunnel is about five feet in diameter.  Thin filamentous roots hang
+from the ceiling of the eastern tunnel, partially obstructing the view to
+the east.  The air is humid, yet cool, and smells slightly sweet.  The
+tunnel appears to widen gradually as it continues eastward.
+~
+~
+301465609 11 5 0
+D1
+~
+~
+0 -1 44253 10 10 5
+D4
+~
+~
+0 -1 44251 10 10 5
+E
+roots east view~
+The hanging roots branch out at random intervals, looking like miniature
+brown lighting bolts.  Their sheer number makes looking through them
+very difficult.
+~
+A
+~
+~
+room = find_room( 44253 );
+if( mob_in_room( 948, room ) ) {
+room = find_room( 44252 );
+  send_to_room( #buzz, room );
+  }
+~
+E
+buzz~
+@BYou hear a loud buzzing to the east.@n
+~
+!
+1 900 18
+-1
+S
+
+#44253
+Large Chamber~
+This chamber is enormous, with tunnels leading off to the north, east,
+south, and west.  The ceiling is rather high, being about fifteen feet
+from the ground, and the walls are composed of hard-packed clay.  The air
+here is humid, yet sweet in smell.
+~
+~
+301465604 0 8 0
+D0
+~
+~
+0 -1 44254 10 10 5
+D1
+~
+~
+0 -1 44261 10 10 5
+D2
+~
+~
+0 -1 44272 10 10 5
+D3
+~
+~
+0 -1 44252 10 10 5
+A
+sniff smell~
+~
+act_tochar( #sniff, ch );
+act_notchar( #rsniff, ch );
+~
+E
+rsniff~
+$n sniffs the air.  You hear $s stomach grumble.
+~
+E
+sniff~
+The smell is sweet and pleasant.  Your stomach grumbles.
+~
+!
+0 0 0
+948 9 1509949540 3 0
+-1
+S
+
+#44254
+Honey Chamber~
+The air here smells very sweet.  A few large roots emerge from the
+ceiling, only to disappear again into the ground.  Dozens of large brown
+spheroid objects fill the room, leaving little space for you to stand. 
+Dirt sloughs off the walls as a breeze enters from the main chamber.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 44253 10 10 5
+E
+spheroid objects honey pot~
+They are a light ruddy-brown color, and appear to be made from wax and
+pollen.  They ooze honey out of various imperfections in their surface
+when you poke them.  They closely resemble large clay pots, except that
+they are made of wax.
+~
+E
+liquid~
+The liquid is a yellow-brown color.  It has a very sweet smell.  It may
+be possible to collect some of it in a container.
+~
+E
+roots roto~
+These roots are very thick, and quite hard.  There must be some sort of
+large tree growing directly above this chamber.
+~
+953 9 1509949540 3 0
+-1
+S
+
+#44255
+Immaculate Chamber~
+This chamber is surprisingly free from all debris.  In fact, even the
+hard-packed ground is dust-free.  A ruddy brown waxy substance coats the
+tunnel entrance, and slowy tapers into nothing as it advances into the
+chamber.  A thin trickle of water weaves its way from the ceiling to the
+ground, forming a small muddy pool along the southern wall.
+~
+[Merior] queen body parts used for something?
+[Fyli] slowy should be slowly.
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44270 10 10 5
+E
+trickle water~
+Emerging from the ceiling, a small stream of water trickles down the
+southern wall of the chamber.  It snakes along in an almost hypnotic
+pattern.
+~
+E
+muddy pool~
+This water in this pool is light brown in color.  It has formed 
+from the water trickling down from the ceiling.
+~
+E
+waxy substance~
+This waxy substance coats the entrance to this chamber, and the tunnel
+beyond.  It doesn't seem to have any dust on it, which means it must be
+replaced regularly.
+~
+954 9 1509949540 3 0
+953 9 1509949540 3 0
+948 9 1509949540 3 0
+-1
+S
+
+#44256
+Brooding Chamber~
+The floor of this chamber is covered with a fine yellow powder.  There are
+several large brown wax bulbs are lying around the floor.  Along the
+eastern wall of the chamber lies a neat pile of yellow balls.
+Lichens grow all over the ceiling, making it appear slate gray in color.
+~
+[Ssleestaq] be cool to skin the larva for something.
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44267 10 10 5
+E
+wax bulbs~
+These appear to be cocoons of some sort.
+~
+E
+yellow balls~
+These balls seem to be made of a moist yellow powder.  They have a musky
+smell to them.
+~
+E
+powder~
+This fine powder looks very much like pollen.
+~
+E
+lichens~
+These odd-looking plant-like organisms coat the ceiling, causing it to
+take on a depressing gray hue.
+~
+953 9 1509949540 3 0
+953 9 1509949540 3 0
+976 9 1509949540 3 0
+976 9 1509949540 3 0
+976 9 1509949540 3 0
+976 9 1509949540 3 0
+976 9 1509949540 3 0
+-1
+S
+
+#44257
+Deep Forest, Wildflowers~
+As you enter this part of the forest, you are immediately taken aback. 
+The flowers here are absolutely huge!
+~
+dont make judgments on size just give a size that can seem huge to palyers
+This is not a real room, it will be deleted.
+~
+301465601 3 5 0
+-1
+S
+
+#44258
+Side Chamber~
+The dirt walls of this chamber are reddish-brown in color.  In fact,
+everything in this chamber is lined with a thin layer of reddish-brown
+dust.  There are dozens of large brown wax bulbs piled up along the
+northern end of the chamber.  It appears that a few of them have opened.
+~
+[Fraelith] cant call the queen just bee
+[Ssleestaq] workers should assist the queen.
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 44261 10 10 5
+E
+large brown wax bulbs~
+These appear to be giant insect cocoons of some sort.
+~
+E
+dust reddish dirt~
+The dust appears to have a high iron content, due to its color.
+~
+A
+move play molest open smash destroy~
+bulb bulbs cocoon cocoons~
+act_tochar( #oopsc, ch, obj );
+act_notchar( #oopso, ch, obj );
+~
+E
+oopsc~
+You start to molest one of the wax bulbs, only to break it.  Milky white
+slime oozes out from the newly formed cracks.
+~
+E
+oopso~
+$n grabs one of the bulbs and breaks it, releasing a milky white fluid.
+~
+!
+0 0 0
+950 9 1509949540 3 0
+951 9 1509949540 3 0
+951 9 1509949540 3 0
+872 17 1509949540 -2 0
+-1
+S
+
+#44259
+Damp Tunnel~
+The earthen walls forming this tunnel continue to the west and to the
+south.  Upon few places along the walls, the soil takes on a reddish hue. 
+A glint of @Wsilver@n catches your eye along the base of the southern tunnel
+wall.
+~
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 44260 10 10 5
+D3
+~
+~
+0 -1 44261 10 10 5
+E
+reddish soil dirt~
+Upon closer examination, the dirt appears very similar to rust.
+~
+E
+glint silver wall~
+There is definately something shiny within the southern wall of the
+tunnel.  It might be possible to dig it out.
+~
+A
+dig~
+glint silver~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #char_nothing, ch );
+  act_notchar( #room_nothing, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  obj_to_char( oload( 14 ), ch );
+  }
+~
+E
+char_nothing~
+You dig at the glint of silver only to be rewarded with a small piece of
+mica, which you quickly crush in frustration.
+~
+E
+room_nothing~
+$n digs at the something in the southern wall, and then groans in
+frustration.
+~
+E
+to_char~
+After digging at the tunnel wall for some time, you are rewarded with a single silver coin.
+~
+E
+to_room~
+$n digs at the southern wall for a while, obtaining a silver coin!
+~
+!
+0 0 0
+-1
+S
+
+#44260
+Damp Tunnel~
+The tunnel bends to the east and north, continuing into darkness.  The
+soil walls are almost entirely brick-red now, with only a few patches of
+brown here and there.  Also, from within the northern tunnel wall, a
+large boulder protrudes.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44259 10 10 5
+D1
+~
+~
+0 -1 44263 10 10 5
+E
+boulder~
+A rather large piece of granite.  Small flecks of copper can be seen
+throughout its surface.
+~
+E
+copper~
+Shiny bits of copper colored metal.  It is probably mixed with some other
+element, and therefore is of no real value or use.
+~
+-1
+S
+
+#44261
+Damp Tunnel~
+The walls of this earthen tunnel are dry, and the air is musty.  A large
+chamber opens up to the west, while a smaller one opens up to the north. 
+The tunnel continues to the east, where you can see the tunnel bending to
+the south and into darkness.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 44258 10 10 5
+D1
+~
+~
+0 -1 44259 10 10 5
+D3
+~
+~
+0 -1 44253 10 10 5
+A
+~
+~
+room = find_room( 44258 );
+if( mob_in_room( 951, room ) ) {
+room = find_room( 44261 );
+  send_to_room( #scratch, room );
+  }
+~
+E
+scratch~
+You hear a muffled @Yscratching@n sound emanating from the north.
+~
+!
+2 600 0
+A
+random_scratch~
+~
+~
+!
+0 0 0
+953 9 1509949540 3 0
+953 9 1509949540 3 0
+953 9 1509949540 3 0
+-1
+S
+
+#44262
+Large Chamber~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 44253 10 10 5
+-1
+S
+
+#44263
+Damp Tunnel~
+The tunnel continues to the east and west.  The earthen walls appear to
+have a few patches of reddish soil in a few places.  Nearby, on the
+ground, is a ruddy brown rock that seems somewhat odd.  Furthermore,
+along the southern wall are what appear to be scratch marks of some kind.
+~
+[Merior] why is hairs/base an extra - isnt it part of action?
+[Phule] is a puzzle to me as well, but i think leaving it is fine
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 44264 10 10 5
+D3
+~
+~
+0 -1 44260 10 10 5
+E
+reddish soil~
+Rust colored dirt.
+~
+E
+rock~
+The rock seems normal, except for the fact that it appears to be
+sprouting several large grey hairs from its base.
+~
+E
+hairs base~
+Lifting the rock to get a better look, you see that the hairs aren't
+really growing from the rock, but only being covered by it.  They are
+about half a foot long each, and are light gray in color.  They look a
+lot like rodent fur, only much, much larger.
+~
+E
+scratch marks~
+The scratch marks are composed of 4 lines each.  They run in seemingly
+random directions.
+~
+A
+lift raise move~
+rock~
+act_tochar( #clift, ch, obj );
+act_notchar( #olift, ch, obj );
+~
+E
+clift~
+Lifting the rock to get a better look, you see that the hairs
+aren'treally growing from the rock, but only being covered by it.  They
+are about half a foot long each, and are light gray in color.  They look
+alot like rodent fur, only much, much larger.
+~
+E
+olift~
+$n lifts the ruddy brown rock to get a better look underneath.
+~
+!
+0 0 0
+953 9 1509949540 3 0
+-1
+S
+
+#44264
+Damp Tunnel~
+The tunnel suddenly bends ninety degrees, leading into more darkness. 
+There are a few large dirt clods along the eastern edge of the tunnel
+floor.  Along the north wall, there are several large scratch marks.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44265 10 10 5
+D3
+~
+~
+0 -1 44263 10 10 5
+E
+dirt clods~
+Just large chunks of hardened dirt.
+~
+E
+scratch~
+Upon closer examination, you notice part of something's claw wedged into the third of the four scratch marks.
+~
+E
+claw~
+The claw appears to be rodent in origin.  However, you don't know of any
+rodents this large.  The claw is almost 5 inches in length, so whatever
+it belonged to must have been huge!
+~
+-1
+S
+
+#44265
+Damp Tunnel~
+Darkness continues to the north and south of this dark earthen tunnel.  A
+chill breeze blows through, making this place seem suddenly cold. 
+Small mats of lichen grow along cracks in the tunnel wall, while
+condensation makes the entire tunnel glisten.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44266 10 10 5
+D2
+~
+~
+0 -1 44264 10 10 5
+E
+lichen mats cracks~
+These odd plant-like organisms coat areas of the tunnel where cracks have
+formed.  Small droplets of moisture have condensed on their surfaces.
+~
+953 9 1509949540 3 0
+-1
+S
+
+#44266
+Damp Tunnel~
+The tunnel suddenly makes a sharp turn, continuing west and south.  Along
+the walls, at various intervals, are patches of earth that are darker in
+color than the rest of the tunnel.  This patchwork seems to indicate that
+whoever built these tunnels did so with more than just the materials at
+hand.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 44265 10 10 5
+D3
+~
+~
+0 -1 44267 10 10 5
+E
+patches earth darker~
+The dark patches are nothing more than places along the wall where water
+has seeped in from the surface.  They are moist to the touch.
+~
+-1
+S
+
+#44267
+Damp Tunnel~
+The tunnel here forms a 'T', heading east, south, and north.  The tunnel
+to the south appears to open up into a larger chamber, while the tunnels
+to the north and east only continue into darkness.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44269 10 10 5
+D1
+~
+~
+0 -1 44266 10 10 5
+D2
+~
+~
+0 -1 44256 10 10 5
+953 9 1509949540 3 0
+-1
+S
+
+#44268
+Damp Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 44267 10 10 5
+-1
+S
+
+#44269
+Damp Tunnel~
+The tunnel bends west and south here, forming an inverted 'L'.  The walls
+of the tunnel are gradually turning a ruddy brown as they continue
+westward.  The air has a slightly waxy, yet musty scent to it.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 44267 10 10 5
+D3
+~
+~
+0 -1 44270 10 10 5
+E
+walls ruddy brown~
+Upon closer inspection, you notice that as the tunnel continues westward,
+it is covered by an increasingly thick layer of ruddy brown wax.
+~
+953 9 1509949540 3 0
+953 9 1509949540 3 0
+953 9 1509949540 3 0
+-1
+S
+
+#44270
+Damp Tunnel~
+The entire tunnel is surrounded by a ruddy brown waxy substance.  Even
+the floor appears to have a freshly applied layer of wax on it.  To the
+south, the tunnel ends in what appears to be a chamber, while to the east
+it continues on into darkness.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 44269 10 10 5
+D2
+~
+~
+0 -1 44255 10 10 5
+E
+waxy substance~
+This is difinitely some sort of wax.  It seems like it was created
+recently, since there is no dust anywhere.
+~
+948 9 1509949540 3 0
+948 9 1509949540 3 0
+-1
+S
+
+#44271
+Damp Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 44270 10 10 5
+-1
+S
+
+#44272
+Humid Tunnel~
+The soil of this tunnel is unnaturally hard-packed.  From the roof,
+several roots emerge and dive into the ground, their gnarled surfaces
+glimmering with moisture.  This tunnel continues into a large chamber to
+the north, and into darkness to the south.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44253 10 10 5
+D2
+~
+~
+0 -1 44273 10 10 5
+-1
+S
+
+#44273
+Humid Tunnel~
+The tunnel suddenly takes a turn eastward and northward, leading into
+more darkness.  There is a rather large crevice in the tunnel wall to the
+south.  The humidity in this tunnel is very stifling, making it a bit
+difficult to breath.
+~
+[Aera] In the last line of the room desc, it says "The humidity in this tunnel is very stifling, making it a bit difficult to >breath<." should be breathe
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 44272 10 10 5
+D1
+~
+~
+0 -1 44274 10 10 5
+E
+crevice~
+The crevice is rather deep, and it is possible that something in down
+there.  It may be possible to reach in and search.
+~
+A
+reach search~
+crevice~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #char_nothing, ch );
+  act_notchar( #room_nothing, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  obj_to_char( oload( 180 ), ch );
+  }
+~
+E
+char_nothing~
+You search the crevice but come up empty handed.
+~
+E
+room_nothing~
+$n searches the crevice but fails to find anything.
+~
+E
+to_char~
+You search the crevice and find a gem!
+~
+E
+to_room~
+$n searches the crevice and finds something!
+~
+!
+0 0 0
+-1
+S
+
+#44274
+Humid Tunnel~
+The tunnel continues east and west through the darkness.  The air is not
+only humid now, it is rather rank as well.  Along the southern tunnel
+wall, a root snakes its way into the depths of the earth.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 44275 10 10 5
+D3
+~
+~
+0 -1 44273 10 10 5
+E
+root~
+This root twists its way along the southern wall of the tunnel, only to
+disappear into the ground.
+~
+A
+sniff smell~
+~
+act_tochar( #sniff, ch );act_notchar( #rsniff, ch );
+~
+E
+sniff~
+Phew! Something really stinks!  It seems to be coming from the east.
+~
+E
+rsniff~
+$n takes a strong whiff of air and gags.
+~
+!
+0 900 0
+-1
+S
+
+#44275
+Humid Tunnel~
+The tunnel appears to open up into a larger chamber to the east, while it
+continues into darkness to the west.  The scent of decay is heavy upon
+the air.  The walls have been packed firm, almost smooth, by their
+builders.  There is a decidedly upward slope from east to west.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 44276 10 10 5
+D3
+~
+~
+0 -1 44274 10 10 5
+A
+~
+~
+room = find_room( 44276 );
+if( mob_in_room( 1035, room ) ) {
+  room = find_room( 44275 );
+  send_to_room( #glow, room );
+  }
+~
+E
+glow~
+@b@WAn eerie flash from the east briefly illuminates the tunnel.@n
+~
+!
+2 750 0
+A
+sniff smell~
+~
+act_tochar( #sniff, ch );act_notchar( #rsniff, ch );
+~
+E
+sniff~
+Taking a deeper breath, you begin to gag uncontrollably.
+~
+E
+rsniff~
+$n takes a deep breath and falls over, gagging.
+~
+!
+0 0 0
+-1
+S
+
+#44276
+Abandoned Chamber~
+The source of the rotting smell is made clear.  There are dozens of
+rotting and desiccated giant bumble bee corpses here.  There are several
+strange holes bored into the walls at various locations.  An upward slope
+to the west leads out of this dead end in the tunnels, into a passage
+leading further west.
+~
+~
+301465612 0 8 0
+D3
+~
+~
+0 -1 44275 10 10 5
+E
+strange holes~
+Looking closer, you see that these holes are very deep indeed.  You also
+notice that they all appear to be connected to each other.
+~
+1035 9 1509949540 3 0
+1433 17 100 -2 0
+1433 17 1509949540 -2 0
+-1
+S
+
+#0
+

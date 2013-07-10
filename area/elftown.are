@@ -1,0 +1,532 @@
+#AREA
+Kha-Dehl~
+Terek Talis~
+~
+
+0 0
+3
+#ROOMS
+
+#8000
+Stairway Cut into the Mountainside~
+To be used for new areas 
+Stairway heading down.
+~
+~
+301465604 11 5 0
+D2
+~
+~
+506 -1 43261 10 10 5
+D5
+~
+~
+0 -1 8001 10 10 5
+-1
+S
+
+#8001
+Stairway Cut into the Mountainside~
+The rough-hewn, dusky stone of the walls hides ample dust and gravel in
+its countless nooks and crannies.  Hewn from the same bedrock as the
+walls, a wide set of stairs that comprises the entirety of the floor
+leads upwards or exits northwards onto a level landing.  A gentle, chill
+breeze from above seems to indicate some kind of exit.  The darkness to
+the north hides any clue what may lie ahead that way.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 8002 10 10 5
+D4
+~
+~
+0 -1 8000 10 10 5
+-1
+S
+
+#8002
+Cave Deep Inside a Mountain~
+Unevenly aligned walls form the natural boundries of this cave though its
+floor is oddly level indicating that someone may have worked to make the
+cave more livable.  Overhead the walls meet to form a natural, if uneven,
+archway that rises and lowers acording to the whims of whatever force
+shaped this tunnel.  Although there are several cracks and small
+side-chambers that lead off, none are large enough to suite the size of
+even the smallest of persons so you are forced to stay here or continue
+on along the tunnel's natural course.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 8003 10 10 5
+D2
+~
+~
+0 -1 8001 10 10 5
+-1
+S
+
+#8003
+Cave Deep Inside a Mountain~
+The naturally formed tunnel curves under the dictates of whatever
+mysterious force long ago shaped it leaving travelers a hard road to
+navigate.  As the tunnel bends to wind its way around a sharp outcropping
+of darker stone, it narrows tightly in places with sharp projections that
+make traversing the path uncomfortable at best.  At the odd angles you
+are forced to move along the path its hard to tell whether going forward
+or backward will be the easier path as both seem to narrow away to
+nothing periodically but only seem to open out each time you get to the
+point of obstruction.
+~
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 8002 10 10 5
+D3
+~
+~
+0 -1 8004 10 10 5
+-1
+S
+
+#8004
+Cave Deep Inside a Mountain~
+The rough stone walls depict several layers of stratified stone that must
+have lain unseen for milennia before this tunnel ever opened to the outer
+world.  Now, following eons of slow errosion the bands of color are
+begining to wear away forming slight shelves where sturdier rock has
+eroded slower than the softer stone.  Fortunately the slow errosion,
+though it has millenia to go before making any real progress yet, has
+already widened the tunnel enough to keep it passable.  The tunnel seems
+to widen as it moves north, yet it tightens into narrow confines as it
+twists eastward.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 8005 10 10 5
+D1
+~
+~
+0 -1 8003 10 10 5
+-1
+S
+
+#8005
+Cave Deep Inside a Mountain~
+The rough walls of a natural tunnel run up flush against a precisely
+smooth, carefully cut stonework wall that completely seals the northern
+end of the cave.  While rock of various colors, compressed over time,
+leads away southward it appears someone has gone to great lengths to
+cultivate and enhance the structure of the stone to the north.  Set dead
+center in the northern wall is a door forged of a single, thick sheet of
+iron that allows a way through the seamless stonework.
+~
+nice archway to north, entrance to library
+maybe a sconce to hold a ball of light on either side of the door, first lit room
+~
+301465604 11 5 0
+D0
+iron door~
+iron door 1 north~
+1 -1 8006 10 0 5
+D2
+~
+~
+0 -1 8004 10 10 5
+E
+door~
+The little door, measuring under five feet tall, is made of a solid pieve
+of forged iron and looks to be quite sturdy.  Its outer facing is covered
+in a lacework of elegant diamond patterning.  There is no keyhole on the
+door, though it seems one of the circular patterns is in reality a
+cleverly disguised handle that can be used to pull the door open.
+~
+E
+wall~
+The wall is formed of large, cut stones the are a testament to some stone
+mason's exquisite skill at his or her craft.  Each stone fits together
+precisely and perfectly leaving no gap, not even one wide enough to fit a
+razor blade into.  The only break in the incredibly smooth surface seems
+to be a small door set dead center in the wall.
+~
+A
+~
+~
+if( size( ch ) > 3 ) {
+  act_tochar( #duck, ch );
+  act_notchar( #rduck, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+duck~
+You have to duck as you walk through the short door.
+~
+E
+rduck~
+$n ducks as $e heads through the short door.
+~
+!
+3 0 1
+A
+look~
+1 north~
+if( is_open( room, north ) )
+  act_tochar( #open, ch );
+if( !is_open( room, north ) )
+  act_tochar( #closed, ch );
+~
+E
+open~
+The stones of the wall are so precisely cut that you can not find a seam
+even large enough to slip a finely hones blade into.  The wall appears
+solid and quite formidable, though a short iron door set in its center
+stands slightly ajar allowing passage through to the other side.
+~
+E
+closed~
+The stones of the wall are so precisely cut that you can not find a seam
+even large enough to slip a finely hones blade into.  The wall appears
+solid and quite formidable.  A short, iron door set in the walls center
+is ominously shut tight against your intrusion and appears to be the only
+means of passing through.
+~
+!
+0 0 0
+-1
+S
+
+#8006
+A Large Hall Cut into the Stone~
+Soaring up several feet on both sides of you are smooth, stone walls cut
+straight from the mountains.  Hanging from each wall are heavy cloth
+tapestries depicting a legion of white-robed dwarves walking about a
+large temple.  The floor has been cut from grey marble which streaks of
+black running through it.  Set in the center of the chamber is a large
+stone fountain adorned with carefully-detailed carvings of dwarven
+rituals.  Set into the southern wall is a large iron door covered in
+decades of dust and grime.  To the north, east, and west tunnels cut
+their way deeper into the heart of the underground complex.
+~
+main chamber, largest.
+dwarf caretaker here..  Ornate fountain (artesian well type) of dwarf design here.
+- - - -
+devote each small wing room to a subject?  geography, etc?
+If so, will limit our subjects somewhat, or we'll need broad-range categories
+can label each door in dwarven if by category.  Will also need to know
+what categories are so we can create a balance of books for them.  At
+least 2-3 for each subject.  of course nothing says something can't be
+misfiled as well.
+- - - - -
+silly me, thinking in 2 dimensions again.  If we need more specialty
+rooms we can always dig up or down and have stairs off the seperate wings.
+- - - - -
+Will toss some browse functions in like other libraries.  Easy sill stuff
+to use, maybe one or two useful hints on the temple?  maybe 5 or so for
+each wing with another 3-4 for each specialty room.
+waiting on confirmation on specialty room subjects and wings before
+progressing farther.
+~
+301465605 11 9 0
+D0
+~
+~
+0 -1 8007 10 10 5
+D1
+~
+~
+0 -1 8016 10 10 5
+D2
+~
+~
+1 -1 8005 10 10 5
+D3
+~
+~
+0 -1 8011 10 10 5
+2260 137 1509949540 3 0
+-1
+S
+
+#8007
+North Wing - Brightly-Lit Chamber~
+Under Construction.
+~
+north wing.  Adjoining rooms devoted to specific subjects
+wing for anything that spans the races or has no specific race
+subsection on magic
+subsection on weapons/siegecraft/maybe keep and castle structure
+subsection on world history
+~
+301465605 11 7 0
+D0
+~
+~
+0 -1 8009 10 10 5
+D1
+~
+~
+0 -1 8010 10 10 5
+D2
+~
+~
+0 -1 8006 10 10 5
+D3
+~
+~
+0 -1 8008 10 10 5
+-1
+S
+
+#8008
+North Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 5 0
+D1
+~
+~
+0 -1 8007 10 10 5
+-1
+S
+
+#8009
+North Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 5 0
+D2
+~
+~
+0 -1 8007 10 10 5
+-1
+S
+
+#8010
+North Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 5 0
+D3
+~
+~
+0 -1 8007 10 10 5
+-1
+S
+
+#8011
+Hall Cut into the Mountain Stone~
+The walls along this stretch of the hall have been carefully cut through
+the stone of the mountain and than smoothed down to remove any rough
+edges.  Lining the north and south walls are several stone pedestals upon
+which rest realistic-looking carvings of different types of monsters. 
+Hanging just above the scupltures are several thick cloth tapestries
+depicting a large dwarf wielding a double-bladed battle axe leading an
+army of his followers into battle.  To the east and west open archways
+lead into a brightly-lit chambers.
+~
+hallway
+nice tapestries here for show?  maybe sculptures carves from stone so
+can't be taken?
+~
+301465605 11 5 0
+D1
+~
+~
+0 -1 8006 10 10 5
+D3
+~
+~
+0 -1 8012 10 10 5
+-1
+S
+
+#8012
+West Wing - Brightly-Lit Chamber~
+Under Construction.
+~
+west wing, main room.  rooms to certain subjects to north, west and south
+This wing on all race-specific stuff that is not dwarven
+subsection on sylvan (elves/ents/faeries/maybe vyan here, maybe centaur))
+subsection on earth-folk (halfling/gnome/ maybe throw humans as a side-note here)
+subsection on dark-folk (orcs/ogres/trolls/goblins)
+~
+301465605 11 7 0
+D0
+~
+~
+0 -1 8015 10 10 5
+D1
+~
+~
+0 -1 8011 10 10 5
+D2
+~
+~
+0 -1 8013 10 10 5
+D3
+~
+~
+0 -1 8014 10 10 5
+-1
+S
+
+#8013
+West Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 9 0
+D0
+~
+~
+0 -1 8012 10 10 5
+-1
+S
+
+#8014
+West Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 9 0
+D1
+~
+~
+0 -1 8012 10 10 5
+-1
+S
+
+#8015
+West Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 9 0
+D2
+~
+~
+0 -1 8012 10 10 5
+-1
+S
+
+#8016
+Hall Cut into the Mountain Stone~
+Care was taken during construction of this complex; the walls are void of
+any blemishes or rough edges and no cracks are visible.  Tapestries made
+from a heavy cloth hang from the walls; each depicting dwarven wizards
+hurling spells down a mountainside at an oncoming horde of orcs.  Set
+against the southern wall is a large statue carved in the likeness of a
+muscular dwarf bedecked in battle armor and wielding an extremely large
+double-bladed axe.  To the east and west the hall continues through the
+many chambers of the complex.
+~
+hallway
+tapestries? scultpures (see room 2 west of here)
+~
+301465605 11 5 0
+D1
+~
+~
+0 -1 8017 10 10 5
+D3
+~
+~
+0 -1 8006 10 10 5
+-1
+S
+
+#8017
+East Wing - Brightly-Lit Chamber~
+Several large stone bookcase fill this circular stone chamber; each
+filled to the brim with old scrolls, stone tablets and leather-bound
+books.  Placed in the center of the room is a rough stone table with two
+long benches on either side.  Cluttered atop the table are several tallow
+candles which burn with dull yellow flames and a few tied-up scrolls as
+well as some stone tablets.  Small steps to the north, east, and south
+lead up towards small alcoves filled with even more bookcases.  To the
+west a hall proceeds out of the chamber towards other parts of the
+complex.
+~
+east wing.  smaller rooms to certain subjects to north, east and south
+Wing on Dwarven Stuff, whole wing for this since they know it best.
+subsection on stoneworking/gemworking (lapidary)
+subsection on dwarven culture perhaps
+subsection on dwarven history perhaps
+~
+301465605 11 7 0
+D0
+~
+~
+0 -1 8020 10 10 5
+D1
+~
+~
+0 -1 8019 10 10 5
+D2
+~
+~
+0 -1 8018 10 10 5
+D3
+~
+~
+0 -1 8016 10 10 5
+-1
+S
+
+#8018
+East Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 8017 10 10 5
+-1
+S
+
+#8019
+East Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 5 0
+D3
+~
+~
+0 -1 8017 10 10 5
+-1
+S
+
+#8020
+East Wing - Quiet Alcove~
+Under Construction.
+~
+~
+301465605 11 5 0
+D2
+~
+~
+0 -1 8017 10 10 5
+-1
+S
+
+#0
+

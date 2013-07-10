@@ -1,0 +1,1040 @@
+#AREA
+Ruined Mansion~
+Merior~
+Ruined Mansion~
+
+5 0
+0
+#ROOMS
+
+#41750
+In the Mansion~
+You stand in the deep shadows of a large, bare entry-way into a grand old
+mansion.  You can see outlines on the wall where large paintings once
+hung, and battered sconces hang from the walls showing where torches once
+lit the room.  The light cannot reach the high ceiling, and you wonder
+just what you can't see up there in the shadows.  You can just barely
+make out exits to the east, south, and west; it's impossible to see
+what's ahead to the north.
+~
+~
+335020101 0 5 0
+D0
+~
+~
+0 -1 41758 10 10 5
+D1
+~
+~
+0 -1 41752 10 10 5
+D2
+wooden door~
+'wooden door' door~
+131 -1 40582 10 10 5
+D3
+~
+~
+0 -1 41751 10 10 5
+D4
+~
+~
+0 -1 41755 10 10 5
+A
+none~
+none~
+~
+E
+to_char~
+As you open the door, it creaks.
+~
+E
+to_room~
+The door creaks as $n opens it.
+~
+!
+8 2 0
+A
+search~
+~
+act_tochar( #search, ch );
+~
+E
+search~
+@GYou cannot see what lies ahead in any direction.@n
+~
+!
+0 0 0
+896 9 1509949540 3 0
+2524 9 1509949540 3 0
+-1
+S
+
+#41751
+In the Mansion~
+The room is dominated by the remains of a large, mahagony table, with
+fragments of at least a dozen massive chairs.  On the walls are shreds of
+a tapestry that once cost a king's ransom.  The owner of this house must
+have had significant finances to have owned such furniture.  Now his
+mansion is but a large eyesore.
+~
+~
+335020036 0 5 0
+D0
+~
+~
+0 -1 41756 10 10 5
+D1
+~
+~
+0 -1 41750 10 10 5
+E
+tapestry~
+A large, hand-woven tapestry hangs on the wall in shreds.  One corner
+depicts a brave knight in armor mounting a warhorse.  Another remaining
+portion of the tapestry shows the same knight in battle.
+~
+E
+mahogany large~
+A large, mahagony table lies on the floor in several pieces.  Ornate
+carving decorates the remaining legs.
+~
+A
+get take move~
+mahogany table~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe table would require several strong ogres to move it.@n
+~
+!
+0 0 0
+896 9 1509949540 3 0
+-1
+S
+
+#41752
+In the Mansion~
+This large room was once distinguished by large glass windows surrounded
+by ornamental curtains.  Now, tattered shreds of linen remain outlining
+board-covered apertures, and bits of glass litter the floor.  Scattered
+piles of wood are strewn about the floor, perhaps representing what was
+once fine furniture.  There is no sign of exactly what caused this total
+devastation, but it clearly must have been a vast horde of something.
+~
+[Rue] r
+~
+335020036 0 5 0
+D0
+~
+~
+0 -1 41753 10 10 5
+D3
+~
+~
+0 -1 41750 10 10 5
+E
+curtains~
+The curtains are now shreds of linen, with many colors of thread running
+through them.  Once they may have had pictures of many mythical animals
+woven into them; now only a few body parts remain.
+~
+E
+wood~
+Several large piles of wood lay strewn about on the floor.  These piles
+are not neat, ordered ones made intentionally, but look rather as if a
+giant creature had flattened out a wooden structure about the size of a
+bench.
+~
+A
+search~
+furniture broken piles wood~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search through the shattered remnants of the furniture, but find
+nothing.@n 
+~
+E
+rmsearch~
+@G$n searches the piles of broken furniture.@n
+~
+!
+0 0 0
+-1
+S
+
+#41753
+In the Mansion~
+This small room looks like it might have once been the cozy gathering
+place for the family.  The small fireplace could easily have provided
+warmth to the room; large windows now broken would have provided light on
+even the darkest of days.  A small rocking horse sits in the corner,
+overlooked by the destroyers, and quietly rocks itself in mourning.
+~
+~
+335020036 0 5 0
+D2
+~
+~
+0 -1 41752 10 10 5
+D3
+~
+~
+0 -1 41758 10 10 5
+E
+rocking horse~
+A small, wooden rocking horse rocks back and forth, disturbing the
+stillness.  It has a dark brown mane, and is painted a chestnut brown.
+~
+E
+fireplace~
+A small fireplace of dark red brick lies against the east wall of the
+house.  The grate is filled with cold ashes, making the room seem even
+colder than the rest of the house.
+~
+E
+windows~
+Large south-facing windows lie glassless and open, letting the air and
+elements into the room.  Ranging gardens, now bare and dying, lie
+directly within view.
+~
+A
+touch push move~
+rocking horse~
+obj = obj_in_room( 1184, room );
+if( !obj )
+  continue;
+else {
+  act_tochar( #chup, ch );
+  act_notchar( #rup, ch );
+  }
+~
+E
+rup~
+As $n touches the rocking horse, it begins to sadly rock.
+~
+E
+chup~
+As you touch the rocking horse, it begins to sadly rock.
+~
+!
+0 0 0
+A
+ride sit~
+rocking horse~
+obj = obj_in_room( 1184, room );
+if( !obj )
+  continue;
+else {
+  act_tochar( #chup, ch );
+  act_notchar( #rup, ch );
+  }
+~
+E
+chup~
+As you start to mount the beast, you realize that you are far too large
+and would break it.
+~
+E
+rup~
+$n starts to mount the horse, then stops.
+~
+!
+0 0 0
+897 9 1509949540 3 0
+1184 17 1509949540 -2 0
+-1
+S
+
+#41754
+West Wing~
+The western wall of the hallway is dominated by a large, jagged hole. 
+Something, or someone, very strong must have been in a desperate hurry to
+have made such a crater.
+~
+~
+335020036 0 5 0
+D0
+~
+~
+0 -1 41759 10 10 5
+D1
+~
+~
+0 -1 41755 10 10 5
+D2
+~
+~
+0 -1 41760 10 10 5
+E
+hole west crater~
+The rough edges of the hole trace the outline of a humanoid body.  The
+lack of rubble on the floor makes it likely that someone pushed their way
+out in a moment of panic.
+~
+A
+touch push move~
+corpse~
+obj = obj_in_room( 419, room );
+if( !obj )
+  continue;
+else {
+  act_tochar( #chup, ch );
+  act_notchar( #rup, ch );
+  junk_obj( obj );
+  mob = mload( 898, room );
+  attack_weapon( mob, ch, 1d4, "bloody fist" );
+  }
+~
+E
+rup~
+As $n disturbs the corpse, the orc rises to fight.
+~
+E
+chup~
+Having disturbed its corpse, the orc rises to fight you.
+~
+E
+nocorpse~
+You don't see one here.
+~
+!
+0 0 0
+A
+enter~
+hole~
+send_to_char( #enter, ch );
+~
+E
+enter~
+That doesn't seem to be something you can enter.
+~
+!
+0 0 0
+A
+enter~
+hole~
+act_tochar( #search, ch );
+~
+E
+search~
+@GBefore you enter the hole you have the foresight to look out of it and
+see that you would fall out of the building.  Using what little
+brainpower you have, you decide against it.@n 
+~
+!
+0 0 0
+419 17 1509949540 -2 0
+-1
+S
+
+#41755
+Upstairs Hall~
+A large hallway runs along the entire length of the mansion in an
+east-west direction.  Several blackened shapes appear in both directions. 
+It is impossible to tell whether these are doors or large creatures
+waiting to greet you.  Small stairs lead upward into the attic.
+~
+~
+335020044 0 5 0
+D1
+~
+~
+0 -1 41764 10 10 5
+D3
+~
+~
+0 -1 41754 10 10 5
+D4
+~
+~
+0 -1 41761 10 10 5
+D5
+~
+~
+0 -1 41750 10 10 5
+-1
+S
+
+#41756
+In the Mansion~
+The turning spit in the fireplace, coupled with assorted pots and pans
+still hanging from the wall, indicates that this dark spot was once the
+kitchen.  In one corner is an orc-sized corpse still holding a pewter
+mug in one hand.  The floors are covered with broken plates and glasses,
+as well as partially chewed bones from surprisingly human-sized animals. 
+On the floor you can just barely make out the shape of a door leading
+down.
+~
+[Rue] r
+~
+335020036 0 5 0
+D1
+~
+~
+0 -1 41758 10 10 5
+D2
+~
+~
+0 -1 41751 10 10 5
+D5
+trap door~
+'trap door' door down~
+131 -1 41757 10 10 5
+E
+fireplace~
+The large fireplace is made of large, mismatched stones.  A spit lies
+across the cold ashes, piercing several bare carcasses of some type of
+large bird.
+~
+E
+door~
+The outline of a trapdoor with a worn handle can be seen in the corner of
+the room.
+~
+E
+carcass bird~
+The bare carcasses of several chickens are still stuck on the turning
+spit over the fireplace.  It appears that the invaders pulled off the
+wings and legs, but left the remainder of the meat to rot.
+~
+E
+corpse~
+An orc-sized corpse, still wearing colorful rags, is propped in the
+corner of the room.  He holds a pewter mug in one hand, and a chicken leg
+in the other.  Death appears to have taken him quite peacefully as he
+gorged himself on the kitchen's bounty.
+~
+A
+take get~
+mug cup~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou try and pry the mug from the corpse, but the hand is frozen in a
+death-grip around it.@n 
+~
+E
+rmsearch~
+@G$n tries unsuccessfully to pry the mug from the hand of the corpse.@n
+~
+!
+0 0 0
+A
+get take~
+carcasses birds~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe rotting birds are firmly embedded on the spit, you cannot take them
+off.@n 
+~
+!
+0 0 0
+A
+search~
+bones plates glasses broken~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search through the junk on the floor, but find nothing of value.@n
+~
+E
+rmsearch~
+@G$n searches through the trash on the floor.@n
+~
+!
+0 0 0
+A
+search~
+corpse orc~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou quickly search the dead body, but find nothing aside from the mug in
+its hands.@n 
+~
+E
+rmsearch~
+@G$n searches the corpse.@n
+~
+!
+0 0 0
+907 9 1509949540 3 0
+-1
+S
+
+#41757
+Larder~
+With a whiff of the air, it is easy to determine that this portion of the
+cellar was once used for storing fruits and vegetables, as well as meat. 
+Several large crates are piled in one corner, and have previously been
+opened and inspected.  Nothing of value appears to remain.
+~
+[Rue] r
+~
+335020036 0 5 0
+D4
+trap door~
+'trap door' door up~
+131 -1 41756 10 10 5
+E
+crates~
+Several large crates of rotting food lie scattered about the kitchen. 
+What might have once been the cook's supply of vegetables is now a pile
+of goo covered with grubs and strange-looking insects.
+~
+A
+search~
+crates~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou rifle quickly through the crates, but find nothing of value.@n
+~
+E
+rmsearch~
+@G$n searches the crates quickly.@n
+~
+!
+0 0 0
+907 9 1509949540 3 0
+907 9 1509949540 3 0
+2524 9 1509949540 3 0
+-1
+S
+
+#41758
+In the Mansion~
+The original purpose of this room is not at all easy to determine. 
+Splintered bits of wood indicate that there was once a significant amount
+of furniture here, but little decoration.  The large number of papers
+scattered about on the floor, along with mud-stained ledgers make it
+likely that business was once conducted in this room.  A single painting
+once hung on the dark wall, and has left a dark outline.  The wood in one
+corner of the room looks a little different from the rest of the bare
+planks.
+~
+the dark wood is a trap door leading down
+[Lence] ghost
+[Lence] ghost
+[Lence] ghost
+~
+335020036 0 5 0
+D1
+~
+~
+0 -1 41753 10 10 5
+D2
+~
+~
+0 -1 41750 10 10 5
+D3
+~
+~
+0 -1 41756 10 10 5
+D5
+trap door~
+'trap door' door down~
+131 -1 41767 10 10 5
+E
+wall painting~
+You see the outline of a painting that once hung on the wall.  The wall
+is darker where the painting once was.
+~
+E
+floor wood~
+The wood in the northeast corner of the floor is just a little bit darker
+than the rest.  Upon closer examination, it appears that it might be
+concealing a door.
+~
+E
+ledger paper~
+The ledgers and papers contain accounting information regarding bank
+accounts of Chiiron's leading citizens.  Several names and account
+balances are circled, as if the possessor of this papers wished to
+highlight them for future use.
+~
+900 9 1509949540 3 0
+-1
+S
+
+#41759
+Upstairs Room~
+If the ruined furniture is any indication as to its use, this small room
+was once a child's room.  The headless, naked doll, and broken, tiny
+teacups indicate that this was once a young girl's room.  Nothing else
+identifiable remains intact.
+~
+~
+335020032 0 5 0
+D2
+~
+~
+0 -1 41754 10 10 5
+E
+doll~
+A large doll wearing a blue dress lies in a heap on the floor.  Several
+feet away is the blond-haired head of the doll.
+~
+897 9 1509949540 3 0
+-1
+S
+
+#41760
+Upstairs Room~
+This once might have been called the blue room, for everything remaining
+here is painted a soft light blue.  Of course, the blue doesn't quite
+match the splotches of a dark, reddish-brown that mar the walls and
+ceiling.  Most of a bed remains here, though its furnishings are ripped
+to shreds.
+~
+~
+335020032 0 5 0
+D0
+~
+~
+0 -1 41754 10 10 5
+E
+walls ceiling~
+The walls and ceiling are painted in a shade of blue much like the sky
+after a bright sunrise.  Large dark, reddish-brown splotches apppear
+randomly about them, almost as if a painter took a giant paintbrush
+filled with paint and splattered it about.
+~
+E
+splotches~
+The large blobs of reddish-brown look just like dried blood.  For
+something to have made such a large puddle of the stuff, the whole animal
+must have been ripped apart in a single pull.
+~
+A
+touch examine search~
+bed~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #chup, ch );
+  act_notchar( #rup, ch );
+  mob = mload( 1, room );
+  attack_weapon( mob, ch, 1d4, "forked tongue" );
+  }
+else
+  act_tochar( #notin, ch );
+~
+E
+notin~
+There is nothing under the bed.
+~
+E
+rup~
+Suddenly a snake rises to attack $n!
+~
+E
+chup~
+Suddenly a snake rises up to attack you!
+~
+!
+0 0 0
+1201 17 1509949540 -2 0
+-1
+S
+
+#41761
+Attic~
+A tiny window built in the attic wall provides a view of a miniscule bit
+of the sky.  It must not have been built for viewing, but rather to
+simply admit just a tiny bit of light for those accessing this room.
+~
+~
+335020036 0 4 0
+D1
+~
+~
+0 -1 41762 10 10 5
+D3
+~
+~
+0 -1 41763 10 10 5
+D5
+~
+~
+0 -1 41755 10 10 5
+A
+open~
+window~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GThe tiny window refuses to open.@n
+~
+E
+rmsearch~
+@G$n tries unsuccesfully to open the window.@n
+~
+!
+0 0 0
+896 9 1509949540 3 0
+2524 9 1509949540 3 0
+-1
+S
+
+#41762
+Attic~
+The attic continues here from the west.  This portion contains many crates,
+though their contents are no longer recognizeable.  Whoever ransacked this
+house appears to have done a very thorough job up here.
+~
+~
+335020036 0 4 0
+D3
+~
+~
+0 -1 41761 10 10 5
+E
+crates~
+Several large wooden crates have been hacked open, and their contents
+strewn about the room.  It is difficult to tell what any of them might
+once have contained, for all of the pieces seem to have been hacked into
+little, tiny pieces.
+~
+A
+open touch push move~
+crate box~
+mob = mob_in_room( 913, room );
+if( !mob )
+  continue;
+act_tochar( #chup, ch );
+act_notchar( #rup, ch );
+attack( mob, ch, 2d4, "right plank" );
+~
+E
+rup~
+A crate suddenly comes to life and attacks $n!
+~
+E
+chup~
+A crate suddenly comes to life and attacks you!
+~
+!
+0 0 0
+A
+1 look~
+wooden box~
+mob = mob_in_room( 913, room );
+if( !mob )
+  continue;
+send_to_char( #look, ch );
+~
+E
+look~
+A large, wooden box hides quietly in the corner.  It seems almost to be
+watching your every move, as if waiting to pounce.
+~
+!
+0 0 22
+896 9 1509949540 3 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+913 9 1509949540 3 0
+-1
+S
+
+#41763
+Attic~
+A small window in the west wall of the attic provides a view of the
+ground of the mansion.  This portion of the attic contains old records
+from the master of the house, records which may give a clue as to the
+cause of the destruction of his home.
+~
+~
+335020036 0 4 0
+D1
+~
+~
+0 -1 41761 10 10 5
+E
+records box papers~
+The handwriting on the browned papers is almost illegible.  The signature
+on one of the slips of paper can just be read: Elias Frobund, Banker
+~
+A
+open~
+small window~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GThe tiny window refuses to open.@n
+~
+E
+rmsearch~
+@G$n tries to open the window with no success.@n
+~
+!
+0 0 0
+896 9 1509949540 3 0
+896 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#41764
+Upstairs Hall~
+The eastern portion of the hallway is quite bare, and its only features
+are the remains of doors to the north and south.  If the owner spent
+money on decorating here, all such signs are gone.
+~
+~
+335020036 0 5 0
+D0
+~
+~
+1 -1 41765 10 10 5
+D2
+~
+~
+1 -1 41766 10 10 5
+D3
+~
+~
+0 -1 41755 10 10 5
+906 9 1509949540 3 0
+-1
+S
+
+#41765
+Upstairs Room~
+A large bed, with broken canopy and shredded curtains, stands against the
+north wall.  A fireplace, surrounded by colored tile, shows the owner's
+desire to follow current fashions.  Now, however, there is nothing
+remaining to be proud of - or any sign of anyone who would care.
+~
+[Rue] r
+~
+335020032 0 5 0
+D2
+~
+~
+1 -1 41764 10 10 5
+E
+bed~
+A large heap of wood and cloth stands against the north wall of the room. 
+It is just possible to recognize that this mound was once a large bed,
+with curtain canopy of rich red velvet.
+~
+E
+fireplace~
+A large fireplace, surrounded by burgundy and gold tiles, stands in
+contrast to the surrounding shambles.
+~
+E
+tile~
+Each tile contains a tiny painting depicting scenes of country gardens. 
+Flowers, trees, birds, and other types of life found in a typical garden
+cover the colored tiles.  One of the tiles appears to be loose.
+~
+A
+search~
+fireplace~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the fireplace, but find nothing of value.@n
+~
+E
+rmsearch~
+@G$n searches the fireplace.@n
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the bed, but find northing of value.@n
+~
+E
+rmsearch~
+@G$n searches the bed.@n
+~
+!
+0 0 0
+896 9 1509949540 3 0
+759 49 100 -2 0
+1066 81 1509949455 -2 0
+1067 80 1509949490 -2 0
+983 81 1509949445 -2 0
+-1
+S
+
+#41766
+Upstairs Room~
+An empty crib stands in one corner of the room; standing next to it are
+the remnants of a bookcase with hand-painted picture books still sitting
+on the shelves.  It seems that who- (or what-) ever destroyed this place
+wasn't interested in fine literature.  Bits of dolls and hand-carved
+soldiers are scattered about, abandoned by their owners.
+~
+[Rue] r
+~
+335020032 0 5 0
+D0
+~
+~
+1 -1 41764 10 10 5
+E
+books bookcase~
+Most of a bookcase stands along the wall.  In it are several lovely
+books covered with a thick layer of dust.
+~
+E
+crib~
+The empty crib must once have been quite grand.  Elaborate hand-carvings
+all around the rails show fine workmanship, and must have cost the buyer
+a pretty copper.
+~
+A
+search examine~
+books bookcase~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1003 ), ch );
+    }
+  if( i == 2 ) {
+    act_tochar( #scroll1, ch );
+    act_notchar( #scroll2, ch );
+    obj_to_char( oload( 1000 ), ch );
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+yes_room~
+$n rummages through the books finding a tattered scroll!
+~
+E
+yes_char~
+You rummage through the books finding a tattered scroll!
+~
+E
+no_room~
+$n rummages through the books but finds nothing of interest.
+~
+E
+no_char~
+You rummage through the books finding nothing of interest.
+~
+E
+scroll1~
+You search through the pile and find some type of scroll!
+~
+E
+scroll2~
+$n searches through the pile and seems to find something!
+~
+!
+0 0 0
+A
+take get~
+books picturebooks~
+act_tochar( #search, ch );
+~
+E
+search~
+@GAll the books are molded and stuck together, there is nothing
+worthwhile to take.@n 
+~
+!
+0 0 0
+A
+search~
+crib~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou rummage around in the crib, but find nothing inside.@n
+~
+E
+rmsearch~
+@G$n searches the crib.@n
+~
+!
+0 0 0
+2524 9 1509949540 3 0
+-1
+S
+
+#41767
+Cellar~
+This cold, dank place seems to have been overlooked by the invaders,
+since it seems to have been bypassed during the ransacking of the rest of
+the house.  Several intact boxes of papers lie on the ground, but this is
+not the place the owner stored his gold or jewels.  You can hear rustling
+sounds coming from behind the boxes, and suspect that not quite
+everything here is dead.
+~
+the box contains the key to the safe
+remember to set repair levels, cost, durabilities on items
+didnt for these new ones since they were containers that don't move.. 
+and a key 
+~
+335020032 0 5 0
+D4
+trapdoor~
+'trapdoor' door up~
+131 -1 41758 10 10 5
+E
+papers~
+The box of papers contains more bank statements pertaining to the Chiiron
+bank.  These differ from those found elsewhere in that all of these
+citizens are now deceased, and died under mysterious circumstances.
+~
+896 9 1509949540 3 0
+896 9 1509949540 3 0
+1126 49 1509949540 -2 0
+1129 81 1509949465 -2 0
+983 80 1509949515 -2 0
+2524 9 1509949540 3 0
+210 17 1509949490 -2 0
+-1
+S
+
+#0
+

@@ -1,0 +1,8165 @@
+#AREA
+Narak~
+Phule~
+~
+
+0 0
+4
+#ROOMS
+
+#36000
+Before the Gates of Narak~
+You are before a large gate of solid sandstone inset into a massive wall
+of granite.  The top of the wall is lined with small slots for bowmen to
+shoot out from, but the guards, if any are present, are not visible.  An
+opposing force would face many losses if they assaulted this massive gate
+of stone.  To the west an arch of gold frames a doorway to the desert
+over a road of hard rock.
+~
+[Phule] great desert road area w
+~
+301465673 1 5 0
+D1
+gate~
+gate~
+195 -1 36001 10 10 5
+D3
+~
+~
+0 -1 35785 10 10 5
+E
+gate~
+Several tons of rough-hewn sandstone, the gate could probably withstand
+months, years, or perhaps decades of constant ramming.
+~
+E
+arch~
+The arch slopes majestically overhead, reaching a sloping pinnacle at
+about 60 feet and curving back down, one base on each side of the path.
+~
+A
+knock bang pound~
+1 east gate~
+if( is_open( room, east ) )
+  act_tochar( #hard, ch );
+else {
+  act_tochar( #bang, ch );
+  act_notchar( #rbang, ch );
+  i = reputation( ch, Narak );
+  if( i < 50 ) {
+    act_tochar( #away, ch );
+    act_notchar( #raway, ch );
+    j = 1d10+10;
+    dam_message( ch, j, "The shower of arrows" );
+    inflict( ch, ch, j, "the archers of Narak" );
+    }
+  else {
+    send_to_room( #opens, room );
+    open( room, east );
+    }
+  }
+~
+E
+hard~
+It's hard to do that with the gate already open.
+~
+E
+bang~
+You bang loudly on the massive gate.
+~
+E
+rbang~
+$n bangs loudly on the massive gate.
+~
+E
+opens~
+The massive gate rises with a grinding of gears.
+~
+E
+away~
+Archers line the walls and fire a few volleys.  It is clear you are not
+welcome here.
+~
+E
+raway~
+Archers line the walls a fire a volley of arrow at $n.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+close( room, east );
+send_to_room( #close, room );
+send_to_room( #close, find_room( 36001 ) );
+~
+E
+close~
+The sandstone gate pounds shut, stone ringing on stone.
+~
+!
+1 0 2
+-1
+S
+
+#36001
+West Gate of Narak~
+You are standing just inside the main gate of the city, a huge sandstone
+slab which stretches many feet overhead.  Small portcullises mark
+entrances into the walls themselves to the north and south.  What appears
+to be the main street of Narak leads east, the Way of Kol Amroth, and to
+the west a rock road leads away from the city.  A large @elever@n on the
+side of the gate appears to be the mechanism for raising and lowering its
+massive weight.
+~
+Phule-I have to wonder if desert dwelling peoples would wear black?
+some wear white also
+[Phule] GATE WILL NOT OPEN FROM THE INSIDE RIGHT NOW
+~
+301465669 1 9 0
+D0
+portcullis~
+portcullis~
+195 -1 36002 10 10 5
+D1
+~
+~
+0 -1 36053 10 10 5
+D2
+portcullis~
+portcullis~
+407 -1 36023 10 10 5
+D3
+gate~
+gate~
+195 -1 36000 10 10 5
+E
+small portcullis~
+The small, grated gates slide upward into the rock, but the mechanism by
+which they do so is not visible.  One leads north into the space between
+the city's walls, the other south.
+~
+E
+main gate huge sandstone slab~
+Perhaps several tons of chiseled sandstone, a mighty gate indeed to guard
+the merchant city.
+~
+E
+e east~
+You see the Main Street of Narak leading into the city.
+~
+E
+lever~
+The large lever is attached to a chain and pulley system.  It is possible
+a system of counterweights pull open the gate, but just as likely is the
+possibility that guards watch your approach to the gate carefully and
+heave it open at their own discretion.
+~
+A
+pull~
+lever~
+act_tochar( "You hear a clanking sound.", ch );
+end;
+if( is_open( room, west ) )
+  act_tochar( #why, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  send_to_room( #open, room );
+  open( room, west );
+  }
+~
+E
+why~
+You pull the lever, but nothing happens as the gate is already open.
+~
+E
+pull~
+You pull the lever.
+~
+E
+rpull~
+$n pulls the lever.
+~
+E
+open~
+The gate rises with a creaking of chains and gears.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( !is_open( room, west ) )
+  act_tochar( #why, ch );
+else {
+  act_tochar( #push, ch );
+  act_notchar( #rpush, ch );
+  send_to_room( #close, room );
+  close( room, west );
+  }
+~
+E
+why~
+You push the lever, but nothing happens as the gate is already shut.
+~
+E
+push~
+You push the lever.
+~
+E
+rpush~
+$n pushes the lever.
+~
+E
+close~
+The gate crashes to the ground.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, north ) || is_open( room, south ) ) {
+  close( room, north );
+  close( room, south );
+  send_to_room( #portclose, room );
+  send_to_room( #portclosenorth, find_room( 36023 ) );
+  send_to_room( #portclosesouth, find_room( 36002 ) );
+  }
+~
+E
+portclose~
+A sudden clanking and slam to the north and south attracts your attention.
+~
+E
+portclosenorth~
+The gate to the north suddenly slams shut!
+~
+E
+portclosesouth~
+The gate to the south suddenly slams shut!
+~
+!
+1 0 7
+A
+~
+~
+acode( room, 3 );
+wait( 1 );
+close( room, west );
+send_to_room( #close, find_room( 36000 ) );
+send_to_room( #close, room );
+~
+E
+close~
+The sandstone gate pounds shut, stone ringing on stone.
+~
+!
+1 0 8
+754 9 1509949540 3 0
+754 9 1509949540 3 0
+-1
+S
+
+#36002
+The walls of Narak~
+These walls, abandoned by the cityguard, have fallen into neglect. 
+Cobwebs litter every corner and cranny, and the scent of death permeates
+the air.  It is definitely more chill here between the stone walls than
+the desert air outside.  There is a small @blever@n on the south wall
+near a portcullis.
+~
+[Finius] spelled definitely, no 'a'.
+[Finius] room title: should be The Walls of Narak
+[Finius] look lever should be 'inset into a small'
+sense- the chill- add as an extra
+~
+301465672 1 9 0
+D0
+~
+~
+0 -1 36003 10 10 5
+D2
+portcullis~
+portcullis~
+195 -1 36001 10 10 5
+E
+lever~
+This small grey lever is inset in the wall in a small niche beside the
+portcullis.  Presumably a sharp pull on it will open the gate.
+~
+A
+pull~
+lever~
+if( !is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  open( room, south );
+  send_to_room( #south, room );
+  send_to_room( #north, find_room( 36023 ) );
+  }
+else
+  act_tochar( #isopen, ch );
+~
+E
+open~
+You pull the small lever in the wall.
+~
+E
+south~
+The portcullis to the south opens with a creak and a crank.
+~
+E
+north~
+The portcullis to the north opens with a creak and a crank.
+~
+E
+isopen~
+The portcullis is already open.
+~
+!
+0 0 0
+A
+~
+~
+close( room, south );
+send_to_room( #south, room );
+send_to_room( #north, find_room( 36001 ) );
+close( find_room( 36001 ), south );
+send_to_room( #north, find_room( 36023 ) );
+~
+E
+north~
+The portcullis to the north closes with a creak and a clank.
+~
+E
+south~
+The portcullis to the south closes with a creak and a clank.
+~
+!
+1 0 4
+-1
+S
+
+#36003
+The Walls of Narak~
+No living thing inhabits these walls, of that there is not much
+uncertainty.  The sounds of rats normally thought present in the cool,
+damp places uninhabited by humans are absent.  The dust on the walls
+appears thick and undisturbed.  The guards gave up on occupying the walls
+several years ago.
+~
+[Merior] first sentence odd
+[Phule] i like it :)
+[Finius] second sentence is very convoluted.
+extra-look dust
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36004 10 10 5
+D2
+~
+~
+0 -1 36002 10 10 5
+3002 9 1509949540 3 0
+-1
+S
+
+#36004
+The Walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+extra- look cobweb? maybe need to add an action here, sconce falls and hits you.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36006 10 10 5
+D2
+~
+~
+0 -1 36003 10 10 5
+E
+sconce~
+Cobwebs, not torches, fill these sconces now.
+~
+3000 9 1509949540 3 0
+-1
+S
+
+#36006
+The Walls of Narak~
+You are standing below a winding stone staircase leading up into the
+northwest guard tower of Narak.  Whether it was the lack of any nearby
+enemies or the palpable creeping hand of death in the air that drove the
+guards from the walls, the fact remains that the bravest of the cityguard
+dare not step foot within these lifeless walls.
+~
+[Finius] how do you open the dang door?
+[Phule] *cackle*
+extra- look staircase- sense the creeping the hand of death
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36007 10 10 5
+D2
+~
+~
+0 -1 36004 10 10 5
+D4
+trapdoor~
+trapdoor~
+195 -1 36113 10 10 5
+3001 9 1509949540 3 0
+3001 9 1509949540 3 0
+-1
+S
+
+#36007
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] too many commas.
+[Finius] (ref. Amadeus, 'too many notes')
+extras- dust cobwebs - sense the chill - maybe some sounds if they listen
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36008 10 10 5
+D3
+~
+~
+0 -1 36006 10 10 5
+3002 9 1509949540 3 0
+-1
+S
+
+#36008
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Merior] no changes in room descriptions in walls? boring :(
+[Finius] my gosh but this looks just like the room to the west
+[Finius] still too many commas breaking up the flow of things.
+since its the same see rbug one west :)
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36009 10 10 5
+D3
+~
+~
+0 -1 36007 10 10 5
+3000 9 1509949540 3 0
+-1
+S
+
+#36009
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] number 3, number 3, number 3, number 3.
+[Finius] i liked the sconces better. mabye throw in a dead wrat.
+[Finius] someone needs to take your copy/paste away ;)
+*laugh* love ya phule see rbug room 36007
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36010 10 10 5
+D3
+~
+~
+0 -1 36008 10 10 5
+3001 9 1509949540 3 0
+3001 9 1509949540 3 0
+-1
+S
+
+#36010
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] (insert saracastic comment about same room 5 rooms in a row
+here) 
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36011 10 10 5
+D3
+~
+~
+0 -1 36009 10 10 5
+3002 9 1509949540 3 0
+-1
+S
+
+#36011
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] (cf five rooms to your west.  they will look familiar after a
+while) 
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36012 10 10 5
+D3
+~
+~
+0 -1 36010 10 10 5
+3002 9 1509949540 3 0
+3000 9 1509949540 3 0
+-1
+S
+
+#36012
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] i know i've seen this before, don't tell me, don't tell me...
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36013 10 10 5
+D3
+~
+~
+0 -1 36011 10 10 5
+3001 9 1509949540 3 0
+-1
+S
+
+#36013
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] number 9, number 9. TURN ME ON DEAD MAN TURN ME ON DEAD MAN.  (see 8 rooms west)
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36014 10 10 5
+D3
+~
+~
+0 -1 36012 10 10 5
+-1
+S
+
+#36014
+The Walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] number 10. you win. why am i checking the land of same 12 rooms again? ;)
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36015 10 10 5
+D3
+~
+~
+0 -1 36013 10 10 5
+3000 9 1509949540 3 0
+3001 9 1509949540 3 0
+-1
+S
+
+#36015
+The walls of Narak~
+You are standing below a winding stone staircase leading up into the
+northwest guard tower of Narak.  Whether it was the lack of any nearby
+enemies or the palpable creeping hand of death in the air that drove the
+guards from the walls, the fact remains that the bravest of the cityguard
+dare not step foot within these lifeless walls.
+~
+[Merior] can you do something with panel? and nothing made to east yet...
+[Finius] okay, this is also a copy.  cause last tower said Northwest, and
+it should be Walls not walls of Narak 
+[Finius] as i've travelled east through same 10-12 rooms, my guess is
+this is Northeast Tower.
+[Finius] and should i know how to open the trapdoor? i got no clue
+[Phule] *cackle*
+again need an extra look stair
+~
+301465664 1 9 0
+D1
+panel~
+panel~
+171 -1 36047 10 10 5
+D2
+~
+~
+0 -1 36016 10 10 5
+D3
+~
+~
+0 -1 36014 10 10 5
+D4
+trapdoor~
+trapdoor~
+195 -1 36112 10 10 5
+E
+wall e panel east~
+The wall appears to be a panel of some sort.
+~
+A
+~
+~
+if( random( 1, 10 ) < 4 ) {
+  act_tochar( #wall, ch );
+  end;
+  }
+~
+E
+wall~
+You detect a faint glimmer out from underneath the otherwise ordinary
+wall to the east.
+~
+!
+1 0 28
+A
+~
+~
+continue;
+~
+E
+to_side~
+Someone open the stone panel of the wall to the west.
+~
+E
+to_room~
+$n slides open the stone panel of the east wall.
+~
+E
+to_char~
+You slide open the stone panel of the east wall.
+~
+!
+8 0 2
+-1
+S
+
+#36016
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] okay this is same room exactly of room 10 west from ehre or so.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36015 10 10 5
+D2
+~
+~
+0 -1 36017 10 10 5
+3002 9 1509949540 3 0
+-1
+S
+
+#36017
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+poss. site for lower level boss.
+[Finius] copy/paste room. Walls not walls.
+[Finius] ah i killed a dark spectre thing over here and a trapdoor opens elsewhere.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36016 10 10 5
+D2
+~
+~
+0 -1 36018 10 10 5
+983 9 1509949540 3 0
+-1
+S
+
+#36018
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] copy/paste room. Walls not walls.
+[Finius] copy/paste room. Walls, not walls in room title.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36017 10 10 5
+D2
+~
+~
+0 -1 36052 10 10 5
+3001 9 1509949540 3 0
+3000 9 1509949540 3 0
+-1
+S
+
+#36023
+The walls of Narak~
+These walls, abandoned by the cityguard, have fallen into neglect. 
+Cobwebs litter every corner and cranny, and the scent of death permeates
+the air.  It is definately more chill here between the stone walls than
+the desert air outside.  There is a small @blever@n on the north wall
+near a portcullis.
+~
+~
+301465672 1 9 0
+D0
+portcullis~
+portcullis~
+407 -1 36001 10 10 5
+D2
+~
+~
+0 -1 36024 10 10 5
+E
+lever~
+This small grey lever is obviously used to open the portcullis from
+within the walls.
+~
+A
+~
+~
+close( room, north );
+send_to_room( #portclose, room );
+~
+E
+portclose~
+The portcullis slams shut!
+~
+!
+1 0 1
+A
+pull~
+lever~
+if( !is_open( room, north ) ) {
+  open( room, north );
+  act_tochar( #youpull, ch );
+  act_notchar( #hepulls, ch );
+  }
+else
+  act_tochar( #isopen, ch );
+~
+E
+youpull~
+You pull the lever and the portcullis to the north opens up.
+~
+E
+hepulls~
+$n pulls a lever on the wall and the portcullis to the north opens up.
+~
+E
+isopen~
+The portcullis is already open.
+~
+!
+0 0 0
+-1
+S
+
+#36024
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+~
+301465664 1 9 0
+D0
+portcullis~
+portcullis~
+0 -1 36023 10 10 5
+D2
+~
+~
+0 -1 36025 10 10 5
+3002 9 1509949540 3 0
+3000 9 1509949540 3 0
+-1
+S
+
+#36025
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+need to add more actions
+look cowebs
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36024 10 10 5
+D2
+~
+~
+0 -1 36029 10 10 5
+3001 9 1509949540 3 0
+-1
+S
+
+#36029
+The walls of Narak~
+You are standing below a winding stone staircase leading up into the
+southwest guard tower of Narak.  Whether it was the lack of any nearby
+enemies or the palpable creeping hand of death in the air that drove the
+guards from the walls, the fact remains that the bravest of the cityguard
+dare not step foot within these lifeless walls.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+[Finius] this is the SW guardtower. you copy paster
+look stairs :)
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36025 10 10 5
+D1
+~
+~
+0 -1 36030 10 10 5
+D4
+trapdoor~
+trapdoor~
+195 -1 36110 10 10 5
+-1
+S
+
+#36030
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36031 10 10 5
+D3
+~
+~
+0 -1 36029 10 10 5
+3001 9 1509949540 3 0
+3001 9 1509949540 3 0
+-1
+S
+
+#36031
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36032 10 10 5
+D3
+~
+~
+0 -1 36030 10 10 5
+-1
+S
+
+#36032
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36033 10 10 5
+D3
+~
+~
+0 -1 36031 10 10 5
+3000 9 1509949540 3 0
+-1
+S
+
+#36033
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36034 10 10 5
+D3
+~
+~
+0 -1 36032 10 10 5
+3002 9 1509949540 3 0
+3001 9 1509949540 3 0
+-1
+S
+
+#36034
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36035 10 10 5
+D3
+~
+~
+0 -1 36033 10 10 5
+3000 9 1509949540 3 0
+3002 9 1509949540 3 0
+-1
+S
+
+#36035
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36036 10 10 5
+D3
+~
+~
+0 -1 36034 10 10 5
+3001 9 1509949540 3 0
+-1
+S
+
+#36036
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36037 10 10 5
+D3
+~
+~
+0 -1 36035 10 10 5
+3000 9 1509949540 3 0
+3001 9 1509949540 3 0
+-1
+S
+
+#36037
+The walls of Narak~
+This east-west passage is located between the two outer walls of the
+city, built to be manned and defended by the cityguard.  Signs of life
+are gone, now, with the dust growing thick and the cobwebs thicker.  The
+air here is still, damp, and chill, in stark contrast with the desert
+outside.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 36038 10 10 5
+D3
+~
+~
+0 -1 36036 10 10 5
+3002 9 1509949540 3 0
+-1
+S
+
+#36038
+The walls of Narak~
+You are standing below a winding stone staircase leading up into the
+southeast guard tower of Narak.  Whether it was the lack of any nearby
+enemies or the palpable creeping hand of death in the air that drove the
+guards from the walls, the fact remains that the bravest of the cityguard
+dare not step foot within these lifeless walls.  The hallways lead
+between the walls to the north and west.
+~
+[Finius] come on, this is a copy/paste and says northwest guard tower,
+when this is the SE.  Walls of Narak.  *hrmmph* has me looking at
+copy/pastes all day..
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36049 10 10 5
+D3
+~
+~
+0 -1 36037 10 10 5
+D4
+trapdoor~
+trapdoor~
+195 -1 36111 10 10 5
+3000 9 1509949540 3 0
+-1
+S
+
+#36039
+The walls of Narak~
+Under Construction.
+~
+~
+301465665 3 9 0
+-1
+S
+
+#36047
+A Secret and Dark Chamber~
+This passage is narrow and small, and is not lit by torch nor candle.  A
+panel leads through the wall to the west, and the passage continues to
+the east.
+~
+nomob
+~
+301465673 1 9 0
+D1
+~
+~
+0 -1 36048 10 10 5
+D3
+panel~
+panel~
+171 -1 36015 10 10 5
+A
+~
+~
+~
+!
+0 0 0
+-1
+S
+
+#36048
+Before a Dark, Mysterious Pool~
+You stand before the smooth, mirrorlike surface of a dark pool.  Its
+depths hidden, the glow of white light shimmers deep beneath its surface
+like a false moon.  About 100 meters in circumference, anything from a
+black dragon to a sunken ship could be below the surface.  Or nothing at
+all.  A passage leads west away from the pool.
+~
+entering the pool transfers the character to the lair of an evil wizard --
+~
+301465665 1 9 0
+D3
+~
+~
+0 -1 36047 10 10 5
+E
+pool~
+This silvery pool's depths are unfathomable from this vantage, but a
+magical light glimmers from deep below its surface.
+~
+A
+enter dive ~
+pool water~
+if( !is_player( ch ) ) {
+  act_tochar( #hah, ch );
+  end;
+  }
+act_tochar( #dive, ch );
+act_notchar( #rdive, ch );
+transfer( ch, find_room( 36129 ) );
+act_notchar( #rrdive, ch );
+~
+E
+dive~
+You dive into the pool, and its chill touch nearly freezes your limbs. 
+Soon a tingle of powerful energy flows through you, warming you gently,
+and you see a faint light.  You swim toward the light, and come up out of
+the pool in a different place than you left.
+~
+E
+rdive~
+$n dives into the pool.
+~
+E
+rrdive~
+$n climbs out of the pool, but seems strangely dry.
+~
+E
+hah~
+You can't seem to enter the pool.
+~
+!
+0 0 0
+-1
+S
+
+#36049
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36050 10 10 5
+D2
+~
+~
+0 -1 36038 10 10 5
+-1
+S
+
+#36050
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36051 10 10 5
+D2
+~
+~
+0 -1 36049 10 10 5
+3000 9 1509949540 3 0
+-1
+S
+
+#36051
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] another copy/paste room. Walls, not walls of Narak.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36052 10 10 5
+D2
+~
+~
+0 -1 36050 10 10 5
+3002 9 1509949540 3 0
+-1
+S
+
+#36052
+The walls of Narak~
+The stillness of the air seems suffocating, as if nothing substantial
+draws breath within these walls.  The empty torch sconces in the walls
+suggest that these walls were once watched by the cityguards, but have
+now been abandoned.  Cobwebs hang thick from the corners where the damp
+grey stones meet.  The hallway between the walls heads north and south.
+~
+[Finius] yet another copy/paste room in need of Wall capitalized.
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 36018 10 10 5
+D2
+~
+~
+0 -1 36051 10 10 5
+3001 9 1509949540 3 0
+-1
+S
+
+#36053
+Way of Kel Amroth~
+You are standing on the Way of Kel Amroth, just east of the desert city's
+main gate.  Bright-coloured cloths drape from nearby shops depicting a
+variety of goods and services.  To the east is a bustling intersection,
+crawling with merchants and crowds of people rummaging through the myriad
+shops and bazaars.
+ 
+A gold-engraved @b@Gplaque@n hangs on the city wall to the south.
+~
+phnote :: unfinished areas
+second section of the elemental catacombs
+assassin's tower
+[Phule] added interaction with plaque
+[Phule] tempted to have action keyword brush.... *twitches*
+typo second sentence
+[Phule] fixed typo
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36054 10 10 5
+D3
+~
+~
+0 -1 36001 10 10 5
+E
+plaque wall south gold engraved~
+The plaque depicts a stately gnome exchanging goods with a regal human.
+~
+E
+cloths bright colour~
+Brightly-coloured cloths hang above the doorways and windows of the local
+shops.  They flutter gently in the slight breeze caused by the milling
+citizens.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You duck your head and plunge into the milling crowd.
+~
+!
+3 0 2
+A
+get take steal remove~
+plaque~
+act_tochar( #firm, ch );
+~
+E
+firm~
+You try to take the plaque, but it is firmly attached to the wall.
+~
+!
+0 0 0
+-1
+S
+
+#36054
+Way of Kel Amroth - Intersection with Aghrin Street~
+Peddlers carrying goods from ports all over the known realms bustle to
+and fro with their precious cargo.  Small caravans of camels head west
+through the gate, while still others arrive from the west, delivering
+goods to the many stores and shops.  The Way of Kel Amroth continues
+east, while Aghrin Street runs north and south.
+~
+[Finius] ports aren't much used these days. cities maybe?
+[Phule] i say ports when i mean ports :)
+extras look caravans and or peddlers
+[Rhen] extra smell camel
+added i guess
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36078 10 10 5
+D1
+~
+~
+0 -1 36055 10 10 5
+D2
+~
+~
+0 -1 36076 10 10 5
+D3
+~
+~
+0 -1 36053 10 10 5
+E
+caravans camels peddlers cargo~
+Nameless merchants, all in a hurry to transport their goods.
+~
+A
+~
+~
+if( random( 1, 30 ) < 6 ) {
+  act_tochar( #crowd, ch );
+  wait( 2 );
+  if( char_in_room( ch, room ) ) {
+    obj = oload( 2 );
+    if( has_obj( 2, ch ) ) {
+      junk_obj( has_obj( 2, ch ) );
+      act_tochar( #snatch, ch );
+      act_tochar( #pilfer, ch );
+      act_tochar( #welcome, ch );
+      obj_to_char( oload( 14 ), ch );
+      }
+    }
+  }
+~
+E
+pilfer~
+@b@MYou quickly call for help, from the guards, from a passing merchant,
+from the city at large, but it is no use, it is too late.  Part of your
+purse has been pilfered.@n 
+~
+E
+snatch~
+@b@RWith completely no warning, you feel an added weight on your
+purse--someone has just tried to steal from you!!  You turn around and
+see a quickly disappearning dark shape who is gone before you can even
+react.@n
+~
+E
+welcome~
+@b@GNoticing your plight, a passing merchant pasing you by stops for a
+moment and gives you a coin.  @C"Welcome to Narak.  You'd better take
+better care of that purse of yours."@n 
+~
+E
+crowd~
+You enter the crowded streets of Narak.
+~
+!
+0 0 8
+A
+~
+~
+wait( 1 );
+i = random( 1, 8 );
+if( i == 1 )
+  send_to_room( #camel, room );
+if( i == 2 )
+  send_to_room( #merchant, room );
+if( i == 3 )
+  send_to_room( #peddler, room );
+if( i == 4 )
+  acode( room, 1 );
+if( i == 5 )
+  send_to_room( #pedd2, room );
+if( i == 6 )
+  send_to_room( #chase, room );
+~
+E
+chase~
+A short man runs by, forcing his way through the crowd, followed by three
+large cityguards.  "Stop!!  Thief!!" 
+~
+E
+pedd2~
+A simple peddler pushes a cart laden with bottles and kegs of various
+liquors down the sandstone street to the south.
+~
+E
+peddler~
+A simple peddler pushes a cart of spices down the sandstone street to the
+north.
+~
+E
+merchant~
+A merchant, running around like a chicken with its head cut off, waves
+his hands in the air.  "Help!!  Help!!  I've been robbed!!" he screams as
+he disappears into the crowd.
+~
+E
+camel~
+Three camels carrying large loads of silks and carpets are led down Main
+Street to the east by a balding merchant.
+~
+!
+1 0 15
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T along the Way of Kel Amroth.
+~
+!
+3 0 10
+754 9 1509949540 3 0
+754 9 1509949495 3 0
+918 9 1509949530 3 0
+-1
+S
+
+#36055
+Way of Kel Amroth~
+Above an open doorway to the north hangs a silver-engraved sign depicting
+a curved sword crossed with an axe, beyond which the faint glow of a
+forge can be seen.  A bright pennant hangs down from a shop above the
+smithy, accessable via sturdy wooden steps leading up and over the
+smithy's door.  To the west, Main Street reaches a bustling intersection,
+while to the east, the bright signs of more shops can be seen.  To the
+south, an ancient, crumbling wall remains, a remnant of Narak's past.
+~
+[Rhen] extras- smell food, listen- hustle and bustle and of a thriving city :)
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36096 10 10 5
+D1
+~
+~
+0 -1 36056 10 10 5
+D3
+~
+~
+0 -1 36054 10 10 5
+D4
+~
+~
+1024 -1 36149 10 10 5
+E
+silver sign~
+The working is intricate and the sign seems recently polished.  The
+curving sword must be the sword of the desert, the scimitar, and the
+large battle-axe depicted is reminiscent of dwarven masterwork.  The sign
+must belong to a smithy.
+~
+E
+pennant~
+The multi-colored pennant advertises "Authentic Western Food." The shop
+it belongs to might be interesting.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step beneath the silver sign and into the shop.
+~
+!
+3 0 1
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down the Way of Kel Amroth.
+~
+!
+3 0 10
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb the staircase to the balcony above.
+~
+!
+3 0 16
+-1
+S
+
+#36056
+Way of Kel Amroth~
+A graceful stone arch to the south marks the entrance to the city square,
+where the bright colors and sounds of a street fair or bazaar mingle
+pleasantly with the smells of fresh fruits and cooking meat.  To the west
+you make out the faint sound of metal being shaped, and to the east you
+see bright signs advertising more shops.  A sturdy wooden staircase leads
+up the wall to the north, leading to a small balcony shop overhead.
+~
+up to north
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36057 10 10 5
+D2
+~
+~
+0 -1 36097 10 10 5
+D3
+~
+~
+0 -1 36055 10 10 5
+D4
+~
+~
+1024 -1 36176 10 10 5
+E
+signs~
+The signs are colourful, but are too far away to be read clearly.  The
+nearest one seems to advertise an inn.
+~
+E
+arch~
+The old stone arch is a part of the old wall of Narak, now mostly
+crumbled.  It has withstood the passage of several centuries, and is one
+of Narak's chief items of history.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down the Way of Kel Amroth.
+~
+!
+3 0 10
+A
+climb~
+staircase~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb up the ladder to the rooftop.
+~
+!
+3 0 16
+918 9 1509949525 3 0
+918 9 1509949515 3 0
+-1
+S
+
+#36057
+Way of Kel Amroth~
+One of the oldest and most revered buildings in Narak, the Wyvern Inn,
+stands mightily to the north.  Far from disrepair, the building is in the
+same condition of perfect craftsmanship as it has always been.  To the
+west, Main Street passes an arch leading to the city square, and to the
+east more colourfully-pennanted shops can be seen.  A painted wooden sign
+hangs above the inn's open front door to the north, beside the boughs of
+an exremely out-of-place oak tree.
+~
+climb tree
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36089 10 10 5
+D1
+~
+~
+0 -1 36058 10 10 5
+D3
+~
+~
+0 -1 36056 10 10 5
+E
+painted wooden sign~
+The sign depicts a ferocious wyvern, wings outsretched.
+~
+E
+colourful pennants~
+The pennants are too far away to read, from here, but one appears to
+depict twin palm trees, an oasis.
+~
+E
+oak tree~
+The large tree grows strangely out of place in a plot of dark soil amidst
+the large sandstone blocks of the street.  The low branches look
+climbable, and the thick leaves could make it a good place to hide.
+~
+A
+climb~
+oak tree branches~
+act_tochar( #climb, ch );
+act_tochar( "$n climbs up into the oak tree.", ch );
+transfer( ch, find_room( 36174 ) );
+act_notchar( "$n climbs up from below.", ch );
+~
+E
+climb~
+You slink up the branches of the tree, disappearing from the crowded
+streets of Narak.
+~
+!
+0 0 0
+A
+~
+~
+i = random( 1, 5 );
+if( i == 2 )
+  send_to_room( #sc1, room );
+if( i == 3 )
+  send_to_room( #sc2, room );
+if( i == 4 )
+  send_to_room( #sc3, room );
+~
+E
+sc1~
+Two dark-skinned men stride out of the inn's door, apparently heading for
+a disembarking ship.
+~
+E
+sc2~
+A merchant pushing a large cart of fruit wheels past you and turns into
+the city plaza.
+~
+E
+sc3~
+You are pushed about as a large crowd leaving the city plaza flows past
+you and down the street to the east.
+~
+!
+2 500 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down the Way of Kel Amroth.
+~
+!
+3 0 10
+A
+~
+~
+continue;
+~
+E
+to_char~
+You enter the inn.
+~
+!
+3 0 1
+-1
+S
+
+#36058
+Way of Kel Amroth~
+Two high-class shops line Main Street, a silk and fineries shop to the
+north, and a dining hall to the south.  To the east you see an
+intersection, across which rises the imposing structure of the sultan's
+palace.  To the west you see a tree growing from the sandstone of the
+street in front of a mighty inn.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36062 10 10 5
+D1
+~
+~
+0 -1 36059 10 10 5
+D2
+~
+~
+0 -1 36063 10 10 5
+D3
+~
+~
+0 -1 36057 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down the Way of Kel Amroth.
+~
+!
+3 0 10
+A
+~
+~
+continue;
+~
+E
+to_char~
+You enter the shop to the $T.
+~
+!
+3 0 5
+-1
+S
+
+#36059
+Outside the Sultan's Palace~
+To the east rises a marvelously constructed palace of domes and towers,
+the home of the Sultan of Narak.  North and south runs Palace Street, and
+to the west the shops of Main Street can be seen, with scores of merchants
+going from store to store to trade, or to gather the local gossip. 
+A large brass gong adorns the palace wall to the east next to an
+ornately-crafted gate.  It appears you will have to knock or ring the
+gong to gain entrance.
+~
+[Finius] nice gong :)
+[Phule] thanks :)
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36064 10 10 5
+D1
+gate~
+gate~
+195 -1 36060 10 10 5
+D2
+~
+~
+0 -1 36065 10 10 5
+D3
+~
+~
+0 -1 36058 10 10 5
+E
+gong~
+A large brass gong, with a wooden mallet hanging from one corner.
+~
+E
+gate door~
+A larg brass gong adorns the palace wall to the east next to an
+ornately-crafted gate.  It appears you will have to ring the gong to gain
+entrance.
+~
+A
+knock bang ring sound hit gong~
+gate gong bell door 1 east~
+act_tochar( #ring, ch );
+act_notchar( #nring, ch );
+wait( 1 );
+send_to_room( #open, room );
+send_to_room( #open, find_room( 36060 ) );
+open( room, east );
+~
+E
+ring~
+You sound the brass gong with a reverberating *BRANG!!!* and wait for the
+guard to open the doors.
+~
+E
+nring~
+$n sounds the brass gong with a reverberating *BRANG!!!*
+~
+E
+open~
+The palace gate swings open to the sound of wind chimes.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+send_to_room( #west, find_room( 36060 ) );
+send_to_room( #east, room );
+~
+E
+west~
+The palace gate is pulled shut by a few nearby guards.
+~
+E
+east~
+The palace gate to the east closes slowly.
+~
+!
+1 0 2
+A
+~
+~
+continue;
+~
+E
+to_char~
+You walk through the gates and into the palace.
+~
+!
+3 0 2
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue west down the Way of Kel Amroth.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 5
+917 9 1509949535 3 0
+918 9 1509949525 3 0
+918 9 1509949515 3 0
+918 9 1509949505 3 0
+163 9 1509949540 3 0
+-1
+S
+
+#36060
+The Palace of the Sultan~
+The sand-colored streets of Narak give way to the white marble of the
+interior of the sultan's palace.  A spiraling stair leads upward to the
+throne room, and to the north you see an open oakenwood door leading
+toward the sultan's private chambers.  The palace gates to the west are
+much too massive to be pushed open, but a large crank mounted in the wall
+beside it might have something to do with its operation.  A strange
+statue of a quite rotund gnome stands in the southwest corner next to a
+potted plant.
+~
+nomob
+[Merior] i presume no one can get into bedroom since it isnt done...
+[Phule] bedroom is just a teaser - never meant to be done.
+[Finius] good guard description.
+[Finius] why do you just get to go in and see the sultan?
+[Finius] not sure what code is available to make you wait, or have guards check you over first...but they should.
+[Finius] ah you can't go north
+~
+301465709 1 9 0
+D0
+door~
+door n north~
+195 -1 36093 10 10 5
+D3
+gate~
+gate~
+195 -1 36059 10 10 5
+D4
+~
+~
+0 -1 36061 10 10 5
+E
+nose~
+It looks a bit detached, as if perhaps it was not part of the original
+design.
+~
+E
+crank~
+This crank, if turned, will drop a complex system of counterweights
+hidden within the palace walls and thereby open the massive gates.
+~
+E
+rotund statue strange~
+This statue depicts the commercial genius of the first Sultan of Narak,
+the half-goblin affectionately known only as "The Sultan." His vision
+rebuilt Narak and transformed it from a dying desert village to a
+bustling center of trade.  The nose seems slightly off-center.
+~
+E
+potted plant~
+In a simple clay pot, this fern is very leafy and moist and is obviously
+alien to the desert climes of Narak.  It is almost constantly watered by
+a pair of servants who run to and from a small closet carrying buckets,
+sweat drenching down their exhausted faces.
+~
+A
+~
+~
+act_tochar( #block, ch );
+~
+E
+block~
+@CA guard steps from the shadows and blocks your passage.  "@bYou are not
+allowed in the sultan's bedchamber.@n" 
+~
+!
+3 0 1
+A
+~
+~
+wait( 1 );
+close( room, west );
+send_to_room( #west, room );
+send_to_room( #east, find_room( 36059 ) );
+~
+E
+west~
+Guards close the magnificent gate to the west.
+~
+E
+east~
+The magnificent gate to the east closes.
+~
+!
+1 0 8
+A
+turn pull crank~
+crank~
+act_tochar( #crank, ch );
+open( room, west );
+send_to_room( #east, find_room( 36059 ) );
+~
+E
+crank~
+You turn the crank and the gate swings open.
+~
+E
+rcrank~
+$n turns the crank and the gate swings open.
+~
+E
+east~
+The magnificent gate to the east opens to the sound of windchimes.
+~
+!
+0 0 0
+A
+twist turn rotate spin~
+nose~
+act_tochar( #turn, ch );
+i = random( 1, 2 );
+if( i == 1 ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    open( find_room( 36001 ), north );
+    send_to_room( #north, find_room( 36001 ) );
+    send_to_room( #south, find_room( 36002 ) );
+    send_to_area( #some, room );
+    }
+  else {
+    close( find_room( 36001 ), north );
+    send_to_room( #noclose, find_room( 36001 ) );
+    send_to_room( #soclose, find_room( 36002 ) );
+    send_to_area( #close, room );
+    set_rflag( reset0, room );
+    }
+  }
+if( i == 2 ) {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    open( find_room( 36001 ), south );
+    send_to_room( #south, find_room( 36001 ) );
+    send_to_room( #north, find_room( 36023 ) );
+    send_to_area( #some, room );
+    }
+  else {
+    close( find_room( 36001 ), south );
+    send_to_room( #soclose, find_room( 36001 ) );
+    send_to_room( #noclose, find_room( 36023 ) );
+    send_to_area( #close, room );
+    set_rflag( reset1, room );
+    }
+  }
+~
+E
+north~
+The portcullis to the north slowly and mysteriously opens.
+~
+E
+south~
+The portcullis to the south slowly and mysteriously opens.
+~
+E
+some~
+From somewhere the grating sound of a portcullis being raised can be heard.
+~
+E
+turn~
+You twist the statue's odd-shaped nose.
+~
+E
+noclose~
+The portcullis to the north slowly and mysteriously closes.
+~
+E
+soclose~
+The portcullis to the south slowly and mysteriously closes.
+~
+E
+close~
+From somewhere the grating sound of a portcullis being lowered can be heard.
+~
+!
+0 0 0
+917 9 1509949515 3 0
+917 9 1509949515 3 0
+-1
+S
+
+#36061
+The Throne Room~
+A massive throne of gold and silver dominates this large chamber,
+elevated on a small dais.  Fineries of every description, from silken
+tapestries to jeweled goblets, line the walls and a red carpet leads from
+the marble stairway to the foot of the throne.
+~
+sultan mprogs are disabled purposefully as religions are bogus
+[Finius] small marble dais?
+[Finius] be cool if you could ask him about his scim.  maybe cut your
+head off or something ;) 
+[Phule] safe
+~
+301465703 1 9 0
+D5
+~
+~
+0 -1 36060 10 10 5
+649 9 1509949540 3 0
+997 8 1509949540 3 0
+-1
+S
+
+#36062
+Areadle's Fineries~
+Silks and gems line the shelves of this luxuriously decorated shop. 
+Servants with large palm leaves follow guests, fanning them as they
+browse the items.  It is much cooler in this store than in the outside
+heat, a refreshing change.
+ 
+A small sign hangs from a wall nearby.
+~
+[Phule] safe
+[Phule] no.mob
+~
+301469771 1 9 0
+D2
+~
+~
+0 -1 36058 10 10 5
+E
+sign~
+@bList@n -- shows what you can buy.
+ 
+If you have a question about an unusual item, ask the shopkeeper about it.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step out onto the Way of Kel Amroth.
+~
+!
+3 0 4
+650 9 1509949540 3 0
+342 17 1509949470 -1 0
+1161 17 1509949475 -1 0
+1159 17 1509949470 -1 0
+1162 17 1509949460 -1 0
+1485 17 1509949460 -1 0
+-1
+S
+
+#36063
+Veglar's Oasis~
+Several patrons sit in relative comfort, dining on various dishes
+imported from across the realms.  Waiters dressed in white carry trays of
+food and drink to and fro quickly, yet stop to chat amiably with the
+guests.  Candles light each table, and several large rotating fans hang
+from the ceiling, powered by some unseen force.
+~
+[Phule] nomob
+[Phule] safe
+[Phule] btw, legbone pops here one out of every 30 REBOOTS
+~
+301465675 1 9 0
+D0
+~
+~
+0 -1 36058 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step out onto the Way of Kel Amroth.
+~
+!
+3 0 1
+651 9 1509949540 3 0
+113 17 1509949500 -1 0
+112 17 1509949500 -1 0
+129 17 1509949540 -1 0
+-1
+S
+
+#36064
+Palace Street~
+You are standing on a street of scrubbed white sandstone.  To the north
+you see a few shops, and to the south the palace gates are visible.  To
+the east the walls of the palace loom high overhead, reaching to golden
+domed rooftops and high balcony windows.  This spot is strangely bare in
+the bustle of the city, as no shops line the city streets.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36082 10 10 5
+D2
+~
+~
+0 -1 36059 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 5
+-1
+S
+
+#36065
+Palace Street~
+Despite the looming form of the sultan's palace to the northeast, the
+white marble building to the east catches your eye.  Large columns of
+stone support a massive marble roof which encloses a graceful temple.  To
+the west, the sandstone wall of a building rises up into the desert air, a
+staircase leading up its edge toward a small shop above.  The merchants
+and servants running to and fro along the street move more slowly and
+quietly here, as if respecting the peace of the temple.
+~
+[Finius] add look column to the look temple description
+[Phule] added
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36059 10 10 5
+D1
+~
+~
+0 -1 36117 10 10 5
+D2
+~
+~
+0 -1 36066 10 10 5
+D4
+~
+~
+0 -1 36146 10 10 5
+E
+temple~
+The smooth white marble structure rises into the sky, with six massive
+columns supporting its roof.
+~
+E
+columns~
+The columns are white marble, each easily 8 feet thick.
+~
+A
+~
+~
+send_to_char( #ch, ch );
+transfer( ch, find_room( 36117 ) );
+~
+E
+ch~
+You ascend the smooth steps into the temple.
+
+~
+!
+3 1 2
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 5
+-1
+S
+
+#36066
+Palace Street~
+The street is fairly bare at this point, but the bustling merchantry
+still flows by in a steady din of yelling and conversation and
+accusations.  A high wall rises rises to the east, the outer wall of the
+city..  A small sandstone wall stands to the west, with a small staircase
+leading up the side of it to a small shop above.  To the north, Palace
+Street passes a temple, and to the south you can see an intersection.  A
+rather imposing-looking gate stands before a large building to the east.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36065 10 10 5
+D1
+black iron gate~
+black iron gate e east door~
+195 -1 36191 10 10 5
+D2
+~
+~
+0 -1 36067 10 10 5
+D4
+~
+~
+0 -1 36145 10 10 5
+E
+gate~
+The black iron bars of the gate are close together.  It would take quite
+a ram to break down the door.
+~
+A
+bang knock~
+1 east gate~
+act_tochar( "You bang on the gate.", ch );
+act_notchar( "$n bangs on the gate to the east.", ch );
+act_tochar( "A few guards yell curses at you, and go back to sleep.", ch );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 5
+-1
+S
+
+#36067
+Intersection of Palace and Khotrad~
+The streets of Palace and Khotrad come to a bustling intersection here,
+with merchants coming and going along Palace Street to the north and
+Khotrad to the west.  To the east stands a small brightly-coloured tent
+with a sign above its flap, a strange spicy odor coming from the tent's
+interior.  A small table and a few chairs have been placed here by the
+cityguard to act as a quiet place to talk, as this corner of the city,
+while busy, does not boast the commercial traffic of other parts of the
+city.  A small wooden ladder runs up the wall to the south to a trapdoor. 
+The trapdoor leads into a house which hangs from the wall.
+~
+[Merior] is cityguard one or two words?
+[Phule] cityguard can be either - a like one word better.
+[Finius] every guard also looks the same, dude.
+[Phule] well there is no difference between a gate and a street guard
+except their duties 
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36066 10 10 5
+D1
+~
+~
+0 -1 36068 10 10 5
+D3
+~
+~
+0 -1 36069 10 10 5
+D4
+~
+~
+0 -1 36164 10 10 5
+E
+sign~
+The sign reads:
+ 
+THE FORTUNE-TELLER'S:
+
+Learn about your future, or make yourself one with our choice reagents.
+~
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 1
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Khotrad Street.
+~
+!
+3 0 8
+912 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+918 9 1509949530 3 0
+918 9 1509949520 3 0
+-1
+S
+
+#36068
+The Fortune-Teller's~
+The tent is poorly lit, as only a few candles on a small wooden table in
+the center of the tent provide light.  Small particles fill the air,
+possibly dust, and numerous jars line a few shelves filled with contents
+not discernable.  Thin leather loops hang on a few racks, obviously
+intended to be made into some sort of necklace.
+~
+[Phule] working on fortune-telling program
+[Finius] bit stilted not to just say 'undiscernable contents'
+[Finius] leather to make a necklace and she customs nothing.  heh
+frusstrating.
+[Finius] ah, i just looked and see its webs instead.  some, like me, will
+miss that, and i guess you know it works then :) 
+[Phule] custom for shark tooth necklace goes here
+[Phule] safe
+[Phule] nomob
+~
+301465679 1 9 0
+D3
+~
+~
+0 -1 36067 10 10 5
+E
+loops jars shelves racks~
+The jars are covered with dust, making their contents indistinguishable. 
+The loops appear upon second glance to be instead thick strands of woven
+spider's silk.
+~
+676 9 1509949540 3 0
+21 17 1509949540 -1 0
+37 17 1509949540 -1 0
+78 17 1509949540 -1 0
+81 17 1509949540 -1 0
+243 17 1509949540 -1 0
+249 17 1509949465 -1 0
+912 49 1509949540 -2 0
+27 81 1509949540 -2 0
+-1
+S
+
+#36069
+Khotrad Street~
+To the north and south rise walls of stone, the north being a crumbling
+wall of granite, and the south a mighty wall of sandstone.  To the west
+you see a large ramp descending below the walls, and to the east the
+smells of strange spices can be detected.
+~
+u was 36166
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36067 10 10 5
+D3
+~
+~
+0 -1 36070 10 10 5
+D4
+~
+~
+0 -1 36166 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Khotrad Street.
+~
+!
+3 0 10
+-1
+S
+
+#36070
+Khotrad Street~
+Khotrad Street runs east to west along the southern wall of the city.  A
+large stone ramp leads down to the south, towards the smell of the sea. 
+Large carts pulled by horses haul loads to and from the ramp below. 
+Merchants crowd the large ramp which seems suddenly small, all trying to
+reach or disembark from a ship at the docks.  To the west an entrance to
+the city plaza can be seen over the crowd, the sounds of the plaza
+carrying over the crazy din.
+~
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36069 10 10 5
+D3
+~
+~
+0 -1 36071 10 10 5
+D5
+~
+~
+0 -1 36118 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Khotrad Street.
+~
+!
+3 0 10
+918 9 1509949530 3 0
+918 10 1509949520 3 0
+-1
+S
+
+#36071
+Khotrad Street~
+To the north, a small arch leads through a crumbling wall into the city
+square, alive with merchants, people, and entertainers.  Khotrad Street
+runs east and west along the southern wall of the city.
+~
+western rooms 
+u was 36168
+[Rhen] hmm maybe some extras like look entertainers
+agreed
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36099 10 10 5
+D1
+~
+~
+0 -1 36070 10 10 5
+D3
+~
+~
+0 -1 36072 10 10 5
+D4
+~
+~
+0 -1 36168 10 10 5
+E
+n north arch square merchants people entertainers~
+It is a mill of people, quite nearly a carnival atmosphere.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Khotrad Street.
+~
+!
+3 0 10
+-1
+S
+
+#36072
+Khotrad Street~
+You are in a quiet part of Narak, as Khotrad Street is fairly bare in
+this part of town.  To the west a few shops can be seen, and to the east
+you hear the faint sounds of the city square.
+~
+[Finius] be cool if you could ask jester to do certain emotions.  like
+flip, jump, tackle...
+u was 36170
+[Phule] i think joke and insult will do, as well as the tipping series with coins.
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36071 10 10 5
+D3
+~
+~
+0 -1 36073 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Khotrad Street.
+~
+!
+3 0 10
+-1
+S
+
+#36073
+Intersection of Khotrad and Aghrin~
+The southernmost intersection in Narak, Khotrad and Aghrin Streets
+interconnect here.  To the west the sounds of controlled combat can be
+heard, and to the north the loud sounds of a bar.  A small wooden ladder
+runs up the wall to the south to a trapdoor.  The trapdoor leads into a
+house which hangs from the wall.
+~
+[Merior] although i have figured out the hanging houses, if this is the
+first one seen, can still be confusing...
+[Merior] how about something like A small stone house appears to hang
+from the southern wall, and a trapdoor provides a means of accessing the
+house (or something kinda like that?
+[Rhen] listen sounds
+[Phule] you hear the sounds of a bar?
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36075 10 10 5
+D1
+~
+~
+0 -1 36072 10 10 5
+D3
+~
+~
+0 -1 36074 10 10 5
+D4
+~
+~
+1024 -1 36172 10 10 5
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Khotrad Street.
+~
+!
+3 0 2
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 1
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb up the ladder and come to a trapdoor.
+~
+!
+3 0 16
+918 9 1509949525 3 0
+918 9 1509949520 3 0
+-1
+S
+
+#36074
+The Camel's Tongue~
+A large white mat rests in the center of this room, with several figures
+practicing physical techniques on it.  Practice weapons line the walls
+and occasionally one is used in instruction on the mat, but it is clear
+that the weapons are not for sale.  Through the door to the east is the
+intersection between Khotrad and Aghrin.
+~
+[Phule] safe
+[Phule] nomob
+[Rhen] extras- look weapons smell sweat :)
+okay those i can see :)
+~
+301465679 1 9 0
+D1
+~
+~
+0 -1 36073 10 10 5
+E
+mat~
+The thickly padded mat lets the trainees fall to the ground without
+injuring themselves.
+~
+E
+weapons~
+A few wooden swords, but mostly staves and a very strange weapon indeed:
+two 18-inch long, inch-thick poles with a short length of cord between
+them.
+~
+672 9 1509949540 3 0
+-1
+S
+
+#36075
+Aghrin Street~
+The sounds of a boisterous tavern reach your ears from the west, loud
+voices and the sound of glasses clinking together.  Aghrin Street runs
+north and south, a long line of worn sandstone.  The smell of camels
+wafts in from the north.
+~
+[Rhen] hmm extras some smells maybe and look sandstone
+it's just a street :(
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36076 10 10 5
+D2
+~
+~
+0 -1 36073 10 10 5
+D3
+~
+~
+0 -1 36116 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 5
+-1
+S
+
+#36076
+Aghrin Street~
+Aghrin Street runs north and south, traversing the western side of the
+city.  The sound of laughter and merry-making seems to ring from all
+directions, filling the air with a degree of light-heartedness that makes
+the day or night seem somewhat brighter.  A putrid smell comes from an
+open doorway to the west.
+~
+[Finius] nice contrast in room descr. smell vs sound.
+[Phule] thanks finius
+[Rhen] extras- detail the smell please :) and yes nice touch.
+'a putrid smell'
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36054 10 10 5
+D2
+~
+~
+0 -1 36075 10 10 5
+D3
+~
+~
+0 -1 36104 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 5
+-1
+S
+
+#36078
+Aghrin Street~
+The fine sandstone of Aghrin Street stretches north toward more shops,
+and south it crosses Narak's Main Street.  Above the open door to the
+east hangs a silver-engraved sign depicting a curved sword crossed with
+an axe, while to the west a finely-tooled wooden sign depicting a
+crescent moon encircled by a coiling dragon overhangs another open
+doorway.  Bright-robed merchants cavort up and down this street, yet none
+seem to be looking your way.  A sturdy wooden stair leads up and over the
+smithy's doorway to a balcony overhead.
+~
+climb stair
+random clang, magic boom, merchant.
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36079 10 10 5
+D1
+~
+~
+0 -1 36096 10 10 5
+D2
+~
+~
+0 -1 36054 10 10 5
+D3
+~
+~
+0 -1 36115 10 10 5
+D4
+~
+~
+1024 -1 36151 10 10 5
+E
+silver~
+The working is intricate and the sign seems recently polished.  The
+curving sword must be the sword of the desert, the scimitar, and the
+large battle-axe depicted is reminiscent of dwarven masterwork.  The sign
+must belong to a smithy.
+~
+E
+sign~
+You try to look at both the wooden sign and the silver sign, but just end
+up confused.
+~
+E
+wooden~
+The dragon coiled around the crescent moon seems almost alive, the wooden
+sign's carver having done flawless work.  The sign seems to belong to a
+magician's shop, as the crackle of magic can be heard amidst intermittent
+explosions through the open doorway below it.
+~
+E
+pennant~
+The multi-colored pennant advertises "Authentic Western Food." The shop
+it belongs to might be interesting.
+~
+A
+~
+~
+wait( 1 );
+i = random( 1, 5 );
+if( i == 3 )
+  send_to_room( #expl, room );
+if( i == 2 )
+  send_to_room( #clang, room );
+if( i == 4 )
+  send_to_room( #merch, room );
+~
+E
+merch~
+A merchant pushing a cart laden with leathers and skin rushes down the
+street.
+~
+E
+clang~
+The pounding clang of metal on metal reaches your ears from the east.
+~
+E
+expl~
+The streets are rocked by a booming explosion through the doorway to the
+west, but passing merchants don't seem to notice.
+~
+!
+2 500 5
+A
+climb~
+sturdy wooden stair~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb up the staircase to the balcony above.
+~
+!
+3 0 16
+-1
+S
+
+#36079
+Aghrin Street~
+Smiling citizens come strolling out of the doorway to the west after a
+session in Brahle's Masseuse.  The heavy, blisteringly hot sandstone of
+Aghrin Street leads north and south toward more shops.  A set of sturdy
+wooden stairs lead up the walls on each side of the street.  The stairway
+to the east climbs above an open doorway, and the stairway to the west
+climbs to a shop above the street level.  The shops in this area do not
+hang bright signs, but seem to be well-visited despite the lack of show.
+~
+climb east or west
+[Finius] what stairway to the east?
+[Phule] the one you 'climb east'
+[Phule] dont forget 'climb west'
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36080 10 10 5
+D2
+~
+~
+0 -1 36078 10 10 5
+D3
+~
+~
+0 -1 36114 10 10 5
+E
+w west~
+While you cannot see within the shop, the faint outlines of people moving
+about within can be seen.
+~
+E
+sturdy wooden stairs~
+The stairways are wide enough for three or four people to walk up
+side-by-side, and look fairly newly-constructed.
+~
+A
+u up~
+~
+act_tochar( #heh, ch );
+~
+E
+heh~
+You try to will yourself upward, but it would probably be easier if you
+tried to climb something.
+~
+!
+0 0 0
+A
+climb~
+sturdy wooden stair~
+act_tochar( #heh, ch );
+~
+E
+heh~
+Which stair, the east or the west, do you wich to climb?
+~
+!
+0 0 0
+A
+climb~
+1 west~
+if( find_skill( ch, climb ) > 0 ) {
+  act_tochar( #climb, ch );
+  act_notchar( #rclimb, ch );
+  send_to_room( #arrive, find_room( 36152 ) );
+  transfer( ch, find_room( 36152 ) );
+  }
+else
+  act_tochar( "But you don't know how to climb!", ch );
+~
+E
+climb~
+You climb the staircase on the western side of the street.
+~
+E
+rclimb~
+$n climbs the staircase on the western side of the street.
+~
+E
+arrive~
+$n arrives from below, having climbed the stair.
+~
+!
+0 0 0
+A
+climb~
+1 east~
+if( find_skill( ch, climb ) > 0 ) {
+  act_tochar( #climb, ch );
+  act_notchar( #rclimb, ch );
+  send_to_room( #arrive, find_room( 36153 ) );
+  transfer( ch, find_room( 36153 ) );
+  }
+else
+  act_tochar( "But you don't know how to climb!", ch );
+~
+E
+climb~
+You climb the staircase on the eastern side of the street.
+~
+E
+rclimb~
+$n climbs the staircase on the eastern side of the street.
+~
+E
+arrive~
+$n arrives from below, having climbed the stair.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 5
+-1
+S
+
+#36080
+Intersection of Aghrin and Truskin~
+You are standing in the northwest corner of the city, just south of the
+mighty sandstone walls of Narak.  A small leather shop can be seen
+through an open door to the west, and the streets of Aghrin and Truskin
+lead south and east.  A small wooden ladder runs up the wall to the north
+to a trapdoor below a house which hangs from the wall.
+~
+[Merior] last sentence...
+[Phule] i like the last sentence
+[Rhen] maybe a look at that house on the wall so i can see how its hangin there.
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36088 10 10 5
+D2
+~
+~
+0 -1 36079 10 10 5
+D3
+~
+~
+0 -1 36081 10 10 5
+D4
+~
+~
+1024 -1 36154 10 10 5
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Aghrin Street.
+~
+!
+3 0 4
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Truskin Street.
+~
+!
+3 0 2
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step into the leather shop.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb up the ladder and come to a trapdoor.
+~
+!
+3 0 16
+918 9 1509949525 3 0
+918 9 1509949515 3 0
+-1
+S
+
+#36081
+Yhujar's Leathers~
+Leather armors hang from every inch of wall space, and yet unfinished
+pieces litter a small workspace in the northeast corner promising yet
+more leathers in the works.  A small wooden chair sits facing a desk
+littered with carving and staining tools.  This shop is simple, as if the
+leathersmith has been settled comfortably down into the shop for many
+years.
+~
+[Merior] what does simple have to do with settling down comfortably?
+[Merior] yhujar's name doesnt appear anywhere, description a bit feeble
+[Phule] safe
+[Phule] nomob
+[Rhen] extra look tools , look litter
+~
+301469775 1 9 0
+D1
+~
+~
+0 -1 36080 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step out of the leather shop.
+~
+!
+3 0 2
+658 9 1509949540 3 0
+2200 17 1509949485 -1 0
+2103 17 1509949490 -1 0
+2041 17 1509949505 -1 0
+2022 17 1509949470 -1 0
+980 17 1509949490 -1 0
+2122 17 1509949485 -1 0
+-1
+S
+
+#36082
+Palace Street~
+Noisy merchants walk hurridly past you from a bank to the east, and to
+the west you see a general store.  To the north, Palace Street intersects
+Truskin, and to the south, you can see the walls of the Sultan's palace. 
+The intersection to the north seems dark, an area which most of the
+passing merchants seem to avoid.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36083 10 10 5
+D1
+~
+~
+0 -1 36094 10 10 5
+D2
+~
+~
+0 -1 36064 10 10 5
+D3
+~
+~
+0 -1 36092 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step into the general store.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You enter the bank.
+~
+!
+3 0 2
+-1
+S
+
+#36083
+Intersection of Palace and Truskin~
+Palace and Truskin streets intersect here, but most passers-by seem to
+avoid stepping too close to a black tower to the east.  To the south and
+west several shops dot the sandstone streets, and the faint din of the
+city's activities drifts over the rooftops to the southwest.
+~
+the assassin's tower is closed the assassins worship Morr, by the way.
+insert dagger is disabled until tower is done.
+room 36084
+[Phule] tower will probably be deleted
+~
+301465665 1 9 0
+D2
+~
+~
+0 -1 36082 10 10 5
+D3
+~
+~
+0 -1 36085 10 10 5
+E
+slot~
+The slot is thin and narrow, about the size of a long, thin dagger.
+~
+E
+black tower~
+This many-turetted black stone tower stands in stark contrast to the
+neutral colors of the surrounding city.  From one iron-barred window the
+flickers of flames can be seen, and from others muffled screams are
+issued.  There do not appear to be any entrances or exits into the tower,
+however.
+~
+E
+1 south 1 west shops~
+Whatever the shops are, their bright colours certainly look gay enough.
+~
+A
+search~
+tower~
+act_tochar( #search, ch );
+~
+E
+search~
+You feel along the wall for an entrance and discover a strange @Bslot@n.
+~
+!
+0 0 0
+A
+insert~
+dagger~
+if( has_obj( 3029, ch ) ) {
+  act_tochar( #nope, ch );
+  end;
+  junk_obj( has_obj( 3029, ch ) );
+  }
+else
+  act_tochar( #dagg, ch );
+~
+E
+dagg~
+You don't have a dagger which fits this slot.
+~
+E
+nope~
+The dagger fits, but the door fails to open.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Truskin Street.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Palace Street.
+~
+!
+3 0 4
+A
+listen~
+faint din activities~
+act_tochar( "Mostly gentle murmurs, every once in a while you hear a loud CLANG!!", ch );
+~
+!
+0 0 0
+918 9 1509949525 3 0
+918 9 1509949520 3 0
+-1
+S
+
+#36084
+The Tower of Assassins~
+This small room is the entrance to the Tower of Assassins.  Small holes,
+which could hide prying eyes or poison-tipped darts, line the walls and
+ceiling.  Two black marble stairways climb into the tower to the north,
+one descending do its unknown depths and the other ascending to its
+winding heights.  A small handprint-shaped pressure plate on the wall
+looks to the the mechanism by which the door is opened.
+~
+room 36083
+~
+301465669 0 9 0
+D3
+door~
+door~
+195 -1 36083 10 10 5
+D4
+~
+~
+0 -1 36131 10 10 5
+D5
+~
+~
+0 -1 36132 10 10 5
+E
+hand handprint pressure plate~
+It fades into the rock of the wall, but is not truly meant to be hidden.
+~
+E
+small holes~
+Long and straight, they fade into darkness.  Who knows who watches or
+what lethal traps lie at their end?
+~
+E
+black marble stairway~
+The surfaces of the staircases are polished to a black, almost
+mirrorlike, sheen.  Made of a cold marble, they cling to the tower's
+walls like spiders, spiraling into nothingness.
+~
+-1
+S
+
+#36085
+Truskin Street~
+Truskin Street, named after one of the founders of one of the early
+desert cities, runs east to west.  To the south you can see a small shop,
+and to the east Truskin Street comes to an intersection.  A small wooden
+ladder runs up the wall to the north to a trapdoor below a house which
+hangs from the wall.
+~
+[Rhen] hey maybe a plague somewhere on this street dedicated to this trustkin guy
+[Rhen] or a statue
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36083 10 10 5
+D2
+~
+~
+0 -1 36092 10 10 5
+D3
+~
+~
+0 -1 36086 10 10 5
+D4
+~
+~
+0 -1 36162 10 10 5
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Truskin Street.
+~
+!
+3 0 10
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step into the general store.
+~
+!
+3 0 4
+-1
+S
+
+#36086
+Truskin Street~
+The northern wall of the city seems to have been broken through here at
+one time, but it has been repaired in the years since, although how it
+could have been accomplished is not easily imaginable.  Truskin Street
+runs east and west, with shops visible in either direction.
+~
+[Merior] why is it hard to imagine repairs on wall?
+[Phule] without tearing down the whole mess?
+u was 36159
+[Rhen] hmm maybe try to explain the reapirs with an extra
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36085 10 10 5
+D3
+~
+~
+0 -1 36087 10 10 5
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Truskin Street.
+~
+!
+3 0 10
+-1
+S
+
+#36087
+Truskin Street~
+A large sign over the doorway to the south signals it to be a pet store. 
+Even without the sign, the sounds and smells coming from that direction
+would certainly mark it as a place of animals.  Trustkin Street continues
+to the east and west.
+~
+[Finius] no look sign?  
+u was 36158
+added sign
+[Rhen] extra - as upon it are painted an assortment of animals.
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36086 10 10 5
+D2
+~
+~
+0 -1 36095 10 10 5
+D3
+~
+~
+0 -1 36088 10 10 5
+E
+sign~
+The sign is possibly an old circus sign, as it upon it is painted an
+assortment of animals.
+~
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Truskin Street.
+~
+!
+3 0 10
+918 9 1509949530 3 0
+-1
+S
+
+#36088
+Truskin Street~
+You are standing on an east-west road which follows the north wall of the
+city.  Guards high above on the wall pace to and fro, keeping a vigilant
+watch over the desert and sea.  To the west, the road intersects Aghrin
+Street, and to the east the signs of a few shops can be seen.
+~
+[Merior] wont keep repeating the last sentence thing any more ;)
+[Phule] neither will i :)
+u was 36156
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 36087 10 10 5
+D3
+~
+~
+0 -1 36080 10 10 5
+A
+climb~
+ladder~
+interpret( ch, "up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T down Truskin Street.
+~
+!
+3 0 10
+-1
+S
+
+#36089
+Wyvern Inn - Lobby~
+Cooled by ice, this room is welcome respite from the harsh heat outside. 
+Couches line the walls, and several townspeople sit chatting amiably
+about their daily lives.  An open doorway leads north into the office of
+the Wyvern Inn, and a doorway south enters the heat of Main Street Narak.
+~
+[Phule] nomob
+[Rhen] extras - touch ice - maybe using it to cool yourself
+~
+301465673 1 9 0
+D0
+~
+~
+0 -1 36090 10 10 5
+D2
+~
+~
+0 -1 36057 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You leave the cool air of the inn.
+~
+!
+3 0 4
+-1
+S
+
+#36090
+Wyvern Inn - Office~
+Busy servants rush to and from rooms, bearing drink, sheets, and towels. 
+A large oak desk is in the center of the room, with a large wooden
+carving of a wyvern inset in the front of it.  Small ferns in pots stand
+in each of the four corners.  The luxurious carpet is red and soft, and
+shows hardly signs of wear.
+~
+[Phule] safe
+[Rhen] extra carpet - as if afraid to be the first...
+[Rhen] extras - feel carpet -
+~
+301465667 1 9 0
+D2
+~
+~
+0 -1 36089 10 10 5
+D4
+~
+~
+0 -1 36091 10 10 5
+E
+oak desk wooden carving wyvern~
+The desk is old, yet is in good repair.  The wyvern seems very lifelike.
+~
+E
+ferns pots~
+Short and wide-leafed, the ferns appear healthy in the dark brown earth
+of their clay pots.
+~
+E
+carpet~
+Obviously a new addition, the carpet seems to be tread upon very
+delicately by those who pass by, as if afrain to be the first to scuff it.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You ascend the stairs to the bedroom.
+~
+!
+3 0 16
+653 9 1509949540 3 0
+-1
+S
+
+#36091
+Wyvern Inn~
+This comfortable-looking bedroom sees frequent use by merchants
+travelling to Narak.  The finest in the inn, the room boasts twin
+chandeliers, a massive duckfeather bed, satin sheets, and the only cool
+breeze in town, which wafts in through an open window.
+~
+[Rhen] put the furniture in the room not just in the description
+~
+301465665 1 9 0
+D5
+~
+~
+0 -1 36090 10 10 5
+E
+chandeliers~
+The chandeliers, one at each end of the room, give off hundreds of tiny
+points of light from the many candles which burn within them.  Small
+crystals hang like weights from various points, an attempt at decoration
+which has somehow gone awry as the resulting effect is to simply make the
+chandelier look crooked.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You descend the stairs.
+~
+!
+3 0 32
+1400 17 1509949540 -2 0
+-1
+S
+
+#36092
+Jharlo's Supplies~
+Adventuring equipment is stocked in shelves on the walls in this small
+shop.  Waterskins, ropes, lanterns, and other basic equipment vital to
+life in the Realms lie ready to be bought.  To the east, you see Palace
+Street and the entrance to a bank.  To the north, the northern wall of
+Narak looms across Truskin Street.
+~
+[Phule] safe
+[Phule] nomob
+[Rhen] desc Adventuring equipment is stocked on shelves along the walls of this small shop.
+[Rhen] maybe sounds better, huh?
+~
+301465679 1 9 0
+D0
+~
+~
+0 -1 36085 10 10 5
+D1
+~
+~
+0 -1 36082 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You leave the store.
+~
+!
+3 0 3
+668 9 1509949540 3 0
+949 17 1509949460 -1 0
+229 17 1509949520 -1 0
+1893 17 1509949490 -1 0
+26 17 1509949540 -1 0
+25 17 1509949470 -1 0
+6 17 1509949495 -1 0
+-1
+S
+
+#36093
+The Palace of the Sultan~
+A drab room, really.  It probably took more effort to get here than it
+was worth.
+~
+[Finius] very, very funny.
+[Finius] are you sure you don't want an oreo to pop here 1% of time? ;)
+[Phule] :)
+~
+301465665 1 9 0
+D2
+~
+~
+195 -1 36060 10 10 5
+-1
+S
+
+#36094
+Bank of Narak~
+Velvet ropes form a line as busy merchants rush in and out making
+deposits and withdrawals.  The bank clerks walk under heavy guard to and
+from the iron-doored vault.  To the west is Palace Street, the exit
+guarded by several large, burly men.  Foolish indeed would be the thief
+who tried to steal from the bank of the city of merchants.  A potted
+plant stands in the corner.
+~
+nomob
+mob crash killed my bank guard
+[Phule] random actions here would be just added spam to bank action spam
+~
+301467725 1 5 0
+D3
+~
+~
+0 -1 36082 10 10 5
+E
+plant~
+The plant is thick and tall, growing clear up to the ceiling.
+~
+E
+velvet ropes~
+The ropes form lines for the waiting, impatient merchants.
+~
+E
+iron-doored vault~
+The vault is opened only for the brief moments when a clerk enters and
+exits the vault.  Trying to get in would be insane.
+~
+E
+merchants clerks~
+They all seem to be out of sight at the moment.
+~
+A
+climb~
+potted plant~
+act_tochar( #climb, ch );
+act_notchar( #rustle, ch );
+transfer( ch, find_room( 36186 ) );
+act_notchar( #rclimb, ch );
+~
+E
+rustle~
+You hear a rustling of leaves and $n disappears.
+~
+E
+climb~
+You climb up the potted plant, through the hole in the roof, and out
+underneath the open sky.
+~
+E
+rclimb~
+$n climbs up from below.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You leave the bank and walk onto Palace Street.
+~
+!
+3 0 8
+-1
+S
+
+#36095
+Entrance to the Pet Shop~
+The sounds of animals of all varieties hit your ears in a jumble.  The
+sounds of dogs and large birds come through a doorway to the south, and
+to the west, the sounds of large cats and snakes.  To the north is
+Truskin Street.
+~
+[Phule] nomob
+[Rhen] hehe snakes make noise?
+~
+301465677 1 9 0
+D0
+~
+~
+0 -1 36087 10 10 5
+D2
+~
+~
+0 -1 36120 10 10 5
+D3
+~
+~
+0 -1 36122 10 10 5
+-1
+S
+
+#36096
+The Armoury Royale~
+Steam rises from a forge set into the stone of the northeast corner of
+this shop, before which is a large anvil and a set of glowing tongs. 
+Weapons and armour of all types line the walls and are polished to
+perfect shine.  Exits to the east and south return you to the streets of
+Narak.
+ 
+A small sign hands from a wall.
+~
+nomob
+Also, why is a monk running an armory shop?
+Everyone's got a hobby....
+[Finius] he doesn't teach anything monklike? weaponlike?
+[Finius] maybe he's busy.
+[Phule] good point
+[Phule] safe
+[Rhen] desc- polished to a perfect shine
+[Rhen] extra look forge and anvil
+[Rhen] monk- wiping sweat from his brow
+[Rhen] acode - hmm maybe hit with sparks or something upon entering
+[Rhen] monk - also powerfully-built
+~
+301469775 1 9 0
+D2
+~
+~
+0 -1 36055 10 10 5
+D3
+~
+~
+0 -1 36078 10 10 5
+E
+sign~
+@bList@n -- shows what you can buy.
+ 
+If you have a question about an unusual item, ask the shopkeeper about it.
+~
+654 9 1509949540 3 0
+3029 17 1509949470 -1 0
+3003 17 1509949465 -1 0
+968 17 1509949480 -1 0
+380 17 1509949460 -1 0
+1060 17 1509949465 -1 0
+3035 17 1509949450 -1 0
+745 17 1509949450 -1 0
+3004 17 1509949455 -1 0
+-1
+S
+
+#36097
+Plaza Square~
+You are at the entrance to the Narak city square.  To the north, the
+sounds of the bustling shops of Narak can be heard, and to the south and
+west the square expands.  The square at your feet is made of tiled
+sandstone squares, polished clean.
+~
+safe
+nomob
+[Finius] be cool, if when you tell him hi, you break his concentration and the bed of nails 'hits' him.
+[Phule] heh then he might die :)
+[Rhen] just a note- i love this plaza, my hat off to you :)
+[Rhen] extras - touch tile
+added tile
+~
+301465675 1 9 0
+D0
+~
+~
+0 -1 36056 10 10 5
+D1
+~
+~
+0 -1 36100 10 10 5
+D2
+~
+~
+0 -1 36099 10 10 5
+D3
+~
+~
+0 -1 36098 10 10 5
+E
+tile d down feet square sandstone squares~
+The ten-foot by ten-foot squares show only the slightest signs of wear.
+~
+717 9 1509949540 3 0
+-1
+S
+
+#36098
+Plaza Square~
+To the west the crumbling remains of the first walls of Narak remain,
+while to the north a new-built and smaller wall of sandstone brick
+separates the square from the city proper.  To the south and east the
+plaza square can be seen.  The brick-paved plaza has been recently
+cleaned.
+~
+[Finius] cool he can juggle.  should give performers a hat to throw money
+in since he junks what you give him 
+[Phule] no donations
+[Rhen] extras - look wall - or maybe touch wall
+added wall
+~
+301465667 1 9 0
+D1
+~
+~
+0 -1 36097 10 10 5
+D2
+~
+~
+0 -1 36103 10 10 5
+E
+wall w west~
+The old walls of Narak have started to crumble, but still remain intact
+for the most part.
+~
+177 9 1509949540 3 0
+-1
+S
+
+#36099
+Plaza Square~
+You are at the southern entrance to the plaza square.  A small arch
+through the old wall of Narak leads south onto Khotrad Street.  To the
+north, east, and west you see the entirety of the plaza.  In the faint
+sand which dusts the sandstone at your feet, the traces of a pair of
+dancers' path remains from a recent festival.
+~
+safe
+nomob
+[Finius] so does he swallow a sword if i stand here a while? can i pay him to? :)
+[Finius] traces of a pair of dancer's feet? of many pairs of dancers' feet?
+[Rhen] desc- line 3- east, and west the you see- east, and west you see.
+fixed
+[Rhen] extras- look traces- maybe something like- as you retrace the steps of the dancers
+[Rhen] you find yourself dancing, hehe just a thought :)
+added, is a nice thought :)
+~
+301465675 1 9 0
+D0
+~
+~
+0 -1 36097 10 10 5
+D1
+~
+~
+0 -1 36101 10 10 5
+D2
+~
+~
+0 -1 36071 10 10 5
+D3
+~
+~
+0 -1 36103 10 10 5
+E
+faint sand sandstone dust traces~
+As you retrace the steps of the dances, you find yourself dancing on the
+sandstone tile.
+~
+685 9 1509949540 3 0
+-1
+S
+
+#36100
+Plaza Square~
+You are in the northeast corner of the square.  To the north and east,
+newly erected walls of sandstone brick separate the square from the rest
+of the city, and to the south and west, the square broadens.  In the
+center of this part of the square, a small wicker basket with a heavy lid
+rests.
+~
+room is safe - these mobs are not to be attacked.
+[Finius] these guys in competition?
+[Phule] team i think
+~
+301465667 1 9 0
+D2
+~
+~
+0 -1 36101 10 10 5
+D3
+~
+~
+0 -1 36097 10 10 5
+E
+wicker basket~
+Within the basket is a slithering cobra.
+~
+660 9 1509949540 3 0
+611 9 1509949540 3 0
+-1
+S
+
+#36101
+Plaza Square~
+Sandstone bricks pave the ground at your feet, leading north and west to
+other parts of the plaza, and east toward a fountain.  To the south you
+see the crumbling remains of the old city wall of Narak.
+~
+[Finius] oh nice! her fire trick is cool
+[Finius] look woman: weird to have her action in her description if she's
+going to do it when you ask.  Maybe she should just look poised to do it,
+or like she just did it or..something.
+[Phule] she does special fire when you ask
+~
+301465667 1 9 0
+D0
+~
+~
+0 -1 36100 10 10 5
+D1
+~
+~
+0 -1 36102 10 10 5
+D3
+~
+~
+0 -1 36099 10 10 5
+201 9 1509949540 3 0
+716 9 1509949540 3 0
+-1
+S
+
+#36102
+A Spectacular Fountain~
+Before you rises the most spectacularly crafted @efountain@n in the entire
+realms.  In the center of a chiseled marble pool rises the nearly
+lifelike figure of twin dolphins carved from silver.  The plaza square is
+to the west.
+~
+[Finius] WOW. i like that thing making you toss in coins.
+[Finius] nice room. thumbs up.
+[Finius] can you throw coins in on purpose?
+[Phule] no
+~
+301465699 1 9 0
+D3
+~
+~
+0 -1 36101 10 10 5
+E
+marble pool~
+The cool, clear waters of this marble pool look refreshing indeed. 
+Looking into the pool, you see that its bottom is lined with many, many
+coins.  A marvelous silver sculpture of twin dolphins stands in the
+center of the pool.
+~
+E
+silver dolphins~
+The silver sculpture is so lifelike you can't help but imagine the pair
+bursting into motion.
+~
+A
+~
+~
+send_to_room( #charm, room );
+ch = rand_char( room );
+if( has_obj( 14, ch ) ) {
+  act_tochar( #you, ch );
+  act_notchar( #ryou, ch );
+  junk_obj( has_obj( 14, ch ) );
+  }
+~
+E
+charm~
+The fountain's magical charm washes over the room, filling its occupants
+with the urge to toss in a coin or two.
+~
+E
+you~
+You respond to the fountain's call and involuntarily toss a silver coin
+into the pool.
+~
+E
+ryou~
+$n responds to the fountain's call and involuntarily tosses a silver coin
+into the pool.
+~
+!
+2 120 0
+718 9 1509949540 3 0
+1258 17 1509949540 -2 0
+-1
+S
+
+#36103
+Plaza Square~
+You are in the southwest corner of the square, where to the south and
+west the crumbling remains of an ancient wall remain, still standing
+years after it was replaced by the great city walls of Narak.  At your
+feet are set tiled squares of sandstone, and to the north and east the
+city square can be seen.
+~
+[Finius] NO NOT A MIME. *heh*
+[Finius] if you tell mime hi he starts making walls around you...
+[Finius] would be cool anyway
+[Phule] added :)
+[Rhen] desc - last line - east the city square can be seen.
+fixed
+[Rhen] extras- look wall - look tiles
+added both extras
+~
+301465667 1 9 0
+D0
+~
+~
+0 -1 36098 10 10 5
+D1
+~
+~
+0 -1 36099 10 10 5
+E
+wall w west~
+The old walls of Narak have started to crumble, but still remain intact
+for the most part.
+~
+E
+tiles d down~
+The ten-foot by ten-foot squares show only the slightest signs of wear.
+~
+194 9 1509949540 3 0
+-1
+S
+
+#36104
+Hajim's Camels~
+The first thing you notice about this room is its smell, that of five day
+old camel dung.  The source of the quite putrid odor are embodied in a
+long row of pens full of camels of all descriptions.  You can exit the
+smelly shop to the east.
+~
+[Phule] had my own camel pets, but with florian adding his didn't make sense
+[Phule] safe
+[Phule] nomob
+~
+301473871 1 9 0
+D1
+~
+~
+0 -1 36076 10 10 5
+E
+long row pens~
+The floors of the pens are covered with grime and rotting hay.  Each pen
+has a large trough of water, although the green film over the water's
+surface does not look too appealing.
+~
+E
+camels~
+They shrink back in their pens when you try to look at them.
+~
+655 9 1509949540 3 0
+-1
+S
+
+#36105
+Storage for Hajim's Camels~
+~
+~
+301465665 1 9 0
+1509 9 1509949540 3 0
+1510 9 1509949540 3 0
+-1
+S
+
+#36110
+South-West Tower~
+Implements of torture line this walls, lit by an evil red glow from a
+burning fire inset in the west wall.  The rack, the iron maiden, and all
+the usual instruments of pain fill your view, but not a prisoner in sight. 
+Perhaps the master of this room has been waiting for a victim to simply
+walk by.
+~
+[Phule] pull lever
+[Phule] weaken
+~
+301465673 1 9 0
+D5
+trapdoor~
+trapdoor~
+195 -1 36029 10 10 5
+A
+pull~
+lever~
+if( is_open( room, down ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+  }
+~
+E
+nope~
+You pull the lever, but the trapdoor is already open.
+~
+E
+rpull~
+$n pulls the lever, opening the trapdoor.
+~
+E
+pull~
+You pull the lever, opening the trapdoor.
+~
+!
+0 0 0
+774 9 1509949540 3 0
+-1
+S
+
+#36111
+South-East Tower~
+This southeast guard tower has been transformed into an evil shrine.  A
+black symbol has been carved into the south wall, as well as the floor,
+and the only light is a hideous purple glow issuing from a black candle
+in a sconce on the wall.  A padded altar lies facing the symbol near the
+south wall, and a dark, unholy text rests on an ebony table.
+~
+[Phule] search ofind -c phule for more stuff
+[Phule] pull lever
+~
+301465673 1 9 0
+D5
+trapdoor~
+trapdoor~
+195 -1 36038 10 10 5
+E
+altar~
+Obviously built for kneeling in prayer.
+~
+E
+black symbol~
+This symbol must serve as some guiding representation to its worshipper,
+but it appears only a blob of black on black to the untrained eye.
+~
+E
+candle~
+This black wax candle burns with a hideous purple light, as if ignoring
+the brighter part of the spectrum.
+~
+E
+unholy text book~
+This featureless black book is inscribed with silvery blue runes,
+obviously a dark religious text of great power.  Its owner's soul must be
+black indeed.
+~
+A
+pull~
+lever~
+if( is_open( room, down ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+  }
+~
+E
+pull~
+You pull the lever, opening the trapdoor.
+~
+E
+rpull~
+$n pulls the lever, opening the trapdoor.
+~
+E
+nope~
+You pull the lever, but the trapdoor is already open.
+~
+!
+0 0 0
+771 9 1509949540 3 0
+-1
+S
+
+#36112
+North-East Tower~
+This tower room is coated entirely with a three-inch layer of ice, and is
+bare save a strange, cold throne in the center of the room.  A cold,
+white light fills the room from a magical fire set in an otherwise empty
+sconce.  From somewhere intangible a hollow, ringing laughter issues
+forth, chilling your very blood.
+~
+[Phule] skin for demon horn?
+[Finius] second sentence, how about "A stark, white light.." since we
+know its cold.
+[Finius] probably should be "From somewhere intangible, a hollow, ringing..
+[Finius] and the ice demon in front of me *seems* tangible enough.
+[Finius] look demon probably gender the demon, so that 'this room with
+its chill-sending presence' doesn't confuse room (its) with the demon
+(its).  make the demon a her, after some old girlfriend.  you know you
+wanna.
+[Finius] doh, Tnelazu is the bastard son.  make it he instead of 'its'
+then.
+[Finius] now i'm confused, bastard son and an enchantress.  he/'she a
+hermaphrodite?  enchanter maybe.  or..i don't know.
+[Phule] enchantress was the MOTHER *whap*
+[Phule] weaken, pull lever
+~
+301465673 1 9 0
+D5
+trapdoor~
+trapdoor~
+195 -1 36015 10 10 5
+A
+pull~
+lever~
+if( is_open( room, down ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+  }
+~
+E
+nope~
+You pull the lever, but the trapdoor is already open.
+~
+E
+rpull~
+$n pulls the lever, opening the trapdoor.
+~
+E
+pull~
+You pull the lever, opening the trapdoor.
+~
+!
+0 0 0
+776 9 1509949540 3 0
+-1
+S
+
+#36113
+North-West Tower~
+This watchtower adorns the northwest corner of the city of Narak, and is
+lit by an eerie green glow.  Shelves of books adorn the walls, most
+likely a new addition as the cityguard is mostly illiterate.  Rich
+tapestries adorn the walls as well, extravagant for a watchtower.  A
+winding stone staircase descends into darkness below.  The view out of
+the west window overlooks a land devoid of life.  A small lever rests
+next to a trapdoor set in the floor.
+~
+[Phule] liche-tongue not finished
+[Finius] look books how about 'last used many centuries ago' to avoid the ringing rhyme of last/past.
+[Phule] weaken
+~
+301465673 1 9 0
+D5
+trapdoor~
+trapdoor~
+195 -1 36006 10 10 5
+E
+tapestries~
+These velvet tapestries are firmly attached to the walls, and to remove
+one would mean destruction of it in the process.  The illustrations on
+the fabric detail fantastic magical events, such as the resurrection of
+the dead and spellfighting a dragon.
+
+~
+E
+shelves books~
+The books are written in an ancient language, perhaps a magical one, last
+used many centuries past.  They obviously belong to a scholar of magic--a
+powerful one.
+~
+E
+lever~
+Actually a small latch, the lever appears to release the trapdoor,
+opening a way below.
+~
+A
+get take grab~
+book books~
+if( mob_in_room( 129, room ) )
+  act_tochar( #mine, ch );
+else {
+  act_tochar( #look, ch );
+  act_notchar( #rlook, ch );
+  act_tochar( #nuts, ch );
+  act_notchar( #rnuts, ch );
+  do_spell( hallucinate, ch );
+  }
+~
+E
+mine~
+The liche stops you from stealing his precious books.  "I'm afraid those
+are *my* possessions." 
+~
+E
+look~
+You look through the shelves for a book which may be of use.
+~
+E
+rlook~
+$n looks through the shelves for a book which may be of use.
+~
+E
+nuts~
+After only a few moments of looking at the squirming glyphs, your mind
+turns to mush.
+~
+E
+rnuts~
+$n turns away from the shelves with a glazed look over his eyes.
+~
+!
+0 0 0
+A
+pull~
+lever~
+if( is_open( room, down ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+  }
+~
+E
+nope~
+You pull the lever, but the trapdoor is already open.
+~
+E
+rpull~
+$n pulls the lever, opening the trapdoor.
+~
+E
+pull~
+You pull the lever, opening the trapdoor.
+~
+!
+0 0 0
+129 9 1509949540 3 0
+912 49 1509949540 -2 0
+1282 81 1509949490 -2 0
+-1
+S
+
+#36114
+Masseuese~
+Several patrons of this reknowned health spot lie face down on tables
+receiving massages and other theraputic services.  It is said that a few
+hours spent in here are well worth the resulting restoration of body,
+mind, and spirit.
+~
+massages ;) 
+[Phule] Narak citizenship? i suppose.
+[Phule] safe
+[Phule] nomob
+~
+301465711 1 9 0
+D1
+~
+~
+0 -1 36079 10 10 5
+657 9 1509949540 3 0
+-1
+S
+
+#36115
+Gavlin's Magic Shoppe~
+Potions, scrolls, and bits of spell components line the walls of this
+small shop.  A loud hum is heard coming from behind one of the walls,
+presumably a hidden back room, and a large @b@Ghourglass@n rests on the
+table, sand pouring down through it.  The passing din of a busy merchant
+street comes through the open doorway to the east.  A staircase leads
+down into a shop below this one.
+~
+nomob
+[Phule] fire mage
+[Phule] safe
+[Phule] assigns quest 53
+[Rhen] hmm, what makes someone assume there is a hidden room, if it is hidden.
+~
+301469775 1 9 0
+D1
+~
+~
+0 -1 36078 10 10 5
+D5
+~
+~
+0 -1 36192 10 10 5
+E
+hourglass~
+The grains in this strange hourglass do not appear to be sand, but
+nevertheless they seem to keep time just as well.  As you watch the last
+few grains trickle into the hourglass, the glass turns itself over
+magically and the grains fall back through into the now empty half.
+You may want to ask the shopkeeper about it.
+~
+95 9 1509949540 3 0
+9 17 1509949490 -1 0
+285 17 1509949450 -1 0
+68 17 1509949490 -1 0
+1021 17 1509949450 -1 0
+-1
+S
+
+#36116
+The Parched Sand~
+Smiling people look up from their drinks for a moment as you enter, but
+quickly return to their rapidly-emptying tankards.  The Parched Sand is
+reknowned for its ability to refresh travelers after days of travel
+through the desert.  To the east is Aghrin Street.
+~
+[Phule] safe
+[Phule] no.mob
+~
+301465679 1 9 0
+D1
+~
+~
+0 -1 36075 10 10 5
+D5
+~
+~
+1024 -1 36175 10 10 5
+A
+~
+~
+act_tochar( #chat, ch );
+~
+E
+chat~
+Somewhere over a few bottles of drinks you overhear a few scraps of a
+conversation.  "Brahle....pleasure....jellyfish." 
+~
+!
+2 200 0
+671 9 1509949540 3 0
+23 17 1509949470 -1 1
+24 17 1509949540 -1 1
+114 17 1509949540 -1 2
+24 17 1509949540 -1 15
+24 17 1509949540 -1 4
+-1
+S
+
+#36117
+Temple to Meriada~
+Massive columns of fine white marble sits, sweep up from the four corners
+of the temple to a large vaulted ceiling almost ten meters above your
+head.  Against the eastern wall, a massive pedestal of fine grey and
+white marble sits, on which rests a massive hourglass.  The large
+hourglass is finely carved and painted in honor of Meriada.  To the west,
+a grand grey marble stairway leads down out of the temple and back onto
+the streets of Narak.
+~
+[Phule] why work on temples with no religion 
+[Phule] no.mob
+[Phule] safe
+~
+301465679 1 7 0
+D3
+~
+~
+0 -1 36065 10 10 5
+E
+hourglass~
+While this artifact may or not be the actual relic of the god, it
+obviously has great magical enchantments woven into its sands.  Just
+watching the sands fall makes your eyelids heavy and your heartbeat slow.
+~
+E
+columns~
+The massive columns are made of fine white marble, supporting the four
+corner of the temple.
+~
+E
+grey marble stairway~
+The stairs are solid marble, the neutral grey of Meriada.
+~
+A
+~
+~
+send_to_char( #ch, ch );
+continue;
+~
+E
+ch~
+You descend the smooth steps onto the streets of Narak.
+
+~
+!
+3 3 8
+A
+~
+~
+loop( all_in_room ) {
+  if( is_player( rch ) ) {
+    act_tochar( "The healing balance of Meriada washes over you.", rch );
+    do_spell( balm, mob_in_room( 675, room ), rch );
+    }
+  }
+~
+!
+2 100 0
+675 9 1509949540 3 0
+-1
+S
+
+#36118
+The Salty Passage~
+In this large damp chamber that smells of the sea, one can buy passage to
+different ports of the realms, for a price.  Workers take cargo to and
+from the underground warehouse to the north, carrying it both up the ramp
+into the city and down the tunnel to the west.  Another large tunnel
+enters the city from the east, tunnelling beneath the city walls and out
+into the deserts east of the city.
+~
+nomob
+[Finius] wow, if you could book passage to a city...
+~
+301596749 1 9 0
+D0
+~
+~
+0 -1 36127 10 10 5
+D1
+~
+~
+0 -1 36208 10 10 5
+D3
+~
+~
+0 -1 36124 10 10 5
+D4
+~
+~
+0 -1 36070 10 10 5
+E
+sign~
+PORTS CURRENTLY AVAILABLE:
+ 
+ 
+Sorry, no ships depart today.
+~
+663 9 1509949540 3 0
+-1
+S
+
+#36120
+The Aviary and Kennel~
+Dogs bark loudly at your intrusion and several large birds screech loudly
+in your direction.  The birds are confined tightly in their cages, while
+each dog has a small penned off area to call their own.
+~
+[Phule] safe
+~
+301473863 1 9 0
+D0
+~
+~
+0 -1 36095 10 10 5
+662 9 1509949540 3 0
+-1
+S
+
+#36121
+Storage for the Aviary and Kennel~
+~
+~
+301465665 1 9 0
+D4
+~
+~
+234 -1 36120 10 10 5
+117 9 1509949540 3 0
+110 9 1509949540 3 0
+115 9 1509949540 3 0
+116 9 1509949540 3 0
+114 9 1509949540 3 0
+-1
+S
+
+#36122
+Jackal's Ferocious Felines and Serpents Galore~
+The roars and hisses of large cats intermix with the nearly-silent
+slithering of serpents in their cages to hit your ears with a cacaphony
+of sound.  All of them seem to be staring at you, and all of them appear
+to be hungry.
+~
+[Finius] all three are a bit much
+[Phule] explain more please
+[Phule] safe
+~
+301473863 1 9 0
+D1
+~
+~
+0 -1 36095 10 10 5
+661 9 1509949540 3 0
+-1
+S
+
+#36123
+Storage for Jackal's petshop~
+~
+~
+301465665 1 9 0
+D4
+~
+~
+234 -1 36122 10 10 5
+118 9 1509949540 3 0
+669 9 1509949540 3 0
+670 9 1509949540 3 0
+-1
+S
+
+#36124
+The Dock Tunnel~
+This is the eastern end of the massive tunnel connecting the docks to the
+interior of the city.  This tunnel is dug beneath the cliff itself,
+thousands of tons of dirt overhead.  The tunnel stretches east and west,
+heavy stone blocks paving the ground.
+~
+[Mange] I don't know if I would use earth as the mud is not earth.
+[Merior] eastern end? still west of center..
+[Phule] nomob
+[Phule] eastern end - ie the exit is one room east ?
+~
+301596749 0 9 0
+D1
+~
+~
+0 -1 36118 10 10 5
+D3
+~
+~
+0 -1 36205 10 10 5
+754 9 1509949525 3 0
+754 9 1509949515 3 0
+-1
+S
+
+#36125
+The Dock Tunnel~
+This is the western end of the massive tunnel connecting the docks to the
+interior of the city.  The sound of waves crashing on the shore and of
+the shouts of sailors reach your ears, a cacaphony of a mixture of men
+and the nature they hold dear.
+~
+~
+301596741 0 9 0
+D2
+~
+~
+0 -1 36207 10 10 5
+D3
+~
+~
+0 -1 36126 10 10 5
+-1
+S
+
+#36126
+The Docks of Narak~
+Ships flying flags of all descriptions lie docked here at the massive and
+vast docks of Narak.  Several men are in the process of unloading some
+cargo and carting it through the tunnel and into the city.  To the east
+the dock tunnel disappears into the large cliff beneath the city of Narak. 
+A wooden walkway climbs around the cliff and up to the hard rock above.
+~
+[Merior] thought you werent supposed to write actions into room descriptions...
+[Merior] massive AND vast... redundant?
+[Phule] hey... just because i'm vaguely ambiguous...
+[Phule] extras
+[Phule] will close up if narak opens before rest of area
+~
+301465664 0 9 0
+D1
+~
+~
+0 -1 36125 10 10 5
+D4
+~
+~
+0 -1 35784 10 10 5
+A
+~
+~
+if( has_obj( 574, ch ) ) {
+  act_tochar( #board, ch );
+  wait( 1 );
+  act_tochar( #sail, ch );
+  wait( 2 );
+  act_tochar( #arrive, ch );
+  }
+else
+  act_tochar( #even, ch );
+~
+E
+board~
+You quickly cross the docks and board your waiting ship.
+~
+E
+sail~
+The ship sails away, the wind making the sails billow outward.  Soon the
+city of Narak is distant.
+~
+E
+arrive~
+After several days of travel, you seen reach your destination.
+~
+E
+even~
+You don't have a ticket!
+~
+!
+0 0 0
+-1
+S
+
+#36127
+An Underground Warehouse~
+Stacks of large crates line the walls, and various ropes, anchors, and
+sails hang about as well.  An archway to the south exits this large
+warehouse, apparently the storage area for incoming cargo and repair
+equipment.  A large stone block on the north wall appears out of the
+ordinary.  The steel rungs of a ladder disappear beneath the floor below
+an open trapdoor.
+~
+north is another area on pending
+is the Naraki Catacombs
+[Phule] n is 36128
+[Phule] nomob
+~
+301596749 1 9 0
+D0
+dark grey stone~
+dark grey stone n north~
+235 -1 36128 10 10 5
+D2
+~
+~
+0 -1 36118 10 10 5
+D5
+~
+~
+0 -1 36177 10 10 5
+E
+large stone block n north wall~
+The stone seems a slightly darker grey, nearly black.
+~
+A
+push open~
+stone~
+if( !is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  send_to_room( #opens, find_room( 36128 ) );
+  open( room, north );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+open~
+You push hard against the stone, revealing that behind it, once open, is
+a tunnel leading into darkness.
+~
+E
+already~
+The crate is already open.
+~
+E
+ropen~
+$n pushes the dark grey stone to the north, reavealing a passage.
+~
+E
+opens~
+The stone to the south slides open.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( is_open( room, north ) ) {
+  wait( 1 );
+  close( room, north );
+  send_to_room( #close, room );
+  send_to_room( #closes, find_room( 36128 ) );
+  }
+~
+E
+close~
+The stone to the north slides silently shut.
+~
+E
+closes~
+The stone to the south slides silently shut.
+~
+!
+1 2 1
+-1
+S
+
+#36128
+A mysterious tunnel~
+Everything about this tunnel is out of place in the desert world of Narak. 
+The tunnel is damp and cool, almost chill, and the neutrality of the city
+above has been replaced by a dark, foreboding emptyness ahead.  No
+comforting breeze blows; the air is still and heavy, like a tomb, but
+from somewhere, the smell of incense and spice wafts its way to your
+nostrils.  The tunnel almost seems alien, with the only familiar sight
+being a small gray lever on the south wall.
+~
+[Merior] what if you are leaving... emptiness ahead?
+ahead, i.e., down the tunnel
+~
+301465668 0 8 0
+D0
+~
+~
+0 -1 37250 10 10 5
+D2
+secret panel~
+s south secret panel~
+235 -1 36127 10 10 5
+E
+panel~
+The panel is made of hard grey stone.
+~
+E
+lever~
+The lever is inset in the wall to the south a few inches to the side of
+what appears to be a panel.
+~
+A
+pull~
+lever~
+if( is_open( room, south ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  send_to_room( #opens, find_room( 36127 ) );
+  open( room, south );
+  }
+~
+E
+already~
+The lever has already been pulled.
+~
+E
+open~
+You pull the lever and a secret panel opens to the south, revealing a
+doorway.
+~
+E
+ropen~
+$n pulls the lever and a secret panel opens to the south.
+~
+E
+opens~
+The dark grey stone to the north swings open.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( is_open( room, south ) ) {
+  wait( 1 );
+  close( room, south );
+  send_to_room( #closes, room );
+  send_to_room( #rcloses, find_room( 36127 ) );
+  }
+~
+E
+closes~
+The stone panel swings shut.
+~
+E
+rcloses~
+The dark grey stone to the north slides silently into place.
+~
+!
+1 0 5
+-1
+S
+
+#36129
+A Fabulous Cavern~
+This large cavern surrounds a smooth, mirrorlike pool of dark water.  The
+cavern rises at least 50 meters overhead, a cavernous space of empty,
+black air.  To the north stands a door of @b@Ctourmalaine@n.
+~
+tourmalaine door to n
+~
+301465665 1 9 0
+D0
+"Tourmalaine Door"~
+"Tourmalaine Door"~
+131 -1 36187 10 10 5
+E
+pool~
+This silvery pool's depths are unfathomable from this vantage, but a
+magical light glimmers from deep below its surface.
+~
+A
+enter dive~
+pool water~
+if( !is_player( ch ) ) {
+  act_tochar( #hah, ch );
+  end;
+  }
+act_tochar( #dive, ch );
+act_notchar( #rdive, ch );
+transfer( ch, find_room( 36048 ) );
+act_notchar( #rrdive, ch );
+~
+E
+dive~
+You dive into the pool, and its chill touch nearly freezes your limbs. 
+Soon a tingle of powerful energy flows through you, warming you gently,
+and you see a faint light.  You swim toward the light, and come up out of
+the pool in a different place than you left.
+~
+E
+hah~
+You find yourself unable to enter the pool.
+~
+E
+rdive~
+$n dives into the pool and disappears from sight.
+~
+E
+rrdive~
+$n climbs out of the pool, but seems strangely dry.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, north ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( mob_in_room( 776, find_room( 36112 ) ) ) {
+  act_tochar( #image, ch );
+  end;
+  }
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, north );
+send_to_room( #melt, find_room( 36187 ) );
+~
+E
+image~
+As you move forward to open the Tourmalaine Door, the image of a mighty
+ice demon forms before you, barring the door.  It is clear that you will
+not be able to open the door without first destroying the source of that
+image.
+~
+E
+already~
+The Tourmalaine Door is already open.
+~
+E
+melt~
+The Tourmalaine Door to the south melts away.
+~
+E
+ropen~
+$n places $s hand on the Tournmalaine Door, and it melts away before
+your eyes.
+~
+E
+open~
+You press your hand to the Tourmalaine Door's swirling surface, and it
+melts away before your eyes.
+~
+!
+8 0 1
+A
+c close~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You can't seem to close the Tourmalaine Door.
+~
+!
+0 0 0
+-1
+S
+
+#36131
+The Tower of Assassins - First Floor~
+Arclike passages lead north and east, following the circular walls of the
+tower.  They also follow a round room to the northeast which appears to
+have no entrance.  A staircase of black marble descends back down the
+walls of the tower.  A sconce hangs on the wall.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 36133 10 10 5
+D1
+~
+~
+0 -1 36134 10 10 5
+D5
+~
+~
+0 -1 36084 10 10 5
+1362 49 1509949540 -2 0
+26 81 1509949475 -2 0
+-1
+S
+
+#36132
+The Tower of Assassins - Entrance to Lower Level~
+This room is perfectly cubical, with each of the four walls made of black
+marble polished to a mirrorlike shine.  The only feature of this room is
+a spiral stair made of the same stone which ascends upward into darkness
+interrupted only by the flickering of high-ensconced torches.
+~
+~
+301465669 0 9 0
+D4
+~
+~
+0 -1 36084 10 10 5
+E
+north south east west wall~
+The only thing you see looking at the wall is your own reflection.
+~
+E
+up stair~
+The black marble staircase spirals upward, clinging to the sides of the
+tower.
+~
+E
+down floor~
+The floor appears perfectly the same as the four walls, except for a
+small square which is separated from the rest of the floor by a small
+groove.
+~
+A
+search~
+north west south east wall~
+act_tochar( #nothing, ch );
+act_notchar( #rnoth, ch );
+~
+E
+nothing~
+You don't find a single flaw in the perfect plane of the wall.  The room
+is enclosed.
+~
+E
+rnoth~
+$n spends quite some time searching the walls for cracks or bumps, but
+comes away with a puzzled look of defeat.
+~
+!
+9 0 0
+A
+~
+down floor~
+interpret( ch, "look down" );
+act_notchar( #down, ch );
+~
+E
+down~
+$n searches the floor carefully.
+~
+!
+9 0 0
+A
+stand~
+square~
+act_tochar( #stand, ch );
+act_notchar( #rstand, ch );
+transfer( ch, find_room( 36194 ) );
+act_notchar( #fall, ch );
+~
+E
+stand~
+You position yourself so that you stand directly over the square.
+In an instant a trapdoor opens and you slide down a chute.
+~
+E
+rstand~
+$n moves to stand over a particular place on the floor.
+~
+E
+fall~
+$n falls from a chute in the ceiling, landing in a heap beside you.
+A panel quickly slides over the chute, blocking escape.
+~
+!
+0 0 0
+-1
+S
+
+#36133
+The Tower of Assassins - First Floor~
+This passage follows the circle of the tower's walls, heading east toward
+a trapdoor and south toward a staircase.  To the southeast is another
+wall which seems to follow the outer wall in parallel.  A sconce hangs
+from the wall.
+~
+~
+301465669 0 6 0
+D1
+~
+~
+0 -1 36135 10 10 5
+D2
+~
+~
+0 -1 36131 10 10 5
+A
+pull turn twist~
+sconce torch~
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+i = random( 10, 30 );
+loop( all_in_room ) {
+  transfer( rch, find_room( 36195 ) );
+  dam_message( rch, i, "The long fall" );
+  inflict( rch, rch, i, "a long fall" );
+  act_notchar( #arrive, rch );
+  }
+~
+E
+rpull~
+$n pulls the sconce on the wall, and a giant trapdoor opens, sending you
+hurtling through the air.
+~
+E
+pull~
+You pull the sconce on the wall, and a giant trapdoor opens, sending you
+hurtling downward through the air.
+~
+E
+arrive~
+$n arrives, having fallen a great distance from above.
+~
+!
+0 0 0
+1362 49 1509949540 -2 0
+26 81 1509949475 -2 0
+-1
+S
+
+#36134
+The Tower of Assassins - First Floor~
+Under Construction.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 36135 10 10 5
+D3
+~
+~
+0 -1 36131 10 10 5
+1362 49 1509949540 -2 0
+26 81 1509949475 -2 0
+-1
+S
+
+#36135
+The Tower of Assassins - First Floor~
+A simple trapdoor lurks above, out of place in the polished black marble
+surroundings of the tower.  Halls chiseled out of the rock flow south and
+west away from this corner.  Access is provided by holes inset in the
+wall leading upward to the trapdoor.
+~
+~
+301465669 0 9 0
+D2
+~
+~
+0 -1 36134 10 10 5
+D3
+~
+~
+0 -1 36133 10 10 5
+D4
+trapdoor~
+trapdoor~
+391 62 36136 10 10 5
+E
+trapdoor~
+A simple system of wood planks nailed together.  Further inspection would
+probably be warranted.  A small latch holds the trapdoor in place.  On
+the latch is a small lock.
+~
+A
+~
+~
+act_tochar( #darts, ch );
+  act_notchar( #rdarts, ch );
+  dam_message( ch, 1d4+1, "A tiny dart" );
+  inflict( ch, ch, 1d4+1, "A tiny poisoned dart" );
+  poison( ch );
+  dam_message( ch, 1d4+1, "A tiny dart" );
+  inflict( ch, ch, 1d4+1, "A tiny poisoned dart" );
+  poison( ch );
+  dam_message( ch, 1d4+1, "A tiny dart" );
+  inflict( ch, ch, 1d4+1, "A tiny poisoned dart" );
+  poison( ch );
+  continue;
+~
+E
+rdarts~
+$n is struck by a trio of flying darts.
+~
+E
+darts~
+You are struck by a trio of flying darts.
+~
+!
+0 0 0
+A
+inspect~
+up trapdoor~
+act_tochar( #ins, ch );
+act_notchar( #rins, ch );
+if( find_skill( ch, inspect ) > 4 )
+  act_tochar( #trap, ch );
+else
+  act_tochar( #noth, ch );
+~
+E
+ins~
+You inspect the trapdoor carefully.
+~
+E
+rins~
+$n inspects the trapdoor closely.
+~
+E
+trap~
+After only a few seconds of searching you find that the trapdoor is
+trapped.  You cannot, however, discern what that trap is.
+~
+E
+noth~
+You look and look, but don't really see anything wrong with the trapdoor.
+~
+!
+0 0 0
+A
+untrap~
+up trapdoor~
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( !rflag( reset0, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+i = 1d7;
+if( i > find_skill( ch, untrap ) ) {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  acode( room, 1 );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #success, ch );
+  act_notchar( #success, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+try~
+You try to carefully untrap the trapped trapdoor.
+~
+E
+rtry~
+$n runs $s fingers over the trapdoor.
+~
+E
+fail~
+Your fingers brush against something and you hear a soft *click*.
+~
+E
+rfail~
+You hear a *click* from the trapdoor, and $n looks pretty surprised.
+~
+E
+success~
+You successfully untrap the trapped trapdoor.
+~
+E
+rsuccess~
+$n steps away from the trapdoor, smiling.
+~
+E
+already~
+Before you fiddle with the trap, you notice that it has somehow already
+become untrapped.  Lucky you!
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  act_tochar( #trap, ch );
+  act_notchar( #rtrap, ch );
+  remove_rflag( reset0, room );
+  acode( room, 1 );
+  continue;
+  }
+else
+  continue;
+~
+E
+trap~
+You set off a trap!!
+~
+E
+rtrap~
+$n sets off a trap!
+~
+!
+8 0 16
+-1
+S
+
+#36136
+Bottom of a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D3
+~
+~
+0 -1 36137 10 10 5
+D5
+trapdoor~
+trapdoor~
+391 62 36135 10 10 5
+-1
+S
+
+#36137
+On a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D1
+~
+~
+0 -1 36136 10 10 5
+D2
+~
+~
+0 -1 36138 10 10 5
+-1
+S
+
+#36138
+On a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D0
+~
+~
+0 -1 36137 10 10 5
+D1
+~
+~
+0 -1 36139 10 10 5
+-1
+S
+
+#36139
+On a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D0
+~
+~
+0 -1 36140 10 10 5
+D3
+~
+~
+0 -1 36138 10 10 5
+-1
+S
+
+#36140
+On a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D2
+~
+~
+0 -1 36139 10 10 5
+D3
+~
+~
+0 -1 36141 10 10 5
+-1
+S
+
+#36141
+On a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D1
+~
+~
+0 -1 36140 10 10 5
+D2
+~
+~
+0 -1 36142 10 10 5
+-1
+S
+
+#36142
+On a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D0
+~
+~
+0 -1 36141 10 10 5
+D1
+~
+~
+0 -1 36143 10 10 5
+-1
+S
+
+#36143
+Top of a Winding Staircase~
+Under Construction.
+~
+~
+301465668 0 9 0
+D0
+~
+~
+0 -1 36144 10 10 5
+D3
+~
+~
+0 -1 36142 10 10 5
+-1
+S
+
+#36144
+The Tower of Assassins - Tower Room~
+Under Construction.
+~
+~
+301465668 0 9 0
+D2
+~
+~
+0 -1 36143 10 10 5
+-1
+S
+
+#36145
+A Balcony on a Sandstone Wall~
+On the east edge of a large sandstone building, a stairway descends down
+to the streets below.  To the south, the southern half of Narak spreads
+out before you, but the high walls of the city prevent any view of the
+desert beyond.  The smell of coffee wafts through an open doorway to the
+west, and to the north another of these small rooftop shops can be seen.
+~
+nomob
+[Finius] i really like the architecture...rooftop shop. is very cool.
+[Phule] thanks :)
+~
+301465673 1 9 0
+D0
+~
+~
+0 -1 36146 10 10 5
+D3
+~
+~
+0 -1 36148 10 10 5
+D5
+~
+~
+0 -1 36066 10 10 5
+-1
+S
+
+#36146
+A Balcony on a Sandstone Wall~
+On the east edge of a large sandstone building, a stairway descends down
+to the streets below.  To the north, the northern half of Narak spreads
+out before you, most notably the high-sloping gold domes of the palace
+and the black turrets of the assassins tower to the northeast, and the
+Wyvern Inn to the northwest.  Soft music lulls out of an open doorway to
+the west, and to the south another of the small rooftop shops can be seen.
+~
+nomob
+[Merior] music lulls?
+[Phule] yup. music lulls.
+[Finius] should be notably
+[Phule] fixed, thanks
+~
+301465673 1 9 0
+D2
+~
+~
+0 -1 36145 10 10 5
+D3
+~
+~
+0 -1 36147 10 10 5
+D5
+~
+~
+0 -1 36065 10 10 5
+-1
+S
+
+#36147
+The Desert Song~
+The western half of this small shop is dominated by a small stage, upon
+which a few musicians play their lutes to the beautiful sound of a young
+human female singing.  The other walls are adorned by hanging instruments
+and posters of famous bards.  The smell of a coffee shop wafts in through
+a set of swinging doors to the south.  To the east, the shop is exited
+through an open doorway onto a sandstone balcony.
+~
+nomob
+make liam a bard trainer (when bards come in)
+[Phule] heh i can't believe i actually wrote above rbug
+[Merior] are instruments currently useable for anything?
+[Phule] don't think so
+[Finius] be cool if you could 'ask liam dragon'
+[Phule] safe
+~
+301469771 1 9 0
+D1
+~
+~
+0 -1 36146 10 10 5
+D2
+~
+~
+0 -1 36148 10 10 5
+E
+musicians~
+Two lutists play a sorrowful melody and harmony while a dextrous harpist
+plays a chilling countermelody of arpeggios and chords in a haunting
+minor key.  The singer's lilting voice tells the story of Ossen, the
+gnomish knight, and his fateful encounter with an evil dragon.
+~
+A
+~
+~
+act_tochar( #s, ch );
+continue;
+~
+E
+s~
+You push through the swinging doors to the south.
+~
+!
+3 0 4
+A
+~
+~
+mob = mob_in_room( 912, room );
+if( mob )
+  interpret( mob, "sit chair" );
+~
+!
+2 100 0
+A
+~
+~
+mob = mob_in_room( 918, room );
+if( is_player( ch ) )
+  continue;
+if( ch == mob )
+  continue;
+~
+!
+3 0 2
+A
+~
+~
+send_to_room( #act, room );
+~
+E
+act~
+The musicians finish a song to the scattered applause of the shop's
+patrons.  After a short pause, they begin anew.
+~
+!
+2 100 0
+910 9 1509949540 3 0
+682 17 1509949460 -1 0
+1133 17 1509949460 -1 0
+912 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+912 9 1509949540 3 0
+-1
+S
+
+#36148
+The M.T. Cup~
+This quiet little coffee shop is quaint and has a cozy, friendly
+atmosphere.  The sounds of "The Desert Song", the room to the north where
+bards and minstrels play at most hours of the day, come wafting through
+the swinging doors to the north and combine with the low din of happy
+conversation of the shop's relaxed patrons.  The sights and smells of
+coffees, soups, breads, and spices give the place a pleasant aroma to
+match the pleasant mood.  A small sign is tacked up next to the counter,
+and a small dartboard hangs on the wall.
+~
+nomob
+[Merior] sounds of song come from the room?
+[Phule] yes
+[Merior] awful alot of pleasantness in one sentence...
+[Phule] ain't it pleasant :)
+[Phule] safe
+~
+301469771 1 9 0
+D0
+~
+~
+0 -1 36147 10 10 5
+D1
+~
+~
+0 -1 36145 10 10 5
+E
+pot coffee~
+The pot is made from steel and is heated by a small fuelless flame
+beneath it, keeping its contents nice and hot.  Its mouth is turned away
+from you and towards the back of the counter, obviously Ossen would be
+happy to fill a cup for you.
+~
+E
+sign~
+Please set your mugs and bowls on the counter when finished.
+ 
+Thanks,
+The Management
+  
+NOTE :: To play darts, type play darts.
+~
+E
+axe mantle~
+The axe is still in excellent condition, but as it requires two hands it
+has probably not seen much use.  Something is etched onto the head,
+however, and the light glints oddly from it.
+~
+E
+etched head~
+The etching reads:
+@I'3. dragon'
+~
+A
+~
+~
+act_tochar( #n, ch );
+continue;
+~
+E
+n~
+You push through the swinging doors to the north.
+~
+!
+3 0 1
+A
+~
+~
+mob = mob_in_room( 911, room );
+if( mob )
+  interpret( mob, "sit barstool" );
+~
+!
+2 1000 0
+A
+play~
+darts~
+act_tochar( #play, ch );
+act_notchar( #rplay, ch );
+j = 1;
+loop( j < 4 )
+  acode( room, 6 );
+~
+E
+rplay~
+$n grabs three darts from the dart holder and steps back to the line to
+play.
+~
+E
+play~
+You grab the three darts from the dart holder and step back to the line.
+~
+!
+0 0 0
+A
+~
+~
+if( j == 3 ) {
+  act_tochar( #third, ch );
+  act_notchar( #rthird, ch );
+  j = 4;
+  }
+if( j == 2 ) {
+  act_tochar( #second, ch );
+  act_notchar( #rsecond, ch );
+  j = 3;
+  }
+if( j == 1 ) {
+  act_tochar( #first, ch );
+  act_notchar( #rfirst, ch );
+  j = 2;
+  }
+i = random( 1, 50 );
+if( i == 1 ) {
+  act_tochar( #bull, ch );
+  act_notchar( #rbull, ch );
+  }
+else {
+  if( i < 6 ) {
+    act_tochar( #ring1, ch );
+    act_notchar( #rring1, ch );
+    }
+  else {
+    if( i < 16 ) {
+      act_tochar( #ring2, ch );
+      act_notchar( #rring2, ch );
+      }
+    else {
+      if( i < 31 ) {
+        act_tochar( #ring3, ch );
+        act_notchar( #rring3, ch );
+        }
+      else {
+        act_tochar( #ring4, ch );
+        act_notchar( #rring4, ch );
+        }
+      }
+    }
+  }
+~
+E
+rthird~
+$n tosses the third dart.....
+~
+E
+third~
+You toss the third dart.....
+~
+E
+rsecond~
+$n tosses the second dart.....
+~
+E
+second~
+You toss the second dart.....
+~
+E
+rring4~
+$n's toss is a poor one, catching the outermost ring for a measly 1 point.
+~
+E
+ring4~
+Your toss is a poor one, catching the outermost ring for a measly 1 point.
+~
+E
+rring3~
+$n's toss goes off course, hitting the third ring.  Only 3 points.
+~
+E
+ring3~
+Your toss goes off course, hitting the third ring.  Only 3 points.
+~
+E
+rring2~
+$n's toss hits the second ring for 5 points.
+~
+E
+ring2~
+Your toss hits the second ring for 5 points.
+~
+E
+rring1~
+$n's toss hits the first ring!  10 points!
+~
+E
+ring1~
+Your toss hits the first ring!  10 points!
+~
+E
+rbull~
+$n's toss hits the bullseye!!  20 points!!
+~
+E
+bull~
+You hit the bullseye!!  20 points!!
+~
+E
+rfirst~
+$n tosses the first dart.....
+~
+E
+first~
+You toss the first dart.....
+~
+E
+rplay~
+$n grabs three darts from the dart holder and steps back to the line to
+~
+E
+play~
+You grab the three darts from the dart holder and step back to the line.
+~
+E
+notyet~
+The dart game is not yet ready to be played.
+~
+!
+0 0 0
+A
+take steal get grab~
+axe~
+act_tochar( "You try to take Ossen's axe.", ch );
+act_notchar( "$n reaches to take Ossen's axe.", ch );
+act_tochar( "Ossen catches you and one-arms you out of the shop.", ch );
+act_notchar( "Ossen catches $n and one-arms $m out of the shop.", ch );
+interpret( ch, "east" );
+~
+!
+0 0 0
+769 49 1509949540 -2 0
+793 81 1509949540 -2 12
+1127 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+909 9 1509949540 3 0
+743 17 1509949490 -1 0
+1128 17 1509949490 -1 12
+801 17 1509949490 -1 0
+1134 17 1509949490 -1 0
+911 9 1509949540 3 0
+-1
+S
+
+#36149
+Balcony Above Main Street~
+This balcony overhangs the sandstone surface of Main Street, where
+bustling merchants run about in a milling frenzy.  A sturdy wooden stair
+leads down to the street's surface, and an open arch in the sandstone to
+the north leads toward the smell of spices and seafood.  A wooden walkway
+leads east from this balcony to another.
+~
+[Rhen] extras- look street - smell spices and seafood (seafood in a desert?)
+[Phule] is on the ocean
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36150 10 10 5
+D1
+~
+~
+0 -1 36176 10 10 5
+D5
+~
+~
+1024 -1 36055 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T along the balcony.
+~
+!
+3 0 3
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb down the staircase to the street below.
+~
+!
+3 0 32
+-1
+S
+
+#36150
+Shop - Authentic Western Food~
+This shop is plainly adorned, as its name suggests, but its food bears
+spices and seasonings beyond numbering.  From coconut shell glasses to
+row upon row of various seafood dishes to several large pots of soup,
+this shop is sure to have at least a few surprises.  Archways in the
+sandstone lead to wooden balconies to the south and west.
+~
+[Merior] some extras here?
+[Phule] arrrgghhh...
+[Phule] safe
+[Phule] nomob
+~
+301469771 1 9 0
+D2
+~
+~
+0 -1 36149 10 10 5
+D3
+~
+~
+0 -1 36151 10 10 5
+E
+sign~
+@bList@n -- shows what you can buy.
+
+If you have a question about an unusual item, ask the shopkeeper about it.
+~
+E
+w s west south archway~
+The graceful arch leads to a wooden balcony beyond.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step out onto the balcony to the $T.
+~
+!
+3 0 12
+957 9 1509949540 3 0
+1261 17 1509949480 -1 11
+1259 17 1509949470 -1 6
+1263 17 1509949470 -1 0
+-1
+S
+
+#36151
+Balacony above Aghrin Street~
+This balcony overhangs the sandstone surface of Aghrin Street, across
+from Gavlin's Magic Shoppe.  A sturdy wooden stair leads down to the
+street, and an open arch in the sandstone to the east leads toward the
+smell of spices and seafood.  A hanging wooden walkway leads north to
+another balcony.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 36153 10 10 5
+D1
+~
+~
+0 -1 36150 10 10 5
+D5
+~
+~
+1024 -1 36078 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T along the balcony.
+~
+!
+3 0 3
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb down the staircase to the street below.
+~
+!
+3 0 32
+-1
+S
+
+#36152
+The Laughing Lobster~
+This shop, half on the roof of a much larger sandstone building and half
+on a wooden balcony, is filled with the sounds and smells of boiling
+lobster.  A hideous wooden sign depicting a lobster with a horrifically
+large smile is hung in poor taste over the shop, above a table surrounded
+by a few chairs.  A sturdy wooden staircase leads down to Aghrin Street,
+and a wooden walkway leads across the street to another balcony opposite
+this one.
+~
+[Finius] *CACKLE* shop sign looks like those ghastly billboards for Red Lobster (tm)
+[Phule] *drool*
+[Phule] safe
+[Phule] nomob
+~
+301469771 1 9 0
+D1
+~
+~
+0 -1 36153 10 10 5
+D5
+~
+~
+1024 -1 36079 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You cross the wooden walkway to the $T.
+~
+!
+3 0 2
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb down the ladder to the street below.
+~
+!
+3 0 32
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+912 17 1509949540 -2 0
+927 9 1509949540 3 0
+1220 17 1509949475 -1 0
+113 17 1509949505 -1 0
+112 17 1509949470 -1 0
+-1
+S
+
+#36153
+Balcony above Aghrin Street~
+No rooftop shop graces this wooden balcony over a score of feet above the
+sandstone streets of Narak.  Instead the balcony takes advantage of its
+marvelous view of the Sea of Light, the massive, endless ocean whose
+waves are visible above the ciy gates to the west.  The scenic vista is
+complete with a bench upon which you may rest your weary bones and an
+overhanging tent flap to keep the sun from beating down upon you.  Small
+wooden walkways to the west and south seem to lead to other balconies.
+~
+[Finius] cool view. nice room. good place to eat my calamari
+~
+301465665 1 9 0
+D2
+~
+~
+0 -1 36151 10 10 5
+D3
+~
+~
+0 -1 36152 10 10 5
+D5
+~
+~
+1024 -1 36079 10 10 5
+E
+sea light ocean west~
+The ocean rolls along in mighty waves of water.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T along the balcony.
+~
+!
+3 0 4
+A
+~
+~
+continue;
+~
+E
+to_char~
+You cross the walkway to the $T.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb down the staircase to the street below.
+~
+!
+3 0 32
+1145 17 1509949540 -2 0
+-1
+S
+
+#36154
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+[Phule] no extras necessary
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+1415 1262 36155 10 10 5
+D5
+~
+~
+1024 -1 36080 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb down the ladder to the street below.
+~
+!
+3 0 32
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb into the wall-house.
+~
+!
+3 0 16
+-1
+S
+
+#36155
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] thank you sir may i have another
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+1415 1262 36154 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb out of the wall-house and onto the ladder below.
+~
+!
+3 0 32
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36156
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36157 10 10 5
+-1
+S
+
+#36157
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] number 9, number 9, number 9, number 9
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36156 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36158
+On a Ladder Below A Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36161 10 10 5
+-1
+S
+
+#36159
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36160 10 10 5
+-1
+S
+
+#36160
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] NOT ANOTHER ONE
+[Finius] its a cult. its got to be.
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36159 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1392 17 1509949540 -2 0
+1393 49 1509949540 -2 0
+598 81 1509949540 -2 0
+1042 9 1509949540 0 0
+-1
+S
+
+#36161
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] let me guess, Its Buck Buck #9
+[Finius] Deja Vu all over again!  Run Away!!
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36158 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36162
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36163 10 10 5
+D5
+~
+~
+0 -1 36085 10 10 5
+-1
+S
+
+#36163
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] oh my god phule, how many copies did you make of this dang room?
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36162 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36164
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+[Finius] they all look the same. dude.
+[Phule] they ARE all the same. dude.
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36165 10 10 5
+D5
+~
+~
+0 -1 36067 10 10 5
+-1
+S
+
+#36165
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] ditto the last 5 rooms that look like this ;)
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36164 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36166
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36167 10 10 5
+D5
+~
+~
+0 -1 36069 10 10 5
+-1
+S
+
+#36167
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] it must be a hotel, all look the same.
+[Finius] These guys complulsive?  *tickle*
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36166 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36168
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36169 10 10 5
+D5
+~
+~
+0 -1 36071 10 10 5
+-1
+S
+
+#36169
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Finius] heh, these guys twins, or is this a hotel decorated the same?  (all sleeping merchants rooms look same)
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36168 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36170
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+391 1262 36171 10 10 5
+-1
+S
+
+#36171
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Merior] seems awfully familiar... 
+[Finius] was spelled wall-house in last room.
+~
+301465665 1 9 0
+D5
+trapdoor~
+~
+391 1262 36170 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36172
+On a Ladder Below a Trapdoor~
+This ladder connects the wall-house above to the street below.  A
+trapdoor, closed and locked securely, lies just overhead.
+~
+[Merior] null key?
+[Phule] null key means lock has to be picked
+~
+301465673 1 9 0
+D4
+trapdoor~
+trapdoor~
+1415 1262 36173 10 10 5
+D5
+~
+~
+1024 -1 36073 10 10 5
+-1
+S
+
+#36173
+A Wall-House~
+This small wall house appears to be the dwelling-place of a well-to-do
+merchant.  A bed, neatly made, sits along the wall to the east, and a
+coat rack stands in the southeast corner beside a trapdoor.  No rug
+adorns the wood floor, however, save a few thin skins in various places. 
+A small desk stands in the northwest corner of the room beside a small
+metallic bin.
+~
+[Merior] still dont understand wall house concept
+[Merior] an action or two would be nice...
+[Merior] dagger on merchant is made of iron and stone?
+[Merior] silly question... really need to go to all that trouble to reset coins on merchant?
+[Phule] coins - yes as i wanted them inside bag.
+[Phule] what actions did you have in mind~
+301465665 1 9 0
+D5
+trapdoor~
+~
+1415 1262 36172 10 10 5
+E
+skins~
+The skins are nailed into the floor and seem to serve mainly as padding.
+~
+E
+small desk~
+The desk appears to be for writing only, not storage, as it holds no
+drawers or cabinets.
+~
+E
+metallic bin~
+Whatever its purpose, the small barrel-like can is empty.
+~
+1042 9 1509949540 0 0
+1392 17 1509949540 -2 0
+1393 17 1509949540 -2 0
+-1
+S
+
+#36174
+Up an Oak Tree~
+This shady bough is not all that comfortable, but it is a private escape
+from the streets below, unseen through the thick leaves below.
+~
+[Merior] would be nice if you could do something up here
+climb down
+was meant for thieves to hide in while guards are trying to kill them
+~
+301465664 1 4 0
+A
+climb~
+down oak tree leaves~
+act_tochar( #climb, ch );
+act_notchar( "$n climbs down.", ch );
+transfer( ch, find_room( 36057 ) );
+act_notchar( "$n comes climbing down the oak tree.", ch );
+~
+E
+climb~
+You climb down the oak's branches, returning to the crowded streets of
+Narak.
+~
+!
+0 0 0
+-1
+S
+
+#36175
+The Parched Sand -- Downstairs~
+This dimly-lit room houses the nocturnal activities of many of Narak's
+thugs and mercenaries, a favorite hangout that even the cityguard avoid
+when possible.  A creaky wooden staircase leads up to the bar.
+~
+nomob to keep guards out
+kheffiss sends on quest which eventually gains thieves entrace to
+assassin's tower.
+need something for giving apple to grumm.
+[Finius] what do these guys respond to besides hi?
+[Phule] ask grummarsh apple, go from there
+[Phule] ask them about each other
+[Phule] okay i'll bite. there are several clues from npc's in narak partaining to a puzzle in the catacombs.
+~
+301465677 1 9 0
+D4
+~
+~
+1024 -1 36116 10 10 5
+994 9 1509949540 3 0
+1037 9 1509949540 3 0
+1038 9 1509949540 3 0
+-1
+S
+
+#36176
+A Balcony Overlooking Main Street~
+This wooden balcony is attached to the sandstone wall of a large building
+to the north.  A small table with a glass case full of trinkets, odds and
+ends, and jewelry sits in the northwest corner of the balcony.  A sturdy
+wooden staircase leads down to Main Street below.
+ 
+A small sign is hanging above the case.
+~
+[Finius] look human shouldn't she look a bit more gypsy-like? with lots of earrings and noserings and things?
+[Phule] she's not a gypsy
+[Phule] safe
+[Phule] nomob
+~
+301469771 1 9 0
+D3
+~
+~
+0 -1 36149 10 10 5
+D5
+~
+~
+1024 -1 36056 10 10 5
+E
+sign~
+The sign reads:
+ 
+LIST :: shows what you can buy.
+VALUE :: find out if I'm interested in your trinkets.
+SELL :: sells your trinkets if I want them.
+~
+E
+table~
+The glass is thick and the case locked: it would be quite a feat to break
+into this show table.
+~
+A
+climb~
+staircase~
+interpret( ch, "down" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb down the staircase to the Way of Kel Amroth.
+~
+!
+3 0 32
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue $T along the balcony.
+~
+!
+3 0 8
+922 9 1509949540 3 0
+0 0 1509949540 -1 0
+0 0 1509949540 -1 0
+0 0 1509949540 -1 0
+1 0 1509949540 -1 0
+1 0 1509949540 -1 0
+2 0 1509949540 -1 0
+-1
+S
+
+#36177
+A Steel-Runged Ladder~
+You are climbing on a ladder of steel rungs bolted to a sandstone wall to
+the west.  Above you you can see a room filled with crates and boxes,
+while below you you see only the light of a torch which lights this
+vertical shaft and blots out your view of the room below.
+~
+nomob
+~
+301596749 1 9 0
+D4
+~
+~
+0 -1 36127 10 10 5
+D5
+~
+~
+0 -1 36178 10 10 5
+-1
+S
+
+#36178
+Narak - Underlevel~
+The underlevel of Narak, while not as crowded and bustling as the
+merchant city itself, is far from deserted.  The inhabitants seem to
+value their quiet, however, as not much commotion is heard from any
+direction save a faint din from above.  Small streets head to the north
+and east into strangely cooler air, and a steel-runged ladder leads up a
+vertical shaft toward the city proper, and down even further into
+near-total darkness.  The underlevel is lit by hanging chandeliers of
+glowing moss, attached firmly to the ceiling nearly 25 feet overhead.
+~
+~
+301596741 1 9 0
+D0
+~
+~
+0 -1 36179 10 10 5
+D1
+~
+~
+0 -1 36180 10 10 5
+D4
+~
+~
+0 -1 36177 10 10 5
+D5
+~
+~
+0 -1 36214 10 10 5
+918 9 1509949540 3 0
+-1
+S
+
+#36179
+Khersset Street~
+This narrow, sandstone-paved road leads north and south under the
+fluourescent glow of mighty chandeliers hanging from the Underlevel's
+smooth ceiling over 25 feet overhead.  Open doorways lead east and west
+into small shops, while north you see what appears to be a small temple.
+~
+[Merior] florescent
+~
+301596741 1 9 0
+D0
+~
+~
+0 -1 36181 10 10 5
+D1
+~
+~
+0 -1 36183 10 10 5
+D2
+~
+~
+0 -1 36178 10 10 5
+D3
+~
+~
+0 -1 36184 10 10 5
+-1
+S
+
+#36180
+Side Alley - Above the Serpent Quarter~
+A ledge here overlooks the Serpent Quarter, hundreds of small sandstone
+houses built belowground for the serpentman population of Narak.  To the
+west you see a street heading north, away from a ladder which presumably
+leads back up into the city.  leads back up into the city.
+~
+[Merior] i thought this was underlevel...  am most confused
+[Merior] ahh... now i understand, but description needs more work...
+~
+301596741 1 9 0
+D3
+~
+~
+0 -1 36178 10 10 5
+-1
+S
+
+#36181
+A Small Sandstone Temple~
+This small temple constructed of sandstone in the limited space of the
+Underlevel is still finely decorated.  A small altar rests beyond several
+praying mats, a place for special meditation.  To the south you can see
+Khersset Street.
+~
+[Merior] extras?
+[Merior] are there going to be actions here?
+[Phule] not until religions get looked at again
+~
+301596741 1 9 0
+D2
+~
+~
+0 -1 36179 10 10 5
+-1
+S
+
+#36183
+Ohmar's Leatherworks~
+Fine leatherwork and articles made out of strange leathery material line
+the walls of this small sandstone-walled shop.  The tools of
+leatherworking, skinning, and tanning sit on a small carving table in the
+northeast corner of the shop, and to the west an open doorway leads out
+to Khersset Street.
+~
+costs should change methinks.
+omob_prog
+Lizardman shopkeeper in desert, away from his swamp home?  Hmm sounds
+quite iffy...
+is NOT lizardman...grr...is serpentman
+[Merior] guess components are around here somewhere :)
+[Merior] sure it's ok to introduce a race not seen elsewhere on our world?
+[Phule] similar to white goblins, black orcs, etc, this is simply a
+'variation' on the lizardman race 
+~
+301600837 1 9 0
+D3
+~
+~
+0 -1 36179 10 10 5
+626 9 1509949540 3 0
+-1
+S
+
+#36184
+Serpent Shop~
+This small shop is filled with the coilings and hissings of snakes,
+coming from through a small, locked grate in the floor.  An open doorway
+to the east leads to an underground street.
+~
+~
+301609029 1 9 0
+D1
+~
+~
+0 -1 36179 10 10 5
+627 9 1509949540 3 0
+-1
+S
+
+#36185
+Khersset Street~
+Under Construction.
+~
+~
+301465669 1 9 0
+118 9 1509949540 3 0
+882 9 1509949540 3 0
+-1
+S
+
+#36186
+Habib's Hot Air Balloons~
+This large rooftop has a circle painted in bright red whose circumference
+is about 30 feet.  Sitting in the circle is a large hot air balloon,
+tethered to the ground and ready to take off.  A staircase leads down
+away from the marvelous view of the deserts to the east of Narak.
+A large sign stands near the staircase.
+~
+[Merior] like the balloon ride :)
+[Phule] thanks boss
+~
+301467717 1 9 0
+D5
+~
+~
+0 -1 36094 10 10 5
+E
+sign~
+The sign reads:
+ 
+HABIB'S HOT AIR BALLOON SERVICE
+ 
+Round trip balloon rides to (crossed out), (crossed out), and the
+fabulous greenhouse of the Sultan of Narak.  Only 1 gold piece per person
+(and we don't make change).  Just type 'buy passage' and you'll be off on
+a grand adventure through the skies!
+ 
+The remainder of the sign consists of fine print which you cannot seem to
+make out.
+~
+A
+buy~
+passage~
+if( mob_in_room( 968, room ) ) {
+  if( has_obj( 2, ch ) ) {
+    junk_obj( has_obj( 2, ch ), 1 );
+    act_tochar( #go, ch );
+    act_notchar( #rgo, ch );
+    transfer( ch, find_room( 44508 ) );
+    act_tochar( #land, ch );
+    act_notchar( #rland, ch );
+    obj_to_char( oload( 1279 ), ch );
+    }
+  else
+    act_tochar( #no, ch );
+  }
+else
+  act_tochar( #nohabib, ch );
+~
+E
+no~
+You don't have a gold coin!
+~
+E
+go~
+You hand Habib a gold coin and he ushers you into the balloon and takes
+off.  You fly across miles of sand to the east and land in a circle of
+large red rocks.
+~
+E
+rgo~
+$n hands Habib a gold coin and flies off in a hot air balloon.
+~
+E
+land~
+As you land, Habib gives you a whistle.  "Just blow this when you want to
+come back.  I really don't know what you'll find to do here; the sultan
+keeps the greenhouse locked." 
+Then Habib flies off in the balloon.
+~
+E
+rland~
+$n is dropped off by Habib in a hot air balloon.
+~
+E
+nohabib~
+Habib is not around to fly the balloon.
+~
+!
+0 0 0
+968 9 1509949540 3 0
+-1
+S
+
+#36187
+Tourmalaine Chamber~
+@b@CThis chamber is a sea of clouds and pale blue sky, a swirling marble
+pallete of tourmalaine and white.  It is nearly a hypnotic effect as the
+chamber seems to move rapidly through a noon tapestry, then rushing to a
+halt, then spinning madly, all without the room actually moving.  A door
+of similar composition stands to the south, while a door of swirling
+@b@RCrimson@C fire stands to the east.@n 
+~
+crimson door to east
+tourm. door to south
+~
+301465665 1 9 0
+D1
+"Crimson Door"~
+"Crimson Door"~
+131 -1 36188 10 10 5
+D2
+"Tourmalaine Door"~
+"Tourmalaine Door"~
+131 -1 36129 10 10 5
+A
+~
+~
+if( is_open( room, south ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, south );
+  }
+~
+E
+nope~
+The Tourmalaine Door is already open.
+~
+E
+rpull~
+$n presses $s hand to the Tourmalaine Door, and it melts away before your
+eyes.
+~
+E
+pull~
+You press your hand to the Tourmalaine Door's swirling surface and it
+melts away before your eyes.
+~
+!
+8 0 4
+A
+c close~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You can't seem to close the doors in this room.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, east ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( mob_in_room( 987, room ) ) {
+  act_tochar( #image, ch );
+  end;
+  }
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+open( room, east );
+~
+E
+image~
+As you reach for the Crimson Door, the image of a Guardian clad in
+swirling Tourmalaine appears and blocks your path.  It is clear that you
+will have to destroy the source of that image to open the door.
+~
+E
+pull~
+You press your hand to the Crimson Door's swirling surgace and it melts
+away before your eyes.
+~
+E
+rpull~
+$n presses $s hand to the Crimson Door's swirling surface and it melts
+away before your eyes.
+~
+E
+already~
+The Crimson Door is already open.
+~
+!
+8 0 2
+987 9 1509949540 3 0
+-1
+S
+
+#36188
+Crimson Chamber~
+@b@RThe glowing walls of this room swirl with undulating flames, yet give
+off nearly no heat despite their embering appearance.  The effect is most
+distracting at your feet, as the floor beneath you changes from red to
+orange then to an empty black as the floor visually disappears for
+seconds at a time, even thought the rock is as solid as ever.  A doorway
+of Crimson stands to the west, while a doorway of iced @n@GJade@b@R stands to
+the south.@n 
+~
+~
+301465665 1 9 0
+D2
+"Jade Door"~
+"Jade Door"~
+131 -1 36189 10 10 5
+D3
+"Crimson Door"~
+"Crimson Door"~
+131 -1 36187 10 10 5
+A
+~
+~
+if( is_open( room, west ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, west );
+  }
+~
+E
+nope~
+The Crimson Door is already open.
+~
+E
+rpull~
+$n presses $s hand to the Crimson Door, and it melts away before your
+eyes.
+~
+E
+pull~
+You press your hand to the Crimson Door's swirling surface and it melts
+away before your eyes.
+~
+!
+8 0 8
+A
+c close~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You can't seem to close the doors in this room.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, south ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( mob_in_room( 988, room ) ) {
+  act_tochar( #image, ch );
+  end;
+  }
+act_tochar( #door, ch );
+act_notchar( #rdoor, ch );
+open( room, south );
+~
+E
+already~
+The Jade Door is already open.
+~
+E
+image~
+As you reach for the Jade Door, the image of a Guardian clad in swirling
+crimson appears before you, blocking the way.  It is clear that you must
+destroy the source of that image before you can open the Jade Door.
+~
+E
+door~
+You reach out a hand and touch the Jade Door, which melts away before
+your eyes.
+~
+E
+rdoor~
+$n reaches out a hand and touches the Jade Door, which melts away before
+your eyes.
+~
+!
+8 0 4
+988 9 1509949540 3 0
+-1
+S
+
+#36189
+Jade Chamber~
+@GThis room glows a deep Jade, as the walls, ceiling, and floor are all
+made of some mysterious hard rock which is coated with a jade frost.  A
+doorway stands to the north, and the room is otherwise strangely bare. 
+What might be a fire glows jade in the center of the chamber, but instead
+of flickering flames you see ice crystals which rise and fall almost like
+dancing fire.@n 
+~
+up is 36190
+note - jade adept is really a dragon which has polymorphed
+note - jade and klave's mpcode were erased by a crash.  i'll get around
+to them.
+don't forget jade's death program to open up
+~
+301465665 1 9 0
+D0
+"Jade Door"~
+"Jade Door"~
+131 -1 36188 10 10 5
+A
+~
+~
+if( is_open( room, north ) )
+  act_tochar( #nope, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, north );
+  }
+~
+E
+nope~
+The Jade Door is already open.
+~
+E
+rpull~
+$n presses $s hand to the Jade Door, and it melts away before your eyes.
+~
+E
+pull~
+You press your hand to the Jade Door's swirling surface and it melts away
+before your eyes.
+~
+!
+8 0 1
+A
+c close~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You can't seem to close the Jade Door.
+~
+!
+0 0 0
+989 9 1509949540 3 0
+-1
+S
+
+#36190
+Astral Chamber~
+@b@WTransparent flitters of glimpsed images float past in a sea of insane
+tranquility in this place with seemingly no up or down, east or west, or
+horizon.  The only firmament in sight is the strange floating island of
+hardwood floor you stand upon.  A nearly translucent staircase descends
+from this high perch amidst nothingness to a jade-glowing chamber far
+below.@n
+~
+~
+301465665 1 9 0
+D5
+~
+~
+0 -1 36189 10 10 5
+982 9 1509949540 3 0
+-1
+S
+
+#36191
+Cityguard Barracks~
+Hundreds of cots line the walls of this room, the sleeping-place for the
+city's many loyal guardsmen.  An imposing-looking black iron gate stands
+to the west, leading to the streets of Narak.
+~
+~
+301465665 1 9 0
+D3
+black iron gate~
+~
+195 -1 36066 10 10 5
+E
+cots~
+While not overly soft, they look nonetheless like a decent place to spend
+the night.  With at least a score of other guards around you, the cot is
+a safe place to rest as well.
+~
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+918 9 1509949540 3 0
+-1
+S
+
+#36192
+Salab's House of Samite~
+Bright lanterns burn in brilliant, colored glass around the walls,
+throwing radiant, multicolored light through this room.  Along the walls
+are beautiful garments of samite - robes, sleeves, dresses, all
+glimmering in the light as it dances through the folds of silk.  A low,
+simple door leads to a dim room to the west, or a staircase leads up.  A
+sign is pinned proudly to the wall.
+~
+[Phule] safe
+[Phule] nomob
+[Rhen] extra- maybe add a look at the lanterns
+~
+301469775 1 9 0
+D3
+~
+~
+0 -1 36193 10 10 5
+D4
+~
+~
+0 -1 36115 10 10 5
+E
+samite garments robes sleeves dresses~
+These garments are all made of samite, which is thick, fine silk
+interwoven with strands of various metals.  Some are obviously woven with
+gold and silver; other metals are not as easy to identify.
+~
+E
+sign~
+The sign reads:
+ 
+@I@I WARNING: ONE SIZE DOES NOT FIT ALL 
+~
+1168 9 1509949540 3 0
+-1
+S
+
+#36193
+One Robe for Every Wizard~
+This room is sparse, with only a table in its center and a dim lamp in a
+corner.  The only clue to its nature as a place of business is a small
+sign hanging against the wall.  An open doorway leads east into another
+magic shop.
+~
+[Finius] wow
+[Phule] lightning mage
+[Phule] safe
+~
+301469767 1 9 0
+D1
+~
+~
+0 -1 36192 10 10 5
+E
+table~
+The small table has a few bits of cloth scattered on it, nothing more.
+~
+E
+dim lamp~
+The lamp is firmly attached to the wall and gives off a faint glow,
+illuminating the room.
+~
+E
+sign~
+The sign reads:
+ 
+@I@I@I ONE ROBE FOR EVERY WIZARD 
+ 
+providing you with fine robewear for over twenty years
+ 
+@I@I WARNING: ONE SIZE DOES NOT FIT ALL 
+~
+1167 9 1509949540 3 0
+-1
+S
+
+#36194
+The Tower of Assassins - Lower Level~
+~
+~
+301465669 0 9 0
+-1
+S
+
+#36195
+In the Center of the Tower~
+You are below a high-reaching vertical passage which stretches upward
+through the center of the tower.  Layers of dust have settled on the
+floor here.  The only exit is a large rectangular doorway to the north.
+~
+~
+301465701 0 9 0
+D0
+massive doorway~
+north door massive doorway~
+66 -1 36196 10 10 5
+-1
+S
+
+#36196
+A Giant Death Trap~
+Spikes the the walls of this roughly cubical room.  The walls seem to be
+closing in, but that may just be your imagination.  Or, it could be that
+the spikes are getting longer...
+ 
+~
+~
+301465717 0 9 0
+D0
+small iron door~
+small iron door north~
+390 1262 36197 10 10 5
+D2
+giant block of granite~
+~
+66 -1 36195 10 10 5
+A
+~
+~
+if( !is_open( room, south ) ) 
+  end;
+close( room, south );
+act_tochar( #slam, ch );
+act_notchar( #rslam, ch );
+acode( room, 2 );
+~
+E
+slam~
+As you enter the room, a huge slab of granite falls behind you, blocking
+the south exit.
+~
+E
+rslam~
+A huge slab of granite falls across the exit to the south, blocking the
+south exit.
+~
+!
+1 0 4
+A
+***TRAP***~
+~
+wait( 4 );
+loop( all_in_room )
+  act_tochar( #spike, rch );
+wait( 4 );
+loop( all_in_room )
+  act_tochar( #sp2, rch );
+wait( 4 );
+loop( all_in_room )
+  act_tochar( #sp3, rch );
+wait( 4 );
+loop( all_in_room )
+  act_tochar( #sp4, rch );
+wait( 4 );
+loop( all_in_room ) {
+  act_tochar( #death, rch );
+  i = 1d1+998;
+  dam_message( rch, i, "The death impalement" );
+  inflict( rch, rch, i, "being impaled on a giant spike" );
+  }
+open( room, north );
+~
+E
+spike~
+The walls begin to move, closing in on you!!
+~
+E
+sp2~
+The spikes draw in even closer...you had better get out of here!!
+~
+E
+sp3~
+The spikes draw yet nearer, about to impale you!!
+~
+E
+sp4~
+The spikes edge into you...you only have a few seconds...
+~
+E
+death~
+The spikes IMPALE you, ending your life in a shredded mess!!
+~
+!
+0 0 0
+A
+~
+~
+~
+!
+0 0 0
+-1
+S
+
+#36197
+A Giant Death Trap~
+Under Construction.
+~
+~
+301465717 0 9 0
+D2
+~
+~
+390 -1 36196 10 10 5
+-1
+S
+
+#36199
+The Dock Tunnel~
+The massive tunnel leads north and south beneath the cliffs west of
+Narak, connecting the docks with the city.  Twenty feet wide and twenty
+feet deep, the tunnel is lit by flickering torches.  The sound of
+crashing waves echos down the tunnel's length.
+~
+~
+301596741 0 9 0
+D0
+~
+~
+0 -1 36207 10 10 5
+D2
+~
+~
+0 -1 36200 10 10 5
+-1
+S
+
+#36200
+The Dock Tunnel~
+While sparse torchlight casts flickering shadows on the heavy stone
+blocks of the walls, the faint echos of crashing waves sound up and down
+the length of the tunnel.  To the north, the tunnel approaches the docks,
+while to the south, it heads deeper into the city.
+~
+~
+301596741 0 9 0
+D0
+~
+~
+0 -1 36199 10 10 5
+D2
+~
+~
+0 -1 36201 10 10 5
+-1
+S
+
+#36201
+The Dock Tunnel~
+The tunnel makes a massive turn here, as a few hundred tons of heavy
+stone blocks are used to construct a massive intersection.  Half of the
+tunnel leads north, toward the docks, while the other half leads east,
+tunneling beneath the walls of Narak and toward the city's underground
+entrance.
+~
+~
+301596741 0 9 0
+D0
+~
+~
+0 -1 36200 10 10 5
+D1
+~
+~
+0 -1 36202 10 10 5
+-1
+S
+
+#36202
+The Dock Tunnel~
+The tunnel leads east and west, heavy stone masonry as ancient as the
+hard rock itself.  The ten-foot cubic blocks fit together perfectly,
+framing the twenty-foot wide and tall passage.  Faint torches flicker
+overhead, lighting the tunnel.
+~
+~
+301596741 0 9 0
+D1
+~
+~
+0 -1 36203 10 10 5
+D3
+~
+~
+0 -1 36201 10 10 5
+-1
+S
+
+#36203
+The Dock Tunnel~
+Torches, set about ten feet apart on alternating sides of the tunnel,
+light the passage with their flickering light.  Shadows mark the grooves
+separating the colossal stone blocks of the tunnel's foundation, massive
+pieces of rock which pave the tunnel as it connects the docks to the west
+to the city proper to the east.
+~
+~
+301596741 0 9 0
+D1
+~
+~
+0 -1 36204 10 10 5
+D3
+~
+~
+0 -1 36202 10 10 5
+-1
+S
+
+#36204
+The Dock Tunnel~
+The heavy stone blocks used in the construction of this tunnel have been
+cut to precision.  Fit side by side and one on top of each other, the
+ten-foot cubic blocks form the massive frame for the passage.  To the
+east, the tunnel leads toward the underground entrance of Narak, while to
+the west, the passage leads under the city walls and out to the docks.
+~
+~
+301596741 0 9 0
+D1
+~
+~
+0 -1 36205 10 10 5
+D3
+~
+~
+0 -1 36203 10 10 5
+-1
+S
+
+#36205
+The Dock Tunnel~
+The heavy stonework of the tunnel is very evident here, as the
+twenty-foot wide and twenty-foot deep tunnel makes its way beneath tons
+and tons of rock.  Flickering torchlight casts shadows on the walls.  The
+smell of salt touches the air, and a cool sea breeze blows in from the
+west.
+~
+~
+301596741 0 9 0
+D1
+~
+~
+0 -1 36124 10 10 5
+D3
+~
+~
+0 -1 36204 10 10 5
+-1
+S
+
+#36206
+The Dock Tunnel~
+Under Construction.
+~
+~
+301465669 0 9 0
+-1
+S
+
+#36207
+The Dock Tunnel~
+The dark tunnel is lit by flickering torchlight, and the sound of
+crashing waves can be heard down the tunnel to the north.  The smell of
+salt is in the air.  A faint breeze blows by, smelling of the sea, and
+the smoke from the torches follows the breeze out to the docks.
+~
+~
+301596741 0 9 0
+D0
+~
+~
+0 -1 36125 10 10 5
+D2
+~
+~
+0 -1 36199 10 10 5
+-1
+S
+
+#36208
+A Large Tunnel Beneath the City Walls~
+This wide, tall tunnel lit by high-hung torches passes beneath the east
+wall of the city and into the deserts east of Narak.  Flat rock has been
+laid at your feet, making the stone smooth and easily traversable.  To
+the west a ramp leads up into the city, while to the east the tunnel
+crosses under the city walls.
+~
+[Phule] two gate guards were here
+[Phule] nomob
+~
+301596749 1 9 0
+D1
+~
+~
+0 -1 36209 10 10 5
+D3
+~
+~
+0 -1 36118 10 10 5
+754 9 1509949510 3 0
+754 9 1509949460 3 0
+-1
+S
+
+#36209
+A Large Tunnel Beneath the City Walls~
+The heavy stonemasonry of the tunnels is evident in both the stone floor,
+which serves as a road, and the massive walls and ceiling of the tunnel. 
+Cubic blocks of heavy stone, ten feet to a side, stand shoulder to
+shoulder, holding back the tons of earth which threaten to crush the
+passage.  The tunnel leads north, out of the city, and west, toward the
+undrgound entrance to Narak.
+~
+~
+301596741 1 9 0
+D0
+~
+~
+0 -1 36210 10 10 5
+D3
+~
+~
+0 -1 36208 10 10 5
+-1
+S
+
+#36210
+A Large Tunnel Beneath the City Walls~
+Lit by torches, this massive tunnel leads east, out of the city, and
+south, toward the underground entrance to Narak.  Massive stone blocks
+serve as a smooth road, and the heavy cyclopaean construction of the
+tunnel ensures its survival long after its builders were forgotten by
+time.
+~
+~
+301596741 1 9 0
+D1
+~
+~
+0 -1 36211 10 10 5
+D2
+~
+~
+0 -1 36209 10 10 5
+-1
+S
+
+#36211
+A Large Tunnel Beneath the City Walls~
+Paved with large heavy blocks of stone, the tunnel is wide and easily
+passable by all but the largest of trade wagons.  About twenty feet
+across and half again that deep, the tunnel leads north, heading out from
+under Narak's walls, and west, toward the underground entrance to Narak. 
+Torches light the tunnel, spaced about ten feet apart on alternating
+sides of the passage.
+~
+~
+301596741 1 9 0
+D0
+~
+~
+0 -1 36212 10 10 5
+D3
+~
+~
+0 -1 36210 10 10 5
+-1
+S
+
+#36212
+A Large Tunnel Beneath the City Walls~
+This wide, tall tunnel lit by high-hung torches passes beneath the east
+wall of the city and into the deserts east of Narak.  Flat rock has been
+laid at your feet, making the stone smooth and easily traversable.
+The tunnel leads north and west.
+~
+~
+301596741 1 9 0
+D1
+~
+~
+0 -1 36213 10 10 5
+D2
+~
+~
+0 -1 36211 10 10 5
+-1
+S
+
+#36213
+A Large Tunnel Beneath the City Walls~
+This large tunnel is lit by many torches hung high out of reach and is
+large enough to fit the wagons of a merchant with ease.  The glow of the
+desert can be seen through the exit to the east, and to the west the
+tunnel crosses below the walls of the city.
+~
+~
+301596741 1 9 0
+D1
+~
+~
+0 -1 35895 10 10 5
+D3
+~
+~
+0 -1 36212 10 10 5
+-1
+S
+
+#36214
+A Steel-Runged Ladder~
+You are climbing on a ladder of steel rungs bolted to a sandstone wall to
+the west.  Above you can be seen a room dimly lit with a strange light,
+while below you is near total darkness.
+~
+~
+301596741 1 9 0
+D4
+~
+~
+0 -1 36178 10 10 5
+D5
+~
+~
+0 -1 36215 10 10 5
+-1
+S
+
+#36215
+Vyan Level~
+You overlook the lowest level of the city, a massive underground chamber
+which is nearly a city all its own.  It is not clear how one descends
+into the vyan quarter, but it is not from here.  This is perhaps a
+guard's post or something similar.  A steel-runged ladder leads up toward
+the city proper.
+~
+~
+301596740 1 9 0
+D4
+~
+~
+0 -1 36214 10 10 5
+918 137 1509949540 3 0
+-1
+S
+
+#0
+

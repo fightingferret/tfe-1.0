@@ -1,0 +1,1170 @@
+#AREA
+Serpentlair~
+Nivel~
+~
+
+0 0
+4
+#ROOMS
+
+#55000
+Entrance Into a Murky Swamp~
+You are at the edge of a large swamp.  Small lizards and other reptile
+life seem to be abundant in this area.  From the west hissing sounds can
+be heard, similar to a snake's but with a hoarse, almost human tone.  To
+the south a trail works its way out of the swamp, while to the west a
+small trail leads deeper into the wetlands.
+~
+[Nivel] listen action added.
+~
+301465600 3 6 0
+D3
+~
+~
+0 -1 55001 10 10 5
+E
+swamp wetlands 1 west~
+Thick with vines and other vegetation, the swamp seems to hide its wet
+interior.  A thin, green fog seems to be in the air here, and the
+plantlife seeps to fill in the few gaps of sunlight that exist.  It is
+relatively dark in the swamp, but not so dark that you cannot see your
+way.  A small path opens up into the wetlands to your west, marked by the
+lack of greenery.
+~
+E
+lizards reptiles life~
+The animal life around here seems to be true to a swamp area.  Small
+lizards and newts can be seen walking about or basking in the few areas
+that have sunlight.  Occasionally you can hear the hiss or a snake or the
+raspy calming song of cicadas that live in the trees.
+~
+E
+small trail 'small trail'~
+A small trail winds its way westward, into the thick, mucky swamplands. 
+Another trail can be seen heading southward, and it appears to be drier.
+~
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You slowly pick your path westward into the wetlands.
+~
+!
+3 0 8
+A
+listen~
+~
+act_tochar( #slow, ch );
+wait( 2 );
+act_tochar( #hiss, ch );
+~
+E
+slow~
+You quietly listen to the area around you.
+~
+E
+hiss~
+You hear a few hisses coming from the west, but it's probably just a snake.
+~
+!
+0 0 0
+1437 521 1509949540 3 0
+1437 9 1509949470 3 0
+196 9 1509949490 3 0
+-1
+S
+
+#55001
+Further into the Swamp - Near a Large Tree~
+Thick vegetation from tall trees shadows the small undergrowth here, and
+the hot, humid air is almost unbreathable.  A large shape runs by just
+south of you, but it is probably just the heat; nothing can run that fast
+through this type of terrain.  A small clearing lies to the east, while
+the bog extends further to the west.
+~
+[Nivel] climb tree here
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 55000 10 10 5
+D3
+~
+~
+0 -1 55002 10 10 5
+E
+1 south large shape~
+Looking south, you see nothing.  It may just be your nerves, but in any
+case the large shape is gone now.
+~
+E
+clearing 1 east~
+The clearing to the east appears to be less muggy, perhaps it is a
+passage out of the muddy terrain.
+~
+A
+~
+~
+act_tochar( #hear, ch );
+wait( 2 );
+act_tochar( #after, ch );
+~
+E
+hear~
+You hear strange noises coming from the vegetation above you.
+~
+E
+after~
+After a time you settle your nerves down and realize whatever made that
+growl-like hissing noise is not coming after you.
+~
+!
+2 200 0
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You carefully pick your way eastward and out of the swamp.
+~
+!
+3 0 2
+A
+climb~
+tall large tree~
+if( find_skill( ch, climb ) == 0 )
+  act_tochar( #no, ch );
+else {
+  act_tochar( #yes, ch );
+  act_notchar( #climb, ch );
+  transfer( ch, find_room( 55007 ) );
+  act_notchar( #up, ch );
+  }
+~
+E
+no~
+You try to climb up into the tree but fail.
+~
+E
+yes~
+You carefully pick some solid vegetation growing on the tree and make
+your way upwards.
+~
+E
+climb~
+$n carefully picks some solid vegetation and makes $s way upwards.
+~
+E
+up~
+$n climbs up from below.
+~
+!
+0 0 0
+1437 9 1509949540 3 0
+-1
+S
+
+#55002
+A Split in the Wetlands~
+Many shapes can be seen whisking through the jungle-like wilderness, and
+there is an odd odor in the air, foreign to the smell of the wetland area. 
+Marsh grass around the trail rustles, even though there is no wind.  A
+small muddy footpath heads north, apparently used from the three-toed
+footprints almost completely coalesced into the wet dirt.  To the west
+the wider trail continues, although still almost swallowed by the swamp
+about you.
+~
+[Nivel] random action will be added shortly.
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55021 10 10 5
+D1
+~
+~
+0 -1 55001 10 10 5
+D3
+~
+~
+0 -1 55003 10 10 5
+E
+shapes~
+In the shade and foggy air the shapes cannot be made out, but they appear
+to be humanoid.
+~
+E
+marsh grass~
+The marsh grass appears to be rustling near the south portion of the path.
+~
+A
+smell~
+~
+act_tochar( #smell, ch );
+~
+E
+smell~
+The odor seems to be coming from the south.  On second thought, you
+realize the smell comes from the marsh gases which bubble out from pools
+in the surrounding area.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #suddenly, ch );
+~
+E
+suddenly~
+Suddenly! - nothing happens.
+~
+!
+2 100 0
+1437 137 1509949540 3 0
+1437 9 1509949470 3 0
+1437 9 1509949540 3 0
+-1
+S
+
+#55003
+Continuing Along the Muddy Path ~
+This is a small oasis in the bog.  Danger seems to lurk in the wilderness
+around here, as several slitted eyes peer out at you from the shadows,
+glowing a green that seems to warn of a great evil surrounding the area. 
+A pike sticks out of the ground near a large quartz boulder.  A large
+skull of some animal lies on the ground here, its shape almost human. 
+Glistening from a green mold, a small stagnant pool lies to the north,
+great domes expanding and popping as swamp gases escape from it.  The
+trail extends to the east and west.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 55002 10 10 5
+D3
+~
+~
+0 -1 55004 10 10 5
+E
+skull~
+While it appears humanoid from a distance, there are many sharp teeth
+lining the jaw, and the front of the skull seems extended.
+~
+E
+boulder quartz~
+This large quartz boulder is covered in green and brown vines.  It
+watches the swamp like an ancient guardian, its youth having lost its
+stone wrinkles to smoothness.
+~
+E
+pike~
+It rests near the quartz boulder, its bronze head dulled to uselessness
+and its wooden pole decayed by the caustic environment.
+~
+1437 137 1509949540 3 0
+1437 9 1509949475 3 0
+1438 9 1509949540 3 0
+-1
+S
+
+#55004
+An Intersection in the Bog~
+Here the path splits off into three directions.  Although not odd for a
+swamp, there seem to be a great number of snakes and lizards, as well as
+amphibious life, while the sight or sound of a bird or other animal is
+rare.  The few rocks in the area are inhabited by salamanders and newts
+basking in what little sun shines upon the ground, and more noises of a
+reptilian origin can be heard from the trees above.  Two trails lead
+north and south, melding into nothingness, while to the east the path
+seems a bit lighter in comparison.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55005 10 10 5
+D1
+~
+~
+0 -1 55003 10 10 5
+D2
+~
+~
+0 -1 55006 10 10 5
+1437 137 1509949540 3 0
+-1
+S
+
+#55005
+Continuing in the Murky Swamp~
+The path is a bit larger here, and seems to be getting lighter as it
+heads north.  Even so, the air is heavy and the ground wet and slippery. 
+A rotting tree, now covered in moss and lichens, lies nearby.  Its roots
+were unable to support it in the marshes.  Large swarms of mosquitos
+attack you as you travel through this area, and you spot a crocodile
+stretching itself upon a log, awaiting any unsuspecting prey.  Smoke
+drifts in from the northwest.  Perhaps there is a village there.  the
+trail leads north and south.
+~
+[Oculus] You've seperated your adjectives from your subject in the third sentence.  "A rotting tree covered in moss and lichens lies nearby" is closer to how it should read I think.
+[Oculus] Mosquitoes might make an interesting extra for this room
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55012 10 10 5
+D2
+~
+~
+0 -1 55004 10 10 5
+1437 137 1509949540 3 0
+1437 137 1509949540 3 0
+-1
+S
+
+#55006
+Before a Large Granite Tower~
+A giant weathered door stands here, its carved surface lined around its
+edges by strange glyphs.  The middle of the door depicts a serpent
+breathing fire upon a dying dragon, its long body wrapped around the
+dragon's throat at the same time.  It appears to be blocking the entrance
+to a large granite tower, which is almost entirely enshrouded by a
+cascade of vines and other vegetation.  A faint trail leads off to the
+south, while the main path heads off to the north.
+~
+[Oculus] Nit-picking time :)   If the tower is "entirely enshrouded" in the vegetation, how would I know the tower was granite?  Or even a tower (other than the shape, I guess)
+[Oculus] might add extra description for: granite tower, leafy vines vegetation.
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55004 10 10 5
+D2
+~
+~
+0 -1 55009 10 10 5
+D3
+pernambuco door~
+~
+147 1961 55008 10 10 5
+E
+door pernambuco~
+This door is made of a fine grained wood, and appears as solid as steel.
+~
+E
+strange glyphs~
+Of a runic nature, you cannot understand what they say, but they are
+finely shaped into the wood, and you cannot ignore the possibility that
+they are a warning of what is in the swamp or beyond the door.
+~
+E
+tower~
+Almost indistiguishable through the vegetation, it looks more like a
+granite cliff.  Only examining it closer do you notice the stonework of
+the tower.  From the look of the tower it is centuries old, but swamps
+grow quickly about things and you can never tell.
+~
+E
+vines~
+Covering everything but the tower door, you wonder of what nature is the
+door that the parasitic vines do not attach themselves.
+~
+1437 9 1509949540 3 0
+-1
+S
+
+#55007
+In a Large Tree~
+Under Construction.
+~
+~
+301465600 3 9 0
+D5
+~
+~
+0 -1 55001 10 10 5
+-1
+S
+
+#55008
+Lair of the Ancients~
+The hissing has stopped now, but has been driven away by a more
+perturbing sound.  Great roaring is coming from this granite tower,
+reverberated by the rock, and the heat of this place is even greater than
+the swamp's, albeit somewhat less humid.  A sulfurous odor permeates the
+air.  There is a stairway leading further up into the tower, narrowly
+entwining itself about the rock and lit by eerie sconces that glow with a
+sinister aura.
+~
+~
+301465613 3 8 0
+D1
+pernambuco door~
+~
+147 1961 55006 10 10 5
+D4
+~
+~
+0 -1 55025 10 10 5
+E
+door pernambuco~
+This door is made of a fine grained wood, and appears as solid as steel.
+~
+E
+u up stairway~
+The stairway heads upwards, towards a faint light.
+~
+-1
+S
+
+#55009
+A Bend in the Trail~
+The trail bends here.  Thick brush and greenery blocks any further travel
+south and the stench of the swampy decay overwhelms you.  Small pockets
+of methane bubble up from small slime-covered pools dotting the ground. 
+Vines loom themselves about the area, hanging on limbs and fallen trees,
+adding to the chaos of the wilderness.  A small pathway proclaims itself
+to the west, its only signature muddy ground covered sparsely by the
+outgrowth.  Another path lies north, its vines cut and a little more
+distinct.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55006 10 10 5
+D3
+~
+~
+0 -1 55010 10 10 5
+E
+methane bubbles pockets gas~
+These small bubbles release a foul-smelling odor into the air.  It is
+probably not a good idea to put a torch too near one of them.
+~
+E
+vines~
+Growing out from the ground in some places, they seem to neatly cover the
+entire area, making passage east or west impossible.
+~
+1437 137 1509949540 3 0
+1437 9 1509949540 3 0
+-1
+S
+
+#55010
+A Dead end in the Murky Swamp ~
+Here the faint trail ends abruptly.  Foliage seeps out of a natural rock
+formation to the south, while the west yields large slimy pools shallow
+enough to encumber a boat but deep enough to want to avoid wading in. 
+Thick vines and rotting logs to the north preclude any movement other
+than back east.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 55009 10 10 5
+1437 137 1509949540 3 0
+1437 139 1509949540 3 0
+1438 9 1509949540 3 0
+-1
+S
+
+#55012
+Entrance to a Small Village~
+Thatched huts line the main road to the west.  The swamp to the south and
+east seems to have held back in the village, although not for trying, as
+several of the huts are overgrown by large vines and weeds.  There is a
+small hut to the north, with a sign of a needle that proclaims itself
+some sort of tailor's shop.  To the south, the trail heads off into
+wilderness.
+~
+~
+301465600 3 8 0
+D0
+~
+~
+0 -1 55013 10 10 5
+D2
+~
+~
+0 -1 55005 10 10 5
+D3
+~
+~
+0 -1 55014 10 10 5
+1437 137 1509949540 3 0
+1437 9 1509949540 3 0
+1437 9 1509949540 3 0
+1438 137 1509949540 3 0
+1438 9 1509949540 3 0
+-1
+S
+
+#55013
+A Crude Hut~
+Several different types of clothing have been arranged here, ranging from
+leather pants to lizardskin smocks.  However, the clothing seems to be
+fit for a lizardman, as many of the garments contain holes that are
+rarely used by any other race.
+~
+~
+301465605 3 5 0
+D2
+~
+~
+0 -1 55012 10 10 5
+1439 9 1509949540 3 0
+1438 9 1509949540 3 0
+1438 137 1509949480 3 0
+-1
+S
+
+#55014
+The Main Road along the Village~
+Small carts line the road, some of them filled with dirt and swamp grass,
+others bearing odd-looking fruits and meat.  The road here is soggy and
+almost forms a ditch with respect to the small huts on either end of the
+trail.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 55012 10 10 5
+D3
+~
+~
+0 -1 55016 10 10 5
+1438 137 1509949540 3 0
+1438 9 1509949480 3 0
+-1
+S
+
+#55016
+The Main Road along the Village ~
+The village continues to the east and west.  To the north, a large wooden
+sign proclaims itself a weapons shop, its large roof dwarfing the other
+huts about it.  Another store lies to the south, a food shop from the
+smell of raw meat mixed in with baking bread.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55017 10 10 5
+D1
+~
+~
+0 -1 55014 10 10 5
+D2
+~
+~
+0 -1 55018 10 10 5
+D3
+~
+~
+0 -1 55019 10 10 5
+1437 137 1509949540 3 0
+1437 137 1509949490 3 0
+1438 9 1509949540 3 0
+1438 9 1509949460 3 0
+1438 9 1509949450 3 0
+-1
+S
+
+#55017
+A Large Weapons Hut~
+Several weapons line the racks to the south, a majority of hunting and
+skinning knives.  Several unstrung crossbows have been fashioned before
+the weaponsmith's table; for such a small store, the weapons here are of
+some quality.  From the looks of the weaponry available, hunting seems to
+to be the chief trade of the town. The main road lies to the south.
+~
+~
+301465605 3 5 0
+D2
+~
+~
+0 -1 55016 10 10 5
+1440 9 1509949540 3 0
+443 17 1509949540 -1 0
+-1
+S
+
+#55018
+A Food Hut~
+Noting the small variety of foods, the village seems to have a great
+affinity for meat.  Lamb and pork are there, as well as several large
+slices of a meat unfamiliar to you; you can only assume it is from some
+sort of snake or other reptile, as several pieces of meat are surrounded
+with scales. The exit back to the main road lies to your north.
+~
+~
+301465605 3 5 0
+D0
+~
+~
+0 -1 55016 10 10 5
+1441 9 1509949540 3 0
+1968 17 1509949540 -1 0
+1033 17 1509949540 -1 0
+1438 9 1509949540 3 0
+1438 9 1509949464 3 0
+-1
+S
+
+#55019
+End of the Village Road~
+The road stops here.  Great hissing and shouted noises come from the
+east, probably a marketplace of some sort, and there is an old hut west
+of here, a wooden shelter on the verge of collapsing.  Movement seems to
+come from inside, suggesting that someone still resides there.
+~
+[Oculus] You could probably break that second sentence in the description into two sentences.  As it stands, it's rather cumbersome to read.
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 55016 10 10 5
+D3
+~
+~
+0 -1 55020 10 10 5
+1438 137 1509949540 3 0
+1438 9 1509949470 3 0
+-1
+S
+
+#55020
+An Old Hut ~
+This small room is cluttered with old scrolls written with odd symbols,
+glyphs of some sort.  A lone candle rests on a small table in the corner,
+providing the room its only light.  There is an interesting mark on the
+wall, depicting a serpent of some sort wrapped around a dragon,
+apparently finishing it off.  Aside from that, the other walls are bare,
+and there is a small bed near the table.  The only way out is east,
+towards the main street.
+~
+[Oculus] you need to either add "old" to the shaman's keywords, or add "shaman" to his appearance.  If a wandering lizardman comes in here, there is no way of differentiating given the current descriptions unless you use 'scan' to see the shaman.
+[Oculus] MOB note: I'm really having trouble visualizing a lizardman with
+a beard, as the shaman is described.  Could you possibly alter that, or
+elaborate?  I can't picture a fuzzy lizard 
+Lizardmen dont have beards -Florian.
+~
+301465605 3 5 0
+D1
+~
+~
+0 -1 55019 10 10 5
+1442 9 1509949540 3 0
+38 17 1509949490 -1 0
+1021 17 1509949540 -1 0
+1022 17 1509949540 -1 0
+1017 17 1509949540 -1 0
+1000 17 1509949490 -1 0
+1020 17 1509949480 -1 0
+873 17 1509949540 -1 0
+479 17 1509949540 -1 0
+872 17 1509949540 -1 0
+37 17 1509949540 -1 0
+1460 17 1509949540 -1 0
+1301 17 1509949540 -1 0
+304 17 1509949540 -1 0
+-1
+S
+
+#55021
+Along a Muddy Trail In the Marshes~
+The ground is particularly wet here, and there is a small stream
+beginning to form in the trail, eroding the mud and continuing on its
+east-west flow.  Footprints are embedded in the mud, three-toed tracks
+that seem to head northward, picked up better in the dryer areas.  There
+appears to be some sort of clearing north of here, and a small house can
+be seen through the undergrowth.  South of here, a faint trail heads off,
+marked by the bare soil.
+~
+[Oculus] add extra here for "stream"
+[Oculus] might want to add "house" as an extra description.  Also, which direction is this house from here?
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 55022 10 10 5
+D2
+~
+~
+0 -1 55002 10 10 5
+E
+stream~
+It trickles across the trail here, its clear water slowly forming a
+ravine as it flows eastward.
+~
+E
+small house hut~
+From this distance, you can only see the outline of a small hut that lies
+to the northeast.  Thick vegetation denies you a closer look from this
+position.
+~
+E
+footprints tracks three-toed~
+They seem to be made by some sort of large lizard, probably a lizardman
+from the looks of it.  They lead northward, where you can faintly scry
+the outline of a house.
+~
+A
+~
+~
+act_tochar( #stream, ch );
+continue;
+~
+E
+stream~
+You quickly leap the stream and continue northwards.
+~
+!
+3 0 1
+A
+~
+~
+act_tochar( #leap, ch );
+continue;
+~
+E
+leap~
+You quickly leap the stream and continue southward.
+~
+!
+3 0 4
+1437 137 1509949540 3 0
+398 17 1509949540 -2 0
+-1
+S
+
+#55022
+Before a Small Hut~
+The footprints end here at a thatched hut.  From the looks of the home,
+it has not been abandoned very long.  The door is askew, which is
+slightly alarming, but the rest of the house seems to be quite intact. 
+Judging from the new look of the roof, having been recently re-thatched,
+it appears that it has been empty no longer than a few days at most.
+~
+[Oculus] Must add (hut house home) as an extra here
+[Oculus] perhaps mention that the hut door is to the east in the description, when I went east I wasn't sure if I was going to go inside or around the hut
+[Oculus] Might want to add and extra for the door, describe what about the door is alarming (Bite-marks, places where claws have ripped at the wood, whatever)
+[Oculus] An extra for "roof" might be nice.  Not necessary, but since you mentioned it in a whole sentence of the room description
+[Nivel] LAST PLACE GONE
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 55023 10 10 5
+D2
+~
+~
+0 -1 55021 10 10 5
+E
+hut house home small~
+~
+1438 9 1509949540 3 0
+1438 9 1509949450 3 0
+-1
+S
+
+#55023
+Inside a Small Hut ~
+The first thing noticeable here is a small object lying on the ground,
+reflecting the sunlight coming in from the broken doorway.  Uncovering
+the object, it is a ring of sorts, embossed with unrecognizable runes. 
+Aside from a short table and a rough vine cot, the rest of the hut is
+devoid of furniture, and does not appear to be damaged as the door was. 
+The only exit is west.
+~
+[Oculus] cool room.  You want to add "object" to the "ring" extra, perhaps even "small object", since that is in your oping ling, it was the first thing I looked for.
+[Oculus] might want to add a description for "crack"
+[Oculus] Question:  Do you think "Pull ring" should open the trapdoor as well?
+~
+301465604 3 5 0
+D3
+~
+~
+0 -1 55022 10 10 5
+D5
+decaying wooden trapdoor~
+decaying wooden trapdoor~
+139 -1 55024 3 10 5
+E
+table~
+There appears to be something in the cracks between the table, perhaps
+you should look closer.
+~
+E
+ring~
+As you examine the ring, you notice it is the handle for a trapdoor,
+attached to the decaying floorboards.
+~
+E
+vine cot~
+It slowly swings back in forth, but there is nothing of interest there. 
+It would probably make a nice resting place were it not slimy from decay.
+~
+A
+search~
+table cracks~
+if( !rflag( reset0, room ) )
+act_tochar( #nothing, ch );
+else {
+act_tochar( #found, ch );
+obj_to_char( oload( 1961 ), ch );
+remove_rflag( reset0, room );
+}
+~
+E
+nothing~
+There is nothing there.
+~
+E
+found~
+You find a key hidden in the cracks of the table!
+~
+!
+0 0 0
+A
+pull~
+ring~
+if( !is_open( room, down ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+pull~
+You pull on the ring and open the trapdoor.
+~
+E
+rpull~
+$n pulls on the ring and a trapdoor opens.
+~
+E
+already~
+The ring has already been pulled, revealing the trapdoor below you.
+~
+!
+0 0 0
+-1
+S
+
+#55024
+A Dark Chamber~
+Something about the air in here is wrong.  Although it is cooler down
+here in this dank hidden room, inhuman breathing seems to come from a
+shadowy corner.  The room here is mostly walled off by dirt, and there is
+a shallow pool of water on the ground here.  Several pieces of broken
+wood lie about the walls, rotted away.  A small ladder leads up to a
+trapdoor above you.
+~
+[Oculus] I hate to be overly analytical, but you might want to elaborate on how the air is "wrong".  Does it smell different?  Does sound not carry normally?  Dank and oppressive?  Just add a little something to make it less vague
+~
+301465604 3 5 0
+D4
+decaying wooden trapdoor~
+~
+139 -1 55023 3 10 5
+E
+pool water~
+The water here is stagnant and reeking, colored a muddy brown.  Small
+ripples appear in the small pool of water, caused by dripping leakage
+from above.
+~
+A
+~
+~
+act_tochar( #climb, ch );
+continue;
+~
+E
+climb~
+You climb up the ladder and out of the chamber.
+~
+!
+3 0 16
+1436 9 1509949540 3 0
+-1
+S
+
+#55025
+Lair of the Ancient One-eyed Serpent ~
+This cavernous area is larger than the tower initially appeared. 
+Surprisingly, vines still grow even in the dryer area of the tower,
+hanging down the sides and forming a botanical canopy.  Huge scrape marks
+line the granite walls.  The force that must have been involved in hewing
+the solid rock must have been enormous, and avoiding such a powerful
+entity would probably be the wisest decision.  The narrow stairway leads
+both up and down, and up above the smell of sulfur thickens the air as
+yellow smoke descends down upon the staircase.
+~
+~
+301465605 3 9 0
+D4
+~
+~
+0 -1 55026 10 10 5
+D5
+~
+~
+0 -1 55008 10 10 5
+1431 9 1509949540 3 0
+-1
+S
+
+#55026
+Lair of the Ancient Fire-Breathing Serpent ~
+The granite rock has changed to a yellow hue, and you are aware of the
+source of the sulferous smell.  A great portal swirls about to the west,
+green and blue and red mixing in a vortex of light.  Twelve mysterious
+glyphs circumference the portal, one hollowed out, as opposed to the
+others, which stick out from the surface of the gateway.  Vines hang down
+from everywhere, but grow away from the portal, as if aware of its power. 
+Several objects lie on the ground here, some of them inhuman skulls,
+perhaps ancestors of the lizardmen.  On one skull, a great circular hole
+runs through the top of the skull, as if some huge fang had been buried
+into it.
+~
+~
+301465605 3 9 0
+D3
+portal~
+~
+81 -1 55027 10 10 5
+D5
+~
+~
+0 -1 55025 10 10 5
+E
+portal~
+The portal is hard to the touch, although it swirls about.  As
+you touch it, the glyphs embedded on its side glow green around their
+edges, but the last one doesn't seem to.  Its hollowed-out form looks
+odd, as if it should have a glyph embedded into it.
+~
+A
+use put~
+glyph~
+if( has_obj( 1962, ch ) ) {
+act_tochar( #unlock, ch );
+act_notchar( #runlock, ch );
+wait( 1 );
+act_room( #2unlock, ch );
+open( room, west );
+}
+else {
+act_tochar( #dont, ch );
+};
+~
+E
+unlock~
+@b@WYou place the glyph in the hollowed-out spot on the gateway.@n
+~
+E
+runlock~
+$n places the glyph on its hollowed-out spot.
+~
+E
+2unlock~
+@b@WThe portal surges a bright white, and it turns a clear transparent,
+revealing a white-pooled room on the other end.@n 
+~
+E
+dont~
+You don't have the item needed to open the portal.
+~
+!
+0 0 0
+1432 9 1509949540 3 0
+-1
+S
+
+#55027
+The White Pool~
+This room seems to have no end to interesting sights.  A great white pool
+lies in the center of a crystal cavern, glowing with the intensity of the
+sun.  Reflected upon the crystal surface, beautiful rainbows dawn upon
+the entire cave, giving off a strange power.  The pool itself appears to
+be a portal, as it immediately changes to a reddish-purple, swirling
+other minor colors about with it, whenever contact is made with it. 
+Another portal lies on the east wall, swirling greens and blues and reds
+together.  Twelve glyphs circumference it, one hollowed out.
+~
+~
+301465605 3 5 0
+D1
+portal~
+~
+81 -1 55026 10 10 5
+A
+use put press push~
+glyph~
+if( has_obj( 1962, ch ) ) {
+act_tochar( #unlock, ch );
+act_notchar( #runlock, ch );
+wait( 1 );
+act_room( #2unlock, ch );
+open( room, east );
+}
+~
+E
+unlock~
+@b@WYou place the glyph in the hollowed-out spot on the gateway.@n
+~
+E
+runlock~
+$n places the glyph on its hollowed-out spot.
+~
+E
+2unlock~
+@b@WThe portal surges a bright white, and it turns a clear transparent,
+revealing a yellow-hued cavern on the other end.
+~
+!
+0 0 0
+A
+~
+~
+close( room, east );
+act_room( #close, ch );
+~
+E
+close~
+@b@WThe swirling portal suddenly turns opaque as it closes behind you!@n
+~
+!
+1 0 2
+A
+jump~
+pool~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 55028 ) );
+acode( find_room( 55028 ), 1 );
+~
+E
+jump~
+@b@YYou jump feet first into the swirling white pool, and it turns a deep
+red as you hit it.!@n 
+~
+E
+rjump~
+@b@Y$n jumps feet-first into the swirling white pool, and it turns a deep
+red as $e hits it!@n 
+~
+!
+0 0 0
+-1
+S
+
+#55028
+Lair of the Ancient Ruby-Winged Serpent ~
+Rubies glisten off every side of this chamber, and a great evil can be
+felt here, warning of imminent peril.  A corpse lies not far off to the
+north, and even from this distance it appears to be the form of a young
+gold dragon, its scales shining red in the light.  A narrow staircase
+leads down from a hole in the ground just south of here.
+~
+~
+301465605 3 9 0
+D5
+~
+~
+0 -1 55029 10 10 5
+A
+~
+~
+act_notchar( #enter, ch );
+act_tochar( #youenter, ch );
+~
+E
+enter~
+@b@Y$n arrives from a portal opening above him, and it quickly disappears
+as he falls down to the ground!@n 
+~
+E
+youenter~
+@b@RAs you fall to the ground below you, the portal you just entered
+quickly disappears above you!@n 
+~
+!
+0 0 0
+1433 9 1509949540 3 0
+-1
+S
+
+#55029
+Lair of the Ancient Shadow Serpent~
+The sconces on the walls have ceased to glow in this chamber.  Obsidian
+rock immerses the room in darkness, and seems to absorb all the light in
+the room.  A jet-black monolith raises itself to the sky, and a huge
+shape appears to be wrapped around it.  There is a stairway leading up to
+a red-glowing room, and another narrower stairway leads down into the
+heart of the structure.
+~
+~
+301465605 3 9 0
+D4
+~
+~
+0 -1 55028 10 10 5
+D5
+~
+~
+0 -1 55030 10 10 5
+1434 9 1509949540 3 0
+-1
+S
+
+#55030
+Chamber of the Eternal~
+The stairway leads to a dead end here in the heart of the earth. 
+Obsidian rock has given way to a golden chamber, which is lit by a
+glowing sphere hovering a hundred feet into the air.  A great force
+resides within this room, adding to the immense feeling of both amazement
+and agony from the sight of the golden room.  The only way out is back
+through the stairway.
+~
+~
+301465605 3 9 0
+D4
+~
+~
+0 -1 55029 10 10 5
+1435 9 1509949540 3 0
+-1
+S
+
+#0
+

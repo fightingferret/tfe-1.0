@@ -1,0 +1,3135 @@
+#AREA
+Dragonspire Mountains~
+Phule~
+Shattered Keep~
+
+35 0
+0
+#ROOMS
+
+#34500
+A Study within a Shattered Keep~
+You find yourself in what appears to be an abandoned study.  Shredded
+books line broken shelves, and a torch juts from the north wall.  To your
+surprise, you notice that it is alight with flame casting the room in red
+light, looking out of place in this frozen and darkened keep.
+~
+~
+301465605 0 7 0
+D0
+hidden panel~
+hidden panel~
+235 -1 34501 10 10 5
+D2
+door~
+door~
+1 1477 34503 10 10 5
+E
+1 south~
+The door is bound bronze-wood, glittering with ice crystals.
+~
+E
+torch~
+The torch's flame is definately magical, as given away by its strange red
+light.
+~
+A
+pull~
+torch~
+if( mob_in_room( 601, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+room = find_room( 34500 );
+if( !is_open( room, north ) ) {
+  act_tochar( #c_open, ch );
+  act_notchar( #r_open, ch );
+  open( room, north );
+  }
+else
+  act_tochar( #already_open, ch );
+~
+E
+already_open~
+But it's already pulled...
+~
+E
+r_open~
+@b$n pulls a torch on the wall, and a hidden panel opens.
+~
+E
+c_open~
+@b@CYou pull the torch, and a hidden panel opens.
+~
+E
+nope~
+You can't do that with the bulk of the white goblin chieftain in the way.
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 34500 );
+if( is_open( room, north ) )  {
+  wait( 2 );
+  if( char_in_room( ch, room ) )
+    act_tochar( #it_closes, ch );
+  close( room, north );
+  }
+~
+E
+it_closes~
+@b@CThe secret door slides softly shut behind you.
+~
+!
+1 -1 1
+A
+lock~
+door s south~
+if( is_open( room, south ) ) {
+  act_tochar( #closed, ch );
+  end;
+  }
+if( has_obj( 1477, ch ) ) {
+  junk_obj( has_obj( 1477, ch ) );
+  act_tochar( #break, ch );
+  act_notchar( #rbreak, ch );
+  }
+else
+  act_tochar( #nokey, ch );
+~
+E
+break~
+As you try to lock the door, the key breaks and shatters into a thousand
+pieces.
+~
+E
+nokey~
+You don't have the key with which to lock this door, or your keyring is
+just getting in the way.
+~
+E
+rbreak~
+$n breaks $s key trying to lock the door to the south.
+~
+E
+closed~
+The door has to be closed before it can be locked.
+~
+!
+0 0 0
+601 9 1509949540 3 0
+-1
+S
+
+#34501
+A Dark, Damp Tunnel Behind a Shattered Keep~
+This dark tunnel runs east and west behind the shattered keep.  No
+footprints can be seen on the icy rock floor, suggesting that the passage
+has not seen many visitors, or at least the kind of visitors that leave
+prints.  A stone seems out of place on the south wall.  
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34522 10 10 5
+D2
+~
+~
+235 -1 34500 10 10 5
+D3
+~
+~
+0 -1 34521 10 10 5
+E
+stone~
+The stone sticks out a little farther than the rest of the stones in its
+area, as if it needs to be pushed back into place.  
+~
+A
+push~
+stone~
+room = find_room( 34501 );
+if( !is_open( room, south ) ) {
+  act_tochar( #c_open, ch );
+  act_notchar( #r_open, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #already_open, ch );
+~
+E
+already_open~
+But it's already pushed...
+~
+E
+r_open~
+@b$n pushes a stone on the wall, and a hidden panel opens.
+~
+E
+c_open~
+@C@bYou push the stone on the wall, and a hidden panel opens.  
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, south ) ) {
+  wait( 2 );
+  if( char_in_room( ch, room ) )
+    act_tochar( #it_closes, ch );
+  close( room, south );
+  }
+~
+E
+it_closes~
+@b@CA secret door slides softly closed behind you.
+~
+!
+1 -1 4
+553 9 1509949540 3 0
+-1
+S
+
+#34503
+A Hallway in a Shattered Keep~
+The hallway comes to an unnatural end here, as a pile of rubble blocks
+passage to the east.  There is a door, still functional, to the north. 
+You see light shining through a crack in the wall.  
+~
+~
+301465604 0 7 0
+D0
+door~
+door~
+1 1477 34500 10 10 5
+D3
+~
+~
+0 -1 34504 10 10 5
+E
+1 north~
+The door is bound bronze-wood, glittering with ice crystals.
+~
+E
+light~
+The light is red, and you see no movement passing before it.
+~
+E
+crack~
+You see a faint sliver of light shining through a crack in the wall next
+to the door.  
+~
+-1
+S
+
+#34504
+A Hallway in a Shattered Keep~
+You are standing in a crumbling hallway that appears quite unsafe. 
+Broken picture frames line the walls and litter the floor.  An ominous
+crack in the ceiling draws concern as you tiptoe under it.  
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 34503 10 10 5
+D3
+~
+~
+0 -1 34506 10 10 5
+E
+picture frames~
+The pictures and canvas have long gone.  All that is left are the broken
+frames.  
+~
+E
+crack~
+Looking up at the crack, you think you can see the faint whiteness of the
+snow above.  Waterspots below the crack suggest that the ice has melted
+recently and refrozen.  
+~
+-1
+S
+
+#34506
+A Hallway in a Shattered Keep~
+The hallway branches to the left and right.  You notice a broken
+chandelier laying on the hall floor amongst stones from the walls,
+suggesting the grandeur of this once-proud keep.  
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 34504 10 10 5
+D2
+~
+~
+0 -1 34508 10 10 5
+D3
+~
+~
+0 -1 34507 10 10 5
+E
+chandelier~
+The chandelier once lit the hallway for visitors and inhabitants alike. 
+Now it merely adds to the rubble on the hall floor.  
+~
+-1
+S
+
+#34507
+A Hallway in a Shattered Keep~
+The walls have collapsed here, preventing further exploration down to the
+north and west.  Remains of wood hint of a bed frame from a bedroom once
+was near here.  The only exit is east.
+~
+[Alec] silver linked belt description is all messed  up
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 34506 10 10 5
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+Pieces of wood and small rocks rain down on you from the ceiling.
+~
+!
+2 100 0
+600 9 1509949540 3 0
+600 9 1509949540 3 0
+600 9 1509949540 3 0
+600 9 1509949540 3 0
+600 9 1509949540 3 0
+1602 17 1509949540 -2 0
+-1
+S
+
+#34508
+A Hallway in a Shattered Keep~
+The ceiling looks very unstable, as if it could give way at any time. 
+The only support for the ceiling seems to be a half-broken pillar on the
+east side of the hall.  The pillar on the west has completely 
+disappeared.  
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 34506 10 10 5
+D2
+~
+~
+0 -1 34509 10 10 5
+E
+pillar~
+The pillar is cracked, but its black marble structure still serves to
+hold the keep together for the time being.  
+~
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+Pieces of wood and dust fall down to the ground and the ceiling groans
+above you.  
+~
+!
+2 0 0
+-1
+S
+
+#34509
+A Hallway in a Shattered Keep~
+You find yourself in a crumbling hall.  Where once stood mighty stone
+walls and intricately carved doors now stand only a mass of stone and
+wood.  The hall appears to continue north into darkness.  
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 34508 10 10 5
+D2
+door~
+door~
+131 -1 34510 10 10 5
+E
+1 south~
+A sturdy oaken door, with a light glaze of ice covering its surface.
+~
+600 9 1509949540 3 0
+600 9 1509949540 3 0
+-1
+S
+
+#34510
+Inside a Shattered Keep~
+The air within is warmer than the frigid air outside, but only barely. 
+Tapestries lay ripped and half-burned on the cold stone floor.  What was
+once a mighty table lies in shambles, and chairs lay in splinters
+throughout the chamber, suggesting that some great catastrophe has
+befallen the area.  There is a door to the north.  
+~
+[Rebekka] says you dont find.. when someone else looks
+[Phule] that's strange
+~
+301465604 0 8 0
+D0
+door~
+door~
+131 -1 34509 10 10 5
+D2
+gate~
+gate~
+195 -1 34511 10 10 5
+E
+1 north~
+A sturdy oaken door, with a light glaze of ice covering its surface.
+~
+E
+table~
+A great oaken piece that must have seaten at least 12, the table has been
+broken cleanly in half.  
+~
+A
+push~
+gate~
+if( !is_open( room, south ) ) {
+  act_tochar( #push_gate, ch );
+  act_notchar( #pushes_gate, ch );
+  open( room, south );
+room = find_room( 34511 );
+send_to_room( #some, room );
+  }
+else
+  act_tochar( #already_open, ch );
+~
+E
+some~
+The gates hinges creak as someone opens it from the inside.
+~
+E
+already_open~
+But it's already been pushed...
+~
+E
+pushes_gate~
+@b$n slowly manages to push open the large iron gate.
+~
+E
+push_gate~
+@bYou slowly manage to push open the large iron gate.
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 34510 );
+wait( 1 );
+act_tochar( #door_shuts, ch );
+close( room, south );
+~
+E
+door_shuts~
+@bThe gate is blown slowly shut behind you.
+~
+!
+1 0 4
+A
+search~
+splinters~
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+i = 2d20+10;
+dam_message( ch, i, "the long sharp splinter" );
+inflict( ch, ch, i, "being impaled on a giant splinter" );
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 0, 1 ) == 1 ) {
+    act_tochar( #key, ch );
+    obj_to_char( oload( 1477 ), ch );
+    }
+  }
+else
+  act_tochar( #noth, ch );
+~
+E
+search~
+You search in the splinters.  One of them sticks in your finger.
+~
+E
+rsearch~
+$n searches in the splinters, and is impaled on one of the larger ones.
+~
+E
+noth~
+You don't find anything.
+~
+E
+key~
+You find a thin, lengthy silver key.
+~
+!
+0 0 0
+602 9 1509949540 3 0
+602 9 1509949540 3 0
+602 9 1509949540 3 0
+602 9 1509949540 3 0
+602 9 1509949540 3 0
+1602 17 1509949540 -2 0
+-1
+S
+
+#34511
+Before a Shattered Keep~
+You stand before a large iron gate set in stone.  The keep itself looks
+very unsteady.  At this close distance you can see great rending claw
+marks in its stones.  The architecture of the keep suggests it wasn't
+built here by man.  The cold is so great it seems magically enhanced, and
+has grown to the point where your fingers do not react as you wish,
+nearly unable to bend.  You are on a small plateau, a handful of feet
+above a small road through the snow to the sough.  You will have to climb
+down to reach the path below.
+~
+s is 34512
+~
+301465608 5 9 0
+D0
+gate~
+gate~
+195 -1 34510 10 10 5
+D2
+~
+~
+0 -1 34512 10 10 5
+E
+ring~
+It looks like you pull the ring to open the gate.
+~
+E
+gate~
+The gate's iron hinges are red with rust, and the gate itself is covered
+with snow.  There is a large ring about shoulder-height attached to it.  
+~
+A
+pull~
+ring~
+if( !is_open( room, north ) ) {
+  act_tochar( #c_open, ch );
+  act_notchar( #r_open, ch );
+  open( room, north );
+room = find_room( 34510 );
+  }
+else
+  act_tochar( #already_open, ch );
+~
+E
+already_open~
+But it's already open...
+~
+E
+r_open~
+@b$n slowly pulls the gate open.
+~
+E
+c_open~
+@bUsing the ring, you slowly pull the gate open.
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 34511 );
+wait( 1 );
+act_tochar( #gate_shuts, ch );
+close( room, north );
+~
+E
+gate_shuts~
+@bThe wind slowly closes the gate behind you.
+~
+!
+1 2 1
+-1
+S
+
+#34512
+Icy Path Near a Shattered Keep~
+The path takes another turn in the snow, heading north to a shattered
+keep, and east into blinding snow.  The great iron gate of the keep looms
+overhead even at this distance, but even it is dwarfed by the mountain
+upon which it is set.
+~
+n is 34511
+~
+301465608 5 9 0
+D0
+~
+~
+0 -1 34511 10 10 5
+D1
+~
+~
+0 -1 34513 10 10 5
+-1
+S
+
+#34513
+An Icy Path~
+A tree, bent by the icy wind, struggles to maintain life.  Tiny icicles
+dot the tree's limbs as freezing rain accumulates.  Ways continue both
+west and south.  
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 34514 10 10 5
+D3
+~
+~
+0 -1 34512 10 10 5
+E
+tree~
+The tree appears to be losing its struggle.  After all, with nothing but
+the constant cold to nurture it, it did not stand much of a chance in the
+first place.  
+~
+-1
+S
+
+#34514
+An Icy Path~
+Visibility is almost zero as the snow falls heavily, giving everything a
+thick coat of powdery white.  The path leads away from the rise to the
+north, and up the rise to the south.  You can palpably feel the air to
+the north getting colder and colder.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34513 10 10 5
+D4
+~
+~
+0 -1 34515 10 10 5
+612 9 1509949540 3 0
+-1
+S
+
+#34515
+An Icy Rise~
+You are standing at the top of an icy rise.  The path continues down a
+small rise to the north, and down a more steeply descending ridge to the
+south.  From this vantage point you see in the distance what appears to
+be a shattered keep.  
+~
+[Moxie] you can see in the distance a shattered keep. er, which direction should be noted here.
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 34516 10 10 5
+D5
+~
+~
+0 -1 34514 10 10 5
+E
+keep~
+It is still too far to make out any details.
+~
+-1
+S
+
+#34516
+An Icy Path~
+The path climbs a ridge through knee-deep snow.  Large snow drifts have
+formed from the snow, and you can see small rabbit-holes burrowed through
+them.  The howling winds seem to take on the sound of warriors; thousands
+warning you to return back from which you came.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 34515 10 10 5
+D2
+~
+~
+0 -1 34517 10 10 5
+-1
+S
+
+#34517
+An Icy Path~
+The path turns, facing east and north.  The frozen peaks rise around you
+in all directions, with only a few scraggly trees dotting the landscape. 
+Gusts of wind blow snow into your face, and you use a raised hand in
+defense against the stinging onslaught of ice.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34516 10 10 5
+D1
+~
+~
+0 -1 34518 10 10 5
+612 9 1509949540 3 0
+612 9 1509949540 3 0
+-1
+S
+
+#34518
+A Bend in the Path~
+From this elevated vantage point, you catch a glimpse of the Great Frozen
+Wall, many leagues to the northeast.  The path descends a bit to the
+west, climbing a deep snowbank to the south.  Seeing only white all
+around you, you suddenly feel a longing for the forests and streams which
+you left behind.  
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 34519 10 10 5
+D3
+~
+~
+0 -1 34517 10 10 5
+-1
+S
+
+#34519
+A Rising Path through the Snow~
+You crest a small ridge and head back down into the deep snow, making
+deep footprints in the soft powdery ground.  The cry of a distant bird
+echoes from the far-off ridges, only serving to accentuate the absolute
+desolation of this isolated world of cold.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34518 10 10 5
+D2
+~
+~
+0 -1 34520 10 10 5
+1602 17 1509949540 -2 0
+-1
+S
+
+#34520
+An Ice-Covered Path~
+An ancient trail, barely visible, winds its way north into the snow and
+ice.  An aged sign with the word "BEWARE" scrawled on it stands shakily
+in the icy breeze.  A winding road leading south appears it could lead to
+slightly lower and warmer.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34519 10 10 5
+D2
+~
+~
+0 -1 34535 10 10 5
+E
+sign~
+The sign is obviously old, and scrawled in unfamiliar lettering.
+~
+612 9 1509949540 3 0
+-1
+S
+
+#34521
+A Dark, Damp Tunnel Behind a Shattered Keep~
+A large stalagmite in the middle of the tunnel forces you to
+circumnavigate a little.  As you brush against the tunnel wall, the
+brittle rock crumbles to the floor.  You feel a slight chill breeze, but
+can not place its source.  
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 34501 10 10 5
+D3
+~
+~
+0 -1 34523 10 10 5
+553 9 1509949540 3 0
+-1
+S
+
+#34522
+A Dark, Damp Tunnel Behind a Shattered Keep~
+A vibration from above sends a shower of tiny rocks down on you.  The
+tunnel begins to widen, as if the walls were opening to accomodate your
+passage.  Rubble to the east suggests that the tunnel comes to an
+unexpected end.  
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 34533 10 10 5
+D3
+~
+~
+0 -1 34501 10 10 5
+-1
+S
+
+#34523
+A Dark, Damp Tunnel Behind a Shattered Keep~
+The tunnel widens dramatically, allowing a slight breeze of cold air to
+waft through.  Several small rocks litter the tunnel floor.  A glint of
+shiny quartz hits your eye from the northern wall, a break from the
+monotonous grey and black of the tunnel.  
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 34521 10 10 5
+D3
+~
+~
+0 -1 34524 10 10 5
+E
+quartz~
+The shiny rock lies trapped in the wall, where it has undoubtedly lay for
+millennia.  
+~
+A
+pry, take, get~
+quartz, rock~
+room = find_room( 34523 );
+act_tochar( #pry_no, ch );
+~
+E
+pry_no~
+You try to pry it loose, but succeed in only scraping your fingers on the
+rock wall.  
+~
+!
+0 0 0
+553 9 1509949540 3 0
+-1
+S
+
+#34524
+A Bend in the Tunnel~
+The tunnel becomes cramped as it turns to the north.  You see the faint
+outline of a handprint on the wall, the first sign of a previous
+traveller thus far.  A pair of small clefts in the rock appear to be
+nests of some kind.  
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 34525 10 10 5
+D1
+~
+~
+0 -1 34523 10 10 5
+-1
+S
+
+#34525
+A Dark, Damp Tunnel Behind a Shattered Keep~
+The west wall is broad and smooth, and you see a few lines chiseled into
+the hard rock, presumably having once been words.  The only one you can
+make out is the final word, "Sarconus." 
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34526 10 10 5
+D2
+~
+~
+0 -1 34524 10 10 5
+E
+wall~
+What must have been a moderately long message now is crumbled,
+indecipherable ruin.  
+~
+553 9 1509949540 3 0
+-1
+S
+
+#34526
+Before an Icy Underground Pool~
+You are standing before an underground pool.  Melted ice from the surface
+has found its way down here, dripping into an underground pool.  It looks
+shallow enough to wade through, but cold.  
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34527 10 10 5
+D2
+~
+~
+0 -1 34525 10 10 5
+E
+pool~
+Icy cold and clear, the pool looks like a liquid block of ice.
+~
+-1
+S
+
+#34527
+In an Icy Underground Pool~
+You break through a thin sheet of ice as you step into the pool, sending
+small ripples across its surface.  Nothing living is disturbed by your
+movement.  The entire ceiling of this part of the cavern seems to be made
+of ice.  Several melting stalagtites seem to be responsible for the pool,
+for the most part.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34528 10 10 5
+D2
+~
+~
+0 -1 34526 10 10 5
+A
+search dredge~
+pool~
+i = 2d10+20;
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+dam_message( ch, i, "the icy chill of the water" );
+inflict( ch, ch, i, "freezing to death" );
+if( rflag( reset0, room ) ) {
+  if( random( 0, 3 ) == 1 ) {
+    remove_rflag( reset0, room );
+    act_tochar( #find, ch );
+    j = random( 0, 2 );
+    if( is_player( ch ) ) {
+      if( j == 0 )
+        obj_to_char( oload( 1290 ), ch );
+      if( j == 1 )
+        obj_to_char( oload( 1291 ), ch );
+      if( j == 3 )
+        obj_to_char( oload( 1292 ), ch );
+      }
+    }
+  else
+    act_tochar( #noth, ch );
+  }
+else
+  act_tochar( #noth, ch );
+~
+E
+search~
+You stick a hand in the icy pool and search its bottom.
+~
+E
+rsearch~
+$n sticks a hand in the icy pool to search its waters.
+~
+E
+find~
+You find a clear gem!!
+~
+E
+noth~
+You don't find anything in the pool.
+~
+!
+0 0 0
+553 9 1509949540 3 0
+-1
+S
+
+#34528
+Across an Icy Underground Pool~
+You are standing in an icy tunnel.  The tunnel appears to bend to the
+north, and it crosses through an icy pool to the south.  Glancing around,
+you notice that no fungus grows in these frozen tunnels whatsoever.  The
+ice on the walls and ceiling appear to be getting thicker as you progress
+deeper into the cave.  
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34529 10 10 5
+D2
+~
+~
+0 -1 34527 10 10 5
+-1
+S
+
+#34529
+A Chill Tunnel~
+The tunnel grows very small here, seeming to enclose tightly around you. 
+The sound of dripping water comes from the opening to the south, and
+another tunnel leads east.  You notice that the tunnel ceiling is coated
+with a think layer of ice, which is what might actually be holding it
+up.  
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34530 10 10 5
+D2
+~
+~
+0 -1 34528 10 10 5
+-1
+S
+
+#34530
+An Icy Opening~
+The tunnel appears to continue north, but the view in that direction, as
+well as travel, is obscured by a thick wall of ice.  It appears that the
+entire source of cold for this cave, and perhaps the source of the
+magical cold that you have felt all through the Dragonspire mountains,
+lies behind that sheet of ice.  You think that it would take quite a few
+blows to shatter it.  
+~
+~
+301465604 0 6 0
+D0
+passageway~
+passageway~
+235 -1 34531 10 10 5
+D3
+~
+~
+0 -1 34529 10 10 5
+E
+ice~
+What appeared to be at first glance commonplace ice is distinguished by
+an almost blue tinge.  The wall is also colder than any ice you have felt
+before.  
+~
+E
+wall n north~
+The ice is at least six feet thick, and easily taller and broader than
+you.  It definately must have frozen over a passageway of some sort. 
+
+~
+A
+shatter break smash~
+ice wall~
+room = find_room( 34530 );
+if( !is_open( room, north ) ) {
+  act_tochar( #c_open, ch );
+  i = 1d1+5;
+  dam_message( ch, i, "A sharp fragment of ice" );
+  inflict( ch, mob, i, "Ice wall" );
+  act_notchar( #r_open, ch );
+  open( room, north );
+room = find_room( 34531 );
+send_to_room( #other, room );
+  }
+else
+  act_tochar( #already_open, ch );
+~
+E
+other~
+Someone smashes through the ice wall to the south, sending shards flying!!
+~
+E
+already_open~
+But it's already been shattered...
+~
+E
+r_open~
+@b$n slowly chips the ice wall away, revealing a passage to the north.
+~
+E
+c_open~
+@bYour hands throb with each blow as you slowly chip away the ice wall, revealing a passage to the north.
+~
+!
+0 0 0
+-1
+S
+
+#34531
+A Recently Frozen Opening~
+The ice has been thickening here for hundreds of years, as is made
+obvious by the width of the opening, about ten feet.  The cavern ceiling
+above looks strangely stable.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 34532 10 10 5
+D2
+~
+~
+235 -1 34530 10 10 5
+E
+south s wall ice~
+There is a thick sheet of ice blocking passage to the south, but it looks
+like it could be broken through if you try to shatter it.
+~
+A
+shatter break smash~
+ice wall~
+if( !is_open( room, south ) ) {
+  act_tochar( #smash, ch );
+  act_notchar( #rsmash, ch );
+  open( room, south );
+room = find_room( 34530 );
+send_to_room( #other, room );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+other~
+Someone smashes through the ice wall to the north, sending shards flying.
+~
+E
+already~
+But it's already been smashed...
+~
+E
+rsmash~
+$n smashes the ice wall into a million shards.
+~
+E
+smash~
+You smash the ice wall into a million shards.
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, level ) < 20 ) {
+  act_tochar( #no, ch );
+  interpret( ch, "sit" );
+  }
+else
+  continue;
+~
+E
+no~
+You cannot bring yourself to head in that direction; an immense presence
+lurks there, ready to snuff out your puny existence.
+~
+!
+3 -1 1
+-1
+S
+
+#34532
+A Huge Cavern~
+The tightly enclosing tunnels give way to an enourmous cavern. 
+Stalagtites hand down fom the ceiling, as huge as any house in the
+realms, and amidst them a huge shaft goes up through the ceiling, perhaps
+the way the cavern's inhabitant, a large white dragon, makes her entrances
+and exits.  On the far northern wall you see the outline of a
+jewel-inlaid door.  
+~
+~
+301465604 0 6 0
+D0
+door~
+door~
+195 -1 34534 10 10 5
+D2
+~
+~
+0 -1 34531 10 10 5
+E
+1 north~
+The door has colored gems inset in its surface.  They were chosen for
+their color more than quality, and the reflected light from them, sets
+the glittering ice around into color.  From here you think you see an
+icy-blue field binding the door.  
+~
+E
+field~
+Getting closer and looking at the door from the corner of your eye, you
+see that they are in fact bound by three bands of hazy blue enchantment. 
+~
+A
+2 open~
+1 north~
+if( is_open( room, north ) )
+  send_to_char( #already, ch );
+else {
+  act_tochar( #cant, ch );
+  act_notchar( #rcant, ch );
+  inflict( ch, mob, 10d5, "Morioh's door enchantments" );
+  }
+~
+E
+rcant~
+@CThere is a flash of light near the jeweled door, and you see $n
+flying backward away from it trailing ice crystals.
+~
+E
+cant~
+@CAs you lay hands upon the door, there is a bright flash of light, and you
+are flung backwards, hands burning from cold.
+~
+E
+already~
+It is open already.  
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, north ) )
+  continue;
+else
+  acode( room, 1 );
+~
+!
+3 0 1
+504 9 1509949540 3 0
+-1
+S
+
+#34533
+A Dead End Behind a Shattered Keep~
+The tunnel comes to an abrupt end in a pile of large rocks.  Apparently,
+a cave-in has blocked this passage for some time.  The only exit is west,
+back the way you came.  
+~
+~
+301465604 0 7 0
+D3
+~
+~
+0 -1 34522 10 10 5
+A
+search~
+rocks pile~
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 0, 2 ) == 1 ) {
+    act_tochar( #find, ch );
+    if( is_player( ch ) )
+      obj_to_char( oload( 1426 ), ch );
+    }
+  else
+    act_tochar( #noth, ch );
+  }
+else
+  act_tochar( #noth, ch );
+~
+E
+search~
+You search the pile of rocks.
+~
+E
+rsearch~
+$n searches the pile of rocks.
+~
+E
+find~
+You find a block of silver ore, forgotten here amidst the rubble!!
+~
+E
+noth~
+You don't find anything.
+~
+!
+0 0 0
+553 9 1509949540 3 0
+-1
+S
+
+#34534
+A Treasure Room~
+This room is surprisingly modern, with walls of smooth steel.  It is
+spacious and serene, far removed from the craggy, icy cave outside its
+jewel-encrusted door.  Awed by its size, you imagine the hoards of
+treasure that must have once filled these walls.  
+~
+resets 80% 515, 40% 518, 50% 521, 90% 520, 10% 516
+I removed them all because a few players were conveniently losing link in
+this room a bit too often.  treasure now repops only when Morioh is slain
+(hooked into his mpcode).  -Talis 
+~
+301465602 5 6 0
+D2
+door~
+door~
+195 -1 34532 10 10 5
+A
+~
+~
+if( random( 1, 10 ) > 2 )
+  obj_to_room( oload( 515 ), room );
+if( random( 1, 10 ) > 3 )
+  obj_to_room( oload( 518 ), room );
+if( random( 1, 10 ) > 5 ) 
+  obj_to_room( oload( 521 ), room );
+if( random( 1, 10 ) > 1 )
+  obj_to_room( oload( 520 ), room );
+if( random( 1, 10 ) > 9 )
+  obj_to_room( oload( 516 ), room );
+~
+!
+0 0 4
+-1
+S
+
+#34535
+A Long Road through the Dragonspire Mountains~
+Chilling wind blows through this pass, as larger currents move their way
+over the Dragonspires.  The snow here falls gently to the ground,
+creating a soft blanket of white over the rugged terrain.  You can see
+the winds blowing stronger to the north.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 34520 10 10 5
+D2
+~
+~
+0 -1 34536 10 10 5
+612 9 1509949540 3 0
+-1
+S
+
+#34536
+A Bend in the Road~
+The roads bends again, heading both north and east.  Snowdrifts as tall
+as a man line the road, creating some shelter from the wind that blows
+relentlessly from the north.  Looking around, you notice that you are in
+what appears to be a gigantic crater surrounded by a perfect ring of
+mountains.  The only significant landmark you see is another mountain,
+of glittering ice, far to the northwest.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34535 10 10 5
+D1
+~
+~
+0 -1 34537 10 10 5
+-1
+S
+
+#34537
+A Bend in the Road~
+You can only catch brief glimpses of the peaks of the Dragonspire
+Mountains to the south through a swirling mist of frost that blow wildly
+in all directions.  The snow dips a great deal to the south, and a path
+leads into deepening snow to the west.  
+~
+~
+301465600 5 9 0
+D3
+~
+~
+0 -1 34536 10 10 5
+D5
+~
+~
+0 -1 34538 10 10 5
+-1
+S
+
+#34538
+A Small Road in the Dragonspire Mountains~
+You are standing at the base of a small rise in the snow.  A small path
+continues to the south, and a trail leads up the rise to the north.  The
+rise looks slippery and dangerous, as the gusts of wind whip the snow
+around endlessly, making vision difficult.  
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 34539 10 10 5
+D4
+~
+~
+0 -1 34537 10 10 5
+603 9 1509949540 3 0
+612 9 1509949540 3 0
+1602 17 1509949540 -2 0
+-1
+S
+
+#34539
+A Small Road in the Dragonspire Mountains~
+You are standing in what appears to be a large hold dug in the snow. 
+There are rises to both the north and south, as if the road has sunk down
+into the snow about twenty feet.  Looking around you see only huge walls
+of white, enclosing upon you as snow adds to them and the winds blow the
+walls higher and closer together.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34538 10 10 5
+D2
+~
+~
+0 -1 34540 10 10 5
+-1
+S
+
+#34540
+A Small Road in the Dragonspire Mountains~
+You are standing at the base of a large rise of snow.  A small path leads
+to the north and another climbs the snow to the south up a treacherous
+path.  The path has dipped so low that only your heads stick out above
+the snow level.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34539 10 10 5
+D4
+~
+~
+0 -1 34541 10 10 5
+-1
+S
+
+#34541
+A Windy Rise~
+The wind gusts frequently over a rise to the north, blasting you with
+dry, chapping wind.  A small trail leads down the rise, and the main road
+follows an easterly route heading back through a narrow pass in the
+mountains, seemingly distant through the snow to the south.  A nearly
+hidden trail meanders off to the south, its destination masked by the
+white.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 34542 10 10 5
+D2
+~
+~
+0 -1 34582 10 10 5
+D5
+~
+~
+0 -1 34540 10 10 5
+612 9 1509949540 3 0
+-1
+S
+
+#34542
+A Long Road through the Dragonspire Mountains~
+An avalanche blocks what appears to be the actual road, but this path
+seems to lead in a similar direction.  Looking around, the countours of
+the ridges and drifts remind you of a vast ocean of ice, the waves frozen
+in perfect roll.  
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 34543 10 10 5
+D3
+~
+~
+0 -1 34541 10 10 5
+1602 17 1509949540 -2 0
+-1
+S
+
+#34543
+A Bend in the Road~
+You are standing on a seldom-used road that bends south and west.  Rabbit
+tracks lead from a hole in a snowdrift to the south.  An avalanche blocks
+most of the road, making passage difficult, although there appears to be
+a way to circumvent it to the west.
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 34544 10 10 5
+D3
+~
+~
+0 -1 34542 10 10 5
+612 9 1509949540 3 0
+-1
+S
+
+#34544
+A Long Road through the Dragonspire Mountains~
+What greenery exists here appears scraggly at best, as trees bent to the
+ground struggle to endure the endless frost that surrounds you.  The road
+heads off into the north and south, barely distinguishable from the
+drifting snow.  Your steps make a crunching sound as thousands of tiny
+ice crystals shatter with each movement.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34543 10 10 5
+D2
+~
+~
+0 -1 34545 10 10 5
+-1
+S
+
+#34545
+A Long Road through the Dragonspire Mountains~
+You are standing on a winding road that lies north and west.  The
+road narrows a bit through the snow to the north. To the west, the path
+twists and turns.  The treeline seems to end here, as if the trees
+themselves have avoided the area in the mountains to the north.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34544 10 10 5
+D3
+~
+~
+0 -1 34546 10 10 5
+1602 17 1509949540 -2 0
+-1
+S
+
+#34546
+A Long Road through the Dragonspire Mountains~
+The trail twists and turns, heading east and south.  The wind has started
+to pick up as gusts form drifts out of the falling snow.  The skies above
+seem to have darkened quite considerably, as large clouds roll in from
+the north.  
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 34545 10 10 5
+D2
+~
+~
+0 -1 34547 10 10 5
+612 9 1509949540 3 0
+-1
+S
+
+#34547
+A Long Road through the Dragonspire Mountains~
+You are standing on a seldom-used road that runs north and south.  The
+path twists and turns to the north, and to the south, the wind appears to
+die down a little.  The mountains loom largely overhead, although it
+appears that this road passes through them.  
+~
+~
+335020032 5 9 0
+D0
+~
+~
+0 -1 34546 10 10 5
+D2
+~
+~
+0 -1 34548 10 10 5
+-1
+S
+
+#34548
+A Long Road through the Dragonspire Mountains~
+Mountain peaks line the horizon to the south, jagged peaks that stretch
+into the darkening sky.  A long narrow road winds its way into the white
+horizon to both the north and south, as the road is lost among the ridges
+of snow.  The snow to the north appears too deep to ride into.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34547 10 10 5
+D2
+~
+~
+0 -1 34549 10 10 5
+-1
+S
+
+#34549
+A Long Road through the Dragonspire Mountains~
+This road has not seen much use in the last hundred years, but it is hard
+to discern than because the wind is gently blowing snow over the path,
+obscuring whatever marks of passing anything might have left even an hour
+ago.  There is a large boulder to the west and south, as if marking the
+bend in the road.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34548 10 10 5
+D1
+~
+~
+0 -1 34550 10 10 5
+1602 17 1509949540 -2 0
+-1
+S
+
+#34550
+A Long Road through the Dragonspire Mountains~
+The snow on the road appears to be thickening on this path that runs
+south and west.  To the south you see what appears to be a main trail,
+and to the west the path bends into a growling snowstorm.  The trees
+appear to be thinning, and you feel an unnatural cold that fills the air
+around you.  It appears that you can also travel east, but the snow cover
+looks unstable there and you think you should take a closer look before
+actually venturing onto it.  A thick snow bank lies to the north.  It can
+probably be climbed.
+~
+n is 45750
+[Lansharra] clim up/snow should work
+~
+301465608 5 9 0
+D1
+~
+~
+0 -1 34607 10 10 5
+D2
+~
+~
+0 -1 34551 10 10 5
+D3
+~
+~
+0 -1 34549 10 10 5
+E
+e east snow closer cover~
+The snow is a thin sheet covering a crevass.  Walking in that direction
+would surely prove certain death after a fall to an icy, sharp death on
+the rocks below the snow.
+~
+E
+bank~
+The snow is deep, but the top layer is frozen solid, with a soft layer of
+snow above that, providing stability and at least enough traction to make
+it up the bank.
+~
+A
+~
+~
+transfer( ch, find_room( 34607 ) );
+room = find_room( 34607 );
+acode( room, 1 );
+~
+E
+this~
+As you take a step onto the thin ice, it instantly shatters and sends you
+plummeting down!
+~
+!
+3 1 2
+A
+climb~
+bank~
+act_tochar( "You easily make it up the snow bank.", ch );
+act_notchar( "$n easily makes it up the snow bank.", ch );
+transfer( ch, find_room( 45750 ) );
+act_notchar( "$n comes climbing down the snow bank.", ch );
+~
+!
+0 0 3
+-1
+S
+
+#34551
+An Icy Road Through the Mountains~
+You are standing on a long, seldom-used road that heads directly into the
+icy confines of the northern peaks of the Dragonspire mountains.  To the
+south you see a high mountain trail that looks precarious, but more well
+travelled.  A patch of @Eice@n, which can probably be crossed with safety,
+connects this road to the mountain trail.
+~
+s is 19143
+~
+301465608 5 9 0
+D0
+~
+~
+0 -1 34550 10 10 5
+D2
+~
+~
+0 -1 19143 10 10 5
+E
+ice patch trail~
+The ice looks slick, but a layer of snow gives it some traction.  You can
+probably @Ecross@n the @Eice@n to reach the mountain trail.
+~
+-1
+S
+
+#34553
+A Faint Path in the Snow~
+The trail is faint but a small line of rocks line it to the left and
+right, making it easy to follow.  You see a cave to the south and to the
+north lies a small road.  
+~
+s is 34554
+~
+301465608 5 9 0
+D0
+~
+~
+0 -1 34582 10 10 5
+E
+cave south~
+You can probably climb down into the cave.
+~
+A
+enter climb descend~
+cave hole entrance down~
+act_tochar( "You climb hand over hand, down into the cave entrance.", ch );
+act_notchar( "$n climbs hand over hand, down into the cave entrance.", ch );
+transfer( ch, find_room( 34554 ) );
+act_notchar( "$n comes climbing down into the cave.", ch );
+~
+!
+0 0 1
+-1
+S
+
+#34554
+The Entrance to a Small Cave~
+You stand at the mouth of a small cave.  The opening is only about three
+and a half feet tall so you will have to crawl to enter.  You can climb
+up and out of the cave.
+~
+n is 34553
+~
+301465608 5 6 0
+D2
+~
+~
+0 -1 34555 10 10 5
+A
+~
+~
+send_to_char( #cr, ch );
+continue;
+~
+E
+cr~
+You crouch down and crawl in.
+
+~
+!
+3 2 4
+A
+leave climb ascend~
+cave hole up out~
+act_tochar( "You climb hand over hand, up out of the cave entrance.", ch );
+act_notchar( "$n climbs hand over hand, up out of the cave entrance.", ch );
+transfer( ch, find_room( 34553 ) );
+act_notchar( "$n comes climbing up out of the cave.", ch );
+~
+!
+0 0 1
+1974 17 1509949540 -2 0
+-1
+S
+
+#34555
+A Small Crawlway Near a Cave Entrance~
+You are crawling across a flat, narrow ledge of ice.  The cave opens up a
+bit to the south, and to the north you can feel the icy wind of the
+north.
+~
+~
+335020036 0 5 0
+D0
+~
+~
+0 -1 34554 10 10 5
+D2
+~
+~
+0 -1 34556 10 10 5
+A
+~
+~
+send_to_char( #stand, ch );
+continue;
+~
+E
+stand~
+You stand back up, leaving the low entrance.
+
+~
+!
+3 0 1
+A
+~
+~
+send_to_char( #s, ch );
+continue;
+~
+E
+s~
+You can stand back up, but not by much.
+
+~
+!
+3 2 4
+-1
+S
+
+#34556
+Inside a Small Cave~
+The cave opens up here for a moment, allowing you to stand.  A crawlspace
+leads north to the outside, and similarly tightly-enclosing tunnels lead
+east and west.  You can hear the wind howling across the mouth of the
+cavern as it whips across the Dragonspire Mountains.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34555 10 10 5
+D1
+~
+~
+0 -1 34558 10 10 5
+D3
+~
+~
+0 -1 34557 10 10 5
+A
+~
+~
+send_to_char( #n, ch );
+continue;
+~
+E
+n~
+You crouch down and crawl towards the outside.
+
+~
+!
+3 0 1
+-1
+S
+
+#34557
+A Small Crawlspace~
+You are crawling across a flat, narrow ledge of ice.  The cave opens up
+to the east and west.  The fragile ice crackles with each movement,
+sending fragments of frost spraying as small rocks of frozen water
+shatter under the pressure of your hands or knees.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34556 10 10 5
+D3
+~
+~
+0 -1 34575 10 10 5
+-1
+S
+
+#34558
+A Small Crawlspace~
+You are crawling across a flat, narrow ledge of ice.  The cave opens up
+to the west, and continues along a small crawlway to the south, where you
+will have to wedge yourself between two walls to continue.
+~
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 34559 10 10 5
+D3
+~
+~
+0 -1 34556 10 10 5
+-1
+S
+
+#34559
+A Small Crawlspace~
+You are wedged between two icy walls of stone.  A narrow ledge permits
+passage north, and you can drop down from this small crevice after a
+short climb to the south.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34558 10 10 5
+D2
+~
+~
+0 -1 34560 10 10 5
+A
+~
+~
+send_to_char( #crev, ch );
+continue;
+~
+E
+crev~
+You climb carefully down the narrow crevice.
+
+~
+!
+3 2 4
+-1
+S
+
+#34560
+Inside a Small Cave~
+The cavern chamber you are in is small, but not cramped.  The air is very
+still here, and long, thin icicles hang down from the ceiling in a long
+row on the eastern wall.  A narrow crevice in the northern wall allows
+passage in that direction, and the cavern enlarges greatly to the west.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34559 10 10 5
+D3
+~
+~
+0 -1 34561 10 10 5
+E
+icicles~
+You are not sure why they grew there. Probably there is a fissure there.
+~
+553 9 1509949540 3 0
+553 9 1509949540 3 0
+-1
+S
+
+#34561
+A Cavern Inside a Small Cave~
+The cavern ceiling here is very high, soaring about twenty feet above
+your head.  A small side-tunnel seems to have been dug in the western
+wall, and the large cavern expands to the south.
+~
+~
+301465604 0 8 0
+D1
+~
+~
+0 -1 34560 10 10 5
+D2
+~
+~
+0 -1 34563 10 10 5
+D3
+~
+~
+0 -1 34562 10 10 5
+-1
+S
+
+#34562
+Inside a Small Cave~
+Whoever it was that dug this small tunnel into the rock seems to have
+stopped here, as rock faces you on all sides except to the east, back the
+way you came.  There are marks in the wall as if pick-axes had been used,
+and a large crack in the northern rock wall hints that the person or
+persons who dug this tunnel must have possessed great strength.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34561 10 10 5
+-1
+S
+
+#34563
+A Cavern Inside a Small Cave~
+The cavern ceiling slopes downward steeply, comming to the floor to the
+south, in a sharp slant.  A side-passage extends to the west, narrow but
+large enough to walk through.  The cavern opens up to the north.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34561 10 10 5
+D3
+~
+~
+0 -1 34564 10 10 5
+-1
+S
+
+#34564
+A Narrow Passage~
+The narrow passage makes several twists and turns, but appears to be
+heading in a generally east-west direction.  You have to shift your body
+sideways to squeeze through the ice.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34563 10 10 5
+D3
+~
+~
+0 -1 34565 10 10 5
+553 9 1509949540 3 0
+553 9 1509949540 3 0
+-1
+S
+
+#34565
+A Narrow Passage~
+The narrow passage bends north and east, but the view in each direction
+is blocked by an outcropping of ice-covered stone.  The ceiling rises
+high overhead, but shortens to the north once again.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34566 10 10 5
+D1
+~
+~
+0 -1 34564 10 10 5
+-1
+S
+
+#34566
+A Vertical Tunnel~
+Rock surrounds you on all sides but to the south, and a small vertical
+tunnel leads down into the icy rock itself.  The tunnel appears to be
+lined with handholds that would allow easy passage down its length.
+~
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 34565 10 10 5
+D5
+~
+~
+0 -1 34567 10 10 5
+E
+1 down tunnel handholds~
+The tunnel down looks natural, but someone chiseled in the handholds.
+~
+-1
+S
+
+#34567
+A Vertical Tunnel~
+Oddly-shaped portrusions from the rock wall make the climb here an easy
+one.  The passage twists a bit above you, and the odd handholds continue
+below you.
+~
+~
+301465604 0 6 0
+D4
+~
+~
+0 -1 34566 10 10 5
+D5
+~
+~
+0 -1 34568 10 10 5
+-1
+S
+
+#34568
+A Vertical Tunnel~
+The base of this tunnel appears to open up into a cavern considerably
+warmer than those above, as your toes tell you from below.  The climb
+here is a slippery one as the ice seems to have melted a bit.  The
+passageway also leads up.  
+~
+~
+301465604 0 6 0
+D4
+~
+~
+0 -1 34567 10 10 5
+D5
+door~
+door~
+0 -1 34570 10 10 5
+-1
+S
+
+#34570
+A Moist, Glowing Room~
+Most ice has melted from the mysterious heat emanating from below.  The
+bared rocks are cast in a soft red-orange light, the source of which
+appears to be from the north.  This part of the cave is humid, stuffy,
+and hot, as water dribbles down north and comes back hot steam.  You
+could also climb back up the vertical tunnel in the ceiling.
+~
+~
+301465605 0 8 0
+D0
+~
+~
+0 -1 34583 10 10 5
+D4
+door~
+door~
+0 -1 34568 10 10 5
+-1
+S
+
+#34575
+Inside a Small Cave~
+The cavern here is barely over seven feet in height, but it is enough to
+stand in.  A very tightly-enclosed crawlway leads east, and a steep ledge
+of icy leads down to the south.  A small hole, only about as thick as an
+arrow, leads directly up and to the surface from here.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34557 10 10 5
+D2
+~
+~
+0 -1 34576 10 10 5
+E
+hole~
+If you cup your eye to it, you can see light comming down through the
+twisted rock and floating ice crystals.
+~
+553 9 1509949540 3 0
+553 9 1509949540 3 0
+553 9 1509949540 3 0
+553 9 1509949540 3 0
+-1
+S
+
+#34576
+Inside a Small Cave~
+The ice is very steeply sloped here, bending sharply down and to the
+west.  The short climb to the north is precarious, but navigatable. 
+Chunks of ice missing from the southern wall suggest that something big
+slipped and fell into the wall.  An eery stalagtite hangs from the
+ceiling, long and razor sharp.
+~
+[Lansharra] eerie
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34575 10 10 5
+D3
+~
+~
+0 -1 34577 10 10 5
+-1
+S
+
+#34577
+Inside a Small Cave~
+You are standing in a bare spot of stone amidst the ice of the cave, as
+if someone had recently built a fire here.  A small passage leads south
+between two pillars of ice, while an icy ramp drops down north, and winds
+upwards on an easterly course.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 34578 10 10 5
+D1
+~
+~
+0 -1 34576 10 10 5
+D2
+~
+~
+0 -1 34579 10 10 5
+E
+1 north~
+It is sick with refrozen ice and slopes downward.
+~
+E
+ramp~
+Which way? The continuing northern one, or east?
+~
+E
+1 east~
+It is sick with refrozen ice and slopes upward.
+~
+A
+~
+~
+if( !is_player( ch ) )
+continue;
+if( find_stat( ch, dex ) < random( 1, 15 ) ) {
+  act_tochar( #c_s, ch );
+  act_notchar( #r_s, ch );
+  interpret( ch, "sit" );
+  }
+else
+  continue;
+~
+E
+r_s~
+@b$n makes a nice effort trying to slip and claw $s way up eastard.
+
+~
+E
+c_s~
+@bYou slip and sramble, but come sliding back down.
+
+~
+!
+3 1 2
+-1
+S
+
+#34578
+Inside a Small Cave~
+Someone has carved sculptures out of the ice on the north wall depicting
+the yeti of the northern wastes.  A glow comes from thin ice overhead,
+presumably light from either the moon or sun.  You can hear the ice in
+the tunnel to the west dripping as it melts, and an icy ramp leads to the
+south.
+~
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 34577 10 10 5
+D3
+~
+~
+0 -1 34580 10 10 5
+E
+1 south ramp~
+It is sick with refrozen ice and slopes upward.
+~
+E
+sculptures yeti~
+Something spent considerable time shaving three pillars of ice into
+beauteful and haunting sculptures.  Two are yeti, the third looks like a
+wingless furred lizard, or better yet, dragon.
+~
+E
+dragon lizard~
+Who knows what it is, but it is sinewy, sleek, and powerful looking.
+~
+A
+~
+~
+if( !is_player( ch ) )
+continue;
+if( find_stat( ch, dex ) < random( 1, 15 ) ) {
+  act_tochar( #c_s, ch );
+  act_notchar( #r_s, ch );
+  interpret( ch, "sit" );
+  }
+else
+  continue;
+~
+E
+r_s~
+@b$n makes a nice effort trying to slip and claw $s way up southward.
+
+~
+E
+c_s~
+@bYou slip and scramble, but come sliding back down.
+
+~
+!
+3 2 4
+-1
+S
+
+#34579
+Inside a Small Cave~
+It comes to an icy dead end here, and you find yourself in an area filled
+with large icicles, dangling from the cavern ceiling far above.  Several
+large ones have fallen in the passage to the south, blocking travel in
+that direction.  You can return to the north via a small passage between
+the two pillars of ice.  The ice in one corner has started to melt due to
+the presence of a seemingly out-of-place forge.
+~
+~
+301469711 0 6 0
+D0
+~
+~
+0 -1 34577 10 10 5
+D2
+~
+~
+235 -1 53000 10 10 5
+1103 9 1509949540 3 0
+1466 17 1509949540 -2 0
+-1
+S
+
+#34580
+Inside a Small Cave~
+The ice in this part of the cavern is melting, sending drops of cold,
+clear water down on you in a light shower, and making the cavern floor
+very slick.  You had better watch your step to the west, as the ice in
+that direction seems to be melting even more rapidly.  The ice appears
+more solid to the east.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 34578 10 10 5
+D3
+~
+~
+0 -1 34581 10 10 5
+-1
+S
+
+#34581
+The Base of a Stone Staircase~
+The cavern expands drastically upward and outward, quickly becoming very
+large.  You notice that the walls are dry here and with a shock you feel
+warmth emanating from above you.  A spiral staircase, chiseled out of the
+rock, leads up to what looks like a ledge, giving you the impression that
+skilled hands have been at work here, long ago.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 34580 10 10 5
+D4
+~
+~
+0 -1 34603 10 10 5
+-1
+S
+
+#34582
+A Faint Path in the Snow~
+The trail would have been invisible had you not noticed a solitary pair
+of yeti prints in the snow.  It is small and nearly blown over with snow,
+but it appears to be in regular use by the yeti of the area.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 34541 10 10 5
+D2
+~
+~
+0 -1 34553 10 10 5
+-1
+S
+
+#34583
+Above a Melting Slide~
+A nearly vertical tunnel just large enough to slide into heads down into
+a red-orange glow.  The heat that has caused the ice of the cave to melt
+seems to be coming from below, rising back on hot steam.
+~
+put an aedit enter slide here
+~
+301465605 0 9 0
+D2
+~
+~
+0 -1 34570 10 10 5
+D5
+~
+~
+1 -1 34584 10 10 5
+A
+enter slide~
+slide down~
+act_tochar( #slide, ch );
+act_notchar( #rslide, ch );
+transfer( ch, find_room( 34586 ) );
+~
+E
+rslide~
+$n slides down the slide toward the heat source.
+~
+E
+slide~
+You slide down the slide towards the source of the endless heat.
+~
+!
+0 0 0
+-1
+S
+
+#34584
+A Melting Slide~
+The wet rock makes the steep slide a difficult climb in both directions,
+as water drips down from above and flows gently down the remainder of the
+slide below.
+~
+~
+301465605 0 9 0
+D4
+~
+~
+1 -1 34583 10 10 5
+D5
+~
+~
+0 -1 34586 10 10 5
+-1
+S
+
+#34586
+The Base of a Melting Slide~
+All traces of the icy conditions above have disappeared, leaving you in a
+small, hot, moist part of the cave.  Water drips down from the top of a
+steep slide above you, and an intense red glow shines through an arch in
+the stone to the north.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 34587 10 10 5
+D4
+~
+~
+0 -1 34584 10 10 5
+-1
+S
+
+#34587
+Beside a River of Molten Lava~
+The cavern floor drops off suddenly and vastly, revealing a massive river
+of molten lava that flows from west to east.  The cavern ceiling looms
+far overhead, and set dancing in red glow from lava and flame.  There is
+a small ridge that appears to lead along the river of lava west, and you
+spot a small opening south.
+~
+~
+301465605 0 9 0
+D2
+~
+~
+0 -1 34586 10 10 5
+D3
+~
+~
+0 -1 34589 10 10 5
+A
+~
+~
+if( !rflag( reset0, room ) )
+  end;
+if( !is_player( ch ) )
+  end;
+i = 2d10+10;
+if( mob_in_room( 598, room ) ) {
+  mob = mob_in_room( 598, room );
+  if( is_fighting( mob ) )
+    end;
+  act_tochar( #already, ch );
+  dam_message( ch, i, "The lava elemental's burning touch" );
+  mob = mob_in_room( 598, room );
+  }
+else {
+  remove_rflag( reset0, room );
+  mob = mload( 598, room );
+  act_tochar( #new, ch );
+  dam_message( ch, i, "The lava elemental's burning touch" );
+  }
+inflict( ch, mob, i, "a lava elemental" );
+attack( mob, ch, 2d10, "burning touch" );
+~
+E
+already~
+@bA lava elemental fixes its burning gaze upon you and attacks!!
+~
+E
+new~
+@b@RThe lava erupts and forms into a shape as it moves towards you!!
+@RIt attacks, sending a wave of heat coarsing through your body!!
+ 
+~
+!
+1 0 12
+-1
+S
+
+#34589
+Beside a River of Molten Lava~
+The ledge overhanging the river of lava is very thin here, and the lava
+below produces a flow of steam which envelops this portion of the
+chamber.  The ground beneath you rumbles with the passing of the tons of
+molten rock.
+~
+put an aedit here that burns somebody from splashing lava or
+something...or rocks fall on them(possibly splashing lava on them or
+hitting them) 
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 34587 10 10 5
+D3
+~
+~
+0 -1 34590 10 10 5
+A
+~
+~
+send_to_room( #fall, room );
+i = 2d10+5;
+loop( all_in_room ) {
+  dam_message( rch, i, "the lava splash" );
+  inflict( ch, mob, i, "a lava splash" );
+  }
+~
+E
+fall~
+A rock falls from the cavern ceiling and into the lava river, splashing a
+wave of searing heat over you!!
+~
+!
+2 0 0
+-1
+S
+
+#34590
+Beside a River of Molten Lava~
+A large rock wall blocks movement to the west, while a natural bridge
+crosses the river of lava to the north.  A crack in the southern wall
+reveals a fissure that could be explored.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 34592 10 10 5
+D1
+~
+~
+0 -1 34589 10 10 5
+D2
+~
+~
+0 -1 34591 10 10 5
+-1
+S
+
+#34591
+A Small Steam-Filled Chamber~
+This small fissure in the rock is filled with steam, making visibility
+nearly zero.  Almost all air is gone as well, as each breath sends hot
+steam into your lungs instead of air.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 34590 10 10 5
+A
+~
+~
+act_tochar( #burn, ch );
+inflict( ch, mob, 2d5, "internal burning" );
+~
+E
+burn~
+@b@RYou take a breath, burning your throat.
+~
+!
+2 1000 0
+-1
+S
+
+#34592
+Over a River of Molten Lava~
+The lava beneath your feet rolls by in loud gurgles, vibrating the rock
+bridge violently.  The ground appears more stable to the south, while the
+rock bridge continues to arch up over the river, north.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 34593 10 10 5
+D2
+~
+~
+0 -1 34590 10 10 5
+-1
+S
+
+#34593
+Over a River of Molten Lava~
+The bridge is very narrow here at its highest arc, and is elevated far
+enough above the lava that its heat is not as intense.  The bridge drops
+back to the south, but dips less toward to closer northern side.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 34594 10 10 5
+D2
+~
+~
+0 -1 34592 10 10 5
+-1
+S
+
+#34594
+Across a River of Molten Lava~
+A bridge of natural rock has formed to the south, leading over the
+river of lava.  Colorful rock formations abound on the northern wall
+and continue east alongside the river.  A gust of hot air blows
+you as the lava below splashes into the rock wall.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 34595 10 10 5
+D2
+~
+~
+0 -1 34593 10 10 5
+-1
+S
+
+#34595
+Across a River of Molten Lava~
+The wall to the north is brightly colored with reds, oranges, and yellows
+as if stained by the light that the river of lava to the south produces. 
+This ledge of solid rock continues to both the west and to the east.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 34596 10 10 5
+D3
+~
+~
+0 -1 34594 10 10 5
+-1
+S
+
+#34596
+Across a River of Molten Lava~
+The wall here has a small altar chiseled into it, but it has apparently
+not seen much use lately.  A large stone to the south hangs over the
+river of lava.  The floor here has a strange surface, as if it has melted
+and then reformed into a wavelike pattern.  The resulting texture makes
+balance difficult.  
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 34598 10 10 5
+D2
+~
+~
+0 -1 34597 10 10 5
+D3
+~
+~
+0 -1 34595 10 10 5
+E
+altar~
+What once may have been a mighty slab of black stone, the altar is now
+only crumbled remains.  There are several small niches where gems may
+have been inset into the black stone.  
+~
+872 17 1509949450 -2 0
+-1
+S
+
+#34597
+A Large Rock on Molten River~
+This large rock, anchored to the northern shore of the river of lava, is
+large, round, and smooth.  Heat emanates up through the stone, obviously
+generated by the lava below, which you can feel flowing around the
+precipice.  From here, the entire cavern can be seen, from the large
+sloping rock overhead to the immense stream of molten rock flowing
+through it.  A final glance at the stone beneath your feet, and you
+notice several large scorch marks.  
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 34596 10 10 5
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+room = find_room( 34597 );
+i = 4d10+10;
+if( mob_in_room( 591, room ) )
+  if( is_fighting( mob_in_room( 591, room ) ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( mob_in_room( 591, room ) ) {
+    act_tochar( #welcome, ch );
+    dam_message( ch, i, #reenter );
+    mob = mob_in_room( 591, room );
+    }
+  else {
+    act_tochar( #awake, ch );
+    mob = mload( 591, room );
+    dam_message( ch, i, #enter );
+    }
+  inflict( ch, mob, i, "Dartohk's fiery breath" );
+  attack( mob, ch, 4d16+20, "lightning fast strike" );
+  }
+~
+E
+already~
+@bYou have already killed Dartohk!!
+~
+E
+welcome~
+@bThe huge red dragon, already awakened, turns his burning gaze upon you!!
+~
+E
+enter~
+Dartohk's fiery breath
+~
+E
+awake~
+@RA red dragon emerges from the lava.  @M"My name is Dartohk," @Rhe says,
+@M"and you are trespassing here!!" 
+~
+E
+reenter~
+Dartohk's fiery breath
+~
+!
+1 -1 1
+-1
+S
+
+#34598
+Across a river of molten lava.~
+The rock ledge widens enough to make passage comfortably safe, and rises
+above the reach of the intense heat of the lava below.  The northern rock
+wall swirls with a rainbow of bright colors, an almost dizzying mosaic of
+hues that are layered one on top of the other.
+~
+~
+301465605 0 9 0
+D3
+~
+~
+0 -1 34596 10 10 5
+-1
+S
+
+#34603
+A Large Rock Ledge~
+The irregular rock of the cave has been smoothed out, and a well-cut
+passage heads into the rock to the west.  A spiral staircase leads down
+this large ledge in the rock.  Diagonal beams of oak line the walls, but
+they do not seem to be functioning as support, so much as decoration, an
+afterthought rather than a necessity.
+~
+~
+301465604 0 9 0
+D3
+~
+~
+0 -1 34604 10 10 5
+D5
+~
+~
+0 -1 34581 10 10 5
+-1
+S
+
+#34604
+A Large, Smooth Tunnel~
+Burnt-out torches line the hall, resting in brass fittings that have been
+drilled directly into the rock wall.  A fine powder of white dust coats
+everything here.  The hall approaches an opening and ledge east, and a
+large stone gate can be seen farther down the hall west.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 34603 10 10 5
+D3
+~
+~
+0 -1 34605 10 10 5
+-1
+S
+
+#34605
+A Large, Smooth Tunnel~
+A huge stone gate blocks further passage to the west.  Ominous runes,
+unrecognized except for the fact that they seem to be some kind of
+warning, are spread across its broad surface.  A smoothly made hall leads
+east, and on the north wall a large golden gong is suspended in an
+alcove, with a golden hammer chained to the rock beside it.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 34604 10 10 5
+D3
+gate~
+gate~
+195 -1 34606 10 10 5
+E
+1 west~
+A large double-doored gate which is covered with glyphs of warding. 
+Large runes depict an ancient evil and a massive battle.
+~
+E
+gong~
+Much like the stone gate itself, the gong is covered with strange
+markings.  You cannot decipher what it is exactly they say, but it seems
+to be to the effect of "do not touch the gong." 
+~
+E
+hammer~
+The hammer is marvelous, yet is firmly chained to the rock.
+~
+A
+ring sound hit hammer bang~
+gong~
+if( !rflag( status0, room ) ) {
+  act_tochar( #recent, ch );
+  end;
+  }
+act_tochar( #ugong, ch );
+act_notchar( #rgong, ch );
+remove_rflag( status0, room );
+act_room( #more, ch );
+wait( 4 );
+act_room( #more1, ch );
+wait( 4 );
+act_room( #more2, ch );
+open( room, west );
+set_rflag( status0, room );
+open( room, west );
+loop( all_in_room ) {
+  room = find_room( 34606 );
+  transfer( rch, room );
+  }
+acode( room, 1 );
+~
+E
+more2~
+@MA chorus of deep, evil, heartless laughter fills the area as a great
+rush of wind sends you sprawling through the opening.
+~
+E
+more1~
+The rune covered gate starts to slide gratingly upward, pulled by some
+powerful force.  @RDark red light shines through the growing opening as
+the stone rises.
+~
+E
+more~
+@MA wail beings to rise, joining with the deep resounding sound of the
+gong...a chorus like wailing souls crying in despair.
+ 
+@b@CWaves of paralyzing fear sweep over you.@n
+~
+E
+rgong~
+@Y$n rings the @bgolden gong@n@Y, sending massive waves of booming sound
+throughout the cavern.
+~
+E
+ugong~
+@YYou ring the @bgolden gong@n@Y, sending massive waves of booming sound
+throughout the cavern.
+~
+E
+recent~
+The gong is still reverberating from its last ringing.
+~
+!
+0 0 0
+A
+~
+~
+if( !rflag( status0, room ) )
+  act_tochar( #fear, ch );
+else
+  continue;
+~
+E
+fear~
+@bWaves of artificial fear have frozen your limbs.
+~
+!
+3 1 10
+-1
+S
+
+#34606
+A Large Stone Hall~
+The walls of this room are made of thick stone, and glowing blue runes of
+warding cover every inch of their surface.  Even the floor and ceiling of
+this huge-dimensioned chamber are guarded by magical spells preventing
+anything entering or leaving, as if the room was meant to be a holding
+cell for a large and powerful being.
+~
+~
+301465604 0 9 0
+D1
+stone gate~
+'stone gate'~
+195 -1 34605 10 10 5
+A
+~
+~
+mob = mob_in_room( 599, room );
+if( mob ) {
+  act_room( #freed, mob );
+  loop( all_in_room )
+    if( rch != mob )
+    attack_fire( mob, ch, 5d20+10, "wicked flame" );
+  }
+~
+E
+freed~
+@b"@n@RYou have freed me!!@n@b",@n a deep, resonant voice booms.  @b"@n@RAfter all these
+centuries of captivity, locked by the magic of man ...  I am free to
+ravage the realms once more!!@n@b"
+@n
+Turning his gaze down upon you, he shows rows of ivory teeth in and evil
+leer@b, "@n@RBut you will die first.@n@b"
+~
+!
+1 8 2
+A
+~
+~
+wait( 8 );
+if( !is_open( room, east ) ) {
+  open( room, east );
+  send_to_room( #door, room );
+  }
+~
+E
+door~
+With a grinding sound, the gate rises open. You feel you should leave.
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 599, room ) ) {
+  act_tochar( #dragon, ch );
+  if( random( 1, 10 ) < 4 ) {
+    act_tochar( #fight, ch );
+    continue;
+    }
+  else {
+    act_tochar( #fear, ch );
+    end;
+    }
+  }
+else {
+  act_tochar( #dead, ch );
+  continue;
+  }
+~
+E
+dead~
+@GThe dragon slain, you are free to leave.
+~
+E
+fear~
+@RThe dragonfear paralyzes your limbs; you fail to escape.
+~
+E
+fight~
+@GYou make it to safety!!
+~
+E
+dragon~
+@BYou try to fight off the dragonfear and flee to safety.
+~
+E
+froze~
+@CFrozen in place by the dragon's might, you cannot turn away.
+~
+!
+3 0 2
+599 9 1509949540 3 0
+-1
+S
+
+#34607
+An Ice-Covered Crevice~
+The ice here is very thin and brittle, threatening to crack and break,
+sending you plummeting downward to your death.  More solid ground lies to
+the west.
+~
+~
+301465600 5 9 0
+D3
+~
+~
+0 -1 34550 10 10 5
+A
+~
+~
+wait( 2 );
+if( char_in_room( ch, room ) ) 
+  act_tochar( #break, ch );
+wait( 2 );
+if( char_in_room( ch, room ) ) {
+  transfer( ch, find_room( 34562 ) );
+  i = 1d1+49;
+  dam_message( ch, i, "the terrible fall" );
+  inflict( ch, mob, i, "the terrible fall" );
+  }
+~
+E
+break~
+The ice cracks and you know you have to get out of here, fast!
+~
+!
+0 0 0
+-1
+S
+
+#0
+

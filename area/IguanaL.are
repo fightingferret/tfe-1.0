@@ -1,0 +1,793 @@
+#AREA
+Iguana Lair~
+Fenlyn~
+Iguana Lair~
+
+15 0
+0
+#ROOMS
+
+#45501
+Inside a Dark Hole~
+You stand in a damp, dark hole, but instead of dirt the floor and the
+walls here are made of limestone.  From the appearance of the walls, it
+can be determined that this cave was carved from existing rock.  The only
+exits here are up and to the east.  A candle mounted on the cave wall
+provides light to the room.
+~
+~
+335151117 11 5 0
+D1
+~
+~
+0 -1 45503 10 10 5
+D4
+stone door~
+stone door~
+195 -1 31000 10 10 5
+E
+walls~
+The walls are rugged-looking and made of stone.  Looking closely at the
+walls you find marks where the stone was initially carved out to make a
+cave.
+~
+A
+~
+~
+send_to_area( #all, room );
+~
+E
+all~
+A faint dripping sound echoes off the cavern walls.
+~
+!
+4 100 0
+A
+open~
+stone door 1 up~
+if( is_open( room, up ) ) {
+  act_tochar( #still, ch );
+  end;
+  }
+act_tochar( #opens, ch );
+act_notchar( #ncopen, ch );
+open( room, up );
+~
+E
+opens~
+You open the stone door above you.
+~
+E
+ncopen~
+$n opens the stone door above you.
+~
+E
+still~
+The stone door is already open.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #ent, find_room( 84 ) );
+mob = mload( 1443, find_room( 84 ) );
+obj_to_char( oload( 2 ), mob );
+interpret( mob, "put gold Iguanas" );
+wait( 1 );
+junk_mob( mob );
+~
+E
+ent~
+@GSomeone has entered the Iguana Lair.@n
+~
+!
+1 0 16
+-1
+S
+
+#45503
+Cave Corridor~
+The walls here feel as smooth as rocks found on the beach.  Water
+trickles down the wall, but there is not enough of the wetness to satisfy
+any thirst.  The humidity in here makes the tunnel quite hot.  You spy an
+intersection to the south and an exit to the west.
+~
+~
+335151108 11 5 0
+D2
+~
+~
+0 -1 45504 10 10 5
+D3
+~
+~
+0 -1 45501 10 10 5
+E
+water~
+The water is grimey and wet, but it does not drip down the wall fast
+enough to collect any of it.
+~
+1453 9 1509949540 3 0
+-1
+S
+
+#45504
+Before a Damp Intersection~
+The large and musty limestone tunnel looks out of shape and dilapidated. 
+The cavern walls are a far cry from the craftsmanship of the entrance.  A
+faint noise breaks the silence of the cave, but it is difficult to
+determine its origin.  The cave breaks off into several different paths.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45503 10 10 5
+D1
+~
+~
+0 -1 45505 10 10 5
+D2
+~
+~
+0 -1 45507 10 10 5
+D3
+~
+~
+0 -1 45506 10 10 5
+-1
+S
+
+#45505
+Split in a Cave Corridor~
+From a small crack in the top of the cavern, a steady drip of water falls
+into a pile of dirt that has been tracked into the stone intersection. 
+In the wet dirt pile are some footprints that lead south.  On the walls
+are markings made in a red ink forming little symbols.  Unfortunately the
+humidity and claw markings have made reading the symbols impossible.  To
+the south is a path that slopes downward into darkness.  The northern
+path ascends into more limestone rock.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45510 10 10 5
+D2
+~
+~
+0 -1 45520 10 10 5
+D3
+~
+~
+0 -1 45504 10 10 5
+E
+prints muddy pile dirt footprints~
+The footprints made from mud on the cave floor are of a three-toed
+creature that has very large feet.  At the front of each toe print is
+what looks like a large claw mark etched into the stone floor.
+~
+E
+red ink wall symbols markings~
+The red markings on the wall are faded and indecipherable.
+~
+1453 9 1509949540 3 0
+-1
+S
+
+#45506
+West Corridor~
+On the ground is a small crack through which some weeds show themselves. 
+Most of the weeds are green, but there is one that is a lilac color. 
+Indistinguishable sounds reflect off the walls of the labyrinth giving no
+clue as to its source.  The corridor makes a sharp turn to the east and
+south.
+~
+~
+335151108 11 5 0
+D1
+~
+~
+0 -1 45504 10 10 5
+D2
+~
+~
+0 -1 45508 10 10 5
+-1
+S
+
+#45507
+West Corridor~
+A bit of rock protrudes from the floor of dirt and stone almost causing
+you to trip over it.  A slight dip in the floor surrounds the protruding
+rock causing some murky water running along the sides of the cave to
+collect around it.  The dip isn't much larger than about a foot in
+diameter and about two inches deep.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45504 10 10 5
+D3
+~
+~
+0 -1 45508 10 10 5
+E
+rock floor~
+This piece of limestone pokes its head up from the floor of the cavern. 
+On top of it is a picture of what looks like a reptile tongue going
+through a royal crown.
+~
+E
+dip water murky~
+The water in the dip is rather murky and coated with some green substance
+on its surface making it look far from palatable.
+~
+1453 9 1509949540 3 0
+-1
+S
+
+#45508
+West Corridor~
+The path makes another turn here.  Along the left wall is a very long set
+of four claw-like marks cut deep into the old rock.  A long crack appears
+to have made its way into the stone above.  Out of the crack a small
+plant shows itself.  The cave continues to the east and north.
+~
+[Ssleestaq] look at tomato room in voaleth to see how to make it say "you
+can't pick any more flowers" instead of "you need a lockpick to pick a
+lock!" 
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45506 10 10 5
+D1
+~
+~
+0 -1 45507 10 10 5
+E
+plant crack~
+The plant has several buds.  One day it will become a plant full of color. 
+Judging from the buds, it will be pink.
+~
+1998 17 1509949540 -2 0
+1454 9 1509949540 3 0
+-1
+S
+
+#45509
+East Corridor~
+Cracks formed by the pressure of the above earth line the stone walls of
+this dark corridor.  In one spot, a piece of the stone has completely
+chipped away leaving a small crater in the wall.  Unless whoever resides
+in this tunnel system makes some repairs, this turn may not last much
+longer.  You can go north or east from here.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45511 10 10 5
+D1
+~
+~
+0 -1 45513 10 10 5
+E
+crater wall~
+The crater seems to be formed from the decay of this corridor as if the
+pressure of the shifting earth and rock caused part of the wall to give
+way.
+~
+-1
+S
+
+#45510
+Northeast Corridor~
+Paying a little more attention to the walls you notice that someone has
+placed a sign on one.  A small bit of dirt has accumulated in the corner
+from where adventurers have previously shuffled their feet.  Bouncing off
+the walls are the sounds of water drops falling onto a hard surface.
+~
+~
+335151108 11 5 0
+D1
+~
+~
+0 -1 45511 10 10 5
+D2
+~
+~
+0 -1 45505 10 10 5
+E
+sign~
+The sign says, "Only the priviledged can see S'aark, the King of Iguanas.
+Please make an appointment with the Queen if you desire royal
+assistance." 
+
+The sign is rather weathered, so there is no telling if the royal family
+still exists.
+~
+E
+dirt corner~
+There is a small collection of dirt from past travels.  Looking at the
+dirt, you don't think anyone has sat there in a while.
+~
+A
+search~
+dirt pile cor corn corne corner~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( random( 1, 15 ) < 14 ) {
+    send_to_char( #none, ch );
+    act_notchar( #none2, ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    obj_to_char( oload( 2 ), ch );
+    send_to_char( #ch, ch );
+    act_notchar( #ch2, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  send_to_char( #none, ch );
+  act_notchar( #none2, ch );
+  }
+~
+E
+ch2~
+$n looks around in the dirt pile and finds something.
+~
+E
+ch~
+You find a gold coin in the dirt pile!
+~
+E
+none2~
+$n looks around in the dirt pile.
+~
+E
+none~
+You find nothing in the pile of dirt.
+~
+!
+0 0 0
+1444 137 1509949540 3 0
+-1
+S
+
+#45511
+Northeast Corridor~
+Other than the usual dirt and rock you would find in a cave, you don't
+see very much to look at except for the large door to your east.  It has
+some claw markings near the doorknob and a light shining from underneath
+it.  There is a candle lighting up the room attached next to the door. 
+~
+~
+335151109 11 5 0
+D1
+large oak door~
+large oak door~
+131 -1 45512 10 10 5
+D2
+~
+~
+0 -1 45509 10 10 5
+D3
+~
+~
+0 -1 45510 10 10 5
+E
+door large claw markings~
+The carved oak door has many claw markings near the doorknob as if
+someone who has big claws turns the doorknob often.
+~
+E
+candle light~
+The candle next to the doorway is in a tarnished brass sconce.  If it
+weren't so tarnished, it would probably be an extremely beautiful piece
+of art.
+~
+1453 137 1509949540 3 0
+-1
+S
+
+#45512
+Iguana Queen's Chamber~
+Before you is a very elegant living quarters.  On the walls are several
+paintings.  In the corner of the room is a large canopy bed.  On the
+other side of the room is a brown wardrobe.  The unusual thing about this
+room is that all of the furniture is covered in scales.
+~
+~
+335151109 11 5 0
+D3
+door~
+door~
+131 -1 45511 10 10 5
+E
+paintings pictures~
+These are paintings of what looks like an iguana family.  The first
+picture shows very young iguanas at play.  The second picture shows the
+adult iguanas wearing crowns with their tongues sticking out.  How odd!
+~
+E
+wardrobe brown~
+The wardrobe, made from the finest wood that can be found in K'ssk Swamp,
+is rather large and brown.  The handles and hinges are made of brass, and
+the sides are lined with scales.
+~
+E
+bed canopy~
+The bed is made of heavy oak wood and has several carvings including one
+that looks like a reptile's tongue.  The canopy is very elegant for a
+flimsy netting made of several thousand mosquitoes.
+~
+1455 9 1509949540 3 0
+1428 9 1509949540 3 0
+7 49 1509949540 -2 0
+1914 81 1509949540 -2 0
+2 81 1509949490 -2 0
+-1
+S
+
+#45513
+East Corridor~
+Whereas the entrance to the cavern tunnels was very impressive and almost
+flawless, this intersection is not.  Cracks decorate the walls all over. 
+Weeds and roots penetrate the cracks in several places.  If not careful,
+you could trip over some of the large cracks in the floor.
+~
+[Lani] I can trip over a crack in the floor while levitating?
+Don't know a way to fix this yet.
+~
+335151108 11 5 0
+D1
+~
+~
+0 -1 45514 10 10 5
+D2
+~
+~
+0 -1 45516 10 10 5
+D3
+~
+~
+0 -1 45509 10 10 5
+E
+crack weeds walls~
+The weeds coming out of the cracks hang straight down from the roof of the
+cavern in a tangled mess.
+~
+A
+~
+~
+if( !is_player( ch ) )
+  continue;
+else {
+  if( random( 5, 12 ) >= find_stat( ch, dex ) ) {
+    act_tochar( #ctrip, ch );
+    act_notchar( #ntrip, ch );
+    i = 2d7;
+    dam_message( ch, i, "the large crack" );
+    inflict( ch, mob, i, "tripping face-first into rock" );
+    interpret( ch, "+sit" );
+    }
+  else
+    continue;
+  }
+~
+E
+ctrip~
+You trip over a large crack in the floor!
+~
+E
+ntrip~
+$n trips over a large crack in the cave floor!
+~
+!
+3 0 14
+-1
+S
+
+#45514
+East Corridor~
+You find yourself outside of a finely carved door at the end of the
+corridor.  The knocker on the door was probably once used but is rusted
+solid.  There is a tarnished plaque right next to the door and below a
+candle sconce.  The only two options you see are to either go north
+toward the doorway or go west.
+~
+~
+335151109 11 5 0
+D0
+finely carved door~
+finely carved door~
+407 1914 45515 10 10 5
+D3
+~
+~
+0 -1 45513 10 10 5
+E
+plaque sign~
+"Offices of the Mighty S'aark -- please knock."
+~
+E
+door finely carved~
+The door looks immaculate.  The solid brass doorknob is polished to a
+lustre that allows the candle and its sconce to be seen in its reflection.
+~
+A
+knock~
+n no nor nort north door~
+room = find_room( 45515 );
+if( mob_in_room( 1443, room ) ) {
+  act_tochar( #char, ch );
+  act_notchar( #nchar, ch );
+  }
+if( !mob_in_room( 1443, room ) ) {
+  act_tochar( #none, ch );
+  act_notchar( #ncnone, ch );
+  }
+~
+E
+char~
+After you knock on the door, a loud voice booms out from behind it
+yelling, "Go away!  The almighty S'aark sees noone!"
+~
+E
+nchar~
+After $n knocks on the door, a loud voice booms out from behind it
+yelling, "Go away!  The almighty S'aark sees noone!" 
+~
+E
+none~
+You knock on the door, but there is no answer.
+~
+E
+ncnone~
+$n knocks on the door, but there is no answer.
+~
+!
+0 0 0
+1453 137 1509949540 3 0
+1455 9 1509949540 3 0
+-1
+S
+
+#45515
+Iguana King's Chamber~
+The cave room looks like a cross between an office and a bedroom.  The
+desk has many papers on it as if there is a lot of work to be done. 
+There is a big rug in the middle of the floor and a picture of the
+occupant's family on the desk.  The furniture is exquisite and fit for a
+king.  All of the furniture is stained a dark shade of brown that
+accentuates the grain of the oak it is made of.
+~
+~
+335151109 11 5 0
+D2
+oak door~
+oak door~
+407 1914 45514 10 10 5
+E
+desk~
+The desk is littered with several papers.  One of the papers reads, "From
+the Desk of S'aark." 
+~
+E
+rug floor~
+This woven wool rug looks very expensive.  The fringe on the end is very
+straight as if someone was meticulous about making sure it was just right.
+~
+E
+picture~
+There are four iguanas in the picture.  The small iguana in the lower
+right corner shows a large set of teeth in an effort to smile, but the
+others are not smiling in an effort to look regal.
+~
+1443 9 1509949540 3 0
+1463 9 1509949540 3 0
+-1
+S
+
+#45516
+Southeast Corridor~
+The floor is very slick from all of the water dripping from the top of
+the limestone ceiling.  There are some skeletal remains at the side of
+the passageway.  They look very similar to what a lizardman's frame would
+look like if it were much bigger.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45513 10 10 5
+D2
+~
+~
+0 -1 45517 10 10 5
+E
+remains skeletal skeleton bones~
+The skeleton looks like a long time decomposed lizardman, but it's too
+large to be a lizardman.  Most of the bones have been broken from being
+trampled on.
+~
+A
+search~
+skeleton skeletal bones~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( random( 1, 50 ) < 46 ) {
+    send_to_char( #none, ch );
+    act_notchar( #none2, ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    obj_to_char( oload( 2 ), ch );
+    if( random( 1, 5 ) == 5 )
+      obj_to_char( oload( 2 ), ch );
+    send_to_char( #ch, ch );
+    act_notchar( #ch2, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  send_to_char( #none, ch );
+  act_notchar( #none2, ch );
+  }
+~
+E
+ch2~
+$n looks around in the skeletal remains and finds something.
+~
+E
+ch~
+You find some gold in the pile of bones!
+~
+E
+none2~
+$n looks around in the skeletal remains.
+~
+E
+none~
+You find nothing in the pile of bones.
+~
+!
+0 0 0
+-1
+S
+
+#45517
+Southeast Corridor~
+The limestone walls in here are more slimy than the other rooms you have
+found yourself in.  The humidity and the heat makes it feel like a
+furnace in here.  The floor is slick with wetness and the smell of goo
+overcomes you.  The rocky room makes a turn to the north and west.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45516 10 10 5
+D3
+~
+~
+0 -1 45518 10 10 5
+E
+slime walls~
+Coating the walls are layers of goo -- and the smell is horrendous!
+~
+1444 1161 1509949540 3 0
+1444 1033 1509949540 3 0
+-1
+S
+
+#45518
+Southeast Corridor~
+You follow the winding cave tunnels almost stepping in a puddle of a
+gurgling green substance.  Some sort of steam rises from the surface of
+the goo as it oozes along the side of the corridor.  An awful smell
+eminates from the east.  The corridor continues to the north and the east.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45519 10 10 5
+D1
+~
+~
+0 -1 45517 10 10 5
+E
+puddle green substance~
+The puddle looks thick and gooey.  As each gurgle reaches the surface of
+the puddle, a bit of steam is released into the already musty air.
+~
+1453 9 1509949540 3 0
+1444 9 1509949540 3 0
+1444 9 1509949540 3 0
+-1
+S
+
+#45519
+Southeast Corridor~
+Looking around there is not much more to see than just cavern rock.  In
+some places, there are even stalagtites and stalagmites made from several
+decades worth of dripping water from the ceiling of the cave.  Every time
+a drop of water falls from the roof, it makes an almost ear-shattering
+sound that echos throughout the corridors of the stone labyrinth.
+~
+~
+335151108 11 5 0
+D2
+~
+~
+0 -1 45518 10 10 5
+D3
+~
+~
+0 -1 45520 10 10 5
+E
+stalagmites stalagtites~
+The stalagmites and stalagtites contain rings of color showing their old
+age in the same way a tree has its rings.  The stalagmites reach about
+one foot off the ground, and the stalagtites reach about two feet from
+the ceiling.
+~
+-1
+S
+
+#45520
+Southeast Corridor~
+There are footprints that make their way to the east, but they gradually
+disappear.  Walking past the walls, they appear to change colors from a
+green shade to a red-orange color.  Tiny bands of silver color line the
+cavern floor creating a small sparkle in some sections.  The path twists
+to the north and east here.
+~
+~
+335151108 11 5 0
+D0
+~
+~
+0 -1 45505 10 10 5
+D1
+~
+~
+0 -1 45519 10 10 5
+E
+footprints prints~
+The footprints made from a small amount of mud tracks in from the north
+and slowly disappears as it heads to the east.
+~
+E
+walls~
+The walls seem to change color from green to red-orange when you move
+from north to the east, but when you move from east to the north they
+change from red-orange to green again.
+~
+E
+bands silver floor~
+Every few inches or so in the floor is a little band of silver color.  On
+closer inspection, it looks like some sort of metal is actually embedded
+into the limestone floor.
+~
+-1
+S
+
+#0
+

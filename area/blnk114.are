@@ -1,0 +1,1701 @@
+#AREA
+Desert Scarab Lair~
+Orb~
+Desert Scarabs~
+
+15 0
+0
+#ROOMS
+
+#61000
+Beneath the Great Dune~
+Sand dribbles down the clay walls in little runnels, making you doubt the
+stability of the walls.  Dust motes float around, and the dry air smells
+dusty.  You can climb out of the hole or you can follow the tunnel south,
+deeper into the dune.
+~
+[Florian] Added Climb up function connecting to desert.
+~
+301465612 11 5 0
+D2
+~
+~
+0 -1 61001 10 10 5
+E
+walls~
+The walls are made of a sandy clay which crumbles as it dries, creating
+piles of sand on the floor.  Watching the walls slowly crumble before
+your eyes does little for your confidence in the stability of the tunnel.
+~
+A
+climb~
+hole up passage~
+if( find_skill( ch, climb ) > random( 1, 7 ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #rclimb, ch );
+  transfer( ch, find_room( 48100 ) );
+  loop( followers ) {
+    act_tochar( #follow, rch );
+    act_notchar( #rfollow, rch );
+    transfer( rch, find_room( 48100 ) );
+    act_notchar( #arrives, rch );
+    }
+  }
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rfall, ch );
+  }
+~
+E
+climb~
+You climb up the side of the clay wall, through the hole.
+~
+E
+rclimb~
+$n climbs up the side of the clay wall, through the hole.
+~
+E
+rfollow~
+$n climbs up the wall and through the hole in the ceiling.
+~
+E
+follow~
+You follow your leader up through the hole in the ceiling.
+~
+E
+fall~
+You fall, almost twisting your ankle.
+~
+E
+rfall~
+$n slips off the side of the clay wall, almost hurting $mself.
+~
+E
+arrives~
+$n arrives, squirming out from beneath the dune.
+~
+!
+0 0 0
+-1
+S
+
+#61001
+A Tunnel Under the Dunes~
+The walls of this tunnel are made of a crumbling yellow clay.  Rivulets
+of sand run down from the low ceiling, slithering to rest in ever-growing
+piles on the rock-strewn floor.  A soft breeze flows through the area, a
+breath of cool air.
+~
+[Merior] cool air in this hot and stifling place (or something?)
+[Orb] Yeah, its under the sand, where its semi cool.  They've got the
+ventiliation thing going on.  You see the borer beetles digging their
+holes for that purpose., 
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61000 10 10 5
+D2
+~
+~
+0 -1 61002 10 10 5
+A
+~
+sand~
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+~
+E
+search~
+You sift through the piles of sand but you find nothing of value.
+~
+E
+rsearch~
+$n sifts through the piles of sand, but finds nothing of value.
+~
+!
+9 0 0
+-1
+S
+
+#61002
+A Tunnel Under the Dunes~
+Small boulders of dun-colored stone line the western wall of the tunnel
+narrowing the corridor down to a rather tight fit.  Gravel crunches
+underfoot, sending echoes through the tunnel.  Strange scratches nearly
+an inch wide mark the clay walls.  The tunnel extends north and south,
+running into darkness.  A small alcove has been scraped out of the
+eastern wall, from which the sound of dripping water echoes.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61001 10 10 5
+D1
+~
+~
+0 -1 61003 10 10 5
+D2
+~
+~
+0 -1 61004 10 10 5
+E
+scratches~
+Long slashes mar the clay walls.  Extending to as long as three feet or
+as short as one, the slashes are confined to the lowest 3 feet of the
+wall.
+~
+-1
+S
+
+#61003
+An Alcove in the Tunnels~
+The floor of this small alcove is a hard, sandstone basin.  Water seeps
+out of the walls and drips down to be collected in the rounded basin. 
+The clear water is cool and a slightly sweet scent wafts up from it. 
+Water deposits line the walls in the form of crystalline structures, from
+amethyst to salt.
+~
+~
+301465604 11 5 0
+D3
+~
+~
+0 -1 61002 10 10 5
+E
+amethyst crystal~
+Transluscent spikes of pale purple crystal jut out from the wall around
+the basin.
+~
+E
+basin sandstone~
+This depression in the floor appears to have been hollowed out over a
+long time by the water dripping down into it.  Little more than a puddle,
+the water is nearly clear, and smells slightly sweet.
+~
+E
+salt~
+White crystals clump together on the wall, the remains of long-evaporated
+water.
+~
+A
+chip get~
+crystal amethyst~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) >= 6 ) {
+    remove_rflag( reset0, room );
+    act_tochar( #get, ch );
+    act_notchar( #rget, ch );
+if( random( 1, 10 ) >= 8 ) {
+}
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #shatter, ch );
+    act_notchar( #rshatter, ch );
+    }
+  }
+else {
+  act_tochar( #shatter, ch );
+  act_notchar( #rshatter, ch );
+  }
+~
+E
+get~
+You carefully chip at the amethyst, producing a perfect crystal!
+~
+E
+rget~
+$n chips away at the amethyst, freeing a perfect crystal!
+~
+E
+shatter~
+You chip at the amethyst, but the delicate crystalline structure shatters.
+~
+E
+rshatter~
+$n chips at the amethyst, but the delicate crystalline structure shatters.
+~
+!
+0 0 0
+819 17 1509949540 -2 35
+1849 9 1509949540 3 0
+-1
+S
+
+#61004
+A Tunnel Under the Dunes - Near a Pair of Large Boulders~
+Two large boulders set along the eastern wall make this section of the
+tunnel a very tight squeeze.  Abstract patterns of lines are imprinted
+into the soft sand of the floor, while strange blurs blot out the lines
+in places.  Occasional motes of dust float through the dry air.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61002 10 10 5
+D2
+~
+~
+0 -1 61030 10 10 5
+D3
+~
+~
+0 -1 61005 10 10 5
+E
+line blur~
+Patterns of lines and blurs cover the lowest three feet of the wall. 
+Nearly an inch thick, some of the slashes have been blotted out as if by
+someone dragging a weight along the malleable clay of the wall.
+~
+E
+boulders~
+Two boulders take up most of the space in this tunnel.  Made of a
+dun-colored stone, the giant rocks stand nearly four feet high. 
+Strangely the rocks seem to be nearly the same shape and size.  They are
+rounded with surprisingly few rough edges, as though they were rounded
+deliberately.
+~
+A
+~
+~
+act_tochar( #by, ch );
+act_notchar( #rby, ch );
+continue;
+~
+E
+by~
+You squeeze past the boulders.
+~
+E
+rby~
+$n squeezes by the boulders.
+~
+!
+3 0 13
+1849 9 1509949540 3 0
+-1
+S
+
+#61005
+A Tunnel Under the Dunes~
+The slithering sound of sand running down walls fills the tunnel, leaving
+doubt about the integrity of the tunnel.  Dust motes float on the cool,
+dry air, making breathing difficult.  Piles of sand lie at uneven
+intervals along the floor, beneath holes that have been bored into the
+sandy clay.
+~
+borer beetles here
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61004 10 10 5
+D3
+~
+~
+0 -1 61006 10 10 5
+E
+holes wall~
+Nearly two feet in diameter, the holes in the wall are dark but you can
+hear scrabbling noises within.
+~
+E
+piles~
+Seemingly piled up at random, these little mounds of sand look to have
+been hastily pushed together.  They sit at irregular intervals all along
+the floor.
+~
+A
+search~
+hole~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #dig, ch );
+  act_notchar( #rdig, ch );
+  mload( 1775, room );
+wait( 1 );
+send_to_room( #boo, room );
+  mob = mob_in_room( 1775, room );
+  attack( mob, ch, 1d3, "flailing legs" );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+dig~
+You rummage around in the holes in the wall.
+~
+E
+rdig~
+$n rummages around in the holes in the wall.
+~
+E
+boo~
+A large @Yborer beetle@n pops out of one of the holes, obviously irate!
+~
+E
+nothing~
+You search the holes but find nothing.
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 1849, room ) )
+send_to_room( #push, room );
+else
+  end;
+~
+E
+push~
+The worker beetle hastily pushes some sand into little piles, trying to
+keep the path clear.  His efforts only seem to compound the problem.
+~
+!
+2 400 0
+A
+~
+~
+if( rflag( reset0, room ) )
+send_to_room( #fly, room );
+else
+  end;
+~
+E
+fly~
+@ySand flies out from the holes in the wall spraying everywhere. 
+Something is obviously busy in there.
+~
+!
+2 150 0
+-1
+S
+
+#61006
+A Tunnel Under the Sand - Near a Collapsed Room~
+The dubious integrity of the walls has finally succumbed to gravity here,
+and fully half the chamber is filled with sand and chunks of clay. 
+Various rocks and unidentifiable lumps are mixed in with the sand and
+clay.  An ominous rumbling fills the chamber, suggesting a hurried
+departure would be in order.
+~
+[Orb] search for gold here
+[Orb] dig down to get to the second level.
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61005 10 10 5
+D5
+sand~
+~
+203 -1 61007 10 10 5
+E
+sand floor ~
+Mixed in with the clay and lumpy sand are small rocks that gleam a dull
+yellow color.  The sand is not hard packed and looks as though it could
+be dug down through.
+~
+A
+search~
+sand pile clay rocks lumps~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 20 ) > 1 ) {
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    }
+  else {
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 455 ), ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+~
+E
+fail~
+You rummage through the sand but find nothing.
+~
+E
+rfail~
+$n rummages through the sand but finds nothing.
+~
+E
+find~
+You rummage through the sand and find a precious chunk of gold!
+~
+E
+rfind~
+$n rummages through the sand and finds a precious chunk of gold!
+~
+!
+9 0 0
+A
+dig~
+d do down sand~
+if( !is_open( room, down ) ) {
+  act_tochar( #dig, ch );
+  act_notchar( #rdig, ch );
+  open( room, down );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+dig~
+You move some of the sand aside, revealing a small hole.
+~
+E
+rdig~
+$n moves some of the sand aside, revealing a small hole.
+~
+E
+nothing~
+The hole is already cleared.
+~
+!
+0 0 0
+1860 9 1509949540 3 0
+-1
+S
+
+#61007
+A Tunnel Under the Dunes~
+This constrictingly close chamber is filled with piles of yellow sand. 
+The tops of a few boulders peek out above the high piles.  Fine and
+powdery, the sand drifts down from above, piling ever higher.  The only
+opening is to the west through which you can see only darkness.
+~
+~
+301465604 11 5 0
+D3
+~
+~
+0 -1 61008 10 10 5
+D4
+sand~
+~
+203 -1 61006 10 10 5
+E
+up~
+The sand above you is fine and powdery.  It drifts down to lightly cover
+you, as you gaze up at it.  You think you might be able to clear it away
+without the aid of a shovel.
+~
+E
+boulders~
+Boulders of yellowish rock peek out from beneath piles of fine, powdery
+sand.
+~
+A
+dig~
+up sand ceiling ~
+if( !is_open( room, up ) ) {
+  act_tochar( #dig, ch );
+  act_notchar( #rdig, ch );
+open( room, up );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+dig~
+You dig your way through the sand, making a hole just wide enough to
+pass through.
+~
+E
+rdig~
+$n digs through the sand above you.
+~
+E
+nothing~
+The way is already clear.
+~
+!
+0 0 0
+1849 9 1509949540 3 0
+-1
+S
+
+#61008
+A Tunnel Under the Dunes~
+The uneven rocky floor of the tunnel is liberally strewn with yellowish
+sand.  Sharp shards of stone lie among the sand, mingling with round
+pebbles and flat shale.  Tiny stones roll off in every direction with
+your every step, creating a clatter.  A very faint light flickers in the
+west, so dim that it is merely a minute lessening of the darkness.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61007 10 10 5
+D3
+~
+~
+0 -1 61009 10 10 5
+E
+sand~
+The yellowish sand which blankets the floor for the corridor is light and
+powdery.  It has drifted down from the ceiling and walls to settle in
+uneven piles all over the floor.
+~
+E
+shard stone~
+The tiny round pebbles litter the floor, lying where they fell when the
+sand holding them into the wall drifted away.  They roll away and crunch
+underfoot, making the footing treacherous.
+~
+-1
+S
+
+#61009
+A Tunnel Under the Dunes~
+An eerie glow from the west bathes the dry walls, bathing all the cracks
+and crevices in the crumbly clay in a shade of reddish-brown.  Odd
+shadows dance across the surface of the uneven walls, flickering as the
+source of the light moves.  The floor of this room is coated with a thin
+layer of shattered glass.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61011 10 10 5
+D1
+~
+~
+0 -1 61008 10 10 5
+D3
+~
+~
+0 -1 61010 10 10 5
+E
+floor glass~
+A thin layer of transparent, yellow glass coats the floor, shattered into
+a million jagged pieces.
+~
+E
+shadows~
+Shadows cast by the odd reddish glow emanating from the west dance and
+flutter as the light source moves.  The shades of small boulders and rocks
+loom menacingly, seemingly ready to grasp you at any moment.
+~
+1849 9 1509949540 3 0
+-1
+S
+
+#61010
+Within a Bone-strewn Lair~
+This room is little more than a depression scratched out of the crumbling
+clay.  Various bones and debris are scattered all over the floor.  The
+dry air of the tunnels is extremely hot here, as shimmering heat lines
+rise from patches of phosphorescent red that line the walls.  Shattered
+glass lies strewn everywhere.
+~
+big fire beetle here in its lair
+no.mob to keep firebeetle alone.
+[Velhart] I know I have stinky feet, but can't search bones?
+~
+301465612 11 5 0
+D1
+~
+~
+0 -1 61009 10 10 5
+E
+red patches phosphorescent~
+Perhaps some sort of fungus, these randomly placed patches burn with a
+red-hot heat.  Where the patches cling to the wall, singe and burn marks
+marr the clay surface.
+~
+E
+glass~
+Thin, yellowish glass lies scattered all over the floor of this small
+room.  Charred, melted fragments stick together, as though it has been
+subjected to intense heat multiple times.
+~
+E
+bones~
+The floor is strewn with gnawed bones, scraps of rotting flesh, and
+tattered cloth.  The hungry beetle who lives here seems to have feasted
+on many an adventurer.
+~
+1815 9 1509949540 3 0
+-1
+S
+
+#61011
+A Tunnel Under the Dunes~
+Bits of sand crumble from the abrasive walls, tumbling across the floor. 
+A soft breath of air washes through, accompanied by a faint, acrid odor. 
+Hundreds of narrow lines mark the sand; parts of the walls are marred
+with long slashes.
+~
+[Merior] are all the marks gonna make sense? guess i'll see
+[Orb] Hehe, it would if I had remembered to put the prog on the mobs. :P
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61013 10 10 5
+D2
+~
+~
+0 -1 61009 10 10 5
+D3
+~
+~
+0 -1 61012 10 10 5
+E
+slashes~
+Long, inch-thick slashes mar the wall near the sand.  The marks run about
+a half inch deep into the wall.
+~
+-1
+S
+
+#61012
+A Tunnel Under the Dunes~
+Heading east and west, this dark tunnel is cool and dry, brushed with the
+faintest breeze.  Spidery veins of brilliant white quartz run through
+the walls, breaking the surface of the hard-packed clay.  Tracks in the
+form of faint scrabbling lines are pressed into the sandy floor.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61011 10 10 5
+D3
+~
+~
+0 -1 61014 10 10 5
+E
+veins quartz~
+Opaque white quartz spreads out through the wall in an abstract design.
+Tendrils ranging from one inch to nearly a foot in width reach out
+through the walls.
+~
+-1
+S
+
+#61013
+A Dead End in the Tunnels~
+This room seems to be used to store the refuse the worker beetles clear
+from the tunnels.  Various objects are scattered around the floor. 
+Half-decayed food mixes with small, shiny objects to create quite a mass
+of garbage.  Piled up nearly to the ceiling near the back of the chamber,
+the huge pile of refuse exudes a sickening odor of decay.  Near the
+northeastern corner, the heavily decayed corpse of a short, squat
+humanoid molders.
+~
+Added an alicorn search and rextra.  Feel free to rewrite.  just need a
+hint of a corpse.
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 61011 10 10 5
+E
+garbage refuse huge pile~
+Odd bits of bone, rotten meat, and other pieces of detrital material lie
+in a huge heap.  Towards the back part of the huge garbage pile, you can
+make out the remains of a fully intact, short, squat skeleton.
+~
+E
+short squat skeleton intact corpse~
+The short, squat corpse nearly hidden towards the back of the refuse pile
+is very old.  The bones show multiple gnaw marks up and down their length
+and are cracked in places.  Huddled over, the squat figure looks like it
+died protecting something.  Judging by its size and the shape of its
+skull, the body likely belonged to a goblin or hobgoblin.
+~
+A
+~
+short squat corpse hobgoblin skeleton~
+if( is_player( ch ) )
+  if( rflag( reset0, room ) )
+  if( random( 1, 20 ) == 1 ) {
+  act_tochar( #find, ch );
+  act_notchar( #rfind, ch );
+  obj_to_char( oload( 2027 ), ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #find2, ch );
+  act_notchar( #rfind, ch );
+  obj_to_char( oload( 2 ), ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #already, ch );
+else
+  act_tochar( #not, ch );
+~
+E
+already~
+The short, squat corpse has been rummaged through quite thoroughly already.
+~
+E
+find~
+Searching through the skeleton, you find an alicorn clutched in its hands!
+~
+E
+rfind~
+$n rummages around the garbage and finds something!
+~
+E
+find2~
+You find a gold coin clutched in the skeleton's tiny hand.
+~
+E
+not~
+You do not find anything in the corpse.
+~
+!
+9 0 0
+A
+~
+~
+mob = mob_in_room( 1849, room );
+interpret( mob, "drop all" );
+~
+!
+4 150 0
+185 9 1509949515 3 0
+-1
+S
+
+#61014
+A Tunnel Under the Dunes~
+Several large boulders narrow the tunnel down to a tiny corridor through
+which you have to carefully pick your way.  A hole in the wall to the
+south looks freshly excavated.  A pile of dirt lies near the new exit,
+piled into a perfectly round half-sphere.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61012 10 10 5
+D2
+~
+~
+0 -1 61015 10 10 5
+D3
+~
+~
+0 -1 61016 10 10 5
+E
+dirt mound pile~
+Meticulously rounded into a perfect pile, the dirt is a dun-colored,
+crumbly clay.  The mound stands about 4 feet tall, taking up a good
+portion of the room.
+~
+E
+boulders~
+Large, round boulders of dun-colored stone take up a good portion of the
+room in the tunnel.  Two of them have been rolled up against the northern
+wall leaving impressions behind to show their passage.
+~
+E
+hole~
+The gaping hole to the south has yet to be smoothed and shored to match
+the rest of the tunnel.  Sand and small pebbles rain down from the top of
+the hole to litter the ground.
+~
+1849 9 1509949540 3 0
+-1
+S
+
+#61015
+A Tunnel Under the Dunes - A New Excavation~
+This roughly scratched out indentation in the wall seems to be the
+beginning of a new tunnel.  Great chunks have been gouged out of the
+walls and the dirt left to lie on the ground.  A vein of bright quartz
+runs through the eastern wall.  The opaque white stone is covered with
+small gouges.  Fresh, cool air flows out of a large hole in the southern
+wall.
+~
+[Ssleestaq] the air pushes me back? heh. big air.
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61014 10 10 5
+E
+vein quartz wall east~
+Opaque white stone runs in spidery veins through the eastern wall.  It
+looks as though someone or something has tried to remove it, but the vein
+appears to run deep.
+~
+E
+gouges~
+These jagged holes in the wall appear to have been made to loosen the
+clay enough for it to be dug out.  Cracks radiate out from each gouge,
+and pieces of the wall have fallen away to litter the floor.
+~
+E
+floor walls~
+The floor of this unfinished chamber is littered with pieces of the wall,
+sand, clay, and rough stones.  The walls do not look stable, as they have
+not been smoothed and shored up as have the walls of the rest of the
+tunnel.
+~
+E
+hole~
+The large hole is nearly three feet in diameter.  Sweet, cool air flows
+out of the hole and into the tunnels beyond.
+~
+A
+enter climb~
+hole~
+act_tochar( #nope, ch );
+act_notchar( #rnope, ch );
+~
+E
+nope~
+You try to crawl into the hole, but the air pushes you back.
+~
+E
+rnope~
+$n tries to crawl into the hole but is pushed back by the current of air.
+~
+!
+0 0 0
+A
+~
+floor rocks debris quartz pile~
+act_tochar( #nope, ch );
+act_notchar( #rsearch, ch );
+~
+E
+nope~
+You search through the rocks and debris but find nothing.
+~
+E
+rsearch~
+$n searches through the rocks and debris but finds nothing.
+~
+!
+9 0 0
+1860 137 1509949540 3 0
+-1
+S
+
+#61016
+A Tunnel Under the Dunes - A Depression in the Sand~
+The tunnel here is filled with a fine, powdery sand.  Nearly two feet
+deep, the blanket of powdery white sand is so fine that you sink into it
+like water.  A depression in the sand lies in the direct center of the
+room, and all the sand is slanted down toward it.
+~
+Ant Lion code here.
+Sort of a newbie remorhaz ;)
+no.mob set to keep bad old ant lion alone
+~
+301465612 0 5 0
+D1
+~
+~
+0 -1 61014 10 10 5
+D3
+~
+~
+0 -1 61017 10 10 5
+E
+floor depression sand~
+The inverted cone of sand is about three feet wide.  In the center of the
+depression, a small hole is visible.  The sand of the cone is ridged so
+that very little of it moves.
+~
+A
+~
+~
+if( random( 1, 10 ) > 5 ) {
+  if( !mob_in_room( 1718, room ) ) {
+    if( rflag( reset0, room ) ) {
+      remove_rflag( reset0, room );
+      act_tochar( #hello, ch );
+      wait( 1 );
+      send_to_room( #eek, room );
+      mload( 1718, room );
+      mob = mob_in_room( 1718, room );
+      attack( mob, rand_player( room ), 3d4, "crushing bite" );
+      }
+    else
+      continue;
+    }
+  else
+    continue;
+  }
+else
+  continue;
+~
+E
+hello~
+@eThe sand trembles beneath you and starts sliding toward the middle of
+the room!
+~
+E
+eek~
+@eA giant red @Rant lion@n @eleaps out of its lair and tries to drag you
+under!
+~
+!
+1 0 10
+A
+d do dow down~
+~
+act_tochar( #down, ch );
+~
+E
+down~
+You don't see any way to get down into the ant lion's lair.
+~
+!
+0 0 0
+A
+dig~
+floor down sand d do~
+if( !mob_in_room( 1718, room ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_notchar( #rdig, ch );
+    act_tochar( #dig, ch );
+    wait( 1 );
+    act_tochar( #ant, ch );
+    act_notchar( #rant, ch );
+    wait( 1 );
+    act_room( #pop, ch );
+    mload( 1718, room );
+    mob = mob_in_room( 1718, room );
+    attack( mob, rand_player( room ), 3d4, "crushing bite" );
+    }
+  else {
+    act_tochar( #thump, ch );
+    act_notchar( #rthump, ch );
+    transfer( ch, find_room( 61018) );
+    act_tochar( #thud, ch );
+    act_notchar( #rthud, ch );
+    }
+  }
+else {
+act_room( #nope, ch );
+mob = mob_in_room( 1718, room );
+  attack( mob, rand_player( room ), 3d4, "crushing bite" );
+  }
+~
+E
+dig~
+You dig into the middle of the sandy depression, trying to widen the hole.
+~
+E
+rdig~
+$n digs into the middle of the sandy depression, trying to widen the hole.
+~
+E
+ant~
+As you dig deeper into the sand, a tremor passes through the ground.
+~
+E
+rant~
+A tremor passes through the ground as $n digs deeper into the sand.
+~
+E
+pop~
+@eA giant red @Rant lion@n @eleaps out of its lair and tries to drag you
+under!
+~
+E
+thump~
+You dig into the sand and it begins to move.  Sliding into the middle of
+the depression, the sand swirls you down into a dark hole.
+~
+E
+rthump~
+$n starts digging in the sand.  A slight tremor passes through the sand
+and it begins to slide downward into the depression in the middle of the
+room.  You are pulled along with the streams of sand into a dark hole!
+~
+E
+thud~
+You land heavily on the floor of a bone-strewn lair.
+~
+E
+rthud~
+$n falls through the sand to land heavily next to you.
+~
+E
+nope~
+@eProvoked by the threat to its lair, the ant lion attacks!
+~
+!
+0 0 0
+A
+enter~
+hole~
+act_tochar( #enter, ch );
+~
+E
+enter~
+The tiny hole is too small to enter.  Perhaps try digging to widen it?
+~
+!
+0 0 0
+-1
+S
+
+#61017
+A Bend in a Tunnel Under the Dunes~
+The tunnel bends sharply here, creating a sharp bend from which the clay
+corridors radiate out to the north and east.  The close walls of the
+tunnels open here somewhat, creating a rather large chamber.  The walls
+are solid, packed clay of a yellowish brown color.  Covering the floor of
+the chamber is an inch-thick layer of sand, liberally strewn with pebbles
+and bits of debris.
+~
+[Ssleestaq] bends sharply creating a sharp bend??  that's a bit more than redundant.
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61019 10 10 5
+D1
+~
+~
+0 -1 61016 10 10 5
+E
+walls clay~
+The walls of yellow, packed clay are shored up and smoothed over.  A few
+lumps and fist-sized stones have escaped the busy beetles, though, and
+the wall is uneven in places.
+~
+E
+sand floor~
+The floor is blanketed by a cover of yellowish sand nearly an inch thick. 
+The sand has been spread out to cover the floor evenly, and the rocks and
+debris strewn across it seem to have been set purposefully in their
+places.
+~
+-1
+S
+
+#61018
+In the Ant Lion's Lair~
+Various tiny bones and dried beetle carapaces litter this area.  Dead and
+decaying victims, the remnants of past meals, lie scattered all through
+the lair.  Bits of clothing and dismembered limbs are piled into a mound
+near the northern wall.  The sandy floor of the chamber is dull reddish
+brown and is crusted with dried blood.  The ceiling is made up of a thin
+layer of sand, through which you could easily climb.
+~
+[Starshine] add u to climb action?
+[Starshine] extras for the bones/carapaces/etc in room?
+~
+301465604 11 5 0
+A
+climb ~
+up out~
+act_tochar( #dig, ch );
+act_notchar( #rdig, ch );
+transfer( ch, find_room( 61016 ) );
+act_notchar( #arrive, ch );
+~
+E
+dig~
+You climb up through the thin layer of sand covering the ant lion's lair.
+~
+E
+rdig~
+$n climbs up through the thin layer of sand covering the ant lion's lair.
+~
+E
+arrive~
+$n comes climbing up through the sand.
+~
+!
+0 0 0
+A
+u up~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You will have to climb up through the sand.
+~
+!
+0 0 0
+A
+~
+pile mound~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) == 5 ) {
+    remove_rflag( reset0, room );
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 1006 ), ch );
+    }
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+~
+E
+find~
+You rummage through the debris and find a piece of useful parchment.
+~
+E
+rfind~
+$n rummages through the debris and finds a piece of useful parchment.
+~
+E
+fail~
+You rummage through the debris but find nothing of value.
+~
+E
+rfail~
+$n rummages through the debris but finds nothing of value.
+~
+!
+9 0 0
+-1
+S
+
+#61019
+A Tunnel Under the Dunes~
+Bored deep into the sandy clay, this tunnel is dry and cool.  A soft wind
+washes through the area, bringing a breath of light, dry air to your
+nostrils.  The fine, yellowish sand which blankets the floor stirs
+slightly as the air blows gently through the tunnel.  A vein of bluish
+ore streaks its way through the ceiling of the tunnel.  Visible only in
+patches here, the aqua-colored vein shows more of itself as you head
+north.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61020 10 10 5
+D2
+~
+~
+0 -1 61017 10 10 5
+E
+vein ore ceiling~
+Ore of a lovely aqua color streaks the dun-colored clay of the ceiling
+here.  Thin, spidery veins of bluish ore radiate outward from a center
+located to the north.
+~
+1849 9 1509949540 3 0
+-1
+S
+
+#61020
+A Tunnel Under the Dunes~
+The yellowish clay walls of this section of the tunnel are shot through
+with a myriad of blue-green veins of ore.  The ceiling of the tunnel is
+almost entirely the lovely aquamarine color which streaks the walls.  In
+the exact center of the room, an iridescent crystal of imperfect, though
+lovely, structure glimmers faintly, shedding a flickering azure light on
+the room.  Bending sharply to the west and south, the tunnels head off
+into darkness.
+~
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 61019 10 10 5
+D3
+~
+~
+0 -1 61021 10 10 5
+E
+crystal~
+Nearly a foot across, the visible portion of the crystal glows with a
+faint light.  A large crack runs across the right side of the crystal,
+marring the perfect facets.
+~
+E
+veins ceiling ore~
+The aqua-colored vein of ore wends its way through the ceiling and walls
+of this area of the tunnel.  Concentrated most strongly in the ceiling, it
+streaks down through the walls, as well.
+~
+A
+dig get grab take~
+crystal~
+act_tochar( #get, ch );
+act_notchar( #rget, ch );
+~
+E
+get~
+You try to dig the crystal out of the ceiling but it is too deeply
+embedded.
+~
+E
+rget~
+$n tries to dig the crystal out of the ceiling but it is too deeply
+embedded.
+~
+!
+0 0 0
+1836 9 1509949515 3 0
+-1
+S
+
+#61021
+A Tunnel Under the Dunes~
+Tiny rivulets of sand make faint slithering sounds as they run down the
+crumbly clay walls of the tunnel into ever-growing piles on the floor.  A
+gentle breeze blows through the tunnel, carrying a light haze of sand
+which fills your throat.  The dark yellow walls of the narrow tunnel are
+streaked with filaments of a lovely blue-green ore.  Near the eastern
+portion of the northern wall, the veins of ore become so thick that it
+almost completely covers the clay.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61020 10 10 5
+D2
+~
+~
+0 -1 61022 10 10 5
+E
+ore northern veins~
+Spidery veins of a deep aquamarine ore wind their way through the crumbly
+clay of the northern wall.  Becoming most concentrated to the eastern
+edge of the wall, the ore extends into the chamber to the east, from
+which a faint blue light shines.
+~
+E
+rivulets clay walls~
+The walls consist of a crumbly, sandy clay.  Rivulets of sand stream down
+from the dried walls, giving the walls the impression of precarious
+stability.
+~
+E
+piles floor~
+Fine yellowish sand crumbles down from the walls to settle into small,
+irregular piles on the floor of the tunnel.
+~
+-1
+S
+
+#61022
+A Tunnel Under the Dunes - Intersecting Paths~
+The tunnel opens into two paths here, heading north and bending to run
+west.  A rough hole has been bored into the southern wall, creating quite
+a large opening.  The material dug out of the wall has been roughly
+strewn over the ground, creating an uneven surface covered with a thick
+layers of pebbly sand.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61021 10 10 5
+D2
+~
+~
+0 -1 61024 10 10 5
+D3
+~
+~
+0 -1 61023 10 10 5
+E
+south hole~
+This jagged, gaping hole has been torn out of the southern wall.  Nearly
+six feet in diameter, the hole is obviously newly made, as fresh clay
+blankets the floor of the chamber.
+~
+E
+material sand stones~
+The dun-colored clay which litters the ground has obviously been freshly
+excavated from the tunnel wall to the south.  Tossed around in a
+haphazard fashion, the debris lies strewn everywhere.
+~
+1849 9 1509949540 3 0
+-1
+S
+
+#61023
+A Tunnel Under the Dunes~
+A soft, whispering breeze blowing through the tunnel brushes your skin
+lightly, a cool caress.  The soft sand covering the floor is littered with
+broken shards of stone and small round pebbles.  Slightly curving walls
+support the low ceiling of the tunnel.  Scratching sounds echo faintly
+through the tunnel, carried on the cool breeze.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61022 10 10 5
+D3
+~
+~
+0 -1 61025 10 10 5
+E
+sand shard pebbles floor~
+The yellowish sand which covers the floor is strewn with rounded pebbles
+and sharp shards of stone.
+~
+-1
+S
+
+#61024
+A Tunnel Under the Dunes - A New Excavation~
+This room is little more than a gaping hole in the wall.  Clawed roughly
+out of the crumbly clay, this aperture is generally of the same
+dimensions as the corridor that precedes it.  Fresh clay has been exposed
+here, and is strewn liberally over the floor of the chamber to the north. 
+The walls are irregular and jagged stones jut out from the floor, giving
+this chamber the look of a work in progress.
+~
+maybe for expansion at some point
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61022 10 10 5
+A
+dig search~
+clay dirt floor debris~
+act_tochar( #dig, ch );
+act_notchar( #rdig, ch );
+~
+E
+dig~
+You dig through the clay but find nothing.
+~
+E
+rdig~
+$n digs through the clay but finds nothing.
+~
+!
+0 0 0
+1849 9 1509949540 3 0
+-1
+S
+
+#61025
+A Tunnel Under the Dunes - Before a Strange Design~
+The walls of the tunnel are noticeably smoother here than in the eastern
+portion of the tunnels.  The dun-colored clay begins to lighten to a paler
+shade of yellow as you move west.  The sand on the floor is a mix of dark
+yellow grains and pale, almost white granules.  On the southern wall, a
+strange pattern of scratches and slashes has been cut; it is a seemingly
+abstract design.
+~
+In case ya didnt get the hidden meaning, this is the beetle copy of the
+world map.  Thought it might be nice to give a subtle hint of more than
+average intelligence.
+[Merior] i thought these were dumb beetles.. what are they doing with a world map?
+[Merior] and what technology have they to make the map with? and knowledge?
+[Orb] see the queen's room ;)
+[Teek] When looking at the design on the wall, it says "a winding, twisting line wending its way".  Simply should be winding.
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 61023 10 10 5
+D3
+~
+~
+0 -1 61026 10 10 5
+E
+southern wall pattern scratches slashes design~
+Long scratches and deep gouges have been slashed into the wall here.  The
+abstract design resolves into a more purposeful pattern as you gaze at it
+for a moment.  You can pick out a winding, twisting line wending its way
+through gouges that are roughly symmetrical on either side of the
+twisting line.  Triangular shapes cluster together near the northeastern
+corner of the mosaic.  Short dashes cover the center of the mosaic, and
+in the exact middle is a huge circular shape with six tiny lines
+radiating from it.
+~
+1849 9 1509949540 3 0
+-1
+S
+
+#61026
+A Junction Under the Sand~
+This wide, vaulted chamber is a sharp contrast to the close tunnel to the
+east.  Its high ceiling and curving walls are a pale yellow at the
+eastern side of the room, ranging to pearly white farther west.  A faint
+golden glow radiates from the northern, southern, and western exits.  The
+amber light emanating from the west flickers and dances every few moments.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 61027 10 10 5
+D1
+~
+~
+0 -1 61025 10 10 5
+D2
+~
+~
+0 -1 61028 10 10 5
+D3
+~
+~
+0 -1 61029 10 10 5
+E
+west light~
+A rounded archway leads into a brightly lit room.  The shimmering golden
+glow from the west is impossible to look at for long.
+~
+-1
+S
+
+#61027
+A Small Side Chamber in the Tunnels~
+The close walls and ceiling of this small side chamber are a smooth snowy
+white, contrasting sharply with the crumbly dun-colored walls of many of
+the previous sections of the tunnel.  The floor is covered by a thick
+layer of fine, white sand.  A faint light pulses from all corners of the
+room, striking the sand and occasionally reflecting a brilliant glare
+into your eyes as you move.
+~
+guard here
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 61026 10 10 5
+1836 9 1509949540 3 0
+-1
+S
+
+#61028
+A Small Chamber off the Tunnels~
+A snowy coverlet of pearl-white sand blankets the floor of this small
+chamber.  The rounded ceiling curves down in an almost spherical shape;
+the entrance is higher than the back of it.  Milk-white walls glimmer
+with a faint amber light.  The dim glow glints off the crystalline sand,
+amplifying its golden radiance.
+~
+guard here
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61026 10 10 5
+E
+floor sand~
+Millions of pearly granules of sand blanket the floor in a white coverlet. 
+The sand is so light as to be nearly clear, though a few errant yellowish
+grains intrude to blemish the alabaster perfection of the whole.
+~
+1836 9 1509949540 3 0
+-1
+S
+
+#61029
+A Chamber of Radiant Light~
+This chamber is bathed in a radiant golden glow.  A pool in the middle of
+the floor is filled with what appears to be liquid light.  Surrounding
+the pool is a crystalline barrier of gold-tinged quartz.  The sand in the
+room is a white color, the granules seeming almost clear, creating a
+blinding glare as the light radiating from the pool strikes it.  In the
+western wall, a huge circular hole gapes.  Cool, sweet air flows out of
+hole to blow through the room and down into the tunnels.
+~
+no.mob to keep queen alone until she summons her guards
+[Orb] Okay, added the intelligence modifier to the pool (I only just
+learned you can -add- stats with drain_stat.  Wonder of wonders).  She's
+drank out of it for so long, she's getting purty smart.  Her stats
+reflect this.  When her guards come into the room, they drink, too, but
+not nearly as much.  Thats why she's completely clear, and they're only
+patched with it.  She's the queen so holds the workers in thrall.  She
+scratched the map on the wall after seeing the one she has in her inv,
+and the scratches the little workers make is in imitation of her actions.
+[Ssleestaq] okay you can't fill from an obvious pool?
+[Ssleestaq] at least give a failure message of somekind
+~
+301465613 11 5 0
+D1
+~
+~
+0 -1 61026 10 10 5
+E
+pool floor~
+Nearly five feet in diameter, this pool is filled with a fluid that
+gleams like molten light.  No heat rises from the incandescent liquid
+which lies in the rounded basin.  An occasional ripple passes across the
+surface of the pool, setting the light in the room dancing.
+~
+E
+barrier quartz crystals~
+This lovely, six inch high formation of gold-tinged quartz crystals
+borders the pool, keeping the radiant liquid confined to its basin.
+~
+E
+hole~
+Nearly three feet in diameter, the hole in the western wall is perfectly
+circular.  Cool air flows out of the hole and out into the tunnels.
+~
+A
+~
+~
+if( mob_in_room( 1829, room ) )
+  send_to_room( #drink, room );
+else
+  end;
+~
+E
+drink~
+The crystalline scarab bends down and drinks from the radiant golden
+pool, setting the light dancing as ripples disturb the pool.
+~
+!
+2 150 0
+A
+drink~
+pool~
+act_tochar( #drink, ch );
+act_notchar( #rdrink, ch );
+i = 30d4;
+dam_message( ch, i, "the arc of incandescent light" );
+inflict( ch, mob, i, "an arc of incandescent energy" );
+~
+E
+drink~
+You touch the radiant golden liquid and an incandescent streak of light
+arcs out to engulf your body!
+~
+E
+rdrink~
+$n touches the radiant golden liquid and an incandescent streak of light
+arcs out to engulf $s body!
+~
+!
+0 0 0
+A
+enter climb~
+hole~
+act_tochar( #nope, ch );
+act_notchar( #rnope, ch );
+~
+E
+nope~
+You try to crawl into the hole, but the air pushes you back.
+~
+E
+rnope~
+$n tries to crawl into the hole but the air pushes $m back.
+~
+!
+0 0 0
+1829 9 1509949540 3 0
+-1
+S
+
+#61030
+A Tunnel Under the Dunes~
+Swirling currents of air blow through the cool tunnel here, the dry
+breeze picking up bits of dust as it whispers in from the north.  Soft
+walls of crumbly clay support the low ceiling of the tunnel, though
+runnels of sand stream down them constantly, making you doubt their
+stability.  Fine yellow sand covers the floor, mixed with rounded pebbles
+and jagged shards of shattered stone.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61004 10 10 5
+D2
+~
+~
+0 -1 61031 10 10 5
+E
+floor~
+The floor is littered with rounded stones and shards of shale, making
+footing rather treacherous.  A few sparkling nodules of iron pyrite lie
+mixed in with sandstone and shale.
+~
+E
+wall~
+The walls of this tunnel are crumbly and soft.  Rivulets of sand slither
+to the floor every so often.
+~
+1860 137 1509949540 3 0
+-1
+S
+
+#61031
+A Dead-End Under the Dunes~
+The tunnel dead-ends here in a slumping cave-in of sandy clay.  The walls
+seem to have buckled, dumping tons of sand down into the tunnel and
+permanently cutting off whatever lies southward.  Sand spills down from
+the ceiling, slowly filling the chamber with millions of yellowish grains.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 61030 10 10 5
+E
+south~
+The tunnel to the south has completely collapsed.  It appears that
+efforts have been made to dig it out again, judging by unnatural piles of
+sand.  However, the sand is spilling down steadily, and you have no doubt
+that this entire room will eventually be buried.
+~
+1849 9 1509949540 3 0
+1860 9 1509949540 3 0
+-1
+S
+
+#0
+

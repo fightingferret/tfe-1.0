@@ -1,0 +1,1146 @@
+#AREA
+Cliff of Eagles~
+Phule~
+Cliff of Eagles~
+
+12 0
+0
+#ROOMS
+
+#43750
+Ledge on a Cliff~
+This precarious ledge on the cliff looks as if it houses a bird of some
+kind, as in a small crevice in the rock a large nest of grass sits
+sheltered from the sun.  It appears that you can climb safely to the
+cliff's edge above, but the climb is a tricky one.  You could also
+probably move along the cliff to the north or south if you are a skilled
+climber.
+~
+start of eagle's perch area 
+room above is 21264
+north is 43751
+south is 43752
+how about lower resets for mobs so the birds always arent in same
+position?  they cannot wander so reset % seems like only way, unless you
+do random, if not fighting then junk mob actions?
+last sentence might be a bit too big of a tip-off
+removed the eagle reset; this is the chiiron eagle and shouldn't be copied 
+[Bliss] knight's boots - "now cracked and damage from age"
+[Aerlic] I saw the note on the fixed board...  each room here has a typo note telling which direction I went and which direction my sleeping pet thought that it wanted to go.
+[Aerlic] From here my sleeping pet always goes up regardless of my movement.
+[Aerlic] if I go south she follows, if I go up she goes south.
+~
+301465600 5 5 0
+D4
+~
+~
+1024 -1 21264 10 10 5
+A
+climb~
+u up~
+if( find_skill( ch, climb ) < 2 ) {
+  if( random( 1, 10 ) < 3 ) {
+    act_tochar( #climb, ch );
+    act_notchar( #rclimb, ch );
+    transfer( ch, find_room( 21264 ) );
+    act_notchar( #rrclimb, ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    }
+  }
+else {
+  if( random( 1, 10 ) < 8 ) {
+    act_tochar( #climb, ch );
+    act_notchar( #rclimb, ch );
+    transfer( ch, find_room( 21264 ) );
+    act_notchar( #rrclimb, ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    }
+  }
+~
+E
+rfail~
+$n tries to climb up but slips on loose rocks.
+~
+E
+fail~
+You try to climb up but slip on some loose rocks.
+~
+E
+rrclimb~
+$n climbs up from the ledge below.
+~
+E
+rclimb~
+$n manages to scramble up and over the ledge.
+~
+E
+climb~
+You manage to scramble up over the ledge.
+~
+!
+0 0 0
+A
+climb~
+n north~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43751 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43751 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+fail~
+You start to climb to your right across the rock, but slip and return to
+the relative safety of the ledge.
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from your left and lands on the ledge.
+~
+E
+flying~
+$n flies to $s right across the cliff face.
+~
+E
+fly~
+You fly to your right across the cliff face.
+~
+E
+failed~
+$n slips while tring to climb the cliff.
+~
+E
+success2~
+$n climbs in from your left.
+~
+E
+success1~
+$n finds a few handholds and climbs to $s right along the cliff.
+~
+E
+success~
+Finding many handholds you climb to your right along the cliff.
+~
+!
+0 0 0
+A
+climb~
+s south~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43752 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43752 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+fail~
+You try to climb across, but you start to slip and return to the relative
+safety of the ledge.
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from the north and lands on the ledge.
+~
+E
+flying~
+$n flies south along the cliff face.
+~
+E
+fly~
+You fly along the cliff face.
+~
+E
+failed~
+$n slips whie trying to climb along the cliff face.
+~
+E
+success2~
+$n climbs in from the north.
+~
+E
+success1~
+$n finds several handholds and climbs south along the cliff face.
+~
+E
+success~
+Finding many handholds you climb across the cliff.
+~
+!
+0 0 0
+A
+climb~
+~
+act_tochar( #what, ch );
+~
+E
+what~
+What direction do you want to climb?
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_room~
+$n scrambles $ds across the cliff face.
+~
+E
+to_char~
+You scramble $d across the cliff face.
+~
+!
+3 0 21
+-1
+S
+
+#43751
+A Ledge on a Cliff~
+You are perched precariously on a narrow ledge on a very high cliff,
+pressed vertically to the side of the cliff and holding on for dear life
+to the few handholds you can see.  It appears that you can climb either
+south across the cliff face or down to a ledge below, but it will be an
+extreme test of your climbing ability.
+~
+south and down
+where are the extras?
+dont give players actions in rdesc (holding onto handholds)
+random actions slipping?
+[Aerlic] if I go south my pets follows, if I go down my pets goes south.
+~
+335020032 5 5 0
+A
+climb~
+s south~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43750 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43750 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from the north and lands on the ledge.
+~
+E
+flying~
+$n flies south along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge to the north.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+d down~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43756 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43756 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from above and lands on the ledge.
+~
+E
+flying~
+$n flies down along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge above.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+~
+act_tochar( #which, ch );
+~
+E
+which~
+Which direction do you want to climb?
+~
+!
+0 0 0
+-1
+S
+
+#43752
+A Ledge on a Cliff Face~
+A rather large alcove is inset into the cave here, providing a ledge wide
+enough to stand without out too much fear of losing your balance and
+falling hundreds of feet to the valley below.  Nature has provided
+skilled climbers with handholds in the rock both along the cliff face to
+the north and down it to the south.  A smallish nest lays in the alcove.
+~
+north and down
+mother eagle should probably be agg in defense of her nest and have infravision so she can deal with dark, in game terms
+mob descriptions arent finished, look at stats of eaglets!
+eagle can_carry? laugh
+move on eaglet?
+[Aerlic] if I go down she goes south
+[Aerlic] north she follows
+~
+335020032 5 5 0
+A
+climb~
+n north~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43750 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43750 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+fail~
+You start to climb across the cliff face, but start to slip and return to
+the relative safety of the ledge.
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying~
+$n flies north along the cliff.
+~
+E
+flying2~
+$n flies in from the south and lands on the ledge.
+~
+E
+fly~
+You fly along the cliff and land on the ledge to the north.
+~
+E
+failed~
+$n tries to climb along the cliff but slips and returns to the ledge.
+~
+E
+success2~
+$n climbs in from the south.
+~
+E
+success1~
+$n finds several handholds and climbs north along the cliff.
+~
+E
+success~
+Finding a few handholds you climb along the cliff.
+~
+!
+0 0 0
+A
+climb~
+d down~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43753 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43753 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+fail~
+You start to climb down the cliff face, but start to slip and return to
+the relative safety of the ledge.
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from above.
+~
+E
+flying~
+$n flies down the cliff face.
+~
+E
+fly~
+You fly down the cliff face.
+~
+E
+failed~
+$n slips while trying to climb the tree.
+~
+E
+success2~
+$n climbs down from above.
+~
+E
+success1~
+$n finds several handholds and climbs down the cliff face.
+~
+E
+success~
+Finding several handholds you climb down the cliff face.
+~
+!
+0 0 0
+A
+climb~
+~
+act_tochar( #where, ch );
+~
+E
+where~
+Which direction do you want to climb?
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You scramble $d across the cliff face.
+~
+!
+3 0 1
+936 11 1509975090 3 0
+935 10 1509968640 3 0
+935 10 1509962240 3 0
+-1
+S
+
+#43753
+A Ledge on a Cliff Face~
+This ledge provides enough room to maneuver comfortably, so long as you
+don't look down and into the 400 foot drop off the edge.  The cliff's
+face is shear is shear to the south and below you, but a few handholds up
+and to the north would allow an experienced climber ways off of this
+ledge.
+~
+up and north
+white-tailed eagle
+what is a white-tailed eagle? :)
+should eagles be agg in defense of their roost?
+[Tuck] This ledge provides enough room to maneuver comfortably, so long as you
+[Tuck] face is shear is shear to the south and below you, but a few handholds up
+[Bliss] A Ledge on Cliff face near suspension bridge - "is shear" repeated
+[Aerlic] 3rd line -- is shear is shear to the south...
+[Corde] *The cliff's face is shear is shear*
+[Aerlic] when I go north she goes up, if I go up she follows
+[Aerlic] the cliff's face is shear is shear  ...
+~
+335020032 5 5 0
+E
+down edge~
+You look down and see the ground far, far, far below.
+~
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43752 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43752 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies up from below and lands on the ledge.
+~
+E
+flying~
+$n flies up along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge below.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+n north~
+if( can_fly( ch ) ) {
+send_to_char( #fly, ch );
+act_notchar( #flying, ch );
+transfer( ch, find_room( 43754 ) );
+act_notchar( #flying2, ch );
+end;
+}
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+send_to_char( #success, ch );
+act_notchar( #success1, ch );
+transfer( ch, find_room( 43754 ) );
+act_notchar( #success2, ch );
+}
+else {
+send_to_char( #fail, ch );
+act_notchar( #failed, ch );
+end;
+}
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from south and lands on the ledge.
+~
+E
+flying~
+$n flies north along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the south.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+~
+act_tochar( #which, ch );
+~
+E
+which~
+Which direction do you want to climb?
+~
+!
+0 0 0
+937 9 1509949490 3 0
+-1
+S
+
+#43754
+A Huge Ledge Cradling a Huge Nest~
+This outcropping of rock forms a large ledge, supporting an absolutely
+HUGE nest.  Handholds line the cliff face to the north and south which
+could probably be climbed.
+~
+north and south, nest
+rdescs are kinda thin, need to describe ther ibbon
+of the river and sea below or whatever
+mother eagle's rdesc is kinda short
+added a mob race for eagles
+[Aerlic] like before if I go south she follows, north she heads south
+~
+335020032 5 5 0
+E
+nest~
+This huge nest looks like it can be climbed.
+~
+A
+climb~
+s south~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 43753 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 43753 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from the north and lands on the ledge.
+~
+E
+flying~
+$n flies south along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge to the north.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+n north~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 43756 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 43756 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from the south and lands on the ledge.
+~
+E
+flying~
+$n flies north along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge to the south.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+enter climb~
+nest~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 43755 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+arrive~
+$n climbs in over the lip of the giant nest.
+~
+E
+rclimb~
+$n climbs over the lip of the nest and disappears inside.
+~
+E
+climb~
+You climb over the lip of the nest.
+~
+!
+0 0 0
+A
+climb~
+~
+act_tochar( #which, ch );
+~
+E
+which~
+Which direction do you want to climb?
+~
+!
+0 0 0
+-1
+S
+
+#43755
+Large Nest in a Cliff~
+You are inside a giant nest, far too huge to belong to any normal bird. 
+It looks like you can climb out of the nest to the east, but the nest is
+so high it block the view of what lies beyond.  No eggs lay about, so it
+appears that this nest is more a home than a nursery.
+~
+giant golden eagle
+gold talon dagger
+climb out
+enormous
+talons? is done with aurumvorax
+golden eagle?  what is difference between golden eagle and bald eagle? 
+why would different breeds roost together?
+[Ellania] In room desc, 'the nest is so high it block', 'block' should be 'blocks'.
+~
+335020036 5 6 0
+A
+climb~
+out nest~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 43754 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+arrive~
+$n climbs in over the lip of the giant nest.
+~
+E
+rclimb~
+$n climb up over and into the giant nest.
+~
+E
+climb~
+You climb up over and into the giant nest.
+~
+!
+0 0 0
+939 9 1509949465 3 0
+-1
+S
+
+#43756
+Ledge on a Cliff~
+This small perch of rock hangs precariously on the edge of a large rock
+cliff to the west, overlooking a 400-foot drop below.  A few handholds
+scatter the rock face above and to the south, and you might be able to
+climb them if you dare try.
+~
+south and up
+bald eagle
+lower reset?
+color in mset long?
+[Aerlic] if I go south she follows, if I go up she goes south.
+~
+335020032 5 5 0
+A
+climb~
+s south~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 43754 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 43754 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from the north and lands on the ledge.
+~
+E
+flying~
+$n flies south along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge to the north.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 43751 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 43751 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from below and lands on the ledge.
+~
+E
+flying~
+$n flies down along the cliff.
+~
+E
+fly~
+You fly along the cliff.
+~
+E
+failed~
+$n slips while trying to climb along the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge to below.
+~
+E
+success1~
+$n finds a few handholds and climbs along the cliff face.
+~
+E
+success~
+Finding several handholds you climb along the cliff face.
+~
+!
+0 0 0
+A
+climb~
+~
+act_tochar( #which, ch );
+~
+E
+which~
+Which direction do you want to climb?
+~
+!
+0 0 0
+938 9 1509949540 3 0
+-1
+S
+
+#0
+

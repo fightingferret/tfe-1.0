@@ -1,0 +1,1516 @@
+#AREA
+Deep Caverns~
+Talis~
+~
+
+0 0
+3
+#ROOMS
+
+#59500
+Bottom of a Waterfall~
+The air is dense with the thick mists of spray created by the waterfall. 
+Just as the heavy mist conceals sight, the roar of the water crashing
+down nearly drowns out all sound as well.  The roiling water makes it
+hard to stand as it rushes away from the continued onslought of the
+downpour.
+~
+and the slowly changing colors of lights.
+cave motes?
+and lot of obscuring mists near here from the crsahing water of the fall.
+--- Remember to have area action with random collapsing/cleared tunnels. 
+Warren of tunnels will essentially be a shifting maze that always has at
+least 2-3 usable tunnels.  troll/goblin miners as work mobs wandering the
+tunnels, if one comes into collapsed room it will start repairing it.
+--- Action to have water try to force you to down room.
+----- sp? onslought
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59503 10 10 5
+D2
+~
+~
+0 -1 59501 10 10 5
+D3
+~
+~
+0 -1 59502 10 10 5
+D4
+~
+~
+0 -1 49346 10 10 5
+D5
+~
+~
+0 -1 59540 10 10 5
+A
+~
+~
+ch = rand_char( room );
+if( find_stat( ch, level ) > 90 )
+  end;
+act_tochar( #pounding, ch );
+i = random( 1, 7 );
+if( find_skill( ch, swimming ) > i ) {
+  act_tochar( #safe, ch );
+  end;
+  }
+else
+  j = 4;
+if( j < 4 ) {
+  act_tochar( #forced, ch );
+  act_notchar( #rforced, ch );
+  transfer( ch, find_room( 59540 ) );
+  act_notchar( #arr, ch );
+  }
+if( j == 4 ) {
+  act_tochar( #forced, ch );
+  act_notchar( #rforced, ch );
+  send_to_room( #passing_through, find_room( 59540 ) );
+  transfer( ch, find_room( 59543 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+pounding~
+The pounding torrent of water coming from the falls above you try try
+carry you into the watery depths of the underground lake.
+~
+E
+safe~
+Fortunately your skills in the art of swimming save you from being
+plunged deep into the chill waters.
+~
+E
+forced~
+The deluge of water becomes too much and you are pushed downward into the
+depths.
+~
+E
+rforced~
+$n is dragged down by the torrent of water cascading from the waterfall
+overhead.
+~
+E
+arr~
+$n arrives in a chaotic flurry of tangled motions that can only mean $e
+was forced in by the pounding torrent of water.
+~
+E
+passing_through~
+Amidst the froth of bubbles plunging deep into the water you notice the
+dark shape of a body plunging in above you and rapidly hurtling further
+downard into the depths of the watery realm.
+~
+!
+2 500 0
+A
+~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+no~
+Walk up a waterfall?  I don't think so.
+~
+!
+3 0 16
+-1
+S
+
+#59501
+Southeastern Edge of an Underground Lake~
+The steep cavern wall arcs around from the west to the south forming a
+barrier to the underground lake.  Pale moss with long tendril-like
+strands grows in patches on the cavern wall congregating primarily at the
+waterline.  Many of the thin tendrils reach all the way into the water
+and float lazily on its surface, bobbing up and down with the gentle
+waves.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59500 10 10 5
+D3
+~
+~
+0 -1 59505 10 10 5
+D5
+~
+~
+0 -1 59541 10 10 5
+-1
+S
+
+#59502
+Underground Lake~
+The deafening noise of a waterfall crashing down onto the lake comes
+directly from the east now.  The roiling mist of water thrown up billows
+away in rolling clouds that occasionally part long enough for a glimps of
+the magnificent sight.  The water crashing down comes from an opening
+near the cavern ceiling and falls well over one hundred feet before
+plunging into the chilling cavern lake.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59504 10 10 5
+D1
+~
+~
+0 -1 59500 10 10 5
+D2
+~
+~
+0 -1 59505 10 10 5
+D3
+~
+~
+0 -1 59506 10 10 5
+D5
+~
+~
+0 -1 59539 10 10 5
+-1
+S
+
+#59503
+Northeastern Corner of an Underground Lake~
+Under Construction.
+~
+river
+~
+301596677 8 9 0
+D2
+~
+~
+0 -1 59500 10 10 5
+D3
+~
+~
+0 -1 59504 10 10 5
+D5
+~
+~
+0 -1 59544 10 10 5
+-1
+S
+
+#59504
+Northeastern Corner of an Underground Lake~
+Under Construction.
+~
+river
+~
+301596677 8 9 0
+D1
+~
+~
+0 -1 59503 10 10 5
+D2
+~
+~
+0 -1 59502 10 10 5
+D3
+~
+~
+0 -1 59508 10 10 5
+D5
+~
+~
+0 -1 59545 10 10 5
+-1
+S
+
+#59505
+Southeastern Edge of an Underground Lake~
+The tug of the moving water attempts to drag you westward, though the
+pull is weak enough that you are able to resist it with a little effort. 
+Bits of flotsom, primarily loose tendrils of moss and various fungus, bob
+along the surface following the flow of the water.  Beneath the surface
+of the water you can see pale, sightless fish which still manage to
+scatter every time you come near them.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59502 10 10 5
+D1
+~
+~
+0 -1 59501 10 10 5
+D3
+~
+~
+0 -1 59507 10 10 5
+D5
+~
+~
+0 -1 59542 10 10 5
+-1
+S
+
+#59506
+Underground Lake~
+Diffused orbs of color move about above the surface of the lake with a
+serene grace.  Their muted colors slowly shifting as they dance within
+the curtain of mist.  Off to the north and west the mist thrown up by the
+waterfall is thin enough for you to make out a shoreline to this
+underground lake.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59508 10 10 5
+D1
+~
+~
+0 -1 59502 10 10 5
+D2
+~
+~
+0 -1 59507 10 10 5
+D3
+~
+~
+0 -1 59511 10 10 5
+D5
+~
+~
+0 -1 59538 10 10 5
+-1
+S
+
+#59507
+Underground Lake~
+Gentle waves ripple along the surface making the soggy weeds and fungi
+that make up the majority of the flotsam bob about aimlessly.  The silt
+stirred up from the turbulence of the waterfall causes a slight murk in
+the water that only increases in intensity as you get closer to the fall
+itself to the northeast.  The cavernous ceiling high above is obscured
+well out of sight by the spray of the waterfall that permeates everywhere
+in this watery underground realm.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59506 10 10 5
+D1
+~
+~
+0 -1 59505 10 10 5
+D2
+~
+~
+0 -1 59513 10 10 5
+D3
+~
+~
+0 -1 59512 10 10 5
+D5
+~
+~
+0 -1 59533 10 10 5
+-1
+S
+
+#59508
+Underground Lake~
+The solid stone of the cavern walls form an echo chamber that amplifies
+the cascading waterfall's roar to an almost intollerable level.  The
+sound of the water slapping against nearby rock barriers is completely
+lost in the cacophanous sound.
+~
+how deep is the water here?
+what does the room look like?
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59509 10 10 5
+D1
+~
+~
+0 -1 59504 10 10 5
+D2
+~
+~
+0 -1 59506 10 10 5
+D3
+~
+~
+0 -1 59510 10 10 5
+D5
+~
+~
+0 -1 59546 10 10 5
+-1
+S
+
+#59509
+Northern Edge of an Underground Lake~
+Under Construction.
+~
+river
+~
+301596677 8 9 0
+D2
+~
+~
+0 -1 59508 10 10 5
+D3
+~
+~
+0 -1 59514 10 10 5
+D5
+~
+~
+0 -1 59547 10 10 5
+-1
+S
+
+#59510
+Underground Lake~
+Water-rounded rocks retain enough broad flat surfaces to make them
+convenient foot and handholds to pull yourself out of the lake and onto
+the stoney shoreline running north to west of here.  A current in the
+water keeps it in motion as it tried to overun the shore then draws back
+for a moments respite.  The mist thrown off by the waterfall is thin, but
+present even this far away.
+~
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59514 10 10 5
+D1
+~
+~
+0 -1 59508 10 10 5
+D2
+~
+~
+0 -1 59511 10 10 5
+D3
+~
+~
+0 -1 59517 10 10 5
+D5
+~
+~
+0 -1 59548 10 10 5
+-1
+S
+
+#59511
+Underground Lake~
+The swirling currents of the river try to slosh you about as it
+alternatively attempts to push you shoreward and drag you back towards
+the main flow of water.  The turbulance makes it difficult to determine
+if they sensation of things brushing against you beneath the waters
+surface is real or only imagined.  The churning water kicks up a little
+foam that adds to the already prevalent mist created by the waterfall to
+the east.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59510 10 10 5
+D1
+~
+~
+0 -1 59506 10 10 5
+D2
+~
+~
+0 -1 59512 10 10 5
+D3
+~
+~
+0 -1 59518 10 10 5
+D5
+~
+~
+0 -1 59537 10 10 5
+-1
+S
+
+#59512
+Underground Lake~
+Under Construction.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59511 10 10 5
+D1
+~
+~
+0 -1 59507 10 10 5
+D2
+~
+~
+0 -1 59515 10 10 5
+D3
+~
+~
+0 -1 59519 10 10 5
+D5
+~
+~
+0 -1 59534 10 10 5
+-1
+S
+
+#59513
+Southern Edge of an Underground Lake~
+The pull of the water is strong here as it tries to drag you westward. 
+Fortunately there are sufficient large rocks fallen into the water from
+the cavern ceiling far above to give you ample holds to resist the pull. 
+Whlie some of the rocks are still sharp-edged enough to be new, most are
+smoothly rounded by centuries of erosion.
+~
+river
+erosian?
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59507 10 10 5
+D3
+~
+~
+0 -1 59515 10 10 5
+D5
+~
+~
+0 -1 59532 10 10 5
+-1
+S
+
+#59514
+On the Edge of an Underground Lake~
+Under Construction.
+~
+~
+301596677 11 9 0
+D1
+~
+~
+0 -1 59509 10 10 5
+D2
+~
+~
+0 -1 59510 10 10 5
+D3
+~
+~
+0 -1 59516 10 10 5
+-1
+S
+
+#59515
+Southern Edge of an Underground Lake~
+Under Construction.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59512 10 10 5
+D1
+~
+~
+0 -1 59513 10 10 5
+D5
+~
+~
+0 -1 59531 10 10 5
+-1
+S
+
+#59516
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59520 10 10 5
+D1
+~
+~
+0 -1 59514 10 10 5
+D2
+~
+~
+0 -1 59517 10 10 5
+D3
+~
+~
+0 -1 59522 10 10 5
+-1
+S
+
+#59517
+On the Edge of an Underground Lake~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59516 10 10 5
+D1
+~
+~
+0 -1 59510 10 10 5
+D2
+~
+~
+0 -1 59518 10 10 5
+D3
+~
+~
+0 -1 59523 10 10 5
+-1
+S
+
+#59518
+Underground Lake~
+You swim on the edge of a shoreline to an underground lake.  The hard,
+stone floor of the cavern dips into the water then angles sharply
+downward as it drops off to the bottom of the subterranean lake.  Ample
+rocks of various size project at points to provide easy access in or out
+of the lake.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59517 10 10 5
+D1
+~
+~
+0 -1 59511 10 10 5
+D2
+~
+~
+0 -1 59519 10 10 5
+D3
+~
+~
+0 -1 59524 10 10 5
+D5
+~
+~
+0 -1 59536 10 10 5
+-1
+S
+
+#59519
+Southwestern Edge of an Underground Lake~
+Under Construction.
+~
+river
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59518 10 10 5
+D1
+~
+~
+0 -1 59512 10 10 5
+D3
+~
+~
+0 -1 59530 10 10 5
+D5
+~
+~
+0 -1 59535 10 10 5
+-1
+S
+
+#59520
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D2
+~
+~
+0 -1 59516 10 10 5
+D3
+~
+~
+0 -1 59521 10 10 5
+-1
+S
+
+#59521
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59529 10 10 5
+D1
+~
+~
+0 -1 59520 10 10 5
+D2
+~
+~
+0 -1 59522 10 10 5
+-1
+S
+
+#59522
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59521 10 10 5
+D1
+~
+~
+0 -1 59516 10 10 5
+D2
+~
+~
+0 -1 59523 10 10 5
+D3
+~
+~
+0 -1 59525 10 10 5
+-1
+S
+
+#59523
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59522 10 10 5
+D1
+~
+~
+0 -1 59517 10 10 5
+D2
+~
+~
+0 -1 59524 10 10 5
+D3
+~
+~
+0 -1 59526 10 10 5
+-1
+S
+
+#59524
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59523 10 10 5
+D1
+~
+~
+0 -1 59518 10 10 5
+D3
+~
+~
+0 -1 59527 10 10 5
+-1
+S
+
+#59525
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D1
+~
+~
+0 -1 59522 10 10 5
+D2
+~
+~
+0 -1 59526 10 10 5
+-1
+S
+
+#59526
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59525 10 10 5
+D1
+~
+~
+0 -1 59523 10 10 5
+D2
+~
+~
+0 -1 59527 10 10 5
+-1
+S
+
+#59527
+A Cavern Resounding with the Sound of a Waterfall~
+Under Construction.
+~
+~
+301596677 11 9 0
+D0
+~
+~
+0 -1 59526 10 10 5
+D1
+~
+~
+0 -1 59524 10 10 5
+D3
+~
+~
+0 -1 59528 10 10 5
+-1
+S
+
+#59528
+Twisting Cave Tunnel~
+Under Construction.
+~
+smaller cave tunnel
+~
+301596677 11 9 0
+D1
+~
+~
+0 -1 59527 10 10 5
+-1
+S
+
+#59529
+Twisting Cave Tunnel~
+Under Construction.
+~
+smaller cave tunnel
+~
+301596677 11 9 0
+D2
+~
+~
+0 -1 59521 10 10 5
+-1
+S
+
+#59530
+An Alcove on a Ledge Above the Waterline~
+Under Construction.
+~
+dried ledge above waterline
+~
+301596677 11 9 0
+D1
+~
+~
+0 -1 59519 10 10 5
+-1
+S
+
+#59531
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59534 10 10 5
+D1
+~
+~
+0 -1 59532 10 10 5
+D3
+~
+~
+0 -1 59549 10 10 5
+D4
+~
+~
+0 -1 59515 10 10 5
+-1
+S
+
+#59532
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59533 10 10 5
+D3
+~
+~
+0 -1 59531 10 10 5
+D4
+~
+~
+0 -1 59513 10 10 5
+-1
+S
+
+#59533
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596677 8 9 0
+D0
+~
+~
+0 -1 59538 10 10 5
+D1
+~
+~
+0 -1 59542 10 10 5
+D2
+~
+~
+0 -1 59532 10 10 5
+D3
+~
+~
+0 -1 59534 10 10 5
+D4
+~
+~
+0 -1 59507 10 10 5
+-1
+S
+
+#59534
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596677 6 9 0
+D0
+~
+~
+0 -1 59537 10 10 5
+D1
+~
+~
+0 -1 59533 10 10 5
+D2
+~
+~
+0 -1 59531 10 10 5
+D3
+~
+~
+0 -1 59535 10 10 5
+D4
+~
+~
+0 -1 59512 10 10 5
+-1
+S
+
+#59535
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596677 6 9 0
+D0
+~
+~
+0 -1 59536 10 10 5
+D1
+~
+~
+0 -1 59534 10 10 5
+D4
+~
+~
+0 -1 59519 10 10 5
+-1
+S
+
+#59536
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D1
+~
+~
+0 -1 59537 10 10 5
+D2
+~
+~
+0 -1 59535 10 10 5
+D4
+~
+~
+0 -1 59518 10 10 5
+-1
+S
+
+#59537
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 8 9 0
+D0
+~
+~
+0 -1 59548 10 10 5
+D1
+~
+~
+0 -1 59538 10 10 5
+D2
+~
+~
+0 -1 59534 10 10 5
+D3
+~
+~
+0 -1 59536 10 10 5
+D4
+~
+~
+0 -1 59511 10 10 5
+-1
+S
+
+#59538
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59546 10 10 5
+D1
+~
+~
+0 -1 59539 10 10 5
+D2
+~
+~
+0 -1 59533 10 10 5
+D3
+~
+~
+0 -1 59537 10 10 5
+D4
+~
+~
+0 -1 59506 10 10 5
+-1
+S
+
+#59539
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59545 10 10 5
+D1
+~
+~
+0 -1 59540 10 10 5
+D2
+~
+~
+0 -1 59542 10 10 5
+D3
+~
+~
+0 -1 59538 10 10 5
+D4
+~
+~
+0 -1 59502 10 10 5
+-1
+S
+
+#59540
+Swimming in an Underground Lake~
+It is extremely difficult to see through the turbulence created by the
+torrent of water and bubbles constantly introduced by the waterfall
+overhead.  You must constantly work against the downward current to keep
+from being forced even deeper into the dark, watery depths.
+~
+action trying to force people downward in waterstream
+~
+301596676 8 9 0
+D0
+~
+~
+0 -1 59544 10 10 5
+D2
+~
+~
+0 -1 59541 10 10 5
+D3
+~
+~
+0 -1 59539 10 10 5
+D4
+~
+~
+0 -1 59500 10 10 5
+D5
+~
+~
+0 -1 59543 10 10 5
+A
+~
+~
+ch = rand_char( room );
+if( find_stat( ch, level ) > 90 )
+  end;
+act_tochar( #pounding, ch );
+i = random( 2, 5 );
+if( find_skill( ch, swimming ) > i ) {
+  act_tochar( #safe, ch );
+  end;
+  }
+else {
+  act_tochar( #forced, ch );
+  act_notchar( #rforced, ch );
+  transfer( ch, find_room( 59543 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+pounding~
+The pounding force of the waterfall above tries to force you further down.
+~
+E
+safe~
+Utilizing your swimming skills you manage to avoid being plunged into the
+darker depths of the underground cavern.
+~
+E
+forced~
+The turbulent waters push you downward into the deepest depths of the
+underground waters.
+~
+E
+rforced~
+$n is plunged deeper into the watery depths by the strong water currents.
+~
+E
+arr~
+$n arrives amidst the chaotic frenzy of bubbles carried this deep by the
+ever flowing currents of the waterfall far above.
+~
+!
+2 500 0
+A
+~
+~
+if( find_skill( ch, swimming ) > random( 2, 5 ) ) {
+  act_tochar( #ok, ch );
+  act_notchar( #rok, ch );
+  continue;
+  }
+else {
+  act_tochar( #no, ch );
+  act_notchar( #rno, ch );
+  }
+~
+E
+ok~
+You manage to overcome the strong downward current created by the
+waterfall above.
+~
+E
+rok~
+$n manages to overcome currents despite its strong downward pull.
+~
+E
+no~
+Despite your attempts, the deluge of water from the waterfall prevents
+you from swimming that way.
+~
+E
+rno~
+$n struggles to swim upwards, but fails.
+~
+!
+3 0 16
+-1
+S
+
+#59541
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59540 10 10 5
+D3
+~
+~
+0 -1 59542 10 10 5
+D4
+~
+~
+0 -1 59501 10 10 5
+-1
+S
+
+#59542
+Southeastern Edge of an Underground Lake~
+Under Construction.
+~
+~
+301596677 6 9 0
+D0
+~
+~
+0 -1 59539 10 10 5
+D1
+~
+~
+0 -1 59541 10 10 5
+D3
+~
+~
+0 -1 59533 10 10 5
+D4
+~
+~
+0 -1 59505 10 10 5
+-1
+S
+
+#59543
+Swimming in an Underground Lake~
+Millenia of the waterfalls constant torrent have managed to erode away
+the stone to a deeper point here where it pounds mercilessly against the
+hard stone directly beneath its impact point.  Within this watery
+maelstrom you are constantly buffeted about and are hard pressed to see
+anything other than the turbulent waters with any clarity.  Several close
+calls resulting in minor scrapes and bruises as you are tumbled about can
+attest that it is lined on all sides but above by hard, unyielding stone.
+~
+~
+301596676 6 9 0
+D4
+~
+~
+0 -1 59540 10 10 5
+A
+~
+~
+ch = rand_char( room );
+if( find_stat( ch, level ) > 90 )
+  end;
+i = random( 1, 2 );
+if( i == 1 )
+  act_tochar( #tumble, ch );
+if( i == 2 ) {
+  act_tochar( #buffet, ch );
+  j = random( 1, 5 );
+  dam_message( ch, j, "glancing blow" );
+  inflict( ch, mob, j, "the crushing force of a waterfall" );
+  }
+~
+E
+tumble~
+You are tumbled about by the pounding force of the water coming from
+above you.
+~
+E
+buffet~
+Buffeted by the heavy torrent of incoming water you are momentarily
+smashed against a hard rock outcropping.
+~
+!
+2 800 0
+A
+~
+~
+if( find_skill( ch, swimming ) > random( 0, 3 ) ) {
+  act_tochar( #ok, ch );
+  act_notchar( #rok, ch );
+  continue;
+  }
+else {
+  act_tochar( #no, ch );
+  act_notchar( #rno, ch );
+  }
+~
+E
+ok~
+You manage to over come the strong downward current created by the
+waterfall far above.
+~
+E
+rok~
+$n manages to overcome the currents despite its strong pressure.
+~
+E
+no~
+Despite your attmpets, the deluge of water from the waterfall prevents
+you from swimming upwards.
+~
+E
+rno~
+$n struggles to swim upwards, but fails.
+~
+!
+3 0 16
+-1
+S
+
+#59544
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D2
+~
+~
+0 -1 59540 10 10 5
+D3
+~
+~
+0 -1 59545 10 10 5
+D4
+~
+~
+0 -1 59503 10 10 5
+-1
+S
+
+#59545
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D1
+~
+~
+0 -1 59544 10 10 5
+D2
+~
+~
+0 -1 59539 10 10 5
+D3
+~
+~
+0 -1 59546 10 10 5
+D4
+~
+~
+0 -1 59504 10 10 5
+-1
+S
+
+#59546
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59547 10 10 5
+D1
+~
+~
+0 -1 59545 10 10 5
+D2
+~
+~
+0 -1 59538 10 10 5
+D3
+~
+~
+0 -1 59548 10 10 5
+D4
+~
+~
+0 -1 59508 10 10 5
+-1
+S
+
+#59547
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D2
+~
+~
+0 -1 59546 10 10 5
+D4
+~
+~
+0 -1 59509 10 10 5
+-1
+S
+
+#59548
+Swimming in an Underground Lake~
+Under Construction.
+~
+~
+301596676 6 9 0
+D1
+~
+~
+0 -1 59546 10 10 5
+D2
+~
+~
+0 -1 59537 10 10 5
+D4
+~
+~
+0 -1 59510 10 10 5
+-1
+S
+
+#59549
+Swimming in a Narrow Tunnel~
+Under Construction.
+~
+~
+301596676 6 9 0
+D1
+~
+~
+0 -1 59531 10 10 5
+D2
+~
+~
+0 -1 59550 10 10 5
+-1
+S
+
+#59550
+Swimming in a Narrow Tunnel~
+Under Construction.
+~
+~
+301596676 6 9 0
+D0
+~
+~
+0 -1 59549 10 10 5
+D3
+~
+~
+0 -1 59551 10 10 5
+-1
+S
+
+#59551
+Swimming in a Narrow Tunnel~
+Under Construction.
+~
+~
+301596676 6 9 0
+D1
+~
+~
+0 -1 59550 10 10 5
+-1
+S
+
+#0
+

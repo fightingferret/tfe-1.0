@@ -1,0 +1,1335 @@
+#AREA
+Abandoned Road to Tarik Nor~
+Terek~
+~
+
+0 0
+0
+#ROOMS
+
+#58000
+Tunnel Through the Dragonspires~
+Large stalactites and stalagmites fill this abandoned tunnel.  Thick
+cobwebs drape down from the ceiling above adding to the feeling of a
+cramped corridor.  Sconces line the walls, each holding an unlit torch. 
+The sound of dripping water echoes throughout the chamber and down the
+tunnel to the east.  To the east the tunnel runs through the heart of the
+mountains and into darkness.  The western portion of the tunnel has
+collapsed and several large boulders block exploration in that direction.
+~
+[Merior] played with acode so it checks for it being open - feel free to change message
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 58001 10 10 5
+D3
+~
+~
+235 -1 28132 10 10 5
+A
+clear move push~
+rubble boulders rock~
+if( !is_open( room, west ) ) {
+    act_tochar( #clear, ch );
+    act_notchar( #clear1, ch );
+    wait( 1 );
+    act_tochar( #finish, ch );
+    act_notchar( #finish1, ch );
+    open( room, west );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+clear~
+@eYou carefully begin to clear away the massive boulders to the west.
+~
+E
+clear1~
+@e$n carefully begins to clear away the massive boulders to the west.
+~
+E
+finish~
+@eAfter several exhausting minutes you finally clear the last of the
+boulders away, opening the passage to the west.
+~
+E
+finish1~
+@e$n finally clears the last of the boulders away, opening the passage to
+the west.
+~
+E
+no~
+@eYou try and move the massive boulders to the west but they are just too
+heavy for you.
+~
+E
+no1~
+@e$n tries and move the massive boulders to the west but they are just
+too heavy for $m.
+~
+E
+open~
+The rubble has already been moved.
+~
+!
+0 0 0
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( is_follower( ch ) )
+  end;
+i = 5d5+45;
+Wait( 1 );
+send_to_room( #run, room );
+Wait( 4 );
+send_to_room( #incoming, room );
+loop( all_in_room ) {
+  if( is_player( rch ) )
+    dam_message( rch, i, "The falling rocks" );
+  inflict( rch, mob, i, "being crushed beneath falling boulders" );
+  }
+i = 3d10+60;
+Wait( 5 );
+send_to_room( #blocked, room );
+loop( all_in_room ) {
+  if( is_player( rch ) )
+    dam_message( rch, i, "The falling rocks" );
+  inflict( rch, mob, i, "being crushed beneath falling boulders" );
+  close( room, west );
+  }
+~
+E
+run~
+@eA loud rumbling fills the room as you notice many large pieces of stone
+begin to give way above you!
+~
+E
+incoming~
+@eThe ceiling finally gives way and massive rocks begin to rain down upon
+you!
+~
+E
+blocked~
+@eAn extremely large piece of stone gives way from the ceiling and lands
+with a thundering crash, cutting off passage to the tunnel to the west!
+~
+!
+1 0 8
+-1
+S
+
+#58001
+Tunnel Through the Dragonspires~
+Barrels, empty crates and rusty wagon wheels line the sides of this wide
+passage, possibly from past caravans passing through here.  Puddles of
+water cover the floor giving the tunnel a musty smell and a very damp
+feeling.  Shattered lanterns litter the ground here and there, covered in
+rust and completely unusable.  Every few moments a rock breaks free from
+the ceiling and smacks into the stone floor below, sending a loud
+cracking sound echoing down the tunnels.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 58002 10 10 5
+D3
+~
+~
+0 -1 58000 10 10 5
+E
+barrel crate wagon wheel~
+The detrius of commerce lie to the sides of the tunnel.  Rusted and
+broken wheels used to move large wagons have been tossed out of the path
+used for travel, as well as the barrels and crates that fell off those
+conveyances.
+~
+E
+lantern~
+This deep into the earth, lanterns or other sources of light are required. 
+It appears that once a lantern's life was at an end, its owner simply
+tossed it aside.  From the layer of rust on these, it is clear they have
+been lying in this state for many years.
+~
+-1
+S
+
+#58002
+Tunnel Through the Dragonspires~
+The tunnel widens a bit here, allowing passage for at least five wagons
+to pass through side by side.  Wagon ruts have been worn into the stone
+floor below you from years of constant travel.  Along the southern wall
+lies the remains of wooden crates, now nothing more then splintered
+fragments of wood.  Off to the east a dim light fills the tunnel,
+breaking through the blackness of the cavern.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 58003 10 10 5
+D3
+~
+~
+0 -1 58001 10 10 5
+E
+wagon rut stone floor~
+The stone floor is marred by deep grooves worn into its surface.  The
+width and shape of the depressions match those of wagon wheels; it must
+have taken hundreds of years and thousands of heavy wagons to make such
+an impression on the stone.
+~
+E
+wooden crate splinter~
+Smashed bits of wood lie near the southern wall.  One pile is slightly
+less destroyed then the others, making it just possible to determine that
+they were once storage crates.
+~
+-1
+S
+
+#58003
+Tunnel Through the Dragonspires~
+A large hole in the ceiling about thirty-five feet above you shows just a
+glimpse of the mountains high above.  Old mining and stone working tools
+litter the floor around you, covered in rust and on the verge of
+crumbling.  A few old torches line the tunnel, leading off towards the
+north and heading into the pitch black mountain caverns.
+~
+[Merior] made tool taking action
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 58004 10 10 5
+D3
+~
+~
+0 -1 58002 10 10 5
+E
+mining working tools~
+Scattered about the tunnel floor are the remains of pickaxes, shovels,
+and drills, as well as the rusted remains of lanterns.
+~
+A
+get take~
+tool pick shovel drill lantern~
+act_tochar( #nope, ch );
+act_notchar( #none, ch );
+~
+E
+nope~
+You start to pick up some of the refuse, but it crumbles in your hand.
+~
+E
+none~
+You see $n reach for some of the refuse, but it crumbles in $s hand.
+~
+!
+0 0 0
+-1
+S
+
+#58004
+Tunnel Through the Dragonspires~
+Wheelbarrels and mining carts lie cluttered in the center of the tunnel
+here, their contents spilled out onto the floor and lying in heaps. 
+Large boulders line the tunnel on each side of you, partially blocking
+passage to the north and south.  The walls are covered with cuts and
+niches.  The tunnel heads off to the north and south, working through the
+extensive cave system.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 58005 10 10 5
+D2
+~
+~
+0 -1 58003 10 10 5
+E
+wheelbarrow mining cart~
+Three wheelbarrows are pushed off to the northern side of the tunnel near
+a large mining cart; two more are further south huddled near a smaller
+cart.  The wheelbarrows are partially loaded with a dark ore, the
+remainder of their former contents have spilled onto the ground.
+~
+E
+boulders~
+These boulders are made of the same rock as the tunnel.  Large holes in
+the ceiling indicate where they once were attached.  These remnants of a
+partial cave-in now serve to make passage difficult through this portion
+of the tunnel.
+~
+E
+walls cut niche~
+Long cuts lie along the surface of the walls of the tunnel.  The hard
+surface of the rock is difficult to scratch with a knife; only the finest
+of stone-working tools could have made these marks.
+~
+-1
+S
+
+#58005
+Tunnel Through the Dragonspires~
+The walls in this section of the tunnel are composed of a greyish-colored
+stone which has been smoothed down.  A thin sheet of water runs down the
+walls causing the room to shimmer as the light from a near-by sconce hits
+it.  In the center of the room a lone mining cart lies overturned,
+covered in dust and rust.  Off to the north the tunnel is slightly
+illuminated while to the south it is completely dark.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 58006 10 10 5
+D2
+~
+~
+0 -1 58004 10 10 5
+E
+wall grey stone~
+The light grey stone in this area bears no marks or scars.  The constant
+rush of water along its surface has worn away the blemishes of creation
+and use, making its surface seem almost satiny.
+~
+E
+mining cart~
+This long-abandoned cart shows signs of long use.  Its surface, now
+dusty, is covered with dents and bits of metal have completely eroded
+away.  The bottom of the cart is covered with rust; anything it once may
+have carried has been removed.
+~
+-1
+S
+
+#58006
+Tunnel Through the Dragonspires~
+Boulders large and small fill this section of the tunnel from a cave-in
+that occurred quite some time ago.  Peering out from beneath the mounds
+of stone are the skeletal remains of several humanoid beings who still
+grasp rusty pick-axes in their hands.  A few rusty iron braziers lie
+overturned along the western wall, still filled with tinder.  The tunnel
+curves to the east and south here, continuing through the heart of the
+mountains.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 58007 10 10 5
+D2
+~
+~
+0 -1 58005 10 10 5
+E
+iron brazier~
+Several battered iron braziers lie near the west wall, still filled with
+wood.  The wood is very, very dry, and looks like it would ignite with
+the merest spark.
+~
+E
+boulder mound stone~
+A large mound of boulders makes movement difficult, but not impossible. 
+The top of the tunnel here is much higher then in other portions,
+testament to where the rock before you originated.  It appears that the
+cave-in was quite sudden: you can see the remains of several mine workers
+buried in the heap.
+~
+E
+skeletal skeleton being~
+At least three humanoid creatures were buried by this cave-in.  From the
+rusty pick-axes lying by their skeletal hands, it seems likely they were
+interrupted during their mining duties.
+~
+-1
+S
+
+#58007
+Tunnel Through the Dragonspires~
+Massive wooden support beams fill this room, some still standing upright
+supporting the ceiling while others lie across the floor, snapped in two
+from the massive weight they once held up.  A large crack runs along the
+ceiling from which droplets of water occassionally drop.  Along the
+eastern wall are a series of large holes.  To the north the passage 
+begins to rise up a bit while to the west it begins to decline some.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 58008 10 10 5
+D3
+~
+~
+0 -1 58006 10 10 5
+E
+hole east~
+A long row of large holes has been drilled into the eastern wall of the
+tunnel.  They all lie at about four feet from the ground, and are
+perfectly round and smoothly bored; clearly the mark of some sort of tool.
+~
+E
+support beam~
+Huge beams made of solid oak have been wedged into place to keep the
+tunnel safe.  The massive weight of the earth and rock above your head,
+however, has cause several of these supports to snap; their broken
+remains lie on the floor.
+~
+E
+crack~
+A jagged crack runs across the ceiling, travelling from east to west. 
+The otherwise dry passage is moistened by a slow drip from the crack.
+~
+-1
+S
+
+#58008
+Tunnel Through the Dragonspires~
+A shimmering waterfall flows down from a crack within the ceiling,
+sending a cool mist floating towards your face.  Streams of water snake
+beneath your feet heading down the sloping passage to the south.  The
+sound of roaring water can be heard from within the walls of the tunnel
+but the exact source cannot be located.  To the north the passage drops
+down at a forty five degree angle.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 58009 10 10 5
+D2
+~
+~
+0 -1 58007 10 10 5
+A
+~
+~
+i = 10d3+45;
+act_tochar( #slip, ch );
+act_notchar( #slip1, ch );
+transfer( ch, find_room( 58009 ) );
+act_tochar( #arrive, ch );
+act_notchar( #arrive1, ch );
+dam_message( ch, i, "The terrible fall" );
+inflict( ch, mob, i, "falling down a deep hole" );
+~
+E
+slip~
+@eYou begin to head north but suddenly lose your footing and tumble down
+the rough cavern wall!
+~
+E
+slip1~
+@e$n begins to head north but suddenly loses $s footing and tumbles down
+the rough cavern wall!
+~
+E
+arrive~
+@eYou finally hit the bottom of the cavern and land in a pool of icy cold
+water.
+~
+E
+arrive1~
+@eYou hear loud screaming from above you and see $n tumble down the
+cavern walls finally landing in the pool of icy cold water.
+~
+!
+3 0 1
+A
+climb scale~
+north down~
+act_tochar( #go, ch );
+act_notchar( #go1, ch );
+transfer( ch, find_room( 58009 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+go~
+@eYou carefully climb down the cavern wall.
+~
+E
+go1~
+@e$n carefully climbs down the cavern wall.
+~
+E
+arrive~
+@e$n comes climbing slowly down the cavern wall.
+~
+!
+0 0 0
+-1
+S
+
+#58009
+Tunnel Through the Dragonspires - In a Pool of Water~
+This large bowl-shaped depression is filled with icy-cold water which
+rises up about three and a half feet.  Large cracks in the walls allow
+more water to pour in from some source deep within the mountain.  The
+northern and southern walls of the depression are almost completely
+vertical, making any climbing attempt out a very dangerous one.  Large
+ripples in the water constantly swirl around you made by some movement
+beneath the surface.
+~
+~
+301465604 6 6 0
+D0
+~
+~
+0 -1 58010 10 10 5
+D2
+~
+~
+0 -1 58008 10 10 5
+A
+climb scale~
+north~
+act_tochar( #climb, ch );
+act_notchar( #climb1, ch );
+transfer( ch, find_room( 58010 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+climb~
+@eYou slowly climb up the cavern wall to the north.
+~
+E
+climb1~
+@e$n slowly climbs up the cavern wall to the north.
+~
+E
+arrive~
+@e$n comes climbing over the edge of the gaping hole to the south.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #noway, ch );
+act_notchar( #noway1, ch );
+end;
+~
+E
+noway~
+@eYou look up at the slick, vertical wall and realize you cannot simply
+walk up it.
+~
+E
+noway1~
+@e$n tries to walk up the slick, vertical walls but soon finds it to be
+impossible.
+~
+!
+3 0 5
+A
+climb scale~
+south~
+act_tochar( #climb, ch );
+act_notchar( #climb1, ch );
+transfer( ch, find_room( 58008 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 3 );
+  }
+~
+E
+climb~
+@eYou slowly climb up the cavern wall to the south.
+~
+E
+climb1~
+@e$n slowly climbs up the cavern wall to the south.
+~
+E
+arrive~
+@e$n comes climbing over the edge of the gaping hole to the north.
+~
+!
+0 0 0
+-1
+S
+
+#58010
+Tunnel Through the Dragonspires~
+The walls in this section of the tunnel are covered in a thick
+bluish-colored slime which oozes from cracks within the walls.  The slime
+glows faintly, slightly illuminating the tunnel in a bluish aura.  To the
+south the tunnel drops down vertically and you can hear the sound of a
+roaring waterfall below.  Off to the east the passage becomes more
+brightly lit.
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 58011 10 10 5
+D2
+~
+~
+0 -1 58009 10 10 5
+E
+bluish slime~
+A softly glowly blue slime has covered the walls in this portion of the
+tunnel.  It is very wet-looking, and gives off a faint odor of sulfur.
+~
+A
+~
+~
+i = 10d3+45;
+act_tochar( #slip, ch );
+act_notchar( #slip1, ch );
+transfer( ch, find_room( 58009 ) );
+act_tochar( #arrive, ch );
+act_notchar( #arrive1, ch );
+dam_message( ch, i, "The terrible fall" );
+inflict( ch, mob, i, "falling down a deep hole" );
+~
+E
+slip~
+@eYou begin to head south but suddenly lose your footing and tumble down
+the rough cavern wall!
+~
+E
+slip1~
+@e$n begins to head south but suddenly loses $s footing and tumbles down
+the rough cavern wall!
+~
+E
+arrive~
+@eYou finally hit the bottom of the cavern and land in a pool of icy cold
+water.
+~
+E
+arrive1~
+@eYou hear loud screaming from above you and see $n tumble down the
+cavern walls finally landing in the pool of icy cold water.
+~
+!
+3 0 4
+A
+climb scale~
+down south~
+act_tochar( #go, ch );
+act_notchar( #go1, ch );
+transfer( ch, find_room( 58009 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+ch = rch;
+acode( room, 2 );
+}
+~
+E
+go~
+@eYou carefully climb down the cavern wall.
+~
+E
+go1~
+@e$n carefully climbs down the cavern wall.
+~
+E
+arrive~
+@e$n comes climbing slowly down the cavern wall.
+~
+!
+0 0 0
+-1
+S
+
+#58011
+Tunnel Through the Dragonspires~
+Broken barrels, coils of thin rope and sharp metal spikes litter the
+floor here.  Many large crates, covered in dust and mold lie stacked up
+against the northern wall.  Above you a pulley has been attached to the
+ceiling from which a thick metal chain hangs down from.  To the east and
+west the tunnel continues through the extensive cavern system.
+~
+[Merior] didnt do the pulley or any acitons
+[Thunder] Mmm, shouldn't you be able to do something with this pulley even if it's just looking at it mister llama sir? :)
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 58012 10 10 5
+D3
+~
+~
+0 -1 58010 10 10 5
+E
+spike coil rope~
+Signs of gear associated with rock climbing abound.  Sharp metal spikes
+perfect for use as pitons lie mere inches away from some strong rope.
+~
+E
+barrel crate~
+Broken barrels, smashed to reveal that their contents have been removed,
+are scattered about on the ground.  Dozens of crates have been neatly
+stacked on the northern side of the passage.  The heavy cover of dust,
+coupled with a dark green mold growing on them, indicates they have not
+been opened for many, many years.
+~
+A
+get~
+sharp metal spikes climbing~
+if( !is_player( ch ) )
+  end;
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #gotit, ch );
+    act_notchar( #gotit1, ch );
+    obj_to_char( oload( 2341 ), ch );
+    obj_to_char( oload( 2341 ), ch );
+    obj_to_char( oload( 2341 ), ch );
+    end;
+    }
+  }
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+gotit~
+@eYou grab a few sets of intact climbing spikes.
+~
+E
+gotit1~
+@e$n grabs a few sets of intact climbing spikes.
+~
+E
+no~
+@eYou grab a few sets of climbing spikes but they quickly crumble in your
+hand.
+~
+E
+no1~
+@e$n grabs a few sets of climbing spikes but they quickly crumble in $s
+hand.
+~
+!
+0 0 0
+-1
+S
+
+#58012
+Tunnel Through the Dragonspires~
+A single strip of mining cart track lies in the center of the room,
+covered in rust and broken in a few places.  Empty mining carts lie
+overturned along the southern wall.  In the eastern wall a square hole
+has been cut into the stone and from within it you can hear the sound of
+rushing water.  To the north the tunnel rises up a bit while to the west
+it begins to descend down into the mountain.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 58013 10 10 5
+D3
+~
+~
+0 -1 58011 10 10 5
+E
+strip track~
+The track is very rusty and is broken in several locations.  Sharp metal
+splinters protrude out from within the steel rails and various cracks
+from age are evident.
+~
+E
+eastern wall square hole~
+The hole is three feet wide by three feet high and its interior is quite
+slick.  The shaft must have been used for miners to throw refuse done and
+keep the tunnel free from clutter.  From deep within the bowels of the
+shaft the sound of rushing water can be heard.
+~
+E
+mining carts~
+The carts are covered in several layers of rust and have not been used in
+some time.  Bits of rock still lie within the cart's holds but nothing
+very useful.
+~
+-1
+S
+
+#58013
+Tunnel Through the Dragonspires~
+The tunnel here is quite thin, barely allowing enough room for two
+human-sized men to pass side by side.  The walls here are filled with
+various gems which glitter in the light and send a dazzling array of
+colors bouncing around the room.  Directly to the north the tunnel widens
+and a warm breeze blows in from the massive opening in the stone.  To the
+south the tunnel heads through the caverns of the Dragonspires.
+~
+[Thunder] aww but I want these gems, or at least to look at them :)
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 58014 10 10 5
+D2
+~
+~
+0 -1 58012 10 10 5
+-1
+S
+
+#58014
+Cliff Overlooking Tarik Nor~
+Spanning out to the north is the vast land of Tarik Nor.  For miles and
+miles all you can see is a desert terrain with no hint of any structures
+whatsoever.  Small roads twist and wind through the land and appear like
+tiny ant-tunnels from this far away.  Below you the Dragonspires slope
+downwards at a great angle, making the journey down them a very hazardous
+one.  To the south a tunnel begins to work its way through the heart of
+the mountains.
+~
+Add climb down code
+down is 58015
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 58013 10 10 5
+A
+climb~
+down d mountain~
+if( has_obj( 2341, ch ) ) {
+  act_tochar( #plant, ch );
+  act_notchar( #plant1, ch );
+  Wait( 1 );
+  act_tochar( #climb, ch );
+  act_notchar( #climb1, ch );
+  transfer( ch, find_room( 58015 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 1 );
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+climb~
+@eYou slowly lower yourself down the mountain side using the climbing
+spikes.
+~
+E
+climb1~
+@e$n slowly lowers $mself down the mountain side using the climbing
+spikes.
+~
+E
+arrive~
+@eYou look up and see $n scaling down the mountain side, finally
+arriving on a sturdy ledge.
+~
+E
+plant~
+@eYou slam a set of mithril climbing spikes into the rough mountain side.
+~
+E
+plant1~
+@e$n slams a sets of mithril climbing spikes into the rough mountain
+side.
+~
+E
+no~
+The climb would be far too dangerous without some sort of climbing aid.
+~
+!
+0 0 0
+-1
+S
+
+#58015
+Northern Slope of the Dragonspires~
+Large boulders stick out from within the mountains, hanging over the edge
+of the cliffs and looking as though at any moment they could break free. 
+Small rocks tumble down from above every few mountains sending a piercing
+echo down the slopes.  Small holes along the side of the mountain act as
+handholds, providing a place to get a firm grip.  Above you the cliffs
+stuck out even further but seem to be a bit more stable then the current
+ledge you stand on.  Beneath you the mountains drop straight down
+vertically and look quite dangerous to climb.
+~
+~
+301465600 3 6 0
+A
+climb~
+down~
+if( has_obj( 2341, ch ) ) {
+  act_tochar( #plant, ch );
+  act_notchar( #plant1, ch );
+  Wait( 1 );
+  act_tochar( #climb, ch );
+  act_notchar( #climb1, ch );
+  transfer( ch, find_room( 58016 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 1 );
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+climb~
+@eYou slowly lower yourself down the mountain side using the climbing
+spikes.
+~
+E
+climb1~
+@e$n slowly lowers $mself down the mountain side using the climbing
+spikes.
+~
+E
+arrive~
+@eYou hear a low grunt and see $n climbing down the mountain side
+using the climbing spikes.
+~
+E
+plant~
+@eYou slam a set of mithril climbing spikes into the rough mountain side.
+~
+E
+plant1~
+@e$n slams a sets of mithril climbing spikes into the rough mountain
+side.
+~
+E
+no~
+The climb would be far too dangerous without some sort of climbing aid.;
+~
+!
+0 0 0
+A
+climb~
+up~
+if( has_obj( 2341, ch ) ) {
+  act_tochar( #plant, ch );
+  act_notchar( #plant1, ch );
+  Wait( 1 );
+  act_tochar( #climb, ch );
+  act_notchar( #climb1, ch );
+  transfer( ch, find_room( 58014 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 2 );
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+plant~
+@eYou slam a set of mithril climbing spikes into the rough mountain side.
+~
+E
+plant1~
+@e$n slams a sets of mithril climbing spikes into the rough mountain
+side.
+~
+E
+climb~
+@eYou pull yourself up the mountain side using the climbing spikes.
+~
+E
+climb1~
+@e$n pulls $mself up the mountain side using the climbing spikes.
+~
+E
+arrive~
+@eYou hear a low grunt and see $n pulling $mself up the mountain side
+using the climbing spikes.
+~
+E
+no~
+The climb would be far too dangerous without some sort of climbing aid.
+~
+!
+0 0 0
+-1
+S
+
+#58016
+Northern Slope of the Dragonspires~
+The sheer wall of the Dragonspire mountains rise up to the south of you,
+their massive rock forms peering out over various ledges.  Small climbing
+spikes still remain implanted into the rocky walls and small strands of
+rope still hang from them.  To the north a road begins to make its way
+through the rows of sand dunes which span out before you.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 58017 10 10 5
+D2
+mound of boulders~
+~
+235 -1 50616 10 10 5
+A
+climb~
+up mountain~
+if( has_obj( 2341, ch ) ) {
+  act_tochar( #plant, ch );
+  act_notchar( #plant1, ch );
+  Wait( 1 );
+  act_tochar( #climb, ch );
+  act_notchar( #climb1, ch );
+  transfer( ch, find_room( 58015 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 1 );
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+plant~
+@eYou slam a set of mithril climbing spikes into the rough mountain side.
+~
+E
+plant1~
+@e$n slams a sets of mithril climbing spikes into the rough mountain
+side.
+~
+E
+climb~
+@eYou pull yourself up the mountain side using the climbing spikes.
+~
+E
+climb1~
+@e$n pulls $mself up the mountain side using the climbing spikes.
+~
+E
+arrive~
+@eYou hear a low grunt and see $n pulling $mself up the mountain side
+using the climbing spikes.
+~
+E
+no~
+The climb would be far too dangerous without some sort of climbing aid.
+~
+!
+0 0 0
+-1
+S
+
+#58017
+Black Wastes - Desolate Road Across the Wastes~
+Rolling sand dunes rise up on each side of the road here, blocking your
+view over them.  The road is completely barren and no signs of life can
+be seen at all.  Large boulders peek out from beneath mounds of sand
+along the road side.  To the south the sheer walls of the Dragonspires
+rise up while to the north the road heads deeper into the wastes.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 58018 10 10 5
+D2
+~
+~
+0 -1 58016 10 10 5
+E
+sand dune~
+High tan sand dunes extend far into the distance to the east and west,
+blocking all views of the surrounding land.
+~
+E
+boulders~
+Near the road are several very large boulders, only partially hidden by
+the soft, moving sands.
+~
+-1
+S
+
+#58018
+Black Wastes - Desolate Road Across the Wastes~
+A crumbling stone wall lines the eastern and western sides of the road
+here, heading off towards the north.  The road is quite worn from years
+of use and you notice fairly fresh wagon ruts in the road's surface. 
+Lying just off the side of the road to the west are the skeletal remains
+of a large horse; its bones partially covered by sand.  The road
+continues to the north and south, running its course through the
+wasteland.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 58019 10 10 5
+D2
+~
+~
+0 -1 58017 10 10 5
+E
+crumbling wall~
+A low wall made of a mixture of stones prevents movement off the road and
+into the sands to the east and west.  The wall has been exposed to the
+elements for many years; the stones now seem to be falling out of their
+man-made structure.
+~
+E
+road~
+The road through the desert is partially covered with several inches of
+soft sand.  Where you can see the road surface, signs of heavy use are
+plentiful.  Ruts made by a wheel of some sort still lie on the surface of
+the sand; something passed this way not long ago.
+~
+E
+skeleton horse~
+The skeleton of a horse lies off to the west side of the road; those
+bones not covered by the sand have been bleached white by the sun and
+elements.
+~
+-1
+S
+
+#58019
+Black Wastes - Desolate Road Across the Wastes~
+Low sand dunes give you a clear view of the surrounding area.  Crumbling
+stone structures dot the landscape to the northwest.  To the east the
+road begins to rise a bit, like it were gently climbing a hillside.  Off
+to the northwest a long mountain range rises over the horizon over which
+dark clouds hang.  South of you, the road heads towards the dark shadows
+of the Dragonspire range.
+~
+[Terek] Eventually im gonna put Falgor keep west of here, but i have time.
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 58020 10 10 5
+D2
+~
+~
+0 -1 58018 10 10 5
+E
+stone structure~
+Far to the northwest are tiny-looking stone structures.  It is impossible
+to tell just what they are from this distance.
+~
+-1
+S
+
+#58020
+Black Wastes - Desolate Road Across the Wastes~
+Boulders of a blackish, volcanic rock lie on and along the road.  A
+constant wind blows across the sandy terrain sending a barrage of sand
+particles at your face.  Blackened tree stumps can be seen just off the
+road to the north and south of here.  The road continues to the east and
+west through the mounds of sand dunes.
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 51250 10 10 5
+D3
+~
+~
+0 -1 58019 10 10 5
+E
+tree stump~
+The trunks of what were once great trees stand now dark and lifeless. 
+Some conflagration burned them down, leaving only the blackened trunks as
+reminders.
+~
+E
+boulder volcanic rock~
+Half a dozen huge boulders lie off to the eastern side of the road, and
+another four to the west.  These chunks of minerals are dark and pourous,
+and appear to be of volcanic origin.
+~
+-1
+S
+
+#58021
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+-1
+S
+
+#58022
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+-1
+S
+
+#58023
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D5
+~
+~
+0 -1 58024 10 10 5
+-1
+S
+
+#58024
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D3
+~
+~
+0 -1 58025 10 10 5
+D4
+~
+~
+0 -1 58023 10 10 5
+-1
+S
+
+#58025
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 58024 10 10 5
+D3
+~
+~
+0 -1 58026 10 10 5
+-1
+S
+
+#58026
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 58025 10 10 5
+D3
+~
+~
+0 -1 58027 10 10 5
+-1
+S
+
+#58027
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 58026 10 10 5
+D3
+~
+~
+0 -1 58028 10 10 5
+-1
+S
+
+#58028
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 58027 10 10 5
+D3
+~
+~
+0 -1 58029 10 10 5
+-1
+S
+
+#58029
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 58028 10 10 5
+D3
+~
+~
+0 -1 58030 10 10 5
+-1
+S
+
+#58030
+Great Western Road~
+Under Construction.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 58029 10 10 5
+-1
+S
+
+#0
+

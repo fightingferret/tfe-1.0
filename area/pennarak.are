@@ -1,0 +1,1979 @@
+#AREA
+Pennan-Narak Corridor~
+Kiian/Kevona/Phule~
+~
+
+0 0
+3
+#ROOMS
+
+#36250
+Greened Way~
+Towering hills rise to either side of the path, tough brush and lichen
+clinging to their almost vertical walls.  The dense, tall carpet of grass
+stretches east and west, brushing against your legs as you wade through
+it.  Near the edges of the path, the grass has gone to seed in places.
+~
+East to #37045 (Pennan)
+~
+301465604 12 9 0
+D3
+~
+~
+0 -1 36251 10 10 5
+-1
+S
+
+#36251
+Greened Way~
+The road runs east and west here, and to either side of the road rise
+steep hills, punctuated with an occasional boulder.  Dense brush lines
+the wayside, and creeps up the faces of the surrounding hills.  The road
+descends deeper into the hills to the west.
+~
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36250 10 10 5
+D3
+~
+~
+0 -1 36252 10 10 5
+-1
+S
+
+#36252
+Greened Way~
+Underfoot are the lush grasses of Greened Way, and to either side of the
+road rise steep hills, effectively barring passage to north and south. 
+Dense brush lines the wayside, giving way on the northern side of the
+road to a small copse of trees which extends to the west.
+~
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36251 10 10 5
+D3
+~
+~
+0 -1 36253 10 10 5
+-1
+S
+
+#36253
+Greened Way~
+A copse of short, tenacious trees struggle resolutely up the steep face
+of the hill bordering the northern edge of the road.  The stubborn brush
+prevalent to this region blankets the hills south of the trail, and the
+view down the trail to the west is dominated by a towering cliff face.
+~
+describe how the road moves - between thick brush, it narrows, it twists, darts between bushes,etc
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36252 10 10 5
+D3
+~
+~
+0 -1 36254 10 10 5
+-1
+S
+
+#36254
+Greened Way~
+A cliff face creates a natural barrier to the west, rising to a dizzying
+height.  The road swerves south here, to run along the base of the cliff. 
+Passage to the north is barred by a treacherous hillside, dotted with
+scrub and rubble.
+~
+Secret door in west wall
+make climb take mv when modify_move is fixed
+consider encumbrance in climb when appropriate function appears
+Kiian -- should I highlight "cliff" here?  Or would that be too obvious?
+[Phule] get rid of the waits in the climbs
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36253 10 10 5
+D2
+~
+~
+0 -1 36255 10 10 5
+E
+cliff 1 up~
+The cliff is steep, and nearly smooth, but small cracks in the rock and
+the occasional stubborn bush may offer hand- and footholds sufficient for
+climbing.
+~
+A
+climb~
+cliff 1 up wall~
+if( num_in_room( find_room( 36317 ) ) )
+  send_to_char( #NoRoom, ch );
+else {
+  if( can_fly( ch ) ) {
+    room = find_room( 36317 );
+    acode( find_room( 36319 ), 2 );
+    }
+  else {
+    if( find_skill( ch, climb ) > random( 6, 9 ) ) {
+      send_to_char( #Climb, ch ); 
+      act_notchar( #OtherClimbs, ch );
+      wait( random( 0, 1 ) );
+      transfer( ch, find_room( 36317 ) );
+      }
+    else {
+      send_to_char( #Fail, ch );
+      act_notchar( #OtherFails, ch );
+      if( find_stat( ch, dex ) > random( 5, 20 ) )
+        send_to_char( #Save, ch );
+      else {
+        i = 3d6;
+        dam_message( ch, i, "the fall" );
+        inflict( ch, mob, i, "falling from the cliff");
+        }
+      }
+    }
+  }
+~
+E
+Save~
+Luckily, you catch yourself before any harm is done.
+~
+E
+OtherFails~
+$n clambers up the cliff face, then comes sliding down in an undignified
+manner.
+~
+E
+Fail~
+Your attempt fails, and you slide down the rock face in a flurry of
+flailing limbs.
+~
+E
+OtherClimbs~
+$n scrambles up the side of the cliff.  It looks like $e's having a hard
+time.
+~
+E
+Climb~
+You scale the face of the cliff, gaining more than a few bruises along
+the way.
+~
+E
+OtherFlies~
+$n soars upward, along the cliff face.
+~
+E
+Flies~
+You fly upward, along the cliff face.
+~
+E
+NoRoom~
+It looks as if there is already someone up there, and no room for a
+second.
+~
+!
+0 0 0
+A
+|~
+The Fall~
+act_tochar( #NoSave, ch );
+transfer( ch, find_room( 36254 ) );
+dam_message( ch, i, "the fall" );
+act_notchar( #FallingBody, ch );
+act_area( #Scream, ch );
+inflict( ch, mob, i, "falling from the cliff" );
+~
+E
+Scream~
+In the distance, you hear a cry of anguish, which quickly diminishes.
+~
+E
+NoSave~
+You plummet toward the ground below.
+~
+E
+FallingBody~
+$n comes windmilling down from above, and lands with a resounding thump.
+Luckily, you are able to avoid $s passage.
+~
+!
+0 0 0
+A
+|~
+Flies Down~
+act_tochar( #Fly, ch );
+act_notchar( #OtherFlies, ch );
+transfer( ch, room );
+act_notchar( #FlyArrives, ch );
+~
+E
+FlyArrives~
+$n comes flying down from above.
+~
+E
+OtherFlies~
+$n flies down the cliff face.
+~
+E
+Fly~
+You fly down the cliff face.
+~
+!
+0 0 0
+A
+|~
+Climbs Down~
+act_tochar( #Climb, ch );
+act_notchar( #OtherClimbs, ch );
+wait( random( 0, 1 ) );
+transfer( ch, room );
+act_notchar( #ClimbArrives, ch );
+~
+E
+ClimbArrives~
+$n comes climbing down from above.
+~
+E
+OtherClimbs~
+$n climbs down the cliff face.
+~
+E
+Climb~
+You climb down the cliff face.
+~
+!
+0 0 0
+A
+|~
+Too Tired~
+if( !can_fly( ch ) )
+  act_tochar( "You are too tired to attempt the climb.", ch );
+else
+  act_tochar( "You are too tired to fly.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#36255
+Greened Way~
+The trail follows the cliff face here, and is bordered to the east by
+more scrub and rocky hills.  It is surprising that the grass of the road
+grows so lushly on the dry, hard-packed earth here.
+~
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 36254 10 10 5
+D2
+~
+~
+0 -1 36256 10 10 5
+E
+cliff 1 up~
+The face of the cliff is smooth here, having no irregularities which
+would give purchase to the climber.
+~
+-1
+S
+
+#36256
+Greened Way~
+An archway has been cut in the rock wall to the west, a work of immense
+proportion, showing that this road was once considered an important
+highway.  Even in its shadow grow the grasses of the Way.  To the east,
+steep hills rise, and to the south is a huge moss-covered pile of rubble. 
+Perhaps this is the stone that was carved from the living face of the
+rock to allow man's passage.
+~
+Perhaps an abondoned waystation (guards and/or traveler lodging) here or
+one west.  Could have been an inn-type thingie or a travelers' shrine..
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 36255 10 10 5
+D3
+~
+~
+0 -1 36257 10 10 5
+E
+rubble~
+A pile of large, mossy rocks.
+~
+-1
+S
+
+#36257
+Greened Way~
+The road passes through a man-made archway in the rock wall to the east,
+a symbol of a time when this road was a major thoroughfare.  The lush
+grass of the road cushions your footfalls, lending this artifact of a
+bygone age a measure of hushed solemnity.  The rocky hills, constant
+companions on your journey, border the road on the south and west.
+~
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 36258 10 10 5
+D1
+~
+~
+0 -1 36256 10 10 5
+-1
+S
+
+#36258
+Greened Way~
+A steep hill to the west bars passage in that direction, though it is
+dwarfed by the rock wall bordering the road to the east, its upper
+reaches shrouded in mist.  Overshadowed by the wall, the vegetation on
+the hillside is sparse and brown, in vivid contrast to the vibrant,
+knee-high grasses of the trail beneath your feet.
+~
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 36259 10 10 5
+D2
+~
+~
+0 -1 36257 10 10 5
+-1
+S
+
+#36259
+Greened Way~
+The road is somewhat narrower here, bordered on the west by the face of a
+rocky hill and on the east by a sheer rock wall.  Though other vegetation
+seems to have given up this area as uninhabitable, the grasses that give
+the road its name thrive here, as well.  A boulder lies here in the
+center of the road, perhaps fallen from above.
+~
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 36260 10 10 5
+D2
+~
+~
+0 -1 36258 10 10 5
+-1
+S
+
+#36260
+Greened Way~
+The grassy road turns again here, cradled by steep rock walls to the
+north and east.  The walls are inhabited only by the occasional stubborn
+bush, and small birds which make these their homes.
+~
+bush/bird rextra (and nest?  eggs?)
+Scrutinizes you just as intently with its glossy eyes.
+too thin - go for 5 lines as a rule with rdescs
+~
+301465604 12 9 0
+D2
+~
+~
+0 -1 36259 10 10 5
+D3
+~
+~
+0 -1 36261 10 10 5
+-1
+S
+
+#36261
+Greened Way~
+The hill to the north becomes more rocky here, and soars steeply up and
+to the east.  Its companion to the south has less ambition, but is still
+an effective barrier.
+~
+again -getting thin but this is good
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36260 10 10 5
+D3
+~
+~
+0 -1 36262 10 10 5
+-1
+S
+
+#36262
+Greened Way~
+The sky here is only visible here as a ribbon of blue overhead.  The
+steep hill faces bordering it on either side are covered in a carpet of
+dense scrub.
+~
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36261 10 10 5
+D3
+~
+~
+0 -1 36263 10 10 5
+-1
+S
+
+#36263
+Greened Way~
+Flowering shrubs dot the hills bordering the trail here, adding a
+refreshing touch of color to the otherwise drab landscape.  The 
+grassy road runs east and west.
+~
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36262 10 10 5
+D3
+~
+~
+0 -1 36264 10 10 5
+-1
+S
+
+#36264
+Greened Way~
+The road leads east and north here, encompassing a large outcropping of
+rock to the northeast.  Rocky hills bordering the western and southern
+edge of the road restrict movement in those directions.
+~
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 36265 10 10 5
+D1
+~
+~
+0 -1 36263 10 10 5
+-1
+S
+
+#36265
+Greened Way~
+The grassy road swings south here to avoid an outcropping of rock.  To
+the north rises the face of the hill which spawned this natural barricade. 
+The rugged hills seem to grow smaller as you look west.
+~
+~
+301465604 12 9 0
+D2
+~
+~
+0 -1 36264 10 10 5
+D3
+~
+~
+0 -1 36266 10 10 5
+-1
+S
+
+#36266
+Greened Way's End~
+Inexplicably, the lush grasses of the Greened Way end here, though a
+trail of hard-packed earth continues west.  Bordering the trail, hills
+rise east, though west you can see a flat, featureless plain.
+~
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 36265 10 10 5
+D3
+~
+~
+0 -1 36267 10 10 5
+-1
+S
+
+#36267
+Grasslands Road~
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36299 10 10 5
+D1
+~
+~
+0 -1 36266 10 10 5
+D3
+~
+~
+0 -1 36268 10 10 5
+-1
+S
+
+#36268
+An Intersection on the Grasslands Road~
+Grasslands Road connects with a smaller path to the south here.  The
+trail is made of old cobblestones and is surrounded by a great amount of
+vegetation.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36269 10 10 5
+D1
+~
+~
+0 -1 36267 10 10 5
+D2
+~
+~
+0 -1 36305 10 10 5
+-1
+S
+
+#36269
+Grasslands Road~
+Under Construction.
+~
+dry well
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36270 10 10 5
+D1
+~
+~
+0 -1 36299 10 10 5
+D2
+~
+~
+0 -1 36268 10 10 5
+D3
+~
+~
+0 -1 36298 10 10 5
+-1
+S
+
+#36270
+Grasslands Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36303 10 10 5
+D1
+~
+~
+0 -1 36300 10 10 5
+D2
+~
+~
+0 -1 36269 10 10 5
+D3
+~
+~
+0 -1 36271 10 10 5
+-1
+S
+
+#36271
+Grasslands Road~
+Under Construction.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36304 10 10 5
+D1
+~
+~
+0 -1 36270 10 10 5
+D2
+~
+~
+0 -1 36298 10 10 5
+D3
+~
+~
+0 -1 36272 10 10 5
+-1
+S
+
+#36272
+Grasslands Road~
+A beaten path stretches through the grasslands.  To the south a distant
+forest stands out against the horizon.  Directly about you, you hear the
+myriad scurryings of the denizens of the plain.  The sky above stretches
+out for miles, unblocked by mountain or dwelling.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36271 10 10 5
+D3
+~
+~
+0 -1 36273 10 10 5
+-1
+S
+
+#36273
+Grasslands Road~
+The path continues to the west, as the prarie stretches out before you to
+the north.  The wide expanse of flowing grass ripples in a gentle wind.
+A bird of prey circles in the pale blue sky.
+~
+create bird/ferret/
+prairie dogs/
+mice/grasshopper/vole/rabbit/horses/buffalo
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36297 10 10 5
+D1
+~
+~
+0 -1 36272 10 10 5
+D3
+~
+~
+0 -1 36274 10 10 5
+E
+bird~
+It appears to be a kestrel, one of the smaller species of hawk.
+~
+-1
+S
+
+#36274
+Grasslands Road~
+The road twists to the north; turning, you see the vista of the prairie. 
+You feel that the land about you is limitless.  The clean wind washes
+over you, causing the grass to bend in undulating ripples.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36275 10 10 5
+D1
+~
+~
+0 -1 36273 10 10 5
+D3
+~
+~
+0 -1 36296 10 10 5
+-1
+S
+
+#36275
+Grasslands Road~
+The road turns back to the west, skirting along between the expanses of
+grass.  A small pile of brown @b@Rspheres@n lies next to the path.  To the
+west, you see a few pale wispy clouds floating on the horizon.
+@b@Yattempt@n
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36297 10 10 5
+D2
+~
+~
+0 -1 36274 10 10 5
+D3
+~
+~
+0 -1 36276 10 10 5
+E
+spheres~
+Upon investigation, the spheres are apparant as rabbit droppings.  From
+the lack of smell, they seem to very fresh.
+~
+-1
+S
+
+#36276
+Grasslands Road~
+The road continues west, with rocky patches becoming apparent.  To the
+south, the dark edge of the forest spreads along the horizon across a
+field of waving grass.  To the north, the broad expanse continues to
+inspire a feeling of total openness and freedom.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36295 10 10 5
+D1
+~
+~
+0 -1 36275 10 10 5
+D2
+~
+~
+0 -1 36296 10 10 5
+D3
+~
+~
+0 -1 36277 10 10 5
+78 17 1509949540 -2 0
+-1
+S
+
+#36277
+Grasslands Road~
+The road twists from east to north, a wide strip of trampled ground your
+only guide to traversing the trackless grassland.  The air rushes about
+you, cooling you from the exersions of travel and creating gentle waves
+in the tall grasses to either side.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36278 10 10 5
+D1
+~
+~
+0 -1 36276 10 10 5
+-1
+S
+
+#36278
+Grasslands Road~
+The road turns from south to west, a winding ribbon among the waving sea
+of grass.  To the south, the forest is a dark green smudge on the
+horizon, almost hidden from view by the tall grasses.  Beside you on the
+path, you see a half-constructed @Gwebbing@n among the more stable bases of the
+grass, a largish spider working busily to complete its task.
+~
+create spider that isn't agressive here
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36295 10 10 5
+D2
+~
+~
+0 -1 36277 10 10 5
+D3
+~
+~
+0 -1 36279 10 10 5
+E
+largish~
+No description~
+E
+spider~
+It is a large yellow spider with black stripes.  Longlegs extend from its
+body, busily spinning its web.  It does not react to your inspection,
+choosing to remain passive, a relatively harmless, insect-eating,
+garden-variety spider.
+~
+E
+spider~
+none~
+E
+webbing~
+The web is being constucted on a large scale, with multiple anchorage
+points to allow for the weight of the spider.  Evidently is has had to be
+rebuilt several other times in the past, as small patches of old web hang
+down around at various points.
+~
+E
+spider~
+none~
+E
+web~
+The web is large with multiple anchorage points to allow for the weight
+of the spider.  Evidently it has had to be rebuilt several times, as
+small patches of old web hang down around at various points.
+~
+E
+spider~
+~
+81 17 1509949540 -2 0
+-1
+S
+
+#36279
+Grasslands Road~
+The road dips here in its journey east and west.  The grasses to your
+sides rise up and block your view of the sky, creating a sudden contrast
+from your previous feeling of openness and freedom.  You hear the sounds
+of critters crawling through the grass, the soft whir of flying insects,
+and the sudden, startled squeaking of mice.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36278 10 10 5
+D3
+~
+~
+0 -1 36280 10 10 5
+-1
+S
+
+#36280
+Grasslands Road~
+Continuing to run from east to west, the road rises up to give its
+wideflung view of the world around you.  To the north, a small shrine
+awaits those inclined to a pause in their journey for meditation.  An
+erratic breeze from the south hints distantly of the cool scents of pine
+and flowing water, then vanishes from your senses, leaving the
+now-familiar smell of sun-warmed grass.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36294 10 10 5
+D1
+~
+~
+0 -1 36279 10 10 5
+D3
+~
+~
+0 -1 36281 10 10 5
+-1
+S
+
+#36281
+Grasslands Road~
+The road lies from east to west, surrounded by the flowing prairie.  The
+sky, a pure blazing blue, is inhabited by high, wispy clouds that give no
+indication of releasing any moisture.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36280 10 10 5
+D3
+~
+~
+0 -1 36282 10 10 5
+-1
+S
+
+#36282
+Grasslands Road~
+The road travels east to west, parallel to the course of the sun.  The
+air is drier than the land to the east, and the grasses less lush and
+green.  A sudden gust of wind from the northwest sets the grasses bending
+and waving, and briefly places the taste of sand upon your tongue.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36293 10 10 5
+D1
+~
+~
+0 -1 36281 10 10 5
+D3
+~
+~
+0 -1 36283 10 10 5
+-1
+S
+
+#36283
+Grasslands Road~
+The road turns here, leading north and east.  Tall grass grows here, the
+dry blades whispering in the wind to each other in a quiet murmur.  Other
+whispers come to your ears, the sharp distinct movements of small animals
+and the ceaseless creepings of vegetarian insects.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36284 10 10 5
+D1
+~
+~
+0 -1 36282 10 10 5
+-1
+S
+
+#36284
+Grasslands Road~
+The road curves from south to west, a beaten way of bare earth.  Grasses
+as tall as your waist (if you're a human) wave quietly at you in the
+gentle breeze.  Above you, a solitary hawk circles, a barely recognizable
+dot in the intense blue sky.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36293 10 10 5
+D2
+~
+~
+0 -1 36283 10 10 5
+D3
+~
+~
+0 -1 36285 10 10 5
+-1
+S
+
+#36285
+Grasslands Road~
+You travel on a hard packed dirt road through vast prairies and meadows. 
+The area around you is dry, but to the east you can see hints of a sea of
+green.  A vagrant breeze twines around you, refreshing you but also
+stirring up motes of dust which tickle your nose and irritate your eyes. 
+The cerulean sky is cloudless and remote, home olny to winged scavengers
+flying in solitary circles.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36284 10 10 5
+D3
+~
+~
+0 -1 36286 10 10 5
+-1
+S
+
+#36286
+Grasslands Road~
+The road travels east to west through a varied landscape.  At this point
+in the road the surrounding area has become completely arid.  Small scrub
+bushes and prairie grass completely cover the area, and are slowly
+enraoching on the area the road occupies.  The drab green of the
+vegetation is the only color besides the bright blue sky.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36285 10 10 5
+D3
+~
+~
+0 -1 36287 10 10 5
+-1
+S
+
+#36287
+Grasslands Road~
+The road crosses the plain from east to west, cutting a path through the
+weedy bushes that dominate the landscape.  The aridity of the region is
+evident as each stop you take brings up puffs of dust that rise to your
+knees, then settle down again to the path.  The wind gusts in random
+movements, occasionally stirring up a dust devil that dances for a short
+while before collapsing in a tan pile on the road.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36286 10 10 5
+D3
+~
+~
+0 -1 36288 10 10 5
+-1
+S
+
+#36288
+Grasslands Road~
+The road continues to parallel the equator, dust rising with every step
+you take and with every whisper of the wind.
+Light pours around you from a haughty blue sky, 
+~
+[Phule] equator? i think our world is 'flat'
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 36287 10 10 5
+D3
+~
+~
+0 -1 36289 10 10 5
+-1
+S
+
+#36289
+Grasslands Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 36288 10 10 5
+D3
+~
+~
+0 -1 36290 10 10 5
+-1
+S
+
+#36290
+Grasslands Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36291 10 10 5
+D1
+~
+~
+0 -1 36289 10 10 5
+-1
+S
+
+#36291
+Grasslands Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 36290 10 10 5
+D3
+~
+~
+0 -1 36292 10 10 5
+-1
+S
+
+#36292
+End of Grasslands Road~
+Under Construction.
+~
+forks to north toward narak and desert; southwest toward parts as yet undetermined
+w 35863
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 36291 10 10 5
+D3
+~
+~
+0 -1 35863 10 10 5
+-1
+S
+
+#36293
+Prairie Edge~
+The grasses rustle quietly under your feet and at your passing.  The long
+blades of grass sway in green waves and tan crests as the gentle wind
+propels the vegetation about you.  The prairie roams with other, mobile
+life, audible in soft squeaks and sudden rustles in the deep parts of the
+layers of grass.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 36282 10 10 5
+D3
+~
+~
+0 -1 36284 10 10 5
+-1
+S
+
+#36294
+Roadside Shrine~
+You see a small, humble @b@Yaltar@n made of common stone.  It rises from
+the ground, surrounded by shorter grass than that in the rest of the
+area, The area directly around the altar has been cleared of plants,
+quiet testimony of the respect shown by others traveling this road.
+~
+~
+301465728 2 9 0
+D2
+~
+~
+0 -1 36280 10 10 5
+E
+altar~
+The stones are grey rock, the largest being the size of a dwarf's fist. 
+The top is level, bearing a flat rock carved with an inscription,
+"Rest to the weary traveling this road, and rest to the soul of
+Gewander Sorchester, already gone beyond."
+~
+-1
+S
+
+#36295
+Grasslands~
+The prairie seems to surround you.  As the wind rushes around you, you
+feel exhilaration at the feeling of limitlessness the prairie inspires.
+The air is sweet and crisp, while the sun shines warmly upon you, easing
+tired muscles and brightening your perspective.  You believe you have
+found a small patch of peace that lies in this world.
+~
+~
+301465610 2 9 0
+D2
+~
+~
+0 -1 36276 10 10 5
+D3
+~
+~
+0 -1 36278 10 10 5
+-1
+S
+
+#36296
+Grasslands~
+You are standing among tall grasses that wave in the wind and gently
+brush your legs.  To the south you can see a distant forest.  Mice scurry
+about in the grass around you.
+~
+make some mice here
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 36276 10 10 5
+D1
+~
+~
+0 -1 36274 10 10 5
+-1
+S
+
+#36297
+Grasslands~
+You are standing along the edge of a vast grassland that seems to go
+forever.  You hear a sudden squeal as something is brought down by a
+weasel or ferret.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 36273 10 10 5
+D3
+~
+~
+0 -1 36275 10 10 5
+-1
+S
+
+#36298
+Burned Inn~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36271 10 10 5
+D1
+~
+~
+0 -1 36269 10 10 5
+-1
+S
+
+#36299
+Grasslands~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36300 10 10 5
+D2
+~
+~
+0 -1 36267 10 10 5
+D3
+~
+~
+0 -1 36269 10 10 5
+-1
+S
+
+#36300
+Grasslands~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 36301 10 10 5
+D2
+~
+~
+0 -1 36299 10 10 5
+D3
+~
+~
+0 -1 36270 10 10 5
+-1
+S
+
+#36301
+Before the Burned Manor~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36302 10 10 5
+D3
+~
+~
+0 -1 36300 10 10 5
+-1
+S
+
+#36302
+Burned Manor~
+At some time in the past this residence was the site of a great fire. 
+The interior of the house in nothing more than a mass of charred wooden
+beams and planks.  The staircase to the upper levels of the home has
+collapsed in the years since the fire.  Blackened shards of glass from
+the windows are scattered about the entire floor.  Looking closely at the
+back corner of the building you see an area of the floor that has been
+burned completely through.
+~
+Need an action so when players leave down they get
+"You enter the black hole and descend to the cellar."
+SS
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 36301 10 10 5
+D5
+~
+~
+0 -1 41250 10 10 5
+E
+1 windows~
+~
+E
+1 shards glass~
+The shards of glass littering the floor have been blackened and warped by
+the heat of a fire.  Most of the glass seems to be located near the
+windows of the manor.
+~
+E
+1 floor hole trapdoor~
+As you look at the hole you realize that this was a trapdoor prior to the
+fire.  The door seems to have burned away leaving an open hole to the
+cellar of the house.
+~
+-1
+S
+
+#36303
+Grasslands Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 36270 10 10 5
+D3
+~
+~
+0 -1 36304 10 10 5
+-1
+S
+
+#36304
+Grasslands Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 36303 10 10 5
+D2
+~
+~
+0 -1 36271 10 10 5
+-1
+S
+
+#36305
+Abbey Road~
+You are walking down a small, unused cobblestone road.  The vegetation
+grows heavily throughout the road and a single rose attempts to blossom
+along the side.  To the east rise large hills that stretch out across the
+countryside.  To the west is a dense, dark, twisted forest.
+~
+need to make poison and action for picking the rose.
+THROUGHOUT the road??  I don't understand..
+How do I know the road's unused?  It's obiously not -- I'm on it.. :)
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36268 10 10 5
+D2
+~
+~
+0 -1 36306 10 10 5
+E
+rose flower~
+This beautiful, fragil flower is attempting to grow despite all of the
+weeds that surround it.  Its long stem and perfect petals make for the
+greatest picture of beauty amidst turmoil that you have ever seen.
+~
+E
+stem~
+This long, green stem is covered with small, sharp thornes.  This
+strikes a sharp contrast with the beauty and serenity of the petals.
+~
+E
+thorns~
+These prickly little thorns appear to be covered with some sort of
+glistening liquid.
+~
+-1
+S
+
+#36306
+Abbey Road~
+You are walking down an old, cobblestone road.  The path is almost
+overgrown with vegetation, as if it hasn't been used in quite some time. 
+A breeze blows in from the south.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36305 10 10 5
+D2
+~
+~
+0 -1 36307 10 10 5
+-1
+S
+
+#36307
+Abbey Road~
+You are walking along a cobblestone path.  As you go farther down the
+path, the darkness from the forest seems to be covering the path in an
+unnatural way.  An almost malevolent presence can be felt watching you
+from the forest.  A chill passes through your body and the hair on the
+nape of your neck stands straight up.  You think you should continue down
+the path as quickly as possible.
+~
+Assuming I'm walking south down the path?  What if I'm walking north?
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36306 10 10 5
+D1
+~
+~
+0 -1 36308 10 10 5
+E
+forest darkness~
+As you look into the darkness, you sense an ancient evil eminating from
+with it.  A cold breeze blows over you just as two red pin pricks of
+light suddenly appear in front of you.  The spacing of the lights seems
+to suggest eyes staring at you.  As you look into the eyes, you start to
+feel dizzy.  Then you feel as if you are falling.  Summoning all of your
+willpower, you jerk your eyes away from the eyes.  When you look back the
+eyes are gone.
+~
+-1
+S
+
+#36308
+Abbey Road~
+You are now walking towards some tall, craggy hills  Sharp rocks jut out
+of the sides of the hills and clouds roll through the sky in the
+background  Behind you, you can still feel the sinister presence of the
+forest.
+~
+Again, assumption of the direction I'm walking..
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 36309 10 10 5
+D3
+~
+~
+0 -1 36307 10 10 5
+-1
+S
+
+#36309
+Abbey Road~
+The cobblestone path continues here.  To the east lie the hills, and to
+the west is the forest.  As you walk, you hear the crunch of dried grass
+and leaves under your feet.  Not a sound comes from the forest.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36308 10 10 5
+D1
+~
+~
+0 -1 36310 10 10 5
+-1
+S
+
+#36310
+Abbey Road~
+Walking along the path, you see the tall craggy hills directly in front
+of you and the forest stretches to the south.  You also notice that a
+boulder has fallen from the hills and landed on the path in front of you.
+~
+need to fix this room
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 36311 10 10 5
+D3
+~
+~
+0 -1 36309 10 10 5
+E
+hole~
+You look in the hole and find a large, silver longsword with red runes running down its blade.
+~
+E
+under boulder~
+As you look under the boulder you notice a large hole at its base. 
+Inside the whole something gleams. 
+~
+E
+writing~
+none
+The writing says, "HERE LIES A TREASURE FOR THOSE WHO SEEK IT!"
+~
+E
+boulder~
+This large boulder appears to be made from solid granite.  Its greyish
+surface is unnaturally smooth and seems to have been worked.  As you scan
+its surface, you see writing on the bottom of it.
+~
+-1
+S
+
+#36311
+Abbey Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36310 10 10 5
+D1
+~
+~
+0 -1 36312 10 10 5
+-1
+S
+
+#36312
+Abbey Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 36313 10 10 5
+D3
+~
+~
+0 -1 36311 10 10 5
+-1
+S
+
+#36313
+Abbey Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36312 10 10 5
+D1
+~
+~
+0 -1 36314 10 10 5
+-1
+S
+
+#36314
+Abbey Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 36315 10 10 5
+D3
+~
+~
+0 -1 36313 10 10 5
+-1
+S
+
+#36315
+Abbey Road~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 36316 10 10 5
+D3
+~
+~
+0 -1 36314 10 10 5
+-1
+S
+
+#36316
+Before the Abbey~
+Under Construction.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 36315 10 10 5
+-1
+S
+
+#36317
+On a Cliff Face~
+You hang onto miniscule crevices in the rock, your view impeded by the
+fact that doing more than looking straight ahead at the bleak stone
+before you may mean a nasty fall.  It looks possible to climb higher,
+though the rock above is even steeper than that which you cling
+precariously to, and a fall would mean an expedient and painful journey
+to the base of the cliff.
+~
+~
+301465600 5 9 0
+A
+climb~
+1 up~
+if( can_fly( ch ) ) { 
+  room = find_room( 36318 );
+  acode( find_room( 36319 ), 2 );
+  }
+else { 
+  if( num_in_room( find_room( 36318 ) ) )
+    send_to_char( #NoRoom, ch );
+  else { 
+    if( find_skill( ch, climb ) > random( 6, 9 ) ) {
+      send_to_char( #Climb, ch ); 
+      wait( random( 0, 1 ) );
+      transfer( ch, find_room( 36318 ) );
+      }
+    else {
+      send_to_char( #Fail, ch );
+      if( find_stat( ch, dex ) > random( 5, 20 ) )
+        send_to_char( #Save, ch );
+      else {
+        i = 6d6;
+        acode( find_room( 36254 ), 2 );
+        }
+      }
+    }
+  }
+~
+E
+Save~
+Your fingers clutch convulsively at the rock, and you save yourself at
+the last moment from sliding any farther.  Perhaps this climb is beyond
+your present abilities.
+~
+E
+Fail~
+You lose your hold on the treacherous rock.
+~
+E
+Climb~
+After a few trying moments, you successfully climb farther up the cliff
+face.
+~
+E
+NoRoom~
+It looks as if there is already someone up there, and no room for a
+second.
+~
+!
+0 0 0
+A
+climb~
+1 down~
+if( can_fly( ch ) ) { 
+  room = find_room( 36254 );
+  acode( find_room( 36254 ), 3 );
+  }
+else { 
+  if( find_skill( ch, climb ) > random( 5, 8 ) ) {
+    room = find_room( 36254 );
+    acode( find_room( 36254 ), 4 );
+    }
+  else {
+    send_to_char( #Fail, ch );
+    act_notchar( #OtherFails, ch );
+    if( find_stat( ch, dex ) > random( 5, 20 ) ) {
+      send_to_char( #Save, ch );
+      transfer( ch, find_room( 36254 ) );
+      i = 1d6;
+      dam_message( ch, i, "sliding down the cliff" );
+      inflict( ch, mob, i, "sliding down the cliff" );
+      }
+    else {
+      i = 3d6;
+      acode( find_room( 36254 ), 2 );
+      }
+    }
+  }
+~
+E
+Save~
+Luckily, you catch yourself before much harm is done.
+~
+E
+OtherFails~
+$n slips and slides over the edge of the cliff in an undignified manner.
+~
+E
+Fail~
+Your attempt fails, and you slide over the edge in a flurry of
+flailing limbs.
+~
+E
+NoRoom~
+It looks as if there is already someone down there, and no room for a
+second.
+~
+!
+0 0 0
+-1
+S
+
+#36318
+On a Cliff Face~
+Above, the cliff face veers up and out, and the rock of which it is
+formed looks crumbling and fragile.  Climbing upwards any farther would
+mean hanging in an almost vertical position from holds that may give way
+without notice.  The ground lies far beneath, and meeting it seems
+certain whatever your choice.
+~
+~
+301465600 5 9 0
+A
+climb~
+1 up~
+if( can_fly( ch ) ) { 
+  room = find_room( 36319 );
+  acode( find_room( 36319 ), 2 );
+  }
+else { 
+  if( find_skill( ch, climb ) > random( 6, 10 ) ) {
+    send_to_char( #Climb, ch ); 
+wait( random( 0, 2 ) );
+    transfer( ch, find_room( 36319 ) ) ;
+    act_notchar( #ClimbArrives, ch );
+    }
+  else {
+    act_tochar( #Fail, ch );
+    if( find_stat( ch, dex ) > random( 9, 20 ) )
+      send_to_char( #Save, ch );
+    else {
+      i = 9d6;
+      acode( find_room( 36254 ), 2 );
+      }
+    }
+  }
+~
+E
+Save~
+Your fingers clutch convulsively at the rock, and you save yourself at
+the last moment from sliding any farther.  Perhaps this climb is beyond
+your present abilities.
+~
+E
+Fail~
+You lose your hold on the treacherous rock.
+~
+E
+ClimbArrives~
+$n comes scrambling up over the edge of the cliff.
+~
+E
+Climb~
+You successfully drag yourself onto the overhang, and a magnificent vista
+unveils itself before your eyes.
+~
+!
+0 0 0
+A
+climb~
+1 down~
+if( can_fly( ch ) ) { 
+  room = find_room( 36317 );
+  acode( find_room( 36254 ), 3 );
+  }
+else { 
+  if( num_in_room( find_room( 36317 ) ) )
+    send_to_char( #NoRoom, ch );
+  else {
+    if( find_skill( ch, climb ) > random( 5, 8 ) ) {
+      room = find_room( 36317 );
+      acode( find_room( 36254 ), 4 );
+      }
+    else {
+      send_to_char( #Fail, ch );
+      act_notchar( #OtherFails, ch );
+      if( find_stat( ch, dex ) > random( 5, 20 ) ) {
+        send_to_char( #Save, ch );
+        transfer( ch, find_room( 36317 ) );
+        i = 1d6;
+        dam_message( ch, i, "sliding down the cliff" );
+        inflict( ch, mob, i, "sliding down the cliff" );
+        }
+      else {
+        i = 6d6;
+        acode( find_room( 36254 ), 2 );
+        }
+      }
+    }
+  }
+~
+E
+Save~
+Luckily, you catch yourself before much harm is done.
+~
+E
+OtherFails~
+$n slips and slides down the cliff face in an undignified manner.
+~
+E
+Fail~
+Your attempt fails, and you slide down the cliff wall in a flurry of
+flailing limbs.
+~
+E
+NoRoom~
+It looks as if there is already someone down there, and no room for a
+second.
+~
+!
+0 0 0
+-1
+S
+
+#36319
+Atop Narrow Peak~
+The view from up here is breathtaking.  Hills spread out in every
+direction, flattening out to a grassy plain far to the west.  At the
+limit of vision to the east, trees rise above the hills.  It is a perch
+well-suited to meaningful contemplation, or suicide.  All in all, well
+worth the climb.
+~
+allow leapers?
+put in down rextra
+~
+301465600 5 9 0
+A
+climb~
+1 down~
+if( can_fly( ch ) ) { 
+  room = find_room( 36318 );
+  acode( find_room( 36254 ), 3 );
+  }
+else { 
+  if( num_in_room( find_room( 36318 ) ) )
+    send_to_char( #NoRoom, ch );
+  else {
+    if( find_skill( ch, climb ) > random( 6, 9 ) ) {
+      room = find_room( 36318 );
+      acode( find_room( 36254 ), 4 );
+      }
+    else {
+      send_to_char( #Fail, ch );
+      act_notchar( #OtherFails, ch );
+      if( find_stat( ch, dex ) > random( 5, 20 ) ) {
+        send_to_char( #Save, ch );
+        transfer( ch, find_room( 36318 ) );
+        i = 1d6;
+        dam_message( ch, i, "sliding down the cliff" );
+        inflict( ch, mob, i, "sliding down the cliff" );
+        }
+      else {
+        i = 9d6;
+        acode( find_room( 36254 ), 2 );
+        }
+      }
+    }
+  }
+~
+E
+Save~
+Luckily, you catch yourself before much harm is done.
+~
+E
+OtherFails~
+$n slips and slides over the edge of the cliff in an undignified manner.
+~
+E
+Fail~
+Your attempt fails, and you slide over the edge in a flurry of
+flailing limbs.
+~
+E
+NoRoom~
+It looks as if there is already someone down there, and no room for a
+second.
+~
+!
+0 0 0
+A
+|~
+Flier Arrives~
+act_tochar( #Fly, ch );
+act_notchar( #OtherFlies, ch );
+transfer( ch, room );
+act_notchar( #FlyArrives, ch );
+~
+E
+FlyArrives~
+$n comes flying up from below.
+~
+E
+OtherFlies~
+$n soars upward, along the cliff face.
+~
+E
+Fly~
+You bypass the torturous climb, and fly upward, along the cliff face.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

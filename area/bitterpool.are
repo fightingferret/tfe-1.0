@@ -1,0 +1,976 @@
+#AREA
+Bitter Pools~
+Phule~
+~
+
+0 0
+4
+#ROOMS
+
+#42000
+Before the Bitter Pools~
+From this vantage you can see for quite some distance to the northeast. 
+Stagnant pools of black water and murky, lifeless land, seem to stretch
+out to envelop you.  The only passage in the direction of the desolate
+wasteland, to the north is across a narrow ledge between two hissing,
+acrid pools.  Another pool, smelling of sulfur, lies to the south, beyond
+which is a small road.
+~
+vantage point
+nomob
+~
+335020040 11 9 0
+D0
+~
+~
+0 -1 42001 10 10 5
+D2
+~
+~
+0 -1 35783 10 10 5
+A
+~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+continue;
+~
+E
+half~
+You are already halfway up the cliff.
+~
+E
+rclimb~
+$n starts the long climb back up the cliff.
+~
+E
+climb~
+You start the long climb back up the cliff.
+~
+!
+3 0 4
+-1
+S
+
+#42001
+Between the Bitter Pools~
+You are standing on a narrow, precarious ledge between two foul, black
+pools.  To the south a ledge rises over a cliff towards the wall of what
+appears to be a city, while to the north the ledge crosses the pools and
+enters a vast wasteland.  A strange oily black weed seems to grow inside
+the pools, somehow drawing life from the lifeless waters.
+~
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42002 10 10 5
+D2
+~
+~
+0 -1 42000 10 10 5
+E
+weed black murk root~
+This oily black weed grows attached to the sides of the seemingly
+bottomless pools.  It smells foul and is probably strongly alkaline.
+~
+E
+black pools water~
+The pools hiss and sit stagnantly, devoid of life other than a strange
+oily root growing from the sides of the pools.  The pools appear
+bottomless and deadly to any who dare enter their waters.
+~
+A
+pick get grab reach take~
+black weed root murk~
+act_tochar( #reach, ch );
+act_notchar( #rreach, ch );
+i = 4d2+2;
+dam_message( ch,  i, "the alkaline burns and" );
+inflict( ch, ch, i, "being dissolved in an alkaline pool" );
+if( rflag( status0, room ) ) {
+  act_tochar( #root, ch );
+  obj_to_char( oload( 1097 ), ch );
+  remove_rflag( status0, room );
+  end;
+  }
+if( rflag( status1, room ) ) {
+  act_tochar( #root, ch );
+  remove_rflag( status1, room );
+  obj_to_char( oload( 1097 ), ch );
+  end;
+  }
+if( rflag( status2, room ) ) {
+  remove_rflag( status2, room );
+  act_tochar( #root, ch );
+  obj_to_char( oload( 1097 ), ch );
+  end;
+  }
+act_tochar( #no, ch );
+~
+E
+no~
+You can't manage to reach any of the roots.
+~
+E
+root~
+You manage to grab hold of and pick out one of the strange murkroots.
+~
+E
+rreach~
+$n reaches into the hissing, alkaline waters in an attempt to grab
+something.
+~
+E
+reach~
+You reach into the hissing, alkaline waters, trying to grab one of the
+black plants.
+~
+!
+0 0 0
+A
+drink sip taste~
+pool pools waters~
+act_tochar( #taste, ch );
+act_notchar( #rtaste, ch );
+poison( ch );
+~
+E
+rtaste~
+~
+E
+taste~
+@b@RYou taste the foul-looking waters of the pool, and are instantly
+stricken with poison!!
+~
+!
+0 0 0
+-1
+S
+
+#42002
+The Southern Edge of a Dead Land~
+Sinkholes and spongy marsh lie before you, crisscrossed with a network of
+jagged stone ledges rising above the soft ground.  The spidery walkways
+which seem most reliable head to the north, east, and west, and to the
+south a wider rock ledge leads toward a foul-smelling pool.
+~
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42003 10 10 5
+D1
+~
+~
+0 -1 42004 10 10 5
+D2
+~
+~
+0 -1 42001 10 10 5
+D3
+~
+~
+0 -1 42005 10 10 5
+E
+ledges walkways~
+The ledges are the only solid footing in the marsh, and who knows how
+deep the murk is if one were to fall from the safety of the ledges.
+~
+E
+s south foul-smelling pool~
+You cannot see much of the pool from here.
+~
+-1
+S
+
+#42003
+A Narrow Ledge Amidst a Marsh~
+The spidery north-south ledge branches off to the east, while to the west
+another black, foul pool hides behind yet more marsh and fog.  The rock
+of the ledge here crumbles and decays as the very life of the rock is
+drained by its lifeless surroundings.
+~
+[Merior] no mobs around here?
+lots of murk beasts, few greater wisps
+[Merior] life of rock? didnt know rock was alive...
+[Phule] is to emphasize the lifelessness of the surrounding
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42008 10 10 5
+D1
+~
+~
+0 -1 42007 10 10 5
+D2
+~
+~
+0 -1 42002 10 10 5
+-1
+S
+
+#42004
+A Narrow Ledge Above a Sinkhole~
+This crumbling rock ledge zigzags its way from east to west, surrounded
+to the north and south by a murky grey marsh.  A thin, dank fog lurks in
+the air, stifling any wind that might find its way this far through the
+stagnant air of the Barrens.
+~
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42006 10 10 5
+D3
+~
+~
+0 -1 42002 10 10 5
+-1
+S
+
+#42005
+A Narrow Ledge Above a Sinkhole~
+The crumbling ledge rises here and curves out over a large sinkhole.  The
+carcass of a rotting beast of some sort floats in it, creating an awful
+stench.  The fog is thick here, making vision difficult, but it appears
+the ledge continues safely to the south and east.
+~
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42002 10 10 5
+D2
+~
+~
+0 -1 35860 10 10 5
+E
+sinkhole~
+The sinkhole is a deep section of the marsh.  Who knows what lurks
+beneath, or how many adventurers lie as corpses in itd murky depths.
+~
+E
+carcass~
+The carcass is bloated and rotted.
+~
+-1
+S
+
+#42006
+A Narrow Ledge Beside a Walled City~
+The ledge comes to an abrupt end here in sight of the walls of a large
+city.  A tall tower rises from the high crest of the wall, ending in a
+desolate, crumbling roof in great disrepair.  To the north and south the
+deep, foul marshes stretch, an impassable barrier.  The only exit is
+along the rock ledge to the west.
+~
+~
+335020032 11 9 0
+D3
+~
+~
+0 -1 42004 10 10 5
+E
+walls city~
+The walls loom high, their heavy sandstone construction making you wonder
+what lies across the endless marshes to threaten them.
+~
+E
+tall tower crest crumbling roof~
+The tower seems much older than the walls on which it stands.
+~
+-1
+S
+
+#42007
+A Narrow Ledge Amidst a Marsh~
+The ledge comes to an unexpected end, sloping downward beneath the murk. 
+The featureless terrain of the marsh surrounds you, droning on and on
+into the horizon to the north, while to the southeast the walls of a city
+can barely be seen through the dank fog.  The ledge rises to the west.
+~
+[Merior] terrain drones?
+[Phule] means it repeats boringly, endlessly
+~
+335020032 11 9 0
+D3
+~
+~
+0 -1 42003 10 10 5
+-1
+S
+
+#42008
+A Narrow Ledge Amidst a Marsh~
+The ledge branches off to the west from its main north-south route,
+framing a large, shallow, muddy, dead lake to the northwest.  A sinkhole
+burps its foul stench just off the east edge of the ledge, nearly making
+you gag.
+~
+[Merior] extra for lake, sinkhole?
+added
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42009 10 10 5
+D2
+~
+~
+0 -1 42003 10 10 5
+D3
+~
+~
+0 -1 42010 10 10 5
+E
+large shallow muddy dead lake nw northwest~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+E
+sinkhole e east~
+The sinkhole belches the occasional bubble of gas from beneath the marsh. 
+It smells quite foul.
+~
+-1
+S
+
+#42009
+A Narrow Ledge Amidst a Marsh~
+The ledge branches out to the east from its main north-south route, away
+from a large, shallow, muddy, dead lake to the west.  The ledge appears
+to curve to the west if followed to the north, but through the stagnant,
+everpresent fog it is hard to discern.  Out floating in the northern edge
+of a sinkhole to the southeast is the carcass of an unfortunate bird who
+found its way over the Barrens.
+~
+[Merior] floating in the edge?
+[Phule] the northern edge of a sinkhole
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42014 10 10 5
+D1
+~
+~
+0 -1 42011 10 10 5
+D2
+~
+~
+0 -1 42008 10 10 5
+E
+sinkhole carcass~
+The carcass is bloated and rotted.
+~
+E
+large shallow muddy dead lake w west~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+-1
+S
+
+#42010
+A Narrow Ledge Around a Lifeless Lake~
+This ledge appears stable and in better condition than the crumbling ones
+which dominate the marsh, but its narrow width makes it treacherous
+enough.  To the north, a large, dead lake filled with mud looms, its
+surface showing not even the slightest ripple or wave.  The ledge follows
+the lake to the east and west.
+~
+[Merior] the to the north sentence needs some work no waves in mud, etc...
+[Phule] fixed... i think
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42008 10 10 5
+D3
+~
+~
+0 -1 42018 10 10 5
+E
+lake n north~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+E
+ledge~
+The ledge is hard, not unlike rock, as the earth is packed very solidly.
+~
+-1
+S
+
+#42011
+A Narrow Ledge Amidst a Marsh~
+This east-west ledge is solid, in contrast to the spongy marsh to the
+north and south.  But, like the marsh and seemingly everything in it, the
+rock is grey and lifeless.  The stench of a sinkhole to the southwest
+reaches your nostrils from here, and an odd sound comes from somewhere to
+the southeast.
+~
+[Merior] action to listen?
+[Phule] added
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42012 10 10 5
+D3
+~
+~
+0 -1 42009 10 10 5
+A
+listen~
+~
+act_tochar( #tyou, ch );
+~
+E
+tyou~
+You hear a low moaning, but that is all you can tell from this distance.
+~
+!
+0 0 0
+-1
+S
+
+#42012
+A Narrow Ledge Amidst a Marsh~
+You are standing on a crumbling rock ledge whose spidery length slopes
+down to the south and slightly up to the west.  It appears that there
+once was an extension of the ledge to the east, but only scattered
+remnants remain.  An odd, hollow sound comes from the south, out of place
+in the stagnant air of the murk.
+~
+~
+335020032 11 9 0
+D2
+~
+~
+0 -1 42013 10 10 5
+D3
+~
+~
+0 -1 42011 10 10 5
+A
+listen~
+~
+act_tochar( "The low moaning could be the sound of the wind...", ch );
+~
+!
+0 0 0
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+-1
+S
+
+#42013
+Above a Vertical Cavern~
+A loud, hollow sound issues from a strange vertical cavern which tunnels
+down into the rock ledge at your feet.  The ledge disappears to the
+south, coming to a crumbling, ruined end, but appears passable to the
+north.  Surrounding you is the ever present stillness that is the Barrens.
+~
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42012 10 10 5
+E
+d down vertical cavern~
+There are no handholds, no way down.
+~
+A
+listen~
+~
+act_tochar( "It is the sound of a large column of air rushing across the
+cavern's top, much like blowing air across a bottle.", ch ); 
+~
+!
+0 0 0
+-1
+S
+
+#42014
+A Narrow Ledge Around a Lifeless Lake~
+You are standing on a curving narrow rock ledge which winds its way south
+and west around the bend of a large, shallow, muddy, dead lake to the
+southwest.  The ledge appears to branch to the south, but it is hard to
+discern through the everpresent, stagnant fog.  A long-dead, rotting fish
+floats immobile in the still lake.  It could take perhaps years for the
+fish to ever reach the shore.
+~
+[Merior] why years to reach the shore? you mean the fish or you?
+the fish, made it more clear
+[Merior] floats immobile
+~
+335020032 11 9 0
+D2
+~
+~
+0 -1 42009 10 10 5
+D3
+~
+~
+0 -1 42015 10 10 5
+E
+large shallow muddy dead lake sw southwest~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+E
+long-dead rotting rish~
+The fish has been picked clean by something, leaving only its hideously
+bloated head and fins.
+~
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+-1
+S
+
+#42015
+A Narrow Ledge Around a Lifeless Lake~
+The ledge here is crumbling and crackling, but appears stable enough for
+passage.  To the south a large, shallow, muddy, dead lake floats
+stagnantly below an immobile, foul fog.  The only color you see from this
+east-west ledge is grey.
+~
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42014 10 10 5
+D3
+~
+~
+0 -1 42016 10 10 5
+E
+lake s south~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+-1
+S
+
+#42016
+Near a Damp Tunnel~
+The ledge widens some to the west, aapproaching a large opening into the
+rock.  While there are no man-made supports, the natural rock provides
+excellent footholds and handholds if a descent is desired.  To the south
+and east the ledge creeps away from the tunnel, framing the lifeless lake
+to the southeast.
+~
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42015 10 10 5
+D2
+~
+~
+0 -1 42017 10 10 5
+D3
+~
+~
+0 -1 42030 10 10 5
+E
+lake se southeast~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+E
+w west opening~
+You can't see much from here aside from the fact that there is indeed an
+opening heading down into the rock to the west.
+~
+-1
+S
+
+#42017
+A Narrow Ledge Around a Lifeless Lake~
+The ledge follows a generally north-south path amidst zig-zagging patches
+where the surrounding rock has succumbed to the marsh's dead clutches. 
+To the east a large lifeless lake looms, as dead and grey as the murk
+around it.
+~
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42016 10 10 5
+D2
+~
+~
+0 -1 42018 10 10 5
+E
+lake e east~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+-1
+S
+
+#42018
+A Narrow Ledge Around a Lifeless Lake~
+The ledge cradles a large lifeless lake to the northeast, bending around
+its still waters.  To the west, a rising marsh prevents passage and in
+the distance you can see the Old Barrens Road cutting its brown path
+through the sea of grey.  Still farther to the west, the blue skies which
+overhang the ocean glow teasingly in the midst of the dead sky above.
+~
+[Merior] what ocean?
+'the' ocean?
+[Merior] is sky above always dead? when was it alive?
+[Phule] hrm. is in histories.
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42017 10 10 5
+D1
+~
+~
+0 -1 42010 10 10 5
+E
+lake ne northeast~
+The lake is a large pool of murky marsh.  Nothing is visible beneath its
+grey surface.
+~
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+-1
+S
+
+#42021
+Entrance to a Damp Tunnel~
+The tunnel enters the marshy rock to the east, disappearing into the
+darkness beyond.  Nature has provided secure footing and easy climbing to
+the marshes above via several holes in the west wall.  Underground, the
+air is more stagnant still than the marsh aboveground.
+~
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42022 10 10 5
+D4
+~
+~
+0 -1 42030 10 10 5
+E
+holes~
+The holes could make great footholds, although some are large enough to
+perhaps warrant a search.
+~
+A
+search~
+holes~
+act_tochar( "You search the holes, but come up only with muck.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#42022
+A Damp Tunnel Beneath the Marsh~
+This east-west cavern is fairly damp and a shade cooler than aboveground,
+but the stillness of the air is acutely felt.  The "rock" appears to
+actually be the sponge-like material of the marshes themselves, and a few
+spots appear to be glowing, although not enough to see by.
+~
+[Merior] extra for spots?
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 42023 10 10 5
+D3
+~
+~
+0 -1 42021 10 10 5
+E
+spots glowing~
+The glowing spots seem to be in actually pulsating, but the source cannot
+be discerned from here.
+~
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+-1
+S
+
+#42023
+A Damp Tunnel Beneath the Marsh~
+A small mud-filled crawlspace enters the cave wall to the south, while
+the main tunnel leads east and west.  The air to the east feels a little
+cooler, but no there is no relief from the staleness in the air despite
+the refreshing dampness of the cave.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 42024 10 10 5
+D2
+~
+~
+0 -1 42027 10 10 5
+D3
+~
+~
+0 -1 42022 10 10 5
+A
+~
+~
+act_tochar( #crawl, ch );
+continue;
+~
+E
+crawl~
+You bend down and crawl into the muddy space.
+~
+!
+3 0 4
+A
+~
+~
+act_tochar( #stand, ch );
+~
+E
+stand~
+You stand back up and stretch.  Ahhhhh.....
+~
+!
+1 0 4
+-1
+S
+
+#42024
+A Damp Tunnel Beneath the Marsh~
+A tunnel to the west and a tunnel to the south form a corner here around
+a pillar of mud to the southwest.  Although it is marginally cooler in
+the deep recess of the cave, the air is still stiflingly stagnant.
+~
+[Merior] how many beasts reset here?
+[Phule] several, but all wander
+~
+335020036 11 9 0
+D2
+~
+~
+0 -1 42025 10 10 5
+D3
+~
+~
+0 -1 42023 10 10 5
+E
+pillar mud sw southwest~
+The dark mud is semisolid.
+~
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+876 8 1509949540 3 0
+-1
+S
+
+#42025
+A Damp Tunnel Beneath the Marsh~
+The tunnel branches into three directions at this point in a jumble.  A
+shallow crawlspace leads west into a very muddy room, while to the
+south the tunnel conversely opens up quite drastically to the sound of a
+loud roar.  A more average-sized tunnel leads north into the stagnant air
+which followed you underground.
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 42024 10 10 5
+D2
+~
+~
+0 -1 42026 10 10 5
+D3
+~
+~
+0 -1 42027 10 10 5
+A
+~
+~
+act_tochar( #crawl, ch );
+continue;
+~
+E
+crawl~
+You bend down and crawl into the muddy space.
+~
+!
+3 0 8
+A
+~
+~
+act_tochar( #stand, ch );
+~
+E
+stand~
+You stand back up and stretch.  Ahhhh.....
+~
+!
+1 0 8
+-1
+S
+
+#42026
+A Damp Tunnel Beneath the Marsh~
+You stand above what appears to be a cavern of great, rushing wind, which
+produces a loud, hollow roar.  The tunnel's only viable exit is to the
+north.
+~
+[Merior] a cavern of wind?
+yes
+[Merior] is it possible to go down?
+[Phule] no
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 42025 10 10 5
+A
+~
+~
+act_tochar( #death, ch );
+~
+E
+death~
+Such a fall would mean certain death.  You choose not to jump.
+~
+!
+3 0 32
+-1
+S
+
+#42027
+A Damp Tunnel Beneath the Marsh~
+This tight, mud-filled enclosure does not allow for much movement.  Tiny
+arm-width holes extend in myriad directions, but the only ones passable
+for exploration are to the north and east.
+~
+[Merior] extra for holes?
+added
+~
+335020036 11 5 0
+D0
+~
+~
+0 -1 42023 10 10 5
+D1
+~
+~
+0 -1 42025 10 10 5
+E
+holes~
+The small holes appear naturally formed, perhaps as pockets of air
+bubbled up and out of the mud.
+~
+A
+~
+~
+act_tochar( #crawl, ch );
+continue;
+~
+E
+crawl~
+You crawl through the mud.
+~
+!
+3 0 3
+A
+search~
+holes~
+act_tochar( "You come away with only muck on your hands.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#42029
+Greater Will-o-wisp's home.~
+This is where the GWW's are created, and from here they wander about the
+pools area.  The exits are one-way, so players cannot get here.
+~
+~
+335020032 11 9 0
+D0
+~
+~
+0 -1 42015 10 10 5
+D1
+~
+~
+0 -1 42009 10 10 5
+D2
+~
+~
+0 -1 42010 10 10 5
+D3
+~
+~
+0 -1 42017 10 10 5
+881 8 1509949540 3 0
+881 8 1509949540 3 0
+881 8 1509949540 3 0
+881 8 1509949540 3 0
+-1
+S
+
+#42030
+Above a Damp Tunnel~
+A damp opening leads down into a murky tunnel.  The lifeless grey barrens
+stretch out to the north, across impassable swamps and endless bog. 
+Slightly more solid footing leads east, away from the opening.
+~
+~
+335020032 11 9 0
+D1
+~
+~
+0 -1 42016 10 10 5
+D5
+~
+~
+0 -1 42021 10 10 5
+E
+damp opening d down tunnel~
+The dark opening leads down into the murky darkness.
+~
+-1
+S
+
+#0
+

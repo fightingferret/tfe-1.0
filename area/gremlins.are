@@ -1,0 +1,1196 @@
+#AREA
+Abandoned Village~
+Phule Kreel~
+Abandoned Village~
+
+30 0
+0
+#ROOMS
+
+#46500
+A Muddy Shoreline~
+This muddy shoreline is set into the bend of a rapidly-flowing river. 
+Although the river's current is swift, the shallow water here is muddy
+and calm.  To the east you see a humble fishing dock which has fallen
+into a disrepaired mess of half-rotten boards.  A large, iron @Cbell@n
+stands here, a rusty chain dangling at its side.
+~
+~
+301465609 3 8 0
+D1
+~
+~
+0 -1 46501 10 10 5
+D3
+~
+~
+0 -1 46525 10 10 5
+E
+bell~
+This ancient bell has all but rusted away to nothing.  Large and heavy,
+it is mounted firmly on an oak pole.  A chain hangs at its side.
+~
+324 17 1509949540 -2 0
+-1
+S
+
+#46501
+A Shoddy Dock~
+You stand on what might have once been called a dock.  There are no
+boats, just a diseased-looking pile of wood that might have once been a
+vessel.  You can follow a muddy shoreline along the river to the west or
+head down a dirt road to the south.  Either way, it appears that not many
+have travelled this way in quite some time.
+~
+no_mob
+[Jaime] smacks your hand, then read as a slap.
+[Phule] if more than 1500 lbs it collapses
+[Phule] d is 46534
+~
+301465609 3 9 0
+D2
+~
+~
+0 -1 46502 10 10 5
+D3
+~
+~
+0 -1 46500 10 10 5
+D5
+~
+~
+235 -1 46534 10 10 5
+E
+dock~
+A collection of wood which is either mostly rotten, rotting, or already
+rotted.
+~
+A
+search~
+dock~
+act_tochar( "Phule smacks you on your dirty little hand.", ch );
+i = 1d20+10;
+dam_message( ch, i, "The stinging slap" );
+inflict( ch, ch, i, "being slapped by Phule" );
+end;
+if( !rflag( reset0, room ) )
+  act_tochar( #nothing, ch );
+else {
+  if( random( 0, 30 ) < 3 ) {
+    act_tochar( #coin, ch );
+    obj_to_char( oload( 2 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #grem, ch );
+    act_notchar( #rgrem, ch );
+    mload( 1022, room );
+    mob = mob_in_room( 1022, room );
+    attack( mob, ch, 2d5, "springing bite" );
+    remove_rflag( reset0, room );
+    }
+  }
+~
+E
+nothing~
+You investigate the remains of the dock, but don't find anything worth
+fishing out of the mud.
+~
+E
+coin~
+You fish around in the muck and mire beneath the dock and find something
+@b@Yshiny@n!!
+~
+E
+grem~
+You stir the remains of the dock, and a small green creature bursts forth!!
+~
+E
+rgrem~
+$n disturbs a small green creature from beneath the dock!!
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, down ) )
+  end;
+if( is_follower( ch ) )
+  end;
+if( weight( room ) > 2000000 ) {
+  act_tochar( #collapse, ch );
+  act_notchar( #rcollapse, ch );
+  open( room, down );
+  transfer_all( room, find_room( 46534 ) );
+  }
+~
+E
+collapse~
+As you step on the dock, it collapses under the massive weight upon it!
+~
+E
+rcollapse~
+As $n steps on the dock, it collapses!!
+~
+!
+1 0 12
+-1
+S
+
+#46502
+South of the Dock~
+A shoddy, rotted dock stands just in sight over a slight rise to the
+north, its outline visible against the bend of a river just beyond it. 
+You stand on a beaten, rut-ridden dirt road which leads north toward the
+dock and east away from a large pit to the southwest.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 46501 10 10 5
+D1
+~
+~
+0 -1 46503 10 10 5
+E
+pit~
+Upon closer inspection the pit proves to be a mass burial site.  Luckily,
+for the sake of the smell of the air around you, dirt and mud has covered
+up the hole for the most part.  Strange, however, is the fact that no
+flies are evident in the area.
+~
+1022 137 1509949540 3 0
+1174 9 1509949540 3 0
+-1
+S
+
+#46503
+A Dirt Road~
+An odd hollow sound seems to echo along this rut-crossed dirt road which
+leads east to west.  To the west you can see more road, while to the east
+you can see a few ruined huts, the remnants of what must have been a
+fishing village.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 46504 10 10 5
+D3
+~
+~
+0 -1 46502 10 10 5
+1022 9 1509949540 3 0
+-1
+S
+
+#46504
+Before A Fishing Village~
+You stand at the end of a dirt road which leads west away from a nearly
+destroyed fishing village.  The fishermen's huts are mostly decayed,
+crumbling hovels now, their once proud thatch roofs having long since
+been claimed by some mysterious disaster.  The Elhanni River has long
+been known to provide a good source of fish, making the apparent
+desertion of the village seem quite strange.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 46505 10 10 5
+D3
+~
+~
+0 -1 46503 10 10 5
+1174 9 1509949540 3 0
+-1
+S
+
+#46505
+Just Inside a Fishing Village~
+To the north and south a pair of simple huts stand quietly in the still,
+hollow air.  Well, they lean, actually, as time, weather, and rot have
+all started to lay waste to the small structures.  No door remains on
+either hut, leaving an open doorway into their dark interiors.  A dirt
+road leads east into the village or west out of the village.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 46506 10 10 5
+D1
+~
+~
+0 -1 46508 10 10 5
+D2
+~
+~
+0 -1 46507 10 10 5
+D3
+~
+~
+0 -1 46504 10 10 5
+-1
+S
+
+#46506
+A Fisherman's Hut~
+The thatch in this hut's roof is blackened with decay and threatens to
+fall at any moment.  The once solid wooden frame has started to lean and
+it is only a matter of time before the entire structure collapses.
+Scattered about the floor are several pages torn from a book.
+~
+[Vorex] lam inmprove hands
+~
+301465601 3 5 0
+D2
+~
+~
+0 -1 46505 10 10 5
+E
+pages book page~
+They seem to be diary entries.  Most of the pages are ruined, but a
+couple are legible.  One reads, "Ryld came in last night talking about
+the noises in the forest again.  Don't know what's wrong with that boy."
+  
+Another reads, "There seems to be some shouting and commotion outside. 
+At last, some excitement in this boring little sh..." 
+~
+1022 9 1509949540 3 0
+-1
+S
+
+#46507
+A Fisherman's Hut~
+Miraculously, this hut is still standing.  Its roof and walls are in
+shambles, the thatch scorched in some places.  Long, deep slashes mark
+the walls, slashes too sharp and narrow to have been caused by the
+weather.  On the layer of scattered straw that covers the floor there are
+a few dark patches.
+~
+[Merior] gremlins look like they do too much damage for their 'level'
+[Merior] why is dagger anti-good? just because?
+[Danni] glmory ungroup vorex next time he does that
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 46505 10 10 5
+E
+patches stains~
+A dark liquid has stained the straw here.  There is one large patch of
+it, surrounded by a splatter of several small drops.
+~
+1022 9 1509949540 3 0
+-1
+S
+
+#46508
+Road Through a Fishing Village~
+This stretch of road heads north and south to the splintered remains of a
+of simple huts, standing in ruin.  Blackened, waterlogged, slashed and
+scattered, the huts seem not just decayed, but purposely torn down.  The
+road leads east toward a large, stone hut.  To the west, the road runs
+between two smaller dwellings.
+~
+Tcezhak is east of here. -Talis
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 46510 10 10 5
+D1
+~
+~
+0 -1 46509 10 10 5
+D2
+~
+~
+0 -1 46517 10 10 5
+D3
+~
+~
+0 -1 46505 10 10 5
+-1
+S
+
+#46509
+Inside a Stone Hut~
+This hut is strangely open - a pall of silence clinging to the walls and
+cloaking the room in a still, enveloping lassitude.  The thatch ceiling
+is high and well-maintained, which seems odd given the state of disrepair
+of the rest of the village.  To the west, an arched doorway leads into the
+heart of the abandoned fishing village.  Decaying straw clutters the
+ground.
+~
+~
+301465605 0 6 0
+D3
+~
+~
+0 -1 46508 10 10 5
+E
+straw~
+Not quite as random as the natural pattern of decay around it.  It seems
+to have been physically placed here.
+~
+A
+move clear search~
+straw~
+mob = mob_in_room( 1172, room );
+if( mob ) {
+act_tochar( #mob, ch );
+  end;
+}
+if( !rflag( reset0, room ) )
+  act_tochar( #already, ch );
+else {
+  remove_rflag( reset0, room );
+  act_tochar( #move, ch );
+  act_notchar( #rmove, ch );
+  }
+~
+E
+already~
+The straw has already been cleared, revealing a small false trapdoor.
+~
+E
+move~
+You push the straw out of the way, revealing a small false trapdoor.
+~
+E
+rmove~
+$n messes with the small pile of decaying straw.
+~
+E
+mob~
+You can't do that with the imp watching over you.
+~
+!
+0 0 0
+A
+look~
+a closed false trapdoor~
+if( rflag( reset0, room ) )
+  act_tochar( #nope, ch );
+else
+  continue;
+~
+E
+nope~
+You don't see that here.
+~
+!
+0 0 0
+A
+pick unlock open get~
+a closed false trapdoor~
+if( rflag( reset0, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+else {
+  mob = mob_in_room( 1172, room );
+  if( mob ) {
+    act_tochar( #mob, ch );
+    end;
+    }
+  else
+    continue;
+  }
+~
+E
+mob~
+You can't do that with Tcezhak watching you.
+~
+E
+nope~
+You don't see that container.
+~
+!
+0 0 0
+1172 9 1509949540 3 0
+1503 49 1509949540 -2 0
+16 81 1509949460 -2 0
+16 81 1509949460 -2 0
+16 81 1509949460 -2 0
+16 81 1509949460 -2 0
+16 81 1509949460 -2 0
+1501 81 1509949500 -2 0
+1501 81 1509949460 -2 0
+-1
+S
+
+#46510
+Road Around Central Hut~
+This cobble-strewn dirt road circles around the large, circular hut to
+the southeast.  Collapsing huts of desiccated thatch lie pitifully along
+the north side of the road.  Insides of the huts are dark - devoid even
+of candlelight.  An eerie, enveloping silence holds this entire village.
+~
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 46511 10 10 5
+D1
+~
+~
+0 -1 46512 10 10 5
+D2
+~
+~
+0 -1 46508 10 10 5
+1022 9 1509949540 3 0
+-1
+S
+
+#46511
+A Ruined Hut~
+This hut has almost returned to the grass from which it was built.  The
+brittle thatch is all but eaten by the passage of time; the walls are
+torn with holes and slashes, letting the wind that comes from the river
+drift through unabated.  To the south, the hut leads toward a simple dirt
+road.
+~
+~
+301465601 12 5 0
+D2
+~
+~
+0 -1 46510 10 10 5
+1022 9 1509949540 3 0
+-1
+S
+
+#46512
+Road Around Central Hut~
+Directly to the south is a stout hut - larger than those that surround it
+it and, unlike the others, made of stone.  Small, pitiful huts lie to the
+north, east, and northwest, huddling alongside the road in the useless
+day, and trembling with the slightest breath of wind.
+~
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 46524 10 10 5
+D1
+~
+~
+0 -1 46513 10 10 5
+D3
+~
+~
+0 -1 46510 10 10 5
+-1
+S
+
+#46513
+Northeast of a Large Hut~
+The simple dirt road turns south and west here on its path around a
+large, stone-and-thatch hut at the center of this abandoned village.  To
+the east is an empty, rotted hut.  Similar huts lie along the roadside to
+the south.
+~
+~
+301465601 12 9 0
+D1
+~
+~
+0 -1 46523 10 10 5
+D2
+~
+~
+0 -1 46514 10 10 5
+D3
+~
+~
+0 -1 46512 10 10 5
+-1
+S
+
+#46514
+Dirt Road - East of a Stone Hut~
+To the west, a stone hut sits massively in the center of the abandoned
+village.  To the east huddles a sadly decayed hut, its door gaping.  This
+rock-strewn dirt path heads east and south on its circular path through
+the village.
+~
+eventually down and west is basement to hell
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 46513 10 10 5
+D1
+~
+~
+0 -1 46522 10 10 5
+D2
+~
+~
+0 -1 46515 10 10 5
+1022 9 1509949540 3 0
+-1
+S
+
+#46515
+Dirt Road Through an Abandoned Village~
+This is the southeastern corner of the dirt road that winds through this
+empty village.  To the northwest is a large cabin, standing out because
+it is hewn of stone, unlike the other huts, which are made of thatch. 
+Lying off the road to the east is a fallen thatch hut, its dark opening
+empty and cavernous.
+~
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 46514 10 10 5
+D1
+~
+~
+0 -1 46521 10 10 5
+D3
+~
+~
+0 -1 46516 10 10 5
+1174 9 1509949540 3 0
+-1
+S
+
+#46516
+South of A Stone Cabin~
+This sad, forgotten stretch of road is littered with the debris of
+wrecked thatch huts, the straw that once was the wall of a family's
+dwelling now lying mud-soaked and buried in rock.  A heavy stone cabin
+stands to the north, to the south is another of the many huts.
+~
+~
+301465601 12 9 0
+D1
+~
+~
+0 -1 46515 10 10 5
+D2
+~
+~
+0 -1 46520 10 10 5
+D3
+~
+~
+0 -1 46517 10 10 5
+-1
+S
+
+#46517
+Southwest of a Large Hut~
+The dirt road that circles the heavy stone hut turns north and east here,
+rimmed by a sad lot of rotted thatch huts.  A stirring wind rises from
+the west, carrying the scent of the Elhanni along with the thick, musky
+odor of mildew.  The hut to the south falls in on itself, sagging with
+age and water damage.
+~
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 46508 10 10 5
+D1
+~
+~
+0 -1 46516 10 10 5
+D2
+~
+~
+0 -1 46519 10 10 5
+-1
+S
+
+#46518
+A road in a fishing village~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#46519
+Rotted Thatch Hut~
+The slightest, rustling whisper of a breeze floats through the
+intertwining reeds that form the walls of this sagging hut.  Mounds of
+mildewy straw lie piled on the muddy floor, their thick stench filling
+their air and the lungs alike.  A precariously leaning doorway to the
+north leads to a dirt road through the village.
+~
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 46517 10 10 5
+E
+straw~
+This straw once formed the walls and ceiling of this long-ruined hut. 
+The straw is now a rotten pile of mildew.
+~
+1022 9 1509949540 3 0
+1174 9 1509949540 3 0
+-1
+S
+
+#46520
+Tumbling Shack~
+Sticks, leaves and fragments of old, broken bamboo fishing poles lie
+tossed among the remains of this hut.  A soft wind stirs from the north,
+rustling like a whisper in the remnants of the thatch walls.  Sparkling
+motes of dust float in the the air, stirred by the wind that comes
+through holes in the sagging, age-eaten roof.  A low doorway heads north
+into the village.
+~
+~
+301465601 12 5 0
+D0
+~
+~
+0 -1 46516 10 10 5
+E
+fishing poles~
+The poles were of simple design - shafts of bamboo fixed at one end with
+heavy string.  The poles are now broken, lying scattered about, buried in
+rancid, decaying straw.
+~
+1022 9 1509949540 3 0
+-1
+S
+
+#46521
+Decayed Thatch Hut~
+The walls and roof of this hut lie in shambles.  The only thing that
+remains of the inhabitants are several water-stained fragments of
+drawings, which lie strewn across the rocks and straw.  A low, fallen
+doorway leads west to a dirt road.
+~
+~
+301465601 12 5 0
+D3
+~
+~
+0 -1 46515 10 10 5
+E
+fragments drawings papers~
+Small, ageworn fragments are all that remain of what once were charcoal
+drawings on sailcloth.  Smeared beyond recognition, the drawings might
+have been done by a master, or they might have been done by a child.
+~
+A
+get take~
+fragments papers drawings~
+send_to_char( #waste, ch );
+act_notchar( #waster, ch );
+~
+E
+waste~
+As you lift one of the tattered drawings, it crumbles to dust.
+~
+E
+waster~
+$n bends to take one of the tattered drawings.  The paper crumbles to
+dust in $s hands.
+~
+!
+0 0 0
+1022 9 1509949540 3 0
+-1
+S
+
+#46522
+A Decayed Thatch Hut~
+The thatch roof of this hut has been sheared away by wind, the walls left
+torn and worthless.  The broken remains of lanterns and candles litter
+the floor, their presence a harrowing testament to the sad emptiness of
+this village.  A rotted door to the west leads to a dirt road.
+~
+~
+301465601 12 5 0
+D3
+~
+~
+0 -1 46514 10 10 5
+E
+candles lanterns remains~
+What was once a brass lantern of simple design is now a creased slab of
+worthless metal, tarnished beyond usefullness.  Fragments of wax lie
+here, held together only by the wicks that run through them.
+~
+-1
+S
+
+#46523
+A Decayed Thatch Hut~
+A six-inch layer of rotted, stinking straw litters the floor of this
+fallen hut.  The east wall is more or less gone, having been torn away by
+age and elements.  What might have been a simple wooden table is now a
+mount of dry rot and splinters, scattered through the straw.  To the
+west, the hut leads to a dirt road.
+~
+~
+301465601 12 5 0
+D3
+~
+~
+0 -1 46513 10 10 5
+D5
+trapdoor~
+~
+171 -1 46532 10 10 5
+E
+table~
+The splitered wood lying tangled amidst the straw might have been a table
+- it is hard to tell.  The wood is old and eaten by dry rot and termites.
+~
+E
+straw~
+A heavy layer of straw covers the floor.  An old rug shows through part
+of the straw.
+~
+E
+rug~
+A heavy rug lies here beneath the straw.  The rug is rotted and worthless
+beyond usefullness.
+~
+A
+move lift~
+rug~
+if( is_open( room, down ) )
+  send_to_char( #already, ch );
+else {
+  send_to_char( #hole, ch );
+  act_notchar( #holer, ch );
+  open( room, down );
+  }
+~
+E
+already~
+The rug has already been pulled aside, revealing a hole in the floor.
+~
+E
+hole~
+You pull aside the tattered rug, revealing a hole in the floor.
+~
+E
+holer~
+$n pulls aside an old rug, revealing a hole in the floor.
+~
+!
+0 0 0
+1022 9 1509949540 3 0
+-1
+S
+
+#46524
+A Thatch Hut~
+Straw litters the muddy floor and lies in thick clumps in what must have
+been simple beds.  Now, this hut is empty, and more than empty.  The roof
+has long since collapsed, letting in the elements, and deep gashes in the
+walls circumvent any protection the shoddy thatch would have provided.
+~
+~
+301465601 12 5 0
+D2
+~
+~
+0 -1 46512 10 10 5
+E
+beds~
+A family might have slept here once, but now the straw beds are scattered
+across the floor, abandoned and forgotten.
+~
+1022 9 1509949540 3 0
+-1
+S
+
+#46525
+South of a Still Village~
+Coming around the large bend, you see a small fishing village huddled
+alongside the muddy riverbank to the east.  The village looks empty, and
+this stretch of river is very quiet.  A broken dock lies to the west.
+~
+~
+301465609 8 9 0
+D1
+~
+~
+0 -1 46500 10 10 5
+D3
+~
+~
+0 -1 46529 10 10 5
+324 17 1509949540 -2 0
+-1
+S
+
+#46526
+Quiet Bend in the River~
+The boat moves slowly, silently through the still river around a broad,
+sweeping bend.  This stretch of woods is quiet.  The sounds of birds
+seems far, far away.  The heavy, overhanging curtain of leaves crowds in,
+forming a dark, leafy tunnel.
+~
+~
+301465641 3 9 0
+-1
+S
+
+#46527
+On the Elhanni~
+Water laps the sides of the boat and the old boatman poles upriver.  The
+surrounding woods are alive with the sounds of birds and frogs.  A large
+bullfrog leaps into the water from a treeroot with a resounding splash. 
+Pennan disappears to the south, replaced by the heavy, primieval woods.
+~
+~
+301465641 3 9 0
+-1
+S
+
+#46528
+In The Boat~
+The old boatman poles the rickety longboat through the grassy marsh, the
+grass whisking the boat's hull.  At the far side of the lake, he lands
+the boat on dry land.  The Elhanni River flows to the east.  He orders
+you out of the boat, then climbs out himself.  He pulls the boat from the
+water, then drags it across the small tract of land that separates this
+pond from the river.  He sets the boat down in the river, you climb back
+in, and the journey continues.
+~
+~
+301465641 0 6 0
+-1
+S
+
+#46529
+The Broken Pier~
+Once, this pier stretched far into the marshlands to the east.  Now most
+of it has fallen into the water, leaving only the poles that once
+supported it jutting up through the surface of the water.  In the distant
+east the Elhanni River flows quietly, feeding the damp marshlands that
+surround it.  To the west is the battered shell of an old boathouse.
+~
+~
+301465609 12 6 0
+D1
+~
+~
+0 -1 46525 10 10 5
+D3
+~
+~
+0 -1 46530 10 10 5
+A
+~
+~
+send_to_char( #sigh, mob );
+~
+E
+sigh~
+The gnarled boatman twists to look at you, then turns back to watch the
+soft, rolling waves of the marshland.  Quiet, elusive words tumble from
+his lips.  You pick up the word 'brother'.
+~
+!
+1 0 8
+-1
+S
+
+#46530
+Rickety Boathouse~
+This tumble-down shack stands only because its hideously warped walls and
+roof are leaning together at just the right angle to keep the whole
+structure erect.  The knotted wood is gray with age; the windows are
+broken; the old, useless door rocks limply on a single hinge.  The shack
+stands on the north side of a broken pier that runs east into the boggy
+marshlands.  To the west, several bent, rickety wood planks lead to dry
+land.
+~
+climbing action to 37092
+~
+301465609 12 6 0
+D0
+bent wooden door~
+~
+131 -1 46531 10 10 5
+D1
+~
+~
+0 -1 46529 10 10 5
+E
+pier~
+At one time, this pier stretched more than a hundred feet into the
+surrounding marshland.  Now, most of it has fallen away, and what remains
+is a sad, rickety pile of rotting wood that creaks with the slightest
+shift of weight.  The pier heads off to the east.
+~
+E
+planks~
+Several wooden planks lie between the dock and the soft land to the east. 
+They lead to the mainland of Pennan.
+~
+A
+climb walk cross~
+west planks across~
+send_to_char( #cross, ch );
+act_notchar( #rcross, ch );
+transfer( ch, find_room( 37092 ) );
+act_notchar( #arrive, ch );
+~
+E
+cross~
+The planks creak and bend as you cross to land to the west.
+~
+E
+rcross~
+$n crosses the warped planks to the west.
+~
+E
+arrive~
+$n crosses over from the warped planks to the east.
+~
+!
+0 0 0
+-1
+S
+
+#46531
+Inside the Boathouse~
+The putrid stenches of mildew and dry-rot hang in the dank air of this
+ruined boathouse.  Broken boards, rocks, and shards of glass litter the
+rotting old floor.  The passage of time has eaten several holes in the
+floor, giving a clear view of the grassy marshlands below, water slowly
+lapping the gnarled poles on which this shack rests.  To the south, a
+falling door leads to an old, broken pier.
+~
+[Szen] says 'You close the  to the south." when I close the door.
+[Danni] you open the  to the south
+~
+301465609 0 5 0
+D2
+bent wooden door~
+bent wooden door~
+131 -1 46530 10 10 5
+E
+boards rocks glass~
+Broken boards, rocks and glass lie here, lying in jumbled piles in the
+corners and scattered across the floor.
+~
+E
+holes floor~
+Time and weather have eaten gaping holes in the floor, holes wide enough
+that the water beneath the shack is visible.
+~
+210 17 1509949540 -2 0
+-1
+S
+
+#46532
+Hole Under a Decayed Hut~
+This hole is large enough to hold several people.  It seems hastily
+constructed, the walls having tumbled under the weight of the rain that
+seeps in from above.  Skeletons lie sprawled across the floor, their
+skulls bashed, their limbs broken.  Above, an opening leads up into a
+ruined hut.
+~
+[Jocelyn] When you tell the fisherman yes he says  "I will be ever gratefully if you can help me find a bone whistle, so   that I might be with my wife even in death." Not ever so grateful.
+~
+301465601 12 5 0
+D4
+trapdoor~
+~
+171 -1 46523 10 10 5
+E
+skeletons~
+These skeletons are broken and scattered, their bones lying around like
+sticks in a forest.  They are dirty, mud-caked, and mostly buried in the
+soft loam.
+~
+A
+move open push~
+u up rug hole~
+if( is_open( room, up ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+send_to_char( #open, ch );
+act_notchar( #openr, ch );
+open( room, up );
+~
+E
+already~
+The rug has already been pushed aside.
+~
+E
+open~
+You push aside the old rug, opening a hole above you.
+~
+E
+openr~
+$n pushes aside an old rug, opening the hole above you.
+~
+!
+0 0 0
+1175 137 1509949540 3 0
+1174 137 1509949540 3 0
+1793 17 1509949443 -2 0
+-1
+S
+
+#46533
+Within an Underground Grave~
+Dug from the earth, this hole smells of death and decay mixed in with a
+lingering scent of lilacs.  Though not very large, this earthen chamber
+is easily as big as the room to the north that lies just under the
+decayed hut.  In the center of the room is a large mound of dirt that has
+hardened and become packed over time.  Dried flower petals are sprinkled
+over the surface of the mound.
+~
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 46532 10 10 5
+E
+mound dirt grave~
+The mound of dirt looks very much like a grave, though it must be very
+old.  Sprinkled on its hard, packed surface are the dried petals of some
+purple flower.  Next to the head of the mound is a small wooden sign
+stuck in the ground.
+~
+E
+flower petals purple lilacs~
+Dried petals with just a hint of violet color left to them have been
+sprinkled over the top of a grave.  A faint odor of lilacs wafts up from
+the dried petals.
+~
+E
+sign small wooden~
+Hammered into the ground, at the head of the grave, is a small wooden
+sign.  Termites and worms cling to the sign, eatting away at much of it. 
+However, there are a few words still legible on its grainy surface.  It
+reads: 
+
+     ...my wife find the peace .he ..erves in deat...
+       .hat she didn;t find .. life.
+~
+A
+get take~
+dried flower petals lilacs~
+if( mob_in_room( 2188, room ) ) 
+act_tochar( #get, ch );
+else
+act_tochar( #get2, ch );
+~
+E
+get~
+As you reach for the dried petals, the ghost of the fisherman's wife
+prevents you.
+~
+E
+get2~
+Something stops you from getting the petals.  A chill runs down your
+spine.
+~
+!
+0 0 0
+A
+dig search move~
+dirt grave mound earth~
+if( mob_in_room( 2188, room ) )
+  act_tochar( #dig, ch );
+else
+  act_tochar( #dig2, ch );
+~
+E
+dig~
+The ghost of the fisherman's wife prevents you from defiling her grave.
+~
+E
+dig2~
+A strange, unseen force protects the grave from your defilement.
+~
+!
+0 0 0
+2188 9 1509949540 3 0
+-1
+S
+
+#46534
+Beneath a Shoddy Dock~
+The dock's planks above you have shattered, crumbled away by time and at
+last broken.  It is damp, muddy, and dark down here.  Your feet stick in
+the dark mud, which is much like clay.
+~
+[Phule] up is 46501
+~
+301465609 11 5 0
+D4
+~
+~
+235 -1 46501 10 10 5
+A
+~
+~
+act_tochar( "There are no stairs, nor a ladder, perhaps you should try to climb.", ch );
+~
+!
+3 0 16
+A
+1 climb~
+1 up~
+act_tochar( "You climb up to the dock with ease.", ch );
+act_notchar( "$n climbs up to the dock with ease.", ch );
+transfer( ch, find_room( 46501 ) );
+act_notchar( "$n climbs up from below.", ch );
+~
+!
+0 0 17
+A
+1 open 1 break 1 smash~
+1 up 1 docks~
+if( is_open( room, up ) ) {
+act_tochar( "The way is clear already.", ch );
+end;
+}
+else {
+act_tochar( "You smash a hole in the docks above.", ch );
+act_notchar( "$n smashes a hole in the docks above.", ch );
+open( room, up );
+}
+~
+!
+0 0 0
+1022 9 1509949530 3 0
+1022 9 1509949510 3 0
+1022 9 1509949500 3 0
+1022 9 1509949490 3 0
+-1
+S
+
+#0
+

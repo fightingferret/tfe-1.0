@@ -1,0 +1,1372 @@
+#AREA
+Desert Canyon~
+Phule Kreel~
+~
+
+0 0
+4
+#ROOMS
+
+#48500
+Mouth of a Winding Canyon~
+Pebbles tumble quietly down the jagged, rocky edges of a canyon that
+stretches beyond the eastern horizon.  This is the western apex of the
+canyon, where the ground is only beginning to sink.  Sharp, misshapen
+slats of sandstone litter the sandy ground; to the west is a rock ledge
+that runs far to the north and south.  A large, discolored slab stands
+out in the west wall.  To the east begins a winding trail into the belly
+of the canyon.
+~
+[Finius] look canyon. should be 'as it burrowed'
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48501 10 10 5
+D3
+~
+~
+203 -1 35958 10 10 5
+E
+canyon~
+This canyon was forged by a mighty river, which carved away millions of
+tons of sand and rock and it burrowed into the desert over the years. 
+The river has long since dried, leaving a hollow canyon that winds
+through the Naraki Desert.
+~
+E
+sandstone slats~
+Broken slats of sandstone litter this entire area, poking up out of the
+sand and making the ground uneven and treacherous.
+~
+E
+slab wall~
+Looking closely, you see that someone has laid a massive slab of stone
+carefully in the west wall to give it the appearance of being solid.
+~
+E
+trail~
+A narrow trail hugs the south wall of the canyon, leading downward toward
+its belly far below.
+~
+A
+~
+~
+if( is_open( room, west ) ) {
+  act_tochar( #char, ch );
+  act_notchar( #rchar, ch );
+  close( room, west );
+  send_to_room( #closes, find_room( 35958 ) );
+  }
+~
+E
+char~
+The section of stone you just walked through closes.
+~
+E
+rchar~
+The section of stone $n just walked through closes.
+~
+E
+closes~
+A section of stone on the east ridge swings shut.
+~
+!
+1 0 8
+A
+press push move~
+stone wedge slab~
+if( is_open( room, west ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, west );
+  send_to_room( #opens, find_room( 35958 ) );
+  }
+~
+E
+opens~
+A section of rock to the west swings open.
+~
+E
+open~
+You press the stone, and a section of rock to the west swings open.
+~
+E
+ropen~
+$n presses $s hand to the rock ridge, and a section of rock to the west swings open.
+~
+E
+already~
+The section of rock is already open.
+~
+!
+0 0 0
+1410 17 1509949540 -2 0
+-1
+S
+
+#48501
+High On the Canyon Trail~
+To the north is nothing but air, plummeting to the cavern floor, a
+dizzying half-mile below.  The ground here is sandy and littered with
+broken, jagged sandstones and a gritty, abrasive layer of sand.  To the
+west, the trail meets the even land of the canyon's western mouth.  The
+trail also drops sharply, then continues eastward on its descent to the
+cavern floor.
+~
+[Finius] add room code if they try to go north, about something (an inner
+voice/force?) preventing them from suiciding.  eeesh.
+[Finius] probably should be 'sandstones as well as a gritty, abrasive'
+[Finius] look stones, should be 'most of them'
+~
+301465600 4 9 0
+D3
+~
+~
+0 -1 48500 10 10 5
+D5
+~
+~
+0 -1 48502 10 10 5
+E
+stones sandstones~
+Far from being clear, the trail is covered with stones of all shapes -
+most of the broken from the canyon wall.
+~
+-1
+S
+
+#48502
+High On the Canyon Trail~
+To the south, the canyon wall rises monolithically, its crumbly sandstone
+dropping pebbles and dust.  Across of mile of open air to the north is
+the opposite side of this canyon, its jagged stones standing like
+soldiers.  This trail heads off to the east on its gradual descent to the
+canyon floor, or heads upward toward the canyon's western apex, which is
+very close.
+~
+[Finius] should be 'Across a mile of'
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 48503 10 10 5
+D4
+~
+~
+0 -1 48501 10 10 5
+E
+wall~
+The walls are rough and brittle, crumbling away with the slightest
+footfall.
+~
+217 9 1509949540 3 0
+-1
+S
+
+#48503
+Trail Around Sandtone Outcropping~
+To the east, a powerful finger of sandstone juts from the canyon wall. 
+This trail heads northward around the outcropping, or heads west toward
+the canyon's mouth.  The walls here seem particularly unstable, the trail
+littered with an inch-think layer of sand and boulders as large as a
+human head.
+~
+[Finius] probably need a comma:  'layer of sand, and boulders as large'
+[Finius] you think 'boulders each as large as a human head.'?
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 48504 10 10 5
+D3
+~
+~
+0 -1 48502 10 10 5
+E
+finger outcropping stone~
+A mound of rock protrudes from the south wall.  The path moves northward
+around the stone, but seems to grow narrower.
+~
+E
+boulders~
+These large boulders have broken away from the walls and lie in
+obstructive clusters on the already rough trail.
+~
+-1
+S
+
+#48504
+Steep Drop in Canyon Trail~
+The trail heading toward the cavern floor was probably not made by hand,
+because no rational being would have intentionally made the steep drop to
+the north.  A jagged, steep, precarious slope, it drops almost straight
+down to a rock ledge 15 feet below.  Two large, iron spikes have been
+hammered into the ground, fragments of rope still clinging to them.  The
+trail also heads southward around a large stone outcropping.
+~
+[Finius] the steep drop to the north being the down exit?
+[Finius] ah makes more sense now.
+[Finius] make climb down do the same thing as down?
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 48503 10 10 5
+D5
+~
+~
+0 -1 48505 10 10 5
+E
+drop slope~
+This slope is dangerously steep, but seems to be the only way to go if
+you want to reach the canyon floor.  However, the slope does offer
+several rough surfaces and gouges, which might provide handholds.
+~
+E
+spikes iron rope fragments~
+Two heavy iron spikes, eaten with rust, have been hammered into the stone. 
+The wispy fragments of rope that cling to them suggest that there was
+once a rope ladder here.
+~
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+send_to_char( #climb, ch );
+act_notchar( #climbr, ch );
+continue;
+~
+E
+climb~
+Grasping the jagged rock, you slowly lower yourself down the precarious
+length of the sandy stone slope.
+~
+E
+climbr~
+$n lowers $mself along the sandy length of the precarious slope.
+~
+!
+3 0 32
+1410 17 1509949540 -2 0
+-1
+S
+
+#48505
+Base of a Steep Incline~
+This is the intersection of a narrow sandtone ledge and a steep, sandy
+incline.  The ledge heads off to the east along the south wall of the
+canyon on its way to the floor.  The steep incline heads almost straight
+up toward a trail that pushes off to the west.  The cavern floor is close
+here - perhaps three stories below.  A gritty layer of sand covers this
+ledge, demanding that travellers be cautious.
+~
+[Finius] this is a well written area.
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 48506 10 10 5
+D4
+~
+~
+0 -1 48504 10 10 5
+E
+slope incline~
+A rocky slope heads upward on the trail to the desert surface.  The slope
+is quite steep, and should only be attempted with extreme care.
+~
+A
+~
+~
+if( can_fly( ch ) )
+  end;
+if( random( 1, 6 ) < 3 ) {
+  send_to_char( #slip, ch );
+  act_notchar( #slipr, ch );
+  }
+~
+E
+slip~
+You slip on the sandy floor, but manage to maintain your balance.
+~
+E
+slipr~
+$n slips on the sandy floor, but manages to maintain $s balance.
+~
+!
+1 0 16
+-1
+S
+
+#48506
+Rocky Canyon Ledge~
+This precarious sandstone ledge heads east and west.  The wall of the
+canyon rises mountainously to the south, its many jagged slats of
+sandtone protruding like claws to rake the flesh of those who get too
+close.  The canyon winds off into the distant east and west, while just a
+few feet to the east the trail takes a sharp southward turn.
+~
+[Finius] mabye have a rattlesnake jump out at you in one of these rooms?
+[Finius] maybe make south give some kind of 'You cannot scale the sheer cliff' type message
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 48507 10 10 5
+D3
+~
+~
+0 -1 48505 10 10 5
+E
+slats sandstone claws~
+As rock has crumbled over the years, it has left sharp surfaces
+protruding from the walls.  The slats of sandstone here seem particularly
+sharp.
+~
+1410 17 1509949540 -2 0
+-1
+S
+
+#48507
+Bend in Cavern Ledge~
+The narrow cavern ledge bends south and west around a sandstone abutment. 
+Fragments of the ledge break away, and pebbles tumble along the jagged
+wall amid a powdery cloud of dust.  The ledge is freakishly narrow, but
+appears to widen to the south and west.
+~
+[Finius] have random room noise that makes you feel like you might go skittering by next?
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 48508 10 10 5
+D3
+~
+~
+0 -1 48506 10 10 5
+E
+sandstone abutment~
+A rock protrusion forces the trail to turn south here.  The abutment
+seems awfully close to the edge of the trail.
+~
+-1
+S
+
+#48508
+Atop a High Slope~
+Sheltered in the shady nook where a rock outcropping meets the canyon's
+south wall, this rock platform is a transition point.  To the north, a
+narrow ledge curves around the outcropping.  To the east is long, sandy
+slope leading almost to the floor of the canyon.  The slope is steep, but
+seems rocky enough to provide handholds.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 48507 10 10 5
+D5
+~
+~
+0 -1 48509 10 10 5
+E
+slope~
+A long slope plunges sharply toward the canyon floor.  Though not
+dangerously steep, it is steep enough to demand caution.
+~
+217 9 1509949540 3 0
+-1
+S
+
+#48509
+On The Canyon Slope~
+Midway along this steep slope, several rocks have crumbled away from the
+wall, covering the trail with a treacherous layer of rubble and dust. 
+The canyon winds off into east and west; the floor here is very close. 
+At the bottom of this slope, the canyon trail resumes heading northward
+on its gradual descent.
+~
+~
+301465600 4 9 0
+D4
+~
+~
+0 -1 48508 10 10 5
+D5
+~
+~
+0 -1 48510 10 10 5
+-1
+S
+
+#48510
+Bottom of Canyon Slope~
+What was once a trail has been almost entirely covered by rockslides. 
+Large piles of stone suggest that someone has cleared the path before,
+only to have the surrounding rock consume it again.  The trail seems to
+head northward around a large sandstone boulder.  To the west the path
+meets an enormous, flat slope heading upward.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 48511 10 10 5
+D4
+~
+~
+0 -1 48509 10 10 5
+E
+rockslides piles stones path~
+This path seems to have been covered and covered again with rockslides. 
+The boulders have been cleared aside; still, a thick layer of rubble
+crowds the trail.
+~
+E
+boulder sandstone~
+To the east is a massive boulder, blocking any more progress to the east. 
+Instead, the trail moves northward alongside the boulder, heading toward
+the floor.
+~
+E
+slope slant up~
+A long, steep slope heads upward, hugging the south wall.  Covered with
+dust and littered with slats of sandstone, it does not look like an easy
+path.
+~
+-1
+S
+
+#48511
+Just Above the Canyon Floor~
+This small rock shelf stands just a few feet above the canyon floor,
+which winds off into the east and west.  Soaring a half-mile upward, the
+canyon dwarfs even the mountainous boulders that lie along its floor.  A
+little trail heads southward, where it meets a high, rising slope.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 48510 10 10 5
+D5
+~
+~
+0 -1 48512 10 10 5
+-1
+S
+
+#48512
+Junction on the Cavern Floor~
+This junction is roughly midway between the eastern and western ends of
+this long, sinuous canyon.  A dried-up riverbed forms a trail of sorts
+that leads off to the east and west.  Additionally, a stone ramp heads
+upward toward a trail that seems to go to the top of the canyon.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48514 10 10 5
+D3
+~
+~
+0 -1 48513 10 10 5
+D4
+~
+~
+0 -1 48511 10 10 5
+E
+ramp trail~
+To the south is a stone ramp, which heads into the trail that leads to
+the surface of the desert.
+~
+-1
+S
+
+#48513
+Stone Shelves in Canyon~
+From the walls jut several small, stone shelves, littered with small
+bones.  Most of the bones are scattered, but some are together in the
+form of long, thick snake skeletons.  This is a long, straight shaft of
+stone, heading far to the east.  A short distance to the west, the canyon
+bends north.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48512 10 10 5
+D3
+~
+~
+0 -1 48515 10 10 5
+E
+stones shelves~
+These shelves are of varying sizes, protruding from the canyon walls. 
+Many of those closer to the ground are littered with bones.
+~
+E
+bones skeletons~
+These are the scattered bones of snakes, their small vertebrae lying
+around like bleached-white twigs.  In some cases the skeletons are whole,
+and in rare cases they still contain flesh, giving off a rancid, rotting
+odor as they bake in the desert heat.
+~
+217 137 1509949540 3 0
+217 137 1509949540 3 0
+217 137 1509949540 3 0
+217 137 1509949540 3 0
+-1
+S
+
+#48514
+Sandstone Corridor~
+This is the midpoint of a long corridor, which stretches east and west
+through the blistering Naraki desert.  The ground here is tiled with
+mudcracks, where the heat-blasted mud of the ancient riverbed was dried,
+eventually turning to stone.  To the east is more of the canyon, while to
+the west a ramp juts outward, offering a possible route to the surface.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48525 10 10 5
+D3
+~
+~
+0 -1 48512 10 10 5
+E
+mudcracks cracks mud~
+The remnants of the river, now dried, that carved this canyon, the
+mudcracks have dried and are now as hard as stone.
+~
+E
+ramp~
+To the west is a small ramp, heading upward to the trail that leads to
+the surface.
+~
+78 17 1509949540 -2 0
+-1
+S
+
+#48515
+West in the Canyon Hall~
+The high stone canyon walls form a mountainous hall that stretches into
+the distant east.  The cavern seems somewhat unstable - the light brown
+sandstone crumbling in large chucks to litter the rubbled floor.  Just to
+the west is a northward bend in the canyon.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48513 10 10 5
+D3
+~
+~
+0 -1 48516 10 10 5
+1410 17 1509949540 -2 0
+-1
+S
+
+#48516
+Rocky Bend in Canyon~
+This long canyon hall turns northward around a rough stone piling.  It is
+easy to see how a river formed this canyon - the floor meandering like a
+river.  Deep, jagged cracks scar the floor, where the mudcracks formed by
+the ancient, now-dried river have petrified.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 48517 10 10 5
+D1
+~
+~
+0 -1 48515 10 10 5
+E
+piling~
+The stone piling to the west is rough and heavy, seemingly of darker,
+denser stone than the rest of the canyon.
+~
+E
+cracks mud scars~
+When the ancient river dried up, it left a bed of mud that quickly dried
+in the desert sun, then petrified over the years.  Now the cracked floor
+is as solid as granite.
+~
+-1
+S
+
+#48517
+In the Twisting Canyon~
+The canyon sweeps up from the south and gradually bends westward around a
+massive stone abutment.  The stone to the south seems harder, less
+maleable that the crumbling sandstone that forms the rest of the canyon. 
+The hardness of the stone would explain why the river that formed this
+canyon seemed to take such an eratic course through the desert.
+~
+possibly arch north toward mercenary compound?
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 48516 10 10 5
+D3
+~
+~
+0 -1 48518 10 10 5
+-1
+S
+
+#48518
+In the Twisting Canyon~
+The massive, hulking canyon walls loom on both sides, giving this stone
+corridor the impression of being narrow, when it is, in fact, almost a
+quarter of a mile across.  The corridor heads east and west around a
+massive stone outcropping.  In either direction is a southward bend.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48517 10 10 5
+D3
+~
+~
+0 -1 48519 10 10 5
+E
+outcropping~
+A large pillar of stone juts from the canyon wall, rising like a tower. 
+The canyon bends around this stone, as the ancient river that carved the
+canyon must have done.
+~
+78 17 1509949540 -2 0
+-1
+S
+
+#48519
+Shadowy Canyon Bend~
+The twisting corridor of stone bends east and south.  The walls here are
+ridged with broad, heavy stone shelves that lead almost to the top of the
+canyon.  High above the floor, nestled in a rocky alcove, is a massive
+clump of what looks like twigs and bones.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48518 10 10 5
+D2
+~
+~
+0 -1 48520 10 10 5
+E
+shelves~
+These shelves head far upward, to the dizzying heights of the desert
+surface.  The shelves are, for the most part, thick and broad.
+~
+E
+climb twigs bones alcove~
+Far above is a massive cluster of twigs and bones, lying in a rocky
+alcove set into the canyon wall.
+~
+A
+climb fly~
+up shelf shelves rock~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flyr, ch );
+  transfer( ch, find_room( 48532 ) );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 5, 10 ) ) {
+  send_to_char( #climb, ch );
+  act_notchar( #climbr, ch );
+  transfer( ch, find_room( 48532 ) );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failr, ch );
+  }
+~
+E
+climb~
+Using the stone shelves at footholds and handholds, you struggle upward
+along the canyon wall.
+~
+E
+climbr~
+$n pulls $mself upward, heaving and sweating.
+~
+E
+fail~
+You attempt to climb the rocky handholds, but slip and fall.
+~
+E
+failr~
+$n beings ascending the stone wall, but slips and falls.
+~
+E
+fly~
+You fly up.
+~
+E
+flyr~
+$n flies up.
+~
+!
+0 0 0
+-1
+S
+
+#48520
+West of a Stone Outcropping~
+Stretching off to the distant west, and toward a bend to the north, this
+cavern is broad and rocky - its floor piled with massive boulders
+obviously broken away from the brittle sandstone walls.  A soft wind
+floats through, stirring the sand and whistling quietly in the many nooks
+and hollows.  The baying of a lone coyote echoes far away.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 48519 10 10 5
+D3
+~
+~
+0 -1 48521 10 10 5
+E
+boulders rocks~
+These boulders have tumbled away from the canyon wall to litter the floor. 
+Most of them look far heaver than could conveivably be carried by a
+troll, ogre or human.
+~
+-1
+S
+
+#48521
+Pitted Canyon Walls~
+Where the canyon walls meet the floor, several large, cavernous enclaves
+mar the stone.  Perhaps four feet high, the shadow-wrapped niches are
+dark enough to hide any details.  This portion of the canyon heads east
+and west through a rough, rock-strewn path.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48520 10 10 5
+D3
+~
+~
+0 -1 48522 10 10 5
+E
+niches enclaves holes~
+Several deep niches have been gouged from the walls.  Cloaked in shadows,
+the niches conceal any details.  However, on closer inspection, you see
+they are not deep at all, but are shallow, their insides padded with a
+layer of straw and sand.
+~
+132 137 1509949540 3 0
+132 9 1509949540 3 0
+132 9 1509949540 3 0
+132 9 1509949540 3 0
+-1
+S
+
+#48522
+Near the Canyon's End~
+The canyon's west wall soars in the distance, dropping pebbles from its
+crumbling ledges.  This short chamber heads east and west, the path
+winding through mounds of fallen boulders.  There are several massive
+sandstone slats here, stood upright against the walls, and angled
+somewhat to look in on cavern trail.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48521 10 10 5
+D3
+~
+~
+0 -1 48523 10 10 5
+E
+slats sandstones~
+These slats of standstone are perhaps five feet high and could not have
+ended up in their current position - standing on end, leaning at angles
+against the walls - by chance.  They seems to be some sort of
+fortification, looking in on the canyon trail.
+~
+-1
+S
+
+#48523
+Canyon's West End~
+This is the western pinnacle of the winding cavern.  The walls here are
+narrow, closing in to a point.  To the east the canyon broadens as it
+continues its way across the Naraki Desert.  To the south is a large,
+shadowed alcove - the scent of woodsmoke comes from that direction.
+~
+~
+301465608 10 9 0
+D1
+~
+~
+0 -1 48522 10 10 5
+D2
+~
+~
+0 -1 48524 10 10 5
+E
+alcove~
+To the south is a sheltered alcove, covered with a ceiling of stone and
+set deep into the walls.
+~
+-1
+S
+
+#48524
+Sheltered Alcove and Campfire~
+Set deep into the wall, this alcove would be undetectable from above. 
+The ashen remains of a campfire smolder here, wisps of smoke coiling then
+dissipating in the dry desert air.  Someone has placed four large
+sandstone blocks around the campfire.  Deeper into the alcove are four
+dishevelled bedrolls, torn, sandy and worthless.
+~
+~
+301465600 10 8 0
+D0
+~
+~
+0 -1 48523 10 10 5
+E
+campfire fire ashes remains~
+This campfire has burned down only recently, its embers still glowing. 
+Sweet, aromatic tendrils of smoke curl softly then fade.
+~
+E
+blocks sandstones chairs~
+Four large stone blocks surround the firepit.
+~
+E
+bedrolls beds~
+These bedrolls - if a scraggly, moth-eaten coarse wool blanket can be
+called a bedroll - are worthless, their edges frayed, their threads
+coming apart.
+~
+1177 9 1509949540 3 0
+1177 9 1509949540 3 0
+1177 9 1509949540 3 0
+-1
+S
+
+#48525
+Painted Canyon~
+Perhaps it is a trick of the light, but the walls radiate a thousand
+intricate colors - reds, yellows, and oranges of all shades blends into
+one another, flaming on the rock points.  This stretch of canyon heads
+far to the west, and just to the east is a massive mound of fallen rock,
+obstructing the canyon trail.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48526 10 10 5
+D3
+~
+~
+0 -1 48514 10 10 5
+E
+colors walls~
+Colors leap from the angled surfaces of the walls - reds and oranges and
+yellows.  The light seems not to be supernatural, rather a trick of the
+light-refracting crystals in the rock.
+~
+E
+mound~
+To the east, a landslide has filled the corridor with a mound of stone.
+~
+-1
+S
+
+#48526
+At the Rockslide~
+At some point, the walls here gave way, dumping tons of stone onto the
+floor of the canyon.  A pile of rock fifteen feet high obstructs the
+eastward trail.  Soaring above the rock is the canyon wall, seeming to
+turn south beyond the rockslide.  To the west, the canyon continues
+unabated.
+~
+~
+301465600 10 9 0
+D3
+~
+~
+0 -1 48525 10 10 5
+E
+mound rocks rocklide pile ~
+The mound of fallen rock is high, its surface sharp with jagged rocks.
+~
+A
+climb fly~
+up eat rockslide rocks pile boulders mound~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flyr, ch );
+  transfer( ch, find_room( 48527 ) );
+  end;
+  }
+send_to_char( #climb, ch );
+act_notchar( #climbr, ch );
+transfer( ch, find_room( 48527 ) );
+~
+E
+fly~
+You fly east over the rockslide.
+~
+E
+flyr~
+$n flies east over the rockslide.
+~
+E
+climb~
+Grabbing the jagged stones, you pull yourself atop the stone mound, then
+ease yourself down to the east.
+~
+E
+climbr~
+$n pulls $mself atop the stone pile, then disappears over its crest.
+~
+!
+0 0 0
+-1
+S
+
+#48527
+East of a Rockslide~
+An enormous rockslide, standing fifteen feet high and sharp with jutting
+fingers of sandstone, blocks movement to the west.  The walls seem to be
+a little unstable, still, as clusters of stone break away and tumble to
+the floor.  The canyon heads south toward another bend on its sinuous
+path through the desert.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 48528 10 10 5
+E
+rockslide mound rock~
+A massive pile of stone, the remnant of a rockslide, blocks the trail to
+the west.
+~
+A
+climb fly~
+west down rockslide stones rocks pile mound boulders~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flyr, ch );
+  transfer( ch, find_room( 48526 ) );
+  end;
+  }
+send_to_char( #climb, ch );
+act_notchar( #climbr, ch );
+transfer( ch, find_room( 48526 ) );
+~
+E
+fly~
+You fly westward over the massive rockslide.
+~
+E
+flyr~
+$n flies westward over the massive rockslide.
+~
+E
+climb~
+Grabbing the rough boulders, you pull yourself atop the rockslide, then
+ease your way down to the west.
+~
+E
+climbr~
+$n pulls $mself atop the mound of stones, then disappears over its crest.
+~
+!
+0 0 0
+217 9 1509949540 3 0
+78 17 1509949540 -2 0
+-1
+S
+
+#48528
+Black Gravestone~
+This passage heads eastward a short way, then turns to the south.  It
+also heads north toward a massive rockslide.  Amid the many boulders that
+litter the floor of this canyon is a small, black grave marker - dwarfed
+by the surrounding rock.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 48527 10 10 5
+D1
+~
+~
+0 -1 48529 10 10 5
+E
+grave marker headstone gravestone~
+The unmarked gravestone stands two feet high, and is of the classic,
+arced shaped.  It is forged of black stone.  Strangely, it has been wiped
+clean of the sand and dust that cover everything else.
+~
+A
+dig~
+grave~
+if( !has_obj( 1489, ch ) ) {
+  send_to_char( #shovel, ch );
+  end;
+  }
+if( !rflag( reset0, room ) ) {
+  act_tochar( #no, ch );
+  end;
+  }
+mob = mob_in_room( 1178, room );
+if( mob ) {
+  send_to_char( #rage, ch );
+  act_notchar( #rrage, ch );
+  attack_weapon( mob, ch, 3d5, "stony fist" );
+  }
+else {
+  remove_rflag( reset0, room );
+  send_to_char( #spec, ch );
+  act_notchar( #rspec, ch );
+  mob_in_room( mload( 1179, room ), room );
+  mob = mob_in_room( 1179, room );
+  attack( mob, ch, 4d5, "icy claw" );
+  }
+~
+E
+rage~
+Seeing you break the ground near the gravestone, the desert wanderer
+howls with rage and leaps to attack in a blind fury!
+~
+E
+rrage~
+As $n moves to dig up the grave, the desert wander howls with rage!
+~
+E
+shovel~
+You should probably get a shovel for that.
+~
+E
+spec~
+As you clear away the earth, you feel a deep rumble and hear a distant
+shriek.  A chill overtakes your body as the ground begins to boil upward. 
+The spectre of woman explodes through the broken earth, shouting
+"Defilers!" 
+~
+E
+rspec~
+$n breaks the ground with $s shovel.  As $e clears away more and more
+earth, there comes a rumble and a distant shriek.  A cold wind overtakes
+you.  Suddenly the spectre of a woman bursts upward from the grave
+shouting, "Defilers!" 
+~
+E
+no~
+The grave has already been dug up and now gapes there, empty.
+~
+!
+0 0 0
+1178 137 1509949540 3 0
+-1
+S
+
+#48529
+Silent Corridor~
+This is a short stretch toward the east end of this long, winding cavern. 
+The cavern is narrow here, and grows narrower to the east at the canyon's
+apex.  The looming walls close in here - this place is dark and strangely
+cold.  The canyon heads west toward a bend, or to the east toward the
+canyon's end.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 48530 10 10 5
+D3
+~
+~
+0 -1 48528 10 10 5
+1410 17 1509949540 -2 0
+-1
+S
+
+#48530
+Canyon's East End~
+This narrow, triangular corridor is the eastern apex of this long,
+snake-like canyon.  The walls are close and jagged; the floor is clotted
+with an inch-thick layer of sand and rubble.  To the west, the canyon
+broadens on its path through the desert.  To the south is a shady nook.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 48531 10 10 5
+D3
+~
+~
+0 -1 48529 10 10 5
+E
+nook~
+To the south is a small, shady nook.  It is large enough to be entered,
+although anyone over five feet tall will have to crouch to fit.
+~
+-1
+S
+
+#48531
+Shady Nook - Mound of Stone~
+These are close quarters - the walls and ceiling closing in, casting
+deep, enveloping shadows.  To the north is canyon's eastern end - a
+narrow, pointed little corridor laden with fallen rocks.  A heavy
+sandstone slat lies heavily against the east wall, surrounded by small
+footprints in the dust.
+~
+[Phule] e is 49000 Mangits
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 48530 10 10 5
+D1
+sandstone slab~
+~
+171 -1 49000 10 10 5
+E
+boulder slat sandstone~
+A large slab of sandstone covers the east wall of this nook.
+~
+E
+prints footprints~
+Small footprints mark the dust of this shady nook.  They move in all
+directions, and frequently cover one another.
+~
+A
+move lift~
+stone sandstone slab slat~
+if( is_open( room, east ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  send_to_char( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, east );
+  }
+~
+E
+already~
+The sandstone slab has already been moved, revealing a hole in the east
+wall.
+~
+E
+move~
+You pull aside the slab of sandstone, revealing a large opening in the
+east wall.
+~
+E
+rmove~
+$n pulls aside a slab of sandstone, revealing a large opening in the east
+wall.
+~
+!
+0 0 0
+78 17 1509949540 -2 0
+-1
+S
+
+#48532
+Canyon Hawk's Nest~
+This broad, deep alcove is covered with a massive nest, easily large
+enough to hold three trolls.  The nest is made from tree branches, sand,
+rocks, and large animal bones.  Above is a sheer cliff, offering no way
+up, but below are several stone shelves that could be climbed, albeit
+with care.
+~
+~
+301465600 10 9 0
+E
+nest~
+This enormous nest is made from a little of everything that can be found
+in the desert.  However, there seems to be an unsettling abundance of
+bones and skulls, and not all of them animal.
+~
+A
+climb fly~
+down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flyr, ch );
+  transfer( ch, find_room( 48519 ) );
+  end;
+  }
+send_to_char( #down, ch );
+act_notchar( #downr, ch );
+transfer( ch, find_room( 48519 ) );
+~
+E
+down~
+Carefully you lower yourself down, using the stone shelves to support
+your weight.
+~
+E
+downr~
+$n lowers $mself down the cavern wall, using the stone shelves for
+support.
+~
+E
+fly~
+You fly down.
+~
+E
+flyr~
+$n flies down.
+~
+!
+0 0 0
+A
+search~
+nest~
+mob = mob_in_room( 1176, room );
+if( mob ) {
+  act_room( #anger, ch );
+  attack( mob, ch, 3d5+5, "wicked talon" );
+  }
+else {
+  if( !rflag( reset0, room ) ) {
+    send_to_char( #nada, ch );
+    act_notchar( #nadar, ch );
+    end;
+    }
+  i == 1d6
+  if( i == 1 ) {
+    send_to_char( #silver, ch );
+    act_notchar( #rsilv, ch );
+    obj_to_char( oload( 14 ), ch );
+    obj_to_char( oload( 14 ), ch );
+    obj_to_char( oload( 14 ), ch );
+    end;
+    }
+  if( i == 2 ) {
+    send_to_char( #gold, ch );
+    act_notchar( #goldr, ch );
+    obj_to_char( oload( 2 ), ch );
+    end;
+    }
+  if( i == 3 ) {
+    send_to_char( #gem, ch );
+    act_notchar( #gemr, ch );
+    obj_to_char( oload( 998 ), ch );
+    end;
+    }
+  if( i > 3 ) {
+    send_to_char( #nada, ch );
+    act_notchar( #nadar, ch );
+    }
+remove_rflag( reset0, room );
+  }
+~
+E
+anger~
+The canyon hawk shriek in rage at having its nest defiled!
+~
+E
+silver~
+You rummage through the nest, finding a few silver coins.
+~
+E
+rsilv~
+$n rummages through the nest, finding a few silver coins.
+~
+E
+gold~
+You rummage through the nest, finding a gold coin.
+~
+E
+goldr~
+$n rummages through the nest, pulling out a gold coin.
+~
+E
+gem~
+You rummage through the nest, finding a sea-green gem.
+~
+E
+gemr~
+$n rummages through the nest, pulling out a sea-green gem.
+~
+E
+nada~
+You rummage through the nest, but find nothing.
+~
+E
+nadar~
+$n rummages through the nest, but finds nothing.
+~
+!
+0 0 0
+1176 9 1509949540 3 0
+-1
+S
+
+#48533
+Shady Nook - Mound of Stone~
+Under Construction.
+~
+~
+301465600 10 9 0
+-1
+S
+
+#0
+

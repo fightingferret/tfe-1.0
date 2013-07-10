@@ -1,0 +1,2673 @@
+#AREA
+Western Plains~
+Phule Rue~
+western plains~
+
+40 0
+0
+#ROOMS
+
+#54500
+Amidst the Tall Grass~
+Tall, thick blades of grass surround you, stretching far and wide as the
+Western Plains disappear into the horizon.  Hardly a rustle is heard,
+save the ebbing sound of the wind thrashing the grass quietly.  The small
+breeze is not enough to ward off the heat and humidity of the air, a
+combination which threatens to steam-bake you where you stand.  A
+stone-paved road streaks through the plains to the south.
+~
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54528 10 10 5
+D1
+~
+~
+0 -1 54502 10 10 5
+D2
+~
+~
+0 -1 39098 10 10 5
+D3
+~
+~
+0 -1 54503 10 10 5
+E
+grass plains~
+The grass is thick and comes up to your waist.
+~
+E
+stone-paved road path~
+The stone-lined path heads east, across the plains, and west, towards a
+dark fort.
+~
+A
+~
+~
+send_to_area( #rustling, room );
+~
+E
+rustling~
+@YA hot breeze blows across your face, the grass rustling all around you.@n
+~
+!
+4 50 0
+-1
+S
+
+#54501
+Amidst the Tall Grass~
+The tall grass sways in a great plains wind, sending waves across the
+grasslands.  A stone-paved road crosses the plains to the north, heading
+east to the horizon and west toward the walls of a dark fort.  A large
+boulder sits to the east, creating a nice bit of shade.  To the south and
+west, the plains continue.
+~
+[Phule] road n
+[Phule] boulder e
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 39098 10 10 5
+D2
+~
+~
+0 -1 54505 10 10 5
+D3
+~
+~
+0 -1 54504 10 10 5
+E
+boulder 1 east~
+The large boulder is about thirty feet high, quite an impressive rock. 
+The boulder is granite, and has a smooth surface.  In color, it is a
+speckled pink, almost the color of human flesh, though it is certainly
+merely rock.
+~
+E
+slate walls 1 west dark fort~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+road 1 north~
+The stone-paved road leads east and west across the plains.
+~
+A
+climb~
+up boulder granite~
+act_tochar( #search, ch );
+~
+E
+search~
+@GYou can't find anyway to climb the boulder.@n
+~
+!
+0 0 0
+-1
+S
+
+#54502
+Amidst the Tall Grass~
+Tall cliffs of stone rise in the far north, across miles of grassland. 
+To the south, a stone-lined path crosses the plains.  Beyond the path the
+grass continues for quite some distance.  The tall grass sway around you,
+waving gently in the warm wind.
+~
+[Phule] path s
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54534 10 10 5
+D1
+~
+~
+0 -1 54537 10 10 5
+D2
+~
+~
+0 -1 39096 10 10 5
+D3
+~
+~
+0 -1 54500 10 10 5
+E
+1 south road~
+A wide stone-paved road heads east and west through the plains.
+~
+E
+cliffs~
+Steep cliffs form the northern boundary of the plains.  They shoot
+straight up into the sky.
+~
+E
+grasslands~
+Grasslands spread out in all directions.
+~
+963 137 1509949540 3 0
+-1
+S
+
+#54503
+Tall Grass - Near the Walls of Brithbarad~
+The dense, tall grass of the western plains thin out here, approaching
+the shale walls of the orcish fort of Brithbarad.  The gates of the city
+are to the south, where a stone-paved road can be seen.  You can follow
+along the walls to the north, or head deeper into the rolling plains to
+the east.
+~
+[Phule] is nomob - too close to gates
+~
+301465672 2 9 0
+D0
+~
+~
+0 -1 54525 10 10 5
+D1
+~
+~
+0 -1 54500 10 10 5
+D2
+~
+~
+0 -1 63534 10 10 5
+E
+slate walls shale 1 west~
+The walls are dark and grimy, and a cloud of soot hangs overhead.  Just
+to the south you can see a large gate.
+~
+E
+1 south gates road~
+Just to your south you see a stone-paved road that leads up to large gate
+in the fort walls.
+~
+E
+1 north 1 east plains~
+Grassy plains extend as far as you can see to the north and east.
+~
+A
+climb~
+up walls~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou cut your hands on the sharp stones!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+-1
+S
+
+#54504
+Tall Grass - Near the Walls of Brithbarad~
+The slate walls of Brithbarad rise to the west, the gate visible to the
+north.  You are in a vast plain of tall grass which spreads out to the
+south and east.  Although not much detracts from the monotony of the
+grasslands, in the distant northeast you see the crags of the Cairn
+Mountains rise above the horizon.
+~
+[Phule] no.mob
+[Merior] why no.mob?
+too close to gates
+[Adakar] deleted line acode( find_room( 54583 ), 2 ); -- 54583 is not completed and no way out.
+~
+301465672 2 9 0
+D0
+~
+~
+0 -1 63534 10 10 5
+D1
+~
+~
+0 -1 54501 10 10 5
+D2
+~
+~
+0 -1 54506 10 10 5
+E
+slate walls 1 west~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+gate 1 north~
+The gates to some walled town loom to the north, at the end of a
+stone-paved road through the plains.  Made of massive stripped pines, the
+gates look very sturdy.
+~
+E
+crag cairn mountains~
+The steep and jagged peaks of the Cairn Mountains rise high along the
+skyline far to the northeast.
+~
+E
+plain grasslands 1 east 1 south~
+Tall grasses in all the many shades of green wave in the breeze that
+blows through these plains.  Mingled with the greens are various shades
+of yellows, tans, and off-whites, dried blades, seed tufts, and damaged
+ends.
+~
+A
+~
+~
+~
+!
+1 0 7
+A
+climb~
+up wall~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou shred your hands on the sharp stones!@n
+~
+E
+witness~
+@G$n pulls away from the wall with a yelp!@n
+~
+!
+0 0 0
+-1
+S
+
+#54505
+Amidst the Tall Grass~
+You can see tall grass in all directions, spreading for miles across the
+land.  To the southwest, you can see an old bent tree, which stands tall
+against the general flatness of the surrounding plains.  To the
+northeast, a huge boulder juts into the air.  A couple of miles away to
+the northwest, the slate walls of the dark fort of Brithbarad rise high
+into the sky, under a blanket of pitch and soot.
+~
+[Phule] boulder ne
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54501 10 10 5
+D1
+~
+~
+0 -1 54507 10 10 5
+D2
+~
+~
+0 -1 54523 10 10 5
+D3
+~
+~
+0 -1 54506 10 10 5
+E
+boulder northeast~
+The granite boulder is grey and white stone, somewhat bleached and aged
+by time and the sun.  It is about thirty feet high, and smooth.
+~
+E
+tree southwest~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about two miles away.
+~
+E
+walls 1 west northwest dark fort~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+A
+climb~
+boulder granite stone~
+act_tochar( #climb, ch );
+~
+E
+climb~
+@GThe boulder is too steep to climb.@n
+~
+!
+0 0 0
+839 9 1509949540 3 0
+-1
+S
+
+#54506
+Amidst the Tall Grass~
+Tall grass rolls away from you in all directions.  To the northwest, the
+dark fort of Brithbarad rises above the plains, its slate walls tall and
+foreboding.  To the west, you can follow the south wall of the fort,
+while to the north, you approach the gates.
+~
+[Rue] brith is a fort not a city dammit! (hehe)
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54504 10 10 5
+D1
+~
+~
+0 -1 54505 10 10 5
+D2
+~
+~
+0 -1 54522 10 10 5
+D3
+~
+~
+0 -1 54508 10 10 5
+E
+gate 1 north~
+North, past more grass, is a stone-paved road which leads right up to the
+gates of Brithbarad.  Made of massive stripped pines, the gates look very
+sturdy.
+~
+E
+slate walls 1 west~
+The walls are dark and grimy, and a cloud of soot hangs overhead.  The
+thick slabs of slate are sharp and jagged.  A dark soot sticks to them,
+and the sounds of wildlife echo off them.  The walls climb straight up,
+and look to be unclimbable.
+~
+E
+fort 1 west 6 northwest~
+A dark cloud of soot hangs over the walled fort to the west and
+northwest, as of many fires burning in a not-so-small habitation. 
+Faintly, the wind carries sounds to your ear: The grunts and snorts of
+orcish beings.
+~
+A
+climb~
+walls up~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YTrying to climb the walls only results in cutting your hands!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+-1
+S
+
+#54507
+Amidst the Tall Grass~
+The untamed forces of the wild surround you.  Great winds whip miles and
+miles of grasslands into a sea of grass, undulating with each gust of air. 
+The mighty Durgorin, still perhaps two miles or more to the southeast,
+flows by, rushing hundreds of thousands of tons of water across the
+plains.  A massive boulder juts into the northern sky, creating a few
+patches of cool shade below it.  The plains roll to the east, south, and
+west.
+~
+[Phule] boulder n
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54553 10 10 5
+D2
+~
+~
+0 -1 54559 10 10 5
+D3
+~
+~
+0 -1 54505 10 10 5
+E
+boulder 1 north~
+The large boulder is about thirty feet high, quite an impressive rock. 
+The dappled grey-white surface of the granite is smooth and unclimbable.
+~
+E
+river Durgorin southeast~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+A
+climb~
+boulder granite up~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe granite boulder is too smooth to climb.@n
+~
+!
+0 0 0
+-1
+S
+
+#54508
+Tall Grass - South of Brithbarad~
+You are in an area of tall grass which stretches south, east, and west
+away from the slate walls of Brithbarad, to the north.  The sea of grass
+is for the most part featureless, but to the south you can see a scraggly
+tree.  The walls are high, too tall for you to be able to see any details
+of the town.
+~
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54506 10 10 5
+D2
+~
+~
+0 -1 54521 10 10 5
+D3
+~
+~
+0 -1 54509 10 10 5
+E
+slate walls 1 north~
+The walls are dark and grimy, and a cloud of soot hangs overhead.  Rough
+slabs of slate, cut into irregular shapes, were placed together in a
+semblance of a wall.  Rough edges look sharp and probably make a good
+defense against any outside assault.
+~
+E
+tree 1 south~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+A
+climb~
+walls up~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou only manage to slice your hands on the sharp stones!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+963 9 1509949540 3 0
+-1
+S
+
+#54509
+Tall Grass - South of Brithbarad~
+The slate walls of Brithbarad rise to the north, under a dark sky of soot. 
+A wide grassland spreads in all other directions, approaching a canyon to
+the west.  To the southeast, about a half-mile or so away, you can see
+an old scraggly tree.
+~
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54508 10 10 5
+D2
+~
+~
+0 -1 54520 10 10 5
+D3
+~
+~
+0 -1 54510 10 10 5
+E
+slate walls 1 north~
+The walls are dark and grimy, and a cloud of soot hangs overhead.  The
+slate slabs that make up the walls are sharp and jagged.  The walls
+appear thick and strong.  Anybody trying to scale them would be cut to
+ribbons by the time they got half-way up.
+~
+E
+tree 1 south~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+E
+canyon 1 west~
+More grass spreads away to the west, but ends abruptly at a canyon.  You
+cannot see anything more about the canyon, beyond that it is a big, long
+hole in the ground.
+~
+E
+grasslands plains 1 east~
+The grasslands spread out in all directions but north, where it goes
+right up against a nasty-looking slate wall.  In all the other directions
+are waving fields of grass, fairly uniform: Long blades in various shades
+of greens and yellows, some with seed tufts.  An occasional broad-leafed
+weed pokes its head from between the blades, but overall, you are
+surrounded by grass.
+~
+E
+weeds~
+There is nothing unusual about the plants.  You can, in fact, hardly make
+them out among the waving grass.  They are just a brief vision of darker,
+broader leaves.
+~
+A
+climb~
+wall up~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou only manage to slice up your hands!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+-1
+S
+
+#54510
+Tall Grass - South of Brithbarad~
+Cornered to the north by the slate walls of Brithbarad, and to the west
+by a great chasm, a vast grasslands spreads east and south.  The chasm is
+deep and wide; there is no way across.  The chasm stretches north for
+some distance, while to the south it narrows and disappears as it enters
+the Black Hills.  Across the chasm you can see a great desert, endless
+unto the horizon.
+~
+[Phule] yes i have thought of chasm area
+[Starshine] room along desert - acode west - You feel the ground give as you get closer to the edge of the chasm and jump back.
+[Rue] DONE!
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54509 10 10 5
+D2
+~
+~
+0 -1 54519 10 10 5
+E
+slate walls 1 north~
+The walls are dark and grimy, and a cloud of soot hangs overhead.  Slate,
+roughly quarried, forms the dangerous-looking wall.  Any attempts to
+scale it would probably result in injury.
+~
+E
+chasm 1 west 1 down~
+The chasm descends deep into the earth; its floor is not visible amidst
+the blackness of its depth.  This wound in the earth puts a sudden stop
+to the grassland sea, dividing this land of grass from the land of sand
+visible beyond the great divide.
+~
+E
+desert across~
+The desert stretches across the length of the horizon beyond the chasm;
+tall dunes of fine sand form a pattern of valleys and crests, like an
+ocean of sand.
+~
+A
+1 west~
+~
+act_tochar( #search, ch );
+act_notchar( #rmcrumble, ch );
+~
+E
+search~
+@YAs you move towards the edge of the chasm the rim begins to crumble and
+you jump back just in time!@n 
+~
+E
+rmcrumble~
+@Y$n jumps back from the crumbling edge of the chasm!@n
+~
+!
+0 0 0
+A
+climb~
+wall up~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou try and climb the wall, but only succeed in slicing up your hands!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+1427 9 1509949540 3 0
+-1
+S
+
+#54519
+Tall Grass - East of a Canyon~
+While the slate walls of Brithbarad can still be seen across the
+half-mile of grassland to the north, your view is completely dominated by
+the mammoth chasm to the west.  The chasm is several miles wide, and
+unfathomably deep; its floor is hidden behind the darkness below.  On the
+other side of the chasm, a great desert looms.
+~
+[Phule] yes i have thought of chasm area
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54510 10 10 5
+D1
+~
+~
+0 -1 54520 10 10 5
+D2
+~
+~
+0 -1 54579 10 10 5
+E
+chasm 1 west 1 down~
+The chasm descends deep into the earth; its floor is not visible amidst
+the blackness of its depth.
+~
+E
+1 north slate~
+Across a strip of grassland to the north, a slate wall is visible.  The
+walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+desert across~
+The desert stretches across the length of the horizon beyond the chasm,
+tall dunes of fine sand form a pattern of valleys and crests, like an
+ocean of sand.
+~
+A
+1 west~
+~
+act_tochar( #search, ch );
+~
+E
+search~
+@YYou decide against hurtling yourself into the deep chasm.@n
+~
+!
+0 0 0
+-1
+S
+
+#54520
+Amidst the Tall Grass~
+While you can still make out the outline of the walls of Brithbarad to
+the north, you are surrounded by miles of grassland.  From the south, you
+hear the sound of rushing water.  To the east, you can see an old tree,
+perhaps some half-mile off.
+~
+[Phule] nomob
+[Merior] why no.mob?
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54509 10 10 5
+D1
+~
+~
+0 -1 54521 10 10 5
+D2
+~
+~
+0 -1 54578 10 10 5
+D3
+~
+~
+0 -1 54519 10 10 5
+E
+tree 1 east~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+E
+slate walls 1 north~
+Grass rolls away to the north, where it meets up with the wall of some
+fortification.  The walls are dark and grimy, and a cloud of soot hangs
+overhead.  Built of thick slabs of black shale, the walls look imposing.
+~
+839 9 1509949540 3 0
+-1
+S
+
+#54521
+A Tree Amidst the Tall Grass~
+While grasslands roll off to the horizon in all directions, an old
+scraggly tree stands here, reaching about thirty feet overhead.  There
+are no leaves on the tree; in fact it looks dried out.  It is probably
+dead, but still standing.  The thickness of the tree's limbs are such
+that hiding in the tree could be an excellent place for an ambush.
+~
+[Phule] tree
+[Phule] nomob
+~
+301465672 2 9 0
+D0
+~
+~
+0 -1 54508 10 10 5
+D1
+~
+~
+0 -1 54522 10 10 5
+D2
+~
+~
+0 -1 54577 10 10 5
+D3
+~
+~
+0 -1 54520 10 10 5
+D4
+~
+~
+1024 -1 54592 10 10 5
+E
+tree 1 up~
+The tree is short and squat, with only a few thick limbs about twelve to
+twenty feet up.  The trunk is ridged and would be easy to climb.  You
+can't tell what sort of tree it is, as all the leaves and bark have long
+since disappeared.
+~
+E
+grasslands 1 north 1 east 1 west 1 south~
+The grasslands are quite beautiful: Long strands of grass flowing in
+waves, as close to an ocean as grass can get.  Slime blades of greens and
+straws lean against each other, forming walls that tilt first one way,
+then the other, all across the plains.  North, the grass grows up against
+a dark slate wall, some fortification.
+~
+E
+walls fortification~
+The walls belong to the fort of Brithbarad, a town of rather uncouth
+denizens.  Or so you've heard.
+~
+A
+~
+~
+mob = mob_in_room( 1429, find_room( 54592 ) );
+if( !mob )
+  end;
+if( is_fighting( mob ) )
+  end;
+else {
+  rch = rand_player( room );
+  if( find_stat( rch, level ) > 90 )
+    end;
+  if( rch ) {
+    if( random( 0, 10 ) > 6 ) {
+      if( is_resting( mob ) )
+        interpret( mob, "stand" );
+      send_to_room( "You hear a rustle overhead...", room );
+      transfer( mob, room );
+      mob = mob_in_room( 1429, room );
+      attack( mob, rch, 2d10+20, "flesh rending claw" );
+      }
+    }
+  }
+~
+!
+1 0 15
+A
+~
+~
+acode( room, 1 );
+~
+!
+2 300 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou shimmy up the tree, reaching the tangled branches and pull yourself
+up.@n 
+~
+E
+to_room~
+@G$n shimmies part-way up the tree, grabs some branches and hauls $mself
+up.@n 
+~
+!
+3 0 16
+-1
+S
+
+#54522
+Amidst the Tall Grass~
+Tall grass spreads away from you in all directions, miles and miles of
+open plains.  To the west, an old tree hangs above the plains, although
+it is still at least a half-mile away.  A large boulder can be seen to
+the northeast, but it is still quite some distance away.  From the south
+you hear the sound of rushing water.
+~
+[Phule] tree w
+[Phule] boulder far ne
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54506 10 10 5
+D1
+~
+~
+0 -1 54523 10 10 5
+D2
+~
+~
+0 -1 54576 10 10 5
+D3
+~
+~
+0 -1 54521 10 10 5
+E
+tree 1 west~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+E
+boulder northeast~
+It is smooth and its dappled surface a deep grey-white.  The large
+boulder is about thirty feet high, quite an impressive rock.
+~
+E
+river 1 south~
+You hear the sound of water rushing quickly, and see a sparkle, as of
+water, to the south, but cannot make out the river for sure.  The tall
+grass blocks too much of the view south.
+~
+-1
+S
+
+#54523
+Tall Grass~
+Surrounded by tall grass for miles in all directions, the outline of the
+Durgorin to the south cuts a clean line across the horizon.  To the
+northeast, a massive boulder can be seen jutting above the plains, even
+at this distance, perhaps two or three miles.  A few miles to the west,
+an old tree breaks the monotony of the rolling grasslands.  Small holes
+dot the ground, evidence of snakes or other small animals.
+~
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54505 10 10 5
+D1
+~
+~
+0 -1 54559 10 10 5
+D2
+~
+~
+0 -1 54575 10 10 5
+D3
+~
+~
+0 -1 54522 10 10 5
+E
+boulder 1 northeast~
+The large boulder is about thirty feet high, quite an impressive rock. 
+The boulder is quite steep on this side, and you doubt you could climb
+it, though it is perhaps too far to be able to tell for sure.
+~
+E
+tree 1 west~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about two miles away.
+~
+E
+river 1 south durgorin~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+E
+holes mounds dirt~
+The small holes are only about an inch in diameter.  Small mounds of dirt
+are piled around each of the holes.
+~
+A
+search~
+holes~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the holes, but find nothing in them.  @n 
+~
+E
+rmsearch~
+@G$n searches the small holes.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #movement, room );
+~
+E
+movement~
+@GYou see some movement out of the corner of your eye, something small
+that seems to dart into one of the holes.@n 
+~
+!
+2 50 0
+-1
+S
+
+#54525
+Tall Grass - Near the Walls of Brithbarad~
+Thick blades of grass brush against your legs as a great wind sweeps the
+plains, sending undulating waves across the grasslands.  The grass thins
+out a bit, approaching the slate walls of a dark fort to the west.  A
+mile or so to the north, a stone rise juts above the grasslands, while to
+the east, all you see is miles and miles of plains.
+~
+[Phule] rise
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54530 10 10 5
+D1
+~
+~
+0 -1 54528 10 10 5
+D2
+~
+~
+0 -1 54503 10 10 5
+E
+slate walls 1 west dark fort~
+The walls are dark and grimy, and a cloud of soot hangs overhead.  Far
+to the south, you see the gates of the fort.
+~
+E
+stone rise 1 north~
+The tall cliff face juts suddenly upward from the flat grassland, marking
+the northern edge of the plains.
+~
+E
+1 east 1 south~
+The grassy plains go as far as the eye can see.
+~
+A
+climb~
+up walls~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou cut your hands on the sharp stones!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+-1
+S
+
+#54528
+Amidst the Tall Grass~
+You are surrounded for miles in all directions by a vast grassland.  The
+talls grass makes it difficult to see far in any direction, save north. 
+To the north, you can see a tall cliff rise above the plains, while to
+the west the dark shale walls of a fortified settlement.  Poking up from
+the ground is a hunk of flint.
+~
+[Phule] chisel rock
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54529 10 10 5
+D1
+~
+~
+0 -1 54534 10 10 5
+D2
+~
+~
+0 -1 54500 10 10 5
+D3
+~
+~
+0 -1 54525 10 10 5
+E
+1 north cliff~
+The stone rise reaches about a hundred feet, and seems to mark the
+northern edge of the plains.  It is still about two miles distant.
+~
+E
+slate walls 1 west fort~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+flint hunk rock~
+It is indeed a rather large chunk of flint, embedded in the earth. 
+Perhaps you can break a piece from it.
+~
+E
+1 east 1 south plains~
+You see grassy plains in all directions.
+~
+A
+chisel break smash hit~
+flint rock~
+if( rflag( reset0, room ) ) {
+  if( has_obj( 3044, ch ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( "You chisel at the rock for a bit.", ch );
+    if( random( 0, 50 ) == 13 ) {
+      act_tochar( "You break your chisel!", ch );
+      act_notchar( "$n breaks $s chisel on the large flint rock.", ch );
+      junk_obj( has_obj( 3044, ch ), 1 );
+      }
+    else {
+      act_notchar( "$n chisels off a bit of flint from the rock.", ch );
+      act_tochar( "You chisel some flint from the rock.", ch );
+      obj_to_char( oload( 79 ), ch );
+      if( random( 0, 3 ) == 1 )
+        obj_to_char( oload( 79 ), ch );
+      }
+    }
+  else
+    act_tochar( "You chisel at the rock, but can't free any pieces of flint.", ch );
+  }
+else
+  act_tochar( "It would take a chisel to break this rock.", ch );
+~
+!
+0 0 0
+1427 9 1509949540 3 0
+-1
+S
+
+#54529
+Tall Grass - Below a Stone Rise~
+A stone rise juts about a hundred feet up to the north, marking the
+northern edge of the plains.  An undulating sea of grass, churned by a
+strong westerly breeze, rolls away from you in all other directions for
+miles.  To the west, the dark shale walls of a fortified settlement can
+be seen.  You see another stone rise to the east, about two miles distant.
+~
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54531 10 10 5
+D2
+~
+~
+0 -1 54528 10 10 5
+D3
+~
+~
+0 -1 54530 10 10 5
+E
+slate walls 1 west~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+1 north stone rise~
+The cliff face is nearly solid rock, rising about one hundred feet
+straight up.
+~
+E
+grass plains 1 east 1 south~
+The grassy plains extend as far as you can see.
+~
+A
+climb up~
+cliff up rise stone north face~
+act_tochar( #climb, ch );
+~
+E
+climb~
+@GYou can't climb the cliff here.@n
+~
+!
+0 0 0
+-1
+S
+
+#54530
+Tall Grass - Below a Stone Rise~
+The slate walls of a dark fort to the west fit into the stone ridge to
+the north, a solid natural anchor which probably acts as the fort's
+northern wall.  The stone rise climbs vertically about sixty feet or
+more, crumbling a bit at the top.  To the east and south, the grasslands
+spread out for miles.
+~
+[Phule] stone rise
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54529 10 10 5
+D2
+~
+~
+0 -1 54525 10 10 5
+E
+slate walls 1 west~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+ridge stone rise cliff~
+The dark stone rise climbs high into the air, and looks unclimbable.  It
+marks the northern boundary of the plains.
+~
+A
+climb~
+1 up cliff rock face rise stone ridge~
+act_tochar( #search, ch );
+~
+E
+search~
+@GYou can't climb the steep cliff.@n
+~
+!
+0 0 0
+A
+climb~
+wall up~
+act_tochar( #climb, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 5 );
+dam_message( ch, i, "the cutting stone" );
+inflict( ch, mob, i, "the cutting stone" );
+~
+E
+climb~
+@YYou shred your hands on the sharp stones!@n
+~
+E
+witness~
+@G$n screams and pulls away from the wall!@n
+~
+!
+0 0 0
+839 9 1509949540 3 0
+-1
+S
+
+#54531
+Tall Grass - Below a Stone Rise~
+Two massive cliffs of stone come together in a right angle here, marking
+the northern edge of the western plains.  To the south and west, the
+grasslands spread for miles.  The ground here is dusty and hard, the
+grass seems unable to grow here, perhaps because of the heat reflected
+from the high cliffs.
+~
+[Sinary] in the extra desc for the cliffs, climb is spelt wrong.
+~
+301465664 2 9 0
+D2
+~
+~
+0 -1 54534 10 10 5
+D3
+~
+~
+0 -1 54529 10 10 5
+E
+cliff stone 1 north 1 east corner angle~
+Two tall cliffs come together to form a corner of sorts.  Both of the
+cliffs climbb high into the sky, and look to be unclimbable.
+~
+E
+grasslands  1 south 1 west~
+Tall grass grows as far as you can see.
+~
+E
+ground down~
+The ground is simply hard-baked earth.
+~
+A
+up climb~
+rise cliff face stone north east~
+act_tochar( #climb, ch );
+~
+E
+climb~
+@GYou can't climb the steep wall.@n
+~
+!
+0 0 0
+963 41 1509949540 3 0
+2105 73 1509949540 3 0
+-1
+S
+
+#54534
+Amidst the Tall Grass~
+A jagged stone cliff juts into the air to the northeast, marking the
+northern edge of the grasslands.  The western plains spread in all
+directions, the tall grass swaying in a strong breeze, coming in cool
+from the distant Cairn Mountains to the east and sweeping west across the
+plains.
+~
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54531 10 10 5
+D1
+~
+~
+0 -1 54535 10 10 5
+D2
+~
+~
+0 -1 54502 10 10 5
+D3
+~
+~
+0 -1 54528 10 10 5
+E
+jagged stone cliff 1 north~
+The stone rise reaches about a hundred feet, and seems to mark the
+northern edge of the plains.  It is still about a mile or so distant.
+~
+E
+plains grass 1 east 1 south 1 west~
+A barren grasslands extends as far as you can see.
+~
+-1
+S
+
+#54535
+Amidst the Tall Grass~
+A tall stone cliff rises to the north, marking the northern edge of the
+plains.  The grasslands spread in all other directions for miles,
+interrupted to the east by a faint path, but continuing nonetheless as
+far as your vision can see.
+~
+[Phule] path e, cliff n
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 35928 10 10 5
+D2
+~
+~
+0 -1 54537 10 10 5
+D3
+~
+~
+0 -1 54534 10 10 5
+E
+faint path 1 east~
+The faint path follows a northern route into a sandy canyon, and winds
+south into the heart of the plains.
+~
+E
+cliff 1 north edge plains grassland~
+The cliff provides a continuous northern border along the plains.  It
+soars high above the plains in a steep ascent.
+~
+E
+plains grassland~
+All about you are the tall grasses and low-rolling hills of the plains.
+~
+A
+climb~
+tall stone cliff~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe tall ridge is too steep to climb.@n
+~
+!
+0 0 0
+839 9 1509949540 3 0
+-1
+S
+
+#54537
+Amidst the Tall Grass~
+The vastness of the plains opens up around you, spreading out for miles
+in all directions under an open sky.  To the far northeast, the ancient
+crags of the Cairn Mountains jut into the sky, while to the southeast, a
+large boulder has found its way onto the plains.  Across a few miles of
+grassland to the north, a high cliff marks the northern edge of the
+plains.  A stone-paved road crosses the plains to the south.
+~
+[Phule] road s, path e
+[Phule] boulder se
+[Phule] tall cliffs n
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54535 10 10 5
+D1
+~
+~
+0 -1 35929 10 10 5
+D2
+~
+~
+0 -1 39095 10 10 5
+D3
+~
+~
+0 -1 54502 10 10 5
+E
+boulder 6 southeast crag~
+The large boulder is about thirty feet high, quite an impressive rock.  A
+huge mound of pale granite, it is a sharp contrast to the greens and
+yellows of the grass about you.
+~
+E
+cairn mountains 1 east~
+The high, jagged peaks of the Cairn Mountain range can be seen far off to
+the east.  Immediately to your east is a path heading off to the north,
+while across the path, more plains lead away to the distance.
+~
+E
+cliff 1 north~
+A steep cliff runs for miles east and west, marking the northern
+boundary of the plains.
+~
+E
+stone-paved road 1 south~
+Just to your south, a stone-paved roads plys its way east and west
+through the tall grasslands.
+~
+A
+climb~
+smooth granite boulder~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe boulder is too smooth to climb.@n
+~
+!
+0 0 0
+-1
+S
+
+#54540
+Amidst the Tall Grass~
+To the south, a stone-paved road crosses the grassland, but beyond the
+road and in all other directions, the western plains spread for miles. 
+While the grass remains thick, a faint path to the west leads north,
+toward what appears to be a pass between two rock faces which lie miles
+to the north.
+~
+[Phule] road s, path w
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54551 10 10 5
+D1
+~
+~
+0 -1 54541 10 10 5
+D2
+~
+~
+0 -1 39092 10 10 5
+D3
+~
+~
+0 -1 35930 10 10 5
+E
+path faint 1 west~
+You can see a small path that cuts through the grass just to your west.
+~
+E
+1 south road stone-paved~
+To your south a stone-paved road cuts through the hot grasslands.
+~
+-1
+S
+
+#54541
+Amidst the Tall Grass~
+Surrounded by a vast grassland, the great openness of the western plains
+is nearly palpable.  Miles and miles of grass roll to the horizon in all
+directions, interrupted briefly by a stone-paved road to the south.  In
+the hazy north, distorted by heat waves rising from the miles of
+grassland in-between here and there, titanic stone cliffs jut into the
+sky.
+~
+[Phule] path s
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54546 10 10 5
+D1
+~
+~
+0 -1 54542 10 10 5
+D2
+~
+~
+0 -1 39091 10 10 5
+D3
+~
+~
+0 -1 54540 10 10 5
+E
+cliff stone titanic~
+Barely visible through the haze and distorted air, a large cliff face
+rises to the distant north.  Although difficult to judge from this
+distance, you would guess that they are well over one-hundred feet in
+height.
+~
+E
+1 south road stone-paved~
+The well-worn stones of a paved road can be seen through e grass just to
+the south.
+~
+E
+grassland plains~
+Open to the harsh daytime sun and plaything of the winds, long grasses
+create stringy waves which roll off into the distance.  Occasionally,
+some seed goes blowing by, seeking a new home.
+~
+-1
+S
+
+#54542
+Tall Grass - West Bank of the Elhanni~
+The mighty Elhanni rushes alongside the grasslands to the east, pouring
+south at a rapid pace.  To the south, you can see a bridge crossing the
+river, and the start of a stone-paved road heading west across the miles
+and miles of open grassland.  In the distant northeast, the ancient crags
+of the Cairn Mountains jut into the sky.
+~
+[Phule] elhanni e, road s
+[Merior] extras for bridge, elhanni, road, cairns
+[Rue] added extras
+[Starshine] dummy acode east - can't enter river, canyon too steep, river too fast, something.
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54543 10 10 5
+D2
+~
+~
+0 -1 39090 10 10 5
+D3
+~
+~
+0 -1 54541 10 10 5
+E
+bridge~
+A large stone bridge crosses over the mighty Elhanni off in the distance. 
+The bridge looks quite old, and of sturdy construction.  You think you
+can see movement underneath the bridge.
+~
+E
+movement~
+You think you can see something large moving underneath the bridge, but
+it disappears before you can be sure.
+~
+E
+elhanni river 1 east~
+Just to the east the waters of the Elhanni carve a deep canyon out of the
+solid rock.  The roar of the water can be heard echoing up the sides of
+the canyon.
+~
+E
+cairns crags~
+Far off in the distance sit the steep peaks of the Cairn Mountains.  Snow
+sits atop the sharp peaks.
+~
+E
+road stone-paved 1 south~
+You can see a stone-paved road that heads east and south just to the
+south.
+~
+E
+canyon rock~
+The canyon is rather steep, the result of eons of erosion by the
+treacherous waters, relentlessly carving away at the stone base.
+~
+-1
+S
+
+#54543
+Tall Grass - West Bank of the Elhanni~
+The vast Elhanni flows to the east, rushing in from the northeast and
+gaining speed as it bends and heads south.  To the northwest, you see a
+massive cliff face of rock, marking the northern edge of the plains.  The
+rolling grasslands spread for miles to the south and west.
+~
+[Phule] elhanni n, e
+[Merior] cliff extra
+[Rue] added
+[Starshine] acode north east - river is too fast moving to enter/cross?
+[Starshine] elhanni is immediately north, right? (rextra 1 says distant north).
+[Starshine] all rooms next to river - random acode - The loud thunder of fast moving water sounds to the east?
+~
+301465664 2 9 0
+D2
+~
+~
+0 -1 54542 10 10 5
+D3
+~
+~
+0 -1 54546 10 10 5
+E
+elhanni river 1 east~
+The view of the mighty Elhanni is breathtaking.  The river rolls down,
+vast and wide, from the distant north, picking up steam as it rushes down
+the western edge of the Cairn Mountains.  Snowmelt from the mountaincaps
+flood the river, and the resulting mass of water swells over three miles
+wide as the river rushes steadily south, eventually branching off into
+the Durgorin at the southern end of the western plains.
+~
+E
+cliff face~
+Far in the distance, you can see a cliff that rises high above the flat
+plains.  The cliff looks steep and unclimbable from here.
+~
+839 9 1509949540 3 0
+-1
+S
+
+#54546
+Amidst the Tall Grass~
+To the northeast, the Elhanni rushes by, marking the east edge of the
+western plains.  The grassland spreads for miles to the west and south,
+but a few miles to the north you can see a tall vertical rock face.  In
+the distant northeast, the jutting crags of the Cairn Mountains hang
+above the horizon.
+~
+[Phule] elhanni ne
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54547 10 10 5
+D1
+~
+~
+0 -1 54543 10 10 5
+D2
+~
+~
+0 -1 54541 10 10 5
+D3
+~
+~
+0 -1 54551 10 10 5
+E
+elhanni river~
+The mighty Elhanni river flows by just to the northeast.  It is quite
+wide here, and the waters thunder loudly as they smash into rocks in
+white sprays.
+~
+E
+rock face 1 north~
+A tall cliff, over a hundred feet straight up, can be seen far to the
+north.
+~
+E
+crags~
+The jagged peaks and sharp mountains of the Cairn range can be seen far
+to the east.  Snow dots the taller peaks, and can be seen nestled in
+small valleys.
+~
+-1
+S
+
+#54547
+Tall Grass - West Bank of the Elhanni~
+You are on the west shore of the mighty Elhanni, which rushes southeast,
+then south toward the Black Hills.  A tall rock face lies to the north,
+marking the north edge of the western plains.  The grassland spreads to
+the southwest, reaching for miles.  The ground here has been trampled by
+something large, and water puddles in some of the lower depressions.
+~
+[Phule] elhanni e
+[Phule] cliff n
+~
+301465664 2 9 0
+D2
+~
+~
+0 -1 54546 10 10 5
+D3
+~
+~
+0 -1 54550 10 10 5
+E
+rock face 1 north~
+The cliff juts upward a bit over a hundred feet.
+~
+E
+elhanni river 1 east~
+The view of the mighty Elhanni is breathtaking.  The river rolls down,
+vast and wide, from the distant north, picking up steam as it rushes down
+the western edge of the Cairn Mountains.  Snowmelt from the mountaincaps
+flood the river, and the resulting mass of water swells over three miles
+wide as the river rushes steadily south, eventually branching off into
+the Durgorin at the southern end of the western plains.
+~
+E
+depressions puddles~
+Small puddles, too small to drink from, sit in the muddy ground.  The
+depressions would appear to be the footprints of a large animal.
+~
+E
+ground 1 down footprints trampled~
+The ground here is slightly muddy, the result of water from the river. 
+Grass grows up to the river's edge, but is trampled, leaving some areas
+muddy.  Footprints mark the area, as of some passing animal.  Water
+puddles in some of the lower depressions.
+~
+A
+climb~
+tall rock face cliff rise~
+act_tochar( #search, ch );
+~
+E
+search~
+@GYou can't climb the steep cliff face.@n
+~
+!
+0 0 0
+A
+drink~
+puddle~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe puddles are too shallow and muddy to drink from.@n 
+~
+!
+0 0 0
+A
+east~
+~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe river flows far too fast to cross.@n
+~
+!
+0 0 0
+963 41 1509949540 3 0
+2105 73 1509949540 3 0
+-1
+S
+
+#54550
+Amidst the Tall Grass~
+Dwarfed by a high rock face to the north, you are on a vast grassland
+which spreads for miles to the southwest.  To the east, you can see the
+graceful arc of the Elhanni as it flows along the eastern boundary of the
+plains.  To the west, a faint path leads north around the edge of the
+stone face.
+~
+[Phule] path w
+[Phule] cliff n
+[Merior] rock extra, path
+~
+301465664 2 9 0
+D1
+~
+~
+0 -1 54547 10 10 5
+D2
+~
+~
+0 -1 54551 10 10 5
+D3
+~
+~
+0 -1 35928 10 10 5
+E
+elhanni river 1 east~
+East, past more grass, is the Elhanni river.  The massive river is simply
+enormous this far north, close to its hidden source in the northwest of
+the Cairn Mountains.
+~
+E
+1 north rock face~
+The rock face is steep, an almost vertical plane.  It climbs high above
+you into the sky.  There is no way to climb it.
+~
+E
+1 west path~
+A faint path can be seen by the beaten down grass leading to the west.
+Grasslands spread out past the path.
+~
+A
+climb~
+rise tall stone ridge~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe steep rise is far to daunting to climb.@n
+~
+!
+0 0 0
+-1
+S
+
+#54551
+Amidst the Tall Grass~
+While you can see a faint path to the west, the grassland spreads for
+miles in all directions.  In the distance to the north, a massive cliff
+marks the northern boundary of the western plains, and to the east, just
+barely in sight, the Elhanni flows southward across the eastern border.
+~
+[Phule] path w
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54550 10 10 5
+D1
+~
+~
+0 -1 54546 10 10 5
+D2
+~
+~
+0 -1 54540 10 10 5
+D3
+~
+~
+0 -1 35929 10 10 5
+E
+cliff 1 north~
+Grasslands spread northwards from here.  Along the northern edge of the
+grasslands, a mighty cliff-face rises high into the sky.
+~
+E
+path 1 west~
+Just to your west you can see a faint path that heads north and south
+through the tall grass.
+~
+E
+river 1 east~
+You can barely see the river through the grass.
+~
+1429 9 1509949540 3 0
+-1
+S
+
+#54553
+Amidst the Tall Grass~
+Bordered by an enormous boulder to the northwest and the vast Durgorin to
+the east, this section of plains is crossed by a stone-paved road to the
+north.  The grasslands continue for miles to the south and west, as well
+as beyond the road.  In the distant northeast, the ancient crags of the
+Cairn Mountains loom, a jagged edge across the horizon.
+~
+[Phule] road is n
+[Phule] boulder nw
+[Phule] river e
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 39094 10 10 5
+D2
+~
+~
+0 -1 54560 10 10 5
+D3
+~
+~
+0 -1 54507 10 10 5
+E
+boulder northwest~
+The large boulder is about thirty feet high, quite an impressive rock. 
+This side of the stone is far too steep to climb.
+~
+E
+river durgorin 1 east~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+E
+cairn mountains~
+The jagged, snow-capped peaks of the Cairn Mountains carve across the sky
+far to the northeast.
+~
+A
+climb~
+up boulder granite.~
+act_tochar( #search, ch );
+~
+E
+search~
+@GThe boulder is too smooth to climb.@n
+~
+!
+0 0 0
+1427 9 1509949540 3 0
+-1
+S
+
+#54556
+Bend in the Durgorin~
+The might of the Durgorin flows by to the south, vast and swift.  Coming
+down from the east and its source, the Elhanni, the Durgorin makes a
+grand bend, swinging a bit to the north as it passes by, its current
+carrying tons and tons of water westward.  To the north and east, a
+stone-paved road makes its way across the plains.
+~
+[Phule] road is n , e 
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 39091 10 10 5
+D1
+~
+~
+0 -1 39089 10 10 5
+E
+river durgorin 1 south 1 west~
+The Durgorin, while only about 8 miles long, is one of the mightiest
+rivers in the realm.  It approaches a mile or more in width, and its
+depths have not been reached, as if some great trench opens up below its
+swift waters.  Those foolish enough to fall into the river are without
+fail carried under by its current and carried downstream, never heard
+from again.  Perhaps they are crushed in its depths.
+~
+E
+road 1 north 1 east~
+You can see the paving stones of an ancient cobbled road.  The road
+slices through the high grass of the plains both to your north and to the
+east.
+~
+-1
+S
+
+#54559
+Tall Grass - Bend in the Durgorin~
+The Durgorin turns back to the south, heading west across the plains.  To
+the south, a muddy bank marks a previous period of high water for the
+river, as its powerful currents have churned up rich dark mud from the
+riverbed.  A massive boulder lurks over the plains a few miles to the
+north.
+~
+[Phule] river se
+[Phule] boulder far n
+[Phule] mud s
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54507 10 10 5
+D1
+~
+~
+0 -1 54560 10 10 5
+D2
+~
+~
+0 -1 54593 10 10 5
+D3
+~
+~
+0 -1 54523 10 10 5
+E
+boulder 1 north~
+The large boulder is about thirty feet high, quite an impressive rock.
+~
+E
+river durgorin 6 southeast~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+E
+muddy bank 1 south~
+The thick dark mud is churned up by the heavy undercurrent of the river,
+and deposited on the bank.
+~
+A
+search play muck~
+rich dark mud~
+act_tochar( #mud, ch );
+act_notchar( #rmmud, ch );
+~
+E
+mud~
+@GYou search about in the thick mud, but only manage to dirty your
+hands.@n 
+~
+E
+rmmud~
+@G$n mucks about in the mud, getting very dirty in the process.@n
+~
+!
+0 0 0
+963 9 1509949540 3 0
+-1
+S
+
+#54560
+Tall Grass - Bank of the Durgorin~
+You are surrounded by miles of tall grass to the north and west, while
+the Durgorin bends to the southeast, rushing in from the east and then
+heading south, then turning westward again as it makes its way across the
+plains.  A few miles to the northwest, a massive boulder juts above the
+grasslands.
+~
+[Phule] river s
+[Phule] river e
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54553 10 10 5
+D3
+~
+~
+0 -1 54559 10 10 5
+E
+boulder 1 northwest~
+The large boulder is about thirty feet high, quite an impressive rock. 
+Its looming shape towers over the low prairie, creating shadow in this
+otherwise open landscape.
+~
+E
+river durgorin 1 south 1 east~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.  At this point in its course, the river changes
+direction rapidly in several kinks, before finally settling again into
+its general east-west course.
+~
+A
+~
+~
+send_to_room( #river, room );
+~
+E
+river~
+@GThe raging river thunders westward.@n
+~
+!
+2 100 0
+-1
+S
+
+#54575
+Tall Grass - North Bank of the Durgorin~
+The vast Durgorin flows by to the south, carrying thousands of tons of
+water west across the southern border of the plains.  Across the river to
+the south you can see the rich forests of the Black Hills.  To the east,
+the river bends northward, creating a muddy bank where the river deposits
+mud from its bed.  The plains roll north and west.  An old tree can be
+seen above the grass a few miles to the northwest.
+~
+[Phule] river s
+[Phule] mud e
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54523 10 10 5
+D1
+~
+~
+0 -1 54593 10 10 5
+D3
+~
+~
+0 -1 54576 10 10 5
+E
+river 1 south durgorin~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.  It flows rapidly westwards, towards the horizon. 
+South, across the bank of the river, you see the Black Hills.
+~
+E
+tree 6 northwest~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about two miles away.
+~
+E
+muddy bank footprints~
+The edge of the river is a flat and muddy plain filled with footprints. 
+The footprints are of many different kinds of animals, most likely those
+that come to drink from the river.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GThe water is too swift to enter or cross.@n
+~
+!
+0 0 0
+-1
+S
+
+#54576
+Tall Grass - North Bank of the Durgorin~
+The majestic western plains disappear over a rise to the north, the tall
+grass covering everything for miles.  To the south, the vast Durgorin
+rushes by, coming down from the mountains to the east and its source, the
+Elhanni.  A tree rises above the grasslands to the northwest, old and
+bent.
+~
+[Phule] tree nw, river s
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54522 10 10 5
+D1
+~
+~
+0 -1 54575 10 10 5
+D3
+~
+~
+0 -1 54577 10 10 5
+E
+river 1 south durgorin~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+E
+tree 6 northwest~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+E
+rise 1 north~
+The mostly flat plain rises suddenly to the north, cutting off your view
+of the grassy plains beyond.
+~
+E
+grasslands plains~
+Grassy plains spread away in all directions, though a few features break
+up the monotony.  To the immediate northwest is a dead old tree, while
+further away is a walled fort.  South, the grass grows right up to the
+edge of a swiftly moving river.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GThe fast waters would kill you in seconds.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #water, room );
+~
+E
+water~
+@GWith a loud roar, the waters of the Durgorin rush to the west.@n
+~
+!
+2 100 0
+-1
+S
+
+#54577
+Tall Grass - North Bank of the Durgorin~
+To the north, an old tree looms against the sky, a craggy shadow against
+the grasslands.  It is about a half-mile away.  South, the might Durgorin
+flows noisy, heading east and west.  Far to the northeast, the ancient
+crags of the Cairn Mountains form a jagged line against the heavens,
+jutting up in a series of pointy, snow-covered triangles.  
+~
+[Anaki] might -> mighty
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54521 10 10 5
+D1
+~
+~
+0 -1 54576 10 10 5
+D3
+~
+~
+0 -1 54578 10 10 5
+E
+river durgorin 1 south~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+E
+tree 1 north~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+E
+distance crags cairn mountains~
+The jagged peaks and steep snow-packed valleys of the Cairn Mountains can
+be seen far in the distance to the north east.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GThe swift waters would kill you if you went that way.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #water, room );
+~
+E
+water~
+@GThe raging waters of the river rush loudly to the west.@n
+~
+!
+2 100 0
+839 137 1509949540 3 0
+-1
+S
+
+#54578
+Tall Grass - North Bank of the Durgorin~
+The river Durgorin lies to the south, deep and perhaps a half-mile wide. 
+Millions of tons of water flow swiftly westward, approaching your horizon
+of sight at the edge of the plains.  To the northeast, an old tree stands
+above the grasslands, but it is still about a half-mile away.
+~
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54520 10 10 5
+D1
+~
+~
+0 -1 54577 10 10 5
+D3
+~
+~
+0 -1 54579 10 10 5
+E
+tree 6 northeast~
+The tree is old and bent, having a few thick branches about twenty feet
+off the ground.  It is still about a half-mile away.
+~
+E
+river 1 south durgorin~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GThe swift waters would drown you quickly.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #river, room );
+~
+E
+river~
+@GThe waters rush loudly to the west.@n
+~
+!
+2 100 0
+-1
+S
+
+#54579
+Tall Grass - East of a Canyon~
+Cornered to the south by a mighty river and to the west by a massive
+chasm, the grassy plains spread to the east and north.  The display as
+the Durgorin falls into the chasm is awe-inspiring. The river, easily a
+half-mile wide, flows over the edge and down into the chasm, perhaps
+miles and miles deep.  You do not even hear the sound of the water
+crashing on the chasm floor, suggesting that it is perhaps bottomless
+indeed.
+~
+[Phule] yes i have thought of chasm area :)
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 54519 10 10 5
+D1
+~
+~
+0 -1 54578 10 10 5
+E
+1 west 1 down chasm~
+The chasm descends deep into the earth; its floor is not visible amidst
+the blackness of its depth.  Across the chasm, you see the sand dunes of
+the Naraki desert.
+~
+E
+waterfall~
+A million tons of water rush down into the chasm.  The rushing water
+creates spectacular lines of white, almost parallel, which speed down,
+seeking some unknown resting place.
+~
+E
+1 south river durgorin~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.  To the west, it comes upon the edge of the
+chasm and plummets to the unknown depths.
+~
+E
+desert naraki across~
+Beyond the chasm you see a desert stretching endlessly into the distance. 
+Tall dunes of fine sand form a pattern of valleys and crests, like an
+ocean of sand.
+~
+A
+west~
+~
+act_tochar( #search, ch );
+~
+E
+search~
+@YHurtling yourself over the cliff would prove deadly.@n
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #search, ch );
+~
+E
+search~
+@GA thick mist rises from the plume of water rushing over the cliff.@n
+~
+!
+2 100 0
+A
+1 south~
+~
+act_tochar( #search, ch );
+~
+E
+search~
+@GYou would be sucked to your death in the rushing waterfall if you went
+that way.@n 
+~
+!
+0 0 0
+963 41 1509949540 3 0
+2105 73 1509949540 3 0
+-1
+S
+
+#54583
+Inside the Lion Pit~
+Up above, you can see the edges of this lion pit.  The trap looks to have
+been recently sprung, for bits of straw and bamboo litter the ground.
+~
+[Phule] added 10% chance lioness awaits fools below
+[Phule] just call acode( find_room( 54583 ), 2 ) from where you want trap to be
+[Merior] if anyone can get in here, be sure to fix room name and description ;)
+~
+301465664 2 9 0
+A
+open push~
+u up trap~
+open( room, up );
+~
+!
+0 0 0
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( is_follower( ch ) )
+  end;
+if( find_stat( ch, level ) > 90 )
+  end;
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( random( 1, 100 ) < 90 )
+acode( find_room( 54583 ), 3 );
+  }
+else
+  end;
+~
+!
+0 0 0
+A
+~
+~
+if( class( ch ) == thief ) {
+  if( is_searching( ch ) ) {
+    if( random( 1, 100 ) > 97 )  {
+      act_tochar( #dch, ch, obj );
+      act_notchar( #droom, ch, obj );
+      end;
+      }
+    }
+  }
+if( class( ch ) == ranger ) {
+  if( is_searching( ch ) ) {
+    if( random( 1, 100 ) > 97 )  {
+      act_tochar( #dch, ch, obj );
+      act_notchar( #droom, ch, obj );
+      end;
+      }
+    }
+  }
+if( is_searching( ch ) ) {
+  if( find_skill( ch, searching ) > random( 0, 25 ) ) {
+    act_tochar( #dch, ch, obj );
+    act_notchar( #droom, ch, obj );
+    end;
+    }
+  }
+acode( find_room( 54583 ), 4 );
+~
+E
+dch~
+As you search through the grass, you spot the tell-tale signs of a hidden
+pit-trap!
+~
+E
+droom~
+$n holds up $s hand, and points out the faint outline of a deadly
+pit-trap!
+~
+!
+0 0 0
+A
+~
+~
+open( room, up );
+send_to_room( #fromabove, find_room( 54583 ) );
+if( !can_fly( ch ) ) {
+  act_tochar( #into, ch );
+  act_notchar( #rinto, ch );
+  transfer( ch, find_room( 54583 ) );
+  i = dice( 4, 25 );
+  dam_message( ch, i, #spikefall );
+  inflict( ch, ch, i, "Falling" );
+  }
+loop( followers ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #lead, rch );
+    act_tochar( #into, rch );
+    act_notchar( #rinto, rch );
+    transfer( rch, find_room( 54583 ) );
+    i = dice( 4, 25);
+    dam_message( rch, i, #spikefall );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+end;
+~
+E
+into~
+The ground opens up beneath your feet and you topple into a large pit!
+~
+E
+fromabove~
+Suddenly the trap roof above you falls in, dust and grass obscuring your
+vision!
+~
+E
+spikefall~
+falling into the large pit
+~
+E
+rinto~
+$n falls into a pit!
+~
+E
+lead~
+You have been lead into a trap!
+~
+!
+0 0 0
+1429 9 1509949450 3 0
+-1
+S
+
+#54592
+Up a Tree~
+You are on a thick limb of an old tree.  Below you, and nearly as far as
+you can see, the long grass of the plains waves in the breeze.  A few
+miles to the north, you can make out the slate walls of Brithbarad.  In
+the distant west, you see a great chasm, beyond which lies the endless
+deserts of Narak.  To the south, you can see the rushing Durgorin.
+~
+~
+301465672 2 9 0
+D5
+~
+~
+1024 -1 54521 10 10 5
+E
+river durgorin 1 south~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.
+~
+E
+1 north walls slate brithbarad~
+The walls are dark and grimy, and a cloud of soot hangs overhead.
+~
+E
+1 west chasm desert~
+The chasm and the desert beyond are still a bit too distant to make out
+clearly.
+~
+E
+tree holes~
+The tree you are in has been dead for years, but still stands tall and
+proud, despite having no leaves or bark left.  Small holes left by
+woodpeckers dot the wood.
+~
+A
+~
+holes~
+act_tochar( #holes, ch );
+~
+E
+holes~
+The holes are shallow. There is nothing to search.
+~
+!
+9 0 0
+1429 137 1509949540 3 0
+-1
+S
+
+#54593
+Muddy River Bend~
+This muddy bank stands on a steep downward slope toward the rushing
+Durgorin to the southeast.  The river slows for the bend, churning up mud
+from the riverbed and depositing it on this bank.  To the north and west,
+a vast grassland spreads away from the river.  A few reeds have managed
+to sprout in the mud.
+~
+[Phule] please leave this room nomob
+~
+301465672 2 9 0
+D0
+~
+~
+0 -1 54559 10 10 5
+D3
+~
+~
+0 -1 54575 10 10 5
+E
+river 1 southeast durgorin bend mud~
+The river is perhaps a half-mile wide, rushing rapidly from the east and
+its source, the Elhanni.  The river bends to the east and begins heading
+west.  Right at the bend, the water slows down a bit and churns up mud
+from the river bottom.
+~
+E
+reeds~
+The reeds probably are washed away with regularity, depending on how high
+the water of the Durgorin rises.  Some of the reeds are tall and green,
+while others are dried and yellow.
+~
+A
+dig get take~
+muddy reeds~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou poke around in the mud and reeds, but only manage to get dirty.@n
+~
+E
+rmsearch~
+@G$n pokes around in the mud and reeds, getting quite
+dirty in the process.@n
+~
+!
+9 0 0
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GEntering the water would kill you.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #water, room );
+~
+E
+water~
+@GThe loud waters of the river thunder by towards the west.@n
+~
+!
+2 100 0
+A
+1 east~
+~
+act_tochar( #river, ch );
+~
+E
+river~
+@GThe river flows too swiftly to enter.@n
+~
+!
+0 0 0
+2100 137 1509949540 3 0
+-1
+S
+
+#0
+

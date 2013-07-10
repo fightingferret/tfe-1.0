@@ -1,0 +1,3572 @@
+#AREA
+Voaleth~
+Merior~
+~
+
+0 0
+0
+#ROOMS
+
+#20000
+Gates of Voaleth~
+To your south are a pair of massive wooden gates that enclose the
+underground fortress of Voaleth.  The gates fill the entire cavern and
+blocking all view in that direction.  To the north, the rocky passage
+seems to narrow, and curves out of sight.  The ground underfoot is made
+of a slightly softer rock than the walls and ceiling, and you can see
+grooves made by the passage of many feet.
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 20086 10 10 5
+D1
+~
+~
+0 -1 20060 10 10 5
+D2
+gate~
+gate~
+195 -1 20001 10 10 5
+D3
+~
+~
+0 -1 20061 10 10 5
+E
+scar scars~
+Deep wounds penetrate the solid exterior of the enormous vulgrath trees
+used to create this gate.  One disconformity on the surface of a
+particularly large post catches your attention.
+~
+E
+rune runes~
+Enscribed in an unfamiliar vernacular, these foreboding glyphs hint of
+power, a great evil, and a forthcoming darkness.
+~
+E
+crest~
+Closer examination reveals a rune encrusted crest intricately inlaid with
+alloys unfamiliar to you.  Battle scars and heavy knots adorn the crest's
+surface, bespeaking generations of defense of the residents within the
+impenetrable walls before you.  
+~
+E
+gate~
+A large wooden gate has been erected to completely block the city of
+Voaleth from view.  Huge timbers from the vulgrath tree have been hewn
+and strapped together to make an almost impenetrable barrier.  The gate
+itself has numerous scars, as well which partially obscure a number of
+runes as well as a large crest.
+~
+A
+knock~
+gate door~
+act_tochar( #knock, ch );
+act_notchar( #rknock, ch );
+~
+E
+rknock~
+$n knocks on the large gate, but no one seems to hear $m.
+~
+E
+knock~
+You knock on the gate, but no one seems to hear you.  You might want to
+try pounding.
+~
+!
+0 0 0
+A
+disabled#~
+disabled#~
+act_tochar( #pound, ch );
+act_notchar( #rpound, ch );
+if( !mob_in_room( 1087, room ) ) {
+  mob = mload( 1087, room );
+  send_to_room( #guard, room );
+junk_mob( mob );
+  }
+open( room, south );
+~
+E
+rpound~
+$n pounds on the gate as hard as $e can, and soon the gate creaks slowly
+open.
+~
+E
+pound~
+You pound on the gate as hard as you can, and soon your efforts are met
+with the large gates grinding slowly open.
+~
+E
+guard~
+A large @Bguard@n steps out to make sure that you belong, he looks at you
+for a moment, then returns to his guardhouse.
+~
+!
+0 0 0
+A
+pound bang~
+gate door~
+if( is_player( ch ) ) {
+  if( !is_open( room, south ) ) {
+    if( reputation( ch, Karse ) > 0 ) {
+      act_tochar( #to_char, ch );
+      act_notchar( #to_room, ch );
+      open( room, south );
+      act_room( #to_all, ch );
+      }
+    else {
+      act_tochar( #clan_char, ch );
+      act_notchar( #clan_room, ch );
+      act_room( #clan_all, ch );
+      }
+    }
+  }
+~
+E
+clan_all~
+"Stupid surface dweller can stand here all day for all me care!"
+~
+E
+clan_room~
+As $n pounds on the Voaleth gate, an Ogre guard walks out and yells,
+~
+E
+clan_char~
+As you pound on the gate an Ogre guard walks out and yells,
+~
+E
+to_room~
+$n pounds on the gate.
+~
+E
+to_all~
+The gate slowly grinds open.
+~
+E
+to_char~
+You pound loudly on the gates.
+~
+E
+nothing~
+It's hard to do that when the portcullis is already open.
+~
+!
+0 0 0
+-1
+S
+
+#20001
+Inside the North Gate of Voaleth~
+A large wooden gate made of huge timbers from the vulgrath tree stands
+directly to the north, providing a barrier to would-be invaders of
+Voaleth.  To the east and west runs Vregoth Way, providing a route to the
+many shops in this underground town.  The ceiling of this open area is
+low, and peppered with gashes.  A small @elever@n has been built into the
+eastern wall.  A large @efountain@n fills much of the open area.
+~
+~
+301465669 1 6 0
+D0
+gate~
+gate~
+195 -1 20000 10 10 5
+D1
+~
+~
+0 -1 20013 10 10 5
+D3
+~
+~
+0 -1 20002 10 10 5
+E
+gate~
+A large wooden gate has been erected to completely block the city of
+Voaleth from view.  Huge timbers from the vulgrath tree have been hewn
+and strapped together to make an almost impenetrable barrier.  A small
+lever has been built on the right-hand side of the wall by the gate.
+~
+E
+ceiling~
+The top of the natural cave has been raised by use of axes and other
+sharp implements.  The work was crude, for the gashes made by the
+construction still remain in clear view.
+~
+E
+lever~
+This large lever looks as if it might move if you push or pull it.
+~
+A
+pull~
+lever~
+if( is_player( ch ) ) {
+  if( is_open( room, north  ) )
+    send_to_char( #nothing, ch );
+  else {
+    send_to_char( #to_char, ch );
+    act_notchar( #to_room, ch );
+    act_room( #to_all, ch );
+    open( room, north );
+    send_to_room( #to_all, find_room( 20000 ) );
+    }
+  wait( 2 );
+  close( room, north );
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 20000 ) );
+  }
+~
+E
+nothing~
+You pull the lever, but nothing happens.
+~
+E
+to_char~
+You pull on the lever, and hear strange sounds coming from within the
+wall.
+~
+E
+to_room~
+$n pulls the lever.  Strange sounds begin to come from within the wall.
+~
+E
+to_all~
+The gate slowly opens.
+~
+E
+close~
+The massive gates grind shut.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( is_player( ch ) ) {
+  if( !is_open( room, north ) )
+    send_to_char( #nothing, ch );
+  else {
+    send_to_char( #to_char, ch );
+    act_notchar( #to_room, ch, obj );
+    act_room( #to_all, ch, obj );
+    close( room, north );
+    }
+  }
+~
+E
+nothing~
+You push the lever, but nothing seems to happen.
+~
+E
+to_char~
+You push the lever, and grinding noises start to emanate from within the
+wall.
+~
+E
+to_room~
+$n pushes the lever, and you begin to hear strange noises coming from
+within the wall.
+~
+E
+to_all~
+The massive gates slowly close.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( !is_open( room, north ) )
+  end;
+close( room, north );
+send_to_room( #grind, room );
+send_to_room( #grind, find_room( 20000 ) );
+~
+E
+grind~
+The massive gates grind shut.
+~
+!
+1 0 1
+1088 9 1509949540 3 0
+1 17 1509949540 -2 0
+-1
+S
+
+#20002
+Vregoth Way~
+A road, just wide enough to accomodate two ogres passing each other with
+a bit of room to spare, runs east and west.  To the south is the open
+door of a small temple; the dark rock of the cavern impedes any progress
+to the north.  Towards the east is a fairly large, open area, and to the
+west this road meets another.
+~
+action keeps pets out of temple
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20001 10 10 5
+D2
+~
+~
+0 -1 20074 10 10 5
+D3
+~
+~
+0 -1 20003 10 10 5
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+else
+  continue;
+~
+!
+3 0 4
+-1
+S
+
+#20003
+Intersection of Vregoth Way and Ulfgar Road~
+The westbound passage of Vregoth Way ends here, and silently merges with
+the southbound Ulfgar Road.  The stone of the giant cavern that holds the
+town has been hacked just a bit in order to create a sharp 90 degree
+corner, exposing slight variations in the dark stone.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20002 10 10 5
+D2
+~
+~
+0 -1 20004 10 10 5
+E
+stone cavern slate~
+The dark slate of the cavern is marred by large slashes and gashes.  You
+can see the striations in the rock, revealing subtly different shades of
+dark gray.
+~
+1083 9 1509949540 3 0
+-1
+S
+
+#20004
+Ulfgar Road~
+Ulfgar Road cuts a narrow swath between the stone wall of the cavern to
+the west and the mottled wood on the side of a large building that looms
+large on your east.  To the north, the road appears to curve off to the
+east; while to the south a tattered sign hangs from above a door.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20003 10 10 5
+D2
+~
+~
+0 -1 20005 10 10 5
+E
+signs~
+The signs are too small to be able to read from this distance.
+~
+E
+wood building~
+A large wooden building, covered with a thick layer of dirt and grime,
+stands to the east.  Chunks of wood have been hewn out of the sides of
+the structure, revealing only slighty cleaner wood inside.
+~
+-1
+S
+
+#20005
+Ulfgar Road~
+The narrow confines of Ulfgar Road continue to the north and south.  To
+the east and west here are almost-matching, battered doors.  Above the
+eastern door hangs a small sign.  Nothing marks the purpose of the
+western door.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20004 10 10 5
+D1
+battered door~
+~
+1 -1 20007 10 10 5
+D2
+~
+~
+0 -1 20008 10 10 5
+D3
+battered door~
+~
+1 -1 20006 10 10 5
+E
+east sign door~
+A small sign hangs above the door to your east.  On it are the letters
+'@MARMER@n' followed by '@Mclozes@n', in slightly smaller letters.
+~
+E
+west~
+The plain wooden door on the building to your west shows signs of mis-use. 
+It does not, however, indicate what lies on the other side of the door.
+~
+-1
+S
+
+#20006
+Empty Shop~
+This small building was once some sort of shop.  Shelves have been built
+into the walls, but are covered only by a thick layer of dust.  On the
+northern wall are several hooks, now hanging quite empty.  The wooden
+boards that make up the floor are a bit warped, causing the entire room
+to slope up from east to west.  You notice that a trough of water and a
+hitching post have been recently added, and footprints in the dust
+indicate signs of recent activity.
+~
+[Merior] down to basement?
+[Malayne] This really isn't a typo, I just can't seem to open the trap door here, no matter what I try. Wondering if it's bugged and wanted to call attention to it without giving away any secrets.
+~
+301465671 1 6 0
+D1
+battered door~
+battered door~
+1 -1 20005 10 10 5
+D5
+trap door~
+~
+171 -1 71600 10 10 5
+E
+shelf shelves~
+Crudely made shelves line three walls of the small shop.  The planks of
+wood appear to be those of the merknuth tree, and have received only a
+token amount of sanding.  Large splinters of wood stick up, as if trying
+to escape from the heavy dust cover.
+~
+E
+wooden board floor~
+The floorboards are quite crooked.  After close inspection, it appears
+that one of them is a slightly loose trap door.
+~
+A
+dust~
+shelves~
+interpret( ch, "cough" );
+~
+!
+0 0 0
+-1
+S
+
+#20007
+Gerflak's Armory~
+This large building takes up quite a bit of space within Voaleth, for it
+contains items of extreme importance to its citizens and visitors alike. 
+Hanging all along the walls are many pieces of armor, as well as a large
+sign.
+~
+~
+301469767 1 6 0
+D3
+~
+~
+1 -1 20005 10 10 5
+E
+sign~
+A small sign is covered with sloppily-written words.  You can just
+make out the words @GDO@n and @GTOUCH@n.
+~
+A
+touch~
+sign armor gerflak~
+act_room( #bad, ch );
+~
+E
+bad~
+@RGerflak@n looks up at you with a start, growls, and bares his teeth.
+~
+!
+0 0 0
+1063 9 1509949540 3 0
+2002 17 1509949540 -1 0
+2001 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2041 17 1509949540 -1 0
+2080 17 1509949540 -1 0
+2101 17 1509949540 -1 0
+2122 17 1509949540 -1 0
+2180 17 1509949540 -1 0
+985 17 1509949540 -1 0
+2022 17 1509949540 -1 0
+2042 17 1509949540 -1 0
+2081 17 1509949540 -1 0
+2102 17 1509949540 -1 0
+2124 17 1509949540 -1 0
+2181 17 1509949540 -1 0
+186 17 1509949490 -1 0
+1077 17 1509949490 -1 0
+2182 17 1509949490 -1 0
+2003 17 1509949490 -1 0
+644 17 1509949540 -1 0
+645 17 1509949540 -1 0
+646 17 1509949540 -1 0
+2060 17 1509949540 -1 0
+2061 17 1509949540 -1 0
+-1
+S
+
+#20008
+Ulfgar Road~
+Ulfgar Road continues its north-south course through the western part of
+Voaleth.  The road here is narrow, and is bordered by the sides of nearby
+buildings.  The road itself is not actually paved, but the rocks of the
+cavern have been worn into a smooth surface.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20005 10 10 5
+D2
+~
+~
+0 -1 20009 10 10 5
+D3
+~
+~
+0 -1 20072 10 10 5
+1087 9 1509949540 3 0
+-1
+S
+
+#20009
+Ulfgar Road~
+The smooth surface of the road is marred here by tiny pockmarks, about
+the size of holes that are made by spear-heads.  To the east is the
+entrance to a large shop, and a sign hangs down just above the door frame. 
+To the west lies a small, dark alley; the road appears to end just a bit
+further south.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20008 10 10 5
+D1
+~
+~
+0 -1 20010 10 10 5
+D2
+~
+~
+0 -1 20011 10 10 5
+D3
+~
+~
+0 -1 20082 10 10 5
+E
+sign~
+@CWONDERFL WEAPONZ@n
+~
+-1
+S
+
+#20010
+Wellburn's Weapons~
+This is an extremely large shop, and is almost completely filled with
+weapons.  There seems to be almost no order to the jumble, and you can
+see maces mixed with swords and staffs, almost haphazardly.  The walls
+display some of the largest weapons ever made.
+~
+weapon-seller and trainer here
+[Neevil] Description of forked whip should be 'plaited'
+~
+301469767 1 6 0
+D3
+~
+~
+0 -1 20009 10 10 5
+E
+mace sword staff floor pile~
+The floors and counter are covered with piles of weapons.  The quality
+varies tremendously; a buyer here must be specific.
+~
+867 9 1509949540 3 0
+3034 17 1509949540 -1 0
+3035 17 1509949540 -1 0
+3032 17 1509949540 -1 0
+3028 17 1509949540 -1 0
+3000 17 1509949540 -1 0
+33 17 1509949540 -1 0
+3005 17 1509949540 -1 0
+-1
+S
+
+#20011
+Ulfgar Road~
+Ulfgar Road ends here, and the stone walls of the cavern block passage
+to the south.  You can head back into town by following the road north,
+or enter a large barn-like structure to the west.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20009 10 10 5
+D3
+~
+~
+0 -1 20012 10 10 5
+E
+west barn w~
+A large wooden building, with a high loft stands just to the west.  Bits
+of hay stick out of the loft windows, and hay also spills out of the
+ground-floor entrance and into the street.  A strong, horsey smell wafts
+out of the building and towards you.
+~
+-1
+S
+
+#20012
+Voaleth Blacksmith~
+The eastern portion of a large barn has been turned into a small shop.  A
+wooden counter has been built near the northern wall, but the sides of
+the stall that formerly occupied that space are still standing.  The
+space to the south has several small stools as well as a short table, and
+provides a cozy spot to sit down and have a chat.
+~
+~
+301471815 1 6 0
+D1
+~
+~
+0 -1 20011 10 10 5
+D3
+~
+~
+0 -1 20084 10 10 5
+E
+counter~
+The pine counter facing the rest of the barn is bare, however its surface
+is marred and shows signs of heavy use.
+~
+E
+south stool table~
+Three small stools have been placed around a short oak table.  A pipe and
+two empty glasses rest on the table.
+~
+E
+pipe~
+The pipe is still warm; it must have been used quite recently.
+~
+E
+glasses~
+The glasses are partially filled with a light-brown liquid.
+~
+A
+get take~
+pipe~
+send_to_char( #noget, ch );
+~
+E
+noget~
+The pipe seems to be stuck to the table; you can't pick it up.
+~
+!
+0 0 0
+A
+get take~
+glasses~
+send_to_char( #noget, ch );
+~
+E
+noget~
+The glasses are stuck to the table; you can't seem to budge them.
+~
+!
+0 0 0
+1488 17 1509949540 -2 0
+1488 17 1509949540 -2 0
+1488 17 1509949540 -2 0
+912 17 1509949540 -2 0
+1116 137 1509949540 3 0
+552 17 1509949465 -1 0
+582 17 1509949465 -1 0
+568 17 1509949445 -1 0
+546 17 1509949445 -1 0
+571 17 1509949445 -1 0
+-1
+S
+
+#20013
+Intersection of Vregoth Way and Jesbek Avenue~
+The wide expanse of the east-west Vregoth Way meets the smaller southern
+route of Jesbek Avenue here.  To the north is the dark slate of the
+cavern which encloses the entire town; to your southeast and southwest
+are the rock walls of small buildings.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20016 10 10 5
+D2
+~
+~
+0 -1 20014 10 10 5
+D3
+~
+~
+0 -1 20001 10 10 5
+1083 9 1509949540 3 0
+-1
+S
+
+#20014
+Jesbek Avenue~
+Jesbek Avenue continues its north-south route, barely wide enough to
+allow two ogres to pass side-by-side.  To the west stands a large,
+imposing building, with a crudely painted sign on its door.  The street
+appears to end just to your south, as a large stone wall prevents much
+progress in that direction.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20013 10 10 5
+D2
+~
+~
+0 -1 20026 10 10 5
+D3
+~
+~
+0 -1 20015 10 10 5
+E
+sign door west w~
+@GMILISHA@n
+~
+-1
+S
+
+#20015
+Militia Headquarters~
+This large room serves as the barracks for the Voaleth Militia force. 
+Most of the space on the floor is taken up by cots, and the walls are
+covered with weapons and clothing-filled hooks.  From the amount of
+clutter in the room, it appears that it was built for a smaller force.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20014 10 10 5
+E
+wall weapon clothing hook~
+Every inch of wallspace is occupied with belongings of the militia
+members.  From some hooks, swords and maces hang in the ready, while
+others support more mundane parts of uniforms.
+~
+E
+punching bag~
+A large canvas bag filled with sand has been hung from the ceiling.  It
+hangs approximately chest-height for an ogre, and has numerous
+indentations marking heavy use.
+~
+A
+hit kick punch~
+bag~
+send_to_char( #dont, ch );
+act_notchar( #move, ch );
+wait( 1 );
+act_room( #nope, ch );
+~
+E
+dont~
+As you try to punch the bag, the captain steps closer to you.
+~
+E
+move~
+$n moves as if to hit the punching bag.
+~
+E
+nope~
+The Captain shouts, @R"Don't you touch that, it's mine, all mine!"@n
+~
+!
+0 0 0
+1134 137 1509949540 3 0
+1083 137 1509949540 3 0
+-1
+S
+
+#20016
+Vregoth Way~
+Vregoth Way continues to connect the eastern and western sides of Voaleth. 
+From the south come the barks of dogs, the meows of cats, as well as the
+less-common sounds of more fierce creatures.  The way north is blocked by
+the cold stone of the cavern which contains the entire city; you can
+travel in any other direction.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20017 10 10 5
+D2
+~
+~
+0 -1 20069 10 10 5
+D3
+~
+~
+0 -1 20013 10 10 5
+A
+none~
+~
+send_to_room( #hush, room );
+~
+E
+hush~
+Suddenly you hear a shout coming from the building to the south.
+ 
+@bShaddup!@n
+~
+!
+2 300 0
+1087 9 1509949540 3 0
+-1
+S
+
+#20017
+Intersection of Vregoth Way and Grelk Street~
+The thoroughfares of Vregoth Way and Grelk Street meet here, their paths
+to the north and east blocked by the walls of the slate cavern.  The
+stone that forms the road here has been worn down by thousands of heavy
+boots, and a deep groove runs almost exactly in the center.
+~
+~
+301465669 1 6 0
+D2
+~
+~
+0 -1 20059 10 10 5
+D3
+~
+~
+0 -1 20016 10 10 5
+E
+stone slate cavern road~
+The dark gray of the slate walls of the cavern is indistinguisable from
+the same slate of the road.  The walls, however, are relatively smooth,
+while the floor of the cavern shows signs of heavy traffic.
+~
+E
+groove~
+The heavy traffic in this part of town over the years has left its mark
+by wearing a deep groove into the floor of the cavern.
+~
+1156 9 1509949540 3 0
+-1
+S
+
+#20018
+Grelk Street~
+To your west is the back of the bank building, a large structure that
+overlooks the narrow span of Grelk Street, its windowless structure
+casting a dark shadow on the ground.  A small entrance deep into the
+cavern lies to your east, but it is quite dark in there and it is
+impossible to see what lies in that direction.  Grelk Street continues to
+the north and south.
+~
+to east is newbie area
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20059 10 10 5
+D1
+~
+~
+0 -1 20040 10 10 5
+D2
+~
+~
+0 -1 20019 10 10 5
+-1
+S
+
+#20019
+Intersection of Grelk Street and Frnuth Lane~
+The eastern boundary of Voaleth looms dark and high by your side.  Frnuth
+Lane ends its east-west course here as it dead-ends into Grelk Street,
+the major north-south thoroughfare.  Just a bit further to the west, a
+large sign hangs down from in front of a busy shop; to the north and
+south, Grelk Street narrows.  The shadows from the buildings make it
+difficult to see objects in the distance.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20018 10 10 5
+D2
+~
+~
+0 -1 20020 10 10 5
+D3
+~
+~
+0 -1 20021 10 10 5
+E
+sign~
+The sign has no writing on it, rather the large and rather sloppily made
+painting of a large mug of a frothy liquid.
+~
+-1
+S
+
+#20020
+Grelk Street~
+A narrow, dark street allows passage to the north and south.  Just to the
+north a bit you can see a reasonably well-lit intersection; to the south,
+the road continues into relative darkness.  You can see several trolls
+dressed for hiking walking into a small building to your south.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20019 10 10 5
+D2
+~
+~
+0 -1 20035 10 10 5
+1156 9 1509949540 3 0
+-1
+S
+
+#20021
+Frnuth Lane~
+To the south stands an open door of a bustling establishment.  A wooden
+sign overhead informs strangers of what lies inside.  The smooth stone of
+the street allows easy passage to the east and west.  To the north is the
+side of the Bank of Voaleth, but there is no entrance to the street.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20019 10 10 5
+D2
+~
+~
+0 -1 20071 10 10 5
+D3
+~
+~
+0 -1 20022 10 10 5
+E
+wooden sign~
+This sign has no writing on it, but rather just the picture of a large
+mug filled with a foaming liquid.
+~
+1156 9 1509949540 3 0
+-1
+S
+
+#20022
+Intersection of Frnuth Lane and Margasy Boulevard~
+This is one of the busiest intersections in all of Voaleth.  Day or
+night, citizens and travellers rush by, not taking the time to greet one
+another.  Hanging shop signs can be seen to the east and the south, on
+Frnuth Lane and Margasy Boulevard, respectively.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20021 10 10 5
+D2
+~
+~
+0 -1 20023 10 10 5
+D3
+~
+~
+0 -1 20024 10 10 5
+1083 9 1509949540 3 0
+-1
+S
+
+#20023
+Margasy Boulevard~
+Margasy Boulevard, the shortest street in all of Voaleth, really serves
+to connect Frnuth Lane and one of the busiest spots in town.  Just to
+your west is a small, bustling magic shoppe, while to the south you can
+hear the sounds of a large, noisy crowd.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20022 10 10 5
+D2
+~
+~
+0 -1 20028 10 10 5
+D3
+~
+~
+0 -1 20066 10 10 5
+1156 9 1509949540 3 0
+-1
+S
+
+#20024
+End of Frnuth Lane~
+Frnuth Lane heads east from this spot towards several popular spots.  To
+the west is a building made from carefully layed large, black stones.  To
+the north lies a dark alley that leads to Jesbek Avenue.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20025 10 10 5
+D1
+~
+~
+0 -1 20022 10 10 5
+D3
+library door~
+~
+0 -1 20073 10 10 5
+E
+pile stones~
+Hundreds of square-cut black stones have been carefully layed to form the
+walls of a building.  The construct looks well built, as if it could well
+survive a small onslought of weather or a small siege.
+~
+A
+touch move take~
+stones~
+send_to_char( #ouch, ch );
+i = 2d5;
+dam_message( ch, i, "the stone" );
+inflict( ch, ch, i, "the falling stone" );
+~
+E
+ouch~
+You manage to dislodge one of the rocks.
+~
+!
+0 0 0
+1088 9 1509949540 3 0
+-1
+S
+
+#20025
+The End of Jesbek Avenue~
+The narrow path of east-west Jesbek Avenue appears to go only a little
+way to the east, then end in a large, stone building.  Jesbek Avenue
+stops abrubtly to the west, its route blocked by the side of a wooden
+building.  A dark, narrow alley goes south from here, leading to a
+brightly lit street.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20026 10 10 5
+D2
+~
+~
+0 -1 20024 10 10 5
+-1
+S
+
+#20026
+A Bend in Jesbek Avenue~
+Jesbek Avenue takes a sharp turn here, allowing passage to the north and
+west.  Your way south is blocked by the side of a wooden building, to the
+east stands the imposing fortress of the Bank of Voaleth.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20014 10 10 5
+D1
+~
+~
+0 -1 20027 10 10 5
+D3
+~
+~
+0 -1 20025 10 10 5
+-1
+S
+
+#20027
+Bank of Voaleth~
+This stone building was built as a miniature fortress designed to
+withstand an invasion of a small army.  Stone walls six feet thick
+provide the outer defense, a smaller wall stands just a few feet inside
+the entrance, dividing customers from the staff.  Small windows have been
+cut into the inner wall, and are almost completely filled with vertical
+iron bars.
+~
+~
+301467749 1 6 0
+D3
+~
+~
+0 -1 20026 10 10 5
+A
+~
+~
+act_room( #business, ch );
+~
+E
+business~
+The guard says in a loud voice, @b"Move on, no loitering."@n
+~
+!
+2 300 0
+1135 9 1509949540 3 0
+-1
+S
+
+#20028
+Voaleth Bar and Grill~
+This building is stuffed full of folks of many different races.  The
+lighting is quite dim here, and the air hazy with smoke, but you can just
+barely make out the shape of a bar, with dozens of dirty glasses and mugs
+resting on its filthy surface.  Exits to the north and west provide quick
+and easy access as well as exit.
+~
+[Glaa] exits say it leads west, even when door is closed...
+~
+301465671 1 6 0
+D0
+~
+~
+0 -1 20023 10 10 5
+D3
+bar door~
+~
+131 -1 20029 10 10 5
+1145 9 1509949540 3 0
+354 17 1509949540 -1 0
+761 17 1509949540 -1 5
+761 17 1509949540 -1 7
+-1
+S
+
+#20029
+Alley Behind Bar~
+You find yourself in a dark, narrow alley that stretches south or enters
+a noisy establishment to the east.  You can barely make out street lights
+far to the south; a wall rises not too far off to the east.  The sides of
+buildings block movement to the north and west.  Some spot of interest
+must lie along the eastern path, for many people seem to be travelling in
+that direction.
+~
+~
+301465669 1 6 0
+D1
+bar door~
+~
+131 -1 20028 10 10 5
+D2
+~
+~
+0 -1 20030 10 10 5
+-1
+S
+
+#20030
+Narrow Alley~
+A narrow alley runs north and south here, leading north to a very
+popular-looking place, and south towards Grelk Street.  To your east is
+the side of a building, and to the west is a small shop.  The smell of
+sizzling meat slowly wafts out of the open door, as if trying to draw in
+passers-by.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20029 10 10 5
+D2
+~
+~
+0 -1 20031 10 10 5
+D3
+~
+~
+0 -1 20067 10 10 5
+A
+look l~
+shop window~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The windows are too dirty to see what is inside the shop.
+~
+!
+0 0 0
+1156 9 1509949540 3 0
+-1
+S
+
+#20031
+Grelk Street~
+Grelk Street runs east-and west here, bisected by a narrow, dark alley
+that runs to the north and a wide street that heads south.  The road
+underfoot seems to lower to the north; indicating that perhaps the narrow
+alley is a heavily-trafficked route.  To your south lies the south gate
+of Voaleth; a small and heavily-guarded checkpoint.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20030 10 10 5
+D1
+~
+~
+0 -1 20064 10 10 5
+D2
+~
+~
+0 -1 20078 10 10 5
+D3
+~
+~
+0 -1 20032 10 10 5
+1088 9 1509949540 3 0
+-1
+S
+
+#20032
+West End of Grelk Street~
+Grelk Street ends its east-west path here, ending at a tent to the west
+and an alley to the south.  This part of town is very quiet, and you can
+hear your footsteps echo as you move.  The road to the east seems much
+brighter than the other directions, and you can see various folks off in
+the distance.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20031 10 10 5
+D2
+~
+~
+0 -1 20033 10 10 5
+D3
+~
+~
+0 -1 20034 10 10 5
+-1
+S
+
+#20033
+Unlit Alley~
+A small, dark alley in front of you appears to dead-end in all
+directions, and you can only return back to Grelk Street to your north. 
+The walls of the cavern press down on you, making you feel even larger,
+and the alleyway even smaller.
+~
+~
+301465668 1 6 0
+D0
+~
+~
+0 -1 20032 10 10 5
+-1
+S
+
+#20034
+Smoky Tent~
+You find yourself in a small tent made of patched leathers.  The hard
+surface of the cavern floor is covered with several large, fluffy
+pillows, and the spot has been made to look quite homey.  In one corner
+of the tent is a pile of well-worn scrolls and several manuscripts.
+~
+have him interact some; maybe quest hints
+  
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20032 10 10 5
+E
+floor pillow~
+Half a dozen large, soft pillows are strewn about on the floor of the
+tent.  They are made of many bright colors, and make this small,
+otherwise drab tent, into a cheerful place to rest.
+~
+E
+scrolls manuscripts~
+A pile of about fifteen scrolls, and an equal number of well-worn
+manuscripts take up the northwestern corner of the tent.  It is
+impossible to actually read them from here, but you can tell that their
+titles include works written in vyan, troll, and orcish.
+~
+A
+get take read~
+book scroll manuscript parchment~
+act_tochar( #nobook, ch );
+~
+E
+nobook~
+You reach for the books to inspect them, but feel a tingling sensation
+down your arm, and reconsider the idea.
+~
+!
+0 0 0
+1111 137 1509949540 3 0
+-1
+S
+
+#20035
+Grelk Street~
+To your west stands a shop which supplies goods for travellers and locals
+alike.  Grelk Street is a bit wider here, and axe marks mar the eastern
+wall of the cavern.  The sides of the door to the shop also have gash
+marks, made by the same type of axe.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20020 10 10 5
+D2
+~
+~
+0 -1 20036 10 10 5
+D3
+~
+~
+0 -1 20062 10 10 5
+E
+door~
+A large wooden door stands off its hinges, no longer able to be pulled to
+shut the door.  It has many gash marks along its surface, and would serve
+as poor protection from uninvited shoppers.
+~
+-1
+S
+
+#20036
+Grelk Street~
+Grelk Street, the longest street in all of Voaleth, continues its
+north-south route through town.  To the west is a small jewelry shop, and
+to the east is the wall of the cavern that houses the entire town.  The
+road underfoot is of hard stone, the same as that which forms the cavern.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20035 10 10 5
+D2
+~
+~
+0 -1 20037 10 10 5
+D3
+~
+~
+0 -1 20065 10 10 5
+E
+wall road stone~
+The town is surrounded by the cold, dark gray slate prevalent in this
+part of the world.  The striations can be seen along the wall of the
+cavern; the road surface is smooth and a solid tone of gray.
+~
+-1
+S
+
+#20037
+Grelk Street~
+Grelk Street takes a sharp turn here to stay within the confines of the
+cavern.  Its path to the north leads to most of the shops of Voaleth; to
+the west it serves as a major east-west route through the bustling town.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20036 10 10 5
+D3
+~
+~
+0 -1 20063 10 10 5
+1156 9 1509949540 3 0
+-1
+S
+
+#20038
+Slave Pits~
+To the west is a large iron grille, its thin slits designed to allow
+those inside to peer out towards freedom.  In here, all is dark and damp. 
+The floor is covered with splashes of dried blood, and the air is filled
+with the scent of death.  Iron rungs are placed about the walls, some
+with heavy chains attached.
+~
+~
+301465612 1 6 0
+D0
+~
+~
+0 -1 20045 10 10 5
+D1
+~
+~
+0 -1 20049 10 10 5
+D3
+large iron grille~
+large iron grille~
+391 1457 20039 10 10 5
+-1
+S
+
+#20039
+Slave Pits~
+A large iron grille separates this small chamber from a larger one to the
+east.  The slate floor is littered with odd bits of clothing, as well as
+a large number of long links of heavy chain.  The west wall of this area
+is covered with a collection of whips, as well as several small, but
+deadly-looking daggers.
+~
+[Inar] since dumb ogre has key EVERY time, make key break when unlock east
+~
+301465605 1 6 0
+D1
+large iron grille~
+large iron grille~
+391 1457 20038 10 10 5
+D2
+~
+~
+0 -1 20040 10 10 5
+E
+iron grille door~
+The entire chamber to the east is blocked by a large iron grille.  A
+rusty lock has been affixed to the grille as well as a iron hook embedded
+into the wall.
+~
+E
+floor chain clothing~
+The dark gray of the slate floor is obscured by the pile of stuff
+scattered about its surface.  Torn and shredded small-sized clothing is
+tossed about, as well as several dozen lengths of heavy chain.  Many of
+the chains have heavy iron balls attached to one end.
+~
+A
+get take~
+chain~
+if( mob_in_room( 1164, room ) )
+send_to_char( #growl, ch );
+else 
+continue;
+~
+E
+growl~
+The ogre boss growls, "Go away, or it's the whip for you!"
+~
+!
+0 0 0
+A
+open unlock~
+large iron grille east~
+if( mob_in_room( 1164, room ) )
+send_to_char( #growl, ch );
+else
+continue;
+~
+E
+growl~
+The ogre boss growls, "Go away, or it's the whip for you!"
+~
+!
+0 0 0
+1164 137 1509949540 3 0
+-1
+S
+
+#20040
+Dark Corridor~
+You stand in a very dark, narrow corridor.  To the west is the
+comparatively bright, bustling city of Voaleth.  To the north, the
+corridor widens, and you can hear strange moaning sounds emanating from
+somewhere in that direction.  The path south is silent, and you can get
+no indication of what lies in that direction.
+~
+no-mob to keep parts separate
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 20039 10 10 5
+D2
+~
+~
+0 -1 20041 10 10 5
+D3
+~
+~
+0 -1 20018 10 10 5
+-1
+S
+
+#20041
+Slippery Cavern~
+The walls and floor of this portion of the underground world are covered
+with a thin layer of @Gslippery green moss@n.  The ground is quite
+slippery underfoot; fortunately there are many protrusions handy that you
+can grab to catch your balance.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20040 10 10 5
+D1
+~
+~
+0 -1 20042 10 10 5
+D2
+~
+~
+0 -1 20043 10 10 5
+E
+slippery green moss~
+The dark green moss is slick with moisture.  It is has an oily feel to
+the touch and emits a faintly noxious odor.
+~
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+act_tochar( #slip, ch );
+act_notchar( #slipped, ch );
+~
+E
+slip~
+You almost slip on the @Gmoss@n, but are able to grab hold of a lump of
+rock on the wall.
+~
+E
+slipped~
+You see $n slip on the @Gmoss@n, then grab a chunk of rock sticking out
+of the wall and stand upright.
+~
+!
+1 0 7
+1155 9 1509949540 3 0
+-1
+S
+
+#20042
+Cracked Cavern Wall~
+The cave takes a sharp turn here, forcing you to move either west or
+south if you wish to leave this spot.  Although most of this area is
+covered with @Ggreen moss@n, a small patch on the eastern wall has been
+removed, revealing a large fissure that leads eastward into the stone.
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 37500 10 10 5
+D2
+~
+~
+0 -1 20058 10 10 5
+D3
+~
+~
+0 -1 20041 10 10 5
+E
+scratch slate wall~
+Four scratches, about the distance apart of a goblin's fingers, mar the
+surface of the slate wall.  All around this area, moss grows in abundance.
+~
+-1
+S
+
+#20043
+Moss-Covered Tunnel~
+A long, narrow cave heads north and south through the dim @Ggreen@n light. 
+The @Gmoss@n covers the walls and sides of the cave, and is creeping up
+to cover the ceiling as well.  A strange, sour smell emanates from
+somewhere to your south.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20041 10 10 5
+D2
+~
+~
+0 -1 20050 10 10 5
+-1
+S
+
+#20044
+Upper Level of the Temple~
+This small cubicle has been hewn out of the dark rock of the cavern, and
+is barely high enough for you to stand in.  There is very little light
+here, and the air is still and warm.  You can hear sounds of chanting
+from below you, as well as sounds of city life.
+~
+put altar here?
+~
+301465671 1 6 0
+D5
+~
+~
+0 -1 20074 10 10 5
+-1
+S
+
+#20045
+Slave Pits~
+This cold cell is bare of all the comforts of life.  It is windowless,
+and quite dark.  The air is still, and smells of dirty bodies and other,
+unidentifiable odors.  The western wall has several thin scratches
+engraved on its black surface.
+~
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 20046 10 10 5
+D2
+~
+~
+0 -1 20038 10 10 5
+E
+wall scratch west~
+Three narrow vertical scratches have been made on the lower part of the
+western wall.  They are spaced apart approximately the distance between a
+goblin's fingers.
+~
+-1
+S
+
+#20046
+Slave Pits~
+The narrow confines of the slave quarters make a sharp turn here,
+allowing inhabitants to move either east or south.  The surface of the
+inner wall is a bit rounded here, as if many had taken the turn just a
+little bit too quickly.
+~
+~
+301465604 1 6 0
+D1
+~
+~
+0 -1 20047 10 10 5
+D2
+~
+~
+0 -1 20045 10 10 5
+1162 9 1509949540 3 0
+-1
+S
+
+#20047
+Slave Pits~
+Cold, dank, and dark walls make this space seem quite small and confining. 
+The icy floor is slippery with splashes of some dark liquid, and the
+walls also feel a bit slippery.  You can make your way either west or
+south, but cannot determine what lies in either of the directions.
+~
+[Dovea] Make the overseer's message at act_tochar rather than send_to_room?
+~
+301465604 1 6 0
+D2
+~
+~
+0 -1 20048 10 10 5
+D3
+~
+~
+0 -1 20046 10 10 5
+1165 9 1509949540 3 0
+-1
+S
+
+#20048
+Slave Pits~
+The moans of slaves reverberate through the stoney cell, echoes making
+them sound more numerous than they really are.  The walls to the east and
+west are only a few feet apart, making it difficult for you to pass
+through without touching the dirty walls.
+~
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 20047 10 10 5
+D2
+~
+~
+0 -1 20049 10 10 5
+1162 9 1509949540 3 0
+-1
+S
+
+#20049
+Slave Pits~
+This portion of the slave quarters has several small rags distributed in
+piles about the floor.  Half a dozen broken cups and what might pass for
+a plate are neatly stacked against the eastern wall.  You can travel
+north into the darkness, or west towards a very faint light.
+~
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 20048 10 10 5
+D3
+~
+~
+0 -1 20038 10 10 5
+1163 9 1509949540 3 0
+1162 9 1509949540 3 0
+-1
+S
+
+#20050
+Moss-Covered Cavern~
+This slippery cavern heads straight north and south.  The smell of decay
+is quite strong here, though no obvious source can be seen.  To the
+north, @Ggreen moss@n grows thick and luxuriant; to the south it is much
+more sparse and a bit @Ybrown@n.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20043 10 10 5
+D2
+~
+~
+0 -1 20051 10 10 5
+E
+s 20051~
+No description~
+1155 9 1509949540 3 0
+1155 9 1509949540 3 0
+-1
+S
+
+#20051
+Putrid Cavern~
+The narrow cave takes a sharp 90 degree turn, forcing you to travel
+either north or east.  The ground here is bare and dark; none of the mold
+found elsewhere in the cave grows here.  The air here is quite still,
+allowing a foul odor to grow to almost unbearable strength.
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 20050 10 10 5
+D1
+~
+~
+0 -1 20052 10 10 5
+757 17 1509949540 -2 0
+-1
+S
+
+#20052
+Bend in the Caves~
+The ground slopes sharply upward to the south, as it curves to avoid a
+large chunk of granite embedded in the softer slate.  All around the
+boulder, raw edges of slate are exposed, and scratches on the surface
+abound.  The floor of the cave has a light coating of pale @Ggreen
+moss@n.
+~
+~
+301465605 11 6 0
+D2
+~
+~
+0 -1 20053 10 10 5
+D3
+~
+~
+0 -1 20051 10 10 5
+E
+granite chunk~
+A large chunk of light gray granite protrudes from the softer slate which
+surrounds it.
+~
+A
+move pull push~
+rock granite boulder~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  if( find_stat( ch, str ) < 13 ) {
+    act_tochar( #weak, ch );
+    act_notchar( #puny, ch );
+    }
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #move, ch );
+    act_notchar( #moved, ch );
+    obj_to_char( oload( 14 ), ch );
+    obj_to_char( oload( 1469 ), ch );
+    mload( 202, room );
+    }
+  }
+~
+E
+move~
+With a mighty heave, you manage to dislodge the boulder, and find a small
+coin, as well as a slip of paper.  Suddenly, a centipede emerges from
+the hole.
+~
+E
+weak~
+You try to move the boulder, but are too weak.
+~
+E
+puny~
+You see $n struggle unsuccessfully to move the granite boulder.
+~
+E
+moved~
+You see $n push the granite boulder aside, and find a shiny coin as well
+as a slip of paper.  While $e is standing up, a centipede suddenly
+emerges from the hole.
+~
+E
+already~
+The stone has already been pushed aside.
+~
+!
+0 0 0
+1155 9 1509949540 3 0
+-1
+S
+
+#20053
+Glimmering Wall~
+Water drips slowly down from a small crack in the rock on the west wall
+of the cave, to gradually increase the size of a puddle shimmering by
+your feet.  The excessive moisture makes it difficult for the slime to
+grow here, and the blackness of the rocks seems to absorb the light.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20052 10 10 5
+D1
+~
+~
+0 -1 20054 10 10 5
+E
+cluster geodes~
+Glittering geodes have grown in a thick cluster in the wall.  Some of
+them protrude enough that they might be pried loose.
+~
+A
+get pry take~
+geode~
+mob = mob_in_room( 1166, room );
+if( mob ) {
+  act_room( #rage, ch );
+  attack( mob, ch, 1d7+1, "shrivelled hand" );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) < 3 ) {
+    send_to_char( #gotit, ch );
+    act_notchar( #gotr, ch );
+    obj_to_char( oload( 925 ), ch );
+    }
+  else {
+    send_to_char( #no, ch );
+    act_notchar( #nor, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no, ch );
+  act_notchar( #nor, ch );
+  }
+~
+E
+gotit~
+You pry at the cluster for a few moments before pulling free a small,
+glittering geode.
+~
+E
+gotr~
+$n prys at the crystals for a moment, finally pulling free a small,
+glittering geode.
+~
+E
+no~
+You pry at the geodes for a long time, but are unable to free any of them.
+~
+E
+nor~
+$n prys at the geodes for a long time, but is unable to free any of them.
+~
+E
+rage~
+The wild-eyed little goblin screams, "MINE!"
+~
+!
+0 0 0
+1166 137 1509949540 3 0
+-1
+S
+
+#20054
+Wide Cavern Path~
+The cave widens here, allowing easy movement to the north and west.  A
+light @Ggreen@n coating of moss covers the entire ground, covering marks
+of any passage.  As you start to move, the moss makes a squishing sound,
+as your weight squeezes a bit of moisture from the plant.
+~
+[Bobo] when you look at a crisp white scrolls it says "a scrips white scroll"...crisp is a typo
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20055 10 10 5
+D3
+~
+~
+0 -1 20053 10 10 5
+1155 9 1509949540 3 0
+1139 9 1509949540 3 0
+-1
+S
+
+#20055
+Stratified Cave~
+The cave is quite wide here, and the open area is almost circular in
+shape.  The @Gmoss@n is thick and luxuriant, and is quite soft to touch. 
+The walls here are bare of moss, however, and you can see the striations
+in the various layers of slate which form this area.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20056 10 10 5
+D2
+~
+~
+0 -1 20054 10 10 5
+1155 9 1509949540 3 0
+-1
+S
+
+#20056
+Cavern of Red Moss~
+This portion of the cave is lit by bright @Rred moss@n, a growth which
+emits a bright light.  The plants seem to thrive in this underground
+home, though there appears to be no way for them to ever see the light of
+day.  The ceiling is quite high here, enough so that one troll could
+stand on anothers shoulders, and could pass through quite easily.
+~
+~
+301465605 11 6 0
+D2
+~
+~
+0 -1 20055 10 10 5
+D3
+~
+~
+0 -1 20057 10 10 5
+E
+red moss plants~
+Bright patches of luminescent red moss grow here.  Some of the pieces
+look loose, as if they can be torn away.
+~
+A
+get take~
+moss red~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #no, ch );
+  end;
+  }
+else {
+  if( random( 1, 10 ) > 5 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #last, ch );
+    act_notchar( #rlast, ch );
+    obj_to_char( oload( 1529 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #get, ch );
+    act_notchar( #rget, ch );
+    obj_to_char( oload( 1529 ), ch );
+    }
+  }
+~
+E
+no~
+The loose moss has already been pulled away.
+~
+E
+get~
+You take a piece of red, glowing moss.
+~
+E
+rget~
+$n reaches up and takes a piece of glowing red moss from the ceiling.
+~
+E
+last~
+You reach up and take the last piece of glowing red moss.
+~
+E
+rlast~
+$n reaches up and takes the last piece of glowing red moss.
+~
+!
+0 0 0
+-1
+S
+
+#20057
+Faintly Lit Passage~
+The passageway through the rock twists sharply here, forming a shape
+much like the letter L.  The walls and ground are both covered with a
+@Gdark green moss@n, which emits a soft light.  The ceiling is of dark
+gray slate, a cold and lifeless color in comparison to its surrounding
+decor.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20058 10 10 5
+D1
+~
+~
+0 -1 20056 10 10 5
+-1
+S
+
+#20058
+Dripping Cavern~
+The @Gmoss@n seem to glow with an eerie pale light, as it provides just
+enough illumination for you to navigate through the tunnel.  Water slowly
+seeps in from a crack in the low ceiling, sending an icy splash down your
+back.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 20042 10 10 5
+D2
+~
+~
+0 -1 20057 10 10 5
+1139 9 1509949540 3 0
+-1
+S
+
+#20059
+Grelk Street~
+The road here is quite narrow as it passes between the mass of the cavern
+wall to the east and the side of a large building on the west.  Several
+windows of the building are open, and you can hear the sounds of dogs,
+cats, birds, and other domesticated animals.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20017 10 10 5
+D2
+~
+~
+0 -1 20018 10 10 5
+E
+window~
+Peering through the dirty glass of the window, it is possible to see the
+vague shadow of a large shape moving about.
+~
+-1
+S
+
+#20060
+East Guard Station~
+This small space has been carved out of the walls of the cavern which
+house the great underground city of Voaleth.  It is designed to provide a
+place to rest for those assigned the duty of preventing intruders from
+entering the fortress city.
+~
+~
+301465605 1 6 0
+D3
+~
+~
+0 -1 20000 10 10 5
+1087 137 1509949540 3 0
+1087 137 1509949540 3 0
+-1
+S
+
+#20061
+West Guard Station~
+This small space has been carved out of the walls of the cavern which
+house the great underground city of Voaleth.  It is designed to provide a
+place to rest for those assigned the duty of preventing intruders from
+entering the fortress city.
+~
+~
+301465605 1 6 0
+D1
+~
+~
+0 -1 20000 10 10 5
+1083 137 1509949540 3 0
+1083 137 1509949540 3 0
+-1
+S
+
+#20062
+Hargood's Supplies~
+This small shop is crammed with goods used by travellers.  Wooden shelves
+line the walls, each filled with a different type of item.  In the
+northeast corner of the room is a pile of old, used lanterns, all dented
+and broken.  A small sign sits just in front of the lanterns.
+~
+[Shiver] When you look at Hargood, it starts by saying his name is Gresnik.
+~
+301469767 1 6 0
+D1
+~
+~
+0 -1 20035 10 10 5
+E
+small sign~
+DEER SALVIGER... PLEEZ TAKE.
+~
+E
+lanterns~
+The entire northeastern corner of this shop is filled with well-used
+lanterns.  They are all so dented and broken, it is hard to believe
+anyone would want one.
+~
+A
+get take move~
+lanterns pile~
+act_tochar( #nope, ch );
+act_notchar( #stop, ch );
+~
+E
+nope~
+The pile of used lanterns just isn't worth taking.
+~
+E
+stop~
+You see $n reach towards the pile of lanterns, then stop.
+~
+!
+0 0 0
+1105 9 1509949540 3 0
+552 17 1509949540 -1 0
+25 17 1509949540 -1 0
+26 17 1509949540 -1 0
+874 17 1509949540 -1 0
+229 17 1509949540 -1 0
+6 17 1509949540 -1 0
+20 17 1509949540 -1 0
+948 17 1509949540 -1 0
+1391 17 1509949540 -1 0
+-1
+S
+
+#20063
+Grelk Street~
+Grelk Street continues east and west here through southern Voaleth.  Just
+to your south stands the large home of a prosperous citizen.  The lights
+of the town are quite low here, making it difficult to see very far in
+either direction.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20037 10 10 5
+D2
+front door~
+~
+131 -1 20077 10 10 5
+D3
+~
+~
+0 -1 20064 10 10 5
+-1
+S
+
+#20064
+Grelk Street~
+Grelk Street continues its east-west passage through Voaleth.  Just to
+the north, you can see what was once a shop, but appears now to be an
+abandoned building.  Far to the east you can just make out the cavern
+walls; to the west the street continues into the semi-darkness.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20076 10 10 5
+D1
+~
+~
+0 -1 20063 10 10 5
+D3
+~
+~
+0 -1 20031 10 10 5
+1156 9 1509949540 3 0
+-1
+S
+
+#20065
+Javod's Jewelry~
+This small shop is the only place to buy or sell jewels in Voaleth.  A
+large display case dominates the small space, providing a fitting setting
+to hawk the jeweler's wares.  Small windows to the west let in light from
+the street, but the large metal bars across them prevent access from that
+direction.
+~
+~
+301469767 1 6 0
+D1
+~
+~
+0 -1 20036 10 10 5
+E
+display case~
+The room is dominated by an oak display case, which is topped with
+expensive glass.  Inside the case is an array of handcrafted jewelry, as
+well as single rare gems.
+~
+1108 9 1509949540 3 0
+1109 9 1509949540 3 0
+-1
+S
+
+#20066
+Larblad's Magic Shoppe~
+This small shop is stuffed with things related to the world of magic. 
+One side of the room has shelves neatly stocked with reagents used by
+magicians as part of their daily work; another side is jammed full of
+crosses and other items required by clerics. 
+~
+~
+301465671 1 6 0
+D1
+~
+~
+0 -1 20023 10 10 5
+1136 9 1509949540 3 0
+78 17 1509949540 -1 0
+79 17 1509949540 -1 0
+229 17 1509949490 -1 0
+189 17 1509949540 -1 0
+768 17 1509949540 -1 0
+1194 17 1509949540 -1 0
+872 17 1509949540 -1 0
+873 17 1509949540 -1 0
+249 17 1509949490 -1 0
+1018 17 1509949540 -1 0
+1021 17 1509949460 -1 0
+9 17 1509949540 -1 0
+37 17 1509949540 -1 0
+1182 17 1509949540 -1 0
+2118 17 1509949465 -1 0
+1020 17 1509949490 -1 0
+305 17 1509949460 -1 0
+425 17 1509949540 -1 0
+1008 17 1509949450 -1 0
+-1
+S
+
+#20067
+Food 'N Furs~
+This small shop appears to house two businesses.  The northern half of
+the shop contains a fireplace with an open spit used to grill meats, as
+well as a brick oven used for baking.  A thin line on the wooden planks
+that serve as a floor divides this enterprise from an area almost
+entirely filled with the skins of dead animals.  Surprisingly, one sign
+is used to tell potential patrons of their options in here.
+~
+produces a '(player name) filet' or a '(playername) steak', in line with
+idea of proof of kill.  bragging rites, etc.
+~
+301465671 1 6 0
+D1
+~
+~
+0 -1 20030 10 10 5
+E
+sign~
+List - lists items for sale
+Buy - self explanatory
+Sell - to sell an item
+~
+869 9 1509949540 3 0
+28 17 1509949540 -1 0
+4 17 1509949540 -1 0
+49 17 1509949540 -1 0
+1460 17 1509949474 -1 0
+-1
+S
+
+#20068
+Jesbek Avenue~
+Under Construction.
+~
+~
+301465605 1 6 0
+-1
+S
+
+#20069
+Pet Shop~
+The noise in this small shop is quite loud.  Barks, meows, roars, hisses,
+and just about every animal noise seem to emanate from just below your
+feet.  Three walls of the shop are bare; the south wall, however, has a
+number of leashes and halters hanging from them, as well as one very
+large whip.
+~
+~
+301473863 1 6 0
+D0
+~
+~
+0 -1 20016 10 10 5
+D5
+iron grating~
+down iron grating d~
+503 -1 20070 10 10 5
+E
+wall south s~
+The south wall has several leashes and halters of varying sizes hung up
+from large hooks.  A large whip also hangs from the wall; the animal it
+is used on must be large indeed.
+~
+1090 9 1509949540 3 0
+-1
+S
+
+#20070
+Pet Shop~
+This is where the pets 'live'.
+~
+~
+301465669 1 6 0
+D4
+iron grating~
+iron grating up u~
+503 -1 20069 10 10 5
+1091 9 1509949540 3 0
+118 9 1509949540 3 0
+114 9 1509949540 3 0
+-1
+S
+
+#20071
+Ingblad's Bar and Grille~
+The southern portion of this large room is dominated by a wooden bar
+fronted by half a dozen bar stools.  The shelves behind the bar are full
+of mugs and cups of many shapes and sizes.  The counter is littered with
+dirty glasses and plates, and bits of discarded food lie on the floor. 
+Four large tables, with varying numbers of chairs, have been placed about
+the room.
+~
+sell various drinks and foods
+maybe add one of those silly games as well
+~
+301465671 1 6 0
+D0
+~
+~
+0 -1 20021 10 10 5
+E
+mug cup glass plate~
+The eating and drinking utensils in this spot are covered with a thin
+coat of grime.  Bits of dried food, greasy lip-prints, and other
+unrecognizeable bits create a nice pattern on their surfaces.
+~
+E
+shelf counter~
+The scratched and battered wood that compose the shelves and counter are
+covered with hundreds of crawing insects.  They swarm in seemingly random
+directions, moving from spot to spot as they search for edible bits
+amongst the refuse.
+~
+1140 9 1509949540 3 0
+761 17 1509949540 -1 1
+761 17 1509949540 -1 18
+354 17 1509949540 -1 0
+1143 9 1509949540 3 0
+1488 17 1509949540 -2 0
+1488 17 1509949540 -2 0
+-1
+S
+
+#20072
+Empty Building~
+This small building stands vacant, though signs of it once being a shop
+are quite visible.  A large counter runs across the building, with a
+small wooden gate providing access to the area behind the counter.  The
+wooden walls are lighter where pictures of some sort once hung.
+~
+can be changed to west gate for expansion
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 20008 10 10 5
+E
+counter~
+The counter is covered with several inches of dust.  The dust at first
+glance moves slowly in small eddies; at second glance the dust particles
+solidify and become tiny grubs feasting hungrily on the remaining wood.
+~
+E
+gate~
+A battered wooden gate provided access to the area between the room and
+space behind the counter.  It no longer serves any function, other then
+to get in the way.
+~
+-1
+S
+
+#20073
+A Library~
+This building, right in the middle of downtown Voaleth, appears to be a
+library of some sort.  The walls are lined with shelves filled with books
+of many sizes and colors.  Several braziers around the room provide a
+constant source of gentle light and warmth.
+~
+[Orb] When leafing through the codex, the english is a little screwy. 
+This IS done purposely, believe it or not ;) Its a text translated
+exactly from an ancient dialect, its gonna be a little bit funky.
+~
+301465671 1 6 0
+D1
+~
+~
+0 -1 20024 10 10 5
+E
+braziers~
+An elegant tripod stand holds a dark, iron bowl inscribed with symbols of
+knowledge and learning.  The bowl is filled with a strange mixed powder
+of black, brown and striking blue which emits a warm light and
+gray-violet haze smelling of sandalwood.
+~
+E
+wall shelf shelves~
+The shelves all reach from floor to ceiling and seem to cover every
+available bit of wall space.  There are even a few goblin-high partition
+shelves that stand alone on the floor.  Looking around, you are hard
+pressed to find free space on any of the shelves.
+~
+E
+books sizes colors~
+They line the shelves, filling nearly every available nook and cranny. 
+At a glance you see all manner of tomes, librams, scrolls, and books
+filling the space.  A search for a particular title could take a very
+long time indeed.
+~
+E
+symbols runes~
+Archaic, and not so archaic, symbols and runes that ask for or signify
+the gaining and retention of knowledge.  Whether or not they will help
+people within the library to learn anything is probably doubtfull.  More
+likely they are there to simply create a more suitable atmosphere within
+the room.
+~
+A
+browse~
+~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 )
+    act_tochar( #glyph, ch );
+  if( i == 2 )
+    act_tochar( #map, ch );
+  if( i == 3 )
+    act_tochar( #goblin, ch );
+  if( i == 4 )
+    act_tochar( #sorrow, ch );
+  if( i == 5 )
+    act_tochar( #lag, ch );
+  if( i > 5 )
+    act_tochar( #boring, ch );
+  if( random( 1, 3 ) == 1 )
+    remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #boring, ch );
+~
+E
+glyph~
+In an old tome with nearly faded ink you make out a passage that sounds
+at least somewhat interesting.  "...  ancient ruins, no sign of its
+creators.  We found a tablet of dark stone inscribed with glyphs.  We
+have translated some of the...  very much like a tree, we know is
+carathan, which has something to do with the ...  the last glyph looking
+something like a crescent moon impaled on a trident, which is linked to
+the word chardalai for some unknown reason.  Beyond that we ca...." The
+rest is too faded to make out.
+~
+E
+map~
+In one book, containing mostly boring summaries of trade tallies and
+income and expenditures for some unnamed merchant you find a picture.  It
+is extremely well done, and looks to be a quite accurate view of a city
+from an aerial view.  A stylized compass drawn in one corner shows that
+you view it from roughly the south side.  On the top right corner of the
+page you can make out an ornate mansion with large yard around it.  At
+the top center you can make out something that looks like some sort of
+shrine or temple, nestled at the end of a road lined with merchant carts. 
+You can also make out a rather ornate fountain at the intersection of
+what appears to be the town's two main roads.  At the bottom of the map,
+in elegant script, is a single word: Medienne.
+~
+E
+boring~
+After what seems like hours of browsing and finding nothing of interest,
+you are forced to take a break lest you lose your mind.  Perhaps if you
+came back later, rested and refreshed you could browse some more and
+perhaps find something interesting.
+~
+E
+goblin~
+After a brief search you come across a small booklet in hand scrawled
+script containing the humorous yet highly effective exploits of a goblin
+mage.  It seems he began writing this account when he was only a small
+goblin toadie, yet managed to learn quite a few spells, including blink. 
+Despite his obvious lack of good writing skills, and the excessive number
+of dubious stains upon the pages, you do find several highly
+sophisticated diagrams that appear to have something to do with magical
+theory and application.
+~
+E
+sorrow~
+In the journal of a traveling bard you find the sorrowful tale of a man
+he knew in Chiiron.  The bard accounts how a man and woman had fallen in
+love, only to have their true love sundered by the dire actions of a
+witch who also loved the man.  It is only a brief account and the bard
+seems to have been more intersted in the fact that the man lived in or
+near a settlement by the name of Chiiron and that he still seeks the help
+of noble adventurers.
+Scrawled in the margin, in red ink is a notation in another hand,
+presumably this library's curator, stating: @RAquired copy of bard's story
+in full under the title of Tad's Tales of Woe.@n 
+~
+E
+lag~
+You find a piece of paper that doesn't belong being used as a bookmark in
+an ancient tome.  The writing on it seems to be hastily scrawled notes
+about a castle located somewhere south of Medienne.  The notes are
+somewhat illegible, but you can make out some of them: 
+Formerly human...
+overrun by faerie folk when human king was gone...
+..........  a dryad ...
+Castle Lag ..........
+... out east gate, south past river, ... west ....
+... into the castle itself... vast wealth and powerful items....
+~
+!
+0 0 0
+A
+search~
+Tad's Tads "Tad's Tales of Woe"~
+i = 0;
+loop( all_in_room ) {
+  if( has_obj( 1570, rch ) )
+    i = 1;
+  }
+if( obj_in_room( 1570, room ) )
+  i = 1;
+if( i == 1 ) {
+  act_tochar( #out, ch );
+  end;
+  }
+obj_to_char( oload( 1570 ), ch );
+act_notchar( #found, ch );
+act_tochar( #get_book, ch );
+~
+E
+search~
+You search for a while, but don't find any books by that name.
+~
+E
+found~
+$n pulls a book from the shelf.
+~
+E
+get_book~
+You find a copy and pull it from the shelf.
+~
+E
+out~
+After an exhausting search you do not find the book.  It appears someone
+else has already removed it from the library.
+~
+!
+0 -1 0
+A
+touch use get douse remove~
+braziers~
+i = 1d3+1;
+dam_message( ch, i, "minor burns from grabbing a hot brazier" );
+inflict( ch, mob, i, "minor burns from grabbing a hot brazier" );
+act_tochar( #ouch, ch );
+act_notchar( #r_ouch, ch );
+~
+E
+ouch~
+Trying to burn your hands?  Aside from burning yourself, fiddling with
+the braziers will serve no purpose.
+~
+E
+r_ouch~
+$n yelps as $e touches a hot brazier.
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 1134, room );
+if( mob )
+  interpret( mob, "east" );
+~
+!
+2 300 0
+A
+lo look l read ~
+codex tome~
+act_tochar( #book, ch );
+wait( 3 );
+act_tochar( #book2, ch );
+wait( 3 );
+act_tochar( #turn, ch );
+~
+E
+book~
+You see the book is open to one of the very last pages.
+
+@I@C....and our valiant fighters returned home to Shai'zarn bloodied and
+battered.  For all our plans and schemes, the city of Vaasa held strong.
+@IPreparations were made to withstand the counter strike we knew to be
+coming.  The elves would mass against us, not only from the city of Vaasa
+but every elf that walked the realms.  Children were evacuated to the
+distant cities of our kin, the women and the elderly with them.  The crypt
+of our nobles was fortified with many magicks.
+~
+E
+book2~
+@I@CIt was deemed not enough to merely fortify the crypt with
+enchantments.  The elves were possesed of some of the most brilliant
+magical minds in the world and would likely have no trouble unraveling our
+bindings.  A small patrol of our elite warriors were sent into the crypt
+with a mage to care for them. Then our finest spell-binders worked
+together to bind and seal the doors of the prominent crypts, hide the
+lower crypts and finally, to enchant the main door.
+~
+E
+turn~
+You turn the page and find that only half a page more of writing exists.
+
+@I@CThe enchantment around the main door is subtle indeed.  The
+beautiful door will not open no matter the strength of the elf or the
+prowess of the mage.  One of our own kind only may open the door.  The
+key lies in the runes...@n
+~
+!
+0 0 0
+A
+1 look 1 read~
+traditions~
+if( cflag( 100, ch ) )
+  act_tochar( #male_vyan, ch );
+if( cflag( 101, ch ) )
+  act_tochar( #female_vyan, ch );
+act_notchar( #rvyan, ch );
+~
+E
+male_vyan~
+You search for a few moments and find a tome of traditional vyan wedding
+practices.  After scouring it for information, it seems the only two
+things that you really need to do are seek the blessing of a trained vyan
+priest, good thing there's one in the temple nearby, and provide a
+house-drudge.
+It may take a while to find exactly the right drudge to suit your style
+and compliment her wants and needs, but once you have the contract in
+hand everything should go smoothly.  Provided, of course, you don't get
+her upset with you at a later date.  It seems vyan divorce typically
+involves the assassination of the husband usually by the hand of the wife
+or her Sister-Guardian.
+~
+E
+female_vyan~
+for information, it seems the part of the vyan bride-to-be is rather
+simple as is only right.  While the groom has to find a suitable
+house-drudge to tend the housework, or do the chores himself you have
+only to find a Sister-Guardian to stand at your side.
+The Sister-Guardian is to act as honor guard for you, witness that the
+groom has made his comitment, and is to help insure the groom never sways
+in his comitment to you.
+If at any time you are unhappy with the arrangement and decide things
+have come to an end, it is up to you to assassinate your husband.  In the
+event that you are dead and unable to, or find that he has managed to
+fortify his position, it is permitted to have your Sister-Guardian assist
+you or complete the task for you.
+Most of the rest of the account seems to be tales of popular means of
+assassinating a husband, which carry with it the most dishonor for him in
+death and a few means by which to honor him in death if you are merely
+bored with the arrangement but feel he's at least earned some honor.
+~
+E
+rvyan~
+$n pulls a thick tome from the shelf and begins to thoroughly peruse its
+contents.
+~
+!
+0 0 0
+A
+search~
+Taverns "Taverns of the Realm"~
+loop( all_in_room ) {
+  if( has_obj( 1586, rch ) ) {
+    act_tochar( #out, ch );
+    end;
+    }
+  }
+if( obj_in_room( 1586, room ) ) {
+  act_tochar( #out, ch );
+  end;
+  }
+obj_to_char( oload( 1586 ), ch );
+act_notchar( #found, ch );
+act_tochar( #get_book, ch );
+~
+E
+search~
+You search for a while, but don't fund any books by that name.
+~
+E
+found~
+$n pulls a book from the shelf.
+~
+E
+get_book~
+You find a copy and pull it from the shelf.
+~
+E
+out~
+After an exhausting search you do not find the book.  It appears someone
+else has already removed it from the library.
+~
+!
+0 0 0
+1223 137 1509949540 3 0
+1582 17 1509949450 -1 0
+-1
+S
+
+#20074
+Temple of the Gods~
+Cold gray marble surrounds you: the floors, walls, and high-pitched
+ceiling are all made of the same color stone.  In the very center of the
+room is a large basalt altar.  To the very south of this chamber is a
+small flight of stairs leading down deeper into the earth, as well as a
+larger staircase going up.
+  
+~
+will reset two braziers, 2461
+reset alter, 2475
+reset knife on altar, 2474
+north to 20002
+~
+335020231 1 6 0
+D0
+~
+~
+0 -1 20002 10 10 5
+D4
+~
+~
+0 -1 20044 10 10 5
+D5
+~
+~
+0 -1 20075 10 10 5
+E
+basalt altar~
+The altar is large, and slightly concave.  Most of its surface is marred
+by dark red-brown streaks, though the almost black surface of the basalt
+makes it difficult to determine exactly what the streaks are made of. 
+Careful examination of the surface reveals many gashes and pockmarks, as
+if the altar had been the site of many sacrifices.
+~
+E
+streak~
+Long streaks of reddish-brown cover much of the surface of the altar. 
+After very careful examination, the streaks can be identified as animal
+blood.
+~
+A
+~
+~
+wait( 1 );
+send_to_room( #chant, room );
+~
+E
+chant~
+The priest mutters a short chant in the ancient tongue of his people.
+~
+!
+2 200 0
+1112 9 1509949540 3 0
+-1
+S
+
+#20075
+Meditation Chamber~
+This small chamber lies beneath the altar to the gods.  Just a little bit
+of light glows from the stairway, providing just enough light to see the
+inhabitants of the room.  It is very quiet in here; quite conducive to
+resting and communing with your god or inner self.
+~
+[Lani] Can see the monk looking at me in annoyance while sleeping.
+~
+301465679 1 6 0
+D4
+~
+~
+0 -1 20074 10 10 5
+E
+stairway~
+A narrow staircase leads up to the main part of the temple.
+~
+1081 9 1509949540 3 0
+-1
+S
+
+#20076
+Empty Shop~
+This run-down building was once a shop of some sort, but its original
+purpose is now obscured.  Several inches of dust cover the floor, as well
+as the remnants of an oak counter.  A large bare spot on the northern
+wall reveals where a sign or painting once hung.
+~
+trapdoor down
+~
+301465669 1 6 0
+D2
+~
+~
+0 -1 20064 10 10 5
+D5
+trapdoor~
+trapdoor down~
+131 -1 20079 10 10 5
+E
+floor dust~
+A fine coat of dust covers the floor, almost obscuring a fine rectangular
+crack in the flooring.  It appears that you just might be able to pry it
+open.
+~
+E
+wall sign painting~
+A large rectangle appears on the wall, outlining where a picture or sign
+once was hung.
+~
+-1
+S
+
+#20077
+Private Home~
+This large home must belong to a very wealthy citizen.  A thick blue
+carpet covers the floor, and several large tapestries decorate the walls
+and serve to keep the house well insulated.  The furnishings are scant,
+but comfortable.
+~
+~
+301465669 1 6 0
+D0
+front door~
+~
+131 -1 20063 10 10 5
+E
+tapestry~
+The tapestries depict several battle scenes.  In one, a large troll
+stands by the body of a gnome, seemingly intent on removing his head from
+his corpse.  Another scene portrays two goblins entering a large, dark
+cave, clubs poised to begin pulverizing some wood nymphs.
+~
+E
+furnishings~
+A large sofa is flanked by two small armchairs.  Just in front of the
+sofa is a long, low table laden with dirty plates and cups.  All of the
+contents of the house are slightly disarrayed, as if someone left here in
+a rush.
+~
+-1
+S
+
+#20078
+South Gate of Voaleth~
+To your south is a small, heavily-guarded gate.  Beyond that barrier lies
+the Palace, a place many have heard of, but few have visited... and
+returned to tell the tale.  The town of Voaleth spreads out to the north,
+narrow streets jammed in between the high shale walls of the cavern.  By
+the side of the gate is a large @blever@n.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 20031 10 10 5
+D2
+south gate~
+~
+407 -1 20080 10 10 5
+A
+pull~
+lever~
+if( is_open( room, south  ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, south );
+  }
+~
+E
+nothing~
+The gate is already open.
+~
+E
+to_char~
+You pull on the lever.
+~
+E
+to_room~
+You see $n pull on the lever by the side of the gate.
+~
+E
+to_all~
+The gate slowly creaks open.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( !is_open( room, south ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch, obj );
+  act_room( #to_all, ch, obj );
+  close( room, south );
+  }
+~
+E
+nothing~
+You push on the lever, but nothing happens.
+~
+E
+to_char~
+You pull on the giant lever.
+~
+E
+to_room~
+$n pulls on the lever by the side of the gate.
+~
+E
+to_all~
+The gate slowly creaks shut.
+~
+!
+0 0 0
+1087 9 1509949540 3 0
+1083 9 1509949540 3 0
+-1
+S
+
+#20079
+Dingy Shop~
+This small spot has been carved out of the stone of the cavern.  Several
+shelves line the north wall, and appear to be made of the shale itself. 
+Two small torches burn dimly from wall sconces, providing just enough
+light to see the room's inhabitants.
+~
+thief training spot
+~
+301469767 1 6 0
+D4
+trapdoor~
+trapdoor up~
+131 -1 20076 10 10 5
+E
+shelf shelves~
+Shale shelves have been carved from the shale while encompasses the
+entire town.  On each shelf you can just glimpse lockpicks, skeleton
+keys, traps, and other things often associated with thieves.
+~
+1110 9 1509949540 3 0
+128 17 1509949540 -1 0
+127 17 1509949540 -1 0
+-1
+S
+
+#20080
+South Gate of Voaleth~
+To your north you can see the massive south gate of Voaleth, the
+underground stronghold.  The way south leads to the palace of the city's
+ruler.  A light blue haze to your south prevents you from actually seeing
+the world-famous structure.  Close to your east and west are the high,
+black walls of the surrounding cavern which houses this complex.
+~
+[Eltrex] You see Avaran pound loudly on the gte. ;)
+~
+301465605 1 6 0
+D0
+south gate~
+~
+407 -1 20078 10 10 5
+D2
+palace~
+~
+0 -1 20081 10 10 5
+A
+knock pound hit bang~
+gate~
+if( is_open( room, north  ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, north );
+  }
+~
+E
+to_char~
+You pound loudly on the gate.
+~
+E
+to_room~
+You see $n pound loudly on the gte.
+~
+E
+to_all~
+The gate slowly swings open.
+~
+E
+isopen~
+No description~
+E
+nothing~
+The gate is already open.
+~
+!
+0 0 0
+1083 9 1509949540 3 0
+1087 9 1509949540 3 0
+-1
+S
+
+#20081
+Wide Corridor~
+The tunnel passage here is wide enough for at least a dozen ogres in full
+battle armor to pass side-by-side.  The walls loom dark in the distance,
+and appear to be quite smooth, as if nothing ever dared to touch them. 
+To the north lies the southern gate of Voaleth; to the south stands the
+palace which traditionally houses the city's ruler.
+~
+~
+301465613 1 6 0
+D0
+~
+~
+0 -1 20080 10 10 5
+D2
+~
+~
+0 -1 50250 10 10 5
+-1
+S
+
+#20082
+Quiet Alley~
+This small, quiet passage has been carved out of the large slate cavern
+which houses Voaleth.  A soft light shines from a torch high above you,
+enabling you to see yourself and other inhabitants.  A small fountain
+burbles quietly against the north wall, providing cool refreshment for
+those who would take a drink.
+~
+[Quem'selle] ask troll weapons gives nothing.
+~
+301465671 1 6 0
+D1
+~
+~
+0 -1 20009 10 10 5
+D3
+~
+~
+0 -1 20083 10 10 5
+1113 137 1509949540 3 0
+1449 17 1509949540 -2 0
+1449 17 1509949540 -2 0
+26 17 1509949540 -2 0
+1448 17 1509949540 -2 0
+1044 17 1509949540 -2 0
+1856 17 1509949540 -2 0
+-1
+S
+
+#20083
+Quiet Cul-de-sac~
+This tiny nook is dim and very quiet.  You can see the dark gray slate of
+the cold cavern walls on three sides of you; the only possible way to
+move is to the east.  You can hear the gentle murmur of falling water,
+and an occasional laugh coming from the east.
+~
+ON THIS SPOT - March 6, 1997, Irmo became the first mortal to die in the
+city of Voaleth.  It had been open for five minutes.
+~
+301465711 1 6 0
+D1
+~
+~
+0 -1 20082 10 10 5
+E
+slate wall cavern~
+The walls found on three sides of you are dark and cold, and seem to
+reverberate from some earthly force.
+~
+-1
+S
+
+#20084
+Voaleth Blacksmith~
+The western part of this large barn is lined with stalls.  Hay is
+scatered about the floor, and several bales of it are stacked against the
+southern wall.  The northern wall contains an assortment of tack, as well
+as hooks holding horseshoes of all sizes.
+~
+~
+301473863 1 6 0
+D1
+~
+~
+0 -1 20012 10 10 5
+D5
+trap door~
+~
+511 -1 20085 10 10 5
+E
+stalls floor~
+Half a dozen stalls have been built into the western side of the barn. 
+Each stall appears to have a horse ensconced in its interior, and loud
+neighs periodically errupt from that direction.
+~
+E
+north tack~
+The northern wall is full of all types of tack.  Harnesses and halters
+seem to be grouped towards the western side of the wall, while saddles
+are stacked all along the eastern side of the wall.  The center portion
+of the wall has been filled by horseshoes.
+~
+E
+hook horseshoes~
+About a dozen hooks have been hammered into the central part of the
+northern wall.  Each one contains several horseshoes, apparently sorted
+by size and material.
+~
+1114 9 1509949540 3 0
+552 17 1509949540 -1 0
+582 17 1509949540 -1 0
+-1
+S
+
+#20085
+Voaleth Blacksmith~
+Under Construction.
+~
+horsies here
+~
+301465669 1 6 0
+D4
+~
+~
+511 -1 20084 10 10 5
+1115 9 1509949540 3 0
+623 9 1509949540 3 0
+965 9 1509949540 3 0
+-1
+S
+
+#20086
+North of the Gates of Voaleth~
+This broad tunnel opens up to the south and stops before the massive
+gates of the subterranean city of Voaleth.  The tunnel also heads west
+toward a bend in the path.  To the southeast and southwest stand the
+blocky, imposing towers of the Voaleth guardhouses.  Low, grating voices
+drift from the south, along with the jingle of metal and the occassional
+rasp of a blade leaving its sheath.  The floor is scarred, slight cracks
+mar its surface.
+~
+[Merior] room 71625 is down
+~
+301465604 1 6 0
+D2
+~
+~
+0 -1 20000 10 10 5
+D3
+~
+~
+0 -1 20087 10 10 5
+D5
+~
+~
+235 -1 71625 10 10 5
+E
+city voaleth guardhouses towers gate wall~
+The north gate of Voaleth rises far to the south, flanked by two massive,
+blocky guard towers.  The city itself rises just above the walls and
+stretches far into the darkness to the south.
+~
+E
+floor crack~
+The cracks appear to form a rectangle about the size of an ogre's
+shoulders.
+~
+A
+search move~
+crack floor~
+if( !is_open( room, down ) ) {
+  act_tochar( #door, ch );
+  act_notchar( #isdoor, ch );
+  open( room, down );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #closing, ch );
+  close( room, down );
+  }
+~
+E
+door~
+You search the crack and find it is actually a secret door!
+~
+E
+isdoor~
+You see $n search the crack, the suddenly open up a hidden door in the
+ground.
+~
+E
+open~
+You carefully move the trapdoor, sealing off the tunnel.
+~
+E
+closing~
+You see $n move the trapdoor, closing off the tunnel.
+~
+!
+0 0 0
+-1
+S
+
+#20087
+Bend in the Southern Cavern Road~
+The tunnel road turns north and east.  To the north it stretches out long
+and straight; to the east it bends again southward.  The sounds of a city
+are strong here.  Voices float up from behind the city walls, mingled
+with the low, lamenting toll of an iron bell.
+~
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 20088 10 10 5
+D1
+~
+~
+0 -1 20086 10 10 5
+A
+listen~
+voices~
+send_to_char( #voice, ch );
+~
+E
+voice~
+You hear the sounds of a city - slow rolling carts, grating iron-like
+voices, the mournful, dead toll of an iron bell.  The sounds drift in
+from the east.
+~
+!
+0 0 0
+-1
+S
+
+#20088
+Cold Cavern Road~
+The tunnel reaches far into the distant north and toward a bend to the
+south.  This cavern is very cold, and mostly quiet - the only sounds are
+those of dripping water and of low, grumbling voices from the south.  A
+small crack is barely visible in the western wall.  Bits of a dark powder
+are sprinkled about on the floor.
+~
+[Jeymian] look crack?  look powder?
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 20089 10 10 5
+D2
+~
+~
+0 -1 20087 10 10 5
+D3
+crack~
+~
+171 -1 50330 10 10 5
+E
+torches poles~
+These sconces are 7-foot-tall pillars of stone fixed with loops to hold
+massive torches in place.  Poles line the road, heading all the way to
+the cit far to the south.
+~
+E
+city~
+The contours of the massive city to the south are vaguely noticable here,
+though they are little more than gray lines on a field of black.
+~
+A
+listen~
+voices sounds~
+send_to_char( #sound, ch );
+~
+E
+sound~
+The sounds of a city echo hollowly from the south.  A heavy cart rumbles,
+a mournful bell tolls, city guards bark orders.
+~
+!
+0 0 0
+A
+open~
+w west crack~
+act_tochar( #nope, ch );
+act_notchar( #nomove, ch );
+~
+E
+nope~
+You try to get your fingers into the crack to move the wall, but are
+unsuccessful.
+~
+E
+nomove~
+You see $n pry $s fingers into the crack, then stop fiddling with it.
+~
+!
+0 0 0
+A
+cast~
+blink~
+if( find_skill( ch, blink ) > 1 ) 
+transfer( ch, find_room( 50330 ) );
+~
+!
+0 0 0
+-1
+S
+
+#20089
+North on the Dark Cavern Road~
+Heading north and south, this cavern seems well-kept, the walls smoothed
+and the floor kept free of rubble.  Water drips from tiny cracks in the
+ceiling.  In this bone-chilling cold, the water seems on the threshold of
+freezing.
+~
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 20090 10 10 5
+D2
+~
+~
+0 -1 20088 10 10 5
+E
+water~
+Cold, clear water drips from cracks in the ceiling and walls.  In this
+cold the water seems near freezing.
+~
+-1
+S
+
+#20090
+Bend in the Cavern Road~
+This sepulchral tunnel turns south and west.  To the west is the tunnel's
+end, where it meets a set of handholds carved into the wall.  To the
+south is a long tunnel leading into darkness.
+~
+~
+301465604 1 6 0
+D2
+~
+~
+0 -1 20089 10 10 5
+D3
+~
+~
+0 -1 20091 10 10 5
+E
+handholds~
+Thirty feet to the west, the road meets ends, meeting a set of handholds
+that run up the cavern's north wall.
+~
+-1
+S
+
+#20091
+At the Rock Ladder~
+A well-travelled cavern road ends here at a well-formed ladder, formed of
+handholds carefully hewn into the rock face.  The ladder leads to a rock
+platform above.  To the east, the road twists and heads southward toward
+total darkness.
+~
+~
+301465604 1 6 0
+D1
+~
+~
+0 -1 20090 10 10 5
+E
+ladder handholds~
+A set of large, evenly space handholds rises on the north wall to a rock
+ledge high above.  The handholds seem carefully crafted and quite safe.
+~
+A
+climb~
+up rock ladder~
+send_to_char( #up, ch );
+act_notchar( #upr, ch );
+transfer( ch, find_room( 28150 ) );
+room = find_room( 28150 );
+act_notchar( #arrive, ch, obj, mob );
+~
+E
+up~
+You grab the handholds and pull yourself up to the rock platform.
+~
+E
+upr~
+$n climbs to the rock ledge above.
+~
+E
+arrive~
+$n comes climbing up the stone handholds.
+~
+!
+0 0 1
+-1
+S
+
+#0
+

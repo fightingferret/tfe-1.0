@@ -1,0 +1,257 @@
+#AREA
+Death~
+Greyclaw, Caer~
+~
+
+0 0
+0
+#ROOMS
+
+#33750
+** DEATH **~
+You come through the smoke surrounding the entrance and stop dead in your
+tracks in amazement...  You have entered a cavernous room, replete with
+Gothic archways and stained-glass windows depicting battles, hunting
+parties, ocean waves, hangman's gibbets and other scenes where Death may
+appear.  A huge throne of onyx stands before you, and seated upon it is
+the King of the Netherworld himself.  
+@C
+A leather-bound book hovers in midair before you.
+~
+no magic to prevent abuse
+~
+301465651 3 5 0
+D2
+~
+~
+0 -1 33751 10 10 5
+E
+leather bound book~
+You move toward the book, and it opens on its own.  The pages slowly
+flip over by an unseen hand, and it falls open to a page written in
+elegant script...  
+   
+       The cities of the land are herein recorded:
+   
+             Chiiron
+             Medienne
+             Kha-Da
+             Vaasa
+             Darkhaven
+             Pennan
+             Sos-kul
+             Denab-Knur
+             Voaleth
+             Brithbarad
+      
+{ type: @GTO skeletal <cityname>@n when you have chosen a city }
+~
+A
+get take~
+book~
+send_to_char( #get, ch );
+~
+E
+get~
+You move forward to take the book but one look from Death and you decide
+it would not be wise.  
+~
+!
+0 0 0
+A
+~
+~
+act_room( #smoke, ch );
+~
+E
+smoke~
+Death takes a long drag on a tobacco pipe.  C'mon, what's it gonna do to
+@bhim@n?
+~
+!
+2 50 0
+A
+~
+~
+act_tochar( #tap, ch );
+~
+E
+tap~
+Death taps you on the shoulder.
+~
+!
+2 100 0
+462 9 1509949540 3 0
+973 9 1509949540 0 0
+-1
+S
+
+#33751
+The Path of Death~
+Pain flashes across your consciousness and you writhe under its
+intensity.  You are surrounded by bright light and billows of smoke and
+the sound of screams from millions of dead souls who've come this way
+before...  
+    
+And then there is silence.  And you.
+     
+Still coughing from the smoke, you look around you.  You are on a
+suspended pathway of stone, like a bridge arching from one plane to the
+next.  Billows of white smoke float up on either side of the archway, and
+you see the path stretching before you to the north.  You have no choice
+but to move forward to meet your fate.  
+~
+no_magic to prevent player abuse
+~
+301465655 3 6 0
+D0
+~
+~
+0 -1 33750 10 10 5
+A
+1 pray~
+~
+if( is_resting( ch ) )
+  act_tochar( #nopray, ch );
+else
+  continue;
+~
+E
+nopray~
+As you pray you feel a cold chill touch your soul, you doubt there will
+be any aid forthcoming.
+~
+!
+0 0 0
+-1
+S
+
+#33752
+Room of the Shimmering Portal~
+You stand before a shimmering portal filled with flittering images,
+giving you a whirlwind tour of The Forest's Edge.  Chiiron, Medienne,
+Voaleth, and all the other cities flash fleetingly across the view of the
+portal.  Inscribed along the arch of the portal are the keywords which,
+when told to the portal, will instantly teleport the speaker to the place
+of his choice.  Who knows what remains of the souls who told the portal a
+false destination.....
+
+@EIN CHARACTER TELL HAS BEEN REPLACED BY THE COMMAND TO.
+TYPE "TO PORTAL <TOWN>".
+~
+~
+301498487 3 9 0
+D2
+~
+~
+0 -1 27033 10 10 5
+A
+look~
+portal~
+act_tochar( #look, ch );
+~
+E
+look~
+The shimmering portal stands before you, images spinning madly through it. 
+Where one second you saw the flitting image of a Pennan farmhouse, you
+now see the dark grey walls of Medienne streaking by.
+Inscribed on the portal, in bold, elegant runes, are the following words:
+@b@W
+@IChiiron   ::    Medienne   ::   Pennan
+@ISos-kul   ::    Voaleth    ::   Denab-knur
+@n
+~
+!
+0 0 2
+A
+s so south sou sout~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+@CThat leads to Limbo, a very, very unfriendly place.  You should
+probably use the portal instead.
+~
+!
+0 0 0
+123 9 1509949540 3 0
+-1
+S
+
+#33753
+Room of the Bright Portal~
+You stand before a shimmering portal filled with flittering images,
+giving you a whirlwind tour of The Forest's Edge.  Chiiron, Medienne,
+Pennan, and all the other cities flash fleetingly across the view of the
+portal.  Inscribed along the arch of the portal are the keywords which,
+when told to the portal, will instantly teleport the speaker to the
+place of his choice.  Who knows what remains of the souls who told the
+portal a false destination.....
+
+@EIN CHARACTER TELL HAS BEEN REPLACED BY THE COMMAND TO.
+TYPE "TO PORTAL <TOWN>".
+~
+~
+301498487 3 9 0
+A
+look~
+portal~
+act_tochar( #look, ch );
+~
+E
+look~
+The shimmering portal stands before you, images spinning madly through it. 
+Where one second you saw the flitting image of a Pennan farmhouse, you
+now see the dark grey walls of Medienne streaking by.
+Inscribed on the portal, in bold, elegant runes, are the following words:
+@b@W
+@IChiiron    ::    Medienne    ::    Kha-Da
+@IVaasa      ::    Sos-Kul     ::    Pennan
+@n
+~
+!
+0 0 0
+2254 137 1509949540 3 0
+-1
+S
+
+#33754
+Room of the Dark Portal~
+You stand before a shimmering portal filled with flittering images,
+giving you a whirlwind tour of The Forest's Edge.  Voaleth, Medienne,
+Brithbarad, and many other cities flash fleetingly across the view of the
+portal.  Inscribed along the arch of the portal are the keywords which,
+when told to the portal, will instantly teleport the speaker to the place
+of his choice.  Who knows what remains of the souls who told the portal a
+false destination.....
+
+@EIN CHARACTER TELL HAS BEEN REPLACED BY THE COMMAND TO.
+TYPE "TO PORTAL <TOWN>".
+~
+~
+301498487 3 9 0
+A
+look~
+portal~
+act_tochar( #look, ch );
+~
+E
+look~
+The shimmering portal stands before you, images spinning madly through it. 
+Where one second you saw the flitting image of a dark Voaleth cavern, you
+now see the dark grey walls of Medienne streaking by.
+Inscribed on the portal, in bold, elegant runes, are the following words:
+@b@W
+@IMedienne ::  Darkhaven   ::  Pennan     ::  Sos-Kul
+@IVoaleth  ::  Denab-knur  ::  Brithbarad
+@n
+~
+!
+0 0 0
+2255 137 1509949540 3 0
+-1
+S
+
+#0
+

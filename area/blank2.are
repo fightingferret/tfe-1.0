@@ -1,0 +1,8730 @@
+#AREA
+Northern Sea Trail~
+??~
+~
+
+0 0
+0
+#ROOMS
+
+#21000
+Fork in the Trail~
+You have reached a fork in the trail.  To the north, the path begins to
+climb and off in the distance you can see a small watch tower.  To the
+east the path drops sharply winding its way down a small cliff to what
+looks like a beach below.  To the west the path is fairly level and leads
+off into the hillside.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21001 10 10 5
+D1
+~
+~
+0 -1 21017 10 10 5
+D3
+~
+~
+0 -1 24020 10 10 5
+A
+~
+~
+act_tochar( #begin, ch );
+wait( 2 );
+if( char_in_room( ch, room ) ) {
+  act_tochar( #journ, ch );
+  transfer( ch, find_room( 35778 ) );
+  }
+~
+E
+journ~
+After many days of weary travel, you find yourself standing before a
+cliff.
+~
+E
+begin~
+You begin the long treck across the desert.
+~
+!
+3 2 4
+-1
+S
+
+#21001
+Western Sea Trail~
+The marked trail continues on to the north and south.  To the south you
+see what appears to be a fork in the trail.  Wind blows in from the sea
+to the east covering your face with drops of salty water.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 21002 10 10 5
+D2
+~
+~
+0 -1 21000 10 10 5
+-1
+S
+
+#21002
+Western Sea Trail~
+The trail here is muddy and you can see tracks heading north and south. 
+Your footwear soon becomes splattered with mud as you continue on along
+the trail.  To the east you can hear the cries of sea gulls and other
+birds of the sea.  
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 21003 10 10 5
+D2
+~
+~
+0 -1 21001 10 10 5
+-1
+S
+
+#21003
+Western Sea Trail~
+Ahead the trail curves right while to the south you see what appears to
+be a patch of muddy ground.  To the east you can hear the sound of waves
+crashing against the shore below.  From what you can see this trail is
+not too far from the beach off to the east.
+~
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 21004 10 10 5
+D2
+~
+~
+0 -1 21002 10 10 5
+-1
+S
+
+#21004
+Western Sea Trail~
+Bushes along the side of the path rustle as wind blows in from the
+south.  Thoughts of an ambush from cut-throats and brigands trouble you
+as you walk along the trail.  The trail takes a turn to the north further
+ahead.  
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 21005 10 10 5
+D3
+~
+~
+0 -1 21003 10 10 5
+-1
+S
+
+#21005
+Western Sea Trail~
+You can see tracks in the ground made by wheelbarrows and many feet.  It
+would seem there is a significant amount of traffic along this route. 
+Occasionally you can see an albatross circling lazily in the sky.  The
+trail leads to the north and south.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21006 10 10 5
+D1
+~
+~
+0 -1 21239 10 10 5
+D2
+~
+~
+0 -1 21004 10 10 5
+-1
+S
+
+#21006
+Western Sea Trail~
+The trail comes in from the south and winds on to the east.  Down below
+you can hear the cries of sea birds as they go about their activity.  A
+spatter of salt water falls on your lips as a chilly wind blows in from
+the east.  
+~
+no mob
+~
+301465608 12 6 0
+D0
+~
+~
+0 -1 21009 10 10 5
+D1
+~
+~
+0 -1 21007 10 10 5
+D2
+~
+~
+0 -1 21005 10 10 5
+-1
+S
+
+#21007
+Western Sea Trail~
+Wheel ruts can be seen on the ground going off to the north and west. 
+Elm trees border the trail and sway gently to the wind blowing in from
+the sea.  A tower can be seen to the north perched on a hill.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21008 10 10 5
+D1
+~
+~
+0 -1 21238 10 10 5
+D2
+~
+~
+0 -1 21239 10 10 5
+D3
+~
+~
+0 -1 21006 10 10 5
+-1
+S
+
+#21008
+Western Sea Trail~
+The trail continues on to the east and south while a path leads west to
+what seems to be a tower of some sort.  Bushes with berries blooming dot
+the sides of the trail.  
+~
+no_mob
+~
+301465608 12 6 0
+D1
+~
+~
+0 -1 21011 10 10 5
+D2
+~
+~
+0 -1 21007 10 10 5
+D3
+~
+~
+0 -1 21009 10 10 5
+-1
+S
+
+#21009
+Beneath a Square Stone Tower~
+You stand at the foot of a stone tower.  Its thick walls covered with ivy
+and moss, the structure is apparently quite old and, judging from the
+pock marks gouged into the tower's base, seen many a battle.  To the
+east, a small dirt path leads back toward the main trail, while a short
+distance away from the cleared area near the tower's base, a low curtain
+of brush creeps out toward you.
+~
+non sentinel guard
+can't go up from here...
+[Sidana] insert a "has" before "seen many a battle"
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21008 10 10 5
+D2
+~
+~
+0 -1 21006 10 10 5
+D4
+~
+~
+0 -1 21082 10 10 5
+A
+~
+~
+room = find_room( 21009 );
+if( mob_in_room( 871, room ) ) {
+  act_tochar( #up, ch );
+  act_notchar( #up2, ch );
+  end;
+  }
+else
+  continue;
+~
+E
+up2~
+$n tries to head up into the tower, but a guard blocks $s way.
+~
+E
+up~
+@M@bA burly Tower guard steps in front of you.  "No outsiders allowed
+upstairs.  Now beat it." 
+~
+!
+3 -1 16
+871 9 1509949540 3 0
+871 9 1509949540 3 0
+-1
+S
+
+#21010
+On a Large Sand Dune Overlooking the Beach~
+Under your feet is a mass of soft sand which shifts as you readjust your
+feet.  The pale yellow sand is fine, and has bits of grass and twigs
+interspersed.  As you look east you can see sand below you leading to to
+the sea.  To your north you can see a large rock and firm land; south
+lies more of this large dune.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 21036 10 10 5
+D2
+~
+~
+0 -1 21012 10 10 5
+-1
+S
+
+#21011
+Western Sea Trail~
+The thunderous crash of waves to the east echos loudly up the side of the
+near vertical cliff.  The various trails converging here make a form of a
+T intersection with paths leading north, south and west.  Trees lining
+the paths stretch peacefully into the sky as well as provide some shade
+for the lonely traveler.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21015 10 10 5
+D2
+~
+~
+0 -1 21238 10 10 5
+D3
+~
+~
+0 -1 21008 10 10 5
+-1
+S
+
+#21012
+On a Large Sand Dune Overlooking the Beach~
+You find yourself on a huge sand dune which stretches north and south as
+far as your eyes can see.  To your west you can see trails leading
+towards Chiiron, but the sand is too soft to tread upon.  To your east
+you can see the beach, but the sand is so fine, you cannot safely walk
+upon it.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 21010 10 10 5
+D2
+~
+~
+0 -1 21013 10 10 5
+-1
+S
+
+#21013
+Before a Large Sandy Cliff Face~
+Just above you stands a tall sandstone cliff, its pale face marked with
+easy handholds.  To the north extends a large sand dune which looks just
+solid enough to hold your weight.  Rising up to the south is a sheer
+cliff wall composed of hardened sandstone.  Eastwards extends a narrow,
+sandy path which leads to the beach.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 21012 10 10 5
+D1
+~
+~
+0 -1 21038 10 10 5
+E
+cliff sheer wall 1 up~
+The cliff rises many feet above you.  Several sturdy-looking rocks jut
+from its sides and form nice handholds for you to climb.
+~
+A
+climb~
+cliff sheer wall 1 up~
+if( find_skill( ch, climb ) > 0 ) {
+  act_tochar( #up, ch );
+  act_notchar( #up1, ch );
+  transfer( ch, find_room( 22021 ) );
+  act_notchar( #arrive, ch );
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+up~
+@YYou carefully position your hands in the cracks along the face of the
+cliff wall and slowly proceed to climb up its sheer surface.
+~
+E
+up1~
+@Y$n carefully positions $s hands in the many cracks along the face of
+the cliff and slowly proceeds to climb up it.
+~
+E
+arrive~
+@YYou hear several low grunts and groans beneath you and glance down to
+see $n come slowly climbing up the cliff face.
+~
+E
+fail~
+@YYou attempt to climb up the cliff face but fail.@n
+~
+E
+nfail~
+@Y$n attempts to climb up the cliff face but fails.@n
+~
+!
+0 0 0
+A
+fly~
+cliff sheer wall 1 up~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #nfly, ch );
+  transfer( ch, find_room( 22021 ) );
+  act_notchar( #narrive, ch );
+  }
+else {
+  act_tochar( #cant, ch );
+  act_notchar( #ncant, ch );
+  }
+~
+E
+fly~
+You fly up the cliff.
+~
+E
+nfly~
+$n flies up the cliff.
+~
+E
+narrive~
+$n flies in from below.
+~
+E
+cant~
+You don't know how to fly.
+~
+E
+ncant~
+$n doesn't know how to fly.
+~
+!
+0 0 0
+-1
+S
+
+#21014
+Northern Sea trail - Cliff Overlooking the Sea of Stars~
+The trail climbs up a steep cliff here, allowing you an amazing view of
+the vast Sea of Stars to the south.  The clear blue water of the sea laps
+gently against the shore below and as the light strikes different
+portions of it you can see a light twinkling effect, hence why it is
+called the Sea of Stars.  The trail descends down the cliff a few feet to
+the west from here while to the east it continues to climb the steep
+cliff.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21044 10 10 5
+D3
+~
+~
+0 -1 21078 10 10 5
+-1
+S
+
+#21015
+Western Sea Trail~
+You can barely hear the waves now as you reach this particular spot.  The
+trail leads east and downwards to the south.  The top of a tower can be
+seen to the southwest.  
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21016 10 10 5
+D2
+~
+~
+0 -1 21011 10 10 5
+E
+tower~
+You squint and take a closer look to the southwest.  The tower appears to
+be a guard tower of some sorts.  
+~
+-1
+S
+
+#21016
+Northern Sea Trail~
+The well-worn mountain trail leads to the west and south.  Off in the
+distance to the south you hear the rhythmic sound of waves crashing, and
+above you fly many different varieties of sea birds.  This small road is
+not one of the safest places apparently as there are frequent reports of
+highway men and rogues.  Even the semi-frequent patrols of guards can't
+keep it safe.  To the north, a small road disappears from view behind a
+screen of bushes.
+
+A small sign is posted here.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 42293 10 10 5
+D1
+~
+~
+0 -1 21243 10 10 5
+D2
+~
+~
+0 -1 21019 10 10 5
+D3
+~
+~
+0 -1 21015 10 10 5
+E
+sign~
+The sign reads:
+
+Kha-Da:    North
+Medienne:  East
+Chiiron:   Southwest
+~
+-1
+S
+
+#21017
+Small Winding Path~
+This narrow trail is really just a bit of sand covering sparse grass.  It
+must be used only by pedestrians, it is too narrow for large animals or
+wagons.  It is very worn with use; the actual trail is a foot below the
+normal ground level.
+~
+[Fenlyn] POD: Random Entrance 67021 --> D
+~
+301465600 12 5 0
+D0
+~
+~
+0 -1 21025 10 10 5
+D3
+~
+~
+0 -1 21000 10 10 5
+D5
+hole~
+hole~
+34 -1 67021 10 10 5
+A
+~
+~
+if( is_open( room, down ) ) {
+  if( find_stat( ch, level ) < 60 ) {
+    act_tochar( #noway, ch );
+    end;
+    }
+  if( players_area( find_room( 67001 ) ) >= 3 ) {
+    if( players_room( find_room( 67021 ) ) >= 1 ) {
+      act_tochar( #closes, ch );
+      act_notchar( #nccloses, ch );
+      close( room, down );
+      end;
+      }
+    }
+  }
+act_tochar( "You step carefully into the hole.", ch );
+continue;
+~
+E
+closes~
+As you start to head down, the exit seems to disappear.
+~
+E
+nccloses~
+As $n starts to head down, the exit seems to disappear.
+~
+E
+noway~
+You are too inexperienced for the challenge that awaits you.
+~
+!
+3 0 32
+-1
+S
+
+#21018
+Northern Sea Trail~
+Empty space.
+~
+~
+301465600 1 6 0
+D3
+~
+~
+0 -1 21016 10 10 5
+-1
+S
+
+#21019
+Northern Sea Trail~
+The well-worn mountain road leads to the east and north here.  About 150
+meters below you, you see the Northern Sea battering the coast line with
+its large waves.  It appears that the whole sea is covered in a fine
+mist, and the water is so dark that no light penetrates it.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21016 10 10 5
+D1
+~
+~
+0 -1 21020 10 10 5
+-1
+S
+
+#21020
+Northern Sea Trail~
+The mountain road continues to the east and west here.  To the north
+there are densely wooded mountains, and to the south you hear the waves
+of the Northern Sea.  This road is known for the often poor visibility,
+that is caused by the fog that rolls in up the valley.  You notice as you
+walk that everyone you pass is all bundled up and looking away from you.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21243 10 10 5
+D1
+~
+~
+0 -1 21021 10 10 5
+D3
+~
+~
+0 -1 21019 10 10 5
+E
+w~
+none~
+-1
+S
+
+#21021
+Northern Sea Trail~
+You are on a well-worn mountain road that leads to the north and west. 
+Below you, beneath the dark mist you hear the sound of waves, battering
+the coastline.  Every once in a while you hear the low bellowing of a
+ship's horn, or get a glimpse of a ship through the dark mist.  To the
+north shrouded in dark fog, you see densely wooded mountains.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21022 10 10 5
+D3
+~
+~
+0 -1 21020 10 10 5
+-1
+S
+
+#21022
+Northern Sea Trail~
+You are on a well-worn mountain road that goes east and south.  To the
+north is the base of a range of densely forested mountains, and in the
+distance to the south you can hear the rhythmic tumbling of waves
+crashing on a beach.  Off in the distance to the west you see a guard
+tower, with a large bell mounted at the top.  The bell is used for
+warning the guards of Chiiron and Medienne in case of attack from the
+north or south.
+~
+Sifs stronghold here.
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21074 10 10 5
+D2
+~
+~
+0 -1 21021 10 10 5
+D3
+~
+~
+0 -1 21243 10 10 5
+E
+silver dragon statue~
+This tall statue stands nearly 10 feet high, and almost half again as
+wide.  The dragon is curled up with its tail tucked securely under its
+nose.  The lovely sapphire eyes sparkle with a life of their own.  A tiny
+keyhole is nestled in the stomach of the curled up dragon.
+~
+A
+unlock~
+silver dragon~
+if( !is_open( room, up ) ) {
+  if( has_obj( 2967, ch ) ) {
+    act_tochar( #up, ch );
+    act_notchar( #rup, ch );
+    wait( 1 );
+    send_to_room( #door, room );
+    send_to_room( #open, find_room( 47275 ) );
+    open( room, up );
+    wait( 3 );
+    send_to_room( #bye, room );
+    close( room, up );
+    send_to_room( #close, find_room( 47275 ) );
+    }
+  else
+    act_tochar( #nope, ch );
+  }
+else
+  act_tochar( #duh, ch );
+~
+E
+up~
+You place your dragon-shaped key into the small keyhole and the sky above
+you begins to shimmer.
+~
+E
+rup~
+$n places $s dragon-shaped key into the small keyhole and the sky above
+$m begins to shimmer.
+~
+E
+door~
+A set of white, ethereal steps winks into existence.  At the top of the
+spiraling staircase lies a set of pearl gates.
+~
+E
+bye~
+The phantasmal staircase fades out of existence, and the opalescent gates
+close silently.  In an instant, the gates are gone as well.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+E
+duh~
+The gates above you stand open wide, already.
+~
+E
+open~
+The mithril gates open silently.
+~
+E
+close~
+The mithril gates swing silently shut.
+~
+!
+0 0 0
+-1
+S
+
+#21023
+Northern Sea Trail~
+Here the path bends to the north around a small inlet and the path here
+looks well-worn with signs of heavy commercial use.  Below a cliff drops
+away toward the Northern Sea, and just from this vantage point, you can
+see the top of a tower down there.  A faint trail winds its way down to
+the west.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21059 10 10 5
+D1
+~
+~
+0 -1 21024 10 10 5
+D3
+~
+~
+0 -1 21096 10 10 5
+-1
+S
+
+#21024
+Northern Sea Trail~
+You are a well-worn path that heads east and west.  This is the path that
+connects Chiiron and Medienne, that would explain the deep ruts and hoof
+prints in the mud.  To the north, austere mountains rise, seeming to loom
+overhead, while to the south the terrain drops until a cliff plunges the
+rest of the way into the Great Northern Sea.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21241 10 10 5
+D1
+~
+~
+0 -1 21026 10 10 5
+D3
+~
+~
+0 -1 21023 10 10 5
+-1
+S
+
+#21025
+Small Winding Path~
+You are quite close to a beach; you can hear the sea birds and smell the
+salt.  The narrow path is very worn; its surface is several inches lower
+then the surrounding sandy soil.  Small tufts of grass grow just off the
+path, fighting the encroaching sand.
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21036 10 10 5
+D2
+~
+~
+0 -1 21017 10 10 5
+-1
+S
+
+#21026
+Northern Sea Trail~
+You have reached a sharp bend in the well-worn path.  Here the path turns
+to the west and south.  There are deep ruts and hoof prints in the
+semi-dry mud.  To the north-east you see a forest that slowly rises into
+the mountains, and to the south-west you see the Great Northern Sea.  A
+faint, newly-opened path leads eastward into the forest.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21242 10 10 5
+D1
+~
+~
+0 -1 21137 10 10 5
+D2
+~
+~
+0 -1 21027 10 10 5
+D3
+~
+~
+0 -1 21024 10 10 5
+-1
+S
+
+#21027
+Eastern Sea Trail~
+You have reached a sharp bend in the well-worn path.  Here the path turns
+to the east and north.  There are deep ruts and hoof prints in the
+semi-dry mud.  To the north-east you see a forest that slowly rises into
+the mountains.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21026 10 10 5
+D1
+~
+~
+0 -1 21028 10 10 5
+-1
+S
+
+#21028
+Eastern Sea Trail~
+You are on a well-worn road that runs to the west and south.  To the
+south-west you can hear the sounds of the northern Sea, merchant ship
+horns blowing, and waves crashing.  To the north-west great forested
+mountains rise up out of the foothills.  You notice that everyone who
+passes by is totally bundled up and are looking down with their faces
+covered.  Even the guards that frequent the area can't keep the road too
+safe.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21137 10 10 5
+D2
+~
+~
+0 -1 21029 10 10 5
+D3
+~
+~
+0 -1 21027 10 10 5
+-1
+S
+
+#21029
+Intersection on Eastern Sea Trail~
+Here there is an intersection in the well-worn path.  To the north the
+main path trail continues, you can tell because of the deep ruts and hoof
+prints in the mud.  A small trail branches off to the east and heads into
+a dense forest.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21028 10 10 5
+D1
+~
+~
+0 -1 21309 10 10 5
+D2
+~
+~
+0 -1 21030 10 10 5
+E
+west~
+To the west, constructed high above the crashing waves, a massive,
+shadowy fortress looks down over the Northern Sea.  Upon the highest tier
+of the castle, a small balcony extends over the beach, looking toward the
+docks of Medienne.
+~
+-1
+S
+
+#21030
+Eastern Sea Trail~
+You are on a well-worn road that leads north and south.  A little bit to
+the north, you see a small intersection, and way off in the distance to
+the south, you see a large wall.  Down a small cliff to the west, the
+Northern Sea is battering the coast.  And to the east large forested
+mountains rise up out of the foothills.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21029 10 10 5
+D2
+~
+~
+0 -1 21031 10 10 5
+-1
+S
+
+#21031
+North of Medienne~
+You are on a well-worn road that leads north and south.  A little bit to
+the north, the sea trail continues, and to the south you see a large wall. 
+Down a small cliff to the west the Northern Sea is battering the coast. 
+And to the east large forested mountains rise up out of the foothills.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21030 10 10 5
+D1
+~
+~
+0 -1 21035 10 10 5
+D3
+~
+~
+0 -1 21034 10 10 5
+-1
+S
+
+#21032
+Narrow Path~
+This is a narrow path between high bushes, extending to the north and
+west.  You are standing just east of a worn path which travels from north
+to south.  the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 8 0
+D0
+~
+~
+0 -1 21033 10 10 5
+D3
+~
+~
+0 -1 21303 10 10 5
+-1
+S
+
+#21033
+Narrow Path~
+Directly to the east lies what appears to be a vast forest, although the
+trees make this a bit difficult to discern.  The sounds of fauna are
+quite prevalent, as are the general smells of the wild.  The path opens
+up to the south and extends away to the east.
+~
+~
+301465608 2 8 0
+D1
+~
+~
+0 -1 3786 10 10 5
+D2
+~
+~
+0 -1 21032 10 10 5
+-1
+S
+
+#21034
+Fortified Wall~
+A fortified wall standing fifteen meters in height borders the trail here
+to the south.  From beyond the wall, the sounds of life can be heard, and
+there are pungent odors of meat cooking on a pit.  The path continues
+along the wall to the north and west.
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21031 10 10 5
+D2
+~
+~
+0 -1 21040 10 10 5
+-1
+S
+
+#21035
+Trail Around Medienne~
+The dirt path leads east and west along a large fortified wall to the
+south.  Off to the west the trail opens up to a main road.  The trees of
+the forest to the north come right up to the edge of the trail in a thick
+tangle.  The bustling sounds of city life can be heard over the massive
+stone walls.
+~
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 21037 10 10 5
+D3
+~
+~
+0 -1 21031 10 10 5
+E
+trees~
+The tall pine trees grow close together, their branches twisting together
+to make travel impossible.
+~
+E
+wall~
+The tall wall is fifteen meters tall, made of stone blocks and appears to
+be very solid.
+~
+-1
+S
+
+#21036
+On the Edge of a Cliff on the Winding Path~
+To the east is the edge of a rocky cliff.  Peering down, you can see a
+sandy beach leading to dark water.  South and west run a narrow path
+which has been trampled into the soft, sandy soil.  You can smell salt
+water coming in from a breeze to your east, and can hear the sound of the
+surf hitting the beach.
+~
+[Terek] Use to head down to 21038
+~
+301465600 12 6 0
+D2
+~
+~
+0 -1 21010 10 10 5
+D3
+~
+~
+0 -1 21025 10 10 5
+A
+get take pick~
+red flowering plant rose~
+acode( find_room( 345 ), 3 );
+~
+!
+0 0 0
+544 17 1509949515 -2 0
+1324 17 1509949540 -2 0
+-1
+S
+
+#21037
+Trail Around Medienne~
+The dirt path heads west and north, turning and following a bump-out in
+the walls of the town.  The path is wide here, the trees pulling back
+from the scarred stone walls.  Many footprints and wheel-marks show that
+this dusty trail is well travelled.
+~
+[Merior] bump-out? this a technical term?
+[Merior] room says trees pull from walls, extra says from path
+fixed, and bump-out is just a description of a part of the wall that is
+'bumped-out" from the rest of the wall 
+[Celine] hehe, bumped out.  cool
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 21058 10 10 5
+D3
+~
+~
+0 -1 21035 10 10 5
+E
+walls stone scarred~
+The fifteen meter high walls are scarred and pitted, most likely the
+result of many attempted invasions.
+~
+E
+trees~
+The pine trees pull back from the wall a little here, leaning towards
+the northwest.  Beneath the trees is a thick tangle of thorny bushes.
+~
+E
+bushes thorny~
+Sharp thorns cover the thick dry branches of the bushes.  Moving through
+the thorns would be painful at best, and most likely impossible.
+~
+E
+wheel-marks marks~
+Deep ruts from wagon wheels follow the path.
+~
+-1
+S
+
+#21038
+Narrow Beach Path~
+A narrow path has been formed between two sand dunes allowing you to move
+either east or west.  Westward lies a tall sandstone cliff which appears
+to be climbable; to the east you can see golden sand and dark blue water
+hitting the shore.
+~
+~
+301465600 10 6 0
+D1
+~
+~
+0 -1 21039 10 10 5
+D3
+~
+~
+0 -1 21013 10 10 5
+-1
+S
+
+#21039
+The Small Sandy Path on the Beach~
+This narrow path extends east and west between sand dunes.  Far to your
+west you can see a steep sandstone cliff; eastward lies a golden beach
+and gently lapping waves.  Small bits of rock lie atop the sand, colors
+matching the cliff in the distance.
+~
+~
+301465600 10 6 0
+D1
+~
+~
+0 -1 22000 10 10 5
+D3
+~
+~
+0 -1 21038 10 10 5
+78 17 1509949540 -2 0
+1324 17 1509949520 -2 0
+-1
+S
+
+#21040
+Fortified Wall~
+You are next to a tall wall that stands about fifteen meters high.  The
+trail leads east and west along the wall.  From beyond the wall you hear
+the sounds of city life.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21034 10 10 5
+D3
+~
+~
+0 -1 21041 10 10 5
+-1
+S
+
+#21041
+Fortified Wall~
+You are travelling on a well-worn path showing heavy imprints from carts
+and possibly oxen.  Heavy foliage prevents you from leaving the trail to
+the north and west.  Southeast of here is what appears to be a heavily
+fortified wall of a fortress or city.  
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21040 10 10 5
+D2
+~
+~
+0 -1 21042 10 10 5
+358 17 1509949540 -2 0
+-1
+S
+
+#21042
+Fortified Wall~
+You are on a well-worn path along the wall of a city or fortress.  High
+above, birds circle in search of prey.  Far to the west can be heard the
+crashing of waves on a shore, with sounds of activity coming from across
+the wall to the east.  The path continues here from north to south.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21041 10 10 5
+D2
+~
+~
+0 -1 21043 10 10 5
+-1
+S
+
+#21043
+Fortified Wall~
+This path leads along the fortified wall of what appears to be some sort
+of city.  The path continues to the north and the west, and to the south
+is a large pile of freshly cut wood.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21042 10 10 5
+D3
+~
+~
+0 -1 21045 10 10 5
+-1
+S
+
+#21044
+Northern Sea trail - Cliff Overlooking the Sea of Stars~
+Large pine trees border the southern edge of the cliff here, acting as a
+sort of natural fence to keep you from falling off the edge and
+plummeting to your death.  A cool breeze blows across the cliff carried
+with it the scent of the salt water below.  To the east the trail becomes
+rocky as it continues to make its climb up the cliff and around the edges
+of the sea.  To the west it begins to descend a bit as it heads down
+towards a dense forest.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21049 10 10 5
+D3
+~
+~
+0 -1 21014 10 10 5
+-1
+S
+
+#21045
+Path Along Wood Pile~
+The path bends here from east to south around the wood pile.  In the
+distance to the west can be heard the crashing of waves on a shore.  High
+above, gulls circle seeking prey among the grass and trees.  
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21043 10 10 5
+D2
+~
+~
+0 -1 21046 10 10 5
+-1
+S
+
+#21046
+Path Along Wood Pile~
+Brief scampering sounds can be heard from within the pile of wood to the
+east of here.  Far to the west, the crashing of waves on a rocky
+shoreline can be heard, along with the cries of gulls high overhead.  The
+path continues here to the north and south.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21045 10 10 5
+D1
+~
+~
+0 -1 21091 10 10 5
+D2
+~
+~
+0 -1 21047 10 10 5
+-1
+S
+
+#21047
+Road Intersection - Near the Woodpile~
+The road bends from north to east here, snaking its way around a great
+pile of wood.  In the distance to the west, you hear the low rumbling of
+waves crashing into the cliffs.  High above, gulls circle about, seeking
+prey among the grass and trees.  A narrow road follows a slope down
+towards the Inner Sea to the west.
+  
+A small sign has been placed at the crossroads.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21046 10 10 5
+D1
+~
+~
+0 -1 21048 10 10 5
+D2
+~
+~
+0 -1 21075 10 10 5
+D3
+~
+~
+0 -1 21085 10 10 5
+E
+gulls~
+The gulls are too far for you to see acurately.
+~
+E
+sign small~
+The sign reads:
+
+North - Great North Road, Sea Trails
+East  - Medienne
+West  - Inner Sea Docks
+~
+-1
+S
+
+#21048
+Road Near City~
+To the east, strong fortified walls of a city rise.  Smells and sounds of
+commerce and life lightly fill the air, calling to you to come see the
+strange and rare things this land produces.  To the north a small path
+leads between towering walls of stacked wood, and to the west the road
+continues.  The road follows the wall south to a section of the wall with
+a large portcullis set in it.
+~
+links south to 21049
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21091 10 10 5
+D2
+~
+~
+0 -1 172 10 10 5
+D3
+~
+~
+0 -1 21047 10 10 5
+E
+wood~
+This is a large pile of freshly-cut wood approximately 30 feet high and
+more than 200 feet wide.  Most of the leaves and branches have been
+stripped from this wood, although it is far from clean.  Rustling noises
+can be heard within the pile as recently displaced animals attempt to
+make sense of their new surroundings 
+~
+-1
+S
+
+#21049
+Northern Sea trail - Cliff Overlooking the Sea of Stars~
+Large smooth boulders lie scattered about the trail here, nearly blocking
+further passage to the east.  The roots of several of the trees which
+border the trail break through the hard ground here as time has eroded
+most of the soil away.  Looking over the edge you notice that several
+trees lie at the rocky shore below as the cliff has slowly been eaten
+away by erosion.  The trail continues its course around the edge of the
+sea to the east and west from here.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21050 10 10 5
+D3
+~
+~
+0 -1 21044 10 10 5
+-1
+S
+
+#21050
+Northern Sea trail - Cliff Overlooking the Sea of Stars~
+The trail becomes extremely narrow here, just barely wide enough to allow
+a wagon to pass with safety.  Several trees which sit at the southern
+edge of the trail lean at a steep angle over the cliff, as if at any
+moment their roots could break and send them tumbling to the water below. 
+A few miles to the southeast you can see the city of Medienne sitting
+just on the outskirts of the forest.  Far off the southwest the city of
+Chiiron appears as a mere speck as the landscape.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21051 10 10 5
+D3
+~
+~
+0 -1 21049 10 10 5
+-1
+S
+
+#21051
+Northern Sea trail - Cliff Overlooking the Sea of Stars~
+Wagon ruts have been worn deep into the trail here, testament to the
+intense trading between Chiiron and Medienne over the last hundred years. 
+The trail is littered with small gravel-like rocks here, making movement
+slow and tedious across it as you carefully try not to slip and fall off
+the edge of the cliff.  Just barely visible at least fifty miles to the
+east are the massive Dragonspire mountains.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21052 10 10 5
+D3
+~
+~
+0 -1 21050 10 10 5
+-1
+S
+
+#21052
+Northern Sea trail - Cliff Overlooking the Sea of Stars~
+The sound of the massive waves of the Sea of Stars crashing against the
+rocky base of the cliff fills the air.  The trail has become considerably
+wider here, allowing enough room for several wagons to pass side by side
+with ease.  Sitting against the northern edge of the trail are two small
+wagons filled with road working equipment ranging from shovels to hefty
+pick-axes.  Along the southern edge of the trail a small, makeshift stone
+wall has been built.  The trail continues seemingly for miles to the east
+and west from here.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21317 10 10 5
+D3
+~
+~
+0 -1 21051 10 10 5
+-1
+S
+
+#21058
+Trail Around Medienne~
+The ancient wall looms over the small path, unmoved by countless assaults
+and the hands of time.  The sounds and smells of the city waft over the
+walls that separate them from the unforgiving wilds beyond.  The path
+itself is about fifteen feet wide now, heading north and south between
+the wall and the tall pines of the forest.
+~
+~
+301465600 3 7 0
+D0
+~
+~
+0 -1 3600 10 10 5
+D2
+~
+~
+0 -1 21037 10 10 5
+E
+wall ancient~
+The wall towers nearly fifteen meters tall, comprised of massive stone
+blocks.  It has survived time and strife quite well, and appears quite a
+formidable defense still.
+~
+E
+pines~
+Tall pine trees grow right up to the edge of the path.  They grow close
+together, and their low-hanging branches block movement.
+~
+-1
+S
+
+#21059
+Northern Sea Trail~
+You are on a well-worn trail that runs north and south.  About 150 meters
+below you is an inlet of the Northern Sea, covered in a light mist, with
+waters that are dark and black.  In the distance somewhere below you, you
+hear the low haunting bellow of a merchant ship.  Looking north you see
+wooded slopes so dense you can barely see the mountains they cover.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21060 10 10 5
+D1
+~
+~
+0 -1 21241 10 10 5
+D2
+~
+~
+0 -1 21023 10 10 5
+-1
+S
+
+#21060
+Northern Sea Trail~
+You are on a well-worn trail that runs north and south.  About 150 meters
+below you is an inlet of the Northern Sea, covered in a light mist making
+the waters look dark and black.  Looking north you see wooded slopes so
+dense you can barely see the lower foothills they cover.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21061 10 10 5
+D1
+~
+~
+0 -1 21236 10 10 5
+D2
+~
+~
+0 -1 21059 10 10 5
+-1
+S
+
+#21061
+Northern Sea Trail, Road Fork~
+Off in the distance to the south you hear the rythmic sound of waves
+crashing, and above you find many different varieties of sea birds. 
+There is a major fork in the trail here with the main trail running to
+the west and then south of here, and a smaller fork in heading off to the
+north and the densely wooded slopes.  Standing to one side of this
+crossroads is an empty gibbet, its rope gently swaying in the breeze - a
+reminder to those highwaymen and robbers who inhabit these parts.
+  
+A rickety @bsign@n points with three broken edges.
+~
+rewrite this desc
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 28000 10 10 5
+D1
+~
+~
+0 -1 21235 10 10 5
+D2
+~
+~
+0 -1 21060 10 10 5
+D3
+~
+~
+0 -1 21062 10 10 5
+E
+sign~
+The sign reads:
+  
+Chiiron   - West
+Medienne  - South
+Kha-da    - North
+Monastery - North
+~
+-1
+S
+
+#21062
+Northern Sea Trail~
+The mountain road continues to the east and west here.  To the north
+there are densely wooden mountains, and to the south you hear the waves
+of the Northern Sea.  This road is known for the often poor visibility,
+that is caused by the fog that rolls in up the valley.  You notice as you
+walk that the few people you pass are all bundled up and move quickly
+past without looking.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 28021 10 10 5
+D1
+~
+~
+0 -1 21061 10 10 5
+D3
+~
+~
+0 -1 21063 10 10 5
+-1
+S
+
+#21063
+Northern Sea Trail~
+You are on a well-worn mountain road that leads to the north and east. 
+Below you, beneath the dark mist you hear the sound of waves, battering
+the coastline.  Every once in a while you hear the low bellowing of a
+ship's horn, or get a glimpse of a ship through the parting mist.  To the
+north shrouded in dark fog, you see densely wooded mountains.  
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21064 10 10 5
+D1
+~
+~
+0 -1 21062 10 10 5
+-1
+S
+
+#21064
+Northern Sea Trail~
+You are on a well-worn mountain path that leads to the north and south. 
+To the west a wide and very deep chasm cuts down from the mountains to
+the sea.  Looking down into the chasm, you can barely see the small river
+that carved it.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21081 10 10 5
+D1
+~
+~
+0 -1 28021 10 10 5
+D2
+~
+~
+0 -1 21063 10 10 5
+E
+suspension bridge w west~
+The bridge looks as if it might be sturdy enough to hold a few people,
+hopefully.  
+~
+A
+~
+~
+if( !is_exhausted( ch ) ) {
+  act_tochar( #go, ch );
+  act_notchar( #o-go, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+go~
+You walk far out onto the bridge...
+~
+E
+o-go~
+$n walks far out onto the suspension bridge to the west.
+~
+!
+3 0 8
+423 9 1509949465 3 0
+2509 9 1509949540 3 0
+-1
+S
+
+#21065
+Suspension Bridge~
+The bridge starts swaying to and fro as heavy winds howl below.  Ahead
+you see a few planks missing leaving a gap of about 10 feet.  Looks like
+you need to jump for it if you wish to travel further west.  Visible
+through the decrepit bridge is the rock chasm floor, where a tiny cart
+litters the stones in pieces; prey fallen to gravity.
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21094 10 10 5
+A
+jump leap~
+bridge hole gap 1 west~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flew, ch );
+  transfer( ch, find_room( 21066 ) );
+  act_notchar( #arrfly, ch );
+  };
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  transfer( ch, find_room( 21066 ) );
+  act_notchar( #arrjump, ch );
+  };
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+}
+~
+E
+flew~
+$n gracefully flies over the broken bridge.
+~
+E
+fly~
+You gracefully fly over the broken bridge.
+~
+E
+arrfly~
+$n comes flying across the gap.
+~
+E
+arrjump~
+$n comes jumping across the gap with a yelp.
+~
+E
+to_room~
+$n takes a few steps back and starts running at full speed towards
+the gap in the bridge.  As $e nears the gap $e gives a loud yell and
+jumps over it!
+~
+E
+to_char~
+You move back a little and start running at top speed towards the gap.
+As you near the gap you give a loud yell and leap over it!
+You made it across!
+~
+!
+0 0 0
+A
+1 west~
+~
+if( can_fly( ch ) ) {
+  act_tochar( "You fly west over the broken bridge.", ch );
+  act_notchar( "$n flies overs the gap the the west.", ch );
+  transfer( ch, find_room( 21066 ) );
+  }
+else {
+  send_to_char( #noway, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+noway~
+The gap in the bridge prevents you from going that way.
+~
+!
+0 0 2
+-1
+S
+
+#21066
+Suspension Bridge~
+The bridge starts swaying to and fro as heavy winds howl below.  Ahead
+you see a few planks missing leaving a gap of about 10 feet.  Looks like
+you need to jump for it if you wish to travel further east.  At the
+bottom of the chasm you see what looks like a smashed up cart.  Looking
+north, you see the road climb with the edge of the chasm to circle around
+the long way.  
+~
+[Seltha] This gap is just way to impossible :)  For starters, it's got eagle eye cafe in the middle of it, and secondly, it must be about a kilometer wide, going by the looks of the cliff face now :)
+[Seltha] My suggestion, if you're interested, is to make the bridge longer, and go down one or two spaces, (emulating the sag), and it goes underneath the cafe...
+~
+301465600 2 6 0
+D3
+~
+~
+0 -1 21095 10 10 5
+A
+1 east~
+~
+if( can_fly( ch ) ) {
+  act_tochar( "You fly east over the broken bridge.", ch );
+  act_notchar( "$n flies east over the gap.", ch );
+  transfer( ch, find_room( 21065 ) );
+  }
+else {
+  send_to_char( #to_char, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+to_char~
+Better not walk any further or you will plunge to your doom.  Either walk
+back and take another route or jump for it.  
+~
+!
+0 0 0
+A
+jump leap~
+gap bridge 1 east~
+if( is_mounted( ch ) ) {
+  send_to_char( "You can't do that while mounted.", ch );
+  end;
+  }
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flew, ch );
+  transfer( ch, find_room( 21065 ) );
+  act_notchar( #arrfly, ch );
+  }
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  transfer( ch, find_room( 21065 ) );
+  act_notchar( #arrjump, ch );
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+flew~
+$n gracefully flies over the broken bridge.
+~
+E
+fly~
+You gracefully fly over the broken bridge.
+~
+E
+arrfly~
+$n comes flying across the gap.
+~
+E
+arrjump~
+$n comes leaping across the gap with a yelp.
+~
+E
+to_room~
+$n takes a few steps back and begins to run at top speed towards
+the gap in the bridge. As $n nears the gap $e gives a loud yell and
+leaps!
+~
+E
+to_char~
+You move back a little and start to run at top speed towards the gap.
+As you near the gap you give a loud yell and leap.
+You made it across!
+~
+!
+0 0 0
+-1
+S
+
+#21067
+Northern Sea Trail~
+You are on a well-worn mountain path that leads to the north and south. 
+To the east a wide and very deep chasm cuts down from the mountains to
+the sea.  The cliff is steep, the chasm walls plunging down to the bottom. 
+Looking down into the chasm, you can barely see the small river that
+carved it.
+~
+south 21069
+[Phule] might want to change bridge east rextra
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21076 10 10 5
+D2
+~
+~
+0 -1 21262 10 10 5
+A
+~
+~
+if( !is_exhausted( ch ) ) {
+  act_tochar( #go, ch );
+  act_notchar( #o-go, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+go~
+You walk far out onto the bridge...
+~
+E
+o-go~
+$n walks far out onto the suspension bridge to the east.
+~
+!
+3 0 2
+2509 9 1509949490 3 0
+-1
+S
+
+#21068
+Northern Sea Trail~
+Under Construction.
+~
+~
+301465600 1 6 0
+D0
+~
+~
+0 -1 21066 10 10 5
+-1
+S
+
+#21069
+Northern Sea Trail~
+You are on a well-worn trail that leads to the north and west.  To the
+north lies the densely wooded mountains an to the south the Northern
+Sea.  In the distance you can see the watch tower, it reminds you that
+there are guards that pass by once and a while.  You can also see the
+great warning bell on the top of it, used for warning the guards of
+Chiiron and Medienne.  
+~
+north 21067
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21265 10 10 5
+D3
+~
+~
+0 -1 21070 10 10 5
+-1
+S
+
+#21070
+Northern Sea Trail~
+You are on a well-worn path that leads east and west from here.  Below
+you to the south, the Northern Sea lies, dark and impenetrable.  To the
+north is a dense wood covering much of the mountain side.  This trail is
+known for the often poor visibility because of the fog that rolls up the
+valley.  All about you are the small hills that lead up to the
+mountains.  
+~
+Koef Stronghold north of here.
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21069 10 10 5
+D2
+~
+~
+0 -1 21244 10 10 5
+D3
+~
+~
+0 -1 21071 10 10 5
+-1
+S
+
+#21071
+Northern Sea Trail~
+You are on a well-worn path that leads east and south.  To the north lies
+a dense wood that covers the lower part of the mountains.  About 150
+meters below you to the south lies the Northern Sea, it is covered in a
+thin mist.  The smell of salt and fish is thick in the air.  And it
+almost stings your nose.  
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21070 10 10 5
+D2
+~
+~
+0 -1 21072 10 10 5
+186 9 1509949540 3 0
+115 17 1509949450 -1 0
+114 17 1509949450 -1 0
+-1
+S
+
+#21072
+Northern Sea Trail~
+You are on a well-worn trail that leads north and south.  To the north
+lie mountains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+w 21073
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21071 10 10 5
+D1
+~
+~
+0 -1 21244 10 10 5
+D2
+~
+~
+0 -1 21269 10 10 5
+-1
+S
+
+#21073
+Northern Sea Trail~
+You are on a well-worn trail, that runs east and west.  About 150 meters
+below you is the Northern Sea, covered in a light mist, with waters that
+are dark and black.  Off in the distance below you, you hear the low
+bellowing of the horn on a merchant ship.  To the north lie woods so
+dense that you can barely see the mountains they cover.  
+~
+e 21072
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21300 10 10 5
+D1
+~
+~
+0 -1 21276 10 10 5
+D3
+~
+~
+0 -1 21074 10 10 5
+-1
+S
+
+#21074
+Northern Sea Trail~
+The mountain road continues to the east and west here.  To the north
+there are densely wooden mountains, and to the south you hear the waves
+of the Northern Sea.  This road is known for the often poor visibility
+that is caused by the fog that rolls in up the valley.  You notice as you
+walk that everyone you pass is all bundled up and looking away from you.  
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21073 10 10 5
+D3
+~
+~
+0 -1 21022 10 10 5
+-1
+S
+
+#21075
+Dusty Field~
+The ground about you is flat, and well-cleared; little grows here.  All
+about the area, wheel marks score the earth, crisscrossing the level
+terrain in an endless commercial bustle.  You would guess that this area
+would be quite busy on market days - and during peacetime.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21047 10 10 5
+D1
+~
+~
+0 -1 172 10 10 5
+D2
+~
+~
+0 -1 21220 10 10 5
+D3
+~
+~
+0 -1 21223 10 10 5
+-1
+S
+
+#21076
+Northern Sea Trail~
+You are on a well-worn path that leads south and east.  A ways off to the
+south you hear the familiar sounds of the sea, the waves crashing, birds
+squaking, and the deep bellowing of merchant ship's horns.  To the north
+and west lie densely wooded mountains that are partly covered in a dark
+fog.  
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21077 10 10 5
+D2
+~
+~
+0 -1 21067 10 10 5
+-1
+S
+
+#21077
+Northern Sea Trail~
+You are on a well-worn trail that leads to the north and west.  To the
+east lies a great chasm, at the bottom of the chasm you can see a small
+river running into the sea.  To the north you see that the chasm ends in
+a large cliff, the road lies above that cliff.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21078 10 10 5
+D3
+~
+~
+0 -1 21076 10 10 5
+-1
+S
+
+#21078
+Northern Sea Trail~
+You are on a well-worn path that leads south and east.  Rising from the
+chasm to your southeast you hear the familiar sounds of the sea, the
+waves crashing, birds squeaking, and the occasional bellow of a ship's
+horn.  To the north and west lie densely wooden mountains that are partly
+covered in a dark mist.  
+~
+[Terek] East use to be 21317
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21014 10 10 5
+D2
+~
+~
+0 -1 21077 10 10 5
+-1
+S
+
+#21079
+Northern Sea Trail~
+You are on a well-worn path that leads south and west.  Rising from the
+chasm to your southwest you hear the familiar sounds of the sea, the
+waves crashing, birds squacking, and the occasional bellow of a ship's
+horn.  To the north and east lie densely wooden mountains that are partly
+covered in a dark mist.
+~
+~
+301465600 12 6 0
+D2
+~
+~
+0 -1 21080 10 10 5
+D3
+~
+~
+0 -1 21089 10 10 5
+-1
+S
+
+#21080
+Northern Sea Trail~
+You are on a well-worn trail that leads to the east and north.  To the
+west lies a great chasm, at the bottom of which you can see a small river
+running toward the sea.  To the north the chasm ends as it abuts against
+a sheer cliff, with the road running along its top.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 21079 10 10 5
+D1
+~
+~
+0 -1 21081 10 10 5
+-1
+S
+
+#21081
+Northern Sea Trail~
+You are on a well-worn path that leads south and west.  In the distance
+and echoing up the chasm you hear the familiar sounds of the sea, the
+waves crashing, birds squaking, and the deep bellowing of ship horns.  To
+the north and east lie densely wooden mountains, partly covered in dark
+mists.  
+~
+~
+301465600 12 6 0
+D2
+~
+~
+0 -1 21064 10 10 5
+D3
+~
+~
+0 -1 21080 10 10 5
+-1
+S
+
+#21082
+Refectory~
+Several long wooden tables are lined up in neat rows here, with low
+wooden benches arranged about them.  A small hearth is built into the
+north wall, and you presume that this area is used not only for meals but
+for other purposes, as you note several locked crates and bits of paper
+scattered about the area.
+~
+~
+301465600 0 5 0
+D4
+~
+~
+0 -1 21083 10 10 5
+D5
+~
+~
+0 -1 21009 10 10 5
+871 9 1509949540 3 0
+871 9 1509949540 3 0
+-1
+S
+
+#21083
+Barracks~
+A hearth and several cords of firewood dominate the north wall, while
+rows of bunks dominate virtually every other inch of available space. 
+Several wooden lockers and articles of ratty clothing, dice, and cards
+lie scattered about the room.  Narrow windows, clearly built for
+defensive purposes, are cut into the walls at various strategic positions.
+~
+~
+301465600 0 5 0
+D4
+~
+~
+0 -1 21084 10 10 5
+D5
+~
+~
+0 -1 21082 10 10 5
+871 9 1509949540 3 0
+871 9 1509949540 3 0
+-1
+S
+
+#21084
+Barracks and Storage~
+In addition to the narrow, jagged windows used for defense, a great
+number of crates and barrels of water lie stockpiled in this room,
+presumably in preparation for a siege.  A few bunks have been set in this
+room, and you guess that the higher-ranking denizens of this tower rest
+here, where they get a slightly greater level of privacy than those
+who must sleep down below.
+~
+stairs in south wall, put in all descs
+~
+301465600 0 5 0
+D4
+~
+~
+0 -1 21237 10 10 5
+D5
+~
+~
+0 -1 21083 10 10 5
+-1
+S
+
+#21085
+Rutted Road~
+The road here is very steep, sloping from east down to the west.  Deep
+rutts in the road have been carved from many wagons and carts going to
+and from Medienne.  Trees surround this road on both sides while it
+continues to the west towards ths Inner-sea. 
+~
+[Fionna] ths instead of the
+[Dolf] Trees surround this road on both sides while it
+[Malayne] rutts should be ruts
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 21047 10 10 5
+D2
+~
+~
+0 -1 21223 10 10 5
+D3
+~
+~
+0 -1 21086 10 10 5
+E
+roots~
+These twisted, knarled roots cross the path here as they provide
+nutrition and stabalization to the trees they support.  
+~
+-1
+S
+
+#21086
+Rutted Road~
+This travel worn road is generally the last voyage for many goods before
+they are sold in the town of Medienne.  The loose packed dirt of the road
+forms nasty mud holes during the winter months of this northern clime. 
+On either side of the road, you see groves of wood and uninteresting
+underbrush.  
+~
+west was 21106
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21085 10 10 5
+D3
+~
+~
+0 -1 21215 10 10 5
+-1
+S
+
+#21089
+Northern Sea Trail - Cliff Overlooking the Sea of Stars~
+The road twists and turns here between the edge of a sheer cliff which
+drops away hundreds of feet just south of you and the rugged climb of the
+mountains north and up.  The view is breathtaking, with the chasm
+dropping steeply away to meet the glittering inland sea to the far
+south.  The panoramic view is put into perspective with the distant
+shape of a full sailed ship far out to sea.
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 21079 10 10 5
+D3
+~
+~
+0 -1 21310 10 10 5
+-1
+S
+
+#21091
+Shack in the Woodpile~
+You stand in a cleared area surrounded by towering piles of stacked
+wood.  The wood is cut and brought in from nearby forests and is bought
+by inhabitants of Medienne.  The winters can be harsh and long, hence the
+need for so much wood.  An open faced shack has been setup here from
+which a person can sell wood.  
+~
+[Merior] deleted firewood reset here
+~
+335020037 0 6 0
+D2
+~
+~
+0 -1 21048 10 10 5
+D3
+~
+~
+0 -1 21046 10 10 5
+E
+rat rats~
+You look around, but don't see any of the rats Ben is talking about.  You
+do hear rustling within the woodpile.  
+~
+E
+shack~
+A small shack, little more than a lean-to, meant to provide some
+protection from the elements for the woodcutter.  Bits of wood and bark
+litter the floor near the walls where the owner stacks the wood he has to
+sell.
+~
+209 9 1509949540 3 0
+136 17 1509949459 -1 0
+137 17 1509949458 -1 0
+135 17 1509949457 -1 0
+-1
+S
+
+#21094
+Suspension Bridge~
+You are crossing a swaying suspension bridge.  Wooden boards held tightly
+together form a stable surface to walk upon.  Looking over the side, your
+head swims with vertigo as you realize the little thread far below is
+actually the stream that carved this deep chasm.  
+~
+~
+301465600 12 9 0
+D3
+~
+~
+0 -1 21065 10 10 5
+-1
+S
+
+#21095
+Suspension Bridge~
+You are crossing a swaying suspension bridge.  Wooden boards held tightly
+together form a stable surface to walk upon.  Looking over the side, your
+head swims with vertigo as you realize the little thread far below is
+actually the stream that carved this deep chasm.  
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21066 10 10 5
+-1
+S
+
+#21096
+Cliff Bluff~
+You are standing at the edge of a cliff that drops ruggedly down to meet
+the dark waters of the Inner Sea.  A slim tower rises from a crag of rock. 
+You think you can make your way to the tower if you climb down the cliff
+here, toward a faint trail that traces its way across the top of a ridge,
+follows it down the other side and then rises up to meet the tower's base.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 21023 10 10 5
+A
+2 climb~
+1 down cliff~
+if( can_fly( ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 21097 ) );
+  act_notchar( #arr, ch );
+  end;
+  }
+if( find_skill( ch, climb ) < random( 2, 10 ) ) {
+  act_tochar( #slip, ch );
+  end;
+  }
+else { 
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 21097 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+slip~
+You start to climb down, but stop when you slip and nearly fall.
+~
+E
+arr~
+$n comes climbing slowly down the cliff.
+~
+E
+room~
+$n slowly climbs down the cliff.
+~
+E
+char~
+You climb slowly down the steep cliff.
+~
+!
+0 0 0
+787 17 1509949540 -2 0
+-1
+S
+
+#21097
+Ridgeline Trail~
+A trail starts here and snakes gently along the top of a ridgeline that
+droops down in the middle and rises back up toward the tower, a good
+stone's throw to the south.  The rugged cliff that rises here to the
+north looks climbable if you take it slow.  
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 21098 10 10 5
+A
+2 climb~
+1 up cliff~
+send_to_char( #char,ch );
+act_notchar( #room,ch );
+transfer( ch, find_room( 21096 ) );
+act_notchar( #arr,ch );
+~
+E
+arr~
+$n comes climbing slowly up the cliff.
+~
+E
+room~
+$n slowly climbs up the steep cliff.
+~
+E
+char~
+You begin to climb slowly up the steep cliff.
+~
+!
+0 0 0
+-1
+S
+
+#21098
+Sheer Ridge~
+You are in the middle of the ridge, with steep rocky sides dropping
+around 50' to the frothing dark waters of the Inner Sea, on both sides. 
+The trail continues north up to the cliff, and south up to the tower
+base.  
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21097 10 10 5
+D2
+~
+~
+0 -1 21099 10 10 5
+-1
+S
+
+#21099
+Crag Tower Base~
+The tower is a dark finger of stone, the same rock as the crag, from
+which it looks like it grows.  The narrow trail leads right up to a small
+doorstep.  Bushes and rocks line the base, so there is no way to walk
+around the tower.  The door is of thick-looking, iron-bound, weathered
+oak.  The steep cliff face looks as though it would provide many hand
+holds, if an adventurous soul wanted to reach the fortress above.
+~
+[Seltha] This is where the skap stronghold used to be (back door) and the rdesc is the same saying that you can climb to the fortress above...
+[Raudhrskal] Skap's old clan stronghold is mentioned in this room.
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 21098 10 10 5
+D2
+oak door~
+"oak door" door~
+391 -1 21100 10 10 5
+D5
+bush~
+bush~
+171 -1 21128 10 10 5
+E
+bushes~
+Behind the hardy looking bush, you glimpse a hole in the rock.  It looks
+like someone didn't like the hole, so they planted a bush there to hide
+it.  You can probably push the bush aside to get near it.
+~
+A
+1 look~
+1 down hole~
+if( is_open( room, down ) )
+  send_to_char( #open, ch );
+else
+  send_to_char( #close, ch );
+~
+E
+close~
+The large bush blocks your line of sight.
+~
+E
+open~
+You see a small hole leading down into the rock.  However, the hole is
+quite small.  Much too small for anything larger than a dog.
+~
+!
+0 0 0
+A
+push move~
+bush~
+if( is_open( room, down ) )
+  send_to_char( #already, ch );
+else {
+  open( room, down );
+  send_to_char( #co, ch );
+  act_notchar( #ro, ch );
+  }
+~
+E
+ro~
+$n pushes back at a bush until a small hole is revealed behind it.
+~
+E
+co~
+You push the bush back until it stays back.
+~
+E
+already~
+The bush is still pushed aside.
+~
+!
+0 0 0
+A
+~
+~
+close( room, down );
+continue;
+~
+!
+3 0 1
+A
+~
+up cliff~
+send_to_char( #rclimb, ch );
+act_notchar( #char, ch );
+transfer( ch, find_room( 51011 ) );
+act_notchar( #climb, ch );
+~
+E
+climb~
+$n comes slowly climbing up the cliff.
+~
+E
+rclimb~
+You slowly climb up the steep cliff.
+~
+E
+char~
+$n slowly climbs up the steep cliff.
+~
+!
+0 0 0
+-1
+S
+
+#21100
+Main Room~
+You stand in the main room of the slim tower.  It seems the rooms take up
+whole levels, with a narrow stair along the wall, winding up to the next
+level.  The floor is covered in expensive rugs, and the walls are covered
+with tapestries, giving it a warm feel.  There is the usual furniture
+for relaxing, studying, and socializing.  Cressets and a stone hearth
+light and warm the room.
+~
+~
+335020037 0 7 0
+D0
+oak door~
+"oak door" door~
+391 -1 21099 10 10 5
+D4
+~
+~
+0 -1 21101 10 10 5
+D5
+stones~
+stones~
+251 -1 21104 10 10 5
+E
+hearth~
+A nice fire is crackling away, driving off any last clinging fingers of
+chill.  But you don't remember seeing smoke rising outside.  
+~
+E
+cressets~
+Along the walls are crystal spheres held in delicate cressets of silver. 
+The spheres are filled with a clear liquid that gives off a soft white
+glow.  
+~
+A
+search~
+hearth~
+send_to_char( #begin, ch );
+act_notchar( #room, ch );
+if( random( 0, 1 ) == 0 ) {
+  send_to_char( #brick, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nothing, ch );
+~
+E
+nothing~
+You don't find anything special.
+~
+E
+brick~
+You find a brick that looks like you can push.
+~
+E
+begin~
+You begin to search the hearth.
+~
+E
+room~
+$n begins searching around the hearth.
+~
+!
+0 0 0
+A
+push~
+brick~
+if( rflag( reset0, room ) )
+  send_to_char( #brick?, ch );
+else {
+  if( !is_open( room, down ) ) {
+    send_to_char( #c_open, ch );
+    act_notchar( #r_open, ch );
+    open( room, down );
+    }
+  else {
+    send_to_char( #c_close, ch );
+    act_notchar( #r_close, ch );
+    close( room, down );
+    }
+  }
+~
+E
+r_close~
+$n pushes a brick and the opening closes.
+~
+E
+c_close~
+You push the brick and the opening closes.
+~
+E
+r_open~
+$n pushes a brick and an opening opens leading down.
+~
+E
+c_open~
+You push the brick and an opening opens leading down.
+~
+E
+brick?~
+There are many bricks. You push some at random but get bored.
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 21101 );
+if( rflag( reset0, room ) ) {
+  if( !obj_in_room( 326, room ) ) {
+    obj_to_room( oload( 326 ), room );
+    remove_rflag( reset0, room );
+    }
+  }
+continue;
+~
+!
+3 4 16
+A
+2 open~
+oak door 1 north~
+if( !is_open( room, north ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, north );
+  send_to_room( #all, find_room( 21099 ) );
+  }
+else
+  send_to_char( #c_open, ch );
+~
+E
+all~
+You hear tumblers turned, and the oak door is opened from the inside.
+~
+E
+c_open~
+But it's already open.
+~
+E
+room~
+$n unlocks the oak door and opens it.
+~
+E
+char~
+You unlock and open the door from the inside.
+~
+!
+0 0 0
+-1
+S
+
+#21101
+Laboratory~
+This floor of the tower is obviously an advanced laboratory.  The whole
+room is full of tables supporting alchemical equipment, tomes, books,
+magical tools, and objects of other unknown use.  The walls are covered
+by bookshelves and shelves, and interupted by only the stairway
+continuing up and one window.  
+~
+~
+335020037 0 6 0
+D4
+~
+~
+0 -1 21102 10 10 5
+D5
+~
+~
+0 -1 21100 10 10 5
+E
+4 tomes 5 bookshelves~
+Most all of the walls are covered with walnut bookshelves, with the
+overflow of books taking up any available space on the tables.  Big and
+small, they come is all kinds of strange sizes and types.  Looking at
+some of the open ones, you see diagrams and archaic scrawlings and
+writing.  
+~
+E
+equipment tools~
+Some stuff looks alchemical, some looks mage-like.  Most of the tables
+are taken up by beakers, vials, burners, urns, tubes, globes with tubes
+comming out, and more.  But in the corner, you see a summoning circle
+with full inks, and gem-dust, and big unlit candles.  
+~
+E
+circle~
+They are time consuming to make, and the arts for it are rare.  It is a
+needed @ustep@n in the summing of things from other planes.  
+~
+413 9 1509949540 3 0
+327 17 1509949540 -2 0
+-1
+S
+
+#21102
+Krudaar's Bedchamber~
+A room fit for royalty.  The entire chamber's floor is covered by a thick
+burgandy carpet.  The bed upon a low dias is king sized and could sleep
+five.  The many other furnishings include bedside tables, two dressers, a
+grand wardrobe, a study desk, three bookshelves, two tables, and seven
+plush chairs.
+~
+~
+335020036 0 8 0
+D4
+trapdoor~
+trapdoor~
+131 -1 21103 10 10 5
+D5
+~
+~
+0 -1 21101 10 10 5
+E
+1 down~
+The stairway on the eastern wall spirals down through the floor.
+~
+E
+1 up trapdoor~
+The stairway that spiraled up the inside of the tower opens onto this room
+along the eastern wall.  It continues up to a trapdoor in the ceiling.
+~
+E
+tables chairs furnishings~
+The furnishings are all of high quality, and set an autmosphere of warm
+rich comfort.  The tables are well carved in abstract scenes, and the
+chairs are padded and soft.  A stairway continues up and down here.
+~
+E
+desk~
+The desk is clean and orderly, very unlike the room below.  You find a
+bunch of alchemical papers and thesis, but much of it is beyond you.  You
+also find many pages written in a short-hand script, and you can't make
+much of any of it.
+~
+E
+5 bookshelves~
+The bookshelves seem to hold popular stories, myths, and literature. 
+Looking along the spines, it looks like the owner speaks all the common
+languages.  There are books here in Human, Elvish, Dwarvish, Slisp,
+Orcish, and you even think Gnomish.
+~
+E
+bed~
+The bed is large, and set with thick down covers.  Pushing upon it you
+find the mattress is springy and soft.  The bedposts of polished carven
+wood depict scenes of flames licking and jumping upward.
+~
+A
+read~
+books~
+act_tochar( #books, ch );
+~
+E
+books~
+Taking some time, you flip through many of the books you can understand. 
+They seem like selected favorite books of the owner of this tower.  A
+private library.  What myths and rumors you do find, tend to be the well
+known ones.
+~
+!
+0 0 0
+-1
+S
+
+#21103
+Construction Room~
+You climb into a huge arched room whose dimensions take up the full
+diameter of the tower.  A very sturdy and crude worktable curves against
+the northeast wall of the tower, covered in pieces of metal and tools of
+odd sort.  Inset in the western wall is a huge crank wheel.
+~
+Attn Immortal: Check periodically that the ceiling here is closed and the
+area has been written with the indoors flag true.
+~
+301465604 0 9 0
+D5
+trapdoor~
+trapdoor~
+131 -1 21102 10 10 5
+E
+wheel crank~
+The huge crank looks like a wheel from a frigate.  The gears are not
+visable and must be in the wall.
+~
+E
+worktable metal tools~
+The worktable is scared and scored and supports a wild array of iron
+pieces, vises, smelter over burner, metal cutters, and other metal
+shapeing tools.
+~
+A
+1 look~
+1 up ceiling~
+if( rflag( status0, room ) )
+  send_to_char( #open, ch );
+else
+  send_to_char( #closed, ch );
+~
+E
+closed~
+Four great wedge-shaped sections of the ceiling are opened upward,
+revealing the sky above.
+~
+E
+open~
+The arch or the ceiling looks to be covered in a mechanism that perhaps
+opens the ceiling to the sky.  You are not sure though, from this far
+away.
+~
+!
+0 0 0
+A
+turn spin~
+crank wheel~
+send_to_char( #turning, ch );
+act_notchar( #r_turning, ch );
+wait( 3 );
+if( rflag( status0, room ) ) {
+  act_room( #open, ch );
+  remove_rflag( status0, room );
+  remove_rflag( Indoors, room );
+  }
+else{
+  act_room( #close, ch );
+  set_rflag( status0, room );
+  set_rflag( Indoors, room );
+  }
+~
+E
+close~
+@bAdmidst resounding ticks and clicking the ceiling slowly closes,
+cutting off the suffused light from outside.
+~
+E
+open~
+@bAdmidst resounding ticks and clicking the ceiling splits into a 5 rayed
+star of suffused light, four wedges of the ceiling splitting upwards to
+open upon the sky.
+~
+E
+r_turning~
+$n goes over to the crank and begins to turn it.
+~
+E
+turning~
+The crank wheel turns only one way, and you begin to spin it.
+~
+!
+0 0 0
+424 9 1509949540 3 0
+-1
+S
+
+#21104
+Stairwell~
+The stairway is tight and narrow and does a lopsided spiral down through
+the cold dark-wet stone.  You can continue either way.  
+
+@WThere is a lever here.
+~
+~
+335020036 0 4 0
+D4
+ceiling~
+ceiling~
+251 -1 21100 10 10 5
+D5
+~
+~
+0 -1 21105 10 10 5
+A
+pull~
+lever~
+if( !is_open( room, up ) ) {
+  send_to_char( #c_open, ch );
+  act_notchar( #r_open, ch );
+  open( room, up );
+  }
+else {
+  send_to_char( #c_close, ch );
+  act_notchar( #r_close, ch );
+  close( room, up );
+  }
+~
+E
+r_close~
+$n pulls the lever and the ceiling closes.
+~
+E
+c_close~
+You pull the lever and the ceiling closes.
+~
+E
+r_open~
+$n pulls the lever and the ceiling opens.
+~
+E
+c_open~
+You pull the lever and the ceiling grates open.
+~
+!
+0 0 0
+-1
+S
+
+#21105
+Cellar and Baydock~
+You stand in a large underground cavern with a simple dock to the south. 
+To the south the cave leads away, and out to the inner sea.  This must be
+a private dock where goods can be shipped and unloaded easily.  Some
+crates are stacked here.  In the back, a stair spirals up through the
+dark rock.  
+~
+[Ged] in 'search crate', anymore should be any more, and ingot should probably be bar too.
+~
+335020036 0 8 0
+D0
+~
+~
+0 -1 21129 10 10 5
+D4
+~
+~
+0 -1 21104 10 10 5
+E
+1 north crack~
+The crack is small, much too small for you to enter.
+~
+E
+5 crates~
+A stack of stored things. Perhaps you could search them.
+~
+A
+search~
+5 crates~
+i = random( 0, 4 );
+if( !rflag( reset0, room ) || i )
+  send_to_char( #sorry, ch );
+else {
+  send_to_char( #c_iron, ch );
+  act_notchar( #r_iron, ch );
+  obj_to_char( oload( 325 ), ch );
+  }
+remove_rflag( reset0, room );
+~
+E
+sorry~
+You search around, but don't find anymore ingots.
+~
+E
+r_iron~
+$n searches the crates and seems happy to find an iron bar.
+~
+E
+c_iron~
+You search around in the crates and find one last iron bar! You take it.
+~
+!
+0 0 0
+-1
+S
+
+#21106
+Rutted Road~
+From this vantage point you can see the Inner-Sea to the west.  Many
+ships travel to this port to trade goods and restock.  The road leading
+down to the docks is well worn with many deep ruts from heavy wagon
+travel, with the woods to the north and south providing excellent cover
+from the cold winds from the sea.  
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21215 10 10 5
+D2
+~
+~
+0 -1 21199 10 10 5
+D3
+~
+~
+0 -1 21301 10 10 5
+-1
+S
+
+#21107
+Inner-Sea Docks~
+Stacked all along this dock are cargo crates from various distant lands,
+some are bound for the town of Medienne, while others have more inland
+destinations.  The old bleached planks of the dock have seen alot of
+wear and tear from winter storms and the heavy traffic during summer.  
+~
+~
+301465600 1 6 0
+D0
+~
+~
+0 -1 21108 10 10 5
+D1
+~
+~
+0 -1 21301 10 10 5
+D2
+~
+~
+0 -1 21109 10 10 5
+D3
+~
+~
+0 -1 21110 10 10 5
+-1
+S
+
+#21108
+Inner-Sea Docks~
+This part of the dock is much like the rest of the docks, with many
+crates stacked about this place.  The very northern part of the dock
+looks charred as if from a fire or attack.  This place is in serious
+disrepair but it is still functioning quite well despite it's obvious age
+and wear.  
+~
+[Arlin] Inner-Sea Docks: '..still functioning quite well despite ITS obvious age'...Thanking you kindly. Arlin
+~
+301465600 1 6 0
+D2
+~
+~
+0 -1 21107 10 10 5
+D3
+~
+~
+0 -1 21111 10 10 5
+-1
+S
+
+#21109
+Inner-Sea Docks~
+Many crates are stacked here, waiting to pass through customs, before
+making their final trip to the town of Medienne.  The planks of the dock
+strain under the incredible weight of the goods.  
+~
+~
+301465600 1 6 0
+D0
+~
+~
+0 -1 21107 10 10 5
+D3
+~
+~
+0 -1 21112 10 10 5
+-1
+S
+
+#21110
+Inner-Sea Docks~
+A ferry to various parts of the Inner-Sea docks in this area, with many
+benches nailed to the worn out planks of the pier for those waiting. 
+This part of the dock has fewer crates as compared to the cargo areas. 
+Your gaze is drawn out over the slate grey water, which is cold and
+choppy, having been whipped into foam by the white-caped sea.  
+~
+[Ximark] Second sentence... change "victor" to "victory"?
+[Luxus] Sign says..... sorry for ... inconvience... should be INCONVINIENCE
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 21107 10 10 5
+E
+crates~
+They hold trade goods and personal belongings.  Guards moving through the
+area discourage your messing with any fo them.  
+~
+A
+1 west~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+Ha! You want to jump into that cold choppy abyss?!
+~
+!
+0 0 0
+A
+jump dive~
+1 west off 1 down water~
+send_to_char( #cj, ch );
+act_notchar( #rj, ch );
+transfer( ch, find_room( 21130 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 21130 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_leave~
+$n follows after.
+~
+E
+f_arr~
+You see $n follow.
+~
+E
+arr~
+$n comes flying off the dock, landing in the water nearby.
+~
+E
+rj~
+You hear a splash, and turn around to find $n gone!
+~
+E
+cj~
+Taking a big breath, you leap into the roiling surf.
+~
+!
+0 0 0
+340 17 1509949540 -2 0
+-1
+S
+
+#21111
+Inner-Sea Docks~
+Some large ships are docked here, unloading their various cargo, while
+others are taking cargo onboard to be delivered to other docks further
+south and west.  Pelts and furs seem to be the majority of the export
+goods here.  While the imports seem to be all boarded up in crates and
+marked with their destination on the sides.  
+~
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 21108 10 10 5
+-1
+S
+
+#21112
+Inner-Sea Docks~
+Ships are docked here, unloading their various cargo, while others are
+taking cargo onboard to be delivered to other docks further south.  Pelts
+and furs seem to be the majority of the export goods here.  While the
+imports seem to be all boarded up in crates and marked with their
+destination on the sides of the boxes.  
+~
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 21109 10 10 5
+-1
+S
+
+#21113
+Eastern Sea Trail~
+Winding through the underbrush this trail twists and turns on a
+southwestern heading.  From the west you can hear the sounds of the sea
+lapping against the shore, and to the north a faint path winds down to
+the coast, venturing into the water.  The ground here is kind of soggy
+and moist.
+~
+north used to be osse and 21213; removed
+need to rewrite to take into account cliffs to w, shore and docks to n
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 21201 10 10 5
+D2
+~
+~
+0 -1 21114 10 10 5
+-1
+S
+
+#21114
+Eastern Sea Trail~
+Meandering through the choking underbrush the animal trail you have been
+following twists back and forth through this increasingly dense forest. 
+Here and there you begin to see more wetland foliage than actual forest
+growth.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21113 10 10 5
+D1
+~
+~
+0 -1 21252 10 10 5
+D2
+~
+~
+0 -1 21249 10 10 5
+D3
+~
+~
+0 -1 21115 10 10 5
+-1
+S
+
+#21115
+Eastern Sea Trail~
+As you travel deeper in this forest it becomes more and more like
+wetlands.  The trail here is nothing but a marshy area devoid of
+foliage.  It seem that there has been standing water here for quite
+sometime.  
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 21114 10 10 5
+D2
+~
+~
+0 -1 21116 10 10 5
+-1
+S
+
+#21116
+Eastern Sea Trail~
+Twisting deeper into the wetlands you follow this trail ever onward into
+the heart of this god forsaken place.  The sounds of the sea are far past
+as other sounds have taken their place, the sloshing of feet through the
+muck and spooked animals fleeing the area.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21115 10 10 5
+D1
+~
+~
+0 -1 21249 10 10 5
+D2
+~
+~
+0 -1 21117 10 10 5
+-1
+S
+
+#21117
+Eastern Sea Trail~
+The trail here has definitely become vastly different than it was
+originally.  The choking forest underbrush has given way to puddles of
+stagnant water and quicksand.  Huge amounts of vines hang from the trees
+and block your vision of the rest of the marsh.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21116 10 10 5
+D1
+~
+~
+0 -1 21248 10 10 5
+D2
+~
+~
+0 -1 21120 10 10 5
+D3
+~
+~
+0 -1 21118 10 10 5
+210 9 1509949540 3 0
+-1
+S
+
+#21118
+Eastern Sea Trail~
+Grassy underbrush chokes the sides of the trail, possibly diguising hidden
+dangers of the swamp.  You have heard stories of the beings who dwell in
+the swamplands south of Medienne and their cousins.  Hopefully luck will
+prevail and you won't meet any of them.  
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 21117 10 10 5
+D2
+~
+~
+0 -1 21119 10 10 5
+D3
+~
+~
+0 -1 21122 10 10 5
+-1
+S
+
+#21119
+Eastern Sea Trail~
+The dense underbrush along the side of the road makes it nearly
+impossible to travel into the forest.  To the east, beyond the brush, the
+ground seems to rise above the swamp.  Many stories have been told about
+entire civilizations being lost in these swamps.
+~
+opening the underbrush is rather odd, perhaps an action for moving it
+would be better?  (Athyle) 
+closed to east -kiian
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21118 10 10 5
+D1
+~
+~
+0 -1 21120 10 10 5
+E
+sign~
+Under construction.
+~
+E
+1 east~
+Examining the brush you notice that much of the foliage has been broken down. Maybe there is a passage behind this wall of brush.~
+E
+underbrush~
+Examining the underbrush, you notice that some of the twigs and branches
+are broken.  Perhaps, there is something on the other side.  
+~
+-1
+S
+
+#21120
+Edge of a Marsh~
+The ground here is swampy, despite the odd formation of rock which juts
+out of the ground, like some forgotten marker or signpost of a bygone age. 
+Pools of marsh water and stands of sallow grass horizon and leading off
+to the east and south.  To the west, you hear the resounding crash of
+waves arriving on the shore.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21117 10 10 5
+D1
+~
+~
+0 -1 21121 10 10 5
+D2
+~
+~
+0 -1 21261 10 10 5
+D3
+~
+~
+0 -1 21119 10 10 5
+1 9 1509949540 3 0
+-1
+S
+
+#21121
+Windswept Marsh - Small Rise~
+You stand on a small rise in a foul marsh.  A few stands of bushes and an
+odd tree grow here, along with some sallow grasses clinging to the earth
+above the edge of the dark waters.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21248 10 10 5
+D1
+~
+~
+0 -1 21245 10 10 5
+D2
+~
+~
+0 -1 21260 10 10 5
+D3
+~
+~
+0 -1 21120 10 10 5
+130 9 1509949540 3 0
+755 9 1509949540 3 0
+-1
+S
+
+#21122
+Windswept Moor - Pine Grove~
+A tumble of rough-edge stones are tucked away in a shadowy corner of this
+grove of stunted pines.  The trees grow closely together, in this spot
+sheltered on three sides by steep hills, and in a few spots a few great
+rocky rises reach up, covered with vegetation and towering far above your
+head.
+~
+down is entrance to the ruined keep
+d was 21123
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 21118 10 10 5
+D5
+vegetation~
+vegetation~
+251 -1 21288 10 10 5
+E
+crack~
+You look at the slight crack, and follow it as it winds its way into some
+dense vegetation which seems to have overgrown a hidden opening leading
+into the earth.
+~
+E
+monuments~
+The stones seem to be monuments to something from the past, or
+perhaps...pieces of it...
+~
+E
+rises rocky great~
+The rocky rises seem to be the remains of gigantic stones, set up in
+regular patterns like singular monuments to some forgotten aspect of the
+past.
+~
+E
+trees~
+The trees grow close together here, forming a dark screen which encloses
+the area.
+~
+A
+~
+~
+if( !is_player( ch ) )
+end;
+if( class( ch ) == ranger )
+  i = 2;
+else
+  i = 5;
+if( find_skill( ch, searching ) > random( i, 8 ) ) {
+  act_tochar( #notice, ch );
+  act_notchar( #nada, ch );
+  }
+~
+E
+nada~
+$n seems to notice something.
+~
+E
+notice~
+You notice a slight crack in one of the overgrown monuments.
+~
+!
+1 -1 2
+A
+move~
+vegetation plants~
+if( is_open( room, down ) ) {
+  act_tochar( #closing, ch );
+  act_notchar( #rclosing, ch );
+  close( room, down );
+  send_to_room( #bush_closed, find_room( 21288 ) );
+  end;
+  }
+else {
+  act_tochar( #move_bush, ch );
+  act_notchar( #rmove_bush, ch );
+  open( room, down );
+  send_to_room( #bush_opened, find_room( 21288 ) );
+  }
+~
+E
+closing~
+You move the vegetation to conceal the opening.
+~
+E
+rclosing~
+$n conceals an opening with some nearby vegetation.
+~
+E
+bush_closed~
+The opening above is suddenly covered over with vegetation.
+~
+E
+move_bush~
+You move aside the vegetation to reveal an opening.
+~
+E
+rmove_bush~
+$n moves aside some vegetation and reveals an opening.
+~
+E
+bush_opened~
+The vegetation laying across the opening above you is suddenly removed
+allowing a surge of fresh air into the room.
+~
+!
+0 0 0
+A
+open~
+vegetation plants~
+act_tochar( #no, ch );
+~
+E
+no~
+Planning on taking the bark off the plants and stepping into the pulp
+maybe?  Or perhaps you were just trying to move them out of your way?
+~
+!
+0 0 0
+756 9 1509949490 3 0
+-1
+S
+
+#21123
+Great Cellar~
+You stand in what was once a large, regular chamber.  From the grooves in
+the stone floor, you realize that many booted feet have passed this way
+before.  A great deal of general rubble and refuse litters the floor
+here, signalling that few come this way any more.  You spy chambers
+leading off in all four cardinal directions, and a stairway leading up
+back towards the surface.
+
+Bits of fresh meat lie scattered about the floor here.
+
+A sign is planted here.
+~
+mob needs reworking
+[Rebekka] lots..
+  
+~
+301465600 0 6 0
+D0
+~
+~
+0 -1 21289 10 10 5
+D1
+~
+~
+0 -1 21291 10 10 5
+D2
+~
+~
+0 -1 21290 10 10 5
+D3
+~
+~
+0 -1 21292 10 10 5
+D4
+~
+~
+0 -1 21286 10 10 5
+E
+meat bits fresh~
+The floor is covered with bits of meat, some fresh, some rotten.  Some
+seem to be the remains of animal corpses, some vaguely humanoid in form. 
+It is almost as if something is fed here, on a regular basis...
+~
+E
+sign~
+*This area still being renovated - be warned*
+~
+928 9 1509949540 3 0
+16 9 1509949540 3 0
+-1
+S
+
+#21124
+Eastern Sea Trail~
+The brush along the road is less dense here, and there is a small but
+well worn path leading into the hills to the east.  To the west the trail
+continues to follow the edge of the sea.
+~
+to the south needs to be deleted
+~
+301465600 5 6 0
+D2
+~
+~
+0 -1 21202 10 10 5
+D3
+area~
+area~
+227 -1 21125 10 10 5
+-1
+S
+
+#21125
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 5 6 0
+D1
+~
+~
+227 -1 21124 10 10 5
+D2
+~
+~
+0 -1 21126 10 10 5
+-1
+S
+
+#21126
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21125 10 10 5
+D2
+~
+~
+0 -1 21127 10 10 5
+-1
+S
+
+#21127
+Eastern Sea Trail~
+This road should go southeast..  generally toward trees/remaining forest
+from around Medienne, then turn to plains and scrub near the inner sea
+cliffs for most of the way, and finally get marshy/swampy (what IS the
+difference??) and end in the K'ssk Swamp.  It'll have TONS of room to add
+areas and other roads on to.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 21126 10 10 5
+D2
+~
+~
+0 -1 21266 10 10 5
+-1
+S
+
+#21128
+Small Crack~
+The tight crack of dirt runs down deeply through the stone.  From above
+you can hear the crashing of the Inner Sea.  
+~
+~
+301465604 0 2 0
+D4
+~
+~
+171 -1 21099 10 10 5
+D5
+~
+~
+0 -1 21129 10 10 5
+A
+~
+~
+open( room, up );
+~
+!
+1 4 16
+-1
+S
+
+#21129
+Small Crack~
+You stand deep within the cold confines of a narrow crack.  A light damp
+breeze moves through here, coming from the small opening to the south and
+going up through the crack above you.  
+~
+~
+301465604 0 2 0
+D2
+~
+~
+0 -1 21105 10 10 5
+D4
+~
+~
+0 -1 21128 10 10 5
+-1
+S
+
+#21130
+In The Sea Near Docks~
+You are treading water just offshore of a large docking area, with just
+keeping your head above the choppy grey swells taking all your energy. 
+There is a rip current here, and you see the docks slide north as you
+drift south.  
+~
+~
+301465600 6 9 0
+D2
+~
+~
+0 -1 21131 10 10 5
+E
+docks~
+The docks are east of you and you think you might be able to head in that
+direction.  As you bob in the swells, the dock moves a bit north, then
+back south, relative to your position.
+~
+A
+1 east~
+~
+send_to_char( #co, ch );
+act_notchar( #ro, ch );
+transfer( ch, find_room( 21109 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 21109 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n follows, looking the same.
+~
+E
+f_leave~
+$n heads for the pylons also.
+~
+E
+arr~
+$n comes up from below the docks looking like a wet rat.
+~
+E
+ro~
+$n catches a wave and bodysurfs it through the dock pylons.
+~
+E
+co~
+You ride a wave, taking you under the docks, and towards shore.
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 21130 );
+wait( 1 );
+if( num_in_room( room ) != 0 )
+transfer_all( room, find_room( 21131 ) );
+~
+E
+south~
+~
+!
+2 1000 0
+-1
+S
+
+#21131
+Offshore In The Inner Sea~
+You are struggling to stay afloat in the icy grey waters of the Inner
+Sea.  The shore is near to the east, but it is a wall of grey rock with
+waves crashing into it throwing plums of spray skyward.  You dare not get
+closer to shore, but that means staying out here in the rip.  
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 21130 10 10 5
+D2
+~
+~
+0 -1 21132 10 10 5
+A
+~
+~
+room = find_room( 21131 );
+wait( 1 );
+if( num_in_room( room ) != 0 )
+  transfer_all( room, find_room( 21132 ) );
+~
+!
+2 1000 0
+-1
+S
+
+#21132
+Offshore In Sea~
+The rip turns here and heads towards the cliffs and the waves that smash
+into them!  You see your death grinning at your foolishness from the
+spray of mist.  At great speed you are pushed towards the cold rocks,
+toward a dark cleft, and suddenly...  
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 21131 10 10 5
+D1
+~
+~
+0 -1 21133 10 10 5
+A
+~
+~
+transfer_all( room, find_room( 21133 ) );
+~
+!
+2 1000 0
+-1
+S
+
+#21133
+Inner Sea Cavern~
+From a narrow cleft to the west, awash in light, waves surge rhythmically
+into this cavern.  The cavern rises high above you, though you have
+little time to notice as the surges begin to pound you into the rock
+wall!
+~
+[Starshine] when's status flag changed?
+~
+301465600 6 8 0
+D3
+~
+~
+0 -1 21132 10 10 5
+D5
+~
+~
+0 -1 21135 10 10 5
+E
+glint~
+The glint looks like a rung or two, driven into the rock wall.  They are
+a little high up.  
+~
+E
+1 up~
+Looking up you spot light glinting off of something high up on the wall.
+~
+A
+~
+~
+if( rflag( status0, room ) ) {
+  remove_rflag( status0, room );
+  send_to_room( #all, room );
+  loop( all_in_room ) {
+    i = dice( 3, 8 );
+    dam_message( rch, i, "the rock" );
+    inflict( rch, mob, i, "being dashed against a rock" );
+    }
+  }
+else {
+  set_rflag( status0, room );
+  send_to_room( #all2, room );
+  }
+~
+E
+all2~
+@b@CThe surge falls back, taking you with it.
+~
+E
+all~
+@b@CThe surge rises up, throwing you into the rock!
+~
+!
+2 1000 0
+A
+grab grasp climb~
+rungs 1 up~
+if( rflag( status0, room ) )
+  send_to_char( #sorry, ch );
+else {
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 21134 ) );
+  loop( followers ) {
+    act_notchar( #f_leave, rch );
+    transfer( rch, find_room( 13547 ) );
+    act_notchar( #f_arr, rch );
+    }
+  }
+~
+E
+f_arr~
+$n comes onto the ledge from below.
+~
+E
+f_leave~
+$n too.
+~
+E
+room~
+$n goes up with a swell, but doesn't come down...
+~
+E
+sorry~
+The water is out, and it is much too high to reach.
+~
+!
+0 0 0
+A
+~
+~
+ch = rand_char( room );
+if( mob_in_room( 439, find_room( 21135 ) ) ) {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 21135 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+arr~
+@b@BYou see a tentacle come down from above holding $n.
+~
+E
+room~
+@b$n suddenly yelps and disappears below the surface!
+~
+E
+char~
+@b@BSomething grabs your leg and abruptly pulls you under the surface!
+~
+!
+2 100 0
+-1
+S
+
+#21134
+Hanging From A Rung~
+You are hanging from a rusty rung on the side of the cavern wall, the
+slightly glowing water rising and falling below you.  Looking up you see
+more rungs going upward.  
+~
+~
+301465600 6 6 0
+D4
+~
+~
+0 -1 13547 10 10 5
+D5
+~
+~
+0 -1 21133 10 10 5
+-1
+S
+
+#21135
+Cavern Bottom~
+You are about 20' below the waters surface.  The water is less turbulant
+here, but is murky with shadow, with little of the blue light above
+reaching down this far.  The floor is littered with boulders and it's
+surface sports many large cracks.
+~
+~
+301465604 7 8 0
+D4
+~
+~
+0 -1 21133 10 10 5
+E
+boulders~
+The boulders have been worn smooth by the surf and are covered in waving
+seaweed and barnicals.  
+~
+E
+cracks clefts~
+One cleft larger than the others looks interesting.  It also looks like
+it might be inhabited...  
+~
+A
+swim enter~
+crack cleft~
+if( mob_in_room( 439, room ) )
+  send_to_char( #sorry, ch );
+else {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 21136 ) );
+  act_notchar( #arr, ch );
+  }
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 21136 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n follows with effort.
+~
+E
+f_leave~
+$n follows with effort.
+~
+E
+arr~
+$n comes swimming in from the Cavern Bottom.
+~
+E
+room~
+$n swims into the Octopus' dark cleft.
+~
+E
+char~
+You swim into the dark cleft the tiger octopus inhabited.
+~
+E
+sorry~
+The bulk of the Octopus' body fills the crack.
+~
+!
+0 -1 0
+439 9 1509949540 3 0
+-1
+S
+
+#21136
+Crack Cleft~
+The cleft is pretty tight, and you wonder how the tiger octopus could fit
+in here.  A long jutting rock looks very unstable against the solid
+underwater cliff.  Near the back the cleft opens up a bit and you find...
+~
+~
+301465604 7 4 0
+D3
+~
+~
+0 -1 21135 10 10 5
+E
+long jutting rock~
+The rock looks like if you gave it a good tug it might cause a small
+avalanche.
+~
+A
+loop~
+chain~
+if( has_obj( 374, ch ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_room( #disturb, ch );
+    mob = mload( 1106, room );
+    }
+  else
+    act_room( #noth, ch );
+  }
+~
+E
+pull~
+You loop the chain over a jutting rock and pull.
+~
+E
+rpull~
+$n loops a length of chain over a jutting rock and pulls.
+~
+E
+disturb~
+The dislodging of the rock disturbs the rest of something BIG!
+~
+E
+noth~
+Nothing happens.
+~
+!
+0 0 0
+A
+move push pull tug yank~
+long jutting rock~
+act_tochar( #futile, ch );
+~
+E
+futile~
+All your attempts prove futile.  You just don't have the leverage.  Maybe
+if you looped a chain over the rock...
+~
+!
+0 0 0
+371 49 1509949540 -2 0
+2695 81 1509949450 -2 0
+373 81 1509949460 -2 0
+374 17 1509949540 -2 0
+-1
+S
+
+#21137
+Faint Forest Path~
+A forest trail seems to branch off from the sea trail here.  The soil has
+turned darker and you hear the sound of squirrels chattering to your
+east.  The trail into the forest meanders northwards from here.
+~
+~
+301465608 4 6 0
+D0
+~
+~
+0 -1 21138 10 10 5
+D2
+~
+~
+0 -1 21028 10 10 5
+D3
+~
+~
+0 -1 21026 10 10 5
+-1
+S
+
+#21138
+Faint Forest Path~
+The forest grows slightly thicker here, and you begin noticing more
+underbrush.  The sunlight only barely peeks through the surrounding
+trees, and you smell the heavy wet scent of loam and pine needles.  The
+air here is cool and clean.  
+~
+sunlight?  R/w
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 21139 10 10 5
+D2
+~
+~
+0 -1 21137 10 10 5
+D3
+~
+~
+0 -1 21242 10 10 5
+-1
+S
+
+#21139
+Faint Forest Path~
+You take a deep breath, so deep that your lungs almost hurt.  The spicy
+smell of pine resin is in the air, and the needles lie thick under your
+feet, muting your steps as you walk along the pathway.  The mountains are
+towards your east, and to the west lies more trail.  
+~
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 21140 10 10 5
+D3
+~
+~
+0 -1 21138 10 10 5
+-1
+S
+
+#21140
+Faint Forest Path~
+You sit down for a moment to catch your breath and take in the dark
+greens and browns of this forest path.  Pine trees reach up to the sky
+all around you like living pillars.  The pathway continues northwards
+from here.  
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 21141 10 10 5
+D3
+~
+~
+0 -1 21139 10 10 5
+-1
+S
+
+#21141
+Faint Forest Path~
+You are on a slope at the base of the mountain directly east of here. 
+Chilling breezes blow all around you, and the trees are thinning out once
+again.  Further up the hill you see a small plateau and a huge cave
+entrance.  
+~
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 21142 10 10 5
+D2
+~
+~
+0 -1 21140 10 10 5
+-1
+S
+
+#21142
+Faint Forest Path~
+The slope here is steep, and the few trees that stand here serve you as
+resting points to lean against on your climb.  You can see the Northern
+Sea over the tops of the trees to your west, and to your east and up the
+slope, you see a cave entrance yawning open in the massive rock face of
+the mountain.  
+~
+~
+301465600 4 6 0
+D1
+"Warlock Coven Mine Area"~
+"Warlock Coven Mine Area"~
+0 -1 31279 10 10 5
+D3
+~
+~
+0 -1 21141 10 10 5
+-1
+S
+
+#21143
+Western Sea Trail~
+The trail continues on to the north and south.  To the north you
+see what appears to be a fork in the trail.  Wind blows in from the sea
+to the east covering your face with drops of salty water.
+~
+north exit will be even to 21000
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21144 10 10 5
+-1
+S
+
+#21144
+Western Sea Trail~
+Climbing slightly upward to the south, the trail tightens a bit as the
+mountains begin to grow higher around you.  Looking eastward, you can
+still make out the great expanse of the sea.  
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21143 10 10 5
+D2
+~
+~
+0 -1 21145 10 10 5
+-1
+S
+
+#21145
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21144 10 10 5
+D1
+~
+~
+0 -1 21146 10 10 5
+-1
+S
+
+#21146
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21147 10 10 5
+D3
+~
+~
+0 -1 21145 10 10 5
+-1
+S
+
+#21147
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21146 10 10 5
+D2
+~
+~
+0 -1 21148 10 10 5
+-1
+S
+
+#21148
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21147 10 10 5
+D1
+~
+~
+0 -1 21149 10 10 5
+-1
+S
+
+#21149
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21150 10 10 5
+D3
+~
+~
+0 -1 21148 10 10 5
+-1
+S
+
+#21150
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21149 10 10 5
+D2
+~
+~
+0 -1 21151 10 10 5
+-1
+S
+
+#21151
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21150 10 10 5
+D1
+~
+~
+0 -1 21152 10 10 5
+-1
+S
+
+#21152
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21153 10 10 5
+D3
+~
+~
+0 -1 21151 10 10 5
+-1
+S
+
+#21153
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21154 10 10 5
+D3
+~
+~
+0 -1 21152 10 10 5
+-1
+S
+
+#21154
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21155 10 10 5
+D3
+~
+~
+0 -1 21153 10 10 5
+-1
+S
+
+#21155
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21154 10 10 5
+D2
+~
+~
+0 -1 21156 10 10 5
+-1
+S
+
+#21156
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21155 10 10 5
+D1
+~
+~
+0 -1 21157 10 10 5
+-1
+S
+
+#21157
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21158 10 10 5
+D3
+~
+~
+0 -1 21156 10 10 5
+-1
+S
+
+#21158
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21157 10 10 5
+D2
+~
+~
+0 -1 21159 10 10 5
+-1
+S
+
+#21159
+Western Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21158 10 10 5
+D1
+~
+~
+0 -1 21160 10 10 5
+-1
+S
+
+#21160
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21161 10 10 5
+D3
+~
+~
+0 -1 21159 10 10 5
+-1
+S
+
+#21161
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21162 10 10 5
+D3
+~
+~
+0 -1 21160 10 10 5
+-1
+S
+
+#21162
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21163 10 10 5
+D3
+~
+~
+0 -1 21161 10 10 5
+-1
+S
+
+#21163
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21162 10 10 5
+D1
+~
+~
+0 -1 21164 10 10 5
+-1
+S
+
+#21164
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21165 10 10 5
+D3
+~
+~
+0 -1 21163 10 10 5
+-1
+S
+
+#21165
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21166 10 10 5
+D2
+~
+~
+0 -1 21164 10 10 5
+-1
+S
+
+#21166
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21167 10 10 5
+D3
+~
+~
+0 -1 21165 10 10 5
+-1
+S
+
+#21167
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21168 10 10 5
+D3
+~
+~
+0 -1 21166 10 10 5
+-1
+S
+
+#21168
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21167 10 10 5
+D1
+~
+~
+0 -1 21169 10 10 5
+-1
+S
+
+#21169
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21170 10 10 5
+D3
+~
+~
+0 -1 21168 10 10 5
+-1
+S
+
+#21170
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21169 10 10 5
+D2
+~
+~
+0 -1 21171 10 10 5
+-1
+S
+
+#21171
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21170 10 10 5
+D1
+~
+~
+0 -1 21172 10 10 5
+-1
+S
+
+#21172
+Great Southern Crossroads~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21173 10 10 5
+D3
+~
+~
+0 -1 21171 10 10 5
+-1
+S
+
+#21173
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21174 10 10 5
+D3
+~
+~
+0 -1 21172 10 10 5
+-1
+S
+
+#21174
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21175 10 10 5
+D2
+~
+~
+0 -1 21173 10 10 5
+-1
+S
+
+#21175
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21176 10 10 5
+D2
+~
+~
+0 -1 21174 10 10 5
+-1
+S
+
+#21176
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21177 10 10 5
+D3
+~
+~
+0 -1 21175 10 10 5
+-1
+S
+
+#21177
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21178 10 10 5
+D3
+~
+~
+0 -1 21176 10 10 5
+-1
+S
+
+#21178
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21179 10 10 5
+D3
+~
+~
+0 -1 21177 10 10 5
+-1
+S
+
+#21179
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 21180 10 10 5
+D3
+~
+~
+0 -1 21178 10 10 5
+-1
+S
+
+#21180
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21179 10 10 5
+D1
+~
+~
+0 -1 21181 10 10 5
+-1
+S
+
+#21181
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21182 10 10 5
+D3
+~
+~
+0 -1 21180 10 10 5
+-1
+S
+
+#21182
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21183 10 10 5
+D2
+~
+~
+0 -1 21181 10 10 5
+-1
+S
+
+#21183
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21184 10 10 5
+D3
+~
+~
+0 -1 21182 10 10 5
+-1
+S
+
+#21184
+Southern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21185 10 10 5
+D2
+~
+~
+0 -1 21183 10 10 5
+-1
+S
+
+#21185
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21186 10 10 5
+D3
+~
+~
+0 -1 21184 10 10 5
+-1
+S
+
+#21186
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21187 10 10 5
+D2
+~
+~
+0 -1 21185 10 10 5
+-1
+S
+
+#21187
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21188 10 10 5
+D2
+~
+~
+0 -1 21186 10 10 5
+-1
+S
+
+#21188
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21189 10 10 5
+D2
+~
+~
+0 -1 21187 10 10 5
+-1
+S
+
+#21189
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21190 10 10 5
+D3
+~
+~
+0 -1 21188 10 10 5
+-1
+S
+
+#21190
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21191 10 10 5
+D2
+~
+~
+0 -1 21189 10 10 5
+-1
+S
+
+#21191
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21192 10 10 5
+D2
+~
+~
+0 -1 21190 10 10 5
+-1
+S
+
+#21192
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21193 10 10 5
+D3
+~
+~
+0 -1 21191 10 10 5
+-1
+S
+
+#21193
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21194 10 10 5
+D2
+~
+~
+0 -1 21192 10 10 5
+-1
+S
+
+#21194
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21195 10 10 5
+D2
+~
+~
+0 -1 21193 10 10 5
+-1
+S
+
+#21195
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21196 10 10 5
+D3
+~
+~
+0 -1 21194 10 10 5
+-1
+S
+
+#21196
+Eastern Sea Trail~
+Under Construction.
+~
+n 21197
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21277 10 10 5
+D3
+~
+~
+0 -1 21195 10 10 5
+-1
+S
+
+#21197
+Eastern Sea Trail~
+Under Construction.
+~
+s 21196
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21198 10 10 5
+D2
+~
+~
+0 -1 21284 10 10 5
+-1
+S
+
+#21198
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21268 10 10 5
+D2
+~
+~
+0 -1 21197 10 10 5
+-1
+S
+
+#21199
+Eastern Sea Trail~
+Less traveled upon than the rutted road just to the north, the Eastern sea
+trail leads southwards from here.  Rich grass nourished by the sea
+breezes threatens to overwhelm this unused track.  However, the woods on
+either side of the path have been cut back a good distance to provide
+protection for the casual wayfarer.
+~
+no woods, but brush to e
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21106 10 10 5
+D2
+~
+~
+0 -1 21200 10 10 5
+-1
+S
+
+#21200
+Eastern Sea Trail~
+Emerging from the sheltered portions of the woods, the Eastern Sea Trail
+turns and heads for the sea here.  No longer sheltered from the chilling
+shore breezes, the trees become smaller, warped and shriveled in
+response to the salt-filled breezes and stormy winter gales.
+~
+copse woods to e
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21199 10 10 5
+D3
+~
+~
+0 -1 21201 10 10 5
+-1
+S
+
+#21201
+Eastern Sea Trail~
+Leaning precariously, boulders of various shapes and sizes jut up through
+the undergrowth along the trail.  Some enterprising Medienne public works
+official desired a smooth dirt road for the Eastern Sea Trail, guess that
+explains the muddy path you now walk upon.
+~
+rewrite this
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 21200 10 10 5
+D2
+~
+~
+0 -1 21252 10 10 5
+D3
+~
+~
+0 -1 21113 10 10 5
+-1
+S
+
+#21202
+Small Trail Into The Brush~
+You are traveling along a small but well used path leading through sparse
+forest.  The ground is very hilly and you are getting tired of climbing
+up and down the gentle hills. 
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21124 10 10 5
+D2
+~
+~
+0 -1 21203 10 10 5
+-1
+S
+
+#21203
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21202 10 10 5
+D1
+~
+~
+0 -1 21204 10 10 5
+-1
+S
+
+#21204
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 21205 10 10 5
+D3
+~
+~
+0 -1 21203 10 10 5
+-1
+S
+
+#21205
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 21206 10 10 5
+D3
+~
+~
+0 -1 21204 10 10 5
+-1
+S
+
+#21206
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21205 10 10 5
+D1
+~
+~
+0 -1 21207 10 10 5
+-1
+S
+
+#21207
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 21208 10 10 5
+D3
+~
+~
+0 -1 21206 10 10 5
+-1
+S
+
+#21208
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 21209 10 10 5
+D3
+~
+~
+0 -1 21207 10 10 5
+-1
+S
+
+#21209
+Trail Through The Brush~
+Under Construction.
+~
+[Fenlyn] these rdesc suck
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 21210 10 10 5
+D3
+~
+~
+0 -1 21208 10 10 5
+-1
+S
+
+#21210
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21209 10 10 5
+D1
+~
+~
+0 -1 21211 10 10 5
+-1
+S
+
+#21211
+Trail Through The Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 21212 10 10 5
+D3
+~
+~
+0 -1 21210 10 10 5
+-1
+S
+
+#21212
+Trail Through The Brush~
+You are tarveling along a small but well used path leading through sparse
+forest.  The ground is very hilly and you are getting tired of climbing
+up and down the gentle hills.  To the east a little bit the trail seems
+to end suddenly.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21211 10 10 5
+D1
+~
+~
+0 -1 31104 10 10 5
+-1
+S
+
+#21213
+Before a mighty sea~
+The sea beats firmly on the shore, as if this exact spot is the symbolic
+example of the power and might of the sea.  The wind also whips through
+this area, as if trying to blow you away from the sea.  It would take a
+brave soul indeed to attempt to swim into those waves.
+~
+complaints should be mailed to phule - and please, no threats of bodily
+injury this time.
+---
+you might want the terrain to be water or river here
+room is now locked.
+[Mantispid] This room should not be a water room.
+used to go s to 21113
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 21214 10 10 5
+A
+~
+~
+act_tochar( #CLOSED, ch );
+end;
+act_tochar( #start, ch );
+act_notchar( #rstart, ch );
+wait( 2 );
+if( char_in_room( ch, find_room( 21213 ) ) ) {
+  if( find_stat( ch, con ) > 14 ) {
+    act_tochar( #this, ch );
+    transfer( ch, find_room( 21214 ) );
+    acode( find_room( 21214 ), 1 );
+    }
+  else {
+    if( random( 1, 4 ) < 4 )
+      act_tochar( #weak, ch );
+    else {
+      act_tochar( #this, ch );
+      transfer( ch, find_room( 21214 ) );
+      acode( find_room( 21214 ), 1 );
+      }
+    }
+  }
+~
+E
+rstart~
+$n starts to swim against the strong waves.
+~
+E
+start~
+You start to swim into the strong waves.
+~
+E
+weak~
+After struggling against the waves in an attempt to push out to sea, your
+aching muscles finally tire out and you return to the shore.
+~
+E
+this~
+@BYou struggle against the waves with all your might, and eventually find
+yourself swimming in a strange sea.
+~
+E
+CLOSED~
+You try to swim north, but violent waves push you back.
+~
+!
+3 0 1
+-1
+S
+
+#21214
+A strange and violent sea~
+While waves crash and strong winds blow all around, this small patch of
+water seems protected from the elements.  A light breeze brings the fresh
+smell of the sea to your nose, and the sounds of the sea around you fill
+your ears.
+~
+add data to prog 4 on him, no need to tell benefits, just tell what
+followers believe in 
+---
+I made the room safe for the moment, his attack is really weak.  You
+might want to add some special summoning of the powers of osse or the sea.
+Shouldn't this(and the room before) be set water or even river(more mv).
+sanc
+room is now locked.
+Reset removed waiting for religions and for a name not taken from Tolkien.
+~
+335024290 8 9 0
+D2
+~
+~
+0 -1 21213 10 10 5
+A
+~
+~
+room = find_room( 21214 );
+if( !mob_in_room( 642, room ) ) {
+  wait( 2 );
+  if( char_in_room( ch, room ) )
+    act_tochar( #this, ch );
+  wait( 2 );
+  if( char_in_room( ch, room ) )
+    act_tochar( #this2, ch );
+  wait( 2 );
+  if( char_in_room( ch, room ) ) {
+    act_tochar( #this3, ch );
+    mload( 642, room );
+    }
+  }
+~
+E
+this3~
+@MA large mer-man, dressing in the blue robes of a priest of Osse,
+surfaces with a large dispersion of water and comes to a rest in the
+water before you.
+~
+E
+this2~
+@CSoon the water bubbles and you can see a large figure coming towards
+the surface.
+~
+E
+this~
+@BThe water begins to swirl and a bright light shines from deep below the
+waves.
+~
+!
+0 0 0
+-1
+S
+
+#21215
+Rutted Road~
+This travel worn road is generally the last voyage for many goods before
+they are sold in the town of Medienne.  The loose packed dirt of the road
+forms nasty mud holes during the winter months of this northern clime. 
+On either side of the road, you see groves of wood and uninteresting
+underbrush.  
+~
+west will be 21106
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21086 10 10 5
+D3
+~
+~
+0 -1 21106 10 10 5
+-1
+S
+
+#21216
+Rutted Road~
+This travel worn road is generally the last voyage for many goods before
+they are sold in the town of Medienne.  The loose packed dirt of the road
+forms nasty mud holes during the winter months of this northern clime. 
+On either side of the road, you see groves of wood and uninteresting
+underbrush.  
+~
+~
+301465600 2 9 0
+-1
+S
+
+#21217
+Below the Medienne Town Wall~
+You stand in an open field, the grass underfoot kept short by the animals
+grazed in this area.  The thick walls of Medienne tower over you to the
+east, their fortifications weathered and scarred from scores of sieges
+and fierce battles fought on them.  To the west and south, the open
+spaces continue, while a road processes by to the north of here.
+~
+rewrite
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 21218 10 10 5
+D3
+~
+~
+0 -1 21220 10 10 5
+-1
+S
+
+#21218
+Below the Medienne Town Wall~
+Short, stubbly grass grows in the shadow of the town wall to the east. 
+To the west, the open, grassy area continues, while off to the north you
+spy a formidable gatehouse and a road leading into the town.
+~
+wall of g'yard to south
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21217 10 10 5
+D2
+~
+~
+0 -1 21229 10 10 5
+D3
+~
+~
+0 -1 21219 10 10 5
+-1
+S
+
+#21219
+Field Outside Medienne~
+The grass here grows a bit thicker as you move further away from the
+security offered by the walls of Medienne.  In the distance to the
+northeast, you can see the West Gate of Medienne, while up a slight
+incline to the south you spy the Medienne Town Graveyard, surrounded by
+an old stone wall.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21220 10 10 5
+D1
+~
+~
+0 -1 21218 10 10 5
+D3
+~
+~
+0 -1 21221 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#21220
+Field Outside Medienne~
+You spy the West Gate of Medienne off to the northeast of this field of
+verdant green.  The grass about you is short, and shows a few signs of
+animals being grazed here.
+~
+r/w
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21075 10 10 5
+D1
+~
+~
+0 -1 21217 10 10 5
+D2
+~
+~
+0 -1 21219 10 10 5
+D3
+~
+~
+0 -1 21222 10 10 5
+-1
+S
+
+#21221
+Thick Brush~
+Dense bushes grow in ever-thickening clusters as you proceed west and
+south here, moving away from the scarred walls of Medienne in the
+distance to the east.  Far to the south, you spy a lone, round hill rise
+above the brush, and as you pause for a moment you smell the sea in the
+air, somewhere far off to the west.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21222 10 10 5
+D1
+~
+~
+0 -1 21219 10 10 5
+D3
+~
+~
+0 -1 21224 10 10 5
+755 9 100 3 0
+-1
+S
+
+#21222
+Field and Scattered Brush~
+A few low scattered bushes grow in small, windswept clusters in this
+field of waist-high grass.  The ground is rough and uneven, and even as
+you look to the east and distant walls of Medienne you sense that you
+have stepped beyond the pale of civilization.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21223 10 10 5
+D1
+~
+~
+0 -1 21220 10 10 5
+D2
+~
+~
+0 -1 21221 10 10 5
+D3
+~
+~
+0 -1 21225 10 10 5
+-1
+S
+
+#21223
+Grassy Field~
+The grass here is higher, due to less frequent use for grazing animals,
+and the earth here soft underfoot, traveled by few other than the
+occasional intrepid traveler and the wild creatures who find comfort in
+the windswept fields and forgotten places of the realms.  Off to the
+north, a rutted road passes obliviously by, following a downward slope
+from east to west toward the source of an everpresent breeze which smells
+of oceans and distant lands.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21085 10 10 5
+D1
+~
+~
+0 -1 21075 10 10 5
+D2
+~
+~
+0 -1 21222 10 10 5
+D3
+~
+~
+0 -1 21226 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#21224
+Windswept Brush~
+The ground rises here, even as the brambles and snaggly branches grow
+more and more cloying, harrying your progress until it becomes almost
+negligible.  Standing on the small promontory, you can see a shimmering
+arc of refracted light slung low below the horizon to the west - the sea. 
+To the northeast, a small copse of wizened and bent trees clings to an
+odd rise.  A small path leads down a steep slope to the west.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21225 10 10 5
+D1
+~
+~
+0 -1 21221 10 10 5
+D3
+~
+~
+0 -1 21285 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#21225
+Copse and Brambles~
+Thick brush and brambles clog the sloped ground here, which leads down to
+the south and east and up a steady rise to the north and west toward a
+small copse of trees.  Between the bushes, a few tufts of waist-high
+grass rise up, and you spy a few wind-smoothed boulders scattered about
+the area.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21226 10 10 5
+D1
+~
+~
+0 -1 21222 10 10 5
+D2
+~
+~
+0 -1 21224 10 10 5
+D3
+~
+~
+0 -1 21227 10 10 5
+130 9 100 3 0
+2516 9 1509949465 3 0
+-1
+S
+
+#21226
+Brush~
+Twisted bushes choke the meadow grasses here, until the open spaces begin
+to close in on you as you pick your way between dark, thorned brush and a
+few low-growing trees.  Beneath a drop to the north, a deeply rutted road
+ambles its way down to the west, and up a slope east and back toward
+Medienne.  West of here, a small but dense copse of trees clings to a
+windy hilltop.
+~
+gypsy camp/train here?
+r/w
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21223 10 10 5
+D2
+~
+~
+0 -1 21225 10 10 5
+D3
+~
+~
+0 -1 21228 10 10 5
+755 9 100 3 0
+-1
+S
+
+#21227
+Windswept Copse~
+You stand inside a small copse which lies on a slight rise.  To the east,
+scrub bushes grow in the lee side of the hill as the ground falls away
+toward the meadowy open spaces directly west of Medienne.  To the west,
+the ground plunges downward toward the shore of the sea, and in the
+distance you spy a road snake its way down to the waterline, where
+several piers jut out into the choppy waters.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 21228 10 10 5
+D1
+~
+~
+0 -1 21225 10 10 5
+-1
+S
+
+#21228
+Windswept Copse~
+Weatherworn limbs intertwine like gnarled and ageless wooden fingers
+overhead in the shadowy dimness created by the dense cluster of trees. 
+The air strangely calm within this small grove, with incessant gusts of
+wind whistling by unable to penetrate the screen of thick branches and
+brush.  You stand at the highest point in the area, with a rutted dirt
+road passing by to the north, at the foot of a steep, grassy slope.  To
+the west, the ground falls away toward the distant shoreline, while to
+the east it leads back through the brush a fields toward Medienne at a
+more reasonable, gentle angle.  The copse continues off to the south.
+~
+no mob safe
+[Cucho] third line...should be The air is
+~
+301465610 2 6 0
+D1
+~
+~
+0 -1 21226 10 10 5
+D2
+~
+~
+0 -1 21227 10 10 5
+-1
+S
+
+#21229
+Below the Medienne Town Wall~
+A few small bushes grow up against the battle-scarred walls here, life
+already renewing itself so soon following the recent siege.  The town
+wall continues to the north and south of here, while you spy more fields
+continuing off to the west.
+~
+[Zot] look bush should do something like "Just your average bushes.
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21218 10 10 5
+D2
+~
+~
+0 -1 21230 10 10 5
+A
+~
+~
+~
+!
+0 0 0
+-1
+S
+
+#21230
+Below the Medienne Town Wall~
+The damaged remains of a high tower loom over this section of dusty
+earth, the watchtower somehow managing to remain standing through the
+siege of Medienne.  A number of rocks, fragments of the walls presumably,
+lie scattered about the ground nearby.  The wall leads north and east
+from here, while to the west you spy some open lands where the residents
+of Medienne graze their animals in peaceful times.  To the south, a
+gentle slope leads up toward a small hilltop.
+~
+graveyard to south
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21229 10 10 5
+D1
+~
+~
+0 -1 21231 10 10 5
+755 8 100 3 0
+-1
+S
+
+#21231
+Below the Medienne Town Wall~
+The charred and battle-damaged town wall runs east and west here,
+parallel to a small dusty track which seems to emerge out of nowhere,
+only to disappear from whence it came only a few feet later.  The ground
+rises slightly to the south, and at the top of the countour you spy an
+old wall.
+~
+r/w
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21232 10 10 5
+D3
+~
+~
+0 -1 21230 10 10 5
+-1
+S
+
+#21232
+Below the Medienne Town Wall~
+The ground is a bit rocky here, and the wall to the north visibly damaged
+as a result of the recent strife.  To the south you spy what appears to
+be a graveyard atop a small rise.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21233 10 10 5
+D3
+~
+~
+0 -1 21231 10 10 5
+-1
+S
+
+#21233
+Below the Medienne Town Wall~
+The wall runs east to west here, continuing on its straight line course. 
+To the south, the ground rises leading toward what appears to be an old
+graveyard. 
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21234 10 10 5
+D3
+~
+~
+0 -1 21232 10 10 5
+-1
+S
+
+#21234
+Below the Medienne Town Wall~
+The wall continues along its way here, while the ground dips a bit to the
+south, descending from the looming form of Medienne's great wall to the
+north and down this slight hill to the south where the old town graveyard
+is located.
+~
+~
+301465600 2 9 0
+D3
+~
+~
+0 -1 21233 10 10 5
+D5
+~
+~
+0 -1 1750 10 10 5
+-1
+S
+
+#21235
+Wooded Foothills~
+The ground rises steadily here as you move away from the rough trail. 
+The air is fresh, with the pungent, salty sea breezes rolling in against
+the rough hills and their stands of trees which grow grow in close,
+tightly-packed clusters along the steep hillsides.  The ground continues
+to rise off to the east and north, and you spy a trail off to the west.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21240 10 10 5
+D2
+~
+~
+0 -1 21236 10 10 5
+D3
+~
+~
+0 -1 21061 10 10 5
+-1
+S
+
+#21236
+Wooded Foothills~
+Sheltered from the brisk winds which come off the sea from the west grow
+low but surprisingly dense stands of mixed vegitation.  A few large
+boulders offer protection, but the scrub grows increasingly dense as the
+ground continues to rise as one continues east and north from here,
+eventually culminating in a range of steeply wooded hills, far off from
+the trail which snakes its way about the edge of a cliff.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21235 10 10 5
+D2
+~
+~
+0 -1 21241 10 10 5
+D3
+~
+~
+0 -1 21060 10 10 5
+-1
+S
+
+#21237
+Battlements~
+You stand on a small platform, hidden by the battlements of the watch
+tower.  While you are unable to see all of the valley, you can look far
+to the south and west, where great ripples of earth - huge hills - rise
+up toward the horizon.  Close at hand, and far below you to the northeast
+are the rough, choppy waters of the Inner Sea.  Finally, to the northwest
+you spy densely forested mountains.
+
+A large bronze bell is suspended from a wooden stand near the center of
+the tower's roof, an alarm for the sentry to use should danger approach.
+~
+~
+301465600 1 5 0
+D5
+~
+~
+0 -1 21084 10 10 5
+E
+bell~
+The bell looks to be very old.  It is also large enough that all of the
+surrounding area hears it when it is rung.  It would probably be best not
+to ring the bell unless you really need help.  
+~
+A
+ring strike hit~
+bell~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+act_area( #to_all, ch );
+~
+E
+to_all~
+The bell tolls loudly.
+~
+E
+to_room~
+$n strikes the bell with all $s might.
+~
+E
+to_char~
+With all your might you strike the bell.
+~
+!
+0 0 0
+871 9 1509949540 3 0
+-1
+S
+
+#21238
+Wooded Slope~
+A few stately oaks and elms cover the area here, and some bushes and
+scattered tufts of grass grow where the sun pokes through the forest
+canopy.  The terrain here is rough, and the air fresh, with the sea not
+too far off to the south.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21011 10 10 5
+D3
+~
+~
+0 -1 21007 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#21239
+Wooded Slope~
+A few stately oaks and elms cover the area here, and some bushes and
+scattered tufts of grass grow where the sun pokes through the forest
+canopy.  The terrain here is rough, and the air fresh, with the sea not
+too far off to the south.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21007 10 10 5
+D3
+~
+~
+0 -1 21005 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#21240
+Wooded Foothills~
+The ground rises steadily here as you move away from the rough trail. 
+The air is fresh, with the pungent, salty sea breezes rolling in against
+the rough hills and their stands of trees which grow grow in close,
+tightly-packed clusters along the steep hillsides.  The ground continues
+to rise off to the east and north, and you spy a trail off to the west. 
+An almost negligible path cuts into the hills to the east.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 57083 10 10 5
+D2
+~
+~
+0 -1 21235 10 10 5
+D3
+~
+~
+0 -1 28000 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#21241
+Wooded Foothills~
+Sheltered from the brisk winds which come off the sea from the west grow
+low but surprisingly dense stands of mixed vegetation.  A few large
+boulders offer protection, but the scrub grows increasingly dense as the
+ground continues to rise as one continues east and north from here,
+eventually culminating in a range of steeply wooded hills, far off from
+the trail which snakes its way about the edge of a cliff.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21236 10 10 5
+D1
+~
+~
+0 -1 21242 10 10 5
+D2
+~
+~
+0 -1 21024 10 10 5
+D3
+~
+~
+0 -1 21059 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#21242
+Forested Slope~
+The ground here is rough, with boulders and stands of thick deciduous
+trees interspersed with groups of firs and pine trees.  Though it is not
+visible here, you can smell the sea, and hear the faint rumble of the
+waves crashing into the shore, somewhere down the twisting slopes to the
+west.  The ground continues to rise off to the north, eventually leading
+to a steep mountain range, while a narrow path winds its way through a
+thick forest to the east.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 21138 10 10 5
+D2
+~
+~
+0 -1 21026 10 10 5
+D3
+~
+~
+0 -1 21241 10 10 5
+-1
+S
+
+#21243
+Wooded Grove~
+The trail winds around this small, secluded forest clearing.  Off to the
+north, steep, forested slopes rise up into a range of steep, rough
+mountains.  The air here is fresh, with an occasional wash of salty air
+penetrating the ring of trees about you.
+~
+~
+301465610 3 9 0
+D1
+~
+~
+0 -1 21022 10 10 5
+D2
+~
+~
+0 -1 21020 10 10 5
+D3
+~
+~
+0 -1 21016 10 10 5
+-1
+S
+
+#21244
+Rocky Lookout~
+You stand on the top of a sheer cliff, looking out onto the rough grey
+waters of the Inner sea below you to the south.  Every few moments, a
+stiff breeze rushes off the waters, sending a fine spray into your face
+as the waves thunder and crash against the rocks far below where you
+stand.  To the north and west, a trail processes by, hugging the edge of
+the cliff, while far off to the east you see a river flow into the sea.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21070 10 10 5
+D3
+~
+~
+0 -1 21072 10 10 5
+-1
+S
+
+#21245
+Windswept Marsh~
+Pools of water compete with brown grasses and stunted bushes for space. 
+To the north and east, steep hills rise up about the marsh, presumably
+providing the source of much of this small area's still, foul water. 
+Considering this, you are suddenly thankful for the swift sea wind which
+rushes in time and again from the east, to clear the swamp air from your
+lungs, providing a well-needed momentary respite.
+~
+swampy
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21250 10 10 5
+D1
+~
+~
+0 -1 21246 10 10 5
+D2
+~
+~
+0 -1 21258 10 10 5
+D3
+~
+~
+0 -1 21121 10 10 5
+210 9 1509949540 3 0
+-1
+S
+
+#21246
+Windswept Marsh - Near a Cliff~
+Dominating the eastern sky, large hills present sheer cliff faces,
+blocking travel.  Rivulets plunge down the cliff face only to dissappear
+in the boggy ground underfoot.  Reeds and cottontails lie strewn along
+the ground threatening to trip the anyone unwary in their passage.
+~
+bog
+this needs to be expanded into overgrown tangled, terrain type bog
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21254 10 10 5
+D2
+~
+~
+0 -1 21257 10 10 5
+D3
+~
+~
+0 -1 21245 10 10 5
+-1
+S
+
+#21247
+Windswept Moor - Jagged Stone Mounds~
+A pocket of grass grows amid the jagged stone mounds which spread out in
+all directions.  This large plateau, surrounded on three sides by taller
+hills, looks out to find a surrounding area stunted by constant winds and
+sea air, the few trees here are gnarled and bent over like aged,
+rheumatic men.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21255 10 10 5
+-1
+S
+
+#21248
+Edge of a Marsh~
+Dense bushes grow here, their tight clusters crowding the small rises and
+bits of soil which peek above the waterline.  Elsewhere, brown grasses
+vie with pools of dank water for space in this unforgiving environment.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21249 10 10 5
+D1
+~
+~
+0 -1 21250 10 10 5
+D2
+~
+~
+0 -1 21121 10 10 5
+D3
+~
+~
+0 -1 21117 10 10 5
+1 9 1509949540 3 0
+-1
+S
+
+#21249
+Edge of a Marsh~
+Grasses and the odd dry spot give way to larger and larger patches of mud
+and foul water.  To the east, what appears to be a marsh or moor opens
+up, slung low against the horizon even as the ground rises up a bit
+toward the northeast, where a steep ridge towers over the area.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21114 10 10 5
+D1
+~
+~
+0 -1 21251 10 10 5
+D2
+~
+~
+0 -1 21248 10 10 5
+D3
+~
+~
+0 -1 21116 10 10 5
+-1
+S
+
+#21250
+Windswept Marsh~
+Though the water is deep in parts, one might pick his way though the
+terrain, with sufficient care.  A few odd bushes grow on islands in this
+sea of mud and water, signaling to you that this is not a place to remain
+for long.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21251 10 10 5
+D1
+~
+~
+0 -1 21254 10 10 5
+D2
+~
+~
+0 -1 21245 10 10 5
+D3
+~
+~
+0 -1 21248 10 10 5
+E
+blocks cracked stone~
+The blocks seem to be singular, ancient, sunken pieces of some sort of
+forgotten structure, now submerged beneath the mud and water of the bog.
+~
+E
+bushes~
+The bushes seem to grow around the bases of several large, cracked stone
+blocks.
+~
+-1
+S
+
+#21251
+Windswept Marsh ~
+A strong wind periodically rushes through the area, buffeting the stands
+of tall, brownish grass which eke out an existence in this inhospitable
+area.  To the northeast, a steep ridge climbs up towards the horizon,
+toward more dry terrain.  To the west, the incessant crash of water on
+stone signals the presence of the ocean.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21252 10 10 5
+D1
+~
+~
+0 -1 21253 10 10 5
+D2
+~
+~
+0 -1 21250 10 10 5
+D3
+~
+~
+0 -1 21249 10 10 5
+215 8 1509949540 3 0
+-1
+S
+
+#21252
+Edge of a Marsh~
+The ground sucks at anyone attempting movement here, its pungent mud and
+pools of dark water slowing your progress.  Here and there, small islands
+of grass and brush rise above the wetter, boggy areas, while all the
+while a steady sea wind blows in from the west.  To the north and east,
+you spy a road while to the east a steep ridge rises over you.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21201 10 10 5
+D2
+~
+~
+0 -1 21251 10 10 5
+D3
+~
+~
+0 -1 21114 10 10 5
+-1
+S
+
+#21253
+Windswept Brush - South of a Ridge~
+To the north lies a tall rocky ridge, its scattered stones projecting
+from the ground like the backbone of some immense, partially buried
+dragon.  A dull landscape of tussocky grass and brush thickets grows amid
+small, fetid ponds and patches of deep, pungent mud. 
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 21256 10 10 5
+D2
+~
+~
+0 -1 21254 10 10 5
+D3
+~
+~
+0 -1 21251 10 10 5
+-1
+S
+
+#21254
+Windswept Marsh - Edge, Hillock and Moor~
+The moor and hillocks are bare, windswept.  Occasionally reedy grasses
+bravely poke above the land.  Where the ground dips lower black water
+accumulates, topped by a greenish scum.  A large ridge topped by jutting
+stones lies to the east.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21253 10 10 5
+D1
+~
+~
+0 -1 21255 10 10 5
+D2
+~
+~
+0 -1 21246 10 10 5
+D3
+~
+~
+0 -1 21250 10 10 5
+203 9 1509949540 3 0
+-1
+S
+
+#21255
+Windswept Moor - Brush~
+The terrain is rough here, with odd mounts of stone and thick clusters of
+brush rising out of swampy, murky areas and patches of open, grassy
+meadow.  To the south, a wide slope rises, curving around the generous
+smooth shoulder of a tall hill.
+
+A new, but flimsy, sign is here.
+~
+[Cynthia] I think the orogs have been moved for long enuff that the flimsy sign is no longer needed and has been reduced to rubble by the elements :)    Also, at time of writing this, Orogs need a area description, and perhaps a better name? :)
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21256 10 10 5
+D2
+~
+~
+0 -1 21247 10 10 5
+D3
+~
+~
+0 -1 21254 10 10 5
+E
+sign~
+The orogs had to move for OOC reasons.
+Head west.
+~
+-1
+S
+
+#21256
+Windswept Brush and Meadow~
+Dull grasses lie in windswept fields, beneath the steep slopes to the
+north.  An occasional hummock breaks the monotony.  Large animals have
+left their marks in the grass like standing waves in the ocean.  A large
+ridge, broken and tumbled, lies to the northeast and curves southward.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21285 10 10 5
+D2
+~
+~
+0 -1 21255 10 10 5
+D3
+~
+~
+0 -1 21253 10 10 5
+755 9 1509949540 3 0
+210 9 1509949490 3 0
+-1
+S
+
+#21257
+Windswept Brush - Near a Shallow Depression~
+The land broadens into a shallow depression, filled along its center with
+a stinking marsh set around with blackened reeds.  Beyond the edges of
+the marsh grasses spread over the ground, brown and unhealthy.  To the
+south, a copse of dead and dying trees surrounds an enormous grey
+building.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 21246 10 10 5
+D2
+~
+~
+0 -1 57569 10 10 5
+D3
+~
+~
+0 -1 21258 10 10 5
+-1
+S
+
+#21258
+Windswept Marsh~
+A marsh dominates the area, pools of foul water surrounding stands of
+unhealthy brown grasses and the odd stand of dense bushes.  To the east
+and south, a ring of steep hills encloses the little, but foul, marsh.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21245 10 10 5
+D1
+~
+~
+0 -1 21257 10 10 5
+D3
+~
+~
+0 -1 21260 10 10 5
+-1
+S
+
+#21259
+Swampy Brush~
+Under Construction.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21245 10 10 5
+-1
+S
+
+#21260
+Windswept Marsh - Brush~
+A few stands of brush and dark bushes grow here, in odd spots in this
+foul moor.  Large pools of water flow about as the grass bends, buffeted
+by the strong gusts of winds coming in off of the ocean.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21121 10 10 5
+D1
+~
+~
+0 -1 21258 10 10 5
+D3
+~
+~
+0 -1 21261 10 10 5
+-1
+S
+
+#21261
+Edge of a Marsh~
+The air here smells of ocean, even as a dull odor rises up from the muddy
+ground and foul water which trickles about underfoot.  You stand in a
+small bog, fed by some unseen stream or nearby spring, presumably toward
+the sea off to the west.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 21120 10 10 5
+D1
+~
+~
+0 -1 21260 10 10 5
+-1
+S
+
+#21262
+Northern Sea Trail~
+You are on a well-worn mountain path that leads to the north and south. 
+To the east a wide and very deep chasm cuts down from the mountains to
+the sea.  Looking down into the chasm, you can barely see the small river
+that carved it.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21067 10 10 5
+D2
+~
+~
+0 -1 21263 10 10 5
+-1
+S
+
+#21263
+Northern Sea Trail~
+You are on a well-worn mountain path that leads to the north and south. 
+To the east a wide and very deep chasm cuts down from the mountains to
+the sea.  Looking down into the chasm, you can barely see the small river
+that carved it.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21262 10 10 5
+D2
+~
+~
+0 -1 21264 10 10 5
+-1
+S
+
+#21264
+Northern Sea Trail~
+You are on a well-worn mountain path that leads to the north and south. 
+To the east a wide and very deep chasm cuts down from the mountains to
+the sea.  Looking down into the chasm, you can barely see the small river
+that carved it.  You see the faintest of trails leading down over the
+cliff edge.
+~
+link to eagle's perch
+is room 43750
+might want to make the climb check a bit more diff? 
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21263 10 10 5
+D2
+~
+~
+0 -1 21265 10 10 5
+E
+cliff~
+It looks like it could be a difficult climb, though with perseverence you
+could possibly make your way down the cliff face.  Farther below you can
+make out movement as large birds fly to or from nests built in along the
+natural ledges of the cliffs.
+~
+A
+climb~
+d down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 43750 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 43750 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+closed~
+The cliff of eagles is closed for repairs. Sorry.
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies in from above and lands on the ledge.
+~
+E
+flying~
+$n flies down along the cliff.
+~
+E
+fly~
+You fly down the cliff.
+~
+E
+failed~
+$n slips while trying to climb down the cliff face.
+~
+E
+fail~
+You start to climb but lose your grip and return to the relative safety
+of the ledge.
+~
+E
+success2~
+$n comes climbing in from the ledge above.
+~
+E
+success1~
+$n finds a few handholds and climbs down the cliff face.
+~
+E
+success~
+Finding several handholds you climb down the cliff face.
+~
+!
+0 0 0
+-1
+S
+
+#21265
+Northern Sea Trail~
+The trail continues to follow the edge of the chasm to the east.  To the
+north, the trail heads straight for the forest which trims the trail.  To
+the south, the trail winds its way back to the west.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21264 10 10 5
+D2
+~
+~
+0 -1 21069 10 10 5
+-1
+S
+
+#21266
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21127 10 10 5
+D2
+~
+~
+0 -1 21268 10 10 5
+-1
+S
+
+#21267
+Eastern Sea Trail~
+Under Construction.
+~
+s is 21268
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21266 10 10 5
+D2
+~
+~
+0 -1 21268 10 10 5
+-1
+S
+
+#21268
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 21266 10 10 5
+D2
+~
+~
+0 -1 21198 10 10 5
+-1
+S
+
+#21269
+Northern Sea Trail~
+You are on a well-worn trail that leads south and north.  To the north
+lie moutains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21072 10 10 5
+D2
+~
+~
+0 -1 21270 10 10 5
+-1
+S
+
+#21270
+Northern Sea Trail~
+You are on a well-worn trail that leads south and north.  To the north
+lie mountains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe; maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21269 10 10 5
+D2
+~
+~
+0 -1 21271 10 10 5
+-1
+S
+
+#21271
+Northern Sea Trail~
+You are on a well-worn trail that leads south and north.  To the north
+lie moutains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21270 10 10 5
+D2
+~
+~
+0 -1 21272 10 10 5
+-1
+S
+
+#21272
+Northern Sea Trail~
+You are on a well-worn trail that leads south and north.  To the north
+lie moutains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21271 10 10 5
+D2
+~
+~
+0 -1 21273 10 10 5
+-1
+S
+
+#21273
+Northern Sea Trail~
+You are on a well-worn trail that leads south and north.  To the north
+lie moutains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21272 10 10 5
+D2
+~
+~
+0 -1 21274 10 10 5
+-1
+S
+
+#21274
+Northern Sea Trail~
+You are travelling a path that is well worn and runs north and south.  To
+the north lie wood covered mountains that have an eerie mist rising from
+them.  You do not find yourself feeling very safe while travelling this
+path, as most of the people on it are walking with their heads down and
+their hoods up.  This is a higher-crime area, as indicated by the obvious
+thieves and outlaws that are around.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21273 10 10 5
+D2
+~
+~
+0 -1 21275 10 10 5
+-1
+S
+
+#21275
+Northern Sea Trail~
+You are on a well-worn trail that leads south and north.  To the north
+lie moutains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21274 10 10 5
+D2
+~
+~
+0 -1 21276 10 10 5
+D3
+~
+~
+0 -1 21300 10 10 5
+-1
+S
+
+#21276
+Northern Sea Trail~
+You are on a well-worn trail that leads west and north.  To the north
+lie moutains that are covered in dense and eerie woods.  As you walk
+along you feel very unsafe, maybe it's all the people that walk by you
+with their heads down and hoods up.  This area is known for the outlaws
+and thieves that frequent here.  
+~
+[Liana] In every one of these rooms, it should be a semi-colon before maybe, not a comma.
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 21275 10 10 5
+D3
+~
+~
+0 -1 21073 10 10 5
+-1
+S
+
+#21277
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21278 10 10 5
+D2
+~
+~
+0 -1 21196 10 10 5
+-1
+S
+
+#21278
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21279 10 10 5
+D2
+~
+~
+0 -1 21277 10 10 5
+-1
+S
+
+#21279
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21280 10 10 5
+D2
+~
+~
+0 -1 21278 10 10 5
+-1
+S
+
+#21280
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21281 10 10 5
+D2
+~
+~
+0 -1 21279 10 10 5
+-1
+S
+
+#21281
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21282 10 10 5
+D2
+~
+~
+0 -1 21280 10 10 5
+-1
+S
+
+#21282
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21283 10 10 5
+D2
+~
+~
+0 -1 21281 10 10 5
+-1
+S
+
+#21283
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21284 10 10 5
+D2
+~
+~
+0 -1 21282 10 10 5
+-1
+S
+
+#21284
+Eastern Sea Trail~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21197 10 10 5
+D2
+~
+~
+0 -1 21283 10 10 5
+-1
+S
+
+#21285
+Sheltered From the Wind~
+You stand in a nook, sheltered from the constant buffeting of the sea
+breezes.  To the north and east, the ground climbs steeply upwards, too
+steep to the north to even attempt to scale.  To the south, the brush
+continues, with small hints of overgrown paths darting here and there
+through a swampy area of brush and open meadow.
+~
+no mob
+~
+301465608 2 9 0
+D1
+~
+~
+0 -1 21224 10 10 5
+D2
+~
+~
+0 -1 21256 10 10 5
+-1
+S
+
+#21286
+Crumbled Stair~
+A crumbled, spiral stone stairway cuts through the earth here, ancient
+stone cracked with age.  The air is cool and damp, and you hear the
+distant dripping of water falling against stone somewhere in the darkness
+below.
+~
+~
+301465600 5 5 0
+D4
+~
+~
+0 -1 21287 10 10 5
+D5
+~
+~
+0 -1 21123 10 10 5
+-1
+S
+
+#21287
+Crumbled Stair~
+A crumbled, spiral stone stairway cuts through the earth here, ancient
+stone cracked with age.  The air is cool and damp, and you hear the
+distant dripping of water falling against stone somewhere in the darkness
+below.
+~
+~
+301465600 5 5 0
+D4
+~
+~
+0 -1 21288 10 10 5
+D5
+~
+~
+0 -1 21286 10 10 5
+-1
+S
+
+#21288
+Crumbled Stair~
+A crumbled, spiral stone stairway cuts through the earth here, ancient
+stone cracked with age.  The air is cool and damp, and you hear the
+distant dripping of water falling against stone somewhere in the darkness
+below.  At the top of the stair is small opening.
+~
+~
+301465600 5 5 0
+D4
+vegetation~
+vegetation~
+251 -1 21122 10 10 5
+D5
+~
+~
+0 -1 21287 10 10 5
+E
+vegetation~
+The vegetation that grows around the opening is thick and tangled, though
+it looks as if could be easily moved aside.
+~
+A
+1 look~
+1 up opening top~
+if( is_open( room, up ) )
+  act_tochar( #open, ch );
+else
+  act_tochar( #rclosed, ch );
+act_notchar( #looking, ch );
+~
+E
+open~
+The dark opening above you is lined by moss and lichens.  It is easily
+wide enough for you to squeeze through it.
+~
+E
+rclosed~
+The dark opening above you is covered over by a tangle of vegetation.
+~
+E
+looking~
+$n peers upward toward the top of the stairs.
+~
+!
+0 0 0
+A
+move~
+vegetation plants~
+if( is_open( room, up ) ) {
+  act_tochar( #closing, ch );
+  act_notchar( #rclosing, ch );
+  close( room, up );
+  send_to_room( #bush_closed, find_room( 21122 ) );
+  end;
+  }
+else {
+  act_tochar( #move_bush, ch );
+  act_notchar( #rmove_bush, ch );
+  open( room, up );
+  send_to_room( #bush_opened, find_room( 21122 ) );
+  }
+~
+E
+closing~
+You reach outside and pull some vegetation over the entrance to conceal
+it.
+~
+E
+rclosing~
+$n pulls some vegetation over the entrance to conceal it.
+~
+E
+bush_closed~
+The branches of vegetation mysteriously move over to conceal the opening. 
+Though its not a fluid movement, being more jerky as if a person were
+inexpertly concealing the opening.
+~
+E
+move_bush~
+You push the vegetation away from the opening, making it possible to
+leave.
+~
+E
+rmove_bush~
+$n pushes some vegetation aside making it possible to leave.
+~
+E
+bush_opened~
+A patch of vegetation rustles softly at first, then suddenly move harshly
+aside to reveal an opening.
+~
+!
+0 0 0
+A
+1 up~
+~
+if( is_open( room, up ) ) {
+  continue;
+  end;
+  }
+else {
+  act_tochar( #cant, ch );
+  act_notchar( #rcant, ch );
+  }
+~
+E
+cant~
+A tangle of vegetation prevents you from leaving through the opening at
+the top of the stairs.
+~
+E
+rcant~
+$n walks headlong into a tangle of branches at the top of the stairs.
+~
+!
+0 0 0
+A
+open~
+vegetation plants 1 up~
+act_tochar( #no, ch );
+~
+E
+no~
+Opening the vegetation would be messy, how about moving it instead?
+~
+!
+0 0 0
+-1
+S
+
+#21289
+Storage Chamber~
+Judging from the rotted sacks, boxes and shattered barrels intermixed
+with the bits of general refuse and fallen stones, this was once a
+grather storage room of some sort.
+~
+~
+301465600 0 9 0
+D2
+~
+~
+0 -1 21123 10 10 5
+E
+boxes rotted barrels~
+Old and ravaged by time, they contain little of interest or value.
+~
+78 17 1509949460 -2 0
+-1
+S
+
+#21290
+Storage Chamber~
+Judging from the rotted sacks, boxes and shattered barrels intermixed
+with the bits of general refuse and fallen stones, this was once a
+gather storage room of some sort.
+~
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 21123 10 10 5
+16 9 1509949540 3 0
+-1
+S
+
+#21291
+Storage Chamber~
+Judging from the rotted sacks, boxes and shattered barrels intermixed
+with the bits of general refuse and fallen stones, this was once a
+storage room of some sort.
+~
+~
+301465600 0 9 0
+D3
+~
+~
+0 -1 21123 10 10 5
+79 17 1509949445 -2 0
+16 9 1509949490 3 0
+-1
+S
+
+#21292
+Great Cellar~
+Judging from the rotted sacks, boxes and shattered barrels intermixed
+with the bits of general refuse and fallen stones, this was once a
+grather storage room of some sort.
+~
+secret door is in western wall, checks search
+needs to set a reset flag to check that the player has searched and found the stone each time
+[Rue] really should be a code
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 21123 10 10 5
+D3
+discolored stone~
+'discolored stone' stone discolored~
+139 -1 602 10 10 5
+E
+discolrored stone~
+The oddly discolored stone looks like it has been worn down by being
+rubbed countless times.
+~
+A
+1 look search~
+west~
+if( find_skill( ch, searching ) > random( 3, 7 ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #find2, ch );
+show( ch, room, west );
+  end;
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+nada~
+You see nothing of interest in that direction.
+~
+E
+find2~
+$n cries out, apparently having discovered something!
+~
+E
+find~
+Looking more closely at the western wall, you notice a slightly
+discolored stone!
+~
+!
+0 0 0
+16 9 1509949540 3 0
+16 9 1509949490 3 0
+-1
+S
+
+#21293
+Dark Alcove~
+You are in a small, dark alcove, off to the side of the main section of
+the caves.  It is slightly damp here, and the walls, floor and ceiling
+are rough.  A bit of rubbish lies on the floor here, giving off a foul
+odor, one which does not compliment the already stale underground air.
+~
+~
+301465600 0 6 0
+D2
+~
+~
+0 -1 602 10 10 5
+402 9 1509949540 3 0
+411 9 1509949490 3 0
+-1
+S
+
+#21294
+Large Cavern~
+In this large cavern dwells the majority of the various clan.  This is
+where they rest, divide up loot and play with slaves.  In the center of
+the room is a large bonfire pit, the flames from the fire reach nearly to
+the ceiling.  To the west is another cave leading into the darkness. 
+Hanging about this cavern are large war banners for the various bands
+that are represented in this raiding party.  Hanging in the center of the
+southern wall is a huge tapestry.  
+~
+cauldron? campfire?
+tapestry for only 1 part of cavern
+~
+301465600 0 6 0
+D0
+~
+~
+0 -1 21295 10 10 5
+D3
+~
+~
+0 -1 605 10 10 5
+326 9 1509949540 3 0
+326 9 1509949540 3 0
+411 9 1509949540 3 0
+402 9 1509949540 3 0
+-1
+S
+
+#21295
+Large Cavern~
+In this large cavern dwells the majority of the various clan.  This is
+where they rest, divide up loot and play with slaves.  In the center of
+the room is a large bonfire pit, the flames from the fire reach nearly to
+the ceiling.  To the west is another cave leading into the darkness. 
+Hanging about this cavern are large war banners for the various bands
+that are represented in this raiding party.  Hanging in the center of the
+southern wall is a huge tapestry.  
+~
+~
+301465600 0 6 0
+D0
+~
+~
+0 -1 607 10 10 6
+D2
+~
+~
+0 -1 21294 10 10 6
+D3
+~
+~
+0 -1 21296 10 10 6
+411 9 1509949540 3 0
+411 9 1509949540 3 0
+-1
+S
+
+#21296
+Large Cavern~
+In this large cavern dwells the majority of the various clan.  This is
+where they rest, divide up loot and play with slaves.  In the center of
+the room is a large bonfire pit, the flames from the fire reach nearly to
+the ceiling.  To the west is another cave leading into the darkness. 
+Hanging about this cavern are large war banners for the various bands
+that are represented in this raiding party.  Hanging in the center of the
+southern wall is a huge tapestry.  
+~
+name?
+~
+301465600 0 6 0
+D1
+~
+~
+0 -1 21295 10 10 6
+D2
+~
+~
+0 -1 605 10 10 6
+D3
+~
+~
+0 -1 606 10 10 6
+411 9 1509949540 3 0
+326 9 1509949490 3 0
+410 9 1509949490 3 0
+-1
+S
+
+#21297
+Dark Cavern~
+The tunnel contines here, boring its way through dark rock.  You think
+you see a larger chamber up ahead, more by feel than by actual sight; you
+sense a space, and the coolness of dark air up ahead.
+~
+~
+301465600 0 6 0
+D0
+~
+~
+0 -1 605 10 10 5
+D2
+~
+~
+0 -1 604 10 10 5
+410 9 1509949540 3 0
+-1
+S
+
+#21298
+Side Cavern~
+The cavern is small here, and slick with condensation.  Slabs of rock
+force you to bend and move slowly, as you note the the main passage is
+off to the east and the room continues to narrow off to the south.
+~
+~
+301465600 0 5 0
+D1
+~
+~
+0 -1 604 10 10 5
+D2
+~
+~
+0 -1 21299 10 10 5
+-1
+S
+
+#21299
+Side Cavern - Dead End~
+The side cavern comes to an end here, in a small, but round, end chamber. 
+The floor and ceiling here are rough and uneven, with the walls
+zigzagging back and forth in a tacit expresson of nature's past primal
+fury.
+~
+~
+301465600 0 4 0
+D0
+~
+~
+0 -1 21298 10 10 5
+411 9 1509949540 2 0
+411 9 1509949540 3 0
+-1
+S
+
+#21300
+Woods~
+You are in some dense woods.  To the east and south the trail winds by,
+snaking its way along the clifftop.  To the north, the woods thicken as
+mountains rise up around you.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21275 10 10 5
+D2
+~
+~
+0 -1 21073 10 10 5
+-1
+S
+
+#21301
+Rutted Road~
+From this vantage point you can see the Inner-Sea to the west.  Many
+ships travel to this port to trade goods and restock.  The road leading
+down to the docks is well worn with many deep ruts from heavy wagon
+travel, with the woods to the north and south providing excellent cover
+from the cold winds from the sea.  
+~
+rewrite this - is same as room to e
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21106 10 10 5
+D3
+~
+~
+0 -1 21107 10 10 5
+-1
+S
+
+#21302
+Northern Sea Trail~
+Under Construction.
+~
+~
+301465600 12 9 0
+-1
+S
+
+#21303
+Narrow Path~
+This is a narrow path between high bushes, extending to the north and
+east.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21304 10 10 5
+D1
+~
+~
+0 -1 21032 10 10 5
+-1
+S
+
+#21304
+Narrow Path~
+This is a narrow path between high bushes, extending to the south and
+west.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 21303 10 10 5
+D3
+~
+~
+0 -1 21305 10 10 5
+-1
+S
+
+#21305
+Narrow Path~
+This is a narrow path between high bushes, extending to the west and
+east.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21304 10 10 5
+D3
+~
+~
+0 -1 21306 10 10 5
+-1
+S
+
+#21306
+Narrow Path~
+This is a narrow path between high bushes, extending to the west and
+east.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21305 10 10 5
+D3
+~
+~
+0 -1 21307 10 10 5
+-1
+S
+
+#21307
+Narrow Path~
+This is a narrow path between high bushes, extending to the west and
+east.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21306 10 10 5
+D3
+~
+~
+0 -1 21308 10 10 5
+-1
+S
+
+#21308
+Narrow Path~
+This is a narrow path between high bushes, extending to the south and
+east.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 21307 10 10 5
+D2
+~
+~
+0 -1 21309 10 10 5
+-1
+S
+
+#21309
+Narrow Path~
+This is a narrow path between high bushes, extending to the north and
+west.  In the distance to the west, you can faintly hear the roaring of
+what sounds like waves on a coastline.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 21308 10 10 5
+D3
+~
+~
+0 -1 21029 10 10 5
+-1
+S
+
+#21310
+Northern Sea Trail - Cliff Overlooking the Sea of Stars~
+The road twists and turns here between the edge of a sheer cliff which
+drops away hundreds of feet just south of you and the rugged climb of the
+mountains north and up.  The view is breathtaking, with the chasm
+dropping steeply away to meet the glittering inland sea to the far south. 
+A large boulder has fallen from the mountains to the north, and rests
+next to the trail.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21089 10 10 5
+D3
+~
+~
+0 -1 21311 10 10 5
+E
+1 north boulder~
+A large rock, just a shade over three feet at its largest point.  It
+looks as if it fell from the mountains some time back as weathering has
+already started to round its jagged edges.
+~
+-1
+S
+
+#21311
+Above the Cliff~
+The road twists and turns here between the edge of a sheer cliff which
+drops away hundreds of feet just south of you and the rugged climb of the
+mountains north and up.  The view is breathtaking, with the chasm
+dropping steeply away to meet the glittering inland sea to the far south. 
+Tiny shrubs and trees grow along the edge of the chasm, hanging on with
+twisted roots.  To the west a sturdy old stone bridge spans the gap
+carved over the ages by a tiny river that pours down from the mountains. 
+Far to the south, the river empties into the Northern Sea.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21310 10 10 5
+D3
+~
+~
+0 -1 21312 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou step onto the sturdy bridge to the west.@n
+~
+E
+to_room~
+@G$n steps onto the sturdy bridge to the west.@n 
+~
+!
+3 0 8
+2196 9 1509949540 3 0
+-1
+S
+
+#21312
+Eastern End of the Bridge~
+The bridge rises up here from the edge of a sheer cliff to the east that
+drops away hundreds of feet below you.  The view is breathtaking, with
+the chasm descending steeply away to meet the glittering inland sea to
+the south.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21311 10 10 5
+D3
+~
+~
+0 -1 21313 10 10 5
+-1
+S
+
+#21313
+Center of Eagle's Eye Bridge~
+The peak of the stone bridge spans the chasm here, reinforced all along
+its length by heavy, squared timbers cut from the nearby forest.  At each
+end of the bridge stand heavy wooden arches, weather-beaten and
+salt-stained, making this something of a border between the human lands
+to the east and west.  The view is breathtaking and obviously the reason
+for the bridge's name, with the chasm below dropping steeply away to meet
+the glittering inland sea to the south.
+~
+[Fraelith] no look bridge?
+[Rue] Guilt code for murdering emaciated man in wererats.  only affects
+good aligned people that murdered him in cold blood.
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21312 10 10 5
+D3
+~
+~
+0 -1 21314 10 10 5
+A
+~
+~
+if( cflag( 89, ch ) ) {
+  act_tochar( #sadness, ch );
+  drain_stat( ch, con, 10, -1 );
+  end;
+  }
+else
+  end;
+~
+E
+sadness~
+@GAs you cross the bridge, you look out across the beautiful landscape
+before you, and are suddenly gripped with sadness.  You remember the poor
+man you murdered.
+You stripped from him any hope of ever enjoying a view like this, crushed
+the hearts of his family and stained your own self-image.
+Someday perhaps, you will be able to clean this dark cloud from your
+conscience, but that day has not yet come.@n 
+
+@YYou feel weakened by guilt.@n
+~
+!
+1 0 10
+-1
+S
+
+#21314
+Western End of the Bridge~
+The bridge rises up here from the edge of a sheer cliff to the west that
+drops away hundreds of feet below you.  The view is breathtaking, with
+the chasm descending steeply away to meet the glittering inland sea to
+the south.
+~
+bridge room
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21313 10 10 5
+D3
+~
+~
+0 -1 21315 10 10 5
+-1
+S
+
+#21315
+Northern Sea Trail - Cliff Overlooking the Sea of Stars~
+The trail winds east and west here, across a sloped hillside.  To the
+southeast, the cliff drops away to the sea while directly to the east a
+small, nameless river has cut a deep chasm, spanned by a sturdy bridge. 
+On the other side of the chasm, the path seems to continue, wandering
+along under under the shadow of the Cairn Mountains to the north.  A
+large building sits to the south of the trail.
+~
+Vnum: 21318
+The Eagle Eye Cafe is south
+no.mob to prevent boy from walking out of his job
+[Caenthe Lyrr] Graffiti on doorjamb:  Job sucks, name not "boy."  I'm outta here, man.  --Billie
+~
+301465608 12 9 0
+D1
+~
+~
+0 -1 21314 10 10 5
+D2
+swinging doors~
+swinging doors~
+0 -1 21318 10 10 5
+D3
+~
+~
+0 -1 21316 10 10 5
+E
+cafe building~
+Long a favorite place to rest your weary legs and sit with friends and
+other adventurers, the Eagle Eye Cafe overlooks the bridge that spans the
+Great Divide.  Nestled in the shadows of the Cairn Mountains and
+overlooking the Northern Sea, it provides a wonderful view and a nice
+selection of foods and coffees for travelers.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou step onto the sturdy bridge to the east.@n
+~
+E
+to_room~
+@G$n steps onto the sturdy bridge to the east.@n
+~
+!
+3 0 2
+A
+~
+~
+act_tochar( #swing, ch );
+act_notchar( #rmswings, ch );
+send_to_room( #otherswing, find_room( 21318 ) );
+continue;
+~
+E
+swing~
+You push the swinging doors open and head inside.
+~
+E
+rmswings~
+$n heads south, leaving the doors swinging gently behind $m.
+~
+E
+otherswing~
+The doors swing open.
+~
+!
+3 0 4
+-1
+S
+
+#21316
+Northern Sea Trail - Cliff Overlooking the Sea of Stars~
+The trail continues, following a fairly sure east-west line along the
+cliff.  South of here, the sea stretches out before you: calm, but quite
+daunting.  To the north loom the Cairn Mountains whose chill waters feed
+the hidden river that has carved the deep chasm that lies to the east.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21315 10 10 5
+D3
+~
+~
+0 -1 21317 10 10 5
+-1
+S
+
+#21317
+Northern Sea Trail - Cliff Overlooking the Sea of Stars~
+The well-worn path continues east and west here, following the winding
+edge of the cliff.  The sounds of the sea rise to your ears from the
+chasm to east: waves crashing, birds squawking, and the occasional toll
+of a ship's bell. To the north and west lie the mist-shrouded,
+densely-wooded eastern arm of the Cairn mountains.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 21316 10 10 5
+D3
+~
+~
+0 -1 21052 10 10 5
+-1
+S
+
+#21318
+The Eagle Eye Cafe~
+The smell of coffee and smoke, the clanking of dishes, and the murmur of
+patrons talking fills the air of the Eagle Eye Cafe.  A long counter runs
+along the west wall, and several employees run back and forth attending
+to the needs of running the establishment.  Chairs and a long bench are
+scattered about the room, inviting you to rest your weary feet.  Two open
+doorways almost fill the south and eastern walls, leading out to a
+balcony that overlooks the Sea.  To the north, a pair of green swinging
+doors hang on heavy iron hinges.
+~
+~
+301469735 12 5 0
+D0
+swinging doors~
+swinging doors~
+0 -1 21315 10 10 5
+D1
+~
+~
+0 -1 21320 10 10 5
+D2
+~
+~
+0 -1 21319 10 10 5
+E
+counter~
+The long wooden counter has survived decades of service.  It is scratched
+and stained, but is still quite serviceable.
+~
+A
+~
+~
+send_to_room( #clinking, room );
+~
+E
+clinking~
+The sounds of clinking dishes and glasses comes from behind the counter.
+~
+!
+2 10 0
+A
+~
+~
+act_tochar( #swing, ch );
+act_notchar( #rmswings, ch );
+send_to_room( #otherswing, find_room( 21315 ) );
+continue;
+~
+E
+swing~
+You push the swinging doors open and head outside.
+~
+E
+rmswings~
+$n heads north, leaving the doors swinging gently behind $m.
+~
+E
+otherswing~
+The doors swing open.
+~
+!
+3 0 1
+A
+~
+~
+mob = mob_in_room( 1902, room );
+interpret( mob, "put all trash" );
+~
+!
+1 0 6
+A
+~
+~
+if( find_stat( ch, level ) < 49 ) {
+  if( !is_player( ch ) ) {
+    send_to_char( #ch, ch );
+    act_notchar( #no, ch );
+    transfer( ch, find_room( 21315 ) );
+    }
+  }
+~
+E
+ch~
+A magical force prevents you from entering.
+~
+E
+no~
+$n refuses to enter the shack.
+~
+!
+1 0 1
+466 17 1509949540 -2 0
+1145 17 1509949540 -2 0
+1901 9 1509949540 3 0
+794 17 1509949490 -1 16
+1631 17 1509949490 -1 10
+1688 17 1509949460 -1 33
+2687 17 1509949490 -1 12
+2687 17 1509949505 -1 11
+1688 17 1509949460 -1 5
+2704 17 1509949490 -1 0
+2707 17 1509949490 -1 0
+2708 17 1509949490 -1 0
+1902 9 1509949540 3 0
+2697 17 1509949540 -2 0
+-1
+S
+
+#21319
+Eagle Eye Cafe - Southern End of the Balcony~
+The balcony overlooks a steep cliff that leads far down to the Northern
+Sea.  As far as you can see, the cool waters of the Sea stretch, silently
+waving in the distance.  Thick wooden railings and sturdy planks make up
+the balcony, preventing you from falling over the side, and only slightly
+worn by time.  The wooden porch roof provides some shelter from the
+elements, while leaving the view open to the south and east.
+~
+~
+301469731 12 5 0
+D0
+~
+~
+0 -1 21318 10 10 5
+D1
+~
+~
+0 -1 21321 10 10 5
+E
+planks guardrails beams~
+The thick beams and railings of the balcony are painted with magical
+symbols and intricate scrollwork.
+~
+E
+magical symbols~
+The magical symbols are ancient, perhaps they have something to do with
+the lack of magical energy here.
+~
+E
+Northern sea~
+The grand expanse of the Northern Sea spreads out to the southeast.  From
+here you cannot hear the movement of the water, but you can smell it and
+its brackish waters.
+~
+A
+~
+~
+send_to_room( #eagle, room );
+~
+E
+eagle~
+Off in the distance, you hear the screeching call of an eagle.
+~
+!
+2 10 0
+466 17 1509949540 -2 0
+-1
+S
+
+#21320
+Eagle Eye Cafe - Eastern Side of the Balcony~
+The balcony overlooks the Great Divide, and the tiny river that flows at
+its bottom.  Just to the north, the famous Eagle Eye Bridge spans the
+gap, bridging the human lands to the east and west.  To the east, on the
+other side of the Divide, the forest spreads out and up the Cairn
+Mountains.  The floor is comprised of thick and sturdy wooden planks, and
+the balcony is covered by a porch-roof.  Thick beams support the roof,
+and also the heavy railing along the eastern edge.  An open doorway leads
+into the cafe itself.
+~
+~
+301469731 12 5 0
+D2
+~
+~
+0 -1 21321 10 10 5
+D3
+~
+~
+0 -1 21318 10 10 5
+E
+great divide chasm~
+The Great Divide leads down hundreds of feet.  At its bottom winds a
+small river that comes down from the Cairn Mountains to the north.
+~
+E
+eagle eye bridge~
+This grand bridge spans the width of the Great Divide.  Built of stone
+and massive wooden timbers, it finally allowed travel from the human
+lands to the east to the human lands to the west.  It is a wonderful
+achievement of engineering, and is covered its distance by a wooden roof
+that allows travelers to look out over the edge.
+~
+E
+floor planks~
+The thick wooden planks of the balcony are ancient and sturdy.  The tops
+are rounded slightly from wear, and stained by countless spilled drinks.
+~
+E
+beams roof railing~
+The thick beams and railings of the balcony are painted with magical
+symbols and intricate scrollwork.
+~
+E
+magical symbols~
+The magical symbols are ancient, perhaps they have something to do with
+the lack of magical energy here.
+~
+466 17 1509949540 -2 0
+-1
+S
+
+#21321
+Eagle Eye Cafe - Balcony Corner~
+The view from here is spectacular; you can see an arc from the Eagle Eye
+Bridge all the way to the western shore of the Northern Sea.  Far to the
+southeast, the outline of a large keep set along the eastern shore of the
+Sea can be seen.  And just south of that, the wooden docks of Medienne. 
+From here, the water is silent, and the only sounds are those of the wind
+whistling through the trees and the conversation from the cafe itself. 
+Wooden planks make up the floor, and thick beams support the ceiling and
+the guardrail.
+~
+~
+301469731 12 5 0
+D0
+~
+~
+0 -1 21320 10 10 5
+D3
+~
+~
+0 -1 21319 10 10 5
+E
+bridge eagle eye~
+This grand bridge spans the width of the Great Divide.  Built of stone
+and massive wooden timbers, it finally allowed travel from the human
+lands to the east to the human lands to the west.  It is a wonderful
+achievement of engineering, and is covered its distance by a wooden roof
+that allows travelers to look out over the edge.
+~
+E
+planks beams guardrail~
+The thick beams and railings of the balcony are painted with magical
+symbols and intricate scrollwork.
+~
+E
+magical symbols~
+The magical symbols are ancient, perhaps they have something to do with
+the lack of magical energy here.
+~
+E
+Northern Sea~
+The grand expanse of the Northern Sea spreads out to the southeast.  From
+here you cannot hear the movement of the water, but you can smell it and
+its brackish waters.
+~
+466 17 1509949540 -2 0
+-1
+S
+
+#21322
+Northern Sea Trail~
+Under Construction.
+~
+~
+301465600 12 9 0
+-1
+S
+
+#0
+

@@ -1,0 +1,2299 @@
+#AREA
+Darken Wood~
+Padraig, Marek~
+darken woods~
+
+30 0
+0
+#ROOMS
+
+#35250
+Outskirts of a Thick Dark Forest~
+An ancient cobblestone path leads deeper into the woods to the south, the
+colorful rock that makes up the path, shaped to fit into each other, has
+been shattered, broken, and scratched by the elements and vandals.  To
+the west, a sheer cliff wall rises straight up.  This path leads south
+into the dark, while to the north is climbs steeply up as it fades into
+lighter forest.
+~
+[Rebekka] need to tell all name - and ent keyword
+[Rebekka] nation the guy?
+[Rebekka] sanctuary?
+~
+301465610 3 6 0
+D2
+~
+~
+0 -1 35251 10 10 5
+D4
+~
+~
+0 -1 35302 10 10 5
+E
+n north u up~
+The path climbs into the cliffs.
+~
+E
+s south~
+The path goes on.
+~
+E
+w west cliff~
+The sheer cliff face stretches into the sky.
+~
+E
+e east~
+The woods loom ominously.
+~
+A
+~
+~
+if( mob_in_room( 701, room ) ) {
+  if( is_follower( ch ) )
+    end;
+  wait( 1 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( find_stat( ch, level ) > 20 )
+    act_tochar( #highchar, ch );
+  else {
+    act_tochar( #lowchar, ch );
+    interpret( mob, "sigh" );
+    }
+  }
+~
+E
+highchar~
+The ent turns to regard you and says,@b@W
+
+"My name is Annrororrobornnocharrhadroon.  I thought I would be
+sufficient to match the challenges of this evil wood -- but I was wrong. 
+Abominations untold lie beyond, your body will be tested and your mind
+will be tormented!  Trust in allies, no one will succeed there alone."
+
+~
+E
+lowchar~
+The ent turns to regard you and says,@b@W
+
+"My name is Annrororrobornnocharrhadroon.  I thought I would be
+sufficient to match the challenges of this evil wood -- but I was wrong. 
+Turn back lest you you suffer the same fate -- return only after you have
+grown stronger than you seem now.  You may ignore my words, if you choose.
+But it would not be wise." 
+~
+!
+1 0 17
+701 9 1509949540 3 0
+-1
+S
+
+#35251
+Entrance to the Forsaken Forest~
+A rusted, black iron gate arches above you.  Though rusted, the gate's
+steel bars still stand in firm defiance of sieges or invasions. 
+Overhead, figures have been sculpted into the metal, their leering shapes
+serving as a warning to all.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 35250 10 10 5
+D2
+~
+~
+0 -1 35252 10 10 5
+E
+writing runes~
+As you study the runes you remember a tale.  A tale told by old men
+around the fire on long winters nights of a time when the choice between
+good and evil was clear.  A tale of the triumph of the Paladins of Taranth.
+
+
+Dark was the day     in the dawn before battle.
+wild the wind as it     howled through the wood.
+grim were the warriors     grinding their spear points,
+gray was the horse whose     hooves rode the wind.
+Ravens were gathered     to watch the grim reaving,
+wolves waited in wood for     the feast that fell.
+Up, on Taranth's warriors!     weapons shall give you
+meat for your merriment     mead running red.
+
+Hosts of these fell beasts    harried our homeland
+Evil's growing might     ruthless foe to the free.
+Fire and horn call     our folk to the wood
+the day was dawn for our folk,     or else it was doom.
+~
+E
+n north~
+The path leads into lighter forest.
+~
+E
+s south~
+The path fades into the green gloom.
+~
+E
+steel gate bars~
+Ringed by runes, three panels of sculpted figures portray an epic tale.
+~
+E
+panels figures~
+A tale is told by the simple figures and depictions of the panels.  The
+Tarantha Paladins hold the fell beasts at bay allowing the mages and
+druids to sacrifice one of their own . The last of the shadowspawn are
+entrapped by the wood as the gate is erected as the capstone of the magic
+of Darken Wood.
+~
+E
+1 east 1 west~
+The forest looms ominously.
+~
+A
+~
+~
+wait( 1 );
+if( char_in_room( ch, room ) ) {
+  send_to_char( #char, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) )
+    send_to_char( #char2, ch );
+  }
+~
+E
+char2~
+A fog blankets your mind.... Your thoughts tumble and churn as you realize
+that what lies before you is unlike anything you have experienced before.
+~
+E
+char~
+As you pass the gate, your hand is drawn to touch its cold metal surface.
+~
+!
+1 2 1
+A
+~
+~
+wait( 1 );
+if( char_in_room( ch, room ) ) 
+  send_to_char( #echar, ch );
+~
+E
+echar~
+You pass back to the normal world.
+~
+!
+1 0 4
+-1
+S
+
+#35252
+Darkened Path~
+The crooked trees, their twisted branches reaching into the stale breeze,
+crowd together.  The undergrowth and the scab-covered saplings all wind
+around each other, clinging together until they have formed a crude
+rounded portal to the north.  You may move in any direction from here.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 35251 10 10 5
+D1
+~
+~
+0 -1 35255 10 10 5
+D2
+~
+~
+0 -1 35260 10 10 5
+D3
+~
+~
+0 -1 35253 10 10 5
+E
+1 north 2 south~
+The path fades into the green gloom.
+~
+E
+1 east 1 west~
+The forest looms ominously.
+~
+-1
+S
+
+#35253
+Broken Canopy~
+The dark skies can be seen in fits and starts through the forest's cover
+overhead, as though one was looking up through a hole in the roof of an
+abandoned chapel.  The cry of a beast or bird echoes in the distance,
+whether in fear or challenge you cannot tell.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 35252 10 10 5
+D2
+~
+~
+0 -1 35259 10 10 5
+D3
+~
+~
+0 -1 35254 10 10 5
+E
+e east~
+The forest is cut by a path.
+~
+E
+w west s south~
+The forest goes on.
+~
+E
+n north~
+The forest ends sharply at a shear cliff face.
+~
+-1
+S
+
+#35254
+The Vast Forest~
+Many breezes, refreshing but chill, rush through the trees and leaves of
+the forest.  The signs of life are rife here: the minute sounds of
+movement, and the low growls of hungry beasts.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 35253 10 10 5
+D2
+~
+~
+0 -1 35257 10 10 5
+E
+s south e east~
+The forest goes on.
+~
+E
+w west n north~
+The forest ends sharply at a shear cliff face.
+~
+629 9 1509949540 3 0
+628 9 1509949540 3 0
+-1
+S
+
+#35255
+At the Woodland Ancients~
+Tall trees rise above you into the forest canopy, draped with hanging
+mosses like the beards of woodland ancients.  The dark green light
+filtering through the rough overhang makes it difficult to see into the
+woods around you.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 35256 10 10 5
+D2
+~
+~
+0 -1 35261 10 10 5
+D3
+~
+~
+0 -1 35252 10 10 5
+E
+e east s south~
+The forest goes on.
+~
+E
+w west~
+The forest is cut by a path.
+~
+E
+n north~
+The forest halts at a shear cliff face.
+~
+629 9 1509949540 3 0
+628 9 1509949540 3 0
+-1
+S
+
+#35256
+The Vast Forest~
+Thick scents of earth and loam ride the breezes here, the cries of local
+creatures ringing out on occasion.  Any light here reflects the
+surroundings well illuminating the colors of the woodland.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 35262 10 10 5
+D3
+~
+~
+0 -1 35255 10 10 5
+E
+s south w west~
+The forest goes on.
+~
+E
+n north e east~
+The forest ends sharply at a shear cliff face.
+~
+-1
+S
+
+#35257
+Deep in the Forest~
+The quiet of the area is occasionally broken by the sounds of something
+unseen scurrying through the undergrowth.  Ancient trees rise above you,
+blocking all but the briefest views of the sky.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35254 10 10 5
+D1
+~
+~
+0 -1 35259 10 10 5
+D2
+~
+~
+0 -1 35265 10 10 5
+D3
+~
+~
+0 -1 35258 10 10 5
+E
+s south~
+The forest is cut by a path.
+~
+E
+n north e east w west~
+The forest goes on.
+~
+-1
+S
+
+#35258
+Near a Ravine~
+Faraway hills stand as only a dark blur through the thin mist.  The dark
+ominous trees crowd tightly against the ravine edge as if seeking to
+force their fellows over the edge in an attempt to reach freedom.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 35257 10 10 5
+D2
+~
+~
+0 -1 35264 10 10 5
+E
+e east~
+The forest goes on.
+~
+E
+s south~
+The forest is cut by a path.
+~
+E
+ravine n north w west~
+The quiet stream, turned violent by the long fall from the cliff top,
+cuts a swath through the edge of the woods.
+~
+-1
+S
+
+#35259
+Trees like Pillars~
+You stare up through a cathedral of enormous trees that seems to go on
+forever.  Occasionally, a startled forest creature tears through the
+underbrush away from you.  The breeze is moist and speaks of living
+things as it sighs through a constantly shifting world of green.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 35253 10 10 5
+D1
+~
+~
+0 -1 35260 10 10 5
+D2
+~
+~
+0 -1 35266 10 10 5
+D3
+~
+~
+0 -1 35257 10 10 5
+E
+n north w west~
+The forest goes on.
+~
+E
+e east s south~
+The forest is cut by a path.
+~
+-1
+S
+
+#35260
+Light and Shadows~
+Winds scatter the leaves that have fallen to the ground, whispering in
+their riddled runes to the earth.  Droplets of water, catching any
+any illumination like pebbles of light netted fromt he sky, tumble to the 
+ground and chase away the shadows meandering through the forest with
+malicious intent.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 35252 10 10 5
+D1
+~
+~
+0 -1 35261 10 10 5
+D2
+~
+~
+0 -1 35267 10 10 5
+D3
+~
+~
+0 -1 35259 10 10 5
+E
+1 north 1 south~
+The path fades into the green gloom.
+~
+E
+1 east 1 west~
+The forest looms ominously.
+~
+628 9 1509949540 3 0
+-1
+S
+
+#35261
+Descent to Darkness~
+The ground drops several feet in as much space to the south where it
+heads into a deeper area of the forest.  Little light reaches here, and
+the sparse moss hanging from the trees is white and wispy, like old dusty
+cobwebs.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35255 10 10 5
+D1
+~
+~
+0 -1 35262 10 10 5
+D2
+~
+~
+0 -1 35268 10 10 5
+D3
+~
+~
+0 -1 35260 10 10 5
+E
+n north e east~
+The forest goes on.
+~
+E
+w west s south~
+The forest is cut by a path.
+~
+629 9 1509949540 3 0
+-1
+S
+
+#35262
+The Vast Forest~
+In these unearthly surroundings, ones mind can wander, almost in a waking
+dream.  Images come to you of dark green lines of earth-strength
+thrumming up from the roots of the gnarled trees and bushes...  the
+cruel, white face of the Birch-Maiden whose touch drives men mad...  the
+cold dark glitter of the dreaming adder under a boulder...  and the faint
+fiery flashes of will-o'-the wisps drawing nearer, gathering to a hidden
+figure.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35256 10 10 5
+D1
+~
+~
+0 -1 35263 10 10 5
+D2
+~
+~
+0 -1 35269 10 10 5
+D3
+~
+~
+0 -1 35261 10 10 5
+E
+s south~
+The forest is cut by a path.
+~
+E
+n north w west e east~
+The forest goes on.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You hear something moving nearby.
+~
+!
+2 200 0
+679 9 1509949540 3 0
+-1
+S
+
+#35263
+Top of an Incline~
+You stand at the top of a short incline from the forest to the west.  The
+area is rocky, growing more sylvan and comfortable to the south and west. 
+All about you great trees rise like sentinels overhead, blocking your
+view after no more than a few hundred feet.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 35270 10 10 5
+D3
+~
+~
+0 -1 35262 10 10 5
+E
+w west s south~
+The forest goes on.
+~
+E
+n north e east~
+The forest ends sharply at a shear cliff face.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You tense up a bit as you see something moving through the undergrowth.
+~
+!
+2 200 0
+-1
+S
+
+#35264
+Paths Which are Travelled~
+Bits of seashell, colored pink and yellow, lie scattered across the dark
+and fertile soil of the Darken Wood.  Overhead the trees rise far into
+the clouded sky, their shadowed branches shivering as if they were ill.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35258 10 10 5
+D1
+~
+~
+0 -1 35265 10 10 5
+D2
+~
+~
+0 -1 35271 10 10 5
+D3
+~
+~
+0 -1 35290 10 10 5
+E
+w west~
+The path ends abruptly at the waters edge.
+~
+E
+e east~
+The path fades into the green gloom.
+~
+E
+n north s south~
+The forest looms ominously.
+~
+628 9 1509949540 3 0
+-1
+S
+
+#35265
+Darken Trail~
+For a second, as you move along this trail, the leaves of the trees
+glisten like diamonds, drops of dew seemingly crystalizing.  A puff of
+air rushes by you, cool and sweet, as the diamonds shiver against each
+other.  The tinkling of bells fills the thick forest, as the magical
+tapestry is woven through the bark and soil.  Overhead the skies finally
+die away into a dismal grey.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35257 10 10 5
+D1
+~
+~
+0 -1 35266 10 10 5
+D2
+~
+~
+0 -1 35272 10 10 5
+D3
+~
+~
+0 -1 35264 10 10 5
+E
+1 north 1 south~
+The forest looms ominously.
+~
+E
+1 east 1 west~
+The path fades into the green gloom.
+~
+-1
+S
+
+#35266
+Darken Path~
+Open air gives way to shadow as the ground dips and wide-spaced birches
+are replaced with denser, older trees.  Ash and beech and oak fill this
+broad bowl, the timber spreading up to the sides, heavy boughs thrusting
+out attempting to hide the sky.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35259 10 10 5
+D1
+~
+~
+0 -1 35267 10 10 5
+D2
+~
+~
+0 -1 35273 10 10 5
+D3
+~
+~
+0 -1 35265 10 10 5
+E
+1 east 1 west~
+The path fades into the green gloom.
+~
+E
+1 north 1 south~
+The forest looms ominously.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You feel a chill go up your spine as you hear something stalking you.
+~
+!
+2 0 0
+-1
+S
+
+#35267
+Muted Air~
+All sounds take on a muted air here, as if the uneasy fear has taken on a
+physical element, laying an ominous hand over the area, willing a
+tangible silence to blanket the wood.  To the south, the sound of water
+dances, its music almost stilled by the forest's rasping breath.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35260 10 10 5
+D1
+~
+~
+0 -1 35268 10 10 5
+D2
+~
+~
+0 -1 35279 10 10 5
+D3
+~
+~
+0 -1 35266 10 10 5
+E
+1 north 1 east 1 west~
+The path fades into the green gloom.
+~
+E
+1 south~
+The forest looms ominously.
+~
+E
+sword boulder rusted~
+Battered, rusted, and useless the sword stands silent.  But while the
+sword is mute, tales have travelled down the slope of time.  A childrens
+rhyme tells of the passing of Gblon the Stone Giant, impaled through the
+breast with a mighty sword.  Perhaps this may be the spot, but reality
+pulls you back to contemplate a rusted sword in an old stone.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You hear something stalking you.
+~
+!
+2 200 0
+-1
+S
+
+#35268
+Darken Path~
+A blob of fog, thick and swarming, soft and cool, sweeps through this
+area.  As the tree branches dip slightly, their leaves glistening from
+beads of dew, you can almost hear the ghostly harps of bards that have
+travelled these forlorn paths.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35261 10 10 5
+D1
+~
+~
+0 -1 35269 10 10 5
+D2
+~
+~
+0 -1 35275 10 10 5
+D3
+~
+~
+0 -1 35267 10 10 5
+E
+n north s south~
+The forest looms ominously.
+~
+E
+e east w west~
+The path fades into the green gloom.
+~
+-1
+S
+
+#35269
+Deep Paths~
+The trees, their canopy far overhead, prevent any light from seeping
+through to the wet earth.  The trees shiver in the chill breezes as if
+they physically desire to feel warmth on their moldy bark; but the Darken
+Wood has maintained its infamous reputation of lifelessness through some
+means - or because of a curse.  Carefully, if you peer so to the east, you
+note the faint outline of what appears to be the skeleton of a wooden
+cart.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35262 10 10 5
+D1
+~
+~
+0 -1 35270 10 10 5
+D2
+~
+~
+0 -1 35276 10 10 5
+D3
+~
+~
+0 -1 35268 10 10 5
+E
+w west s south~
+The path fades into the green gloom.
+~
+E
+n north~
+The forest looms ominously.
+~
+E
+east cart~
+A cart lies wrecked at the side of the path.
+~
+-1
+S
+
+#35270
+Remains of a Wagon~
+Pushed to the side of the trail, partially buried in the thick mud, the
+skeleton of a wooden cart has been forced to suffer the elements.  Thick
+pieces of leather lie rotting in a bed of weeds and fungal blooms. 
+Further off the trail a few crates have been shattered, planks of wood
+sticking upward like makeshift tombstones, hiding a dull glimmer.  The
+saplings that surround you, their slender figures arching gracefully
+against each other, are crowned with green leaves.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35263 10 10 5
+D2
+~
+~
+0 -1 35277 10 10 5
+D3
+~
+~
+0 -1 35269 10 10 5
+E
+e east~
+The forest ends sharply at a shear cliff face.
+~
+E
+n north s south~
+The forest goes on.
+~
+E
+w west~
+The forest is cut by a path.
+~
+A
+l look move get take~
+skeleton wooden cart leather crates planks~
+if( mob_in_room( 667, room ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  mload( 667, room );
+  wait( 2 );
+  mload( 667, room );
+  wait( 2 );
+  mload( 667, room );
+  }
+else {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+~
+E
+room~
+$n rumages around, but doesn't seem to find anything.
+~
+E
+char~
+You rummage around, but find nothing.
+~
+E
+to_room~
+$n reaches down to inspect the wreckage and is attacked!
+~
+E
+to_char~
+As you disturb the wreckage you see the glimmer of hidden treasures,
+that is before you are distracted by the attacking ghosts.
+~
+!
+0 0 0
+-1
+S
+
+#35271
+Low Hillside~
+Deep shadows encompass the base of this sloping hill, blocking out the
+pale light, creating an almost tangible layer of oppression over the
+forest and the darker souls that dwell within its shadows.  Sounds are
+muted, only the raucous cries of a hidden bird disturbing the silence.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35264 10 10 5
+D1
+~
+~
+0 -1 35272 10 10 5
+D2
+~
+~
+0 -1 35278 10 10 5
+E
+n north e east s south~
+The forest goes on.
+~
+E
+w west~
+The river rages and froths too dangerous to cross.
+~
+-1
+S
+
+#35272
+Within Darken Wood~
+Deep shadows and silence fills the area.  The walls of a dark,
+vine-sheathed tower stands to the the south and east, silent and somehow
+threatening, a darker shadow in a dark wood -- a sentinel from a lost
+time.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35265 10 10 5
+D1
+~
+~
+0 -1 35273 10 10 5
+D2
+~
+~
+0 -1 35274 10 10 5
+D3
+~
+~
+0 -1 35271 10 10 5
+E
+s south~
+The ground grows damper to the south.
+~
+E
+e east w west~
+The forest goes on.
+~
+E
+n north~
+The forest is cut by a path.
+~
+629 9 1509949540 3 0
+-1
+S
+
+#35273
+North of an Ancient Tower~
+Eerie shadows and ghostly light unite, creating a sense of
+disorientation, the uneven ground supporting huddling, looming trees. 
+Sodden dirt covers aged, scattered paving stones.  The black outline of a
+crumbling tower lies to the south, looming dark against the back drop,
+lending its mass to the sense of anticipation, as though waiting for
+something to happen.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35266 10 10 5
+D1
+~
+~
+0 -1 35279 10 10 5
+D3
+~
+~
+0 -1 35272 10 10 5
+E
+west east~
+The forest goes on.
+~
+E
+n north~
+The forest is cut by a path.
+~
+E
+south tower~
+The circular tower seems made of thick, ancient granite blocks.  You see
+no door in the section of the wall facing you.
+~
+E
+scattered paving stones~
+seem to be of the same type as the tower to the south, a dark,
+lusterless granite.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+Something is following you.
+~
+!
+2 0 0
+679 9 1509949540 3 0
+-1
+S
+
+#35274
+West of a Tower~
+A cold wind sucks its way though the area.  Chill drafts blow from the
+high cliffs that surround this forested valley.  The walls of a dark
+tower stands to the the east, silent as it crumbles amidst the forest.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35272 10 10 5
+D2
+~
+~
+0 -1 35294 10 10 5
+D3
+~
+~
+0 -1 35278 10 10 5
+E
+south north west~
+The forest goes on.
+~
+E
+tower~
+The circular tower seems made of thick ancient granite blocks.  You see
+no door in the section of the wall facing you.
+~
+628 9 1509949540 3 0
+-1
+S
+
+#35275
+Darken Path~
+Mysterious, vague shadows cloak this area, heightening feelings of
+insecurity, as if the forest itself takes exception to intrusion.  The
+darkness here assumes a life of its own, black cast upon unrelieved black.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35268 10 10 5
+D1
+~
+~
+0 -1 35276 10 10 5
+D2
+~
+~
+0 -1 35282 10 10 5
+D3
+~
+~
+0 -1 35279 10 10 5
+E
+n north s south~
+The path fades into the green gloom.
+~
+E
+e east w west~
+The forest looms ominously.
+~
+628 9 1509949540 3 0
+-1
+S
+
+#35276
+Within the Darken Wood~
+There is a solemnity to the forest, the air still, prompting you to think
+uncomfortably of a temple, its dark interior lit only by the high, narrow
+windows.  Bird song is a distant chorus, dimmed, it seems, by the bulk of
+the great trees.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35269 10 10 5
+D1
+~
+~
+0 -1 35277 10 10 5
+D2
+~
+~
+0 -1 35283 10 10 5
+D3
+~
+~
+0 -1 35275 10 10 5
+E
+e east~
+The forest goes on.
+~
+E
+n north s south w west~
+The forest is cut by a path.
+~
+E
+e east w west n north s south~
+The forest looms ominously.
+~
+628 9 1509949540 3 0
+628 9 1509949540 3 0
+-1
+S
+
+#35277
+Whispers in the Leaves~
+The trees whisper with their own sweet breath, words floated across their
+fragrant fruits.  The upturned mud is at their feet; held down and still
+by magicked roots.  Deep in the Darken Wood you wander yet, each step
+headed into the night.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35270 10 10 5
+D2
+~
+~
+0 -1 35284 10 10 5
+D3
+~
+~
+0 -1 35276 10 10 5
+E
+n north w west~
+The forest goes on.
+~
+E
+s south~
+The trees die to the south.
+~
+E
+e east~
+The forest ends sharply at a shear cliff face.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You hear something following you.
+~
+!
+2 0 0
+628 9 1509949540 3 0
+-1
+S
+
+#35278
+Broken Earth~
+Ebon shadows crawl over the ground, the close-packed trees snuffing out
+any light that might filter down from the skies above.  The ground is
+uneven, cracked and broken, covered in weeds and thick grasses.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35271 10 10 5
+D1
+~
+~
+0 -1 35274 10 10 5
+D2
+~
+~
+0 -1 35293 10 10 5
+D3
+~
+~
+0 -1 35291 10 10 5
+E
+e east~
+The ground grows damper to the east.
+~
+E
+n north w west s south~
+The forest goes on.
+~
+-1
+S
+
+#35279
+Small Pond~
+Quiet ripples run ashore, across the waves of red mud in which your feet
+sink.  Thin and wispy reeds line the shore of this small pond, the cool
+breeze slipping through their hollows and making them sing with
+whispering cries.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 35267 10 10 5
+D1
+~
+~
+0 -1 35275 10 10 5
+D2
+~
+~
+0 -1 35281 10 10 5
+D3
+~
+~
+0 -1 35273 10 10 5
+E
+n north e east w west s south~
+The forest goes on.
+~
+638 9 1509949540 3 0
+-1
+S
+
+#35280
+Base of an Ancient Tower~
+This room has remained fairly clean, since there are only a few arrow
+slits through with the elements can gain access, but still certainly
+shows signs of great age.  The paint on the walls is yellowed and peeling
+in strips, the floor worn with the tread of a thousand booted feet and
+seeping water. A heavy stone stair rises to the floor above. 
+~
+~
+301465600 3 9 0
+D1
+heavy oaken door~
+~
+131 -1 35281 10 10 5
+D4
+~
+~
+0 -1 35305 10 10 5
+E
+n north e east s south~
+The forest goes on.
+~
+E
+w west~
+The ground grows damper to the west.
+~
+-1
+S
+
+#35281
+Before a Dark Tower~
+A blanket of sadness, thick and supporting the misery of hundreds of
+years of pain, envelops the trees in its stifling air.  To the west the
+stone ruins of a dark tower stands in the shadows, its story and purpose
+lost to the memories of mortal minds.
+~
+[Marek] Lemme restate, Birch maiden ACTION here :)
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35279 10 10 5
+D1
+~
+~
+0 -1 35282 10 10 5
+D2
+~
+~
+0 -1 35296 10 10 5
+D3
+heavy oaken door~
+~
+131 -1 35280 10 10 5
+E
+north east south~
+The forest goes on.
+~
+E
+tower west~
+The circular tower seems made of ancient, thick granite blocks.  A heavy
+door is set into the base of the tower here, closed to the elements and
+your prying eyes.
+~
+A
+~
+~
+if( mob_in_room( 1318, room ) )
+  end;
+if( is_follower( ch ) )
+  end;
+if( !is_player( ch ) )
+  end;
+if( !rflag( reset0, room ) )
+  end;
+wait( 3 );
+remove_rflag( reset0, room );
+if( !rand_char( room ) )
+  end;
+act_notchar( #room, ch );
+mload( 1318, room );
+~
+E
+room~
+A slim maiden materializes from the bole of a nearby tree!
+~
+!
+1 0 7
+629 9 1509949540 3 0
+629 9 1509949540 3 0
+-1
+S
+
+#35282
+The Forest Path~
+Evening skies, gray and sultry and merging into night are the colors of
+the Darken Wood.  Across your mind's eye flash the images of decrepit,
+ancient trees cutting off light from dying vegetation, the only 'life'
+that remains here.  In the dim light, a trail threads north to south
+through trampled weeds.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35275 10 10 5
+D1
+~
+~
+0 -1 35283 10 10 5
+D2
+~
+~
+0 -1 35297 10 10 5
+D3
+~
+~
+0 -1 35281 10 10 5
+E
+north south~
+The path fades into the green gloom.
+~
+E
+east west~
+The forest looms ominously
+~
+E
+path~
+Scattered with a few paving stones, this may have once been a
+well-traveled road, but is now no more than a rocky, narrow path in an
+unwelcoming forest.
+
+A small side path seem to lead off to the east.
+~
+-1
+S
+
+#35283
+A Crumbling Path~
+Dying trees, their grey bark peeling away in long strips, line this path. 
+Rising some hundred feet off the forest floor, the dead trees shiver in
+the breezes.  There is no canopy here to protect the forest floor from
+the sky and the path continues to the west where it fades into obscure
+gloom.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35276 10 10 5
+D1
+~
+~
+0 -1 35284 10 10 5
+D2
+~
+~
+0 -1 35298 10 10 5
+D3
+~
+~
+0 -1 35282 10 10 5
+E
+w west~
+The path fades into the green gloom.
+~
+E
+e east~
+The path winds through dead trees.
+~
+E
+n north s south~
+The dying trees recede from the path.
+~
+-1
+S
+
+#35284
+Dead Path~
+Dead and dying trees line the sides of the path here.  Like soldiers
+lined in columns for battle, the stark tree trunks stand mute and silent,
+framing the path as it descends into a naturally formed cave in the east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35277 10 10 5
+D1
+~
+~
+0 -1 35285 10 10 5
+D3
+~
+~
+0 -1 35283 10 10 5
+E
+w west~
+The path enters the woods.
+~
+E
+e east~
+The path ends at a cave.
+~
+E
+n north s south~
+Dead and dying trees line the path.
+~
+-1
+S
+
+#35285
+The Caves of the Wind~
+Clammy air creeps up in cold drafts from the floor, enwrapping your
+ankles with chilling breezes.  From within the far recesses of the caves,
+the quiet splash and drip of condensation echoes cautiously through the
+limestone tunnels.  The ceiling is low, rough-hewn and wet; the walls are
+uneven and cold to the touch.
+~
+[Merior] short description
+~
+301465608 0 9 0
+D0
+~
+~
+0 -1 35286 10 10 5
+D3
+~
+~
+0 -1 35284 10 10 5
+E
+w west~
+A path leads from the cave.
+~
+E
+e east s south~
+Cold, clammy, hard stone.
+~
+E
+n north~
+Darkness.
+~
+-1
+S
+
+#35286
+The Caves of the Wind~
+This tight chamber is framed by heavy stone at each of its four corners. 
+To the south lies an open archway and the breath out fresher air, while a
+broad, heavy stair leads down.
+~
+~
+301465608 0 9 0
+D2
+~
+~
+0 -1 35285 10 10 5
+D5
+~
+~
+0 -1 35287 10 10 5
+E
+e east w west n north~
+Cold, clammy, hard stone.
+~
+E
+s south d down~
+Darkness.
+~
+-1
+S
+
+#35287
+The Caves of Wind~
+Your blood chills as the wind howls painfully, nearly tossing you to the
+ground.  The only bit of light is a small beam, somehow seeping in from
+below.  Faint sounds of movement fill the cave, making your heart pound
+faster.
+~
+[Merior] always light seeping in?
+[Marek] Yeah, from dragon.
+~
+301465600 0 9 0
+D4
+~
+~
+0 -1 35286 10 10 5
+D5
+~
+~
+0 -1 35288 10 10 5
+E
+n north e east w west s south~
+Cold, clammy, hard stone.
+~
+E
+u up d down~
+Darkness.
+~
+-1
+S
+
+#35288
+The Caves of Wind~
+As you continue deeper into the cave, strange sounds fill the air.  You
+hear the unnatural sounds of an unfamiliar beast.  The ground shakes, and
+rumbles, making it difficult to stay upright.  Off to the north, you see
+a dim, blue glow.  A putrid smell fills the air, twisting your stomach.
+~
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 35289 10 10 5
+D4
+~
+~
+0 -1 35287 10 10 5
+E
+e east w west s south~
+Cold, clammy, hard stone.
+~
+E
+u up~
+Darkness.
+~
+E
+north n~
+A dim blue glow.
+~
+-1
+S
+
+#35289
+Crystal Caverns~
+As you walk into this vast cavern the glitter is so great that you have
+to shield your eyes for several seconds before they finally become
+accustomed to the brilliance.  Gemlike stalactites and stalagmites,
+looking much like the jagged teeth of some great beast, dot the cavern. 
+The faceted walls reflect themselves again and again, an infinity of
+cold, gleaming beauty.  Some subterranean source of heat buried deep
+beneath turns the chamber into an oven.
+~
+~
+301465601 0 9 0
+D2
+~
+~
+0 -1 35288 10 10 5
+A
+open~
+iron bound chest rusty~
+mob = mob_in_room( 624, room );
+if( mob ) {
+  act_tochar( #tochar, ch );
+  act_notchar( #toroom, ch );
+  attack( mob, victim, 2d10, "raking claw" );
+  }
+else
+  continue;
+~
+E
+tochar~
+You try to open the chest, but the dragon interrupts your thievery!
+~
+E
+toroom~
+$n tries to open the chest, but the dragon interrupts $s thievery!
+~
+!
+0 0 0
+624 9 1509949540 3 0
+578 49 1509949540 -2 0
+1020 81 1509949465 -2 0
+1020 81 1509949445 -2 0
+16 81 1509949490 -2 0
+575 81 1509949445 -2 0
+31 81 1509949465 -2 0
+1501 81 1509949465 -2 0
+2189 81 1509949443 -2 0
+3130 81 1509949445 -2 0
+-1
+S
+
+#35290
+Calm Backwater~
+The river's depths are dark, swirling gently around your feet, dark and
+placid water exists in stark contrast to the troubled main river
+seemingly bypassing this backwater on its trip from north to south.
+~
+~
+301465600 8 9 0
+D1
+~
+~
+0 -1 35264 10 10 5
+E
+e east~
+The path dissappears into the trees.
+~
+E
+n north s south w west~
+The water looks deep and dangerous.
+~
+-1
+S
+
+#35291
+A Western Rise~
+The ground rises gradually to the west, growing stony rises into a rough
+slope.  Gnarled trees grow here, their roots thrusting down through the
+rocks to seek the earth.  The wold gleams with dark greens and browns and
+the smooth black-greys of bark like polished leather.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 35278 10 10 5
+D2
+~
+~
+0 -1 35292 10 10 5
+D3
+~
+~
+0 -1 35300 10 10 5
+E
+north n~
+The raging river curves to the west and dissappears into a cleft in the
+cliffs, leading to the unknown.
+~
+E
+e east s south~
+The forest goes on.
+~
+E
+w west~
+The forest halts a a rough slope.
+~
+-1
+S
+
+#35292
+Corrupted Glade~
+In other places, other times, this area would have been a gentle forest
+nook, nestled in this corner of the valley.  The shale cliffs to the west
+curve south and east, creating a secluded glade sheltered from the
+elements.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35291 10 10 5
+D1
+~
+~
+0 -1 35293 10 10 5
+E
+n north e east~
+The forest goes on.
+~
+E
+w west s south~
+The forest ends sharply at a sheer cliff face.
+~
+628 9 1509949540 3 0
+-1
+S
+
+#35293
+Whispers of Power~
+Here in this wood the soul feels the might of the gods; what the spirit
+sees becomes clearer and clearer, as if the gods themselves choose to
+walk the earth in the shapes of those trees they had once made sentient
+with the breath of life, the mead of thought, and dreams of quickening
+fire.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35278 10 10 5
+D1
+~
+~
+0 -1 35294 10 10 5
+D3
+~
+~
+0 -1 35292 10 10 5
+E
+n north e east w west~
+The forest goes on.
+~
+E
+s south~
+The forest ends sharply at a sheer cliff face.
+~
+628 9 1509949540 3 0
+-1
+S
+
+#35294
+Shadows Near a Tower~
+Deep shadows fill the area, creating a sense of foreboding, a sort of
+hushed noise that forest itself seems unwilling to break.  The walls of a
+dark, vine-sheathed tower stands to the the north and east, silent as it
+crumbles, year after year -- a darker shadow in a dark wood. 
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35274 10 10 5
+D1
+~
+~
+0 -1 35295 10 10 5
+D3
+~
+~
+0 -1 35293 10 10 5
+E
+e east w west~
+The forest goes on.
+~
+E
+s south~
+The forest ends sharply at a shear cliff face.
+~
+E
+n north~
+The ground grows damper to the north.
+~
+E
+tower~
+The circular tower seems made of thick, ancient granite blocks.  You see
+no door in the section of the wall facing you.
+~
+679 9 1509949540 3 0
+-1
+S
+
+#35295
+Shades of Night~
+Colors, once beautiful shades of nature, have now become dull.  Once
+radiant leaves and flowers have ceased to bloom; they have ignored the
+year's seasons.  High above you a bird twitters away, what should be a
+song full of melodious passion being a crude and primitive series of
+croaks.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 35296 10 10 5
+D3
+~
+~
+0 -1 35294 10 10 5
+E
+east west~
+The forest goes on.
+~
+E
+s south~
+The forest ends sharply at a shear cliff face.
+~
+E
+north tower~
+The circular tower seems made of thick, ancient granite blocks.  You see
+no door in the section of the wall facing you.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You hear something moving through the brush.
+~
+!
+2 0 0
+-1
+S
+
+#35296
+The Velvet Dark~
+Lush grass crowds against the tree trunks: an army the size of the land
+itself laying seige.  Callous fingers of darkness, sometimes thick and
+crude, have now given way to that of satin and velvet.  In the shadows,
+within the deep background of the forest, shapes move through the
+undergrowth, following their own primitive paths.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35281 10 10 5
+D1
+~
+~
+0 -1 35297 10 10 5
+D3
+~
+~
+0 -1 35295 10 10 5
+E
+n north w west~
+The forest goes on.
+~
+E
+s south~
+The forest ends sharply at a shear cliff face.
+~
+E
+e east~
+The forest is cut by a path
+~
+-1
+S
+
+#35297
+Lost Path~
+Lost in the weeds and wild blooms that peer upwards from the unruly
+undergrowth, the cracked and weathered stones of an ancient street still
+lie half-immersed in the soil.  Carved runes, thick lines chiseled into
+granite, are still visible, their meanings lost, but spirit retained.
+~
+[Merior] street in the middle of nowhere?
+Used to be a civilized area south of here... will be adding something there later.
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35282 10 10 5
+D1
+~
+~
+0 -1 35298 10 10 5
+D2
+~
+~
+227 -1 36771 10 10 5
+D3
+~
+~
+0 -1 35296 10 10 5
+E
+s south~
+The path becomes a ruins lined street.
+~
+E
+e east w west~
+The forest goes on.
+~
+E
+n north~
+The path fades into the green gloom.
+~
+E
+runes~
+The runes are far to faded and worn to make out.
+~
+A
+1 south~
+~
+act_tochar( #tochar, ch );
+~
+E
+tochar~
+As you attempt to leave south the runes glow and a strange force
+prevents you from moving in that direction.  Someday, perhaps, a hardy
+adventurer will blaze further paths in the ruins of Darken Wood.
+~
+!
+0 0 0
+-1
+S
+
+#35298
+A Glade~
+Slender tendrils of fog coil about the saplings' waists, like the ghosts
+and memories of those long dead.  The howl of a wolf echoes in the
+distance, the breeze gusting here in bursts.  The place is almost a dream
+as you stumble across the rough ground here, thoughts slipping from your
+mind as you make your way through the Darken Wood.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 35283 10 10 5
+D1
+~
+~
+0 -1 35299 10 10 5
+D3
+~
+~
+0 -1 35297 10 10 5
+E
+s south~
+The forest ends sharply at a shear cliff face.
+~
+E
+e east~
+The trees form an enclosure.
+~
+E
+n north w west~
+A path cuts the forest.
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #stalk, ch );
+~
+E
+stalk~
+You catch a gilmpse of something before it retreats into the undergrowth.
+~
+!
+2 0 0
+679 9 1509949540 3 0
+-1
+S
+
+#35299
+Grotto~
+This small alcove is walled by a lush barrier of foliage that has clung
+to the surrounding trees as it rose upwards.  Overhead you can hear the
+twittering of a songbird, its voice weak and raspy as if dying from some
+cancer.  Resting for a moment, you feel your boots sink into the soft mud. 
+To the west, the only exit, an open field is blanketed by a thick carpet
+of flowers and weeds through which broken marble sticks up like old bones.
+~
+~
+301465600 3 6 0
+D3
+~
+~
+0 -1 35298 10 10 5
+E
+w west~
+The glade awaits.
+~
+E
+n north e east s south~
+Tangled vines and trees block movement.
+~
+674 9 1509949520 3 0
+-1
+S
+
+#35300
+Dangerous Slope~
+The cliffs tower above you shrouded in storm clouds.  As you walk across
+the scree, loosely packed stones shift ominously under your feet.  Joy
+at finally leaving the oppressive forest turns to fear as you slip and
+totter.
+~
+~
+301465600 5 5 0
+D1
+~
+~
+0 -1 35291 10 10 5
+E
+e east~
+The forest awaits.
+~
+E
+n north w west s south~
+The loose rubble proves unclimable.
+~
+A
+~
+~
+if( !can_fly( ch ) ) {
+if( find_skill( ch, climb ) < 7 ) {
+  i = 2d40+20;
+act_tochar("You take a wrong step and fall down the rockslide!", ch );
+act_notchar("$n takes a wrong step and falls down the rockslide!", ch );
+  dam_message( ch, i, "the rockslide" );
+  inflict( ch, mob, i, "falling down the slope" );
+  transfer( ch, find_room( 35291 ) );
+act_notchar("$n comes rolling down the rockslide, obviously badly hurting.", ch );
+  }
+}
+~
+!
+1 -1 2
+217 137 1509949540 3 0
+-1
+S
+
+#35301
+Canyon Path~
+~
+~
+301465610 3 9 0
+D2
+~
+~
+0 -1 35250 10 10 5
+-1
+S
+
+#35302
+Canyon Path~
+The cliffs tower into the sky on either side of this lonely path.  Your
+companion for so long, the small babbling river, turns sharply to the
+west and you hear the far off thunder of its fall from this height.  The
+path leads north into the canyon or down into a tree-shrouded valley,
+gloomy and dark.
+~
+[Aldric] needs entry message.
+~
+301465610 3 6 0
+D0
+~
+~
+0 -1 35303 10 10 5
+D5
+path~
+path~
+0 -1 35250 10 10 5
+E
+east~
+The path hugs the cliffs.
+~
+E
+n north s south d down~
+The path wanders on.
+~
+E
+w west~
+The river chews at the edge of the path.
+~
+-1
+S
+
+#35303
+Canyon Path~
+High cliffs prevent all direct light but the noon sun from hitting this
+path.  With the river to the west and cliffs directly to the east this
+fragile path wanders north and south.
+~
+[Marek] no_mob
+~
+301465602 3 6 0
+D0
+~
+~
+0 -1 35304 10 10 5
+D2
+~
+~
+0 -1 35302 10 10 5
+-1
+S
+
+#35304
+Canyon Entrance~
+The cliffs rise precipitously from the grass and trees, as if springing
+up from some hidden place.  The river has cut a canyon in the cliffs as
+sharp as a knife stroke, and the path decreases to a treacherous few feet
+at the rivers edge.
+~
+~
+301465610 3 6 0
+D0
+~
+~
+0 -1 34757 10 10 5
+D2
+~
+~
+0 -1 35303 10 10 5
+E
+cliff~
+The cliffs press in on the path, making the trail difficult to traverse
+at this point.  The cliff itself is rough and provides many handholds,
+but looks ready to crumble under any weight for the first 15 feet or so.
+~
+-1
+S
+
+#35305
+Hallway~
+A narrow hallway travels the length of the building, ending at the tower
+walls to the north and south.  Tarnished lamp fittings placed between the
+doors along both sides are long since looted and empty, though the only
+actual light comes from arrow slits at either end of the passage.
+~
+~
+301465600 3 9 0
+D1
+oak door~
+~
+131 -1 35306 10 10 5
+D3
+oak door~
+~
+131 -1 35307 10 10 5
+D5
+~
+~
+0 -1 35280 10 10 5
+-1
+S
+
+#35306
+Eastern Cresent Room~
+This is a large, wedge-shaped room, its outer wall made of the same black
+stone of which the building was constructed.  Narrow shafts of light
+intrude through arrow slits placed around the outside wall.  Shoved
+close against black stone, a rotting weapons racks stand empty.  The
+rough wooden floor, thumping hollowly beneath the feet, has a thin film
+of dust dulling its surface.
+~
+[Merior] another ghost here?
+~
+301465600 3 9 0
+D3
+oak door~
+~
+131 -1 35305 10 10 5
+E
+weapons rack~
+The rack is entirely empty, though the outline of the weapons that once
+hung there have left rusty imprints on the wood.
+~
+-1
+S
+
+#35307
+Western Cresent Room~
+This is a large, wedge-shaped room, its outer wall made of the same black
+stone of which the building was constructed.  Narrow shafts of light
+intrude through arrow slits placed around the outside wall.  Thick and
+ancient cobwebs drape from stone to stone, backlit by the narrow shafts
+of light cutting through slender arrow slits.  A thin film of dust covers
+the hard wood floor and the flaking walls.
+~
+~
+301465600 3 9 0
+D1
+oak door~
+~
+131 -1 35305 10 10 5
+1326 9 1509949540 3 0
+-1
+S
+
+#0
+

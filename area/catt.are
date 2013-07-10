@@ -1,0 +1,1682 @@
+#AREA
+Dark Forest II~
+Dragos Aurelian~
+~
+
+0 0
+0
+#ROOMS
+
+#1000
+The Foyer~
+As you enter the house you can see that all is definitely not well here. 
+Growing on the walls are massive clumps of ivy, and a small tree sprouts
+throught the floorboards.  The floorboards don't appear to have been laid
+down very well.  A large spiderweb covers the entrance to the stairwell
+to the west.  To the north and south, there appears to be another room of
+some sort.  Back to the east is the front door.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1001 10 10 5
+D1
+cabin door~
+~
+391 529 1002 10 10 5
+D2
+~
+~
+0 -1 1031 10 10 5
+D4
+~
+~
+0 -1 1025 10 10 5
+D5
+floorboards~
+floorboards~
+203 -1 1030 10 10 5
+E
+1 north~
+The ivy here is extremely thick.  You almost need to cut your way through
+to get past it.  
+~
+E
+4 spiderweb 3 web 5 stair~
+Looks like a spider the size of your torso made this web.  You don't want
+him dropping on your back.  
+~
+E
+floor~
+With a little strength, you should be able to open the floorboards, or at
+least pry them with some sort of crowbar.
+~
+E
+door~
+This door looks like it will fall of its hinges.  The lock has long since
+rusted away.  
+~
+E
+ivy~
+The ivy looks as though it has been growing since before you were born. 
+~
+E
+1 down~
+You see a rickety floor~
+E
+1 east~
+This door looks like it will fall off its hinges.  The lock has long since rusted through.~
+A
+1 pull~
+4 floorboards 3 boards~
+if( find_stat( ch, str ) > 15 ) {
+  send_to_char( #char_floor, ch );
+  act_notchar( #room_floor, ch );
+  open( room, down );
+  }
+else
+  if( !rflag( reset0, room ) ) {
+  send_to_char( #pry_char, ch );
+  act_notchar( #pry_room, ch );
+  open( room, down );
+  }
+else {
+  send_to_char( #char_floor2, ch );
+  act_notchar( #room_floor2, ch );
+  }
+~
+E
+pry_room~
+$n is now able to move the loosened floorboards out of the way.
+~
+E
+pry_char~
+You are now able to move the loosened boards out of the way.
+~
+E
+room_floor2~
+You watch as $n pulls on the boards, unable to make them move far enough
+for anyone save a rat to crawl through.
+~
+E
+char_floor2~
+You pull on the boards to no avail, maybe you should let someone stronger
+at it.
+~
+E
+room_floor~
+As $n pulls the floorboards back, there is a terrible creaking noise.  $n
+lets out a grunt and the boards are out of the way.
+~
+E
+char_floor~
+As you pull up the floorboards, they let out a creaking noise.  If you
+were weaker, you might not have been able to pull them up.
+~
+!
+0 0 0
+A
+2 use 2 pry~
+4 floorboards 3 boards 2 crowbar~
+if( has_obj( 241, ch ) ) {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #char, ch );
+~
+E
+char~
+You need an object that is strong enough to give you leverage.
+~
+E
+to_room~
+Using $s crowbar, $n loosens the floorboards, making it easier to pull
+them up now.
+~
+E
+to_char~
+Using the crowbar, you loosen the floorboards, so you might be able to
+pull them up now.
+~
+!
+0 0 0
+-1
+S
+
+#1001
+Sitting Room~
+This looks like it was once someone's sitting room.  However, it is now
+totally overrun by plants and spiderwebs.  In the center of the room is a
+large tree which grows all the way to the ceiling.  To the west, there is
+a door completely covered with very thick ivy and brambles.  A small door
+leads back to the south.
+~
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 1000 10 10 5
+D3
+door~
+door~
+131 -1 1032 10 10 5
+E
+3 door 1 west 2 ivy~
+This door is so covered with vines that you can't find the keyhole.
+~
+E
+tree~
+This tree is thicker than your torso.  It should not be growing inside
+like this.  A strange force must be at work here.
+~
+323 9 1509949540 3 0
+-1
+S
+
+#1002
+The Patio~
+The front porch of this odd cabin is made of many different types of wood. 
+Unlike the wood used for most buildings, the planks which were used to
+form the walls have not been trimmed of their branches, and you still see
+partial limbs and leaves.  As you walk across the porch, the boards under
+your feet make creaking noises fairly loudly.  You notice that the front
+door is locked, which seems odd since this area seems pretty devoid of
+life.
+Maybe the lock wasn't meant to be used for keeping people out.
+~
+[Way] you unlock teh "cabin door" should the quotes really be there?
+~
+301465600 0 6 0
+D2
+~
+~
+0 -1 1003 10 10 5
+D3
+cabin door~
+cabin door~
+391 529 1000 10 10 5
+-1
+S
+
+#1003
+Cobblestone Path~
+Ahead, you see a very old looking house.  Along its front, you can see
+the growth of various plants coming out of the walls.  The chimney
+appears to have a tree growing from near the top.  Someone must have
+deserted this place a long time ago for such growths to have occured.  Up
+in front of you is the porch leading into the house.  You would like to
+go in to get away from all the weird stuff out here.  But then again, the
+house doesn't look normal either.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 1002 10 10 5
+D1
+~
+~
+0 -1 1024 10 10 5
+D2
+~
+~
+0 -1 1004 10 10 5
+E
+chimney~
+The chimney has a tree growing out of it for sure.  But that only looks
+like it would be a very small part of the tree.  It probably goes down
+into the cellar of the house somewhere.  
+~
+E
+porch~
+Nothing is moving on the porch other than an old piece of wood creaking
+as the wind blows.  
+~
+E
+house~
+This house looks beaten down by the elements.  It is totally overgrown
+with plants and even has a tree growing through it in multiple places.  
+~
+336 9 1509949540 3 0
+337 9 1509949540 3 0
+-1
+S
+
+#1004
+Small Forest Path~
+Peering through the dark forest, you swear you can see a cabin just up
+ahead.  You can also see what appears to be a fenced in garden across
+from it.  Although they look deserted, you hope that you can find
+anything that can be salvaged and eaten for food.  A cobblestone path
+leads you toward the house to the north.  To the south, the small path
+trails into the dark forest.
+~
+~
+301465608 3 6 0
+D0
+~
+~
+0 -1 1003 10 10 5
+D2
+~
+~
+0 -1 1005 10 10 5
+-1
+S
+
+#1005
+Small Forest Path~
+The trees look more foreboding here as if somehow they have been invaded
+by an evil spirit.  Although the trees themselves look like normal trees,
+the lack of animal life and the darkness caused by the foliage above
+creates an ominous feeling in this area.  The path curves towards the
+river to the west or continues through the forest to the north.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 1004 10 10 5
+D3
+~
+~
+0 -1 1007 10 10 5
+459 9 1509949540 3 0
+-1
+S
+
+#1006
+Small Garden~
+Wild weeds and vines have almost completely overgrown the garden.  Fenced
+in by a crude, wooden fence, the garden seems to have been left untouched
+for a long time.  Just beyond the fence, the dark forest slowly eases up
+to the edges of the garden.  Large mushrooms grow sprout from the dirt in
+the garden.  The only exit is through the gate you entered.
+~
+~
+301465600 3 6 0
+D2
+"garden gate"~
+"garden gate"~
+131 -1 1024 10 10 5
+E
+garden food~
+The only edible food you can find are mushrooms which grow in abundance
+here.
+~
+A
+get search grab take steal~
+mushroom mushrooms~
+if( rflag( status1, room ) ) {
+  remove_rflag( status1, room );
+  if( random( 1, 10 ) < 7 ) {
+    send_to_char( #char, ch );
+    obj_to_char( oload( 885 ), ch );
+    act_notchar( #room, ch );
+    }
+  else {
+    send_to_char( #char2, ch );
+    act_notchar( #room, ch );
+    }
+  }
+else {
+  send_to_char( #char2, ch );
+  act_notchar( #room, ch );
+  }
+~
+E
+room2~
+$n picks up a rotten mushroom and throws it back in disgust.
+~
+E
+char2~
+You pick up a rotten mushroom and throw it back in disgust.
+~
+E
+room~
+$n finds a nice mushroom growing in the garden.
+~
+E
+char~
+Searching for mushrooms, you find a nice ripe one growing within the
+garden.
+~
+!
+0 0 0
+A
+dig search look~
+dirt garden~
+if( rflag( reset0, room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_char( oload( 529 ), ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+room~
+$n digs through the dirt and finds a key.
+~
+E
+char~
+Digging through the dirt, you find a carved wooden key hidden there.
+~
+!
+0 0 0
+-1
+S
+
+#1007
+Small Forest Path~
+You are walking parallel to the rushing river to the west.  You can
+clearly imagine the water crashing against the rocks below.  Your safest
+bet is to either follow the path to the east through the forest or to the
+south towards a small bridge which reaches across the river.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1005 10 10 5
+D2
+~
+~
+0 -1 1008 10 10 5
+-1
+S
+
+#1008
+End of Creaky Bridge~
+You are once again standing at the foot of a small, creaky bridge.  A
+path winds its way through the forest to the north, following the edge of
+the river.  The bridge beckons you to cross its swaying expanse.  The
+only sound is the roaring of the waterfall to the south.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 1007 10 10 5
+D3
+~
+~
+0 -1 1009 10 10 5
+-1
+S
+
+#1009
+Creaky Bridge Over Falls~
+You are standing near the east end of the small bridge which stretches
+across the rushing river to the west.  At the base of the bridge, you can
+see a small path leading away into the dark forest.  A light mist hangs
+over the bridge.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1008 10 10 5
+D3
+~
+~
+0 -1 1010 10 10 5
+A
+~
+~
+if( is_player( ch ) )
+  if( mob_in_room( 4000, room ) ) {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  end;
+  }
+continue;
+~
+E
+char~
+Your attempts to move in that direction are blocked by the hulking troll
+which stands on the bridge.
+~
+E
+room~
+$n attempts to move past the troll, but is easily stopped by his hulking
+frame.
+~
+!
+3 0 2
+A
+leaving west~
+~
+if( !is_player( ch ) )
+continue;
+else
+if( mob_in_room( 4000, room ) ) {
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+}
+else
+continue;
+~
+E
+char~
+Your attempts to move in that direction are blocked by the hulking troll
+which stands on the bridge.
+~
+E
+room~
+$n attempts to move past the troll, but is easily stopped by his hulking
+frame.
+~
+!
+0 0 0
+4000 9 1509949540 3 0
+-1
+S
+
+#1010
+Creaky Bridge Over Falls~
+The bridge creaks and groans under your weight as you stand in the center. 
+Long years of neglect have made this bridge somewhat unsafe.  Missing
+boards dot the expanse of the bridge here and there.  Below you, the
+river rushes to the south for sites unknown.  Through the spray of mist,
+you can faintly see the edge of the waterfall to the south.  However, you
+can more easily identify the waterfall by the deafening roar it causes.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1009 10 10 5
+D3
+~
+~
+0 -1 1011 10 10 5
+A
+~
+~
+if( random( 1, 10 ) == 1 ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  wait( 0 );
+  send_to_char( #char2, ch );
+  act_notchar( #room2, ch );
+  wait( 0 );
+  transfer( ch, find_room( 31117 ) );
+  }
+else
+  continue;
+~
+E
+room2~
+$n disappears from sight over the edge of the waterfall.
+~
+E
+char2~
+Struggling for breathe, you find yourself plunging over the waterfall and
+into a pool of water.
+~
+E
+room~
+As $n walks across the bridge, they plunge over the edge and into the
+rushing waters of the river below.
+~
+E
+char~
+As you walk along the bridge, a strong gust comes along and knocks you
+into the cascading river below.
+~
+!
+1 -1 10
+-1
+S
+
+#1011
+Creaky Bridge Over Falls~
+You are standing near the end of the small bridge which spans the rushing
+river.  You can see a path heading through the woods to the west. 
+Otherwise, the bridge continues to the east through a shower of mist
+caused by the nearby waterfall.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1010 10 10 5
+D3
+~
+~
+0 -1 1012 10 10 5
+-1
+S
+
+#1012
+End of Creaky Bridge~
+The sound of the rushing water is almost overwhelming.  There must be a
+waterfall somewhere nearby.  Standing at the edge of a small bridge, you
+notice it precariously crosses over the rushing river.  To the north, a
+path trails through the dark forest along the edge of the river.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 1013 10 10 5
+D1
+~
+~
+0 -1 1011 10 10 5
+-1
+S
+
+#1013
+Small Forest Path~
+A thunderous roar fills your ears.  The river is definitely getting
+choppy and rapid as it flows to the south.  The path you are following
+parallels the rushing river.  Attempting to find where the river is
+heading, you notice a small bridge which spans across the river to the
+south.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 1014 10 10 5
+D2
+~
+~
+0 -1 1012 10 10 5
+-1
+S
+
+#1014
+Small Forest Path~
+You are standing at a turn in the path next to a rushing river.  The
+river appears to be extremely rough and dangerous.  The path you are on
+follows the river's edge towards to the south.  It also winds its way
+through the dark forest towards the west.  Very few trees grow close to
+the edge of the river.
+~
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 1013 10 10 5
+D3
+~
+~
+0 -1 1015 10 10 5
+-1
+S
+
+#1015
+Small Forest Path~
+You feel an involuntary shiver run down the length of your spine. 
+Standing absolutely still, you feel a strange sensation, as if there is
+another presence nearby.  From the east, you can hear what sounds like a
+river.  The path continues to the east and west.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1014 10 10 5
+D3
+~
+~
+0 -1 1051 10 10 5
+D5
+grate down~
+grate down~
+139 -1 1016 10 10 5
+-1
+S
+
+#1016
+The Hermit's Abode~
+You are standing in a small room.  The walls appear to be made out of
+some sort of rock, probably granite.  There is some debris lying against
+one wall, so rusted you can't tell what it used to be.  You are about to
+leave when you hear a strange mumbling from somewhere near you.  There
+are passages leading west and south from here, as well as up.
+~
+~
+301465605 1 6 0
+D2
+~
+~
+0 -1 1017 10 10 5
+D3
+~
+~
+0 -1 1018 10 10 5
+D4
+grate up~
+grate up~
+139 -1 1015 10 10 5
+-1
+S
+
+#1017
+The Hermit's Storage Room~
+You are standing in a room that is stockpiled high with junk.  It seems
+that the hermit likes to collect everything from extra pieces of string
+to pretty rocks to useless artifacts.  Unfortunately, there is a thick
+layer of dust and grime all over everything, making everything extremely
+undesirable.  The only thing you could possibly see that would be of any
+value is a crowbar.
+~
+~
+301465600 1 6 0
+D0
+~
+~
+0 -1 1016 10 10 5
+E
+crowbar~
+Your typical metal crowbar, it still seems to be in good condition.
+~
+A
+get take steal~
+crowbar~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #char, ch );
+  obj_to_char( oload( 241 ), ch );
+  act_notchar( #room, ch );
+  }
+~
+E
+room~
+$n grabs a crowbar from the floor.
+~
+E
+char~
+You grab the crowbar and put it into your inventory.
+~
+!
+0 0 0
+-1
+S
+
+#1018
+The Hermit's Kitchen~
+You have arrived in what appears to be a crude kitchen.  The area is a
+complete shambles.  The splintered table is on the verge of collapse, the
+cooking area is crusted with burned food particles and grease, and the
+cupboard's door is hanging crazily on one hinge.  On closer inspection of
+the cupboard, you see swarms of roaches crawling around, looking for food. 
+There is a doorway to the south without a door and a passage to the east.
+~
+~
+301465605 1 6 0
+D1
+~
+~
+0 -1 1016 10 10 5
+D2
+~
+~
+0 -1 1019 10 10 5
+-1
+S
+
+#1019
+The Hermit's Bedroom~
+You are in a small bedroom.  You note that this room is also in disrepair. 
+Assorted items are scattered on the floor, so dirty you can't tell what
+they are.  There is a pallet on the floor, with a bundle lying atop it. 
+Suddenly, the bundle moves, and you realize someone's sleeping there!
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 1018 10 10 5
+E
+blanket blankets~
+The blankets are old and rotted, but warm.
+~
+E
+pallet~
+The pallet seems to be nothing but a few boards used for sleeping.  There
+is a small space for storage underneath.
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( !mob_in_room( 29, find_room( 1019 ) ) ) {
+    wait( 2 );
+    send_to_room( #room, room );
+    mload( 29, find_room( 1019 ) );
+    }
+  }
+~
+E
+room~
+A disgustingly dirty creature crawls out from beneath his refuge.
+~
+!
+1 -1 1
+A
+search~
+pallet~
+if( !rflag( status0, find_room( 1019 ) ) ) {
+  set_rflag( status0, find_room( 1019 ) );
+  if( random( 1, 10 ) == 1 ) {
+    send_to_char( #find, ch );
+    obj_to_char( oload( 144 ), ch );
+    act_notchar( #room, ch );
+    }
+  else {
+    send_to_char( #nope, ch );
+    act_notchar( #room2, ch );
+    }
+  }
+else {
+  send_to_char( #nope, ch );
+  act_notchar( #room2, ch );
+  }
+~
+E
+room2~
+$n searches under the pallet and finds nothing.
+~
+E
+nope~
+Searching under the pallet, you find nothing.
+~
+E
+room~
+$n searches under the pallet and finds a fireball wand.
+~
+E
+find~
+Searching under the pallet, you find a fireball wand.
+~
+!
+0 0 0
+A
+1 look~
+creature~
+if( mob_in_room( 29, find_room( 1019 ) ) )
+  send_to_char( #char, ch );
+~
+E
+char~
+A dirty hermit hisses at your invasion.
+~
+!
+0 0 0
+A
+1 look~
+bundle~
+if( rflag( reset0, room ) )
+send_to_char( #yes, ch );
+else
+send_to_char( #no, ch );
+~
+E
+no~
+The bundle is just a pile of old blankets, nothing else.
+~
+E
+yes~
+The bundle appears to be in the shape of a small man curled in the fetal
+position.
+~
+!
+0 0 0
+-1
+S
+
+#1020
+Small Forest Path~
+Going into this dark forest alone worries you though because it is hard
+for you to watch your own back against the trees.  You glance over your
+shoulder, sensing one that is looking right at you.  You may not want to
+wander from the path which extends to the east and west.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1042 10 10 5
+D3
+~
+~
+0 -1 1021 10 10 5
+-1
+S
+
+#1021
+Small Forest Path~
+You suddenly realize that the forest has become very quiet.  There are no
+animals here.  They must have enough sense not to go into this dark
+forest.  Maybe you should also have enough sense to retreat to the south
+instead of following the path to the east.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 1020 10 10 5
+D2
+~
+~
+0 -1 1022 10 10 5
+-1
+S
+
+#1022
+Small Forest Path~
+There are a variety of plants along this path.  A group of trees rise up
+to the east, creating a great wall.  A small shrub pushes its way between
+two of the giant trunks.  A small path continues to the north through the
+forest and south towards a cliff edge.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 1021 10 10 5
+D1
+shrub~
+shrub~
+171 -1 58500 10 10 5
+D2
+~
+~
+0 -1 1023 10 10 5
+E
+shrub plant bush~
+The small shrub pushes its self between two large trunks.  It appears as
+though you may be able to move the shrub.
+~
+A
+open move~
+shrub plant bush~
+if( !is_open( room, east ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, east );
+  send_to_room( #shrub, find_room( 58500 ) );
+  }
+else
+  act_tochar( #isopen, ch );
+~
+E
+move~
+You move the shrub to the east and reveal an opening.
+~
+E
+rmove~
+$n moves a shrub to the east and reveals an opening.
+~
+E
+shrub~
+The shrub to the west is moved by someone.
+~
+E
+isopen~
+The shrub has been moved all ready.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #screech, room );
+~
+E
+screech~
+A distant screech echos through the trees to the east.
+~
+!
+2 25 0
+-1
+S
+
+#1023
+Top of the Cliff~
+This is the summit of the cliff.  Below you is a panoramic view of the
+entire swamp.  You can see creatures moving around in the water and air. 
+To the north, you can see a small path leading away into a dark and
+forboding forest.  You notice a long narrow staircase disappear over the
+edge of the cliff going down.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 1022 10 10 5
+D5
+~
+~
+0 -1 1041 10 10 5
+-1
+S
+
+#1024
+At the Gate~
+You are standing before a wide gate to a garden.  The fence which
+surrounds it is made from rough pieces of lumber which must have been
+chopped from the surrounding trees.  Looking beyond the gate to the
+north, you can see what appears to be a wild garden with plants and
+vegetation growing within.  The path to the house lies to the west.
+~
+[Diyab Nisri] the "garden gate" is closed, think maybe quotes shouldnt be there
+~
+301465600 2 6 0
+D0
+"garden gate"~
+"garden gate"~
+131 -1 1006 10 10 5
+D1
+~
+~
+0 -1 1052 10 10 5
+D3
+~
+~
+0 -1 1003 10 10 5
+-1
+S
+
+#1025
+The Staircase~
+You are standing on a very worn set of stairs.  There are many holes in
+the floor which you can see through into the darkness below.  As you come
+towards the top, you see that the walls are literally covered with vines
+like wallpaper.  
+~
+~
+301465604 0 6 0
+D4
+~
+~
+0 -1 1026 10 10 5
+D5
+~
+~
+0 -1 1000 10 10 5
+-1
+S
+
+#1026
+A Hall~
+You are standing on the top of the stairs in this strange cabin.  The
+vines on the walls form strange patterns that almost seem to sway with
+the whistling of the wind through the cracks in the walls.  Something is
+really wrong here, you just can't put you finger on what it is.
+~
+[Simica] there should be door on the north.
+[Seltha] the door to the north is null "You open the  to the north."
+~
+301465604 0 6 0
+D0
+vine covered door~
+vine covered door~
+131 -1 1027 10 10 5
+D2
+~
+~
+0 -1 1028 10 10 5
+D5
+~
+~
+0 -1 1025 10 10 5
+A
+listen~
+~
+send_to_char( #whistle_listen, ch );
+act_notchar( #room_listen, ch );
+~
+E
+room_listen~
+$n trembles as he listens to the wind.  He must be spooked by something.
+~
+E
+whistle_listen~
+You hear the wind whistling your funeral march.  Maybe you should leave.
+~
+!
+0 0 0
+-1
+S
+
+#1027
+A Cozy Bedroom~
+When you enter the room, you see a big, fluffy bed.  Boy, a good nap
+would be nice right now.  You just want to curl up and catch one.  The
+boarded up window prevents the wind and light from distrubing this room.
+~
+~
+301465604 0 6 0
+D2
+wooden door~
+wooden door~
+131 -1 1026 10 10 5
+E
+bed~
+Despite the feelings you have about this house, the bed still seems
+somewhat inviting.  You feel the urge to lie down.
+~
+A
+2 sleep 2 rest lay~
+bed~
+send_to_char( #char_bed, ch );
+act_notchar( #room_bed, ch );
+~
+E
+room_bed~
+The bed rocks and $n falls off on to the floor.
+~
+E
+char_bed~
+The bed knocks you off on to the floor.
+~
+!
+0 0 0
+-1
+S
+
+#1028
+A Hall~
+As you enter the southern end of the hallway, you feel as though
+something very evil and malicious lurks nearby.  From a large hole in the
+wall sprouts a branch with many leaves and buds on it.  You suddenly
+realize that there is no sound here.  Maybe the reason for that lurks
+behind the door to the east.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1026 10 10 5
+D1
+door~
+door~
+131 -1 1029 10 10 5
+E
+3 door 1 east~
+This door is covered in a thin film of mold.
+~
+E
+branch~
+This branch should be high in the air not in the middle of a house.  It
+almost looks as though it could reach out and grab you.
+~
+-1
+S
+
+#1029
+A Bedroom~
+This room looks like it was once someone's bedroom.  However it has long
+since been taken over by its current resident, the hideous plant beast. 
+The room is covered in a fine film of spores.  In the corner, there is an
+old rotted dresser.  
+~
+be able to do something with dresser - D
+~
+301465604 0 6 0
+D3
+door~
+door~
+131 -1 1028 10 10 5
+E
+dresser~
+The dresser is old and unused.  Standing on its last leg, it has taken
+quite a beating from the plant beast.
+~
+A
+~
+~
+mob = mob_in_room( 321, find_room( 1029 ) );
+if( mob ) {
+  send_to_char( #char_enter, ch );
+  act_notchar( #room_enter, ch );
+  inflict( ch, mob, 1d5+1, "Inhaling the spores" );
+  dam_message( ch, 0d0+6, "Inhaling the spores" );
+  }
+~
+E
+room_enter~
+Spores are kicked up from the floor as $n enters the room.  You choke and
+cough because of them.
+  
+~
+E
+char_enter~
+As you inhale the spores, you feel as though your lungs will explode. 
+You violently choke on them.
+  
+~
+!
+1 1 8
+321 9 1509949465 3 0
+-1
+S
+
+#1030
+The Basement~
+As you drop down from above, you see that this used to be someone's
+cellar.  There are a few tons of old ale and an old box full of rusted
+chunks of metal.  You think these might have once been tools of some sort. 
+The basement continues to the north and south, with a distinct dripping
+noise coming from the south.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1034 10 10 5
+D2
+~
+~
+0 -1 1033 10 10 5
+D4
+~
+~
+203 -1 1000 10 10 5
+A
+1 up~
+~
+open( room, up );
+continue;
+~
+!
+0 0 0
+-1
+S
+
+#1031
+Kitchen~
+Oddly enough, there is no metal of any kind in here.  All of the
+furniture, utensils and cooking supplies appear to either be made from
+wood or come directly from mother nature.  Whoever lived here must have
+definitely lived off of the land.  The window to the east reveals a small
+garden across the path.  The only exit is back to the north.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1000 10 10 5
+-1
+S
+
+#1032
+Room~
+You notice all sorts of plant life here.  Small dogwood trees, pots with
+vibrant daffodils and a hundred other sorted plants adorn every nook and
+cranny.  You can vaguely make out a wall of shelving units with books on
+them.  Unfortunately, the vines have completely overgrown the room.
+~
+~
+301465604 0 6 0
+D1
+door~
+door~
+131 -1 1001 10 10 5
+-1
+S
+
+#1033
+The Basement~
+This area of the basement appears to have sunk somewhat.  You see a large
+pool of water in the middle of the room.  The water looks disgustingly
+dirty.  The basement continues to the north, south and west.  You detect
+a slight odor coming from the west.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1030 10 10 5
+D2
+~
+~
+0 -1 1039 10 10 5
+D3
+~
+~
+0 -1 1035 10 10 5
+-1
+S
+
+#1034
+The Basement~
+You see the cause for all the stray branches in the house.  There is a
+huge oak tree in this very room.  The base of the tree is buried deep in
+the ground and the trunk disappears into the ceiling.  It looks like this
+tree was put here for a reason, because you can see that it stands right
+in the middle of the basement, helping to support the rickety old house.
+~
+not enough and too easy mobs down here - D
+need "prize" down here - D
+stuff to drop on you, possibly fall over cliff - D
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 1030 10 10 5
+-1
+S
+
+#1035
+The Basement~
+As soon as you enter this room, the smell of guano stings your nostrils. 
+There must be tons of bats around here somewhere.  They probably live
+through the caved in section of the wall to the south.  You might
+considering retreating to the east.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 1033 10 10 5
+D2
+~
+~
+0 -1 1036 10 10 5
+-1
+S
+
+#1036
+Cave~
+You are no longer in the basement.  This caved in area has turned into a
+cave of some sort.  The smell of guano is extremely strong here and you
+can see several piles of it on the floor.  The cave continues to the
+south and there is a caved in wall to the north.
+~
+~
+301465612 0 6 0
+D0
+~
+~
+0 -1 1035 10 10 5
+D2
+~
+~
+0 -1 1037 10 10 5
+-1
+S
+
+#1037
+Cave~
+You have entered a small cavern which appears to be gigantic.  Your
+footsteps echo off the dark wall somewhere on the other side.  However,
+the floor of the cavern ends at a ledge which appears to fall into a
+deep, yawning pit, which prevents you from exploring.  You can see
+several bats flying gracefully in the dark recesses of the cave.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1036 10 10 5
+230 9 1509949540 3 0
+230 9 1509949540 3 0
+230 9 1509949540 3 0
+230 9 1509949540 3 0
+-1
+S
+
+#1038
+The Basement~
+Although you may never have had claustrophia before, being deep within
+the confines of this dank and dismal basement, you can sorta understand
+what others go through.  The only thing you can see in this basement is
+dust and cobwebs.  The only exit is to the north.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1039 10 10 5
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 293, find_room( 1038 ) ) ) {
+    remove_rflag( reset0, room );
+    wait( 2 );
+    send_to_room( #room, room );
+    mload( 293, find_room( 1038 ) );
+    }
+  }
+~
+E
+room~
+You notice something move above you.
+~
+!
+1 -1 1
+-1
+S
+
+#1039
+The Basement~
+Dank and dirty, this basement hallway seems to feed on your light.  You
+are getting a spooky feeling which urges you to flee to the north. 
+However, there is one last room to the south.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 1033 10 10 5
+D2
+~
+~
+0 -1 1038 10 10 5
+-1
+S
+
+#1041
+Midway on Cliff Above Swamp~
+You are standing at the edge of a ledge which extends to the west over a
+large and dismal swamp.  Although the ledge is somewhat wide enough to
+maneuver here, you can see how narrow it becomes to the west.  Behind
+you, a chiseled staircase rises to the top of the cliff edge.
+~
+~
+301465600 5 6 0
+D3
+~
+~
+0 -1 31143 10 10 5
+D4
+~
+~
+0 -1 1023 10 10 5
+-1
+S
+
+#1042
+Small Forest Path~
+The forest lies all around you, ominous and quiet.  Glancing nervously
+about you, you continue along the path which extends east and west
+through the dense trees.  From somewhere to the east, you can hear a low
+rumbling sound.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 1043 10 10 5
+D3
+~
+~
+0 -1 1020 10 10 5
+-1
+S
+
+#1043
+Small Forest Path~
+Far above you, dark foliage and hidden branches block the sky from your
+view.  The normal sounds of wildlife are all but extinct, or so it would
+appear.  The rumors of the dark forest have not done this place any
+misdeeds.  The path are walking along, continues to the east and west. 
+To the east, you can see a slight clearing in the trees.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 1044 10 10 5
+D3
+~
+~
+0 -1 1042 10 10 5
+-1
+S
+
+#1044
+Small Forest Path~
+Standing along the edge of a great cliff, you gaze down into the immense
+swamp which extends to the east and west as far as the eye can see.  To
+the east, you can see what appears to be the rolling mists caused by a
+large waterfall.  At least, that is what that low rumbling sound you can
+hear emanating from that direction leads you to believe.  The path
+continues to the north along the cliff edge or west into the dark forest.
+~
+[Rastralcaz] 5th line emanating -> eminating
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 1045 10 10 5
+D3
+~
+~
+0 -1 1043 10 10 5
+-1
+S
+
+#1045
+Small Forest Path~
+Walking along the edge of the cliff, you take this moment to more clearly
+observe the waterfall.  Powerful and menacing, it rushes over the cliff
+edge far to the east where it cascades down on to the rocky ground
+beneath the rising cliffs.  From there, it flows into swamplands which
+cling to the earth.  The trail continues to the north and south.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 1046 10 10 5
+D2
+~
+~
+0 -1 1044 10 10 5
+-1
+S
+
+#1046
+Small Forest Path~
+Walking along the bend in the path which follows the edge of the cliff,
+the waterfall disappears from view.  However, the thundering echo of its
+fall seems to fill the air around you.  To the north and west, the forest
+stands dark and forbidding.  The trail along the cliff turns to the east
+and south, skirting the dark forest.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 1047 10 10 5
+D2
+~
+~
+0 -1 1045 10 10 5
+-1
+S
+
+#1047
+Small Forest Path~
+The path you are walking on comes to a curve along the rocky embankment
+of the cliff edge.  To the east, rocky terrain prevents any further
+travel towards the waterfall, of which you can clearly see and hear its
+awesome presence.  The path continues to the west along the cliff edge
+and north into the dark forest.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 1048 10 10 5
+D3
+~
+~
+0 -1 1046 10 10 5
+-1
+S
+
+#1048
+Small Forest Path~
+Standing at the edge of the dark forest, you are torn between your
+feelings of fright and relief.  The sheer presence and magnitude of the
+forest encroaching from the north is almost overwhelming.  Yet, the view
+of the rocky terrain and cliff edge to the south seems like a safehaven. 
+The path extends in those two directions, leaving you virtually little
+choice.  Around you, the rumble of the waterfall pounds in your ear.
+~
+[Rastralcaz] 4th line safehaven -> safe haven.
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 1049 10 10 5
+D2
+~
+~
+0 -1 1047 10 10 5
+-1
+S
+
+#1049
+Small Forest Path~
+Walking along the path, you can sense another presence nearby.  Unable to
+pinpoint its source, your only thought is to hurry as fast as you can
+through this impenetrable forest.  The path through the dark forest
+branches away to the east and south.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39500 10 10 5
+D1
+~
+~
+0 -1 1050 10 10 5
+D2
+~
+~
+0 -1 1048 10 10 5
+-1
+S
+
+#1050
+Small Forest Path~
+The path continues to the wind through the dark forest in an endless
+pattern.  The trees appear to be encroaching upon the path.  A shiver
+runs down your spine.  Peering through the large trees, you are unable to
+see through the dense undergrowth.  Far above, tree limbs intertwine to
+form a dense ceiling.  The path extends to the north and west.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 1051 10 10 5
+D3
+~
+~
+0 -1 1049 10 10 5
+-1
+S
+
+#1051
+Small Forest Path~
+Walking through the dark and foreboding forest, you notice that your
+shadow has disappeared.  Even with a light source held up to your hand,
+you fail to see your shadow being cast.  The path winds its way through
+the trees to the east and south.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 1015 10 10 5
+D2
+~
+~
+0 -1 1050 10 10 5
+-1
+S
+
+#1052
+Before a Large House~
+The worn dirth path ends here, turning into the walkway to a large house. 
+The walkway in turn leads to the front porch of the house to the south. 
+Around the path and walkway is grass, the front yard of this house.  To
+the north is the edge of the forest, marked by a thick line of trees and
+bushes.  The forest also marks the edge of the yard to the east.  The
+trees and bushes are to closer together to permit travell into the forest
+from here.  Latticework covers the front porch to the south.
+~
+[Merior] standing here - no sense of which is in what direction
+[Merior] second sentence makes no sense
+[Merior] dont understand the forest marking edge of yard
+[Merior] travel
+[Merior] too close together?
+[Merior] last sentence seems out of place
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 63000 10 10 5
+D3
+~
+~
+0 -1 1024 10 10 5
+E
+north east trees forest bushes~
+The trees and bushes are much to dense to allow passage either north or east.
+~
+E
+house porch latticework south~
+The front porch of this large house is painted white, and latticework
+encloses it.  The rest of the house is also painted white, and you can
+see a single window in the middle of the second floor.
+~
+-1
+S
+
+#0
+

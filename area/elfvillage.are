@@ -1,0 +1,1260 @@
+#AREA
+Quiet Elf Village~
+Phule~
+quiet elf village~
+
+0 0
+0
+#ROOMS
+
+#50000
+A Quiet Row of Trees~
+A row of trees have been recently planted here, filling what used to be a
+small clearing in the forest.  Small birds' nests rest gingerly amidst
+the branches of the young trees, giving the row the feeling of fresh
+life, of rebirth.  The old forest spreads out to the west and north,
+while to the east and south you can see more recently-planted trees.
+~
+~
+33030144 3 5 0
+D0
+~
+~
+0 -1 50003 10 10 5
+D1
+~
+~
+0 -1 50001 10 10 5
+D2
+~
+~
+0 -1 50004 10 10 5
+D3
+~
+~
+0 -1 50002 10 10 5
+E
+bird nest row trees~
+Fresh and wholesome, the row and the cries of newly hatched chicks in
+their nests represent a small section of new life in the ancient forest
+around it.
+~
+A
+random~
+~
+send_to_room( #bird, room );
+~
+E
+bird~
+A small bird flies overhead, landing in one of the nests in the trees. 
+You hear the chirping of her young as the mother provides her chicks with
+a meal.
+~
+!
+0 200 0
+-1
+S
+
+#50001
+A Quiet Row of Trees~
+A row of trees have been recently planted here, filling what used to be a
+small clearing in the forest.  You can see two huts to the north, one is
+small and directly to the north, while the other is larger and off to the
+northeast.  The row of trees continues to the west, while to the east you
+can see another hut across a small section of grass.
+~
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50014 10 10 5
+D2
+~
+~
+0 -1 50016 10 10 5
+D3
+~
+~
+0 -1 50000 10 10 5
+-1
+S
+
+#50002
+Near a Gentle Forest Stream~
+A small clear stream trickles its way through the forest about a score or
+so yards to the west.  Thick ferns and bushes to the south block the way
+in that direction, but the vast expanse of the forest is sure to provide
+enough adventure in all other directions.  A row of trees have recently
+been planted in what was once a clearing to the east.
+~
+elven cleric s, no approach from here
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50006 10 10 5
+D1
+~
+~
+0 -1 50000 10 10 5
+D3
+~
+~
+0 -1 50005 10 10 5
+E
+s south ferns bushes~
+The ferns have grown thick and tall, blocking any possible path south
+from here.
+~
+E
+row trees east~
+The nearly straight row of young trees are obviously not of nature's
+design, but somehow amidst the ancient power of the forest of the Vaasa
+around it, the young trees seem to fit in nicely.
+~
+-1
+S
+
+#50003
+Near a Gentle Forest Stream~
+The forest thins as it nears a small stream to the northwest.  The stream
+bends away to the west, trickling off into the forest beyond.  A quiet
+row of trees have been planted to the south in what was once a clearing. 
+To the east you can see the thatched wall of a hut.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50007 10 10 5
+D2
+~
+~
+0 -1 50000 10 10 5
+D3
+~
+~
+0 -1 50006 10 10 5
+1690 17 1509949540 -2 0
+1281 137 1509949540 3 0
+-1
+S
+
+#50004
+A Quiet Row of Trees~
+A row of trees have been recently planted here, filling what used to be a
+small clearing in the forest.  To the west, dense foliage blocks both
+sight and vision as ferns have grown thick and tall.  To the east, the
+row of recently-planted trees continues, while to the south the ancient
+trees of the Vaasa loom overhead.
+~
+w is cleric, unreachable from here
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50000 10 10 5
+D1
+~
+~
+0 -1 50016 10 10 5
+D2
+~
+~
+0 -1 50017 10 10 5
+E
+row of trees~
+The trees are much younger than the ancient forest of the Vaasa around
+them, planted in a few straight rows by someone's hand, not by nature.
+~
+-1
+S
+
+#50005
+West of a Gentle Forest Stream~
+The trees around you are flanked by ferns and small shrubs.  A stream
+bubbles by to the east, carrying its crystal clear water through the
+forest as its lifeblood.  A faint trail winds its way through the forest
+to the south.  The way is easy to the east and south, while to the north
+and west the foliage is simply too thick to be passed through.
+~
+[Phule] s is 19104 (??)
+[Way] West of a Gentle Forest Stream in the Vaasa says that there is a
+trail leading south...but no exit in that direction...
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50002 10 10 5
+D2
+secret bush~
+bush~
+232 -1 19104 10 10 5
+A
+move push pull nudge 2 open~
+bushes secret~
+if( is_open( room, south ) ) {
+act_tochar( #close, ch );
+act_notchar( #rclose, ch );
+close( room, south );
+}
+else {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, south );
+}
+~
+E
+close~
+You nudge one of the bushes, shifting it to block the way south.
+~
+E
+open~
+You pull upon a bush, revealing a way south.
+~
+E
+rclose~
+$n nudges a large bush, pushing it into place where there was once a way
+south.
+~
+E
+ropen~
+$n pulls upon a bush, nearly uprooting it.  In the process, a way south
+is revealed.
+~
+!
+0 0 0
+1690 17 1509949540 -2 0
+203 9 1509949540 3 0
+2509 9 1509949540 3 0
+-1
+S
+
+#50006
+Beside a Gentle Forest Stream~
+The old forest of the Vaasa looms to the northwest, across a small stream
+which trickles its way from north to west.  Through the trees to the east
+you can see a small hut, while to the southeast a row of trees have been
+planted in what was once a clearing.
+~
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50003 10 10 5
+D2
+~
+~
+0 -1 50002 10 10 5
+1690 17 1509949540 -2 0
+-1
+S
+
+#50007
+On the Shore of a Gentle Forest Stream~
+A small stream of cool water trickles by to the north, bending away to
+the southwest.  While not wide or deep, the far bank of the stream is
+steep and tall, and slick with water, and so keeps the stream from being
+crossed.  You can follow the stream to the south and east.
+~
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50008 10 10 5
+D2
+~
+~
+0 -1 50003 10 10 5
+E
+bank~
+The far bank of the stream rises straight up several feet and looks slick
+with water from the stream.  This natural barrier makes the stream
+uncrossable.
+~
+1690 17 1509949540 -2 0
+-1
+S
+
+#50008
+By Two Small Huts Near a Gentle Stream~
+Two huts, one to the east and one to the south, share this small patch of
+light grass near a gentle stream as their doorstep.  The stream is
+flowing roughly east and west, and while not shallow or wide, the far
+bank rises into a sheer face about ten feet high, and slick with water,
+making crossing the stream an impossibility.  You can follow the stream
+to the west.
+~
+~
+33030144 3 9 0
+D1
+small wooden door~
+door small wooden east~
+131 -1 50009 10 10 5
+D2
+small wooden door~
+door small wooden south~
+131 -1 50010 10 10 5
+D3
+~
+~
+0 -1 50007 10 10 5
+E
+huts~
+The huts are made of thatch, a mud-like combination of mud and small
+twigs and dried grass.
+~
+1690 17 1509949540 -2 0
+-1
+S
+
+#50009
+Just Inside a Small Hut~
+The walls of this cozy-looking hut are thin saplings interspersed with
+thatch and mud.  A small square hole in the north wall acts as a window,
+offering a view of the gentle stream outside.  An open doorway to the
+south leads into another room of the mostly bare hut, and a small ladder
+leads up to a loft.
+~
+~
+33030148 3 6 0
+D2
+~
+~
+0 -1 50011 10 10 5
+D3
+small wooden door~
+small wooden door west~
+131 -1 50008 10 10 5
+D4
+~
+~
+0 -1 50012 10 10 5
+-1
+S
+
+#50010
+Inside a Small Hut~
+This small hut is made of mud and small strips of wood.  A large sitting
+mat is spread across the floor, and a ladder leads up to a small loft. 
+Near the mat is a small padded bench.  The air in this room is still, but
+not stifling despite the room's lack of windows.
+~
+~
+33030148 3 6 0
+D0
+small wooden door~
+small wooden door north~
+131 -1 50008 10 10 5
+D4
+~
+~
+0 -1 50013 10 10 5
+1691 17 1509949540 -2 0
+1692 17 1509949540 -2 0
+1279 9 1509949540 3 0
+-1
+S
+
+#50011
+Inside a Small Hut~
+This is obviously the main room of the hut, at once larger than the other
+rooms and less bare.  A bed lies in the southeast corner, marking this as
+a bedchamber, but a small padded bench and large mat on the floor make it
+somewhat of a sitting room as well.  Windows on the east and south wall
+give a view of the surrounding forest.
+~
+~
+33030148 3 6 0
+D0
+~
+~
+0 -1 50009 10 10 5
+A
+l look~
+window out through forest view~
+i = random( 0, 2 );
+if( i == 1 )
+  act_tochar( #sc1, ch );
+if( i == 2 )
+  act_tochar( #sc2, ch );
+if( i == 0 )
+  act_tochar( #sc0, ch );
+~
+E
+sc1~
+You look out the window and see a mighty shuvana tree off in the distance
+to the south.
+~
+E
+sc2~
+You look out the window, and see a deer dart into the forest at some
+unheard sound.
+~
+E
+sc0~
+You look out the window and see the leaves of a nearby tree shake as a
+breeze blows by.
+~
+!
+0 0 0
+1392 17 1509949540 -2 0
+1691 17 1509949540 -2 0
+1692 17 1509949540 -2 0
+1280 9 1509949505 3 0
+1279 9 1509949505 3 0
+-1
+S
+
+#50012
+A Small Loft Inside a Small Hut~
+This small loft is obviously a child's bedroom.  A small bed lies in the
+corner, as well as a small toy chest.  A ladder leads down to another
+room of the hut.  The chest's lid has broken, as has its latch, giving
+easy access to whatever lies inside.
+~
+~
+33030148 3 6 0
+D5
+~
+~
+0 -1 50009 10 10 5
+1274 137 1509949540 3 0
+1694 17 1509949540 -2 0
+1693 49 1509949540 -2 0
+1708 81 1509949445 -2 0
+-1
+S
+
+#50013
+Small Hut - Sleeping Area~
+This seems to be the sleeping area for the inhabitants of this hut.  Two
+beds, one large and one small, sit near the thatch walls.  A ladder leads
+down to another room of the hut.  A small hole in the ceiling lets you
+catch a brief glimpse of the sky outside.
+~
+~
+33030148 3 6 0
+D5
+~
+~
+0 -1 50010 10 10 5
+E
+hole ceiling sky outside~
+Well, you may be able to see the sky outside if the hole was not angled
+as far as it is to the south.  With the low angle, you only catch a view
+of the green canopy of the Vaasa.
+~
+1392 17 1509949540 -2 0
+1694 17 1509949540 -2 0
+1280 9 1509949510 3 0
+1274 9 1509949515 3 0
+-1
+S
+
+#50014
+West of a Small Hut~
+This small section of grass is sandwiched between the back of a hut to
+the north, the side of a hut to the east, and a row of trees to the west. 
+To the south the forest looks older and mightier as the ancient trees of
+the Vaasa loom overhead, forming their impentrable canopy of leaves and
+branches.
+~
+~
+33030144 3 9 0
+D2
+~
+~
+0 -1 50015 10 10 5
+D3
+~
+~
+0 -1 50001 10 10 5
+-1
+S
+
+#50015
+Beneath the Canopy of the Vaasa~
+While not under the full cover of the forest proper, the mighty trees of
+the Vaasa extend their branches overhead, creating a canopy of green.  A
+small hut stands to the northeast in a small clearing, while a massive
+shuvana has fallen to the south and blocks entrance into the massive
+forest.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50014 10 10 5
+D1
+~
+~
+0 -1 50019 10 10 5
+D3
+~
+~
+0 -1 50016 10 10 5
+E
+massive shuvana fallen tree~
+At least twenty-five feet in diameter, it cannot be climbed.
+~
+-1
+S
+
+#50016
+A Quiet Row of Trees~
+A row of trees have been recently planted here, filling what used to be a
+small clearing in the forest.  The the north and west, you can see more
+rows of recently-planted trees.  To the south and east, however, the
+ancient shuvanas of the Vaasa spread their branches, creating a dense
+canopy of leaves high overhead.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50001 10 10 5
+D1
+~
+~
+0 -1 50015 10 10 5
+D2
+~
+~
+0 -1 50018 10 10 5
+D3
+~
+~
+0 -1 50004 10 10 5
+-1
+S
+
+#50017
+Beneath the Canopy of the Vaasa~
+The giant, ancient trees of the Vaasa overhang this small clearing,
+giving it a green canopy of leaves.  To the south, a giant shuvana has
+fallen and blocks entrance into the deeper forest.  To the west, ferns
+have grown thick and tall and prevent movement in that direction.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50004 10 10 5
+D1
+~
+~
+0 -1 50018 10 10 5
+E
+shuvana fallen tree~
+The fallen tree must have been ancient indeed, for it is about 20 to 25
+feet wide at its narrowest.
+~
+E
+fern~
+The ferns grow thick and tall; passing through them into what lies hidden
+beyond is not possible from this vantage.
+~
+-1
+S
+
+#50018
+Beneath the Canopy of the Vaasa~
+The giant, ancient trees of the Vaasa overhang this small clearing,
+giving it a green canopy of leaves.  Giant fallen trees to the east and
+south block entrance into the deeper forest.  Through the trees to the
+northeast, you can see a small thatch hut.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50016 10 10 5
+D3
+~
+~
+0 -1 50017 10 10 5
+E
+hut~
+The hut is made of thatch and stands tall, but not wide.
+~
+-1
+S
+
+#50019
+South of a Hut~
+The small wooden door of a small hut leads into the hut to the north.  To
+the west, you see the fringes of the mighty Vaasa, as ancient shuvanas
+stretch their limbs over a small clearing.  To the east, a faint trail
+leads away from the hut.  To the south, a few boulders, the edge of a
+small mountain range, block entrance into the deeper forest.
+~
+~
+33030144 3 9 0
+D0
+small wooden door~
+small wooden door north~
+131 -1 50020 10 10 5
+D1
+~
+~
+0 -1 50025 10 10 5
+D3
+~
+~
+0 -1 50015 10 10 5
+E
+boulder~
+The large rocks are clumped together, perhaps some long-forgotten
+landslide carried them this far into the forest.
+~
+E
+range mountain~
+One peak in particular, Hark's Finger, juts upward to the southeast.
+~
+-1
+S
+
+#50020
+Inside a Small Hut~
+This room appears to be the entryway of a small thatch hut.  Open
+doorways lie to the north and east leading to other sections of the hut. 
+A wooden door lies to your south leading out of the hut.  The room is
+amazingly bare except for a small painting hanging upon the west wall.
+~
+~
+33030148 3 6 0
+D0
+~
+~
+0 -1 50021 10 10 5
+D1
+~
+~
+0 -1 50022 10 10 5
+D2
+small wooden door~
+small wooden door south~
+131 -1 50019 10 10 5
+E
+painting~
+The painting is of an elf family, perhaps the occupants of the home.
+~
+-1
+S
+
+#50021
+A Bedroom Inside a Small Hut~
+This room obviously serves as a bedroom, as a large bed rests in the
+northwest corner of the room.  Through an open doorway to the south is
+another room of the small thatch hut.  A short climb up a ladder leads to
+a loft.
+~
+~
+33030148 3 6 0
+D2
+~
+~
+0 -1 50020 10 10 5
+D4
+~
+~
+1024 -1 50024 10 10 5
+1392 17 1509949540 -2 0
+1279 9 1509949520 3 0
+1281 9 1509949515 3 0
+-1
+S
+
+#50022
+A Sitting Room Inside a Small Hut~
+This small sitting room appears rather plain, consisting of only a large
+sitting mat, with a small padded bench alongside it.  The thick thatch
+walls have no windows present in them causing the room to appear darker
+then it actually is.  A small wooden ladder lies upon the northern wall,
+leading up to a small loft while an open doorway lies to your west.
+~
+~
+33030148 3 6 0
+D3
+~
+~
+0 -1 50020 10 10 5
+D4
+~
+~
+1024 -1 50023 10 10 5
+1692 17 1509949540 -2 0
+1691 17 1509949540 -2 0
+1279 9 1509949540 3 0
+-1
+S
+
+#50023
+A Small Loft in a Thatch Hut~
+This small loft is quite bare, except for a single small bed which lies
+in the northeast corner of the room.  The thick, thatch walls gives off a
+strong odor which causes you to hold your nose.  Most of the thatch
+itself is wet and covered in mildew suggesting that they are not
+regularly upkept.  The roof of the loft seems quite sturdy yet you spot a
+few holes in them which could possibly explain the small puddles of water
+upon the floor.
+~
+~
+33030148 3 6 0
+D5
+~
+~
+1024 -1 50022 10 10 5
+E
+puddle water roof hole~
+Possibly caused by torrential rainfall upon these thatch huts, out from
+underneath the protective canopy of the Vaasa.
+~
+1274 9 1509949510 3 0
+1280 9 1509949510 3 0
+1694 17 1509949540 -2 0
+-1
+S
+
+#50024
+A Small Loft Inside a Small Hut~
+This small loft is extremely bare, only holding a small bed in the
+southwest corner and the ever present thatch walls.  Drop of water
+trickle down from the thatch ceiling causing mildew to form everywhere
+creating a very unpleasent scent.  A small wooden ladder upon the
+northern wall leads down into the main section of the hut.
+~
+[Blorn] drop of water should be drops
+[Dalthas] drop -> drops
+[Hoel] drop, should be drops
+~
+33030148 3 6 0
+D5
+~
+~
+1024 -1 50021 10 10 5
+1694 17 1509949540 -2 0
+1274 9 1509949520 3 0
+1280 9 1509949520 3 0
+-1
+S
+
+#50025
+A Small Trail Around a Hut~
+This faint trail runs east and west between a thatch hut to the north and
+a fallen-down shuvana to the south.  The fallen tree is so large that it
+blocks entrance into the deeper forest.  To the south, the forest of the
+Vaasa stretches into the distance.  To the north and east, you can see a
+pair of small thatch huts.
+~
+[Merior] last sentence is very odd
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50026 10 10 5
+D3
+~
+~
+0 -1 50019 10 10 5
+E
+shuvana~
+The fallen tree is so large that it blocks entrance into the deeper
+forest.
+~
+-1
+S
+
+#50026
+A Small Trail Around a Hut~
+A faint trail bends north and west here, leading past the entrances of
+small thatch huts along its route in each direction.  To the south, a
+large fallen shuvana blocks the entrance into the deeper forest beyond. 
+The green canopy of the Vaasa is spread above you, dark green and
+impenetrable even at its fringes.
+~
+[Morathi] at hello yato
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50027 10 10 5
+D3
+~
+~
+0 -1 50025 10 10 5
+E
+shuvana fallen tree~
+The tree must have been ancient indeed to have reached such a size.
+~
+1278 137 1509949540 3 0
+-1
+S
+
+#50027
+A Small Trail Between Two Huts~
+This faint trail leads between two huts, one to the east and another to
+the west.  To the east, a small wooden door offers an entrance into the
+hut, but only the wall of the hut to the west is visible.  To the south
+the faint trail continues, while to the north, a large clearing can be
+seen.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50028 10 10 5
+D1
+small wooden door~
+small wooden door east~
+131 -1 50034 10 10 5
+D2
+~
+~
+0 -1 50026 10 10 5
+-1
+S
+
+#50028
+A Small Clearing in the Forest~
+Surrounded by small thatch huts, this clearing is mostly short grass and
+the odd patch of bare dirt.  There are two huts in close proximity, one
+to the southeast and another to the southwest, and you can see yet
+another hut off to the northwest across the clearing.  To the far north,
+a large hall made of the same thatch as the huts, dominates the view.
+~
+huts to se and sw, large hall far n
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50031 10 10 5
+D1
+~
+~
+0 -1 50032 10 10 5
+D2
+~
+~
+0 -1 50027 10 10 5
+D3
+~
+~
+0 -1 50029 10 10 5
+1279 9 1509949520 3 0
+-1
+S
+
+#50029
+A Small Clearing in the Forest~
+A thatch hut to the southwest cradles this corner of the clearing.  Off
+to the northeast you can see a large thatch hall across the clearing.  In
+the distance beyond the huts you can see the mighty trees of the Vaasa
+creating their impenetrable canopy high overhead.
+~
+hut to w and s (1 hut)
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50030 10 10 5
+D1
+~
+~
+0 -1 50028 10 10 5
+1280 9 1509949520 3 0
+-1
+S
+
+#50030
+A Small Clearing in the Forest~
+The clearing spreads off to the southeast away from the walls of a large
+hall to the north and a small hut to the west, both made of thatch.  The
+trickling of a stream is easily heard nearby.  The short grass of the
+clearing is wide-bladed and green, dotted with the occasional weed or
+wildflower.
+~
+large hall n, hut to w
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50031 10 10 5
+D2
+~
+~
+0 -1 50029 10 10 5
+E
+weed wildflower~
+These few scattered weeds and wildflowers show that the elves of the
+village have observed, rather than guided, nature's course.
+~
+A
+listen~
+stream trickling trickle water~
+act_tochar( #hear, ch );
+~
+E
+hear~
+The water trickles along from east to west in a small forest stream.
+~
+!
+0 0 0
+1280 9 1509949520 3 0
+-1
+S
+
+#50031
+A Small Clearing in the Forest~
+A small clearing spreads in all directions save to the north, where the
+wall of a large thatch hall rises overhead.  You can see three other
+thatch buildings, all small huts, two to the west and another to the
+southeast.
+~
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50033 10 10 5
+D2
+~
+~
+0 -1 50028 10 10 5
+D3
+~
+~
+0 -1 50030 10 10 5
+1281 9 1509949510 3 0
+-1
+S
+
+#50032
+A Small Clearing in the Forest~
+This small grass clearing seperates the walls of the small thatch huts
+that surround it.  Tall weeds grow knee-high suggesting that no one has
+maintained the area in some time.  Tall trees overhang the clearing
+creating a shadey spot to rest a bit.  To the west lie a pair of small
+thatch huts, while to the north a large thatch hall rises up.
+~
+hut to e and s (1 hut)
+[Merior] more desc
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50033 10 10 5
+D3
+~
+~
+0 -1 50028 10 10 5
+-1
+S
+
+#50033
+A Small Clearing in the Forest~
+A faint trail leads east, then north around the edge of a large thatch
+hall to the north.  The clearing stretches out to the southwest, ringed
+by several small huts.  A small plaque is embedded into a large rock
+which has been brought here from the nearby mountains.  It has something
+engraved on it which may bear further inspection.
+~
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 50044 10 10 5
+D2
+~
+~
+0 -1 50032 10 10 5
+D3
+~
+~
+0 -1 50031 10 10 5
+E
+large rock plaque small~
+It reads: "We are the Llewyrr, we are elves."
+~
+1278 137 1509949540 3 0
+-1
+S
+
+#50034
+Inside a Small Hut~
+This is the entrance room of this small hut, with open doorways leading
+south and east into other rooms.  A small wooden door leads west and out
+of the hut.  The sparse room bears no decorations whatsoever; perhaps the
+hut's owners favor function over form when it comes to their living areas.
+~
+~
+33030148 3 6 0
+D1
+~
+~
+0 -1 50035 10 10 5
+D2
+~
+~
+0 -1 50049 10 10 5
+D3
+small wooden door~
+small wooden door west~
+131 -1 50027 10 10 5
+-1
+S
+
+#50035
+Inside a Small Hut~
+This small hut bears little furniture, except for a small table in the
+center of the room.  The thatch walls and ceiling are covered with small
+holes allowing small amounts of light to illuminate the room.  The air in
+here is dense with moisture and the ever present smell of wet thatch.  To
+the north and west lie open doorways leading into different sections of
+the hut.
+~
+~
+33030148 3 9 0
+D0
+~
+~
+0 -1 50036 10 10 5
+D3
+~
+~
+0 -1 50034 10 10 5
+1700 17 1509949540 -2 0
+-1
+S
+
+#50036
+A Bedroom Inside a Small Hut~
+This room obviously serves as a bedroom, as a neatly-made bed rests in
+the corner of the hut.  A large padded mat stretches across the floor,
+probably a comfortable place to rest as well.  An open doorway to the
+south leads to another room of the hut, while a wooden ladder leads up to
+a small loft.
+~
+~
+33030148 3 9 0
+D2
+~
+~
+0 -1 50035 10 10 5
+D4
+~
+~
+0 -1 50037 10 10 5
+1392 17 1509949540 -2 0
+1691 17 1509949540 -2 0
+1279 9 1509949520 3 0
+1281 9 1509949510 3 0
+-1
+S
+
+#50037
+A Small Loft~
+This small loft overhangs a larger room in this small thatch hut.  A
+small bed sits in the corner, and a wooden ladder leads down into the hut. 
+A few splotches of colour decorate the walls in a seemingly random
+pattern.  You spot something shiny in the corner of the room.
+~
+~
+33030148 3 9 0
+D5
+~
+~
+0 -1 50036 10 10 5
+E
+splotches colour walls patter~
+It looks as if paint was splattered on the thatch walls, or perhaps some
+kind of dye.  In any case in a few places you can also see some marks of
+abrasion as the paint was forcefully removed.
+~
+A
+search look~
+corner shiny~
+act_tochar( #search, ch );
+~
+E
+search~
+You search the darkness of the corner for a bit, but don't find anything. 
+Perhaps it was just a trick of reflecting light which misled you.
+~
+!
+0 0 0
+1694 17 1509949540 -2 0
+1274 9 1509949520 3 0
+1280 9 1509949520 3 0
+-1
+S
+
+#50044
+A Small Trail Near a Large Thatch Hall~
+A gentle forest stream trickles by to the northeast, with a far bank so
+steep and slick that crossing it is an impossiblity.  A faint trail leads
+north to the door of a large thatch hut, while to the west a large
+clearing spreads out between an assortment of huts.  Across the stream,
+the mighty trees of the Vaasa spread out past the range of your vision.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 50045 10 10 5
+D3
+~
+~
+0 -1 50033 10 10 5
+1690 17 1509949540 -2 0
+1281 137 1509949540 3 0
+-1
+S
+
+#50045
+Before a Large Thatch Hall~
+A stream with an extremely steep far bank trickles by to the north and
+bends to the south as you follow it to the east.  A small wooden door
+leads into a large hall made of thatch to the west.  A faint trail leads
+into a clearing to the south.  Across the stream you can see the mighty
+trees of the Vaasa as the forest spreads out, seemingly to the ends of
+the realms.
+~
+~
+33030144 3 9 0
+D2
+~
+~
+0 -1 50044 10 10 5
+D3
+small wooden door~
+small wooden door west~
+131 -1 50046 10 10 5
+1690 17 1509949540 -2 0
+1278 137 1509949540 3 0
+-1
+S
+
+#50046
+East End of a Large Thatch Hall~
+This rather large hall is made of thatch, but seems rather stable for
+such a large structure.  To the west, a long table dominates the hall and
+marks it as a meeting place of sorts.  A small wooden door to the east
+leads outside.
+~
+~
+33030148 3 6 0
+D1
+small wooden door~
+small wooden door east~
+131 -1 50045 10 10 5
+D3
+~
+~
+0 -1 50047 10 10 5
+E
+table~
+Crafted from a solid piece of shuvanawood, the table will more than
+likely far outlast its crafters.
+~
+1278 137 1509949540 3 0
+-1
+S
+
+#50047
+Inside a Large Thatch Hall~
+A long table stretches east and west within this large thatch hall,
+flanked by benches on either side.  To the west and the east,
+respectively, are the head and foot of the table.  The thatch of the hut
+is reinforced with thin saplings, or perhaps long, thin tree branches,
+allowing it to seem fairly sturdy and durable.
+~
+~
+33030148 3 7 0
+D1
+~
+~
+0 -1 50046 10 10 5
+D3
+~
+~
+0 -1 50048 10 10 5
+1278 137 1509949540 3 0
+1698 17 1509949540 -2 0
+1145 17 1509949540 -2 0
+-1
+S
+
+#50048
+West End of a Large Thatch Hall~
+This is the far west end of a large hall made of thatch.  The thin wooden
+supports give the hall some stability, allowing it to reach a fairly
+large size despite the poor structural qualities of thatch.  To the east
+you can see a long table flanked by two benches, while at this end of the
+table is set a cushioned chair in a place of honor at the head of the
+table.
+~
+[Merior] not real comfortable with this ring having those properties.. 
+specially level 30 
+[Phule] on ring - why?  it's only real net effect is affecting movement! 
+[Phule] it's pretty much the same as the 'duckfeather charm' which people
+griped was worthless 
+[Mantispid] when you tell the wise elf 'hi', he says Foul murder of the innocent.  Should be 'Fould murderer of the innocent.'
+~
+33030148 3 7 0
+D1
+~
+~
+0 -1 50047 10 10 5
+E
+table~
+No description~
+1697 17 1509949540 -2 0
+1277 137 1509949540 3 0
+-1
+S
+
+#50049
+A Bedroom Inside a Small Hut~
+This small room is obviously used as a bedroom, as a large bed rests in
+the corner.  However a small padded bench and a desk mark it as possibly
+room used for other purposes as well.  An open doorway to the north leads
+to another room in the thatch hut.
+~
+~
+33030148 3 9 0
+D0
+~
+~
+0 -1 50034 10 10 5
+1392 17 1509949540 -2 0
+1692 17 1509949540 -2 0
+1701 17 1509949540 -2 0
+1281 9 1509949530 3 0
+1278 137 1509949520 3 0
+-1
+S
+
+#0
+

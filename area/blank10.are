@@ -1,0 +1,4989 @@
+#AREA
+Denab-Knur~
+Mange~
+~
+
+0 0
+0
+#ROOMS
+
+#30263
+Cavern Entrance ~
+To the north, a large cave-in has collapsed the tunnel leading north. 
+Huge mounds of boulders are stacked to the ceiling.  A large wooden
+gate to the south completely seals this cavern off from what lays behind
+it.  Piles of crushed rock litter the ground all around this portion of
+the cavern.
+~
+[Merior] check to be sure this is limited only to karse... i don't know the answer
+[Mange] This entrance is not connected to anything at the moment but is here for expansion purposes.
+[Kiian] These rooms outside of the city are to deleted
+[Kiian] and the gate closed until we havean area to open north of the
+city.
+~
+301465672 11 6 0
+D2
+gate~
+gate~
+199 -1 30264 10 10 5
+E
+gate~
+Adorned with an untold amount of human and elven skulls, the gate serves
+as a warning to those of the unwanted races.  A few of the skulls still
+have decomposing skin and hair hanging from them.
+~
+A
+bash pound knock~
+palisade gate~
+if( is_open( room, south ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+if( race( ch ) == ogre ) {
+    send_to_char( #char, ch );
+    act_notchar( #to_all, ch );
+    open( room, south );
+    }
+  else {
+    send_to_char( #clan_char, ch );
+    act_notchar( #clan_room, ch );
+    }
+  }
+~
+E
+to_all~
+An Ogre Guard appears and studies $n carefully.  Approving of $m, the
+Guard gives the signal to open the gate.
+~
+E
+clan_room~
+An Ogre Guard looks out and scowls at $n.  The Ogre Guard says, "Get away
+from here!!" 
+~
+E
+clan_char~
+An Ogre Guard looks you over and scowls.  The Ogre Guard says, "Get away
+from here!!" 
+~
+E
+char~
+An Ogre Guard appears and studies you carefully.  Approving of you he
+gives the signal to open the gate.  
+~
+E
+to_room~
+$n pounds hard on the Palisade gate.  
+~
+E
+to_char~
+You pound hard on the Palisade gate.  
+~
+E
+nothing~
+You attempt to pound on the palisade only to find it's already open.  
+~
+!
+0 0 2
+A
+close~
+gate palisade~
+if( !is_open( room, south ) )
+  send_to_char( #nothing, ch );
+else
+  send_to_char( #to_char, ch );
+send_to_char( #to_room, ch );
+close( room, south );
+~
+E
+to_room~
+$n closes the gate.
+~
+E
+to_char~
+You close the gate behind you.
+~
+E
+nothing~
+The palisade gate is already closed.
+~
+!
+0 0 0
+992 9 1509949540 3 0
+992 9 1509949540 3 0
+992 9 1509949540 3 0
+992 9 1509949540 3 0
+-1
+S
+
+#30264
+Tunnel Entrance~
+A monstrous gate seals the tunnel here, keepsing out wanderers and
+foreigners.  A large bar across the two doors of the gate keeps it
+securely shut.  The gate is constructed of huge oaken beams and steel
+bands.  Beyond the gate the tunnel continues deeper into the mountain.
+~
+[Kira] A monstrous gate seals the tunnnel here, keepsing(?)
+[Grimsza] "keepsing out wanderers" probably should say "keeping"
+~
+301465677 1 9 0
+D0
+gate~
+gate~
+199 -1 30263 10 10 5
+D2
+~
+~
+0 -1 30401 10 10 5
+E
+bar~
+The bar in made of a fallen oak tree with large iron bands wrapped
+around it.
+~
+E
+gate~
+Huge slabs of roughly cut oak are lashed together with large iron bands,
+to form this gate.
+~
+A
+lift~
+beam bar~
+if( is_open( room, north ) ) {
+  send_to_char( #nothing, ch );
+  end;
+  }
+if( find_stat( ch, str ) > 30 ) {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  wait( 1 ); 
+  send_to_room( #to_all, room );
+  open( room, north );
+  }
+else {
+  act_tochar( #fail, ch );
+  end;
+  }
+~
+E
+to_all~
+With the oaken bar removed the Palisade gate swings open freely.  
+~
+E
+to_room~
+$n's muscles strain as the oaken bar is removed.  
+
+~
+E
+to_char~
+You use all your strength to lift the bar and place it on the ground.  
+~
+E
+fail~
+Using all of your strength you are still unable to move the oaken bar.
+~
+E
+nothing~
+As you look at the bar you notice it has already been removed from the
+Palisade gate.  
+~
+!
+0 0 0
+A
+bar~
+gate~
+if( !is_open( room, north ) )
+send_to_char( #nothing, ch );
+else
+if( find_stat( ch, str ) < 17  )
+send_to_char( #fail, ch );
+ else
+if( find_stat( ch, str ) > 17 )
+send_to_char( #to_char, ch );
+close( room, north );
+~
+E
+to_all~
+With the bar firmly back into place the gate is sealed once more.
+~
+E
+to_room~
+$n uses all his might to place the oaken bar back upon the door.
+~
+E
+to_char~
+Straining you manage to place the oaken bar upon the door.
+~
+E
+fail~
+You strain with all your might, yet you can't budge the oaken beam.
+~
+E
+nothing~
+The oaken bar has already been placed on the gate.
+~
+!
+0 0 0
+A
+knock~
+gate~
+send_to_room( #closed, room );
+~
+E
+closed~
+The Ogre sentry says, 'Passage beyond this gate is prohibited at this
+point in time.' 
+~
+!
+0 0 0
+341 9 1509949540 3 0
+341 9 1509949540 3 0
+341 9 1509949540 3 0
+-1
+S
+
+#30265
+Decaying Road~
+Huge chunks of smashed stones litter the roadway and hinder travel.  The
+wooden wall to the west has a few scratch marks and broken weapons
+embedded deep into the logs.  On the eastern side of the road the stone
+building has collapsed in upon itself and looks like a small land slide
+where it tumbled into the street.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30268 10 10 5
+D2
+~
+~
+195 -1 30264 10 10 5
+-1
+S
+
+#30266
+Palisade Road~
+transfer char to forest
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30376 10 10 5
+-1
+S
+
+#30268
+Decaying Road~
+The splintered logs of the wall have been sheared off here as if some
+great force plowed through the wall with great strength.  There is still
+much rubble choking the once paved road, that has decayed into large
+chunks of rock.  Directly to the east is a make shift hovel that seems to
+house the captain of the guard.  
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30270 10 10 5
+D1
+~
+~
+0 -1 30269 10 10 5
+D2
+~
+~
+0 -1 30265 10 10 5
+A
+~
+~
+act_tochar( #enter, ch );
+continue;
+~
+E
+enter~
+You enter the makeshift hovel.
+~
+!
+3 0 2
+342 9 1509949540 3 0
+342 9 1509949540 3 0
+-1
+S
+
+#30269
+Wooden Lean-too~
+Sheltered from the various elements this temporary shack has been erected
+as a place for guards to report to and take a short reprieve from their
+duties.  Large holes and gaps in the wooden structure allow a small
+amount of the environment to seep through the walls.  
+~
+maybe a rain-ruined carpeting? or bearskin?
+~
+301465672 3 6 0
+D3
+~
+~
+0 -1 30268 10 10 5
+-1
+S
+
+#30270
+Decaying Road~
+Large chunks of stone have been upturned in the street, causing a minor
+traffic flow problem here.  The log wall lining the street seems to be
+intact yet it's blackened and burnt as if by intense heat.  The
+encroaching vegetation has begun to entwine itself around a few logs of
+the wall.  
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30271 10 10 5
+D2
+~
+~
+0 -1 30268 10 10 5
+E
+stone~
+The once smooth stone slabs that were used to construct the road are now
+cracked and misplaced.  They jut up out of the ground at odd angles and a
+few of the stones are caked with coagulated blood.
+~
+E
+log wall~
+Constructed of huge oaken logs, the wall is a huge barrier meant to keep out enemies and wildlife.
+~
+-1
+S
+
+#30271
+Decaying Road~
+Littered with broken stones and rubble, this road continues along to the
+north and south following the wooden barrier to the west.  Many vines
+have begun to reclaim the logs of the wall for the surrounding swamps. 
+Occasionally, you can see holes in the wall where the logs have begun to
+rot and give way to nature.  To the east are the battered remains of
+stone buildings, now collapsed in upon each other.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30276 10 10 5
+D2
+~
+~
+0 -1 30270 10 10 5
+342 9 1509949540 3 0
+-1
+S
+
+#30272
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30266 10 10 5
+D2
+~
+~
+0 -1 30273 10 10 5
+-1
+S
+
+#30273
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30272 10 10 5
+D2
+~
+~
+0 -1 30274 10 10 5
+-1
+S
+
+#30274
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30273 10 10 5
+D2
+~
+~
+0 -1 30275 10 10 5
+-1
+S
+
+#30275
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30274 10 10 5
+D1
+~
+~
+0 -1 30279 10 10 5
+-1
+S
+
+#30276
+Decaying Road~
+On this part of the road the log barrier seems to be completely intact,
+except for the stray vine, here and there, climbing about the logs.  This
+part of the road is slightly less littered with rubble.  A large wall to
+the east is complete but slightly damaged.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30277 10 10 5
+D2
+~
+~
+0 -1 30271 10 10 5
+E
+wall~
+The large wooden wall has many nicks and scratches cut deep into the
+wooden beams that were used to construct the wall.
+~
+-1
+S
+
+#30277
+Decaying Road~
+Turning abruptly, the road follows the walls on both sides onward toward
+the inner city.  The outer wall here has a large hole in it that has been
+haphazardly patched to keep out wayward beasts and unwelcome races. 
+Strewn with much rubble and stone blocks the road is difficult to
+traverse.  The shear destructive power that was unleashed here must have
+been incredible.  
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30286 10 10 5
+D2
+~
+~
+0 -1 30276 10 10 5
+E
+large hole~
+The large hole has been more chewed into the wood than torn from it. 
+Large teeth marks cover the area around the hole as if something has been
+trying to make it bigger.
+~
+342 9 1509949540 3 0
+-1
+S
+
+#30279
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30280 10 10 5
+D3
+~
+~
+0 -1 30275 10 10 5
+-1
+S
+
+#30280
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30281 10 10 5
+D3
+~
+~
+0 -1 30279 10 10 5
+-1
+S
+
+#30281
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30282 10 10 5
+D3
+~
+~
+0 -1 30280 10 10 5
+-1
+S
+
+#30282
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30283 10 10 5
+D3
+~
+~
+0 -1 30281 10 10 5
+-1
+S
+
+#30283
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30284 10 10 5
+D3
+~
+~
+0 -1 30282 10 10 5
+-1
+S
+
+#30284
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30285 10 10 5
+D3
+~
+~
+0 -1 30283 10 10 5
+-1
+S
+
+#30285
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30287 10 10 5
+D3
+~
+~
+0 -1 30284 10 10 5
+-1
+S
+
+#30286
+Trampled Road~
+Apparently, the battle raged through this part of the town and damaged
+nearly nothing.  The stone wall to the south has been cracked and burnt,
+while the wooden wall to the north has scorch marks but is otherwise
+undamaged.  The road hasn't been damaged at all except for the usual wear
+and tear that happens over years of use.  
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30310 10 10 5
+D3
+~
+~
+0 -1 30277 10 10 5
+-1
+S
+
+#30287
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30288 10 10 5
+D3
+~
+~
+0 -1 30285 10 10 5
+-1
+S
+
+#30288
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30289 10 10 5
+D3
+~
+~
+0 -1 30287 10 10 5
+-1
+S
+
+#30289
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30290 10 10 5
+D3
+~
+~
+0 -1 30288 10 10 5
+-1
+S
+
+#30290
+Begining of Graknor Way~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30291 10 10 5
+D3
+~
+~
+0 -1 30289 10 10 5
+-1
+S
+
+#30291
+Underground Path~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30292 10 10 5
+D2
+~
+~
+0 -1 30290 10 10 5
+-1
+S
+
+#30292
+Underground Path~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30293 10 10 5
+D2
+~
+~
+0 -1 30291 10 10 5
+-1
+S
+
+#30293
+Underground Path~
+Under Construction.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30294 10 10 5
+D2
+~
+~
+0 -1 30292 10 10 5
+-1
+S
+
+#30294
+Underground Path~
+Under Construction.
+~
+~
+301465672 3 6 0
+D2
+~
+~
+0 -1 30293 10 10 5
+-1
+S
+
+#30295
+Crumbling Road~
+Like the rest of the town this part of the street is in terrible
+condition.  Piles of rubble lay everywhere, bloodstains upon some of the
+stones show that some being lost its life defending this place. 
+Immediately to the south is a HUGE pile of rubble that blocks any further
+progress in that direction.  The wooden wall to the east is largely
+untouched except for a few scrapes from weapons.  
+~
+west was 30296
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30297 10 10 5
+D2
+~
+~
+0 -1 30376 10 10 5
+A
+~
+~
+act_notchar( #all, ch );
+send_to_char( #closes, ch );
+close( room, west );
+continue;
+~
+E
+closes~
+A large ogre steps in behind you to stop others from following.
+~
+E
+all~
+As $n passes through the gate, an ogre moves in behind him to stop others
+from following $m.
+~
+!
+3 3 8
+A
+knock bang~
+gate~
+if( !is_open( room, west ) ) {
+  send_to_room( #to_room, room );
+  continue;
+  }
+else
+  send_to_char( #char, ch );
+~
+E
+char~
+The gate is already open.
+~
+E
+to_room~
+An Ogre Sentry yells 'Wait your turn, scum!'
+~
+!
+0 0 0
+342 9 1509949540 3 0
+341 9 1509949540 3 0
+341 9 1509949540 3 0
+341 9 1509949540 3 0
+-1
+S
+
+#30296
+Crumbling Gate~
+Large stone slabs have been moved into the road here to make a gate of
+sorts, so that entrance is limited to single file access.  Located near
+the gate a large leather-bound drum hangs on the wall.  To the north and
+south are small covered alcoves.
+~
+~
+301465672 1 9 0
+D0
+~
+~
+0 -1 30403 10 10 5
+D1
+~
+~
+0 -1 28132 10 10 5
+D2
+~
+~
+0 -1 30404 10 10 5
+D3
+~
+~
+0 -1 30312 10 10 5
+E
+drum~
+The large drum is constructed of taut skin stretched over a
+wooden frame.
+~
+A
+none~
+~
+if( char_in_room( ch, find_room( 30296 ) ) ) {
+  wait( 2 );
+  send_to_char( #to_char, ch );
+  wait( 4 );
+  if( char_in_room( ch, find_room( 30296 ) ) ) {
+    send_to_char( #move, ch );
+    wait( 5 );
+    if( char_in_room( ch, find_room( 30296 ) ) ) {
+      send_to_char( #hit, ch );
+      dam_message( ch, 2d8+10, "The Ogre Guard's pummel" );
+        inflict( ch, mob, 2d8+10, "Ogre" );
+      send_to_char( #out, ch );
+      act_notchar( #out1, ch );
+      open( room, east );
+       transfer( ch, find_room( 30312 ) );
+      end;
+      }
+    }
+  }
+continue;
+~
+E
+out1~
+An Ogre Sentry shoves $n west into the decaying town.
+~
+E
+out~
+The Ogre Sentry roughly shoves you toward the middle of the town.
+  
+~
+E
+hit~
+An Ogre Sentry pummels you with his club.
+    
+The Ogre Sentry says 'Get out!!'
+  
+  
+~
+E
+move~
+An Ogre Sentry tells you 'I said move, scumbag!'
+~
+E
+to_char~
+An Ogre Sentry tells you 'Move along, Citizen.'
+~
+!
+1 3 10
+A
+~
+~
+act_tochar( #closes, ch );
+close( room, east );
+~
+E
+closes~
+The gate slams shut.
+~
+!
+1 -1 2
+A
+~
+~
+open( room, east );
+continue;
+~
+!
+3 0 10
+A
+bang strike hit beat smash~
+drum~
+if( rflag( reset0, room ) ) {
+ send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+ act_area( #to_area, ch );
+remove_rflag( reset0, room );
+}
+else
+ send_to_char( #no, ch );
+~
+E
+to_char~
+You bang the drum sharply.
+~
+E
+to_room~
+The drum reverberates a low-pitched sound.
+~
+E
+to_area~
+The sounds of Ogrish war drums, echo through the air.
+~
+E
+no~
+An Ogre guard grabs your arm and says, 'I don't think so!'
+~
+!
+0 0 0
+341 9 1509949540 3 0
+341 9 1509949540 3 0
+-1
+S
+
+#30297
+Crumbling Road~
+Battered and broken, the buildings of the town lay in ruins.  Large
+portions of stone have been crushed to dust and pounded into the ground
+by the tread of hundreds of feet.  Some of the wooden wall has been
+scorched from intense heat. 
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30298 10 10 5
+D2
+~
+~
+0 -1 30295 10 10 5
+-1
+S
+
+#30298
+Crumbling Road~
+Many piles of rubble line the road on both sides, it seems that a path
+has been cleared through the rubble to ease walking.  The wooden wall has
+been shredded into splinters by some gigantic beast.  It still provides
+protection from the elements and assaulting forces.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30299 10 10 5
+D2
+~
+~
+0 -1 30297 10 10 5
+E
+rubble piles~
+Piles of blood caked rubble have been piled along the path, in an attempt
+to somewhat clear the way for travelers.
+~
+-1
+S
+
+#30299
+Crumbling Road~
+The fallen walls from the buildings to the west have been blasted into a
+gravel-like consistency.  forming excellent traction on the road.  The
+large wooden wall to the east has been reduced to charred wood and ash. 
+Smalls piles of blood coated stone lay randomly along the side of the
+road.
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30300 10 10 5
+D2
+~
+~
+0 -1 30298 10 10 5
+342 9 1509949540 3 0
+-1
+S
+
+#30300
+Crumbling Road~
+It seems that the fighting here was vicious, battle scares line the road
+along the walls and the old bloodstains upon the stone that nature hasn't
+washed away yet.  The wooden wall is blackend and burnt, turned into
+charcoal at some points, while the rubble on the inner side of the city
+is sitting in mounds along the side of the road.  The broken stones of
+the road jut up at odd angles making a precarious walking hazard.  
+~
+~
+301465672 3 6 0
+D0
+~
+~
+0 -1 30301 10 10 5
+D2
+~
+~
+0 -1 30299 10 10 5
+-1
+S
+
+#30301
+Trampled Road~
+The corner building to the southwest has been battered so much through
+time, that it finally gave way and fell in upon itself.  Part of it's
+remains have been strewn into the street and cracked the roadwork.  The
+wooden beams of the wall surrounding the city have been sheared off here
+about 8 feet above the ground.
+~
+~
+301465672 3 6 0
+D2
+~
+~
+0 -1 30300 10 10 5
+D3
+~
+~
+0 -1 30302 10 10 5
+-1
+S
+
+#30302
+Trampled Road~
+Seemingly destute of all civilized life, this degenerated town has fallen
+on desperate times.  The streets are cluttered with rubble from decaying
+buildings and battered machines of war.  Coagulated blood is spattered
+ominously on much of the loose rubble and wood fragments.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30301 10 10 5
+D3
+~
+~
+0 -1 30303 10 10 5
+-1
+S
+
+#30303
+Trampled Road~
+Scattered along the sides of this battered road are numerous bones
+forgotten among the rubble of stone and wood.  Some of the remains still
+have decaying flesh clinging to the bones.  Streaks of blood cover most
+of the stone slabs that lay strewn about.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30302 10 10 5
+D3
+~
+~
+0 -1 30304 10 10 5
+-1
+S
+
+#30304
+Trampled Road~
+Smashed to pieces, the surrounding walls have tumbled unceromoniously
+into the street.  Fragments of bones can be seen trapped beneath the
+fallen lumber and stone.  A few of the large chunks of stone seem to be
+stained dark red in spots near the bones trapped beneath them.  The once
+solid road is now a cratered disaster, a small cleared path leads through
+the strewn rubble.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30303 10 10 5
+D3
+~
+~
+0 -1 30305 10 10 5
+E
+north~
+To the north is a huge wooden wall, erected to keep out wandering animals
+and enemies alike.  Beyond the wall is a vast expanse of swampland.
+~
+E
+south~
+To the south are the collapsed buildings of Denab-Knur.  It's buildings
+have fallen in upon themselves blocking any exit in that direction.
+~
+342 9 1509949540 3 0
+-1
+S
+
+#30305
+Trampled Road~
+Littered by broken pieces of war machines, this trampled road has seen
+lots of traffic.  A beaten path leads between the broken stone and
+fragments of wood.  Directly to the south are huge piles of stone that
+tower nearly forty feet into the air.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30304 10 10 5
+D3
+~
+~
+0 -1 30306 10 10 5
+-1
+S
+
+#30306
+Trampled Road~
+Blasted beyond recognition, this portion of the road has been pounded to
+gravel and ash.  The large stone structures to the south seem to have
+collapsed in on themselves . The wooden wall to the north has been
+charred to the point that small pieces of charcoal constantly drift to
+the roadside and are crushed by traffic.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30305 10 10 5
+D3
+~
+~
+0 -1 30307 10 10 5
+-1
+S
+
+#30307
+Trampled Road~
+Squarely in the center of the road is a huge crater.  Scorch marks cover
+the surrounding walls and edges of the pit.  It's seems that a large
+explosion rocked this area during a large battle.  The wall
+surrounding the town is blackened and scorched, where the blast tore into
+it.  The stone walls of the buildings have been blasted to rubble and
+choke any exit to the south.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30306 10 10 5
+D3
+~
+~
+0 -1 30308 10 10 5
+E
+crater~
+The crater has been partially filled in.  At the moment it is about three
+feet deep and ten feet across, bones and slabs of stone lie in it.
+~
+-1
+S
+
+#30308
+Trampled Road~
+Pounded to gravel, the flagstones of the road have finally given way to
+the elements.  Remnants of the northern wooden wall are scattered about
+the street.  Large charred boulders lie in the middle of the path.  The
+town wall to the south has been craked and scorched and is obviously
+beyond repair.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30307 10 10 5
+D3
+~
+~
+0 -1 30309 10 10 5
+A
+~
+~
+if( is_open( room, south ) )
+  send_to_char(#to_char, ch );
+if( !is_open( room, south ) )
+ send_to_char(#to_stone, ch );
+~
+E
+to_stone~
+A large slab impedes your progress.
+~
+E
+to_char~
+~
+!
+0 0 0
+342 9 1509949540 3 0
+-1
+S
+
+#30309
+Trampled Road~
+The large stones that make up this road have been upturned here, as if
+some great weight was set upon them.  The wooden poles of the wall are
+canted out away from the city, forced there by some great bulk.  Scorch
+marks are everywhere upon the road, wall and rubble.  Huge stone
+fragments are all that is left of the buildings to the south.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30308 10 10 5
+D3
+~
+~
+0 -1 30310 10 10 5
+-1
+S
+
+#30310
+Trampled Road~
+Enclosed from the north by the wooden wall and bordered on the south by
+huge mounds of stone and shattered timber, the road continues to the east
+and west.  Smashed cobble-stone and small ash drifts line the street. 
+Some of the larger stones a covered with a crusty reddish brown substance
+that looks much like coagulated blood.
+~
+~
+301465672 3 6 0
+D1
+~
+~
+0 -1 30309 10 10 5
+D3
+~
+~
+0 -1 30286 10 10 5
+-1
+S
+
+#30312
+Inner Courtyard~
+Just before the inner gate is the main part of the city, or what remains
+of it.  Many of the towering buildings have been turned to large piles of
+rubble that clog the streets.  Far to the west are a few buildings that
+are still intact.  Looking down, the street shows signs of blood stains
+that have seeped into the broken stone slabs.
+~
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30296 10 10 5
+D3
+~
+~
+0 -1 30378 10 10 5
+E
+blood stains~
+Spattered and speckled across the stones of the landscape, blood has been
+strewn about.  Some of the spatterings look to be in the shape of
+someones head, where it splattered against the stonework.
+~
+342 9 1509949540 3 0
+-1
+S
+
+#30313
+Ruined Avenue~
+Littering the once-paved street are many broken logs and broken stones. 
+There seems to be a beaten path leading east and west through the rubble. 
+Much of the rubble is stained a dark brown to black color and a few of
+the wooden beams have large hack marks in them.
+~
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30378 10 10 5
+D3
+~
+~
+0 -1 30318 10 10 5
+E
+rubble~
+From half-shattered logs to destroyed shingling, the rubble litters the
+street, nearly covering its surface.
+~
+E
+beams~
+It appears that the beams were hacked down.
+~
+919 9 1509949540 3 0
+-1
+S
+
+#30314
+Dragoth Way~
+Choked with fallen rubble, there is no way to continue south.  The
+toppled buildings have fallen on the street and blocked and further
+progress.  Many of the ruins are charred and burnt, the fire was so hot
+it began to melt the stone.  Small rodent trails lead deeper into the
+rubble but the paths are too small to follow.
+~
+north was 30313
+~
+301465672 1 6 0
+227 8 1509949540 3 0
+-1
+S
+
+#30316
+Dragoth Way~
+The road is littered with charred wood and broken fragments of rock. 
+Large piles of rubble are stacked against a collapsed ruin on the eastern
+side of the street.  An exit to the west leads to decrepit-looking bank.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30317 10 10 5
+D2
+~
+~
+0 -1 30370 10 10 5
+D3
+~
+~
+0 -1 30389 10 10 5
+E
+rubble e east~
+The house has shattered, probably from a large catapult's continued
+assault.
+~
+943 9 1509949540 3 0
+342 9 1509949540 3 0
+-1
+S
+
+#30317
+Dragoth Way~
+The walls lining the road here are crumbling apart and falling into the
+road.  Looking into the ruins you can see large slabs of stone lying in
+the area where a large building once stood.
+~
+[Olah] adding an acode here and in rooms to find dodge trainer
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30320 10 10 5
+D1
+~
+~
+0 -1 30357 10 10 5
+D2
+~
+~
+0 -1 30316 10 10 5
+D3
+stone~
+stone~
+235 -1 30350 10 10 5
+E
+slabs stone~
+Perhaps the remains of supporting pillars, the stones lies in disarray to
+the west.
+~
+A
+move open~
+slabs stone~
+if( is_open( room, west ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, west );
+  }
+~
+E
+nada~
+The slabs of stone have already been moved aside.
+~
+E
+open~
+You move the slabs of stone aside and clear a passage to the west.
+~
+E
+nopen~
+$n moves the slabs of stone aside and clears a passage to the west.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You move the stone aside to reveal a passage west.
+~
+E
+to_room~
+$n moves the stone aside to reveal a passage west.
+~
+!
+8 0 0
+A
+~
+~
+end;
+~
+E
+to_char~
+You see no way of closing it.
+~
+!
+10 0 0
+-1
+S
+
+#30318
+Denab-Knur Square~
+Shattered stone slabs and twisted wooden beams lean haphazardly against
+each other.  Columns of smashed stone have fallen into the street making
+the path difficult to tread upon.  Smatterings of blood and bone are
+embedded into the few remaining walls that still stand.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30372 10 10 5
+D1
+~
+~
+0 -1 30313 10 10 5
+D2
+~
+~
+0 -1 30373 10 10 5
+D3
+~
+~
+0 -1 30319 10 10 5
+342 9 1509949540 3 0
+342 9 1509949540 3 0
+943 9 1509949540 3 0
+-1
+S
+
+#30319
+Denab-Knur Square - Center, Well~
+This square stands approximately in the center of this ruined town.  The
+main intersection is littered with bones and skulls, a few small body
+parts lay here and there, decomposing with time.  In the very center of
+the square is a large broken-down @Gwell@n.  From this vantage point you can
+see the mass destruction of the town.  
+~
+~
+301465672 1 6 0
+D0
+~
+~
+0 -1 30370 10 10 5
+D1
+~
+~
+0 -1 30318 10 10 5
+D2
+~
+~
+0 -1 30323 10 10 5
+D3
+~
+~
+0 -1 30330 10 10 5
+E
+bones skulls body parts~
+Most of the bones are half-smashed, and the few bits of skeletal remains
+which still bear flesh appear burned.
+~
+E
+well~
+Shattered remains of stone are all that's left of this well.  Water
+seeps from beneath the remaining stones and pools up in small holes in
+the ground surrounding the pile of stones 
+~
+A
+none~
+~
+wait( 1 );
+if( random( 1, 10 ) > 8 )
+send_to_area( #choke, room );
+~
+E
+choke~
+A large crashing sound echos through the town, followed by a choking
+cloud of dust.
+~
+!
+2 -1 15
+82 17 1509949540 -2 0
+986 9 1509949540 3 0
+986 9 1509949540 3 0
+-1
+S
+
+#30320
+Dragoth Way~
+All about you lie broken wood and crushed stone; while to the south the
+way seems fairly clear, the rest of this area is not accessible.  The
+broken road-stones jut up at odd angles making it difficult to walk
+without slipping on the smooth surfaces.  To the west, a road continues
+under the ruins.  To the north, a large stone slab has been erected
+vertically, while to the east is a huge mound of collapsed stone.
+~
+~
+301465664 1 9 0
+D2
+~
+~
+0 -1 30317 10 10 5
+D3
+~
+~
+0 -1 30406 10 10 5
+E
+e east mound stone~
+The mass of stone and wood appears to be the remains of a large house.
+~
+919 9 1509949540 3 0
+986 9 1509949540 3 0
+-1
+S
+
+#30323
+Denab-Knur Square~
+Broken and battered down, the buildings here are the same as everywhere
+else, destroyed.  Looking around you can see many of the same piles of
+rubble you saw before just from a different vantage.  Much of the rubble
+in the street has been here for some time, as the weather has begun to
+wear on it.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30319 10 10 5
+D1
+~
+~
+0 -1 30373 10 10 5
+D2
+~
+~
+0 -1 30324 10 10 5
+D3
+~
+~
+0 -1 30374 10 10 5
+-1
+S
+
+#30324
+Dragoth Way~
+Gigantic piles of rubble line the street to the east and west.  The road
+continues on to the north and south, where the way is relatively clear. 
+Far to the south you can see a huge pile of stone blocks blocking any
+further progress in that direction.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30323 10 10 5
+D2
+~
+~
+0 -1 30375 10 10 5
+342 9 1509949540 3 0
+-1
+S
+
+#30330
+Denab-Knur Square~
+Blasted clear of wreckage, this part of the road is extremely clear as if
+a large object moved through here.  Much of the rubble has been pushed to
+the side of the road.  Huge piles of stone cover most of the area.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30371 10 10 5
+D1
+~
+~
+0 -1 30319 10 10 5
+D2
+~
+~
+0 -1 30374 10 10 5
+D3
+~
+~
+0 -1 30331 10 10 5
+A
+~
+~
+send_to_room( #arrive, find_room( 30394 ) );
+~
+E
+arrive~
+Someone arrives at the Denab-Knur Square.
+~
+!
+1 0 15
+342 8 1509949540 3 0
+-1
+S
+
+#30331
+Ruined Avenue~
+Shattered stone and smashed wooden beams line the street.  Huge blocks of
+granite lay strewn about this section of the road and block any avenue of
+travel to the north and south.  Off to the west a large temple rises
+above the ruins.
+~
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30330 10 10 5
+D3
+~
+~
+0 -1 30377 10 10 5
+E
+boulder~
+A large boulder sits here, missing all of the usual gruesome adornments
+that are placed in many other places in the area.
+~
+A
+~
+~
+send_to_room( #arrive, find_room( 30394 ) );
+~
+E
+arrive~
+Someone arrives at the Ruined Way.
+~
+!
+1 0 10
+986 9 1509949540 3 0
+986 9 1509949540 3 0
+-1
+S
+
+#30332
+Broken Road~
+Broken stone slabs and burnt logs have been pushed to the side of the
+street to make a thoroughfare.  The ground has been trampled into a
+compact layer of dirt and it has many footprints in it.  A large building
+towers over you to the east, while a smaller building is west of here.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30377 10 10 5
+D2
+~
+~
+0 -1 30333 10 10 5
+D3
+~
+~
+0 -1 30398 10 10 5
+A
+~
+~
+send_to_room( #arrive, find_room( 30394 ) );
+~
+E
+arrive~
+Someone arrives at a Broken Road.
+~
+!
+1 0 13
+943 9 1509949540 3 0
+342 9 1509949540 3 0
+342 9 1509949540 3 0
+-1
+S
+
+#30333
+Broken Road~
+This area of town is in considerably better shape than the rest of town
+other than the road which has been broken into a gravel-like consistency. 
+A large sand-covered open area, directly to the south, seems to be free
+of rubble.  A large building towers over you directly to the east.
+~
+~
+301465664 1 6 0
+D0
+~
+~
+0 -1 30332 10 10 5
+D1
+door~
+door~
+131 -1 30390 10 10 5
+D2
+~
+~
+0 -1 30339 10 10 5
+E
+building~
+The large building to the east seems to be mostly intact.  It is
+constructed of large stone slabs and huge pieces of timber that have been
+melded together.  A small door allows acces to the building.
+~
+A
+~
+~
+send_to_room( #arrive, find_room( 30394 ) );
+~
+E
+arrive~
+Someone arrives at a Broken Road.
+~
+!
+1 0 7
+986 9 1509949540 3 0
+-1
+S
+
+#30334
+Arena of Honor~
+The sand here has been recently disturbed as if someone went through some
+intense training.  Here and there you see some chunks of sand that seem
+to be a different color than the rest, looking closer you notice that
+coagulated blood is what gives the sand its strange color.  
+~
+~
+368574472 1 9 0
+D2
+~
+~
+0 -1 30335 10 10 5
+D3
+~
+~
+0 -1 30339 10 10 5
+A
+2 practice~
+bash disarm fourth guard kick parry punch rescue second third sword club mace axe~
+if( find_stat( ch, level ) > 10 ) {
+  dam_message( ch, 8d8+10, "Dreglor's punch" );
+  inflict( ch, mob, 8d8+10, "Dreglor" );
+  continue;
+  }
+if( find_stat( ch, level ) > 5 ) {
+  dam_message( ch, 5d6+5, "Dreglor's punch" );
+  inflict( ch, mob, 5d6+5, "Dreglor" );
+  continue;
+  }
+if( find_stat( ch, level ) > 1 ) {
+  dam_message( ch, 2d8+3, "Dreglor's punch" );
+  inflict( ch, mob, 2d8+3, "Dreglor" );
+  continue;
+  }
+~
+E
+to_room~
+Dreglor teaches $n the painful lessons of combat.
+~
+E
+to_char~
+Dreglor smites you with his club, while teaching you the finer things of
+combat.  
+~
+!
+0 0 0
+-1
+S
+
+#30335
+Arena of Honor~
+Tall blood-spattered stone walls line the eastern and southern edges of
+this sand filled area.  Most of the tan colored sand has formed large
+clumps with some sort of black material.
+~
+~
+368574472 1 9 0
+D0
+~
+~
+0 -1 30334 10 10 5
+D3
+~
+~
+0 -1 30336 10 10 5
+-1
+S
+
+#30336
+Arena of Honor~
+Blood-stained stone walls line the southern edge of this sand-filled
+area.  The thick sand on the ground is a tannish-green color with an
+occasional blackish colored clump in it.  The sand has been severely torn
+up in several places while others spots seem to be compressed.
+~
+~
+368574472 1 9 0
+D0
+~
+~
+0 -1 30339 10 10 5
+D1
+~
+~
+0 -1 30335 10 10 5
+D3
+~
+~
+0 -1 30337 10 10 5
+A
+~
+~
+~
+!
+0 0 0
+-1
+S
+
+#30337
+Arena of Honor~
+The southern and western stone walls have a myriad of blood stains
+splattered among them.  Much of the sand on the ground has taken on a
+blackish-brown color and formed large clumps.
+~
+~
+368574536 1 9 0
+D0
+~
+~
+0 -1 30338 10 10 5
+D1
+~
+~
+0 -1 30336 10 10 5
+-1
+S
+
+#30338
+Arena of Honor~
+The blood-soaked walls to the north and west line the edge of this sandy
+area.  The tan colored sand has formed large clumps with the help of some
+sticky black substance.  Some of the sand has been recently upturned
+while other places look to have been undisturbed.
+~
+~
+368574472 1 9 0
+D1
+~
+~
+0 -1 30339 10 10 5
+D2
+~
+~
+0 -1 30337 10 10 5
+E
+stretchers~
+These crude stretchers are made of long wooden poles with stretched hide
+strung between them.
+~
+-1
+S
+
+#30339
+Arena of Honor~
+The ground is covered with sand that has been compacted into an extremely
+hard surface.  Much of the sand is in large clumps due to being stuck
+together by pools of blood.  The walls lining the area are huge stone
+slabs sticking vertically from the ground.
+~
+~
+301465608 1 9 0
+D0
+~
+~
+0 -1 30333 10 10 5
+D1
+~
+~
+0 -1 30334 10 10 5
+D2
+~
+~
+0 -1 30336 10 10 5
+D3
+~
+~
+0 -1 30338 10 10 5
+A
+2 practice~
+bash disarm fourth guard kick parry punch rescue second third sword dagger club mace axe~
+if( find_stat( ch, level ) > 10 ) {
+  dam_message( ch, 8d8+10, "Dreglor's punch" );
+  inflict( ch, mob, 8d8+10, "Dreglor" );
+  continue;
+  }
+if( find_stat( ch, level ) > 5 ) {
+  dam_message( ch, 5d6+5, "Dreglor's punch" );
+  inflict( ch, mob, 5d6+5, "Dreglor" );
+  continue;
+  }
+if( find_stat( ch, level ) > 1 ) {
+  dam_message( ch, 2d8+3, "Dreglor's punch" );
+  inflict( ch, mob, 2d8+3, "Dreglor" );
+  continue;
+  }
+else
+continue;
+~
+E
+to_room~
+Dreglor teaches $n the painful lessons of combat.
+~
+E
+to_char~
+Dreglor smites you with his club, while teaching you the finer things of
+combat.  
+~
+!
+0 0 0
+347 9 1509949540 3 0
+-1
+S
+
+#30340
+Stairway to the Temple~
+Broken and cracked, the stairs stick up at odd angles in many places,
+causing a safety hazard for those traversing the stairs.  The scorched
+and blood-stained steps lead towards the temple.  Some vegetation has
+taken root in the cracks increasing the amount of damage.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30379 10 10 5
+D3
+~
+~
+0 -1 30341 10 10 5
+E
+vegetation~
+Twisted vines have grown up underneath the stone slabs and pushed their
+way through cracks in the granite.
+~
+919 8 1509949540 3 0
+-1
+S
+
+#30341
+Temple~
+Debris lines the base of the walls in this chamber.  The gray granite
+walls are cracked and chipped in several places and blood stains spatter
+them.  From the ceiling dangle many rotting heads and skulls.  The floor
+is coated with a reddish-brown material that looks distinctly like
+coagulated blood.
+~
+~
+301466829 1 6 0
+D0
+~
+~
+0 -1 30382 10 10 5
+D1
+~
+~
+0 -1 30340 10 10 5
+D2
+~
+~
+0 -1 30383 10 10 5
+D3
+~
+~
+0 -1 30344 10 10 5
+E
+debris~
+The debris consists mainly of trash, discarded pieces of rotting meat and
+other unidentifiable items.  Whether the debris is blood-soaked rags or
+forgotten pieces of rotting flesh, you can't tell.
+~
+E
+walls~
+The granite walls have a maze of web like cracks on them.  Small chunks
+of stone are missing from more than one of the larger cracks.
+~
+E
+floor~
+The floor is covered with a fine layer of coagulated blood material.  In
+some places the the blood has flaked off showing the dark gray granite
+beneath.
+~
+-1
+S
+
+#30342
+Granite Hallway~
+The hallway leads north into another portion of the temple and south back
+into the main portion.  Huge tapestries hang from the ceiling by crude
+hooks pounded into the granite.
+~
+~
+301465677 1 6 0
+D0
+~
+~
+0 -1 30380 10 10 5
+D2
+~
+~
+0 -1 30344 10 10 5
+E
+tapestries~
+These large tapestries all depict a huge ogre standing amid a multitude
+of human bodies.  He is wielding a large club that glows with a dark
+light.  In the distance behind him is a large horde of ogres, all of them
+howling victoriously.
+~
+E
+hooks~
+The crude iron hooks have been pounded into the stone walls cracking them
+in a spiderweb like fashion.
+~
+-1
+S
+
+#30343
+Sanctuary~
+This is the sanctuary for the high shaman of the temple.  The room is
+bare except for a few tapestries proclaiming the glory of Korthax. 
+Littered about the floor are many parts of bone and rotting flesh that
+have been carelessly discarded by the current denizens of this place.  
+~
+~
+301465679 1 6 0
+D3
+~
+~
+0 -1 30380 10 10 5
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+425 9 1509949540 3 0
+-1
+S
+
+#30344
+Temple~
+Postioned strategically about this portion of the temple are many spears
+inset into the wall.  The cracked granite that was used to construct the
+ceiling and floors have been polished somewhat.  The ground has been
+strewn with bits of bone and rotted pieces of flesh.  A hallway leads to
+the north and south while an exit leads to the west.
+~
+~
+301465677 1 6 0
+D0
+~
+~
+0 -1 30342 10 10 5
+D1
+~
+~
+0 -1 30341 10 10 5
+D2
+~
+~
+0 -1 30345 10 10 5
+D3
+~
+~
+0 -1 30381 10 10 5
+E
+bone~
+Cracked yellow pieces of decaying bones have been left here.
+~
+-1
+S
+
+#30345
+Granite Hallway~
+Littered with debris, this hallway seems to have never been cleaned of
+the refuse.  Broken weapons, blocks of rubble and decaying pieces of
+flesh are scattered about the hallway giving an unkempt look.  The
+granite walls have been chipped and bashed.
+~
+~
+301465677 1 6 0
+D0
+~
+~
+0 -1 30344 10 10 5
+D2
+~
+~
+0 -1 30346 10 10 5
+E
+weapons~
+Shattered sword blades and smashed clubs lay broken and useless upon the
+floor.
+~
+E
+flesh~
+The maggot infested piece of flesh seems to move of its own accord.
+~
+-1
+S
+
+#30346
+Hallway of Pain~
+Battered and crumbling, the walls here look as if they will collapse at
+any time.  A small hole has been chipped into the southern wall but
+unfortunately it doesn't go all the way through.  Much of the floor is
+covered with bones and broken weapons.
+~
+~
+301465677 1 6 0
+D0
+~
+~
+0 -1 30345 10 10 5
+D1
+~
+~
+0 -1 30347 10 10 5
+E
+bones~
+Cracked and yellow with age these bones have been carelessly left here
+for an untold amount of time.
+~
+E
+weapons~
+Cracked axe handles and rusted sword hilts are all that remain of weapons
+left here.
+~
+E
+hole~
+The hole is about four feet deep and two feet across.  The hole does not
+penetrate to the other side of the wall.
+~
+-1
+S
+
+#30347
+Shaman's Cell~
+This partially furnished room contains a pile of hay and a small pew. 
+Lining the granite walls are tapestries.  Other than a small altar this
+room seems to be empty.  Strewn about the floor are unidentifiable bones
+and other pieces of garbage.
+~
+[Blorn] in the description of the tapestry the word brandishing is misspelled
+[Aemeris] you can look tapestries, but not look tapestry, even though the desc is a tapestry.
+[Aemeris] brandishing is spelled incorrectly
+[Libanius] look tapestry. 'bransdishing' should be brandishing
+~
+301465677 1 6 0
+D3
+~
+~
+0 -1 30346 10 10 5
+E
+tapestries~
+This tapestry depicts a huge ogre standing on a pile of dwarven bodies,
+bransdishing a huge glowing club.  All throughout the background are what
+appears to be ogres and goblins raiding a village of some sort.
+~
+E
+bones~
+Large cracked and yellow bones have been discarded here.
+~
+E
+altar~
+This small altar is made of some sort of dark wood.  Strange runes are
+engraved into its surface.
+~
+E
+hay~
+The hay seems to be some sort of sleeping area.
+~
+-1
+S
+
+#30348
+Gorklin's Slave Pit~
+This crude auction house has been erected in one of the few buildings
+left standing.  Many cages line the south wall filled with all sorts of
+strange and exotic creatures.  The smell of dung and and rotting meat
+permeates the room.  The only other feature of this room is a pile of hay
+used for bedding.  
+~
+[Gribble] Groklin has scarsand red scabs ;)
+[Mange] 1
+~
+301473863 1 6 0
+D0
+~
+~
+0 -1 30373 10 10 5
+D5
+cage~
+cage~
+407 -1 30349 10 10 5
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+312 9 1509949540 3 0
+-1
+S
+
+#30349
+Inside A Large Cage~
+Under Construction.
+~
+~
+301473868 1 6 0
+D0
+cage~
+cage~
+23 -1 30348 10 10 5
+D4
+~
+~
+407 -1 30348 10 10 5
+115 9 1509949540 3 0
+117 9 1509949540 3 0
+119 9 1509949540 3 0
+109 9 1509949540 3 0
+-1
+S
+
+#30350
+Among the Rubble~
+Looking about the rubble you notice many large slabs of stone lying about. 
+The rubble is charred and broken while some of it seems to be fairly
+intact.  Large pieces of charred wood litter the area and congest it even
+more.  Even the rocky ground is scorched by some unimaginable fire.  To
+the east is a pile of rocks that lie in a crumbled heap.
+~
+[Olah] need to write acodes with new hidden door feature
+[Olah] decided to just use old open functions to open doors
+~
+301465672 1 6 0
+D1
+slab~
+slab~
+235 -1 30317 10 10 5
+D5
+stone~
+stone~
+171 -1 30351 10 10 5
+E
+slab stone rubble ground~
+A large stone slab laying on the ground has large groove marks in it.  It
+looks light enough to be moved.
+~
+E
+1 east pile rocks~
+The rocks lying to the east rest in a pile that resembles an anthill. 
+They have fallen from the pillars and walls of this ruined building.
+~
+A
+move open~
+1 down slab stone rubble~
+if( is_open( room, down ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, down );
+  }
+~
+E
+nada~
+The slab of stone on the ground has already been moved.
+~
+E
+open~
+You strain real hard and manage to move the slab of stone revealing a
+passage down.
+~
+E
+nopen~
+$n strains real hard and manages to move the slab of stone to reveal a
+passage down.
+~
+!
+0 0 0
+A
+move~
+1 east pile rocks~
+if( is_open( room, east ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, east );
+  }
+~
+E
+nada~
+The pile of rocks has already been moved.
+~
+E
+open~
+You move the pile of rocks and eventually clear a way eastward.
+~
+E
+nopen~
+$n moves the pile of rocks and clears a way eastward.
+~
+!
+0 0 0
+-1
+S
+
+#30351
+Hidden Basement~
+This abandoned cellar has been turned into a makeshift training area. 
+Many have searched for this place but fewer have found it.  Lining the
+walls are wine racks that have been struck by termites, they crumble to
+the touch.  A large slab of stone rests on the ceiling.
+~
+~
+301469761 0 6 0
+D4
+stone~
+stone~
+171 -1 30350 10 10 5
+E
+slab stone~
+The stone is about five feet long and a few feet wide.  It looks pretty
+heavy but movable.
+~
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+A
+move open~
+slab stone 1 up~
+if( is_open( room, up ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, up );
+  }
+~
+E
+nada~
+The slab of stone has already been moved.
+~
+E
+open~
+You move the slab of stone to reveal a passage upward.
+~
+E
+nopen~
+$n moves the slab of stone to reveal a passage upward.
+~
+!
+0 0 0
+404 9 1509949540 3 0
+-1
+S
+
+#30352
+Tunnel Under the Ruins~
+The surrounding buildings have collapsed in upon themselves over the
+street, creating a tunnel.  Huge beams of timber dangle towards the ground
+from the ceiling.  Large stone slabs line the side of the tunnel.  Large
+stones and boulders have fallen creating small craters in the road.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30353 10 10 5
+D2
+Boulder~
+Boulder~
+0 -1 30377 10 10 5
+943 8 1509949540 3 0
+342 8 1509949540 3 0
+-1
+S
+
+#30353
+Tunnel under the Ruins~
+This section of the road is covered by collapsed buildings leaning
+against each other.  Huge timbers have fallen from the ruins and now
+support most of the weight from the crumbling stone of the ceiling. 
+Massive piles of rubble are collected along the west wall blocking any
+passage into the ruins there.  The well-worn floor has been cleared of
+most hazardous debris.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30354 10 10 5
+D1
+~
+~
+0 -1 30400 10 10 5
+D2
+~
+~
+0 -1 30352 10 10 5
+919 8 1509949540 3 0
+-1
+S
+
+#30354
+Tunnel Under the Ruins~
+In the middle of this tunnel is a huge granite slab that supports the
+weight of the ceiling in this section of the road.  Small piles of
+shattered wood and blasted rock has been collected in the gutters of this
+road, providing a clear path to travel.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30401 10 10 5
+D1
+~
+~
+0 -1 30402 10 10 5
+D2
+~
+~
+0 -1 30353 10 10 5
+944 9 1509949540 3 0
+986 9 1509949540 3 0
+-1
+S
+
+#30355
+Laboratory~
+Lining the walls of this small chamber are many shelves that are littered
+with beakers and flasks.  The floor is cluttered with scraps of paper,
+bone and any number of other unidentifiable items.  Although this room
+has a cluttered appearence it seems there is some sort of placement
+system here.  It seems odd that no dust has collected here and that the
+walls are smooth as glass, yet they are obviously made of broken stone
+and shattered wood.
+~
+Argorth is too similar a name to Argorth, probably best to change one.
+
+Made this safe, else this guy is too much of an isolated target to pick off away from guards. 
+Added indoors flag - please pay attention to them.
+Kiian
+~
+301465678 1 6 0
+D4
+~
+~
+0 -1 30414 10 10 5
+422 9 1509949540 3 0
+1269 17 1509949540 -1 0
+284 17 1509949540 -1 0
+249 17 1509949465 -1 0
+304 17 1509949540 -1 0
+98 17 1509949540 -1 0
+977 17 1509949540 -1 0
+-1
+S
+
+#30356
+Algorth's Newly-Acquired Arms~
+Built between piles of rubble and covered by a makeshift roof, this room
+has many racks and shelves for the implements of war.  Most of the items
+come from other places, having been relieved from their former masters. 
+The floor is littered with broken items, some may be weapons while others
+are definitely not.  
+~
+[Merior] extra for racks/shelves, floor
+[Merior] first sentence of algorth's description isnt a sentence.
+~
+335024199 1 5 0
+D1
+~
+~
+0 -1 30375 10 10 5
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+426 9 1509949540 3 0
+3035 17 1509949490 -1 0
+930 17 1509949490 -1 0
+968 17 1509949450 -1 0
+3001 17 1509949540 -1 0
+3000 17 1509949540 -1 0
+3002 17 1509949540 -1 0
+3004 17 1509949455 -1 0
+3032 17 1509949515 -1 0
+3018 17 1509949490 -1 0
+33 17 1509949490 -1 0
+34 17 1509949515 -1 0
+3005 17 1509949490 -1 0
+3006 17 1509949490 -1 0
+3007 17 1509949465 -1 0
+3008 17 1509949465 -1 0
+-1
+S
+
+#30357
+Slaughterhouse~
+Built beneath a pile of rubble, this slaughter house has become the
+kitchen for the main cook.  Many corpses dangle from crude hooks attached
+to various beams and stone slabs.  The gore and smell of blood permeate
+this place from the continuous slaughtering of corpses to create food for
+the masses.  
+~
+~
+301469769 1 6 0
+D1
+~
+~
+0 -1 30411 10 10 5
+D3
+~
+~
+0 -1 30317 10 10 5
+E
+corpse~
+Many of the corpses here look to be those of the demi-human races of the
+realms.  Large chunks of flesh have been hacked away from them and it
+seems that just a few have begun to rot.
+~
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+427 9 1509949540 3 0
+354 17 1509949540 -1 0
+1221 17 1509949540 -1 0
+1222 17 1509949540 -1 0
+728 17 1509949540 -1 0
+-1
+S
+
+#30358
+Among the Rubble~
+Hidden among this rubble are many of the resident scavengers.  There are
+many piles of stone about the area where buildings toppled and crushed
+innocents.  Blood stains streak some of the stones piled here and there. 
+Winding in between the larger chunks of rubble, a small trail winds it's
+way deeper into the depths of the destruction.
+~
+~
+301465672 1 6 0
+D0
+rubble~
+rubble~
+41 -1 30308 10 10 5
+D1
+~
+~
+0 -1 30359 10 10 5
+-1
+S
+
+#30359
+Among the Rubble~
+The field of broken stones and shattered wood stretches out before you. 
+Small paths have been cleared between the larger piles of rubble to make
+this field more accessible.  On and around the small paths are numerous
+tracks of small rodent-like animals that scurry back and forth on their
+daily routine.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30367 10 10 5
+D2
+~
+~
+0 -1 30360 10 10 5
+D3
+~
+~
+0 -1 30358 10 10 5
+-1
+S
+
+#30360
+Among the Rubble~
+From the looks of the rubble these ruins may have once been some sort of
+inn.  Broken chunks of table and rotted stools jutt out of the stone
+blocks in strange directions.  Small animal trails lead out of the piles
+of rubble into the twisting depths of the area.
+~
+~
+301465672 1 6 0
+D0
+~
+~
+0 -1 30359 10 10 5
+D1
+~
+~
+0 -1 30361 10 10 5
+-1
+S
+
+#30361
+Among the Rubble~
+Strange trails wander aimlessly about this area.  Many of them end
+abruptly at large piles of stone slabs where the continue on into snall
+cracks and crevices.
+~
+~
+301465672 1 6 0
+D0
+~
+~
+0 -1 30367 10 10 5
+D1
+~
+~
+0 -1 30362 10 10 5
+D3
+~
+~
+0 -1 30360 10 10 5
+-1
+S
+
+#30362
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D0
+~
+~
+0 -1 30363 10 10 5
+D3
+~
+~
+0 -1 30361 10 10 5
+-1
+S
+
+#30363
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30364 10 10 5
+D2
+~
+~
+0 -1 30362 10 10 5
+D3
+~
+~
+0 -1 30367 10 10 5
+-1
+S
+
+#30364
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30365 10 10 5
+D3
+~
+~
+0 -1 30363 10 10 5
+-1
+S
+
+#30365
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30369 10 10 5
+D2
+~
+~
+0 -1 30366 10 10 5
+D3
+~
+~
+0 -1 30364 10 10 5
+-1
+S
+
+#30366
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D0
+~
+~
+0 -1 30365 10 10 5
+D1
+~
+~
+0 -1 30368 10 10 5
+-1
+S
+
+#30367
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D1
+~
+~
+0 -1 30363 10 10 5
+D2
+~
+~
+0 -1 30361 10 10 5
+D3
+~
+~
+0 -1 30359 10 10 5
+-1
+S
+
+#30368
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D0
+~
+~
+0 -1 30369 10 10 5
+D3
+~
+~
+0 -1 30366 10 10 5
+-1
+S
+
+#30369
+Among the Rubble~
+Under Construction.
+~
+~
+301465672 1 6 0
+D2
+~
+~
+0 -1 30368 10 10 5
+D3
+~
+~
+0 -1 30365 10 10 5
+-1
+S
+
+#30370
+Denab-Knur Square~
+Battered and torn, the massive stone slabs used as roadwork lay strewn
+about this entire area.  Mounds of rubble and charred wood lay forgotten
+where they fell to the ground.  The surrounding area looks like nothing
+more than large mounds of burnt and blasted stone chunks.  A few of the
+old buildings look as if they have been put to some use.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30316 10 10 5
+D1
+~
+~
+0 -1 30372 10 10 5
+D2
+~
+~
+0 -1 30319 10 10 5
+D3
+~
+~
+0 -1 30371 10 10 5
+E
+old buildings~
+These broken down and partially destroyed buildings lean haphazardly over
+the street.
+~
+-1
+S
+
+#30371
+Denab-Knur Square - Northwest Corner~
+Directly to the north is what appears to be a collapsed shop of some sort,
+while to the west is an open shop.  Part of the northern collapse has
+spilled into this part of the square, causing large mishapen beams of wood
+and shattered stone to be strewn all about.  Many of the stones have
+bloodstains on them.
+~
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30370 10 10 5
+D2
+~
+~
+0 -1 30330 10 10 5
+D3
+~
+~
+0 -1 30388 10 10 5
+-1
+S
+
+#30372
+Denab-Knur Square - Northeast Corner~
+Huge piles of granite litter this corner of the square.  To the north a
+ruined building lies in disrepair, while to the east is a large sign
+hanging above an opening in a crumpled building.  Shattered pieces of
+bone and wood are spread across the ground.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30385 10 10 5
+D1
+~
+~
+0 -1 30386 10 10 5
+D2
+~
+~
+0 -1 30318 10 10 5
+D3
+~
+~
+0 -1 30370 10 10 5
+E
+sign~
+The large newly painted sign depicts a hand pulling a large flask from a
+leather bag.
+~
+E
+bone wood~
+Both are littered about and have been apprently sat here for quite some
+time.
+~
+-1
+S
+
+#30373
+Denab-Knur Square - Southeast Corner~
+In this corner of the square, the rubble and smashed wood is far less
+prominent, although the signs of it still remain.  The doorway to the
+south leads to Gorklin's Slave Pit while the one to the east leads to
+Hraxlan's House of Linen.  Both entrances are formed from gaps in between
+stone slabs.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30318 10 10 5
+D1
+~
+~
+0 -1 30384 10 10 5
+D2
+~
+~
+0 -1 30348 10 10 5
+D3
+~
+~
+0 -1 30323 10 10 5
+-1
+S
+
+#30374
+Denab-Knur Square - Southwest Corner~
+In this corner of the square stands one of the largest structures left in
+Denab-Knur, the Hanging Human Tavern.  A crude sign above the entrance
+has decaying skulls hanging from it.  The tavern entrance is to the south
+while the square stretches out to the north and east.  Crumbled rock and
+charred wood litter the ground all around this area.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30330 10 10 5
+D1
+~
+~
+0 -1 30323 10 10 5
+D2
+~
+~
+0 -1 30387 10 10 5
+E
+sign~
+The large decaying sign has a picture of a tankard and an axe engraved
+into it.
+~
+E
+skulls~
+Yellow, cracked skulls swing in the wind below the crude sign.
+~
+A
+~
+~
+send_to_room( #arrive, find_room( 30394 ) );
+~
+E
+arrive~
+Someone arrives at the Denab-Knur Square.
+~
+!
+1 0 7
+-1
+S
+
+#30375
+Dragoth Way~
+Coming to an abrupt end at a huge pile of rubble in the middle of the
+road, the road stops directly to the south of here.  To the west you can
+see a large sign hanging above a crude opening and a battered shield
+placed above an opening to the east.  All around are piles of burnt wood
+and blasted stone.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30324 10 10 5
+D1
+~
+~
+0 -1 30397 10 10 5
+D2
+~
+~
+0 -1 30407 10 10 5
+D3
+~
+~
+0 -1 30356 10 10 5
+E
+sign~
+The huge wooden sign has a crossed axe and club etched into its surface.
+~
+E
+shield~
+A large battered shield hangs of the entrance.
+~
+-1
+S
+
+#30376
+Palisade Road~
+Under Construction.
+~
+~
+301465672 3 9 0
+D0
+~
+~
+0 -1 30295 10 10 5
+D2
+~
+~
+0 -1 30266 10 10 5
+-1
+S
+
+#30377
+Intersection of Ruined Avenue and Broken Road~
+At this junction Ruined Way comes to an intersection with Broken Road. 
+Continuing to the west Ruined Way leads to the temple, while a road leads
+to the south.  The pavement at this intersection has been ground down
+into an gravel-like consistency.  A small beaten path leads north into
+what looks like a large tunnel.
+~
+~
+301465664 1 9 0
+D0
+boulder~
+boulder~
+0 -1 30352 10 10 5
+D1
+~
+~
+0 -1 30331 10 10 5
+D2
+~
+~
+0 -1 30332 10 10 5
+D3
+~
+~
+0 -1 30379 10 10 5
+A
+~
+~
+send_to_room( #arrive, find_room( 30394 ) );
+~
+E
+arrive~
+Someone arrives at the Intersection of Ruined Way and Broken Road.
+The @b@RTARGET@n area.
+~
+!
+1 0 14
+920 9 1509949540 3 0
+342 9 1509949540 3 0
+944 8 1509949540 3 0
+-1
+S
+
+#30378
+Ruined Avenue~
+Smashed buildings line the street to the north and south, cutting off any
+means of travel in those directions, while the road continues east and
+west.  Crushed stone and charred fragments of wood cover the street.  A
+small path leading down the center of the road has been packed down by
+the travel of many feet.  In the distance to the west you can see a large
+building rising above the rest of the ruins.
+~
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30312 10 10 5
+D3
+~
+~
+0 -1 30313 10 10 5
+E
+stone~
+The stone has large score marks in it as well as a brownish crust.
+~
+944 9 1509949540 3 0
+-1
+S
+
+#30379
+Before the Temple~
+Directly to the west is the temple.  Even from this point you can see the
+gruesome trophies of war on display all around the entrance.  The road at
+this point has been cleared of all debris and obstacles.  Back to the
+east is the main portion of the town.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30399 10 10 5
+D1
+~
+~
+0 -1 30377 10 10 5
+D3
+~
+~
+0 -1 30340 10 10 5
+-1
+S
+
+#30380
+Granite Hallway~
+The granite walls here are slightly cracked and chipped.  Small crevices
+reach out from the walls and stretch along the floor.  The ceiling above
+is also constructed of granite and it too has many cracks and crevices.
+~
+~
+301465677 1 9 0
+D1
+~
+~
+0 -1 30343 10 10 5
+D2
+~
+~
+0 -1 30342 10 10 5
+-1
+S
+
+#30381
+Altar~
+In this blood-stained room, a large altar has been placed.  Splattered
+blood covers the walls and ceiling while dark pools of coagulated blood
+dot the floor.  The large granite slabs of this room have been
+painstakingly taken care of as there is no evidence of damage.
+~
+[Styx] altar..obsidion..should be obsidian ..unless its a unique rock
+[Styx] on altar appearence should be appearance
+~
+301466829 1 9 0
+D1
+~
+~
+0 -1 30344 10 10 5
+240 49 1509949540 -2 0
+-1
+S
+
+#30382
+Alcove~
+Partially collapsed in upon themselves, the walls lean heavily upon one
+another.  Large cracks run along the floor and walls.  The floor is
+choked with discarded trash and other pieces of garbage.
+~
+~
+301466829 1 3 0
+D2
+~
+~
+0 -1 30341 10 10 5
+E
+trash~
+Discarded pieces of burnt wood, rotting fragments of meat and other
+unidentifiable items litter the floor.
+~
+-1
+S
+
+#30383
+Alcove~
+Large piles of trash have been piled into this small alcove, taking up
+most of the floor space.  In the center of the trash is a large area that
+has been compacted into a bed of sorts.
+~
+~
+301466829 1 5 0
+D0
+~
+~
+0 -1 30341 10 10 5
+E
+trash~
+Formed of useless leather, discarded cloth and rotting bits of flesh, the
+piles of trash lay littered about this room.
+~
+-1
+S
+
+#30384
+Hraxlan's House of Linen~
+Buried beneath tons of rock, this small gap in the rubble has been set up
+as a place to trade hides.  Many tanned hides line the walls and ceiling
+of this cave-like structure.  Bits and scraps of fur litter the floor. 
+Many of the pelts and hides seem to be shedding.
+~
+~
+335024199 1 5 0
+D3
+~
+~
+0 -1 30373 10 10 5
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+923 9 1509949540 3 0
+-1
+S
+
+#30385
+Ruined Shop~
+Battered beyond repair, the remains of this shop lay strewn about in a
+haphazard mess.  Huge wooden beams cling tenaciously to the ceiling they
+once held up.  Shattered stone and pieces of rotten furniture are
+scattered throughout the room.
+~
+~
+301465668 1 5 0
+D2
+~
+~
+0 -1 30372 10 10 5
+E
+stone furniture~
+The stone came possibly from one of the ruined walls, or perhaps was
+catapulted into the city.  The furniture appears to be from the remains
+of what was once a house.
+~
+-1
+S
+
+#30386
+Sargoth's Scavenged Supplies~
+In this small, nearly undamaged building, someone has set up a supply
+shop.  The walls are lined with many different items that can be
+purchased.  The floor of this shop is covered with a very fine layer of
+sand.  Broken pieces of equipment and loose scraps of leather clutter the
+floor and are massed around the base of the walls.
+~
+[Dargoth] fix action here
+~
+335024199 0 5 0
+D3
+~
+~
+0 -1 30372 10 10 5
+E
+walls~
+Adventuring equipment, mostly disheveled and obviously second- or third-
+hand.
+~
+E
+floor~
+The source of the sand is not clear, but apparenly the shop's owner main
+concern is not with the tidiness of his shop.
+~
+924 9 1509949540 3 0
+6 17 1509949540 -1 0
+55 17 1509949540 -1 0
+26 17 1509949540 -1 0
+1999 17 1509949460 -1 0
+2837 17 1509949445 -1 0
+-1
+S
+
+#30387
+The Hanging Human~
+As you enter the tavern, you notice quite a few hanging corpses dangling
+from the ceiling.  A few of the corpses look as if they have been here
+for a long time while others seem freshly placed.  Dried pools of
+coagulated blood litter the floor and add a kind of home-like atmosphere. 
+Piles of rubble with a slab of stone balanced on the top provides for
+some sort of furniture.
+~
+[Merior] damage for drunkard seems a bit low
+~
+335020101 1 5 0
+D0
+~
+~
+0 -1 30374 10 10 5
+D3
+~
+~
+0 -1 30390 10 10 5
+E
+corpses corpse~
+Many of the corpses are those of humans and elves.  The corpses are in
+various states of decomposition.
+~
+E
+slab~
+No description~
+1216 17 1509949540 -2 0
+1216 17 1509949540 -2 0
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+-1
+S
+
+#30388
+Osglorn's Oddities~
+Littered with knick-knacks and other strange objects, this room seems to
+be extremely cluttered.  The small cavern-like room has been setup as
+some sort of shop.  The cobble stone floor has coagulated blood and hair
+scattered between the stones.
+~
+[Kiian] this needs more merchandise of a simple yet useful nature
+[Shaddow] ki
+~
+301465666 1 9 0
+D1
+~
+~
+0 -1 30371 10 10 5
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+925 9 1509949540 3 0
+1255 17 1509949540 -1 0
+1256 17 1509949490 -1 0
+-1
+S
+
+#30389
+Decrepit Bank~
+The western wall of this so called bank has hundreds of small slots
+carved into the stone.  Along the northern and southern walls of the bank
+are smaller cubbyholes, used for storing small items and gold.  In the
+middle of this room is a large pit filled with all sorts of equipment and
+items.  Other smaller holes are carved into the walls to the north, west
+and south.  Between the front door, to the east, and the pit is a series
+of wrought iron bars extending from floor to ceiling from the northern
+wall to the southern wall.
+~
+[Merior] dont quite understand all the holes...
+[Merior] would be nice if you could do something with the pit
+[Mange] as soon as customizable bank messages are in you'll understand
+~
+301467751 1 5 0
+D1
+~
+~
+0 -1 30316 10 10 5
+E
+pit~
+From this vantage, the pit seems to contain a large amount of equipment
+and an equal amount of refuse.
+~
+E
+holes~
+The holes are to dark to see what they contain.
+~
+E
+bars~
+The thick iron bars keep unwanted individuals from pilfering through the
+stored equipment.
+~
+1026 9 1509949540 3 0
+1026 9 1509949540 3 0
+-1
+S
+
+#30390
+The Hanging Human~
+Small unsturdy tables have been setup here.  Dangling from above are many
+corpses from unidentified races.  Small spatterings of blood litter the
+tabletops and floor.  Bits of fur and shattered bone litter the floor, as
+well as a few small chunks of decaying flesh.  The walls of this portion
+of the tavern consist of mis-matched lumber and stone slabs seemingly
+held together by gravity alone.
+~
+~
+335020101 1 5 0
+D0
+~
+~
+0 -1 30392 10 10 5
+D1
+~
+~
+0 -1 30387 10 10 5
+D3
+bolthole~
+bolthole~
+131 -1 30333 10 10 5
+D4
+~
+~
+0 -1 30393 10 10 5
+E
+bolthole~
+The small wooden door is made of some hardwood with old rusted metal
+bands holding it together.
+~
+E
+corpse~
+Gnome and dwarven corpses dangle from the ceiling over each table.  The
+corpses seem to be fresh.
+~
+1216 17 1509949540 -2 0
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+-1
+S
+
+#30391
+The Hanging Human~
+Under Construction.
+~
+~
+301465672 1 9 0
+D0
+~
+~
+0 -1 30387 10 10 5
+-1
+S
+
+#30392
+The Hanging Human - Bar~
+Placed in this small portion of the building is the bar.  All about the
+room are large wooden slabs lodged between the floor and ceiling.  A
+large bar made of stone and wood dominates most of this room.  The floor
+is constructed of large stone chunks fitted loosely together.  To the
+south is the remainder of the bar.
+~
+[Merior] need to fix damage for barkeep... also magic resistance
+[Merior] anything reset on barkeep including coins?
+~
+335024195 1 5 0
+D2
+~
+~
+0 -1 30390 10 10 5
+E
+wall~
+The large wooden plank has many nails tapped into it as well as being
+covered with strange trophies.
+~
+E
+trophy trophies~
+The trophies look to be scalps of fallen victims.
+~
+942 9 1509949540 3 0
+761 17 1509949540 -1 1
+23 17 1509949460 -1 0
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+-1
+S
+
+#30393
+The Hanging Human - Second Floor~
+Crowded into this small room are two stairwells, one leading up and the
+other down, as well as doors to the north and east.  The wood and stone
+walls of this room are covered with bones and tanned hides of various
+animals and races.  Dangling from the stone and wood ceiling are
+many human skulls.  Some of the skulls are complete while others have
+jagged clefts carved deep into them.
+~
+~
+335020101 1 5 0
+D0
+~
+~
+0 -1 30396 10 10 5
+D1
+~
+~
+0 -1 30395 10 10 5
+D4
+~
+~
+0 -1 30394 10 10 5
+D5
+~
+~
+0 -1 30390 10 10 5
+E
+skull~
+Many of the skulls are shattered and cracked while others are whole.  A
+few of them have flesh dangling from the bone.
+~
+1216 17 1509949540 -2 0
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+-1
+S
+
+#30394
+The Hanging Human - Rooftop~
+From atop this building you can see the mass destruction of Denab-Knur. 
+Huge mounds of caved in buildings dot the landscape as well as many fires
+burning beneath the stone structures.  The roof itself is constructed of
+a massive stone platform that has a few hairline cracks in it but no real
+damage.  On the eastern edge of the rooftop are quite a few large gouge
+marks in the stone.  A small sign has been carved into the floor of the
+roof.
+~
+target is 30377
+target rooms: 30333, 30332, 30377, 30331, 30330, 30374
+look should also work for scan
+~
+301465672 1 9 0
+D5
+~
+~
+0 -1 30393 10 10 5
+E
+sign~
+Spear Throwing.
+   
+The rack contains spears for Throwing.
+Type: Look target to see if target area is populated.
+Type: Throw spear once you have found a target.
+~
+A
+throw~
+spear~
+if( has_obj( 1252, ch ) ) {
+  junk_obj( has_obj( 1252, ch ), 1 );
+  act_tochar( #throw, ch );
+  act_notchar( #rthrow, ch );
+  send_to_room( #incom, find_room( 30377 ) );
+  if( players_room( find_room( 30377 ) ) > 0 ) {
+    rch = rand_char( find_room( 30377 ) );
+    i = random( 1, 10 );
+    if( i == 1 ) {
+      send_to_room( #miss, find_room( 30377 ) );
+      act_tochar( #bummer, ch );
+      act_notchar( #rbummer, ch );
+      obj_to_room( oload( 1252 ), find_room( 30377 ) );
+      }
+    else {
+      dam_message( rch, 1d10, "thrown spear" );
+      inflict( rch, ch, 1d10, "a hurled spear" );
+      act_tochar( #gothim, ch );
+      act_notchar( #rgothim, ch );
+      obj_to_room( oload( 1252 ), find_room( 30377 ) );
+      }
+    }
+  else {
+    act_tochar( #harmless, ch );
+    act_notchar( #rharmless, ch );
+    obj_to_room( oload( 1252 ), find_room( 30377 ) );
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+rharmless~
+The spear falls harmlessly to the empty target area.
+~
+E
+rgothim~
+The spear impales someone in the target area.
+~
+E
+rbummer~
+The spear misses and falls harmlessly to the ground.
+~
+E
+harmless~
+Your spear falls harmlessly into the empty target area.
+~
+E
+gothim~
+Your launched spear impales someone in the target area.
+~
+E
+bummer~
+Your throw connects only with the ground.  You missed.
+~
+E
+no~
+You must have a crude wooden spear to throw.
+~
+E
+miss~
+Luckily the spear falls to the ground without causing any harm.
+~
+E
+incom~
+A crude wooden spear falls from the sky toward you!
+~
+E
+rthrow~
+$n heaves a crude wooden spear mercilessly through the air.
+~
+E
+throw~
+You heave a crude wooden spear mercilessly through the air.
+~
+!
+0 0 0
+A
+sc scan l look~
+target~
+if( players_room( find_room( 30377 ) ) < 1 ) 
+  act_tochar( #none, ch );
+else
+  act_tochar( #greenlight, ch );
+~
+E
+greenlight~
+There are characters in the target area.
+~
+E
+none~
+There are no characters in the target area.
+~
+!
+0 0 0
+1217 49 1509949540 -2 0
+1252 81 1509949540 -2 0
+1252 81 1509949540 -2 0
+1252 81 1509949540 -2 0
+1252 81 1509949515 -2 0
+1252 81 1509949515 -2 0
+1252 81 1509949490 -2 0
+1252 81 1509949490 -2 0
+1252 81 1509949465 -2 0
+-1
+S
+
+#30395
+The Hanging Human - Axe Room~
+A large plank of wood has been set up on the east side of this room.  It
+has many gouges and cuts along it surface, as well as a human corpse
+nailed to it.  Looking around the room shows that there is no furniture
+other than the plank and a small log that has three axes buried in it.
+A small wooden sign is propped up against the log, below the set of axes.
+~
+~
+301465672 1 5 0
+D3
+~
+~
+0 -1 30393 10 10 5
+E
+sign~
+To test your skill at axe throwing type: Throw Axe.
+~
+E
+corpse~
+The corpse nailed to the board, looks to have seen better days.  Large
+gouge marks and cuts cover the body from numerous throws of the axe.  The
+corpse seems to be that of a human or elf but it's hard to tell with the
+various slash marks covering it's body.
+~
+A
+throw~
+axe~
+if( find_stat( ch, str ) > 16 ) {
+  acode( room, 4 );
+  end;
+  }
+if( find_stat( ch, str ) > 14 ) {
+  acode( room, 3 );
+  end;
+  }
+acode( room, 2 );
+~
+!
+0 0 0
+A
+xxxxweak~
+~
+act_tochar( #play, ch );
+act_notchar( #rplay, ch );
+i = random( 1, 50 );
+act_tochar( #first, ch );
+act_notchar( #rfirst, ch );
+if( i == 1 ) {
+  act_tochar( #bull, ch );
+  act_notchar( #rbull, ch );
+  }
+else {
+  if( i < 6 ) {
+    act_tochar( #ring1, ch );
+    act_notchar( #rring1, ch );
+    }
+  else {
+    if( i < 16 ) {
+      act_tochar( #ring2, ch );
+      act_notchar( #rring2, ch );
+      }
+    else {
+      if( i < 31 ) {
+        act_tochar( #ring3, ch );
+        act_notchar( #rring3, ch );
+        }
+      else {
+        act_tochar( #ring4, ch );
+        act_notchar( #rring4, ch );
+        }
+      }
+    }
+  }
+~
+E
+play~
+You rip an axe from the oak log, sending splinters across the room, and
+step back to the line.
+~
+E
+rplay~
+$n rips and axe from the oak log, sending splinters flying across the
+room, and steps back to the line to throw.
+~
+E
+first~
+You heave the axe end over end.....
+~
+E
+rfirst~
+$n heaves the axe end over end.....
+~
+E
+bull~
+Your throw barely cleaves into the corpse's head!!  20 points!!
+~
+E
+rbull~
+$n's throw barely cleaves the corpse's head!!  20 points!!
+~
+E
+ring1~
+You throw lands meatily in the corpse's body!  10 points!
+~
+E
+rring1~
+$n's throw lands meatily in the corpse's body!  10 points!
+~
+E
+ring2~
+You throw finds the corpse's arm for 5 points.
+~
+E
+rring2~
+$n's throw finds the corpse's arm for 5 points.
+~
+E
+ring3~
+Your throw goes off course, ripping into the corpse's legs.  Only 3
+points.
+~
+E
+rring3~
+$n's throw goes off course, ripping into the corpse's legs.  Only 3
+points.
+~
+E
+ring4~
+Your throw is a poor one, falling short of the target and barely catching
+the corpse's feet for a measly 1 point.
+~
+E
+rring4~
+$n's throw is a poor one, falling short of the target and barely catching
+the corpse's feet for a measly 1 point.
+~
+E
+second~
+You rip out the second axe, step back to the line, and heave it end over
+end.....
+~
+E
+rsecond~
+$n rips out the second axe, steps back to the line, and heaves it end
+over end.....
+~
+E
+third~
+You rip out the third axe, step back to the line, and heave it end over
+end.....
+~
+E
+rthird~
+$n rips out the third axe, steps back to the line, and heaves it end over
+end.....
+~
+!
+0 0 0
+A
+xxxxmed~
+~
+act_tochar( #play, ch );
+act_notchar( #rplay, ch );
+i = random( 1, 40 );
+act_tochar( #first, ch );
+act_notchar( #rfirst, ch );
+if( i == 1 ) {
+  act_tochar( #bull, ch );
+  act_notchar( #rbull, ch );
+  }
+else {
+  if( i < 6 ) {
+    act_tochar( #ring1, ch );
+    act_notchar( #rring1, ch );
+    }
+  else {
+    if( i < 16 ) {
+      act_tochar( #ring2, ch );
+      act_notchar( #rring2, ch );
+      }
+    else {
+      if( i < 31 ) {
+        act_tochar( #ring3, ch );
+        act_notchar( #rring3, ch );
+        }
+      else {
+        act_tochar( #ring4, ch );
+        act_notchar( #rring4, ch );
+        }
+      }
+    }
+  }
+~
+E
+play~
+You rip an axe from the oak log, sending splinters across the room, and
+step back to the line.
+~
+E
+rplay~
+$n rips and axe from the oak log, sending splinters flying across the
+room, and steps back to the line to throw.
+~
+E
+first~
+You heave the axe end over end.....
+~
+E
+rfirst~
+$n heaves the axe end over end.....
+~
+E
+bull~
+Your throw cleaves directly into the corpse's head!!  20 points!!
+~
+E
+rbull~
+$n's throw cleaves directly into the corpse's head!!  20 points!!
+~
+E
+ring1~
+You throw lands meatily in the corpse's body!  10 points!
+~
+E
+rring1~
+$n's throw lands meatily in the corpse's body!  10 points!
+~
+E
+ring2~
+You throw finds the corpse's arm for 5 points.
+~
+E
+rring2~
+$n's throw finds the corpse's arm for 5 points.
+~
+E
+ring3~
+Your throw goes off course, ripping into the corpse's legs.  Only 3
+points.
+~
+E
+rring3~
+$n's throw goes off course, ripping into the corpse's legs.  Only 3
+points.
+~
+E
+ring4~
+Your throw is a poor one, falling short of the target and barely catching
+the corpse's feet for a measly 1 point.
+~
+E
+rring4~
+$n's throw is a poor one, falling short of the target and barely catching
+the corpse's feet for a measly 1 point.
+~
+E
+second~
+You rip out the second axe, step back to the line, and heave it end over
+end.....
+~
+E
+rsecond~
+$n rips out the second axe, steps back to the line, and heaves it end
+over end.....
+~
+E
+third~
+You rip out the third axe, step back to the line, and heave it end over
+end.....
+~
+E
+rthird~
+$n rips out the third axe, steps back to the line, and heaves it end over
+end.....
+~
+!
+0 0 0
+A
+xxxxstrong~
+~
+act_tochar( #play, ch );
+act_notchar( #rplay, ch );
+i = random( 1, 30 );
+act_tochar( #first, ch );
+act_notchar( #rfirst, ch );
+if( i == 1 ) {
+  act_tochar( #bull, ch );
+  act_notchar( #rbull, ch );
+  }
+else {
+  if( i < 6 ) {
+    act_tochar( #ring1, ch );
+    act_notchar( #rring1, ch );
+    }
+  else {
+    if( i < 16 ) {
+      act_tochar( #ring2, ch );
+      act_notchar( #rring2, ch );
+      }
+    else {
+      if( i < 31 ) {
+        act_tochar( #ring3, ch );
+        act_notchar( #rring3, ch );
+        }
+      else {
+        act_tochar( #ring4, ch );
+        act_notchar( #rring4, ch );
+        }
+      }
+    }
+  }
+~
+E
+play~
+You rip an axe from the oak log, sending splinters across the room, and
+step back to the line.
+~
+E
+rplay~
+$n rips and axe from the oak log, sending splinters flying across the
+room, and steps back to the line to throw.
+~
+E
+first~
+You heave the axe end over end.....
+~
+E
+rfirst~
+$n heaves the axe end over end.....
+~
+E
+bull~
+Your throw cleaves directly into the corpse's head!!  20 points!!
+~
+E
+rbull~
+$n's throw cleaves directly into the corpse's head!!  20 points!!
+~
+E
+ring1~
+You throw lands meatily in the corpse's body!  10 points!
+~
+E
+rring1~
+$n's throw lands meatily in the corpse's body!  10 points!
+~
+E
+ring2~
+You throw finds the corpse's arm for 5 points.
+~
+E
+rring2~
+$n's throw finds the corpse's arm for 5 points.
+~
+E
+ring3~
+Your throw goes off course, ripping into the corpse's legs.  Only 3
+points.
+~
+E
+rring3~
+$n's throw goes off course, ripping into the corpse's legs.  Only 3
+points.
+~
+E
+ring4~
+Your throw is a poor one, falling short of the target and barely catching
+the corpse's feet for a measly 1 point.
+~
+E
+rring4~
+$n's throw is a poor one, falling short of the target and barely catching
+the corpse's feet for a measly 1 point.
+~
+E
+second~
+You rip out the second axe, step back to the line, and heave it end over
+end.....
+~
+E
+rsecond~
+$n rips out the second axe, steps back to the line, and heaves it end
+over end.....
+~
+E
+third~
+You rip out the third axe, step back to the line, and heave it end over
+end.....
+~
+E
+rthird~
+$n rips out the third axe, steps back to the line, and heaves it end over
+end.....
+~
+!
+0 0 0
+-1
+S
+
+#30396
+The Hanging Human~
+The ceiling of this barely lit room is made from stout timber that is
+held together by large iron studs.  The walls to the north, east and west
+are large stone tablets with crude carvings covering their surface.  The
+smooth floor below is constructed of loosely fitted stone slabs.
+~
+~
+301465672 1 5 0
+D2
+~
+~
+0 -1 30393 10 10 5
+E
+carvings~
+The crude text seems to read 'Me et ef, me feal nt goud.'
+~
+E
+stone slabs~
+The smooth stone slabs have a small crack running in between them.
+~
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+990 9 1509949540 3 0
+1353 17 1509949540 -2 0
+1145 17 1509949540 -2 0
+-1
+S
+
+#30397
+Armorer~
+This small forge is tucked back into the ruins of some old house.  Large
+blocks of stone are placed around the room like a counter.  Many forms of
+armor line the walls and open areas of this workshop.
+~
+~
+335020107 1 5 0
+D3
+~
+~
+0 -1 30375 10 10 5
+E
+forge~
+The small forge is tucked into the corner and glows with a dull red light. 
+The forge itself is made of stacks of granite bricks.
+~
+E
+stone~
+The huge granite stones are scored with a plethora of scratch marks and
+scraps.
+~
+E
+armor~
+Various forms of armor line the walls.
+~
+A
+order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 0 0
+926 9 1509949540 3 0
+2002 17 1509949515 -1 0
+2022 17 1509949515 -1 0
+2042 17 1509949515 -1 0
+2081 17 1509949490 -1 0
+2102 17 1509949515 -1 0
+2124 17 1509949490 -1 0
+2060 17 1509949465 -1 0
+2062 17 1509949445 -1 0
+2180 17 1509949540 -1 0
+2122 17 1509949540 -1 0
+2101 17 1509949540 -1 0
+2080 17 1509949515 -1 0
+2041 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2001 17 1509949540 -1 0
+-1
+S
+
+#30398
+Foyer~
+Heavily adorned with gruesome trophies, the doorway to the west leads
+into an office of some sort.  The ground here is free of debris and has
+been swept clear of even the smallest rock.  A rocky overhang provides a
+minimal amount of cover from the weather.  A small hole in the ceiling
+near the southern wall provides access to a tiny room above.
+~
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30332 10 10 5
+D3
+~
+~
+0 -1 30409 10 10 5
+D4
+~
+~
+0 -1 30408 10 10 5
+E
+wall~
+Small handholds have been carved into the wall.
+~
+929 9 1509949540 3 0
+341 9 1509949540 3 0
+341 9 1509949540 3 0
+-1
+S
+
+#30399
+Broken-Down Hovel~
+The filth and squalor of this room is beyond imagination.  Piles of trash
+and discarded meals litter the floor.  Strange spaces between the mounds
+look as if something bedded down there for a rest.  Pieces of forgotten
+pottery and shards of broken bones dominate the relatively clear areas of
+the floor.  This poorly constructed room seems to be a new addition to
+the town.
+~
+~
+335020104 1 5 0
+D2
+~
+~
+0 -1 30379 10 10 5
+E
+pottery~
+The smashed and broken pottery has been scorched and melted.
+~
+991 9 1509949540 3 0
+991 9 1509949540 3 0
+991 9 1509949540 3 0
+991 9 1509949540 3 0
+-1
+S
+
+#30400
+Destroyed House~
+Smashed timber and fallen slabs of stone are all that's left of this
+house.  Huge chunks of stone litter the floor as well as chipped pieces
+of bone and coagulated blood.  Somehow this house hasn't collapsed in upon
+itself yet.
+~
+~
+335020096 1 5 0
+D3
+~
+~
+0 -1 30353 10 10 5
+E
+stone~
+The large chunks of stone seem to have once been part of the ceiling. 
+~
+-1
+S
+
+#30401
+Near the Main Gate~
+The tunnel turns to the north here and enters a natural tunnel.  The
+tunnel also continues to the east and south allowing more access beneath
+the ruins.  To the north you see a large wooden gate.
+~
+~
+301465668 1 9 0
+D0
+~
+~
+0 -1 30264 10 10 5
+D1
+~
+~
+0 -1 30405 10 10 5
+D2
+~
+~
+0 -1 30354 10 10 5
+E
+gate~
+An immense wooden gate looms to the north.
+~
+-1
+S
+
+#30402
+Destroyed House~
+The remains of this once splendorous house lay in disarray.  Large chunks
+of granite lean against the wall and lie on the floor.  Most of the
+finery that was left in the wreckage has been looted, but a few pieces of
+fine furniture dot the room as well as some wallpaper hanging from pieces
+of the walls.
+~
+down to mage
+~
+335020100 1 5 0
+D3
+~
+~
+0 -1 30354 10 10 5
+D5
+chunk granite trapdoor~
+chunk granite trapdoor~
+139 -1 30412 10 10 5
+E
+furniture~
+Small chunks of crushed velvet furniture, discarded in this ruined home.
+~
+E
+wallpaper~
+Inlaid with gold and silver leafing, the remains of the wallpaper look
+as though it was quite valuable.
+~
+E
+chunk granite~
+These large chunks of stone once provided flooring.  Although most are
+jagged and rough, but one is neatly cut.
+~
+A
+move push lift~
+stone chunk granite~
+show( ch, room, down );
+interpret( ch, "open down" );
+~
+E
+door~
+As you try to move the stone, you notice that the cleanly-cut one is
+actually a trapdoor.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You lift a block of granite revealing an entrance to the cellar of the
+house.
+~
+E
+to_room~
+$n lifts a block of granite revealing an entrance to the cellar of the
+house.
+~
+!
+8 0 32
+A
+~
+~
+continue;
+~
+E
+to_char~
+You place a block of granite back into the floor.
+~
+E
+to_room~
+$n places a block of granite back into the floor.
+~
+!
+10 0 32
+-1
+S
+
+#30403
+Guard Room~
+Constructed of a few stone slabs leaning against each other and a wooden
+board placedd over the top, this small guard post allows the guards to
+get a temporary reprieve from inclement weather.  A small hole, placed at
+ground level, has been carved into the north side of this small building
+to allow for drainage.
+~
+~
+301465672 1 5 0
+D2
+~
+~
+0 -1 30296 10 10 5
+-1
+S
+
+#30404
+Guard Room~
+Constructed of a few stone slabs leaning against each other and a wooden
+board placedd over the top, this small guard post allows the guards to
+get a temporary reprieve from inclement weather.  A small hole, placed at
+ground level, has been carved into the south side of this small building
+to allow for drainage.
+~
+[Violet] placed has an extra d
+~
+301465672 1 5 0
+D0
+~
+~
+0 -1 30296 10 10 5
+-1
+S
+
+#30405
+Tunnel Beneath the Ruins~
+Tunneling beneath the ruins, this road travels to the east and west.  The
+huge timbers holding the stone ruins above seem to be cracked and some
+look as though they are about to give way.  The natural stone floor has
+been carved from the living rock of the ground by a now non-existant
+stream.
+~
+~
+301465668 1 9 0
+D1
+~
+~
+0 -1 30406 10 10 5
+D3
+~
+~
+0 -1 30401 10 10 5
+A
+falling rocks~
+~
+wait( 1 );
+if( random( 1, 10 ) > 6 )
+rand_char( room );
+i = 3d5+3;
+dam_message( ch, i, "a falling rock" );
+inflict( ch, mob, i, "falling rocks" );
+end;
+~
+!
+1 0 10
+986 9 1509949540 3 0
+-1
+S
+
+#30406
+Tunnel Among the Ruins~
+The surrounding buildings have fallen in upon each other over the road
+creating a make-shift tunnel.  Slabs of stones from the collapsed
+buildings line the walls of this tunnel making the innards of the
+buildings unaccessible.
+~
+~
+301465668 1 9 0
+D1
+~
+~
+0 -1 30320 10 10 5
+D3
+~
+~
+0 -1 30405 10 10 5
+342 8 1509949540 3 0
+-1
+S
+
+#30407
+Dead End of Dragoth Way~
+Huge piles of rubble and smashed wood dominate the end of the road.  The
+buildings to the east and west seem to have collapsed and cut off any
+sort of exit in those directions.  Mounds of stone lay scattered about
+the street with a few stones sprawled randomly about.
+~
+~
+301465664 1 9 0
+D0
+~
+~
+0 -1 30375 10 10 5
+E
+mounds~
+Huge granite stones have crashed in upon themselves and created a large
+roadblock.
+~
+919 9 1509949540 3 0
+-1
+S
+
+#30408
+Servant's Quarters~
+Cluttered with trash, this stone-floored room has wooden walls and
+ceiling while a hole in the floor provides access.  Scattered around the
+room are small furred objects of an unknown origin.
+~
+forest?  FOREST?  oops..fixed 
+[Merior] how can one tell that this is a servant's quarters? any extras for objects.. what are they?
+[Merior] first sentence is quite a mouthful
+~
+301465672 1 3 0
+D5
+~
+~
+0 -1 30398 10 10 5
+-1
+S
+
+#30409
+Sleeping Area~
+Huge stone slabs make up the floors, walls and ceiling of this small
+chamber.  Large tanned hides cover the walls and most of the floor,
+providing a more hospitable environment.  Many gruesome trophies are
+tacked to the walls and quite a few broken weapons lay strewn about among
+the furs.
+~
+[Merior] extra for weapons?
+[Merior] how can we tell this is a sleeping area?
+~
+301465672 1 9 0
+D1
+~
+~
+0 -1 30398 10 10 5
+E
+trophies~
+Many dried and wrinkled scalps are pinned to the wall with large spikes.
+~
+-1
+S
+
+#30410
+Dungeon~
+Under Construction.
+~
+~
+301465678 1 9 0
+D4
+~
+~
+151 -1 30402 10 10 5
+-1
+S
+
+#30411
+Meatlocker~
+The cracks in this small stone chamber have all been sealed with some
+sort of compound.  The floor is coated with a rusty-black material that
+has formed into small stalagmites beneath large hooks in the ceiling.
+~
+~
+301465673 0 5 0
+D3
+~
+~
+0 -1 30357 10 10 5
+-1
+S
+
+#30412
+Destroyed Cellar~
+The remnants of this cellar lay strewn about the room.  Large chunks of
+wood with round holes cut into them lay strewn and broken.  Heaps of
+trash litter the room and is piled nearly to the ceiling in places.
+~
+This door wasn't named.  Ick, bad.
+[Olah] added an acode here since players can be stuck down here due to
+new hidden door feature 
+~
+335020100 1 9 0
+D4
+ceiling~
+ceiling~
+139 -1 30402 10 10 5
+D5
+~
+~
+0 -1 30413 10 10 5
+E
+ceiling heaps trash 1 up~
+A bunch of garbage have been packed closely together, making it difficult
+to see the ceiling to leave up.
+~
+A
+move open~
+trash heaps ceiling~
+show( ch, room, up );
+interpret( ch, "open up" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You move aside the heaps of trash and open the ceiling.
+~
+E
+to_room~
+$n moves aside the heaps of trash and opens the ceiling.
+~
+!
+8 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You close the ceiling above you.
+~
+E
+to_room~
+$n closes the ceiling above.
+~
+!
+10 0 0
+-1
+S
+
+#30413
+Damp Tunnel~
+Carved from the living stone, this tunnel leads deeper into the bowels of
+the ground.  The rough stone walls are slick with moisture and seem to
+glisten in the light.  The tunnel continues to the east and up.
+~
+~
+335020100 1 6 0
+D1
+~
+~
+0 -1 30414 10 10 5
+D4
+~
+~
+0 -1 30412 10 10 5
+-1
+S
+
+#30414
+Damp Tunnel~
+This portion of the tunnel curves downward once again.  The walls here
+are more smooth than the other part of the tunnel and small rivulets of
+water have cut grooves into the hard stone.  From this point the tunnel
+leads west and down.
+~
+~
+335020100 1 9 0
+D3
+~
+~
+0 -1 30413 10 10 5
+D5
+~
+~
+0 -1 30355 10 10 5
+-1
+S
+
+#30415
+Carved Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30416 10 10 5
+D2
+~
+~
+0 -1 30351 10 10 5
+-1
+S
+
+#30416
+Carved Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30417 10 10 5
+D2
+~
+~
+0 -1 30415 10 10 5
+-1
+S
+
+#30417
+Carved Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30418 10 10 5
+D2
+~
+~
+0 -1 30416 10 10 5
+-1
+S
+
+#30418
+Carved Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30419 10 10 5
+D1
+~
+~
+0 -1 30420 10 10 5
+D2
+~
+~
+0 -1 30417 10 10 5
+-1
+S
+
+#30419
+Limestone Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D2
+~
+~
+0 -1 30418 10 10 5
+-1
+S
+
+#30420
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D1
+~
+~
+0 -1 30421 10 10 5
+D3
+~
+~
+0 -1 30418 10 10 5
+-1
+S
+
+#30421
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30422 10 10 5
+D3
+~
+~
+0 -1 30420 10 10 5
+-1
+S
+
+#30422
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D1
+~
+~
+0 -1 30423 10 10 5
+D2
+~
+~
+0 -1 30421 10 10 5
+-1
+S
+
+#30423
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30424 10 10 5
+D3
+~
+~
+0 -1 30422 10 10 5
+-1
+S
+
+#30424
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D2
+~
+~
+0 -1 30423 10 10 5
+D4
+~
+~
+0 -1 30425 10 10 5
+-1
+S
+
+#30425
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D1
+~
+~
+0 -1 30426 10 10 5
+D5
+~
+~
+0 -1 30424 10 10 5
+-1
+S
+
+#30426
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D3
+~
+~
+0 -1 30425 10 10 5
+D4
+~
+~
+0 -1 30427 10 10 5
+-1
+S
+
+#30427
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D0
+~
+~
+0 -1 30428 10 10 5
+D5
+~
+~
+0 -1 30426 10 10 5
+-1
+S
+
+#30428
+Natural Tunnel~
+Under Construction.
+~
+~
+301469769 11 5 0
+D2
+~
+~
+0 -1 30427 10 10 5
+D4
+~
+~
+0 -1 30429 10 10 5
+-1
+S
+
+#30429
+Great North Road~
+Under Construction.
+~
+~
+301469769 12 9 0
+D5
+~
+~
+0 -1 30428 10 10 5
+-1
+S
+
+#0
+

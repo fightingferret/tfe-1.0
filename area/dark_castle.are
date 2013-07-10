@@ -1,0 +1,7649 @@
+#AREA
+Graveyard of Castle Lag~
+Dragos, Vulcan, Derna, Caer, Florian~
+Graveyard of Castle Lag~
+
+0 0
+0
+#ROOMS
+
+#9000
+Gate to Lag Graveyard~
+You are now standing before a very large gate which does not seem to have
+been used very much.  Beyond the gate, you can see a graveyard speckled
+with headstones.  A mystical fog seems to be rolling in from the north. 
+If you listen, the graveyard seems almost alive with a number of spirits,
+each of which seems to be calling you to join them in the afterlife.
+~
+no mob
+~
+335020044 1 6 0
+D0
+graveyard gate~
+graveyard gate~
+195 -1 9001 10 10 5
+D2
+~
+~
+0 -1 23118 10 10 5
+E
+large gate~
+Across the top of the gate, carved in wrought iron, is the single phrase,
+'LAG CEMETERY'.  The gate itself, appears to be well constructed.  It
+would be far easier opening it, than trying to wreck it.
+~
+E
+1 north~
+A massive, iron gate.~
+E
+fog~
+The fog surrounds you, hiding anything beyond a few feet away in a
+swirling grey cloak.  Besides affecting vision, it seems to alter sound
+as well, for you cannot tell where the noises you hear are coming from.
+~
+E
+graveyard~
+The graveyard appears quite normal at first sight.  The headstones seem
+quite normal.  However, you think you see something moving inside the
+graveyard, although you cannot be sure because of the accursed fog.
+~
+E
+headstones~
+The headstones are quite scattered, for as far as you can see.  Although
+the fog is limiting your sight somewhat, you can see that some of the
+headstones are not in very good shape.
+~
+A
+1 open~
+1 gate 1 north~
+if( is_open( room, north ) )
+  send_to_char( #open, ch );
+else {
+  send_to_char( #char, ch );
+  dam_message( ch, 1d6+1, "a blast of cold air" );
+  inflict( ch, mob, 1d6+1, "a blast of cold air" );
+  act_notchar( #room, ch );
+  send_to_room( #char2, room );
+  open( room, north );
+  }
+~
+E
+open~
+The gate is already open.
+~
+E
+char2~
+The gate swings open, revealing a pathway through a small graveyard.
+~
+E
+room~
+$n releases a cold blast of air from deep within the graveyard as $s opens the gate.
+  
+~
+E
+char~
+A shiver runs up your spine when a cold gust of wind squeezes through
+the opening gate.  A wail rips through the air.
+  
+~
+!
+0 0 0
+A
+listen~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+You hear a howling somewhere from the north.
+~
+!
+0 0 0
+A
+wreck destroy break damage hit~
+gate~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n bangs away at the gate.
+~
+E
+char~
+You bang on the gate, but cause very little damage.
+~
+!
+0 0 0
+A
+watch~
+~
+act_tochar( #watch, ch );
+act_notchar( #watch2, ch );
+~
+E
+watch2~
+$n gazes into the graveyard.
+~
+E
+watch~
+Looking into the graveyard, you see several figures.  Some seem to be
+part of the fog, while others have a more substantial form.
+~
+!
+0 0 0
+-1
+S
+
+#9001
+Graveyard Path~
+Standing just within the gate, you realize that your view of the entire
+graveyard is blocked by several trees and a dense fog.  However, you can
+see a few tombstones of different sizes and shapes to the north and
+east.  To the west, you can see a small path with odd looking footprints
+trailing through the graveyard.  A massive gate lies to the south.  
+~
+~
+335020044 1 5 0
+D0
+~
+~
+0 -1 9028 10 10 5
+D1
+~
+~
+0 -1 9039 10 10 5
+D2
+"massive gate"~
+"massive gate"~
+195 -1 9000 10 10 5
+D3
+~
+~
+0 -1 9002 10 10 5
+E
+gate~
+A large iron gate.  It is the only entrance you can see to this desolate
+graveyard, but the mist here does obscure your vision.
+~
+E
+1 south~
+"massive gate"~
+E
+fog~
+The fog seems to change density as you look at it.  Wherever you look, it
+gets thicker, and where you don't look it all but disappears.
+~
+E
+path~
+The path seems to be poorly taken care of, but is still visible through
+the fog.  The path goes to the west from here, but beyond that is hidden
+by the fog.
+~
+E
+footprints~
+As you look at the path, you barely notice a set of footprints in the
+grass of the path.  They do not seem to be normal footprints, however. 
+More like that of an animal than a man.
+~
+E
+tombstone tombstones~
+Scattered around the graveyard are tombstones of various size and shape. 
+Many of them are in a less than perfect state, with time and filth being
+the major causes of destruction.
+~
+E
+tree trees~
+Although the fog blocks your view for the most part, some of the
+graveyard is obscured by a few stunted and malformed trees.  The trees do
+not appear to be altogether normal, and there is an unwholesome feel
+about them.
+~
+A
+1 open~
+1 gate 1 south~
+if( is_open( room, south ) ) 
+  send_to_char( #open, ch );
+else {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, south );
+  }
+~
+E
+room~
+$n opens the Graveyard Gate, revealing a small path.
+~
+E
+char~
+You swing open the Graveyard Gate, revealing a small path.
+~
+E
+open~
+The gate is already open.
+~
+!
+0 0 0
+-1
+S
+
+#9002
+Graveyard Path~
+You are walking along the path next to the south gate of the graveyard. 
+To the north, you see a massive tombstone through the mist and fog.  Even
+from here, its magnitude and stability compel you towards it.  The path
+continues to the west from here or east towards the gate.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9027 10 10 5
+D1
+~
+~
+0 -1 9001 10 10 5
+D3
+~
+~
+0 -1 9003 10 10 5
+E
+tombstone headstone~
+The tombstone is quite large, compared to all the others you have seen. 
+It is hard to make out any details on from here, as the fog slowly moves
+around you.
+~
+54 9 1509949540 3 0
+-1
+S
+
+#9003
+Graveyard Path~
+The path you are on continues to the north or to the east along the south
+fence.  From here, you can see a large headstone to the west, but beyond
+that, you cannot tell what could be out there.  Perhaps you should stay
+on the path, just to be safe.  The fog thickens all around you, making it
+somewhat difficult to take a deep breath of air.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9018 10 10 5
+D1
+~
+~
+0 -1 9002 10 10 5
+D3
+~
+~
+0 -1 9004 10 10 5
+E
+1 west headstone~
+To the west, you can see a rather large headstone.  It seems quite
+unremarkable.
+~
+E
+path~
+Although what little grass grows in the graveyard has turned brown, you
+can make out a path running along the ground.  The path continues to the
+north, but you cannot see where it goes from there as the fog is very
+thick.
+~
+E
+fog~
+The fog swirls around you, obscuring you vision.  It is hardly possible
+to see more than a few paces in any direction.
+~
+-1
+S
+
+#9004
+Castle Graveyard~
+A rather simple headstone sits here next to the path.  Although you
+cannot see any distinguishing marks upon it, the headstone appears to
+radiate an aura of evil and darkness.  In fact, something about this
+headstone sends chills up and down your spine.  Looking around, you can
+see other headstones to the north and west, but you have a strong urge to
+get back on to the path to the east.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9017 10 10 5
+D1
+~
+~
+0 -1 9003 10 10 5
+D3
+~
+~
+0 -1 9005 10 10 5
+E
+headstone~
+Although there is no obvious glow of magic around the headstone,
+something about it suggests that it may not be natural.  The headstone
+itself is unremarkable, nondesscipt even, for whatever may have been
+enscribed upon has been long erased by time.
+~
+E
+aura~
+The aura around the headstone, while not visible, can be felt.  It seems
+as if the air around the headstone is much colder than it should be.
+~
+A
+~
+~
+if( !mob_in_room( 32, room ) )
+  send_to_room( #room, room );
+~
+E
+room~
+A howl rips through the air which raises tiny hairs all over your body.
+~
+!
+2 0 0
+A
+touch~
+headstone aura~
+act_tochar( #curse, ch );
+act_notchar( #curse_room, ch );
+do_spell( curse, ch, ch );
+~
+E
+curse_room~
+$n reaches out to touch the headstone and suddenly falls down.
+~
+E
+curse~
+As you reach to touch the headstone, a wave of miasmic evil washes over
+you.  And, as you stand, it seems you hear an evil laughter, off in the
+distance.
+~
+!
+0 0 0
+-1
+S
+
+#9005
+Castle Graveyard~
+You are now standing in the southwest corner of the graveyard.  A large
+wrought iron fence extends to the north and east from this point.  A
+rather large monument has been constructed here in the corner to honor
+what appears to be a great hero who died in battle.  Aside from the
+interesting depiction of some great war long ago, you can determine
+nothing else from this tombstone.  Perhaps you should explore elsewhere
+and allow this person to rest in peace.  The fog seems to becoming
+lighter to the north.  To the east, you can see another headstone.
+~
+Deleted corpse as shouldn't be reset as doesn't have a species.
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9105 10 10 5
+D1
+~
+~
+0 -1 9004 10 10 5
+E
+fence~
+The fence stands over ten feet high, and appears to be impossible to
+climb.  Although the fence is slightly rusty, it still is quite strong.
+~
+E
+monument~
+The monument is for a soldier who saved many of his comrades, although
+his life was the cost.  Due to the passage of time, the soldier's name is
+no longer known.  That part of the monument has been eroded.
+~
+E
+depiction~
+The picture on the monument, though faded and scarred in some places,
+looks to be a battle scene.  It shows a lone man standing up to a force
+of several orcs.
+~
+32 9 1509949540 3 0
+54 9 1509949540 3 0
+-1
+S
+
+#9006
+Castle Graveyard~
+A large hole takes up this entire section of the graveyard.  Much to your
+surprise, there is absolutely no fog or mist in this area.  A closer
+inspection of the hole reveals that the it must have erupted from within,
+as opposed to some external force.  Despite the hole and lack of fog,
+everything to the north, east and south appears to be normal.  However,
+"normal" is a relative term.  A wrought iron fence lies to the west.
+~
+[Lansharra] _the_ it? i think perhaps you mean that something must have erupted...
+[Lansharra] extra of hole?
+[Lansharra] oops, there is one :P
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9007 10 10 5
+D1
+~
+~
+0 -1 9016 10 10 5
+D2
+~
+~
+0 -1 9105 10 10 5
+D5
+~
+~
+98 -1 9159 10 10 5
+E
+hole~
+What bothers you most about the hole is that it seems to have been made
+by someone or something burrowing its way out, rather than by someone
+digging down.  Fresh sand dribbles back into the center.
+~
+A
+look~
+hole~
+act_tochar( #look, ch );
+act_notchar( #look2, ch );
+~
+E
+look2~
+$n looks in the hole, but does nothing else.
+~
+E
+look~
+You look in the hole, but see nothing inside.  Perhaps whatever was
+inside has left for good.
+~
+!
+0 0 0
+A
+enter~
+hole~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n leans over the edge of the hole and shakes $s head.
+~
+E
+char~
+Leaning over the edge of the hole, you realize that the hole is way too
+small for a person to enter.
+~
+!
+0 0 0
+-1
+S
+
+#9007
+Castle Graveyard~
+Standing absolutely still, you can notice the sounds of ferocious beasts
+through the slight fog which rolls in from the west.  Aside from a slight
+discoloration of the ground below you, there are no indications that
+anyone is buried here.  There are no monuments or shattered remains of
+headstones, like you have found in other parts of this cemetery.  The
+fence which lines the west end of the graveyard disappears to the north
+and south.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9008 10 10 5
+D1
+~
+~
+0 -1 9015 10 10 5
+D2
+~
+~
+0 -1 9006 10 10 5
+E
+discoloration ground~
+The ground seems slightly stained, as though something had been spilled
+here.  But the ground itself feels quite dry.
+~
+-1
+S
+
+#9008
+Castle Graveyard~
+A seemingly blank gravestone is here.  To the east, you can make out a
+large tree through the fog, but the distance is hard to tell with the
+mists swirling in around you from the west.  You can also barely make out
+some large structure far to the north of you, but it is impossible to
+tell just what it is.  A wrought iron fence lies to the west.
+~
+[Lansharra] extra tree: ...to the east...right?
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9009 10 10 5
+D1
+~
+~
+0 -1 9014 10 10 5
+D2
+~
+~
+0 -1 9007 10 10 5
+E
+gravestone stone~
+When you bend down to look at the seemingly blank gravestone, you can just make out its epitaph.
+               Here lies what remains of
+                an unfortunate explorer
+            whose name was never discovered.
+~
+E
+structure~
+Perhaps it is just the fog playing tricks on your eyes, but it seems as
+though a large building lies somewhere to the north.  If it does exist,
+if is quite a distance from you.
+~
+E
+tree~
+The tree to the west is quite large, considering what it draws for
+nourishment from the ground.
+~
+54 9 1509949540 3 0
+-1
+S
+
+#9009
+Castle Graveyard~
+You are now standing in the northwest corner of the graveyard.  A large
+wrought iron fence extends to the south and east from this point.  You
+can make out what looks like a castle through the fence to the north.  A
+slight fog seems to be rolling in from the west.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9010 10 10 5
+D2
+~
+~
+0 -1 9008 10 10 5
+E
+castle~
+The castle seems quite close, yet the fog still obscures part of it. 
+From here, you can see no movement in or on the castle.  Also, you can
+see no way inside from here.
+~
+E
+fence~
+The fence is made of a sturdy metal, and you can see no way to pass
+between the bars.  Although the fence has been standing for many years,
+there is only a little rust on the fence.
+~
+-1
+S
+
+#9010
+Castle Graveyard~
+To the south, you can make out the silhouette of a large tree through the
+mist and fog.  A wrought iron fence extending to the east and west lies
+to the north.  Peering through the fence, you can make out a large castle
+towering over the graveyard.
+~
+[Lansharra] the room east of here mentions a tree to the east. now the tree is to the south?
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9022 10 10 5
+D2
+~
+~
+0 -1 9014 10 10 5
+D3
+~
+~
+0 -1 9009 10 10 5
+E
+tree~
+To the south, you can barely see the outline of a large tree through the
+fog.
+~
+-1
+S
+
+#9011
+Graveyard.~
+Empty space.
+~
+~
+335020036 1 6 0
+-1
+S
+
+#9012
+Graveyard.~
+Empty space.
+~
+~
+335020036 1 6 0
+-1
+S
+
+#9013
+Graveyard.~
+Empty space.
+~
+~
+335020036 1 6 0
+-1
+S
+
+#9014
+Tree in the Graveyard~
+Before you is a large tree that seems to have been here for a very long
+time.  There is writing on the tree which trails into a bloodstain at the
+base.  Tilting your head back, you strain to see the lowest branches
+through the dense fog.  To the east, a small path leads away to the east.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9010 10 10 5
+D1
+~
+~
+0 -1 9021 10 10 5
+D2
+~
+~
+0 -1 9015 10 10 5
+D3
+~
+~
+0 -1 9008 10 10 5
+E
+writing tree~
+"Beware of the evil that lies from beyond the graves, what you have seen
+here is nothing, turn back now or never return." 
+~
+E
+base bloodstain~
+At the base of the tree lies a large bloodstain.  It has long since
+dried, staining the bark of the tree as well as its' roots.
+~
+E
+branches~
+The lowest branches are several feet out of reach.  That and the girth of
+the tree make it impossible to climb.
+~
+A
+1 climb~
+tree~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 9155 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( is_mounted( ch ) ) {
+  send_to_char( #nomount, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 9155 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+nomount~
+You cant do that while mounted.
+~
+E
+flying2~
+$n flies up from below and lands on a nearby branch.
+~
+E
+flying~
+$n flies up into the tree.
+~
+E
+fly~
+You fly up into the tree.
+~
+E
+failed~
+$n slips while trying to climb the tree.
+~
+E
+fail~
+You slip and almost hurt yourself.
+~
+E
+success2~
+$n comes clambering up from below.
+~
+E
+success1~
+$n grabs a low lying branch and clambers up the tree.
+~
+E
+success~
+Finding many helping branches you clamber up the tree.
+~
+!
+0 0 0
+-1
+S
+
+#9015
+Castle Graveyard~
+Peering through the fog, you see a large tree to the north.  It is the
+only thing that you can make out, as the mists swirl around you.  From
+here, it appears that there is something wrong with the tree, but no
+details can be made out.  You glimpse a large purple stone planted deep
+into the earth here.  Other markers can be seen to the east and south.
+~
+Look carving tells me nothing ...?
+after typing look stone the natural next thing is lok carving
+-Greyclaw
+[Blades] needs extra for carvings on the stone
+[Lansharra] extra carvings
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9014 10 10 5
+D1
+~
+~
+0 -1 9020 10 10 5
+D2
+~
+~
+0 -1 9016 10 10 5
+D3
+~
+~
+0 -1 9007 10 10 5
+E
+tree~
+There is a large tree to the north.  Even from here, something about it
+feels wrong, but you cannot put your finger on it.
+~
+A
+unearth dig get steal grab take~
+carving dragon earth stone~
+if( is_player( ch ) ) {
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 5 ) == 1 ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    obj_to_char( oload( 675 ), ch );
+    }
+  else {
+    send_to_char( #charno, ch );
+    act_notchar( #roomno, ch );
+    }
+  }
+else {
+  send_to_char( #charno, ch );
+  act_notchar( #roomno, ch );
+  }
+}
+end;
+~
+E
+roomno~
+$n frantically digs around a stone buried in the ground, but is
+unsuccessful.
+~
+E
+charno~
+Digging around the edges of the purple stone, you realize it is too big
+for you to dig out.
+~
+E
+room~
+$n digs around in the dirt and finds a statuette of a dragon.
+~
+E
+char~
+Scooping the dirt away from the carved face of the dragon, you retrieve a
+small statuette of a dragon.
+~
+!
+0 0 0
+A
+1 look examine search~
+stone purple~
+if( rflag( reset0, room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else {
+  send_to_char( #char2, ch );
+  act_notchar( #room2, ch );
+  }
+~
+E
+room2~
+$n bends down to look at something buried in the earth.
+~
+E
+char2~
+Brushing the dirt away, you realize it is just a dirt covered stone with
+claw marks in it.
+~
+E
+room~
+$n bends down to look at something buried in the earth.
+~
+E
+char~
+Examining the stone buried beneath the earth, you can see intricate
+carvings in it.
+~
+!
+0 0 0
+-1
+S
+
+#9016
+Castle Graveyard~
+The fog seems to be much lighter around this grave and further to the
+west.  There seems to be no reason for this, as there is little wind. 
+The grave itself seems quite out of place, as it has not crumbled any. 
+Also, the inscription on the marker is completely intact.  As many of the
+other markers in this cemetery have eroded away, this one must be
+different somehow.
+~
+[Lansharra] extra inscription?
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9015 10 10 5
+D1
+~
+~
+0 -1 9019 10 10 5
+D2
+~
+~
+0 -1 9017 10 10 5
+D3
+~
+~
+0 -1 9006 10 10 5
+E
+grave marker stone~
+The marker does not appear to be made of any stone you have seen in this
+graveyard.  While most of the headstones here are made of a white marble,
+this one is grey, and for some reason, it feels much older than the other
+headstones.
+~
+A
+l lo look touch examine~
+marker~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+inflict( ch, mob, 1d4+2, "a bolt of energy" );
+dam_message( ch, 1d4+2, "a bolt of energy" );
+~
+E
+room~
+$n reaches out to examine the marker on the headstone, but is zapped by a
+bolt of red magical energy.
+ 
+~
+E
+char~
+You reach out to examine the marker on the headstone, but are zapped by a
+bolt of red magical energy.
+ 
+~
+!
+0 0 0
+A
+l lo loo look~
+inscr inscri inscrip inscription~
+act_tochar( #words, ch );
+wait( 1 );
+act_tochar( #eureka, ch );
+~
+E
+eureka~
+As you stare at the inscription, you wonder what it could mean. 
+Suddenly, as you watch, the letters seem to shift and reform.
+
+"Loremaster Tagronna lies here until time ends."
+~
+E
+words~
+"Noim vatura quir Tagronna Undrai mek sodris"
+
+It is in no language that you understand.
+
+~
+!
+0 0 0
+-1
+S
+
+#9017
+Castle Graveyard~
+The sight of this headstone brings a tear to your eye when you read the
+inscription on the front.  A small flower rests at the base of the
+headstone in front of you.  Suddenly, the sound of a ferocious howl
+brings you out of your reverie.  Looking around, you can see that the fog
+has become lighter to the north and west.  However, perhaps you should
+climb back on to the path to the east.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9016 10 10 5
+D1
+~
+~
+0 -1 9018 10 10 5
+D2
+~
+~
+0 -1 9004 10 10 5
+D3
+~
+~
+0 -1 9105 10 10 5
+E
+headstone~
+The small headstone seems to be that for a child.  There is an
+inscription carved on the headstone.
+~
+E
+inscription~
+"Carried away in the plague, my only son, Dennon, age 6"
+~
+E
+flower~
+Planted in front of the headstone is a single white lily. 
+~
+A
+pick get~
+flower lily~
+act_tochar( #pick, ch );
+act_notchar( #pick2, ch );
+~
+E
+pick2~
+$n bends down to pick up the flower, but as soon as it is plucked, it
+fades away.  Mystified, you watch another flower appear at the same spot
+on the grave.
+~
+E
+pick~
+You stoop to pick the flower, but once it leaves the ground, it fades
+away.  As you watch, another flower appears at the head of the grave.
+~
+!
+0 0 0
+-1
+S
+
+#9018
+Graveyard Path~
+You are standing on a path which travels to the north and south.  Peering
+to the west, you can see a small headstone planted into the ground.  To
+the east, a massive statue beckons you towards its open arms.  The mist
+and fog are too heavy to see much further past either tombstone.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9019 10 10 5
+D1
+~
+~
+0 -1 9027 10 10 5
+D2
+~
+~
+0 -1 9003 10 10 5
+D3
+~
+~
+0 -1 9017 10 10 5
+E
+1 east statue~
+To the east you can see a large statue.  It is hard to tell what exactly
+it is a statue of, but it appears to be humanoid.
+~
+E
+1 west headstone~
+To the west you can see a small headstone, but nothing else can be
+discerned about it from here.
+~
+54 9 1509949540 3 0
+-1
+S
+
+#9019
+Graveyard Path~
+The path you are traveling on winds its way toward the east and south
+around the massive tombstone.  To the north and west, you can make out
+several other headstones through the dense fog.  You can hear the growl
+of a fierce animal nearby.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9020 10 10 5
+D1
+~
+~
+0 -1 9026 10 10 5
+D2
+~
+~
+0 -1 9018 10 10 5
+D3
+~
+~
+0 -1 9016 10 10 5
+54 9 1509949540 3 0
+54 9 1509949540 3 0
+-1
+S
+
+#9020
+Castle Graveyard~
+There are a few tombstones here, but the mists are so thick, it is
+impossible to make out any details about them.  Even when you bend down
+to look at them, the thick fog has wrapped itself around them.  To the
+south, you can see the edge of the path which winds its way through the
+graveyard.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9021 10 10 5
+D1
+~
+~
+0 -1 9025 10 10 5
+D2
+~
+~
+0 -1 9019 10 10 5
+D3
+~
+~
+0 -1 9015 10 10 5
+E
+tombstones~
+The tombstones are shrouded in fog.  Little about them can be made out
+even on close inspection.  However, after a few minutes, you can see that
+time has eroded whatever was once inscribed on the stone markers.
+~
+A
+move clear~
+fog~
+act_tochar( #fan, ch );
+act_notchar( #fan2, ch );
+~
+E
+fan2~
+$n fans the fog away from one of the tombstones, and reads something
+written there.
+~
+E
+fan~
+You fan away the fog, and see written on the tombstone, "Greed was his
+downfall." There is nothing else...  not even a name.
+~
+!
+0 0 0
+-1
+S
+
+#9021
+Graveyard Path~
+You are standing on a tiny path which continues to the east and west. 
+Although the mists are very thick in all directions, you can make out a
+tree to the west of you.  Other than that, you can see nothing.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9022 10 10 5
+D1
+~
+~
+0 -1 9024 10 10 5
+D2
+~
+~
+0 -1 9020 10 10 5
+D3
+~
+~
+0 -1 9014 10 10 5
+32 9 1509949540 3 0
+-1
+S
+
+#9022
+Castle Graveyard~
+Through the waning fog which clings to the ground like a blanket, you are
+able to see what lies in all directions to a small degree.  Beyond the
+wrought iron fence which lies to the north, you can see the towering
+visage of a huge castle.  To the south, a small path extends to the east
+and west.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9023 10 10 5
+D2
+~
+~
+0 -1 9021 10 10 5
+D3
+~
+~
+0 -1 9010 10 10 5
+E
+castle~
+The great castle looms to the north of you.  From here, you can see no
+way to enter the keep, but then, you have only seen this one side of it.
+~
+-1
+S
+
+#9023
+Castle Graveyard~
+A thin patch of fog floats in the area, weaving in and out of the iron
+fence to the north as it wanders east.  Peering through the fence, you
+can see a large castle stretch to the sky.  To the south, you can see a
+small path heading east and west.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9033 10 10 5
+D2
+~
+~
+0 -1 9024 10 10 5
+D3
+~
+~
+0 -1 9022 10 10 5
+-1
+S
+
+#9024
+Graveyard Path~
+You are walking on a small trail which continues to the east and west. 
+To the west, the fog becomes more dense.  To the east, the trail connects
+to the main path which trails through the graveyard.  A large headstone
+juts from the ground to the south, while to the north, you can make out
+the wrought iron fence which surrounds the graveyard.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9023 10 10 5
+D1
+~
+~
+0 -1 9032 10 10 5
+D2
+~
+~
+0 -1 9025 10 10 5
+D3
+~
+~
+0 -1 9021 10 10 5
+54 9 1509949540 3 0
+-1
+S
+
+#9025
+Castle Graveyard~
+This grave appears to have recently been placed here.  The dirt in front
+of the headstone seems to be fresh, and you can clearly make out the
+inscription on the polished headstone.  Judging from the intricate detail
+of the carvings and the magnitude of the gravestone itself, you would
+surmise that somebody very important must have been buried here quite
+recently.  
+~
+[Lansharra] extra headstone, gravestone, mound
+[Lansharra] action for dig dirt/mound?
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9024 10 10 5
+D1
+~
+~
+0 -1 9030 10 10 5
+D2
+~
+~
+0 -1 9026 10 10 5
+D3
+~
+~
+0 -1 9020 10 10 5
+E
+grave~
+The grave appears to have been filled in fairly recently.  The dirt mound
+has not been completely packed down.
+~
+E
+carvings~
+The carvings are of various scenes.  Some are hunting scenes, while
+others are those of battles.  The remaining carvings on the headstone are
+decorative.
+~
+E
+inscription~
+The inscription tells of the death of Lord Hedren due to wound received
+in battle.
+~
+32 9 1509949540 3 0
+-1
+S
+
+#9026
+Graveyard Path~
+You are walking along a path through the graveyard which continues to the
+east and west.  Looking to the south, you can make out a large tombstone
+through the the mist and fog.  You can sense some sort of power pulling
+you towards it.  To the north, you see yet another tombstone.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9025 10 10 5
+D1
+~
+~
+0 -1 9029 10 10 5
+D2
+~
+~
+0 -1 9027 10 10 5
+D3
+~
+~
+0 -1 9019 10 10 5
+-1
+S
+
+#9027
+Castle Graveyard~
+This elaborate tombstone stands at least twenty feet tall.  Gazing upon
+it, you marvel at what appears to be an angel with its wings and arms
+spread wide and facing the heavens.  Moss and dirt now cover much of the
+surface, hiding the intricate details and craftsmanship.  You see a
+smaller tombstone to the east, and the path through the graveyard in all
+other directions.  The path seems to circle around this collosal statue.  
+~
+[Fyli] collasal is spelt colossal
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9026 10 10 5
+D1
+~
+~
+0 -1 9028 10 10 5
+D2
+~
+~
+0 -1 9002 10 10 5
+D3
+~
+~
+0 -1 9018 10 10 5
+E
+moss dirt~
+Although moss only covers the lower part of the statue, dirt has been
+smeared over much of the surface, perhaps maliciously.  The dirt is quite
+encrusted and does not look as if if it could be removed easily.
+~
+E
+tombstome statue angel~
+A marvel of stoneworking, the angel is very beautiful, considering that
+much of it is hidden beneath a layer of moss and dirt.  The face of the
+angel is raised, as if looking towards the heavens.
+~
+E
+details craftmanship~
+The work on this statue must have taken a great length of time to produce. 
+As you look at the statue, you can see distinct feathers in the wings of
+the angel, and there is a carved tear on its face.
+~
+A
+3 meditate bow pray touch~
+angel statue ~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  mob = mload( 13, room );
+  do_spell( bless, mob, ch );
+  junk_mob( mob );
+  }
+else {
+  send_to_char( #char_not, ch );
+  act_notchar( #room_not, ch );
+  }
+~
+E
+room_not~
+You would swear that you just saw the angel smile at $n.
+~
+E
+char_not~
+The statue of the angel smiles down at you.
+~
+E
+room~
+Suddenly, an angel appears, gives $m a beautiful smile and leaves just as
+quickly.
+~
+E
+char~
+Suddenly, an angel appears before you , gives you a beautiful smile and
+then leaves just as quickly.
+~
+!
+0 0 0
+-1
+S
+
+#9028
+Castle Graveyard~
+A few tombstones are scattered around here, although it is nearly
+impossible to read the inscriptions on them.  What time has not worn away
+is obscured by the fog.  In all directions, you see more tombstones,
+but it is very difficult to see any details due to the fog.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9029 10 10 5
+D1
+~
+~
+0 -1 9038 10 10 5
+D2
+~
+~
+0 -1 9001 10 10 5
+D3
+~
+~
+0 -1 9027 10 10 5
+E
+tombstone tombstones~
+The tombstones are fairly small, with none larger than knee-height. 
+There appears to be little reason for the placement of the tombstones
+other than random placement.
+~
+E
+inscription inscriptions~
+The inscriptions have been erased by the passage of time, and only
+occasional letters are left.  It is impossible to determing what was
+written on any of the tombstones.
+~
+54 9 1509949540 3 0
+-1
+S
+
+#9029
+Graveyard Path~
+The mist thickens here, but it is still possible to see beyond the path. 
+There are gravestones in all directions, some closer than others.  Also,
+you can see the path you are on continue to both the west and to the
+north through the graveyard.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9030 10 10 5
+D1
+~
+~
+0 -1 9037 10 10 5
+D2
+~
+~
+0 -1 9028 10 10 5
+D3
+~
+~
+0 -1 9026 10 10 5
+54 9 1509949540 3 0
+-1
+S
+
+#9030
+Graveyard Path~
+Little is visible through the fog, but you can make out that the path
+continues to the north and south.  You can also make out what appears to
+be a large tombstone to the west.  From the smell which permeates the
+air, it would appear that the ground beneath that tombstone had been
+recently disturbed.  The smell of fresh dirt floats on the wind coming
+from the west.  A small gully lies to the east.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9032 10 10 5
+D1
+~
+~
+0 -1 9036 10 10 5
+D2
+~
+~
+0 -1 9029 10 10 5
+D3
+~
+~
+0 -1 9025 10 10 5
+A
+smell~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+You can detect the slight smell of death and decay intermingled with the
+dirt.
+~
+!
+0 0 0
+-1
+S
+
+#9031
+Graveyard.~
+Empty space.
+~
+~
+335020036 1 6 0
+-1
+S
+
+#9032
+Graveyard Path~
+The main path continues to the east and south, although you can see a
+faint trail heading west into a light fog.  All around you, the sounds of
+undead creatures send shivers down your spine.  Perhaps it was unwise to
+have come in here.
+~
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9033 10 10 5
+D1
+~
+~
+0 -1 9035 10 10 5
+D2
+~
+~
+0 -1 9030 10 10 5
+D3
+~
+~
+0 -1 9024 10 10 5
+E
+trail~
+A faint trail weaves its way to the west.
+~
+A
+listen~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+You hear the sound of moaning and wailing nearby.  You are overcome with
+the urge to flee.
+~
+!
+0 0 0
+-1
+S
+
+#9033
+Castle Graveyard~
+You are standing on a small strip of grass between the wrought iron fence
+to the north and the small path to the south.  Peering through the bars
+of the fence, you can clearly see a large castle towering over the
+graveyard.  A light fog creeps slowly to the east.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9034 10 10 5
+D2
+~
+~
+0 -1 9032 10 10 5
+D3
+~
+~
+0 -1 9023 10 10 5
+E
+bars~
+The metal bars of the fence are strong despite the years they have stood. 
+There is but little rust evident on them, and they are firmly planted
+into the ground.
+~
+-1
+S
+
+#9034
+Castle Graveyard~
+To the north of you is the wrought iron fence which surrounds the
+cemetery.  To the east, you can see the path which leads up to a gate. 
+Peering over the wrought iron fence you can make out some kind of castle
+to the north of you, but it seems to be quite a distance away.  You can
+barely see the remnants of a light fog which hovers close to the ground.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9045 10 10 5
+D2
+~
+~
+0 -1 9035 10 10 5
+D3
+~
+~
+0 -1 9033 10 10 5
+E
+path gate~
+To the east, you can see a path end at an open gate.  The gate leads out
+of the graveyard, and looks as though it heads up to the castle.
+~
+-1
+S
+
+#9035
+Graveyard Path~
+The path you are traveling on continues to the east and west through this
+dark and foreboding cemetery.  The mist has lightened considerably in
+this area as well.  Staring to the north and east, you can barely make
+out a wrought iron fence in the distance.  Beyond the fence to the north,
+a dark shape wavers into view as the fog rolls by.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9034 10 10 5
+D1
+~
+~
+0 -1 9044 10 10 5
+D2
+~
+~
+0 -1 9036 10 10 5
+D3
+~
+~
+0 -1 9032 10 10 5
+E
+dark shape~
+Through the fog, you can make out a dark shape, but it impossible to tell
+what it may be.
+~
+-1
+S
+
+#9036
+Castle Graveyard~
+A small gully takes up this entire area.  It would appear that it may
+have been a grave site at one point, but has collapsed since.  In fact,
+this whole area seems to be quite ancient and in disrepair.  The mist is
+lessened somewhat in this area.  Far to the east, you can just make out a
+fence, but it is hard to tell how far away it really is.  To the east and
+south, you can barely make out what appears to be piles of stone which
+lie on the ground.
+~
+The mist is lessened somewhat makes no sense to me.
+-Greyclaw
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9035 10 10 5
+D1
+~
+~
+0 -1 9043 10 10 5
+D2
+~
+~
+0 -1 9037 10 10 5
+D3
+~
+~
+0 -1 9030 10 10 5
+E
+1 east fence~
+With the fog distorting distance and obscuring vision, it is hard to tell
+just how far away the fence is, or even how tall it is.
+~
+E
+gully~
+It would appear that heavy rains caused this part of the graveyard to
+sink and wash away.
+~
+-1
+S
+
+#9037
+Castle Graveyard~
+There is but one broken marker here.  Although it is shattered, one of
+the pieces still has some writing on it.  Though the mist is thick to
+both the south and east, it thins to the north and west where you can see
+path trailing through the graveyard.  Your vision to the south is is all
+but obscured, and only a large branch looming out of the fog can be seen
+to the east.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9036 10 10 5
+D1
+~
+~
+0 -1 9042 10 10 5
+D2
+~
+~
+0 -1 9038 10 10 5
+D3
+~
+~
+0 -1 9029 10 10 5
+E
+branch~
+A large branch about twenty feet up in the air.  From the looks of it,
+the branch would seem to lead to a tree east of here.
+~
+E
+marker~
+The marker seems to be very old, and indeed, parts of it crumble as you
+look at it.  However, some of the legend on it still remains.  However,
+all you can make out is "Si  Har     ".
+~
+E
+piece pieces~
+The shattered marker lies on the ground, snashed by some unknown force. 
+The only piece with any writing still on it only bears the word, "died". 
+It is not, perhaps, the best of omens.
+~
+-1
+S
+
+#9038
+Castle Graveyard~
+The mist is not quite as thick here.  You see a single stone, but it too
+has been worn down by time.  At the base of the stone marker is a small
+bundle of wilted flowers.  To the east and south, you can make out the
+fence of the graveyard.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9037 10 10 5
+D1
+~
+~
+0 -1 9041 10 10 5
+D2
+~
+~
+0 -1 9039 10 10 5
+D3
+~
+~
+0 -1 9028 10 10 5
+E
+gravestone stone marker~
+The gravestone appears to have been here for a very long time, as much of
+it has been worn away.  The name on the marker has been completely erased.
+~
+E
+bundle flower flowers~
+The flowers look as if they have been here for a very long time.  The
+petals have almost totally decayed, but it is still possible to tell that
+these were once roses.
+~
+A
+get take pick grab steal~
+4 flowers petal petals rose roses bundle~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_char( oload( 545 ), ch );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+nope~
+You find nothing of interest in that pile of dried petals.
+~
+E
+room~
+$n takes a flower from the bundle next to the headstone.
+~
+E
+char~
+You find a fresh flower in the bundle, so you take it for yourself.
+~
+!
+0 0 0
+32 9 1509949540 3 0
+-1
+S
+
+#9039
+Castle Graveyard~
+You are walking along the south fence next to the path.  There are small
+graves here, and as you look closer, you can see engravings of small
+animals and such.  These small graves appear to belong to former pet
+owners who wished to give their loving companions a special resting
+place.  To the west, you see the south gate, and to the north and east,
+you see a few scattered graves.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9038 10 10 5
+D1
+~
+~
+0 -1 9040 10 10 5
+D3
+~
+~
+0 -1 9001 10 10 5
+E
+grave graves~
+The graves, the size that they are, could only be for children or small
+animals.  Looking at the engravings next to each grave tells you that
+only pets are buried in this section of the graveyard.
+~
+E
+engraving engravings~
+Next to each grave is a small engraving of an animal.  Here there is a
+cat, there a dog, and so on.  On some of the engravings are also listed
+the animal's name as well.
+~
+-1
+S
+
+#9040
+Castle Graveyard~
+You have found yourself in the southeast corner of the graveyard.  A
+large wrought iron fence extends to the north and west from this point. 
+Unfortunately, the fog is so thick here, you cannot tell what is beyond
+the fence.  However, you can see the small headstones which litter this
+corner.  Apparently, someone has designated this corner as the cemetery
+for their pets, which is evident by the engravings and gifts rotting in
+front of a few of the tombstones.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9041 10 10 5
+D3
+~
+~
+0 -1 9039 10 10 5
+E
+gifts engravings~
+The remains of several small gifts and engravings lie here.  It is hard
+to tell what they were to begin with, but they appear to be either pet
+toys of some kind, or simple plaques dedicated to the pets buried here.
+~
+E
+fence~
+The fence rises over your head, and the top almost disappears in the fog. 
+The fence is slick to the touch, and climbing it would be impossible.
+~
+E
+headstone headstones~
+The headstones for the graves indicate that this part of the graveyard
+was dedicated for the burial of pets.  The remains of wooden and cloth
+gifts, as well as flowers lie on various graves, rotting slowly.
+~
+54 9 1509949540 3 0
+-1
+S
+
+#9041
+Castle Graveyard~
+There are no headstones or markers of any kind here.  For some reason,
+this part of the graveyard was never used.  The fog is quite thick here,
+but you can just make out another fence to the south.  The fence next to
+you seems to connect to the southern fence, but it is hard to tell for
+sure.  To the north, you can see the branches on some trees.  There
+appears to be something swinging from the branches.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9042 10 10 5
+D2
+~
+~
+0 -1 9040 10 10 5
+D3
+~
+~
+0 -1 9038 10 10 5
+E
+1 south~
+You can just barely make out the south fence.  It seems to be very close,
+although the mists distort the distance very much.
+~
+E
+fence~
+The fence is made of a very old metal.  However, age has not affected its
+strength at all.  The top of the fence disappears in the mists.
+~
+E
+fog~
+The fog swirls around you, blocking the sight of anything more than a few
+paces away.
+~
+E
+branch branches tree trees~
+The tree, although malformed with twisting branches, is much taller than
+the fence next to it.  In the branches, swaying in the light breeze, are
+what appears to be a few men.  However, the fog makes it hard to tell for
+sure.
+~
+-1
+S
+
+#9042
+Castle Graveyard~
+Roots from the stunted and malformed trees have begun to reach the fence
+of the graveyard, although it will be many years before the fence itself
+will be affected by them.  From the higher limbs of the trees hang a few
+skeletons.  A small pile of bones lie at the roots.  Around you, the mist
+clings heavily to the ground.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9043 10 10 5
+D2
+~
+~
+0 -1 9041 10 10 5
+D3
+~
+~
+0 -1 9037 10 10 5
+E
+bones~
+Bones from several human remains are gathered at the roots of the trees. 
+Although the bones seem to have been gnawed on, no animals are in sight,
+although you can see something gleaming from within the pile.
+~
+E
+skeletons~
+A few human skeletons hang from ropes in the higher branches of the trees. 
+It seems that the bones are slowly falling down to lie among the roots.
+~
+E
+roots~
+The roots of the trees spread in all directions.  Some head towards the
+graves, to feed on the remains of the dead, while others spread towards
+the fence.
+~
+E
+trees~
+The trees seem to be very old, perhaps as old as the graveyard itself. 
+However, such a life in these surroundings has twisted the trees into
+grotesque mockeries.
+~
+A
+search~
+pile bones~
+if( rflag( reset0, room ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #find2, ch );
+  obj_to_char( oload( 102 ), ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #nofind, ch );
+  act_notchar( #nofind2, ch );
+  }
+~
+E
+nofind2~
+$n searches the pile of bones, but finds nothing.
+~
+E
+nofind~
+You search the pile of bones, but find nothing.
+~
+E
+find2~
+$n finds a golden key!
+~
+E
+find~
+You find a golden key!
+~
+!
+0 0 0
+54 9 1509949540 3 0
+-1
+S
+
+#9043
+Castle Graveyard~
+A crumbling monument stands here.  Once, it may have been a statue of a
+saint or holy figure, but now there is little of it left.  Time has worn
+away its features, and rust has obscured the plaque at the base of the
+monument.  A fence stands to the east, disappearing to the north and
+south.  To the north, a path creeps along slowly through the graveyard. 
+Beyond it, a dark image hides in the background.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9044 10 10 5
+D2
+~
+~
+0 -1 9042 10 10 5
+D3
+~
+~
+0 -1 9036 10 10 5
+E
+monument statue~
+The monument appears to have been placed here long ago, as there is
+little of it left.  What may have been a saint or holy figure is now an
+eroded pile of stone.
+~
+E
+plaque~
+The plaque may have once indicated who was buried here, but it has long
+since rusted over, and is now completely illegible.
+~
+E
+image~
+The image through the fog cannot be made out, but whatever it is, it is
+quite large.
+~
+32 9 1509949540 3 0
+-1
+S
+
+#9044
+Graveyard Path~
+The path continues to the north and west, while a great fence lies to the
+east.  To the north, you can see the castle better than you have been
+able to see before.  You can also see the hidden path that leads up the
+castle, directly north of you.  Unfortunately, you can also see a huge
+guardian that stands waiting for anyone to try to enter the path.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9045 10 10 5
+D2
+~
+~
+0 -1 9043 10 10 5
+D3
+~
+~
+0 -1 9035 10 10 5
+E
+castle~
+As the fog clears, you can finally make out a large castle lying to the
+north.
+~
+E
+path~
+The path proceeds to the north, ending in front of a watch-station manned
+by a castle guard.
+~
+E
+guard guardian~
+From here you can see a castle guard standing watch beyond the fence that
+runs to the north.
+~
+-1
+S
+
+#9045
+Graveyard Path~
+You can see a small passageway here, leading up to the north towards a
+small iron gate.  Just to the north of you is a royal guardian.  To the
+south and west, the graveyard beckons you to your death.  A path
+disappears to the south.  To the east, a wrought iron fence extends its
+way to the south, enclosing the graveyard.
+~
+WHERE is this graveyard, in what type of terrain?
+a vacuum? what is on the sides of this square?
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9046 10 10 5
+D2
+~
+~
+0 -1 9044 10 10 5
+D3
+~
+~
+0 -1 9034 10 10 5
+E
+guard guardian~
+Just to the north, a castle guard stands watch, prohibiting entry into
+the castle.
+~
+-1
+S
+
+#9046
+Passage Entrance.~
+The path you are on seems to continue to the north towards the castle. 
+To the south, the path passes beneath a small iron gate and disappears
+into a graveyard.
+~
+his damage unarmed should be less than the weapon
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9047 10 10 5
+D2
+~
+~
+0 -1 9045 10 10 5
+60 9 1509949540 3 0
+-1
+S
+
+#9047
+Small Dirt Path~
+The path does not seem all that worn, as though little traffic has passed
+this way in a long time.  However, upon closer inspection, you can see a
+set of fresh grooves in the ground about shoulder width apart.  On either
+side of the path is a small gully.  To the north, a slight fog encroaches
+upon the path.
+~
+dirt path through WHERE/
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9048 10 10 5
+D2
+~
+~
+0 -1 9046 10 10 5
+E
+tracks~
+The tracks are very wide, but seem to be very old.  Strange that should
+not have been washed away by now....
+~
+-1
+S
+
+#9048
+Small Dirt Path~
+Although the mists make it hard to see beyond a distance of ten feet, it
+seems that you are getting closer to the castle.  The castle looms out of
+the fog to tower over you.
+~
+castle in which direction?
+what is on either side of the path?
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9049 10 10 5
+D2
+~
+~
+0 -1 9047 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+The mist swirls and clouds your vision.
+~
+!
+2 0 0
+-1
+S
+
+#9049
+Small Dirt Path~
+Although the mists have the effect of distorting distances here, the wall
+to the castle seems very close indeed.  However, the rest of the castle
+is still lost in the mists.  It is now impossible to see even the top of
+the castle, which was visible, although slightly, before.
+~
+where?
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9050 10 10 5
+D2
+~
+~
+0 -1 9048 10 10 5
+-1
+S
+
+#9050
+Small Dirt Path~
+The wall to the west of you is solid stone, with no apparent way to get
+to it.  However, the path seems to continue to the north and south. 
+Perhaps there is yet a way inside the castle to be found.
+~
+first sentence doen't make sense/unclear
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9051 10 10 5
+D2
+~
+~
+0 -1 9049 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#9051
+Small Dirt Path~
+The wall to the castle has curved away from you, but you can still see it
+from here.  The path continues both north and south, but you cannot see
+any way into the castle proper from here.  The path itself seems a bit
+smoother, as though more traffic has been through here.
+~
+which side is wall on? 
+what is on other side?
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9068 10 10 5
+D2
+~
+~
+0 -1 9050 10 10 5
+-1
+S
+
+#9052
+Entrance to the Old Tomb~
+Here you see a small passage leading up and down which seems to have not
+been used in quite sometime.  Closer inspection shows that the door above
+you is partially covered by a large, wooden crate.  A strange mystical
+feeling surrounds you as you pass through.  The passage continues
+downward into a large hallway.
+~
+~
+335020044 1 6 0
+D4
+door~
+door~
+227 -1 33357 10 10 5
+D5
+~
+~
+0 -1 9053 10 10 5
+E
+door~
+The door seems to be a fairly normal trapdoor in the ceiling.  The hinges
+seem a bit rusty, but other than that, it is in good shape.
+~
+E
+crate~
+A large wooden crate can be seen from here.  It seems to be covering the
+hole in the ceiling, as if someone put it there for that purpose.
+~
+A
+~
+~
+if( rflag( reset1, room ) ) {
+  send_to_char( #char, ch );
+  do_spell( hallucinate, ch, ch );
+  }
+~
+E
+char~
+You pass through the mist and begin to feel a bit dizzy.
+~
+!
+1 -1 32
+A
+1 open move push~
+1 up crate~
+if( !is_open( room, up ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, up );
+  }
+else
+  send_to_char( #open, ch );
+~
+E
+open~
+The passage is already open.
+~
+E
+room~
+$n moves the crate which is blocking the passage.
+~
+E
+char~
+You move the crate which is blocking the passage.
+~
+!
+0 0 0
+545 9 1509949540 3 0
+-1
+S
+
+#9053
+Tomb of the Castle~
+You are standing in a large hallway which continues to the north and
+south.  Above you, a ladder escapes up into a small, dark passage.  Along
+the wall, jewels and torches lie scattered at seemingly random intervals,
+although the torches appear to have been blown out by the draft coming
+from the south.  To the east, you can see a lit room which beckons you.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9054 10 10 5
+D1
+~
+~
+0 -1 9124 10 10 5
+D2
+~
+~
+0 -1 9055 10 10 5
+D4
+~
+~
+0 -1 9052 10 10 5
+E
+ladder~
+The ladder is quite old, but still looks sturdy, being made from ironwood. 
+Climbing it would take you into the dark passage above you.
+~
+E
+jewel jewels~
+The jewels in the wall sparkle as the low light catches their many facets. 
+The jewels seem to be firmly embedded in the wall.
+~
+E
+torch torches~
+The torches here are well secured into the wall mounts.  From the looks
+of it, the torches would be impossible to remove without destroying them
+in the process.
+~
+E
+up~
+Looking up to the passage the ladder rises into, you can see nothing of
+what is up there save for a glowing mist of some sort.
+~
+E
+room~
+The room to the east, from the looks of it, was carved right out of the
+rock.  Although it is impossible to see what may lie in it, there is a
+faint smell of decay coming from that direction.
+~
+A
+pry get steal take~
+jewel jewels gem gems~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to pry some of the gems out of the walls.
+~
+E
+get~
+You try to pry gems out of the wall, but they are too firmly embedded.
+~
+!
+0 0 0
+A
+get take steal grab~
+torch torches~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to get a torch from one of the wall mounts, but ends up breaking
+it into splinters of dry wood.
+~
+E
+get~
+You try and get one of the torches, but find it impossible to get out of
+the wall mount without destroying it.
+~
+!
+0 0 0
+A
+light~
+3 torches~
+if( has_obj( 26, ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else
+  send_to_char( #notorch, ch );
+~
+E
+notorch~
+You don't have a torch with which to light it.
+~
+E
+room~
+$n lights a torch on the wall, but a breeze comes along and blows it out.
+~
+E
+char~
+You light a torch on the wall, but a breeze comes along and blows it out.
+~
+!
+0 0 0
+A
+3 climb~
+ladder 1 up~
+interpret( ch, "up" );
+~
+!
+0 0 0
+-1
+S
+
+#9054
+Tomb of the Castle~
+The torches along the wall light the large hall which continues to the
+north and east.  Jewels speckle the walls in a delightful fashion,
+casting strange images all over the room.  To the north, lit torches
+guide your way through the catacombs.
+~
+~
+335020045 1 6 0
+D0
+~
+~
+0 -1 9056 10 10 5
+D2
+~
+~
+0 -1 9053 10 10 5
+E
+torches~
+Mounted on the walls at intervals are torches in metal mounts.  They are
+set firmly in and would be hard to remove.
+~
+E
+jewels images~
+The facets of the jewels set in the wall sparkle in the light.  The
+glinting light is refracted and reflected around the room, causing forms
+to be cast around the hall.  The jewels are deeply set into the walls.
+~
+A
+pry get steal take~
+5 jewels 3 gems~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to pry some of the gems out of the walls.
+~
+E
+get~
+You try to pry gems out of the wall, but they are too firmly embedded.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+You can feel a slight draft wafting from the south.
+~
+!
+2 0 0
+-1
+S
+
+#9055
+Tomb of the Castle.~
+This is an out of the way part of the large hall which continues to the
+north and south.  Looking about, you can see that the hall is very grungy
+and damp.  This area is not as well traveled like to the north.  The
+torches and jewels still line the walls, but many of the torches along
+the wall are no longer lit.  The wall to the west has a large crack in it.
+~
+Okay.  Now liches are cool and all, and fun to include in our areas, but
+how does this guy fit here?  he doesn't even have a tomb, he's in the
+hall, and liches generally have whole tombs and elaborate traps designed
+to protect themselves (similar to dragons...) This guy kinda needs it. 
+As for the mob itself, he's 30th leve, and dishes out a strange mpc. 
+Furthermore, he's sentinel and his xp isn't protected at all. 
+Shrug...thing this needs some consdieration.  :) 
+Kiian.
+ok pulled thie liche pending a serious fix - kiian
+enter crack
+[Arathorn] look crack- behing should be behind
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9053 10 10 5
+D2
+~
+~
+0 -1 9062 10 10 5
+E
+torches torch~
+The walls have torches mounted periodically along their length.  It looks
+like trying to remove them would require breaking them up into worthless
+pieces.
+~
+E
+jewels~
+Jewels sparkle in your eyes as you look at the walls.  They are set
+deeply in the wall, though, and don't look easy to remove.
+~
+E
+crack~
+The wall to the west is marred by a large crack.  It looks like you can
+probably fit through and explore behing it.
+~
+A
+enter ~
+crack~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 9132 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_tochar( #char2, rch );
+  transfer( rch, find_room( 9132 ) );
+  act_notchar( #arr, rch );
+  }
+~
+E
+char2~
+You enter the crack and find yourself in a small cave.
+~
+E
+arr~
+$n enters the cave from the crack.
+~
+E
+room~
+$n enters the crack in the west wall.
+~
+E
+char~
+You enter the crack and find yourself in a small cave.
+~
+!
+0 0 0
+A
+get take steal pry~
+5 jewels 3 gems~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to pry some of the gems out of the walls.
+~
+E
+get~
+You try to pry gems out of the wall, but they are too firmly embedded.
+~
+!
+0 0 0
+A
+light~
+3 torches~
+if( has_obj( 26, ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else
+  send_to_char( #notorch, ch );
+~
+E
+notorch~
+You don't have a torch with which to light it.
+~
+E
+room~
+$n lights a torch on the wall, but a breeze comes along and blows it out.
+~
+E
+char~
+You light a torch on the wall, but a breeze comes along and blows it out.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+Faint noises seep from the crack to the west.
+~
+!
+2 0 0
+-1
+S
+
+#9056
+Tomb of the Castle~
+You are standing in a large hall with lit torches mounted on the walls at
+various intervals.  Around the torches, small jewels lie embedded in the
+walls, creating a dazzling light show.  Peering into the distance to the
+north, you can see a large room that is well lit.  The corridors extend
+in each of the cardinal directions.  To the side of the hallway, a spiral
+staircase rises into the ceiling.
+~
+~
+335020037 1 6 0
+D0
+~
+~
+0 -1 9057 10 10 5
+D1
+~
+~
+0 -1 9125 10 10 5
+D2
+~
+~
+0 -1 9054 10 10 5
+D3
+~
+~
+0 -1 9119 10 10 5
+D4
+~
+~
+0 -1 9085 10 10 5
+E
+1 south~
+Looking to the south you see little of interest besides stone walls.  As
+you peer down the corridor, a slight breeze passes you.
+~
+E
+1 north~
+To the north you notice a faint blue glow.
+~
+E
+1 east~
+To the east you can make out a wooden door.
+~
+E
+1 west~
+There is little to see to the west save for stone walls.  However, you do
+notice a faint glow.
+~
+E
+torches~
+The torches are mounted at regular intervals on the walls.  Looking
+closely at the mountings, you think you may be able to get one of the
+torches out of the wall.
+~
+E
+jewels~
+The jewels sparkle in the torchlight.  They seem to be firmly embedded in
+the corridor walls, but then, perhaps no one has tried to pull them out
+yet.
+~
+E
+light show~
+Light from the torches bounces off of the jewels in the wall, creating a
+pattern of moving light on the floor, walls, and ceiling.
+~
+A
+get pry~
+5 jewels~
+i = random( 1,4 );
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( i < 2 ) {
+    act_tochar( #get, ch );
+    act_notchar( #get_room, ch );
+    obj_to_char( oload( 119 ), ch );
+    }
+  else {
+    if( i < 3 ) { 
+      act_tochar( #get2, ch );
+      act_notchar( #get_room, ch );
+      obj_to_char( oload( 119 ), ch );
+      obj_to_char( oload( 119 ), ch );
+      }
+    else {
+      if( i < 4 ) {
+        act_tochar( #get3, ch );
+        act_notchar( #get_room, ch );
+        obj_to_char( oload( 119 ), ch );
+        obj_to_char( oload( 119 ), ch );
+        obj_to_char( oload( 119 ), ch );
+        }
+      else {
+        act_tochar( #get_none, ch );
+        act_notchar( #get_none_room, ch );
+        }
+      }
+    }
+  }
+else {
+  act_tochar( #get_none, ch );
+  act_notchar( #get_none_room, ch );
+  }
+~
+E
+get_none_room~
+$n pries at the jewels on the wall, but gives up after being unable to
+pull any out.
+~
+E
+get_none~
+You pry at the jewels on the wall, but are unable to pry any of them
+loose.
+~
+E
+get_room~
+$n pries at the jewels on the wall, trying to get them loose.
+~
+E
+get3~
+You pry at the jewels on the wall, getting three loose!
+~
+E
+get2~
+You pry at the jewels on the wall, getting two loose!
+~
+E
+get~
+You pry at the jewels on the wall, pulling one loose!
+~
+!
+0 0 0
+A
+get~
+torch torches~
+i = random( 1,6 );
+if( rflag( reset2, room ) ) {
+  remove_rflag( reset2, room );
+if( i < 5 ) {
+    act_tochar( #get, ch );
+    act_notchar( #get_room, ch );
+    obj_to_char( oload( 26 ) );
+    }
+  else {
+    act_tochar( #get_none, ch );
+    act_notchar( #get_none_room, ch );
+    }
+}
+else {
+act_tochar( #get_none, ch );
+act_notchar( #get_none_room, ch );
+}
+~
+E
+get_none_room~
+$n is unable to get the torch out of its mounting on the wall.
+~
+E
+get_none~
+You are unable to pull the torch from its mount on the wall.
+~
+E
+get_room~
+$n $n pulls a torch from the wall, accidentally putting it out.
+~
+E
+get~
+You pull a torch from the wall, accidentally putting it out.
+~
+!
+0 0 0
+-1
+S
+
+#9057
+Tomb of the Castle~
+The large corridor continues back to the south where torches line the
+walls at varying intervals, highlighted by jewels which glimmer in their
+light.  There appear to be small tombs extending to the north, east and
+west from this corridor.  The room to the north emits a bright light
+through its entrance.
+~
+~
+335020037 1 6 0
+D0
+~
+~
+0 -1 9061 10 10 5
+D1
+~
+~
+0 -1 9059 10 10 5
+D2
+~
+~
+0 -1 9056 10 10 5
+D3
+~
+~
+0 -1 9058 10 10 5
+A
+steal pry take get~
+5 jewels 3 gems~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to pry some of the gems out of the walls.
+~
+E
+get~
+You try to pry gems out of the wall, but they are too firmly embedded.
+~
+!
+0 0 0
+546 9 1509949540 3 0
+-1
+S
+
+#9058
+Tomb of Sir Dragoon~
+You are standing within a small little tomb which has been chiseled out
+of the hard rock.  A large and sealed crypt lies in the middle of the
+floor going down.  The crypt is covered by a large stone.  The only exit
+appears to be back through the entrance to the tomb.
+~
+~
+335020044 1 6 0
+D1
+~
+~
+0 -1 9057 10 10 5
+E
+crypt cover stone~
+Examining the stone covering of the crypt, you can see lettering carved
+into its surface.
+~
+E
+lettering surface carved~
+"This is the tomb of Sir Dragoon, the Evil.  Although King Lag's most
+favored knight, his thirst for power became his downfall."
+~
+A
+move push~
+lid~
+act_tochar( #char_move, ch );
+act_notchar( #room_move, ch );
+~
+E
+room_move~
+$n tries to move the lid, but gives up after a few seconds.
+~
+E
+char_move~
+You try to move the lid, but it is far too heavy to budge.
+~
+!
+0 0 0
+80 9 1509949540 3 0
+-1
+S
+
+#9059
+Tomb of Witch Lana~
+You are standing in the hollowed out tomb intended for one of the old
+inhabitants of the castle.  The walls are faded to a rich amber tone. 
+You see a small crypt sitting in the middle of the floor going down.  A
+large grate covers the entrance.  Around the grate, a large plaque
+encircles the crypt.  It appears to tell the story of who is buried
+within.  The only exit is back through the entrance to the tomb.
+~
+~
+335020044 1 6 0
+D3
+~
+~
+0 -1 9057 10 10 5
+D5
+'tomb entrance'~
+'tomb entrance'~
+227 -1 9060 10 10 5
+E
+walls~
+The walls are in good condition, and surprisingly mold free, considering
+the dampness you have noticed elsewhere.  Although they are amber in
+color, it does not seem to be from metal, but rather an odd color of
+stone.
+~
+E
+crypt~
+The crypt starts here, but the majority of it seems to be under a grate
+in the middle of the floor.  Although unusual for a crypt, it is not
+unheard of.
+~
+E
+grate~
+A large metal grate in the middle of the floor is the only way down to
+the crypt.  Although it is slightly damp to the touch, it shows no signs
+of rust.
+~
+A
+1 open~
+grate tomb entrance~
+if( !is_open( room, down ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, down );
+  }
+else
+  send_to_char( #open, ch );
+~
+E
+open~
+The grate is already ajar and the tomb open.
+~
+E
+room~
+$n braces $mself and opens the grate, revealing a small tomb below.
+~
+E
+char~
+Pulling as hard as you can on the grate, you open it to reveal a small
+tomb below.
+~
+!
+0 0 0
+A
+steal pry~
+plaque~
+if( class( ch ) == thief ) {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    if( random( 1, 10 ) < 3 ) {
+      send_to_char( #char, ch );
+      act_notchar( #room, ch );
+      obj_to_char( oload( 689 ), ch );
+      }
+    else
+      send_to_char( #unable, ch );
+    }
+  else
+    send_to_char( #unleft, ch );
+  }
+else
+  send_to_char( #notthief, ch );
+~
+E
+notthief~
+You are unable to pry the plaque off.
+~
+E
+unleft~
+You are unable to pry off the rest of the plaque.
+~
+E
+unable~
+You are unable to pry the plaque off.
+~
+E
+room~
+$n pries off most of the plaque.
+~
+E
+char~
+You are able to pry most of the plaque off.  However, you end up scratch
+off the face of the plaque in the process.
+~
+!
+0 0 0
+A
+1 look~
+plaque~
+if( rflag( reset1, room ) )
+  send_to_char( #char, ch );
+else
+  send_to_char( #nope, ch );
+~
+E
+nope~
+The plaque face has been scratched off.
+~
+E
+char~
+"This is the great tomb of the hated witch, Lana, who lived in the castle
+for all years.  In her former life, she was the mother of the king. 
+However, time and power had warped her sense of values until the castle
+inhabitants rallied to kill her.  Her ghost was banished to this tomb
+long ago.  Since then, she has tried to kill all mortals, blaming them
+for her banishment." 
+~
+!
+0 0 0
+-1
+S
+
+#9060
+Tomb of Lana~
+This is a very nasty, smelling room, full of cobwebs and spiders, most
+of which could care less if you were here or not.  In the corner, you can
+see a small, ugly figure coming at you and it seems to be very annoyed.
+~
+[Fingolfin] +pray
+~
+335020036 1 6 0
+D4
+'tomb exit'~
+'tomb exit'~
+227 -1 9059 10 10 5
+E
+cobwebs~
+Gray strands of silk lie everywhere.  Cobwebs clutter the room, gathering
+in corners, and obscuring the walls.  The occupants of the webs, small
+spiders, skitter away at the least vibration.
+~
+E
+spiders~
+The spiders are all quite small, and seem to hold no interest at all in you.
+~
+A
+1 up~
+~
+if( !is_open( room, up ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, up );
+  continue;
+  }
+else
+  continue;
+~
+E
+room~
+$n pushes $s way out through the grate.
+~
+E
+char~
+Pressing your shoulder to the grate, you push your way out.
+~
+!
+0 0 0
+A
+1 open push move~
+grate tomb entrance exit~
+if( !is_open( room, up ) ) {
+  open( room, up );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else
+  send_to_char( #open, ch );
+~
+E
+open~
+The grate is already open.
+~
+E
+room~
+$n opens the grate to the tomb.
+~
+E
+char~
+You open the grate to the tomb.
+~
+!
+0 0 0
+81 17 1509949441 -2 0
+78 9 1509949540 3 0
+-1
+S
+
+#9061
+Tomb of the Exarch~
+You are standing within a large tomb which rests at the end of the
+corridor.  The only thing of interest in this tomb is the sarcophagus
+which lies against the north wall.  Surprisingly, you see many footsteps
+which come up to the edge of the sarcophagus.  A small plaque is nailed
+into the base of the sarcophagus.  The only exit seems to be through the
+tomb entrance to the south.  The room is illuminated by countless torches
+and candles which take up the entire room.
+~
+~
+335020044 1 6 0
+D2
+~
+~
+0 -1 9057 10 10 5
+D5
+sarcophagus~
+sarcophagus~
+423 -1 9164 10 10 5
+E
+sarchophagus~
+This "coffin" appears to be the size of an adult human.  A large cross
+has been carved and painted into the top of the cover which seals the
+body within its belly.
+~
+E
+plaque base~
+"This is the tomb of the Exarch.  His servitude to the Lord shall never
+be forgotten.  Nor will his servitude to King Lag." 
+~
+E
+candles~
+The candles are placed everywhere.  Although the majority of them are
+lit, a few have gone out.  Puddles of wax cover the floor, in which you
+notice a few footprints.
+~
+E
+torches~
+The torches are securely mounted on the wall.  While all of them are lit,
+it seems that more illumination comes from the numerous candles placed on
+any available space.
+~
+E
+footprints~
+The footprints in the wax go right up to the edge of the sarcophagus. 
+And, you can barely make out the back half of one footprint.  The other
+half, it would seem, is under the sarcophagus.
+~
+A
+1 open~
+3 sarcophagus~
+if( !is_open( room, down ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, down );
+  }
+else
+  send_to_char( #char_open, ch );
+~
+E
+char_open~
+The sarcophagus lid is already open.
+~
+E
+room~
+$n yanks on the sarcophagus lid and reveals a hidden passage.
+~
+E
+char~
+You yank open the sarcophagus lid to reveal a hidden passage.
+~
+!
+0 0 0
+-1
+S
+
+#9062
+Tomb of the Castle~
+You are standing in a hall that is untouched by neither dust nor cobwebs
+dare to defile the sanctity of this hall.  Of course, the awesome door to
+the south may be the reason why.  Twenty feet tall and made of pure jade,
+it emanates a power which is undescribable.  Small tombs branch to the
+east and west.  To the north, the main hall extends through darkness.
+~
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9055 10 10 5
+D1
+~
+~
+0 -1 9064 10 10 5
+D2
+"green door"~
+"green door"~
+407 491 9123 10 10 5
+D3
+~
+~
+0 -1 9063 10 10 5
+E
+door jade 1 south~
+The south entrance to this room is a monstrous door set on huge hinges. 
+It is made of jade, and seems to look at you with dissapproval.  A sense
+of awesome power washes over you from behind the door, making you feel
+unworthy to exist in this place.
+~
+E
+1 east 1 west tombs~
+To the east and west you can see hints of gold and gems through the
+entrance to the royal tombs.
+~
+-1
+S
+
+#9063
+Tomb of the Castle~
+You are standing within a royal tomb which has been carved into the rock
+of the earth.  Around you, paintings and statuettes made of pure gold
+surround a huge sarcophagus which rests in the center of the room. 
+Elaborately descriptive carvings gilt with gold adorn the edges of the
+huge sarcophagus.  A small plaque rests near the head of it.  The only
+exit is back to the hallway to the east.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9062 10 10 5
+E
+paintings statuettes~
+The walls are lined with paintings hung in frames made of gold.  Between
+them in small alcoves set in the walls are precious statuettes made to
+resemble creatures of power, dragons, griffons and the like.
+~
+E
+sarcophagus carvings~
+In the center of the room is a sarcophagus made of stone, set with gems
+and overlaid with gold.  Carvings of prancing animals and powerful beasts
+adorn the lid of the sarcophagus, with gems for eyes and golden bodies. 
+A small plaque is set on a stand at the head of the sarcophagus.
+~
+A
+1 open move push~
+lid sarcophagus~
+act_tochar( #char_move, ch );
+act_notchar( #room_move, ch );
+~
+E
+room_move~
+$n tries to move the lid, but gives up after a few seconds.
+~
+E
+char_move~
+You try to move the lid, but it is far too heavy to budge.
+~
+!
+0 0 0
+A
+take steal pry grab get~
+plaque bronze~
+if( class( ch ) == thief ) {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    if( random( 1, 10 ) < 3 ) {
+      send_to_char( #char, ch );
+      act_notchar( #room, ch );
+      obj_to_char( oload( 689 ), ch );
+      }
+    else
+      send_to_char( #unable, ch );
+    }
+  else
+    send_to_char( #unleft, ch );
+  }
+else
+  send_to_char( #notthief, ch );
+~
+E
+notthief~
+You are unable to pry the plaque off.
+~
+E
+unleft~
+You are unable to pry off the rest of the plaque.
+~
+E
+unable~
+You are unable to pry the plaque off.
+~
+E
+room~
+$n pries off most of the plaque.
+~
+E
+char~
+You are able to pry most of the plaque off.  However, you end up scratch
+off the face of the plaque in the process.
+~
+!
+0 0 0
+A
+1 look examine~
+bronze plaque~
+if( rflag( reset1, room ) )
+  send_to_char( #char, ch );
+else
+  send_to_char( #nope, ch );
+~
+E
+nope~
+The plaque face has been scratched off.
+~
+E
+char~
+"Here lies Queen Lag.  Her kindness and devotion to her husband King and
+to God will be remembered forever." 
+~
+!
+0 0 0
+A
+steal take get grab~
+all treasure gold 5 paintings 4 statuettes carvings~
+send_to_char( #char2, ch );
+act_notchar( #room2, ch );
+remove_rflag( reset1, room );
+wait( 1 );
+if( char_in_room( ch, find_room( 9122 ) ) ) {
+  send_to_room( #room3, room );
+  dam_message( ch, 3d3+1, "The spirit of Queen Lag's piercing scream" );
+  inflict( ch, mob, 3d3+1, "The spirit of Queen Lag" );
+  wait( 1 );
+  if( char_in_room( ch, find_room( 9122 ) ) ) {
+    send_to_room( #room4, room );
+    set_rflag( reset1, room );
+    }
+  else
+    set_rflag( reset1, room );
+  }
+else {
+  send_to_room( #room4, room );
+  set_rflag( reset1, room );
+  }
+~
+E
+room4~
+The spirit of Queen Lag vanishes before your eyes.
+~
+E
+room3~
+The spirit of Queen Lag opens her mouth and emits a piercing scream which
+reverberates through tombs.
+~
+E
+room2~
+As $n reaches toward the piles of treasure, the spirit of Queen Lag rises
+before $m and emits a piercing scream.
+~
+E
+char2~
+As you reach toward the piles of treasure, the spirit of Queen Lag rises
+before you and emits a piercing scream.
+~
+!
+0 0 0
+A
+1 kill hit kick~
+spirit queen lag~
+if( !rflag( reset1, room ) )
+  send_to_char( #char, ch );
+else
+  send_to_char( #char2, ch );
+~
+E
+char2~
+The spirit of Queen Lag is no longer before you.
+~
+E
+char~
+Surprisingly, you are unable to raise your hand to attack.
+~
+!
+0 0 0
+-1
+S
+
+#9064
+Tomb of the Castle~
+You are standing within the most regal tomb you have laid your eyes on. 
+Elaborate drawings and sculptures take up every available space around
+the huge sarcophagus in the center of the room.  The statues of two
+somber knights face the sarcophagus in a watchful vigil.  The sarcophagus
+is likewise adorned with golden carvings.  A large bronze plaque glimmers
+in the glow of the torches which line the walls.  Gold and silver collide
+everywhere in a mixture of raw beauty.  The only exit is to the hallway
+to the west.
+~
+~
+335020037 1 6 0
+D3
+~
+~
+0 -1 9062 10 10 5
+E
+knights somber~
+Two statues of tall strong knights stand at attention next to the wall,
+facing the sarcophagus.  They appear to watch and wait for the king's
+call.
+~
+E
+sarcophagus~
+The sarcophagus sitting in the center of the room is covered in carvings
+of somber knights paying tribute to their king, and of great beasts in
+servitute to him.  It is decorated with gold and silver plating with gems
+embedded in the stone lid and box.  You notice a small circle carved into
+the top of the sarcophagus.
+~
+E
+bronze 3 plaque~
+At the head of the sarcophagus is a plaque made of bronze.  It reads:
+"Here lies the King Lag.  His service to God and country will be
+remembered.  May he rest in peace.  Beware to those who would disturb his
+slumber."
+~
+E
+drawings sculptures~
+The walls are covered with drawings and paintings set in gold and silver
+frames.  They hang between the statues of proud knights and powerful
+beasts that pay tribute to the King in the sarcophagus.
+~
+E
+torches~
+Torches set in sturdy wall mount light the room and are reflected from
+the splendor of the riches in the room.
+~
+E
+circle small top~
+Examining the circle, you see the word, 'Lagora' carved into the center
+of it.  The circle appears to be about four inches in diameter.
+~
+A
+read view~
+bronze 3 plaque~
+act_tochar( #plaque, ch );
+~
+E
+plaque~
+At the head of the sarcophagus is a plaque made of bronze.  It reads:
+"Here lies the King Lag.  His service to God and country will be
+remembered.  May he rest in peace.  Beware to those who would disturb his
+slumber." 
+~
+!
+0 0 0
+A
+1 open~
+3 sarcophagus lid~
+if( cflag( 15, ch ) ) {
+  send_to_char( #noopen, ch );
+  act_notchar( #noroom, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( !is_fighting( ch )) {
+    act_tochar( #open, ch );
+    wait( 2 );
+    send_to_room( #voice, room );
+    wait( 0 );
+    send_to_room( #voice2, room );
+    mob = mload( 536, room );
+    wait( 1 );
+    send_to_room( #call, room );
+    wait( 2 );
+    send_to_room( #knight, room );
+    mob = mload( 389, room );
+    attack( mob, ch, 2d6+7, "chilling touch" );
+    ch = rand_player( room );
+    mob = mload( 389, room );
+    attack( mob, ch, 2d6+7, "chilling touch" );
+    }
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+noroom~
+$n attempts to open the lid on the sarcophagus, but gives up.
+~
+E
+noopen~
+You are unable to lift the lid on the sarcophagus.
+~
+E
+knight~
+You hear and feel a whistling wind play about the room.  On the tail of
+the breeze, you hear crumbling of stone.  Out of the corner of your eye,
+you glimpse a ghost separating from a statue of a knight.
+Examining the circle, you see the word, 'Lagora' carved into the center of it.
+~
+E
+call~
+The deep voice says, "Arise my knights, we must rid the castle of these
+intruders.  Arise and fight, so we may return to our rest." 
+~
+E
+already~
+You find that the lid has already been lifted open.
+~
+E
+voice2~
+You hear a loud sigh.
+
+From the darkness of the sarcophagus, an ethereal figure emerges.
+~
+E
+voice~
+A cold wind blows through the room.  Carried on the wind is a deep voice. 
+It demands, "Who is this that disturbs my rest?"
+~
+E
+open~
+You slide the heavy cover of the sarcophagus open.  From the darkness
+within, you see a cloth wrapped figure of a body.  You hear a hissing
+sound, and a groan emanates from the air all around you.  You may begin
+to regret the disturbance now...
+~
+!
+0 0 0
+A
+get steal take grab pry~
+bronze plaque~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+i = 4d4+4;
+dam_message( ch, i, "the crackling flame" );
+inflict( ch, mob, i, "crackling flame" );
+~
+E
+room~
+As $n reaches out to pry the plaque off of the sarcophagus, he is singed
+by a crackling flame which shoots out.
+ 
+~
+E
+char~
+As you reach to pry the plaque off of the sarcophagus, a crackling flame
+shoots out and singes you.
+ 
+~
+!
+0 0 0
+A
+~
+~
+if( !is_fighting( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    if( mob_in_room( 536, room ) )
+      junk_mob(mob_in_room( 536, room ) );
+    if( mob_in_room( 389, room ) )
+      junk_mob( mob_in_room( 389, room ) );
+    if( mob_in_room( 389, room ) )
+      junk_mob( mob_in_room( 389, room ) );
+    }
+  }
+continue;
+~
+!
+3 -1 8
+A
+put place lay lie insert~
+medal lagora circle sarcophagus medallion~
+if( has_obj( 473, ch ) ) {
+  junk_obj( has_obj( 473, ch ) );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  wait( 0 );
+  send_to_char( #char2, ch );
+  if( doing_quest( ch, 25 ) )
+    update_quest( ch, 25 );
+  wait( 0 );
+  send_to_room( #room2, room );
+  set_cflag( 15, ch );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+nope~
+You don't have the royal medallion.
+~
+E
+room2~
+With that said, King Lag removes the medallion from the circle
+inscription and fades from sight.
+~
+E
+char2~
+Suddenly, the King's spectre rises from within his sarcophagus and
+states, 'You have done well, my friend!  You have relieved my soul from
+this hellish nightmare.  Now I may go join my wife in the heavens.
+~
+E
+room~
+$n places the royal medallion into the circle set in the sarcophagus.
+~
+E
+char~
+You place the royal medallion into the circle set in the sarcophagus.
+~
+!
+0 0 0
+-1
+S
+
+#9067
+Tomb of the Castle~
+In the middle of the room lies a great stone coffin.  Around the coffin,
+carved in the walls, ceiling, and floor are various scenes of battles won
+and lost.  Above the coffin, you can see the faint image of the Prince
+himself floating reverently in the air.
+~
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9124 10 10 5
+E
+image prince~
+The ethereal image of a proud man floats above the coffin.  You can
+barely tell from the faint image that he appears to wear armor and a
+scabbarded sword.  It seems to be the Prince's spirit.
+~
+E
+writing~
+The writing says, "A shield to shelter the weak, a sword to defend them
+from evil, and a rose to remind us of the beauty and thorns of life." 
+~
+E
+crest lid~
+A closer look at the crest on the lid of the coffin shows that it is a
+depiction of a knight's equipment.  It shows a shield, a sword, and a
+rose.  The carvings are set deeply into the stone lid, and look as if
+they would fit the actual items.  Below the crest is some @b@Cwriting@n.
+~
+E
+coffin stone~
+In the middle of the room rests a plain stone coffin.  It is unadorned
+but for a single @C@bcrest@n carved into the lid.
+~
+E
+carvings scenes walls ceiling floor~
+In carvings on the walls and floor, you see the Prince in many battles. 
+In some, he chases invading goblins away at the point of his army's
+spears.  In another, he bows to the leader of the giants as they come to
+a peace.  In all, he is shown to be a leader of men and the epitome of
+honor.  The carvings cover the walls and ceiling and extend onto the
+floor.  It appears the people that prepared this burial chamber honored
+the Prince highly.
+~
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( !cflag( 19, ch ) ) {
+  set_cflag( 19, ch );
+  wait( 1 );
+  if( !rflag( reset2, find_room( 9124 ) ) ) 
+    end;
+  if( !rflag( reset1, find_room( 9124 ) ) ) 
+    end;
+  if( !rflag( status2, find_room( 9124 ) ) ) {
+    remove_rflag( reset1, find_room( 9124 ) );
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    }
+  else {
+    send_to_char( #char_bad, ch );
+    act_notchar( #room_bad, ch );
+    }
+  }
+else
+continue;
+~
+E
+room_bad~
+The Spirit of the Prince frowns at $n and says, "By greedily taking the
+gold, you have failed in the simplest of my tests of honor." 
+~
+E
+char_bad~
+The Spirit of the Prince frowns at you as you enter.  Then he simply
+states, "By greedily taking the gold, you have failed in the simplest of
+my tests of honor." 
+~
+E
+room~
+The Spirit of the Prince bows to $n and states, "You have done well, my
+friend. By not taking the coins unasked, you proved yourself to be
+honorable.  Please feel free to take the gold on the table in the next
+room without repercussions, as a reward for honor.
+
+~
+E
+char~
+The Spirit of the Prince bows to you and states, "You have done well, my
+friend. By not taking the coins unasked, you proved yourself to be
+honorable.  Please feel free to take the gold on the table in the next
+room without repercussions, as a reward for honor.
+~
+!
+1 -1 1
+A
+1 open pry move~
+coffin lid~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n struggles to push open the coffin lid, but to no avail.
+~
+E
+char~
+You are unable to open the coffin lid.
+~
+!
+0 0 0
+A
+1 kill~
+prince spirit~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n swings at the Prince's image, passes right through it.
+~
+E
+char~
+You swing at the Prince's image, but pass right through it.
+~
+!
+0 0 0
+A
+ask~
+prince spirit medal medallion lagora~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n asks the prince about the medallion.
+ 
+The prince replies, 'Ah yes, Lagora!  It is the only symbol left from
+before the war with the faeries which has remained sacred.  My father
+would be greatly relieved if you would place the medal on his
+sarcophagus.' 
+~
+E
+char~
+'Ah yes, Lagora!  It is the only symbol left from before the war with the
+faeries which has remained sacred.  My father would be greatly relieved
+if you would place the medal on his sarcophagus.'
+~
+!
+0 0 0
+-1
+S
+
+#9068
+Small Dirt Path~
+The way you came is lost in the mists, as is the way you are going.  The
+only thing that you can see for sure is the stone wall of the castle
+beside you.  Aside from that, the path continues beside the wall of the
+castle to both the north and, and the path that continues to both the
+north and south.
+~
+which side is wall?
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9069 10 10 5
+D2
+~
+~
+0 -1 9051 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+The path becomes lost among the swirl of mists.
+~
+!
+2 0 0
+-1
+S
+
+#9069
+Small Dirt Path~
+Up ahead it seems as though the path ends, and there is a door in the
+wall of the castle.  However, before you can tell for sure, the mists
+once again obscure your vision.
+~
+up ahead in which direction?
+depends which way you come from
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9070 10 10 5
+D2
+~
+~
+0 -1 9068 10 10 5
+-1
+S
+
+#9070
+Small Dirt Path~
+A small, wooden door with steel bands is set into the wall of the castle
+at the end of the dirt path.  The path leads away to the south where you
+can see a slight fog rolling by.
+~
+up ahead where?
+north? west
+~
+335020036 1 6 0
+D2
+~
+~
+0 -1 9069 10 10 5
+D3
+'steel-banded door'~
+'steel-banded door'~
+391 -1 9125 10 10 5
+-1
+S
+
+#9071
+Center Hallway~
+This part of the central hall is decorated with scenes of idyllic times,
+perhaps the artist's vision of the future coming after the defeat of the
+faeries.  The ceiling high above is gilded and decorated with paintings
+of angels and gods smiling down at the characters on the walls.  A much
+smaller hallway leads off to the east, and a door stands in the west wall. 
+The central hallway continues off to the north.
+~
+~
+335020044 1 8 0
+D0
+~
+~
+0 -1 9074 10 10 5
+D1
+~
+~
+0 -1 9099 10 10 5
+D3
+door~
+"door"~
+131 -1 9145 10 10 5
+E
+scenes paintings murals pictures walls~
+The walls are covered in scenes from a garden.  Young lovers slip off
+into the bushes with smiles on their faces.  Handsome knights court
+blushing maidens, and a mighty king stands at the center of the garden
+with his courtiers.  All faces show joy and happiness.
+~
+-1
+S
+
+#9073
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+One of the exits is in here.  (please don't remove this rbug) 
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9104 10 10 5
+D1
+~
+~
+0 -1 9090 10 10 5
+D2
+~
+~
+0 -1 9130 10 10 5
+D3
+~
+~
+0 -1 9101 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+A
+~
+~
+if( mob_in_room( 173, room ) ) {
+  send_to_char( #sorry, ch );
+  end;
+  }
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 9078 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 9078 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+room~
+$n leaves to the south.
+~
+E
+sorry~
+A mythical force prevents you from going in that direction.
+~
+E
+char~
+You feel a tingling sensation as you travel south.
+  
+~
+E
+f_arr~
+$n arrives from the north.
+~
+E
+f_leave~
+$n also goes south.
+~
+E
+arr~
+$n arrives from the north.
+~
+!
+3 2 4
+-1
+S
+
+#9074
+Center Hallway~
+The walls here are decorated with pictures depicting the glorious past of
+the builders of the castle.  Far above, a huge chandelier hangs from the
+ceiling, all glittering crystals and gold frame.  However, it is dark,
+having had no maintenance.  The north and south passages lead into the
+darkness.  A small door lies in the west wall.
+~
+~
+335020044 1 8 0
+D0
+~
+~
+0 -1 9075 10 10 5
+D1
+~
+~
+0 -1 9142 10 10 5
+D2
+~
+~
+0 -1 9071 10 10 5
+D3
+door~
+"door"~
+131 -1 9146 10 10 5
+E
+pictures paintings walls scenes murals~
+The paintings show the ancient humans battles and civilization building. 
+Warriors in antique armor and weapons are shown being led by noble kings,
+and protecting beautiful princesses.
+~
+-1
+S
+
+#9075
+Center Hallway~
+The central hallway extends to the north and south from here.  To the
+west there is a small door.  The paintings on the walls and ceiling
+continue here showing scenes of victory over the invaders.  Bloodstains
+on the walls and floor and bones scattered about mar the scenes, and show
+reality to be much less idyllic than the artist's visions.
+~
+~
+335020036 1 8 0
+D0
+~
+~
+0 -1 9076 10 10 5
+D2
+~
+~
+0 -1 9074 10 10 5
+D3
+"door"~
+"door"~
+131 -1 9077 10 10 5
+E
+murals paintings pictures walls scenes~
+The scenes show the human warrior vanquishing the craven faeries and
+running the survivors across the countryside.
+~
+-1
+S
+
+#9076
+Center Hallway.~
+This corridor extends to the north and south.  The ceiling is high and
+the walls are decorated with murals of great warriors battling despicable
+creatures.  The walls look to have been grand at one time, but to have
+fallen to disrepair.  You see a small door to the east.
+~
+~
+335020036 1 8 0
+D0
+~
+~
+0 -1 9078 10 10 5
+D1
+"door"~
+"door"~
+131 -1 9149 10 10 5
+D2
+~
+~
+0 -1 9075 10 10 5
+E
+murals pictures paintings walls scenes~
+The paintings on the walls depict battles of good versus evil, with human
+warriors battling hideous creatures and faerie-like figures.  Angels and
+saints smile down at their heroes from their places on the ceiling.
+~
+550 9 1509949540 3 0
+-1
+S
+
+#9077
+Burned Room~
+The walls are covered in what used to be shelves for books and scrolls
+but they have all been burnt to nothing.  A pile of ashes in the center
+of the room is what is left of the books and scrolls on the shelves.  The
+smell of burnt wood is still in the air, suggesting that the fire occured
+not too long ago.  A reading table sits in the northwest corner,
+amazingly undamaged by whatever destroyed the rest of the room.  The only
+exit is through the door to the east.
+~
+Considering that the items which this action loads STILL aren't finished,
+and that t is lame for players to be able to merely search, quit, search,
+quit to stockpile powerful items like scrolls of heal I have turned this
+action off, once again.  Really good items need to be guarded by mobs,
+especially when these items are high-level spells like confuse or heal in
+an area without wandering aggressive mobs of real potential threat.
+Kiian.
+~
+335020036 1 6 0
+D1
+"door"~
+"door"~
+131 -1 9075 10 10 5
+E
+pile ashes floor~
+The pile in the middle of the floor contains some bits of burnt pages and
+bindings that survived the fire, but none look to be readable by cursory
+examination.
+~
+E
+table reading corner~
+The table in the corner is made of wood and has a fine finish.  It has
+ashes all over the tabletop but remains undamaged.
+~
+A
+----XXX~
+pile ashes~
+if( !is_player( ch ) )
+  end;
+if( random( 1, 50 ) == 1 ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #ch, ch );
+    act_notchar( #room, ch );
+    i = random( 1005, 1013 );
+    obj_to_char( oload( i ), ch );
+    }
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #not, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+nope~
+You rummage through the pile of ashes but find nothing intact.
+~
+E
+not~
+You see $n kneel and rummage through the pile of ashes on the floor.
+~
+E
+room~
+$n rummages through the pile of ashes and finds a scroll.
+~
+E
+ch~
+You rummage through the pile and find a scroll still intact.
+~
+!
+0 0 0
+-1
+S
+
+#9078
+Center Hallway~
+You are standing at an intersection in the stone hallways.  To the east,
+a small, dark corridor extends away between narrow rock walls.  A great
+hall lined with painting and murals extends to the south.  To the north,
+a shimmering curtain of magic hangs across the doorway.  A door lies in
+the west wall.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9080 10 10 5
+D1
+~
+~
+0 -1 9079 10 10 5
+D2
+~
+~
+0 -1 9076 10 10 5
+D3
+"door"~
+"door"~
+131 -1 9150 10 10 5
+E
+shimmering curtain magic~
+You can see a shimmering blue curtain of magic covering the doorway to
+the north.  Placing your hand on it, you get a tingling sensation.  The
+curtain doesn't appear to be harmful.
+~
+A
+~
+~
+if( is_player( ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  continue;
+  }
+~
+E
+room~
+$n disappears into the curtain to the north.
+~
+E
+char~
+You feel a slight tingle as you pass through the curtain.  Suddenly, you
+find yourself in a criss-crossing of stone passages.  
+
+~
+!
+3 0 1
+-1
+S
+
+#9079
+Small Passage~
+Walking along this small, dank corridor, you pause momentarily to listen
+to a scraping sound echoing from somewhere to the west.  To the east, you
+can see a spiraling staircase.  To the west, you can see an intersection.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9085 10 10 5
+D3
+~
+~
+0 -1 9078 10 10 5
+-1
+S
+
+#9080
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9081 10 10 5
+D1
+~
+~
+0 -1 9103 10 10 5
+D2
+~
+~
+0 -1 9082 10 10 5
+D3
+~
+~
+0 -1 9128 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+173 9 1509949540 3 0
+-1
+S
+
+#9081
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9082 10 10 5
+D1
+~
+~
+0 -1 9102 10 10 5
+D2
+~
+~
+0 -1 9080 10 10 5
+D3
+~
+~
+0 -1 9127 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9082
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9080 10 10 5
+D1
+~
+~
+0 -1 9101 10 10 5
+D2
+~
+~
+0 -1 9081 10 10 5
+D3
+~
+~
+0 -1 9083 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9083
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9128 10 10 5
+D1
+~
+~
+0 -1 9082 10 10 5
+D2
+~
+~
+0 -1 9127 10 10 5
+D3
+~
+~
+0 -1 9084 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9084
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9129 10 10 5
+D1
+~
+~
+0 -1 9083 10 10 5
+D2
+~
+~
+0 -1 9126 10 10 5
+D3
+~
+~
+0 -1 9090 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9085
+Small Passage~
+You see a spiral staircase rising into the ceiling.  The same staircase
+also descends through the floor.  To the east and west, you see a narrow
+corridor disappearing into the darkness.  The halls are dank, and smell
+like rotting flesh.
+~
+~
+335020044 1 6 0
+D1
+~
+~
+0 -1 9093 10 10 5
+D3
+~
+~
+0 -1 9079 10 10 5
+D4
+~
+~
+227 -1 33406 10 10 5
+D5
+~
+~
+0 -1 9056 10 10 5
+E
+staircase~
+The staircase spirals both up and down, although the passage up seems to
+be somewhat blocked.  As you look down the staircase, you can make out
+very little of the lower floor.
+~
+A
+u up~
+~
+if( is_open( room, up ) ) {
+  send_to_char( #open, ch );
+  act_notchar( #room, ch );
+  continue;
+  end;
+  }
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+open( room, up );
+continue;
+~
+E
+room~
+$n climbs the spiral stairs, and disappears through a hole in the
+ceiling.  
+~
+E
+char~
+Climbing the spiral stairs, you enter a hole in the ceiling and find
+yourself in a small room.  
+ 
+~
+E
+open~
+Climbing the spiral stairs, you enter a hole in the ceiling and find
+yourself in a small room.  
+ 
+~
+!
+0 0 0
+-1
+S
+
+#9090
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9092 10 10 5
+D1
+~
+~
+0 -1 9084 10 10 5
+D2
+~
+~
+0 -1 9091 10 10 5
+D3
+~
+~
+0 -1 9073 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9091
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9090 10 10 5
+D1
+~
+~
+0 -1 9126 10 10 5
+D2
+~
+~
+0 -1 9092 10 10 5
+D3
+~
+~
+0 -1 9130 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9092
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9091 10 10 5
+D1
+~
+~
+0 -1 9129 10 10 5
+D2
+~
+~
+0 -1 9090 10 10 5
+D3
+~
+~
+0 -1 9104 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+E
+marking markings odd east~
+The markings appear to be little niches starting about two feet off the
+ground and rising towards the ceiling.  
+~
+-1
+S
+
+#9093
+Small Passage~
+The hallway comes to a corner here, its passages leading off to the west
+and south.  To the west, you can make out a spiraling staircase in the
+dark recesses of the hallway.  To the south, a large hallway bearing a
+number of paintings and murals opens up invitingly.
+~
+~
+335020036 1 6 0
+D2
+~
+~
+0 -1 9094 10 10 5
+D3
+~
+~
+0 -1 9085 10 10 5
+-1
+S
+
+#9094
+Chapel Hall~
+Smiling men and women gesture toward the entrance to the chapel to the
+west in paintings on the walls here.  The stone walls and floor are
+pitted with holes.  It seems as if acid was splashed about here.  The
+hall continues to the north and south.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9093 10 10 5
+D2
+~
+~
+0 -1 9095 10 10 5
+D3
+~
+~
+0 -1 9140 10 10 5
+E
+paintings pictures walls murals scenes~
+Angels float above the heads of the masses playing instruments and
+shining with light.  Saints lead the people in guiding the guests to the
+hallway to the chapel to the west.
+~
+E
+holes pits walls floor~
+The walls and floor are pitted with holes made from a VERY strong acid.
+~
+550 9 1509949540 3 0
+-1
+S
+
+#9095
+Chapel Hall~
+The walls are painted in rich colors with scenes of benevolent angels and
+smiling saints teaching the masses, healing their wounds, and feeding the
+hungry.  The hallway continues to the north and south from here.  Dried
+blood and cracked bones sit on the floor, testament to the fallen
+condition of the castle.
+~
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9094 10 10 5
+D2
+~
+~
+0 -1 9096 10 10 5
+E
+paintings pictures murals scenes walls~
+The pictures show the kindler, gentler side of the church, and encourage
+you to attend the chapel to the north in this hall.
+~
+E
+bones blood~
+Dried blood coats an area of the floor and wall to the east.  Gnawed
+bones of an unrecognizable source sit by the stains.
+~
+A
+search examine take steal get grab~
+bones~
+send_to_char( #ch, ch );
+~
+E
+ch~
+You see nothing of value to take.
+~
+!
+0 0 0
+-1
+S
+
+#9096
+Chapel Hall~
+There are paintings on the walls here showing evil demons and wicked
+devils being chased away by avenging angels.  The hallway continues to
+the north and south from here.  Although to the south, you can see a bend
+in the hallway.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9095 10 10 5
+D2
+~
+~
+0 -1 9097 10 10 5
+E
+paintings walls murals pictures scenes.~
+The angels of vengeance are chasing the corruption of evil right off the
+ends of the earth in these pictures.  The devils are shown with faces
+displaying complete and utter terror as the jump into the fires of hell.
+~
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+Somewhere in the distance, you can hear water dripping.
+~
+!
+2 0 0
+-1
+S
+
+#9097
+Side Hall~
+The walls depict a few lead hounds bringing to bay some horrid creatures. 
+The stone hallway extends to the north and west from here.  The darkness
+closes in around you and you hear scraping noises echo down the halls. 
+Maybe you shouldn't stay here long...
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9096 10 10 5
+D3
+~
+~
+0 -1 9098 10 10 5
+E
+paintings murals pictures walls scenes~
+The dogs fiercely snarl at and savage the frightened beasts, forcing them
+to take to the trees.  More dogs seem to be streaming in from the west. 
+You think you recognise the creatures though.  Maybe something you have
+seen inside the castle...  Maybe something right behind you...
+~
+A
+~
+~
+i = random( 0,3);
+if( i == 0 )
+  send_to_room( #scrape1, room );
+else {
+  if( i == 1)
+    send_to_room( #scrape2, room );
+  else
+    send_to_room( #scrape3, room );
+  }
+~
+E
+scrape3~
+You hear rocks tumbling as if something knocked them over to the south.
+~
+E
+scrape2~
+Something to the north breathes heavily as it slithers toward you in the
+dark.
+~
+E
+scrape1~
+You hear a scratching noise from the west, sounding like a very large
+creature's nails on the stone floor.
+~
+!
+2 100 0
+547 9 1509949540 3 0
+-1
+S
+
+#9098
+Side Hall~
+The walls here display painted hunting dogs in pursuit of something to
+the east.  The hallway splits to the east, west, and south from here. 
+The floor is littered with trash and the remains of bodies.  It seems
+that this area is the favored dumping ground of the current residents.
+~
+~
+335020044 1 6 0
+D1
+~
+~
+0 -1 9097 10 10 5
+D2
+~
+~
+0 -1 9100 10 10 5
+D3
+~
+~
+0 -1 9099 10 10 5
+E
+murals paintings walls pictures scenes~
+The dogs in the painting here flolic happily and dash in pursuit of
+something to the east further down the hall.
+~
+E
+trash remains~
+Bits of rusted metal and rotted leather mix with the bones of the former
+wearers of the ruined armor.
+~
+A
+search examine~
+trash remains bodies~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_char( oload( 12 ), ch );
+  }
+else {
+  send_to_char( #char2, ch );
+  act_notchar( #room2, ch );
+  }
+~
+E
+room2~
+$n scrounges through the trash, but finds nothing of interest.
+~
+E
+char2~
+Digging through the trash, you find nothing of interest.
+~
+E
+room~
+$n digs through the trash and finds a single copper coin.
+~
+E
+char~
+You find one lousy copper coin in all of this trash.
+~
+!
+0 0 0
+-1
+S
+
+#9099
+Side Hall~
+This part of the hallway is decorated with the figures of a hunting party
+painted on the wall.  The ceiling is not very high, in comparison to the
+hallway to the west, nor are the pictures as intricate.  The small
+hallway continues to the east and west.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9098 10 10 5
+D3
+~
+~
+0 -1 9071 10 10 5
+E
+paintings walls murals scenes pictures~
+The hunting party is decked out in antique clothing and displaying odd,
+old style weapons.  They ride down the hall to the east, and are all
+looking that way toward something out of your view.
+~
+-1
+S
+
+#9100
+Side Hall~
+The main hallway lies to the north from here, but to the south, the
+ceiling has crumbled and the way is blocked by rubble.  However, a small
+wooden door lies half open in the west wall.  The rubble has almost
+completely covered it up.
+~
+~
+335020044 1 6 0
+D0
+~
+~
+0 -1 9098 10 10 5
+D3
+~
+~
+0 -1 9139 10 10 5
+E
+rubble~
+The blocks of stone are jumbled in a pile that extends up to the ceiling. 
+Something seems strange about the stones but you can't seem to place the
+irregularity.
+~
+A
+1 look examine search~
+stones rubble pile~
+if( !is_fighting( ch )){
+  if( rflag( reset0, room )){
+    junk_mob( mob_in_room( 541, room ));
+    send_to_char( #real, ch );
+    act_notchar( #real2, ch );
+    wait( 2 );
+    mob = mload( 541, room );
+    remove_rflag( reset0, room );
+    if( find_stat( ch, level )< 90 )
+      attack( mob, ch, 2d10+1, "corrosive saliva");
+    }
+  }
+~
+E
+real2~
+You see something strange happening in the rubble.
+~
+E
+real~
+You realize that in the dark a black pudding has crept across the stone
+toward you.
+~
+!
+0 0 0
+-1
+S
+
+#9101
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9103 10 10 5
+D1
+~
+~
+0 -1 9073 10 10 5
+D2
+~
+~
+0 -1 9102 10 10 5
+D3
+~
+~
+0 -1 9082 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9102
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9101 10 10 5
+D1
+~
+~
+0 -1 9130 10 10 5
+D2
+~
+~
+0 -1 9103 10 10 5
+D3
+~
+~
+0 -1 9081 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9103
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9102 10 10 5
+D1
+~
+~
+0 -1 9104 10 10 5
+D2
+~
+~
+0 -1 9101 10 10 5
+D3
+~
+~
+0 -1 9080 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9104
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9130 10 10 5
+D1
+~
+~
+0 -1 9092 10 10 5
+D2
+~
+~
+0 -1 9073 10 10 5
+D3
+~
+~
+0 -1 9103 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9105
+Castle Graveyard~
+The fog seems to be much lighter around this grave and further to the
+north.  Looking down, you notice that the headstone which used to stand
+here has been smashed to thousands of pieces.  However, the tombstones to
+the east and south appear be in good shape despite their years.  To the
+west, a wrought iron fence extends to the north and south.  
+~
+~
+335020036 1 6 0
+D0
+~
+~
+0 -1 9006 10 10 5
+D1
+~
+~
+0 -1 9017 10 10 5
+D2
+~
+~
+0 -1 9005 10 10 5
+E
+headstone pieces~
+The headstone has been smashed by a great force.  Pieces of it lie
+scattered on the ground.  Some pieces also appear to have been ground
+into powder.  It will be impossible to tell what, if anything, was
+inscribed on it.
+~
+E
+fog~
+The fog swirls about, obscuring your vision.
+~
+-1
+S
+
+#9119
+Tomb of the Castle~
+The walls of this east-west corridor are rougher than the large hall to
+the east.  In fact, everything about this corridor is different when
+compared to the main corridor to the east.  The torches are more scarce,
+and the jewels are all but vanguished from here.  Instead, large veins of
+gold decorate the walls, and huge grooves lie embedded in the floor.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9056 10 10 5
+D3
+~
+~
+0 -1 9120 10 10 5
+E
+grooves~
+The grooves are depp scores in the wall, revealing more of the gold veins
+in the walls.  However, the grooves do not appear to have been made by
+any tools you know of...
+~
+E
+gold veins~
+The veins of gold run throughout the rocks walls.  Although the raw gold
+ore is very valuable, there is no apparent way to retrieve it.
+~
+A
+get take steal pry~
+5 jewels 3 gems~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to pry some of the gems out of the walls.
+~
+E
+get~
+You try to pry gems out of the wall, but they are too firmly embedded.
+~
+!
+0 0 0
+-1
+S
+
+#9120
+Tomb of the Castle~
+This golden bespeckled corridor continues to the east and west beneath
+the heavy rocks.  To the west, a golden glow eminates from what appears
+to be an extremely large door set within a large cavern.  To the east,
+the dark corridor continues through the rough hewn rock.  The grooves are
+more prominent here before the entrance to the cavern.
+~
+~
+335020044 1 6 0
+D1
+~
+~
+0 -1 9119 10 10 5
+D3
+~
+~
+0 -1 9121 10 10 5
+E
+glow~
+The glow comes from under the door, and it impossible, at least on this
+side of the door, to tell what is causing it.
+~
+E
+grooves~
+The grooves are quite deep here, perhaps going as far as a foot into the
+wall.  Still, they do not seem to be man made...
+~
+E
+door~
+The door itself is very nondescript, save for its huge size.  Under a
+door, a soft golden glow eminates.
+~
+-1
+S
+
+#9121
+Tomb of the Castle~
+You are standing before a large golden door set into the back wall of a
+large cavern.  Although narrow, the ceiling of the large cavern rises high
+above you.  Desperately, you strain to see the top of it in this dark and
+uninhabited area.  The door appears to glow despite the darkness which
+permeates this area.  To the east, the corridor extends back through the
+rock walls.
+~
+~
+335020036 1 6 0
+D1
+~
+~
+0 -1 9120 10 10 5
+D3
+"golden door"~
+"golden door"~
+391 102 9122 10 10 5
+-1
+S
+
+#9122
+Tomb of the Castle~
+Piles of gold and treasure lie scattered about this cavern.  The walls
+themselves appear to be laden with veins of gold.  All around you, the
+shimmer of gold is almost blinding.  To the east, a large golden door
+lies embedded in the wall.  The only other exit appears to be a large
+hole high up in the ceiling.  Huge columns rise to support that ceiling.
+~
+keep this reset low.
+at max 5%
+[Loxus] can't climb columns with level 7 climb
+~
+335020036 1 6 0
+D1
+"golden door"~
+"golden door"~
+391 102 9121 10 10 5
+E
+column columns~
+The huge marble columns rise from the floor to the celing.  One of the
+columns touches the ceiling very close to the large hole in the cavern
+roof.
+~
+E
+hole~
+The hole is at the top of the cavern, but there only seems to be one
+possible way to reach it.  You would have to climb the columns supporting
+the ceiling to get to the hole.
+~
+E
+treasure~
+Gems, weapons, and suits of armor lie around the cavern.  On the walls of
+the cavern are tapestries depicting battle scenes.  But, when you take a
+second look, you notice that many of the weapon are fused to the floor,
+and all but one suit of armor is at least partially melted.
+~
+E
+gold coins~
+Although many coins are stacked up in parts of the cavern, many more lie
+scattered and piled about.  Looking closer, you notice that many of them
+have been melted together.
+~
+A
+climb~
+columns hole~
+act_tochar( #climb, ch );
+act_notchar( #climb_room, ch );
+~
+E
+climb_room~
+$n starts to climb the columns, but slips and lands on the ground!
+~
+E
+climb~
+You find the columns too slippery to climb.
+~
+!
+0 0 0
+A
+jump reach~
+hole~
+act_tochar( #reach, ch );
+act_notchar( #reach2, ch );
+~
+E
+reach2~
+$n looks up at the hole in the cavern ceiling.
+~
+E
+reach~
+Other than climbing the columns, you see no way of reaching the hole.
+~
+!
+0 0 0
+A
+steal take get grab~
+all treasure gold piles coin coins~
+mob = mob_in_room( 543, find_room( 9122 ) );
+if( mob ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  attack( mob, ch, 6d9+3, "swinging tail" );
+  do_spell( blinding light, mob, ch );
+  }
+else {
+  send_to_char( #char2, ch );
+  act_notchar( #room2, ch );
+  remove_rflag( reset1, room );
+  wait( 1 );
+  if( char_in_room( ch, find_room( 9122 ) ) ) {
+    send_to_room( #room3, room );
+    dam_message( ch, 3d3+1, "A cursed spirit's wail" );
+    inflict( ch, mob, 3d3+1, "cursed spirit" );
+    wait( 1 );
+    if( char_in_room( ch, find_room( 9122 ) ) ) {
+      send_to_room( #room4, room );
+      set_rflag( reset1, room );
+      }
+    else
+      set_rflag( reset1, room );
+    }
+  else {
+    send_to_room( #room4, room );
+    set_rflag( reset1, room );
+    }
+  }
+~
+E
+room4~
+The cursed spirit vanishes before your eyes.
+~
+E
+room3~
+The cursed spirit opens its mouth and emits a startling wail which
+reverberates through the cavern.
+~
+E
+room2~
+As $n reaches toward the piles of treasure, a cursed spirit rises before
+$n and prepares to attack.
+~
+E
+char2~
+As you reach toward the piles of treasure, a cursed spirit rises before
+you and prepares to attack.
+~
+E
+room~
+As $n reaches to grab some of the treasure, the golden dragon shifts its
+weight and smashes $n with its tail.
+~
+E
+char~
+As you reach to grab some of the treasure, the golden dragon shifts its
+weight and smashes you with its tail.
+~
+!
+0 0 0
+A
+1 kill~
+cursed spirit~
+if( !rflag( reset1, room ) )
+  send_to_char( #char, ch );
+else
+  send_to_char( #char2, ch );
+~
+E
+char2~
+The cursed spirit is no longer before you.
+~
+E
+char~
+Surprisingly, you are unable to raise your hand to attack.
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 543, find_room( 9122 ) );
+if( is_fighting( ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  junk_mob( mob );
+  }
+continue;
+~
+E
+room~
+As $n flees, the dragon takes the opportunity to flee itself through the
+hole in the top of the cavern.
+~
+E
+char~
+As you flee the room, the dragon makes a quick get away through the hole
+at the top of cavern.
+  
+~
+!
+3 -1 2
+-1
+S
+
+#9123
+Tomb of the Castle~
+You are standing within a cavern which has been carved into the rock of
+the earth.  Judging by the markings on the wall, it would appear that a
+monstrous beast dug out this unnatural cavern.  Surprisingly, despite the
+grand nature of the jade door, the interior of this cavern is absolutely
+scarce.  It would appear that the inhabitant of this cavern doesn't need
+anything on which to sleep, does it leave remains of its "guests" lying
+about.  Looking up, you can see another rudimentary entrance to this lair.
+~
+why give a mob's type and size in the appearance?  might as well give
+it's ss # 
+mob needs a better desc -this is a dragon after all-
+an intelligent mob like this would have a better lair
+and its xp would be protected 
+[Loxus] can't climb wall even with level 7 climb
+~
+335020036 1 6 0
+D0
+"green door"~
+"green door"~
+407 491 9062 10 10 5
+E
+jade door~
+The door to the north is made completely of jade stone.  It is a very
+rich color and sends a sense of awe to you.  For a door, it is quite
+impressive.
+~
+E
+4 cavern interior 1 up~
+The cavern is very large, with a wide, flat, stone floor and smooth walls
+extending up to a ceiling far above.  You can barely see it for the gloom. 
+A darker patch appears in the wall next to the ceiling, a hole to a cave,
+probably for the resident to exit the cavern.
+~
+A
+2 climb~
+rock wall cavern hole 1 up~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n attempts to climb the cavern wall.
+~
+E
+char~
+You are unable to find a grip on the smooth surface of the cavern wall.
+~
+!
+0 0 0
+-1
+S
+
+#9124
+Tomb of the Castle.~
+This room is lit by several torches which line the walls.  Upon the table
+in this room, which contains no other furniture, lies a stack of coins
+which shimmer invitingly in the glow of the torches.  To the south lies
+what looks to be a burial chamber.  From the inscription on wall, you can
+guess that the person buried there is of some importance.
+~
+too much gold here
+~
+335020045 1 6 0
+D2
+~
+~
+0 -1 9067 10 10 5
+D3
+~
+~
+0 -1 9053 10 10 5
+E
+chamber~
+From what you can make out of the burial chamber, it seems to fit the
+rest of this place.  Time has been cruel to it, and its glory has long
+passed.
+~
+E
+inscription~
+The inscription, which has been worn away in some parts, says that the
+Prince of the land is interred in the burial chamber.  Furthermore, it
+states that because of his bravery, the land was saved, even though it
+cost the Prince his life.
+~
+E
+table~
+The table is made from a stout wood, perhaps ironwood.  Upon it sits a
+stack of coins.
+~
+E
+torches~
+The torches, which provide the only light here, are securely mounted to
+the wall.  They seem to be made of some kind of wood covered in a resin,
+perhaps so they will burn longer.
+~
+A
+l lo loo look~
+coin coins stack~
+if( rflag( reset2, room ) )
+  send_to_char( #look, ch );
+else
+  send_to_char( #none, ch );
+~
+E
+none~
+You see a couple of cheap, imitation coins stacked on the table.  They
+aren't worth the metal in which they are carved.
+~
+E
+look~
+The stack of coins, strangely, does not have any dust on them, although
+the rest of the table is thick with it.  The coins themselves are fairly
+nondescriptive.
+
+The stack of coins seems to shine as you look at them.
+~
+!
+0 0 0
+A
+2 get take~
+4 coins stack all~
+if( rflag( reset2, room ) ) {
+  if( !rflag( reset1, room ) ) {
+    set_rflag( reset1, room );
+    remove_rflag( reset2, room );
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    obj_to_char( oload( 2 ), ch );
+    }
+  else {
+    remove_rflag( reset2, room );
+    send_to_char( #oops, ch );
+    set_rflag( status2, room );
+    act_notchar( #room_oops, ch );
+    do_spell( curse, ch, ch );
+    wait( 1 );
+    send_to_room( #vanish, room );
+    }
+  }
+else {
+  act_tochar( #none, ch );
+  act_notchar( #none_room, ch );
+  }
+~
+E
+vanish~
+All of the valuable coins shimmer and fade away, leaving only worthless coins.
+~
+E
+room_oops~
+As $n reaches for the pile of coins, an ethereal growl erupts from the
+room to the south, enveloping $m in a cloud of darkness.
+~
+E
+oops~
+As you reach for the pile of coins, an ethereal growl erupts from the
+room to the south, enveloping you in a cloud of darkness.
+~
+E
+none_room~
+$n says, "These coins are worthless!" pointing at the coins on the table.
+~
+E
+none~
+The pile of coins aren't even worth the effort of taking them off the
+table.
+~
+E
+room~
+$n gets a pile of gold coins from the table.
+~
+E
+char~
+You get a pile of gold coins from the table.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+remove_rflag( status2, room );
+wait( 1 );
+if( !cflag( 19, ch ) )
+  send_to_room( #cry, room );
+else
+  continue;
+~
+E
+cry~
+You hear a cry for help come from the room to the south!
+~
+!
+1 1 8
+-1
+S
+
+#9125
+Tomb of the Castle~
+This small corridor extends from the main corridor to the west.  The hall
+appears to have been made rather hastily.  Jewels and torches line the
+walls at varying intervals.  Above you, wooden beams support the rock
+ceiling.  A wooden door with steel bands lies in the east wall.
+~
+I make the door reset locked and added the Imm Skeleton Key.  We need
+more uses for thieves, and I doubt that a castle's back door, to a tomb
+no less, would be left open.
+Kiian.
+~
+335020045 1 6 0
+D1
+'steel-banded door'~
+'steel-banded door'~
+391 62 9070 10 10 5
+D3
+~
+~
+0 -1 9056 10 10 5
+E
+jewels~
+The jewels in the walls are quite small, with only an occasional one of
+medium size.  The jewels sparkle a bit in the light.
+~
+E
+torches~
+The torches are securely mounted on the wall, and provide most of the
+light in this corridor.
+~
+E
+door~
+The door is steel banded, and looks to be quite tough.  The wood is of
+some tough oak, and very well could be as tough as the steel bands.
+~
+E
+beams~
+The wooden beams might be supports of some kind, but they do not look to
+be large enough to handle the job.  Although made out of the same tough
+oak as the door, the beams are only a few inches square.
+~
+A
+pry get steal take~
+5 jewels 3 gems~
+act_tochar( #get, ch );
+act_notchar( #get_room, ch );
+~
+E
+get_room~
+$n tries to pry some of the gems out of the walls.
+~
+E
+get~
+You try to pry gems out of the wall, but they are too firmly embedded.
+~
+!
+0 0 0
+-1
+S
+
+#9126
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9084 10 10 5
+D1
+~
+~
+0 -1 9127 10 10 5
+D2
+~
+~
+0 -1 9129 10 10 5
+D3
+~
+~
+0 -1 9091 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9127
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+One of the exits is in here.  (please don't remove this rbug) 
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9083 10 10 5
+D1
+~
+~
+0 -1 9081 10 10 5
+D2
+~
+~
+0 -1 9128 10 10 5
+D3
+~
+~
+0 -1 9126 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+A
+~
+~
+if( mob_in_room( 173, room ) ) {
+  send_to_char( #sorry, ch );
+  end;
+  }
+if( is_player( ch ) ) {
+  send_to_char( #char, ch );
+  transfer( ch, find_room( 9078 ) );
+  act_notchar( #arr, ch );
+  loop( followers ) {
+    act_notchar( #f_leave, rch );
+    transfer( rch, find_room( 9078 ) );
+    act_notchar( #f_arr, rch );
+    }
+  }
+~
+E
+sorry~
+A mythical force prevents you from going in that direction.
+~
+E
+f_arr~
+$n arrives from the north.
+~
+E
+f_leave~
+$n also goes south.
+~
+E
+char~
+You feel a tingling sensation as you walk south.
+~
+E
+arr~
+$n arrives from the north.
+~
+!
+3 2 4
+-1
+S
+
+#9128
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9127 10 10 5
+D1
+~
+~
+0 -1 9080 10 10 5
+D2
+~
+~
+0 -1 9083 10 10 5
+D3
+~
+~
+0 -1 9129 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9129
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9126 10 10 5
+D1
+~
+~
+0 -1 9128 10 10 5
+D2
+~
+~
+0 -1 9084 10 10 5
+D3
+~
+~
+0 -1 9092 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9130
+Stone Maze~
+The walls of the maze seem to close in about you.  Although the walls and
+ceiling are solid stone, the room seems cramped.  Tunnels lead off in all
+directions.  You feel like you are traveling in circles through these
+winding halls.
+~
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9073 10 10 5
+D1
+~
+~
+0 -1 9091 10 10 5
+D2
+~
+~
+0 -1 9104 10 10 5
+D3
+~
+~
+0 -1 9102 10 10 5
+E
+solid stone wall tunnel~
+The stone walls themselves offer no means of escape, as the joints
+between the blocks are barely visible.  No matter which room you are in,
+all of the walls are indistinguishable from eachother.
+~
+-1
+S
+
+#9131
+Hall of Codes.~
+Under Construction.
+~
+~
+335020036 1 9 0
+D1
+~
+~
+0 -1 9096 10 10 5
+-1
+S
+
+#9132
+Rough Cave~
+The cave behind the crack is rough hewn and the floors are uneven in many
+places.  Surprisingly, the floor has not succumbed to the wear of time. 
+It is possible that the cave has opened up recently due to several
+earthquakes which seem to be happening quite often in these parts.  The
+cave continues to the west, and a fissure in the wall leads back out to
+the hallway to the east.
+~
+crack/fissure, floor
+cave behind the crack makes sense if you're coming from the hallway but
+what about the other direction?
+seem to be happening or which have occured
+~
+335020044 1 9 0
+D1
+~
+~
+0 -1 9055 10 10 5
+D3
+~
+~
+0 -1 9133 10 10 5
+-1
+S
+
+#9133
+Rough Cave~
+The cave splits here to the north, east, and west.  Rank smells come
+wafting out of the western exit, and insectlike chittering emanates from
+the north.  Perhaps you didn't want to explore here after all.
+~
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9134 10 10 5
+D1
+~
+~
+0 -1 9132 10 10 5
+D3
+~
+~
+0 -1 9137 10 10 5
+A
+listen smell~
+~
+act_tochar( #sm, ch );
+~
+E
+sm~
+You smell the sickly smell of rotting meat and sweat coming from the
+west, and hear something chittering like an insect to the north.
+~
+!
+0 0 0
+-1
+S
+
+#9134
+Rough Cave~
+The cave bends to the west and south from here.  The floor is very uneven
+through this cave and the rock walls lean over you ominously.  Sticky
+gobs of white stringy stuff hang from the walls and ceiling.  Listening
+carefully, you can hear clicking sounds coming from the west.
+~
+~
+335020036 1 9 0
+D2
+~
+~
+0 -1 9133 10 10 5
+D3
+~
+~
+0 -1 9136 10 10 5
+E
+gobs stringy stuff sticky~
+It appears to be webbing from a spider, though it is much larger in scale
+than your average arachnid.
+~
+81 17 1509949540 -2 0
+-1
+S
+
+#9135
+Hall of Codes.~
+Under Construction.
+~
+~
+335020036 1 9 0
+D2
+~
+~
+0 -1 9134 10 10 5
+-1
+S
+
+#9136
+Webbed Room~
+The cave comes to an end here.  The stone walls and floor are very rough
+and some places seem as if they might fall in.  The stringy masses come
+together here to form a massive web.  Bundles of webbing hang in the web
+containing the future meals of the creature that makes its home here.
+~
+aedit for getting what is inside the bundles
+~
+335020036 1 9 0
+D1
+~
+~
+0 -1 9134 10 10 5
+E
+bundles victims~
+Well wrapped packages of webbing hang about in the web or rest on the
+floor.  One of them seems to wiggle briefly as you look at it.
+~
+E
+web~
+The web is a complex twisting of strands of sticky strings.  The strings
+cross each other and connect to the wall in no apparent pattern.
+~
+434 9 1509949540 3 0
+-1
+S
+
+#9137
+Rough Cave~
+The rock walls bend here, extending away to the east and south.  Bones
+and trash from the bodies of unfortunate victims of this cave's resident
+litter the floor.  A dank lair lies to the south of here.  Perhaps the
+resident would like to have you in for a visit...
+~
+~
+335020036 1 9 0
+D1
+~
+~
+0 -1 9133 10 10 5
+D2
+~
+~
+0 -1 9138 10 10 5
+E
+trash bodies bones~
+Bodies and bones of what might or might not have been humans lie on the
+floor.  Bits of ruined clothing and scraps of metal are scattered between
+the rotting remains.
+~
+-1
+S
+
+#9138
+Lair~
+The lair of the drachna is clean of all the mess of the entrance to the
+north, except for his latest meal which still lies on the floor.  A nest
+made of twisted cloth lies in the corner.  Rudimentary paintings decorate
+the rock walls, depicting some truly bizarre creatures.  The only exit is
+to the north.
+~
+~
+335020036 1 9 0
+D0
+~
+~
+0 -1 9137 10 10 5
+E
+paintings~
+Simple paintings cover the walls around the nest of rags.  They are
+painted using crushed colored rock, and a brown colored die.  Could it be
+dried blood?
+~
+E
+meal~
+The drachna's meal is the half munched up corpse at its feet.
+~
+E
+nest~
+A nest made of rags lies in the corner.
+~
+A
+get~
+all corpse plate~
+if( mob_in_room( 630, room ) ) { 
+  send_to_room( #attack, room );
+  attack( mob, ch, 3d5+5, "sharp claws" );
+  }
+else
+  continue;
+~
+E
+attack~
+The drachna snarls and attacks!!!
+~
+!
+0 0 0
+630 9 1509949540 3 0
+567 17 1509949460 -2 0
+607 17 1509949445 -2 0
+567 16 1509949520 -2 0
+-1
+S
+
+#9139
+Castle Garden~
+The first thing to strike you about this garden is the wonderful aroma of
+many flowers which appear to be in full bloom.  The flowers and bushes
+grow in rows along the edges.  A large tree grows in the center of the
+garden.  Green grass fills every available spot on the ground.  The
+chirping of birds can be heard coming from the west.
+~
+~
+335020045 1 9 0
+D1
+~
+~
+0 -1 9100 10 10 5
+D3
+~
+~
+0 -1 9148 10 10 5
+E
+flower flowers bush bushes~
+Flowers and bushes of all types, makes and sizes grow within this small
+garden.  The bushes appear to make an enclosure about you.
+~
+E
+tree~
+A singular, large tree appears to be growing in the center of the garden.
+~
+A
+touch examine search~
+oak tree~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n examines the oak tree.
+~
+E
+char~
+Reaching out to touch the tree, your hand passes right through the bark
+and encounters a wooden ladder.
+~
+!
+0 0 0
+A
+cli climb~
+ladder oak tree wooden~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 33395 ) );
+act_notchar( #arr, ch ); 
+~
+E
+arr~
+$n climbs up through a hidden door in the floor.
+~
+E
+room~
+$n climbs up the oak tree and disappears into the thick foliage.
+~
+E
+char~
+You climb up the tree and disappear through a hole in the ceiling.
+~
+!
+0 0 0
+A
+touch examine search~
+flower flowers bush bushes~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n bends over to examine the bushes and flowers.
+~
+E
+char~
+You attempt to examine some of the objects in the garden, but your hands
+pass right through everything.
+~
+!
+0 0 0
+-1
+S
+
+#9140
+Chapel~
+The walls of this place are of white granite, unlike any of the other
+stone which makes up this castle.  The floor resembles a gray and white
+checkerboard mosaic.  A large white altar is set into the north wall,
+adorned with candleholders, a holy symbol and a large book.  Behind the
+altar, a large tapestry covers the entire north wall.  To the south are
+several long benches and pews.  The chapel continues to the south, and
+the exit is to the east.
+~
+[Seltha] The tapestry thinks everyone is a 'he'.
+~
+335020428 1 9 0
+D1
+~
+~
+0 -1 9094 10 10 5
+D2
+~
+~
+0 -1 9141 10 10 5
+E
+altar~
+Clean and smooth, this altar appears to have been untouched by human
+hands.  Adorned with relics and religious items, you can sense a feeling
+of great power guarding the altar.
+~
+E
+candleholder candleholders holy symbol book~
+You try to examine the items on the altar closer, but a strange force
+prevents you.
+~
+E
+tapestry 1 north~
+The tapestry along the north wall behind the altar depicts a dazzling
+portrayal of a powerful cleric shrouded in heavy white robes with his
+arms raised to the sky.
+~
+A
+touch feel examine get take steal grab~
+altar candleholder candleholders book holy symbol~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+inflict( ch, mob, 0d0+5, "A small spark from the altar" );
+dam_message( ch, 0d0+5, "A small spark from the altar" );
+~
+E
+room~
+$n gets shocked by a small spark which comes from the altar.
+~
+E
+char~
+As you reach to touch the altar, you are shocked by a small spark.
+  
+~
+!
+0 0 0
+A
+move touch push~
+tapestry~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+transfer( ch, find_room( 9149 ) );
+act_notchar( #ent, ch );
+~
+E
+ent~
+$n steps out from the mirror looking somewhat bewildered.
+~
+E
+not~
+$n disappears from the room after messing with the tapestry.
+~
+E
+ch~
+You feel a tugging sensation and you are surrounded by a grey mist.
+~
+!
+0 0 0
+A
+sacrifice meditate pray kneel~
+~
+if( !find_stat( ch, align ) == 0 ) 
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_room( #call, ch );
+  wait( 1 );
+  act_room( #enter, ch );
+  mob = mload( 13, room );
+  wait( 1 );
+  act_notchar( #not, ch );
+  act_tochar( #bless, ch );
+  do_spell( bless, mob, ch );
+  wait( 1 );
+  act_room( #leave, ch );
+  junk_mob( mob );
+  }
+continue;
+~
+E
+leave~
+The angel smiles at you and dissappears.
+The room suddenly goes dim and becomes silent.
+~
+E
+not~
+You see the angel touch $n lightly on the head.
+~
+E
+enter~
+An angel with a kind smile suddenly appears.
+The angel glows with a bright light.
+~
+E
+call~
+A bright light fills the room, and music seems to course about in the air.
+~
+E
+bless~
+You feel the blessing of the god that is worshipped here.
+The angel casts a blessing on you.
+~
+!
+0 0 0
+-1
+S
+
+#9141
+Chapel~
+This portion of the chapel has a huge domed ceiling which is supported by
+four large pillars at each corner.  Long, wooden pews and benches lie in
+perfect rows along the checkered floor.  At the back of the chapel, a
+raised dias extends from the south wall with a large throne sitting upon
+its upper tier.  The lower tier of the raised dias contains two smaller
+thrones.  Each throne is also made of white marble.  The thrones stand
+facing the altar which lies to the north.
+~
+[Arathorn] it would be sacriliuge to sit in the temple but i have mo problem sitting on the floor
+~
+335020300 1 9 0
+D0
+~
+~
+0 -1 9140 10 10 5
+E
+wooden pew pews bench benches~
+The wooden benches and pews which line the center of the room appear to
+bely their actual age.  You are amazed at their excellent condition.
+~
+E
+ceiling dome~
+Far above you, the domed ceiling is adorned with a painting depicting the
+heavens.  Angels float serenely within the clouds.
+~
+E
+6 pillars~
+Huge marble pillars support the heavy domed ceiling.  The pillars appear
+to be unmarred.
+~
+E
+dias thrones smaller throne~
+All three thrones appear to be made of the finest granite.  Their
+surfaces are smooth to the touch.
+~
+A
+touch feel~
+throne thrones~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n reaches out and feels the surface of the throne.
+~
+E
+char~
+You reach out and touch the smooth surface of the throne.
+~
+!
+0 0 0
+A
+sit~
+wooden pew pews bench benches throne thrones~
+send_to_char( #char, ch );
+~
+E
+char~
+It would be a sacrilege to sit down in the temple.
+~
+!
+0 0 0
+542 9 1509949540 3 0
+-1
+S
+
+#9142
+Banquet Hall~
+This room is a large hall, continuing on to the north.  Long tables run
+down the length of the room, with a smaller table sitting across the room
+on this end.  The smaller table is probably the head table, where the
+host of the banquet would sit with his honored guests and family. 
+Between the long tables is a smaller table to place the meal while the
+servants serve food from it.  This room is richly decorated with
+paintings on the walls and a high ceiling gilded and painted.  A curtain
+leading to a room to the east and the exit to the west are the only exits
+from this large room.
+~
+~
+335020044 1 9 0
+D0
+~
+~
+0 -1 9144 10 10 5
+D1
+~
+~
+0 -1 9143 10 10 5
+D3
+~
+~
+0 -1 9074 10 10 5
+E
+tables~
+Two long tables run north-south along the length of the hall with room
+between them in the center.  A head table sits east-west in the southern
+end of the room.  The tables are bare of settings, though a few goblets
+are abandoned on the head table.
+~
+E
+walls ceiling~
+The walls are covered in a brightly colored mural of a fine feast, with
+ejugglers and actors entertaining the feasters.  The ceiling is painted
+to resemble ta blue sky with puffy clouds and beautiful birds sporting
+about.
+~
+-1
+S
+
+#9143
+Dumbwaiter alcove~
+Behind the curtain from the hall is this small room.  By the east wall,
+a table rests with a large platter sitting on it.  Rotten meat and
+vegetables sit on the platter, leavings from a huge meal. A small
+opening is set in the south wall, and beside it is a rope pull.
+~
+~
+335020036 1 9 0
+D3
+~
+~
+0 -1 9142 10 10 5
+E
+meat vegetables table platter~
+There is a small table with a large platter sitting on it.  Rotting food
+sits on the platter.
+~
+E
+rope dumbwaiter north opening~
+The small opening opens to a tiny platform.  Looking up, there is no
+visible ceiling above the platform.  It appears the platform is a
+dumbwaiter, an elevator to shuttle food between floors. 
+~
+A
+l look~
+opening dumbwaiter~
+act_tochar( #look, ch );
+if( rflag( reset0, room ) )
+  act_tochar( #up, ch );
+else
+  act_tochar( #down, ch );
+~
+E
+down~
+The dumbwaiter is on this level.
+~
+E
+up~
+The dumbwaiter is up.
+~
+E
+look~
+The small door opens to a tiny platform.  Looking up, there is no visible
+ceiling above the platform.  It appears the platform is a dumbwaiter, an
+elevator to shuttle food between floors.
+~
+!
+0 0 0
+A
+pull~
+rope~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #chardown, ch );
+  act_notchar( #down, ch );
+  }
+else {
+  set_rflag( reset0, room );
+  send_to_char( #charup, ch );
+  act_notchar( #up, ch );
+  }
+send_to_room( #rumble, find_room( 33364 ) );
+send_to_room( #moving, find_room( 9151 ) );
+~
+E
+moving~
+You feel the dumbwaiter moving all of a sudden.
+~
+E
+charup~
+You pull the rope sending the dumbwaiter platform up.
+~
+E
+chardown~
+You pull the rope bringing the dumbwaiter platform down.
+~
+E
+rumble~
+You hear a rumble from the dumbwaiter opening.
+~
+E
+up~
+$n pulls the rope sending the dumbwaiter platform up.
+~
+E
+down~
+$n pulls the rope bringing the dumbwaiter platform down.
+~
+!
+0 0 0
+A
+enter~
+opening platform dumbwaiter~
+if( rflag( reset0, find_room( 9143 ) ) ) {
+  act_tochar( #ch, ch );
+  end;
+  }
+if( !players_room( find_room( 9151 ) ) ) {
+  send_to_char( #room, ch );
+  act_notchar( #not, ch );
+  transfer( ch, find_room( 9151 ) );
+  }
+else
+  send_to_char( #sorry, ch );
+~
+E
+sorry~
+Somebody is already filling up the entire dumbwaiter.
+~
+E
+room~
+You enter the dumbwaiter.
+~
+E
+not~
+You see $n enter the dumbwaiter opening.
+~
+E
+ch~
+The dumbwaiter platform is up.
+~
+!
+0 0 0
+-1
+S
+
+#9144
+Banquet Hall~
+This is the northern end of the hall.  The long tables come to an end
+here, and a small stage is set up for bands or plays.  Two statues of a
+man and a woman fill the northwest and northeast corners.  Picked over
+bones and scraps of metal and leather lie scattered about, looking to be
+the remains of yet another victim of the monsters roaming the castle.
+~
+[Arathorn] when you type get spear you get the message the statue you bothered slaps you hand away-but when the statue is defeated and you look statue, the one with the spear remains
+~
+335020036 1 9 0
+D2
+~
+~
+0 -1 9142 10 10 5
+E
+tables~
+The long tables from the southern end of the room end here, a short
+distance from the stage.
+~
+E
+stage~
+The stage is a small platform, set about 2' from the floor, and about 8'
+by 10' in size.
+~
+E
+scraps remains metal leather~
+Bits of rusted metal and rotten leather lie mixed with the bones of the
+unfortunate who used to wear them.
+~
+A
+remove get take steal~
+cloth clothes loincloth spear~
+if( !is_fighting( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #ch, ch );
+    act_notchar( #not, ch );
+    mob = mload( 43, room );
+    wait( 1);
+    attack( mob, ch, 4d4, "stone fist" );
+    }
+  }
+if( num_mob( 43, room ) < 2 ) {
+  if( !rflag( reset0, room ) ) {
+    if( rflag( reset1, room ) ) {
+      remove_rflag( reset1, room );
+      act_tochar( #sec, ch );
+      act_notchar( #notsec, ch );
+      mob = mload( 826, room );
+      wait( 1 );
+      attack( mob, ch, 4d4, "stone fist" );
+      }
+    else
+      send_to_char( #nostat, ch );
+    }
+  }
+~
+E
+nostat~
+You see only the base of each statue there.
+~
+E
+notsec~
+$n disturbs the other statue, and it comes on swinging.
+~
+E
+sec~
+You disturb the other statue, and it lumbers into the fight.
+~
+E
+not~
+You see $n reach to remove a statue's clothing, and it slaps his hand.
+~
+E
+ch~
+The statue you bothered comes to life and slaps your hand away.
+~
+!
+0 0 0
+A
+1 look examine search~
+4 statues~
+if( mob_in_room( 43, room ) ) {
+  continue;
+  end;
+  }
+if( mob_in_room( 826, room ) ) {
+  continue;
+  end;
+  }
+if( !rflag( reset0, room ) ) {
+  if( !rflag( reset1, room ) )
+    send_to_char( #none, ch );
+  else
+    send_to_char( #one, ch );
+  }
+else
+  send_to_char( #char, ch );
+~
+E
+none~
+The only thing you see are the remnants of two statue bases.
+~
+E
+one~
+A statue of a handsome man, muscular and tall, stands in the northwest
+corner.  He wears only a loincloth and carries a spear.  The other statue
+is missing, only the base remains.
+~
+E
+char~
+A statue of a handsome man, muscular and tall, stands in the northwest
+corner.  He wears only a loincloth and carries a spear.  The other statue
+is of a beautiful woman with long flowing hair, wearing a scant cloth
+about her hips and breasts.
+~
+!
+0 0 0
+-1
+S
+
+#9145
+Guard's Training Room~
+The floor in this room is marked off so that the outer area is a
+different color than the center.  White lines have been drawn across the
+center, marking off sections.  Various weights and dummies are spaced
+along the edges going to the south.  Wooden swords and polearms stand in
+makeshift wall units at varying intervals.  The only door lies to the
+east.
+~
+~
+335020044 1 7 0
+D1
+"door"~
+"door"~
+131 -1 9071 10 10 5
+D2
+~
+~
+0 -1 9147 10 10 5
+E
+color~
+The area along the outside practice areas is of a dark blue.  The inside
+is somewhat lighter in hue.
+~
+E
+floor lines sections markings~
+The floor is divided into four areas from the center as practice areas
+for fighting.  The white lines separate the floor in 10' by 10' squares
+separated by 3' strips of floor between them.
+~
+E
+weights~
+Weight benches and racks of barbells are grouped in one corner.  They
+seem to have seen some use lately, in contrast to the dust covering 
+the other rooms on this floor.
+~
+E
+wooden swords polearms wall units~
+Wooden practice weapons rest in racks set about the room in intervals by
+the markings in the floor.  They look to be worthless for anything but
+instruction and practice.
+~
+E
+dummies~
+Punching bags and weighted body shaped dummies fill another corner,
+waiting for someone to come along and slap them around.
+~
+A
+punch slap kick~
+bag dummy dummies~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+not~
+You see $n attack a practice pad with a flurry of blows.
+~
+E
+ch~
+You attack a practice pad with a flurry of blows, and feel good about
+yourself for the exercise.
+~
+!
+0 0 0
+A
+take get~
+wooden swords weapons~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+not~
+You see $n pick up a wooden practice weapon, and drop it in disgust.
+~
+E
+ch~
+You pick up a practice weapon, but realize it is not worth the bother. 
+It is good for nothing but practicing play fights.
+~
+!
+0 0 0
+A
+get take lift~
+weights barbells~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+not~
+You see $n pick up a exercise weight, grunting with the effort, and set
+it back down.
+~
+E
+ch~
+You pick up a heavy weight and heft it.  It feels too much like
+recreational exercise so you put it back down.
+~
+!
+0 0 0
+12 9 1509949540 3 0
+-1
+S
+
+#9146
+Guard's Sleeping Quarters~
+Two rows of bunks stand across the room, neatly made and untouched.  Dust
+an inch thick covers everything in this room.  Footlockers sit on the
+floor, some tipped over and the contents rummaged through, but some sit
+by the foot of the bunks, unopened.  The walls are unadorned and there is
+nothing else of note in the room.  The only exit is the door in the east.
+~
+[Arathorn] no message when you search footlockers unless they are opened
+~
+335020036 1 9 0
+D1
+"door"~
+"door"~
+131 -1 9074 10 10 5
+E
+footlocker locker chest~
+The footlockers are simple wooden boxes with metal hinges and plain
+latches.  Some lay open and show their contents of common personal junk,
+while others sit closed by the bunks.
+~
+E
+bunks beds rows~
+Two rows of bunks, simple flat beds stacked three high, sit lined up
+across the room.  They are covered with a thin blanket and a lumpy pillow.
+~
+A
+search get examine~
+footlocker locker chest~
+if( rflag( reset0, room ) ) {
+  if( !rflag( reset1, room ) ){
+    remove_rflag( reset0, room );
+    if( random( 1, 10 ) == 1 ) {
+      obj_to_char( oload( 3029 ), ch );
+      obj_to_char( oload( 14 ), ch );
+      act_tochar( #obj, ch );
+      act_notchar( #not, ch );
+      }
+    else {
+      act_tochar( #ch, ch );
+      act_notchar( #nonot, ch );
+      }
+    }
+  }
+else {
+  act_tochar( #ch, ch );
+  act_notchar( #nonot, ch );
+  }
+~
+E
+nonot~
+You see $n search through the footlockers but find nothing of value in
+them.
+~
+E
+not~
+You see $n search through the lockers and find a dagger and some money in
+one of them.
+~
+E
+obj~
+You find a long dagger, and a silver coin in one locker.  None of the
+others have anything of value in them.
+~
+E
+ch~
+You find nothing worth picking up in the footlockers.
+~
+!
+0 0 0
+A
+open~
+chest footlocker locker~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  act_tochar( #ch, ch );
+  act_notchar( #not, ch );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+open~
+The footlocker is already open.
+~
+E
+not~
+You see $n open a footlocker.
+~
+E
+ch~
+You open a footlocker.
+~
+!
+0 0 0
+534 9 1509949540 3 0
+-1
+S
+
+#9147
+Guard's Training Room~
+Several targets and dummies line the wall, as well as other assorted
+equipment for hand-to-hand combat training.  This room had all the
+necessary amenities to keep the king's guardsmen well trained and ready
+for battle.  The room continues to the north.
+~
+maybe a beholder and a gas spore should have the same mset long so that
+players can't tell them apart?  kinda defeats the purpose of a gas spore
+if you recognize it as such - k 
+~
+335020036 1 7 0
+D0
+~
+~
+0 -1 9145 10 10 5
+E
+targets dummies equipment~
+Various practice pads and punching bags hang on the wall, waiting to be
+bashed about for practice.
+~
+A
+punch kick slap bash~
+dummy dummies target punching bag~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+continue;
+~
+E
+not~
+You see $n attack a practice pad and break it off its teather.  It falls
+to the floor with a thud and a faint clinking sound.
+~
+E
+ch~
+You send the pad reeling about on its teather, which breaks and sends the
+pad crashing to the floor.  You hear the expected thud, but also hear the
+clinking of coins.
+~
+!
+0 0 0
+551 9 1509949540 3 0
+-1
+S
+
+#9148
+Castle Garden~
+A line of bushes encloses this area to the north, south and west.  In the
+southwest corner, a small pond ripples back and forth.  To the east, you
+can see a large oak tree standing in the center of the garden.  You are
+amazed at how peaceful this garden appears with its green grass and
+healthy plants.
+~
+~
+335020036 1 9 0
+D1
+~
+~
+0 -1 9139 10 10 5
+E
+flower flowers bush bushes~
+Flowers and bushes of all types, makes and sizes grow within this small
+garden.  The bushes appear to make an enclosure about you.
+~
+E
+pond~
+The pond's surface ripples ever so slightly.
+~
+A
+2 drink~
+pond water~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n makes an odd face as $e scoops $s hand under the surface of the water.
+~
+E
+char~
+You attempt to dip your hand in the pond, but cannot find any resistance.
+~
+!
+0 0 0
+A
+touch examine search~
+flower flowers bush bushes~
+send_to_char( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+not~
+$n bends over to examine the bushes and flowers.
+~
+E
+ch~
+You attempt to examine some of the plants in the garden, but your hands
+pass right through everything.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+A bird flies down, scoops up some water from the pond with its beak, then
+disappears into the bushes.
+~
+!
+2 0 0
+36 9 1509949540 3 0
+-1
+S
+
+#9149
+Priest's Quarters~
+The priest's quarters are unlike any other room in the castle you have
+seen.  The room has a musty odor and everything has a coat of dust on it. 
+A spicy scent comes from the shelf full of magical reagents standing
+against the southern wall.  Aside from a small, comfortable bed and an
+even smaller nightstand, the only other discernable object in this room
+is the mirror on the east wall.  The only exit is through the door to the
+west.
+~
+~
+335020036 1 5 0
+D3
+"door"~
+"door"~
+131 -1 9076 10 10 5
+E
+mirror~
+The mirror is a expensive looking item.  It has a fine silver frame and a
+crystal clear image, though a grey cloud seems to swim around the edges.
+~
+E
+bed nightstand~
+The bed is covered with quilt made of fine cloth, fashioned to show a
+priest worshiping a benovalent god.  Beside the bed is a small wooden
+nightstand.
+~
+E
+shelf magical reagents 1 south~
+The shelf cabinet is made of fine wood, richly stained and exquisitely
+carved.  The three shelves hold jars of magical reagents.  Some of the
+jars stand open, exposing their contents to the harsh air, but some are
+still sealed and the reagents are still intact.
+~
+A
+get~
+jars shelves reagents~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_notchar( #not, ch );
+  act_tochar( #ch, ch );
+loop( all_in_room ) {
+i = random( 1, 3 );
+j = random( 1, 2 );
+    if( i == 1 ) {
+      if( j == 1 )
+        obj_to_char( oload( 37 ), ch );
+      else
+        obj_to_char( oload( 78 ), ch );
+      }
+    if( i == 2 ) {
+      if( j == 1 )
+        obj_to_char( oload( 79 ), ch );
+      else
+        obj_to_char( oload( 81 ), ch );
+      }
+    else
+      if( j == 1 )
+      obj_to_char( oload( 280 ), ch );
+    else
+      obj_to_char( oload( 284 ), ch );
+    }
+  }
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+There are no magic reagent of any use in any of the jars.
+~
+E
+ch~
+You get some spell components from the shelves.
+~
+E
+not~
+$n gets some magic reagents from the shelves.
+~
+!
+0 0 0
+A
+enter~
+mirror~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+wait( 2 );
+transfer( ch, find_room( 9140 ) );
+act_tochar( #tap, ch );
+act_notchar( #new, ch );
+~
+E
+new~
+$n suddenly appears, pushing the tapestry out of his way.
+~
+E
+tap~
+Pushing the tapestry out of the way, you enter a new room.
+~
+E
+not~
+You notice $n slide into the mirror.
+~
+E
+ch~
+You sink slowly into a grey misty cloud behind the mirror's surface.
+~
+!
+0 0 0
+A
+touch get break smash~
+mirror~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+not~
+You notice something wierd about the mirror $n is examining.
+~
+E
+ch~
+Your hand or any object you touch to it seems to sink into the mirror's
+surface.
+~
+!
+0 0 0
+-1
+S
+
+#9150
+Storage Closet~
+The air is damp in this tiny little storage room where, topped by a thin
+layer of dust, linen and extra supplies lie scattered about the room. 
+Apparently, somebody has raided this room in the recent past in search of
+who knows what.  Empty shelves covered with a thin layer of dust line the
+walls on all sides.  The only exit is back through the door to the east.
+~
+~
+335020044 1 9 0
+D1
+"door"~
+"door"~
+131 -1 9078 10 10 5
+E
+room~
+Although small, this room seems adequate enough to hold a bountiful
+supply of extra cots, blankets and cleaning supplies.
+~
+E
+linen cots blankets~
+Worn by use and time, these items appear to be worthless and unuseable.
+~
+E
+extra cleaning supplies~
+Various cleaning solutions, rags and equipment ranging from brooms to odd
+looking contraptions lie scattered on the floor or in broken heaps.
+~
+A
+search examine raid~
+shelves room linen cot cots supplies~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  i = random( 1, 20 );
+if( i == 1 ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    obj_to_char( oload( 64 ), ch );
+    end;
+    }
+  if( i > 18 ) {
+    send_to_char( #bucket, ch );
+    act_notchar( #roombuck, ch );
+    obj_to_char( oload( 762 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #char2, ch );
+    act_notchar( #room2, ch );
+    end;
+    }
+  }
+else {
+  send_to_char( #char2, ch );
+  act_notchar( #room2, ch );
+  }
+~
+E
+hammnot~
+$n finds a large hammer among the folds of some linen.
+~
+E
+hammchar~
+Digging through the pile of linen and such, you find a hammer hidden as
+if hastily thrown in the cloths.
+~
+E
+roombuck~
+$n digs through the pile and linen and finds a bucket.
+~
+E
+bucket~
+Digging through the pile of linen and such, you find an empty bucket.
+~
+E
+room2~
+$n goes through the pile of linen, but doesn't find anything of interest.
+~
+E
+char2~
+You find nothing of interest.
+~
+E
+room~
+$n digs through the pile and linen and finds a backpack.
+~
+E
+char~
+Digging through the pile of linen and such, you find an empty backpack.
+~
+!
+0 0 0
+-1
+S
+
+#9151
+Dumbwaiter~
+This small platform is suspended on ropes, which are hooked into a pulley
+system.  The platform can be shuttled up and down between the floors to
+send food from the kitchen upstairs to the Banquet Hall.  The exit is a
+opening to the floor the platform is on.
+~
+~
+335020036 1 3 0
+D2
+~
+~
+0 -1 9154 10 10 5
+A
+~
+~
+if( rflag( reset0, find_room( 9143 ) ) ) {
+  send_to_char( #leave, ch );
+  transfer( ch, find_room( 33364 ) );
+  }
+else {
+  send_to_char( #leave, ch );
+  transfer( ch, find_room( 9143 ) );
+  }
+act_notchar( #not, ch );
+~
+E
+leave~
+You exit the dumbwaiter.
+~
+E
+not~
+You see $n enter the room from the dumbwaiter opening.
+~
+!
+3 -1 15
+A
+~
+~
+if( num_in_room( find_room( 9151 ) ) > 1 ) {
+  act_tochar( #ch, ch );
+  if( rflag( reset0, find_room( 9143 ) ) ) {
+    transfer( ch, find_room( 33364 ) );
+    act_notchar( #not, ch );
+    }
+  else {
+    transfer( ch, find_room( 9143 ) );
+    act_notchar( #not, ch );
+    }
+  }
+~
+E
+not~
+You see $n try to enter the dumbwaiter but realize that only one can fit
+at a time.
+~
+E
+ch~
+Only one person can fit in the dumbwaiter at a time.
+~
+!
+1 0 5
+-1
+S
+
+#9152
+none~
+Under Construction.
+~
+~
+335020036 1 9 0
+D3
+~
+~
+0 -1 9143 10 10 5
+-1
+S
+
+#9153
+none~
+Under Construction.
+~
+~
+335020036 1 9 0
+-1
+S
+
+#9154
+none~
+Under Construction.
+~
+~
+335020036 1 9 0
+-1
+S
+
+#9155
+Tree in the Graveyard~
+The tree has two large limbs which makes this a good resting spot for
+climbing.  The tree, though not very tall, looks very old.  The bark of
+the tree crumbles in your hands as you support yourself.  Hanging on the
+limbs and branches are a number of vines.
+~
+~
+335020036 1 9 0
+D1
+~
+~
+0 -1 9157 10 10 5
+D3
+~
+~
+0 -1 9156 10 10 5
+D4
+~
+~
+0 -1 9158 10 10 5
+D5
+~
+~
+0 -1 9014 10 10 5
+E
+4 vines~
+Clinging along the trunk and branches of the tree are a number of thick,
+leafy vines.  The ends of the vines dangle and sway in the gray mist,
+which gives them the haunting appearance of hangman's rope.
+~
+E
+limbs~
+Two large limbs extend from the trunk of the tree.  They look large
+enough for a person to walk on and sturdy enough to support the weight. 
+The bark of the limbs has been worn off by age, weather, and other
+distructive forces.
+~
+E
+bark~
+The bark of the tree is old and crumbles when touched.  The bark seems to
+be unnaturally weak as if the tree was effected by something that is
+supernatural.
+~
+837 8 1509949440 3 0
+-1
+S
+
+#9156
+Tree in the Graveyard~
+The limb splits and breaks off into smaller branches that look far to
+weak to support your weight.  Vines hanging from the nearby branches sway
+gently in the mist.  Looking out into the mist you occasionally see a
+glimpse of movement and hear the breaking of a twig.
+~
+[Lansharra] _too_ weak
+~
+335020036 1 9 0
+D1
+~
+~
+0 -1 9155 10 10 5
+E
+6 branches~
+The branches are not as wide as the limb, and judging from the looks of
+them, they would not support your weight.  Some of the branches seem to
+be a grayish-black rather than the brown that the limb is.
+~
+E
+4 vines~
+Twisting around the branches of the tree are a number of thick, green
+vines.  The vines swing hauntingly in the thick, gray mist.  Some of the
+vines twist and tangle giving the appearance of nooses ready for a victim.
+~
+E
+mists~
+The mist seems to ebb and flow before your eyes, even though you do not
+feel any breeze.  Looking through the mist you can barely make out the
+silhouette of the tree trunk.
+~
+E
+glimpse movement~
+Out of the corner of your eye and saw movement in the mist below. 
+Unfortunately it disappeared just a quick as it appeared seemingly
+swollowed up in the swirling, gray mist.
+~
+837 9 1509949540 3 0
+-1
+S
+
+#9157
+Tree in the Graveyard~
+The limb does not look as strong as it did near the trunk of the tree. 
+The occasional crackling and shifting of the limb makes you think that it
+is not use to supporting so much weight.  Twisting around the trunk and
+hanging from the branches are a number of large green vines.  The mist
+around the tree ebb and flow causing a feeling of vertigo.
+~
+[Lansharra] _used_ to supporting
+[Lansharra] zombie vulture _bony_ talons
+~
+335020036 1 9 0
+D3
+~
+~
+0 -1 9155 10 10 5
+E
+4 spots~
+Looking closer at the branches, you notice deep claw marks in the wood
+where the bark is missing.
+~
+E
+4 vines~
+The vines twist and twine around the branches.  The thick, green stems
+look as if they are crushing the life out of the branches they cling to. 
+An occasional vine hangs down from the tree and the leafy end dangles in
+the mist.
+~
+E
+mist~
+The mist is thick, even up in the tree.  A silhouette of the tree is all
+you can see in the dismal, gray mist.  The mist seems to gently flow past
+your eyes, sometimes thicker than other times.
+~
+E
+6 branches~
+The branches do not look the strongest and could not support your weight;
+however, they do look like good support to keep from falling.  Some spots
+along the branches seems to have been stripped of its bark.
+~
+A
+~
+~
+ch = rand_player( room );
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 9021 ) );
+act_notchar( #arr, ch );
+inflict( ch, mob, 5d5+5, "the fall" );
+~
+E
+arr~
+$n falls from above and lands with a thud.
+~
+E
+room~
+Suddenly, the limb shifts beneath your feet.  Luckily, you grab a branch
+and regain your balance unlike $n, who not so gracefully falls to the
+ground below.
+~
+E
+char~
+Suddenly, the limb shifts beneath your feet, and you fall to the
+graveyard floor below.
+~
+!
+2 50 8
+837 9 1509949540 3 0
+-1
+S
+
+#9158
+Tree in the Graveyard~
+The trunk of the tree has gotten considerably smaller and also much
+weaker.  There are some branches extending out that help give you support.
+The trunk is weathered and the bark crumbles in your hands.  There seems
+to be some carvings etched into the wood.
+~
+[Lansharra] extra bark: disintegrates
+~
+335020036 1 9 0
+D5
+~
+~
+0 -1 9155 10 10 5
+E
+6 branches~
+The branches are much smaller than the lower branches.  They also look
+much older and more weatherbeaten.  Towards the ends it almost looks as
+if the wood is decaying.  Though the branches don't look very strong,
+they do seem to give extra support which helps you keep your balance.
+~
+E
+trunk 7 carvings~
+The trunk of the tree is weathered and in areas large chunks of the bark
+is missing.  In one of those gaps there are some carvings.  Looking
+closer at the carvings most of the markings are gone, smoothed away by
+weather and nature.
+~
+E
+bark~
+Examining the bark closer, you notice that not only is the bark old and
+taken much abuse from the weather, but it is also grayish-black. 
+The bark crumbles and disintigrates as you touch it.
+~
+837 9 1509949540 3 0
+-1
+S
+
+#9159
+Castle Graveyard~
+Under Construction.
+~
+~
+335020036 1 9 0
+D4
+~
+~
+98 -1 9006 10 10 5
+-1
+S
+
+#9160
+Small Passage~
+Under Construction.
+~
+~
+335020044 1 9 0
+-1
+S
+
+#9163
+Tomb of the Exarch~
+Under Construction.
+~
+~
+335020044 1 9 0
+-1
+S
+
+#9164
+Dark Shaft~
+The shaft appears to be about 5 meters across, but there is only a single
+ladder which allows a person to climb up and down.  Dark and dank, the
+shaft continues into shear darkness in both directions.  You can just
+make out the upper ledge of the shaft above you.
+~
+[Calliope] Would like to see the size of this room and the one below changed to no larger than horse size. Anything dinosaur size that climbed up it, couldn't get through the sarcophagus anyway.
+[Calliope] would prefer ogre sized rather than horse
+~
+335020044 1 9 0
+D4
+sarcophagus~
+sarcophagus~
+423 -1 9061 10 10 5
+D5
+~
+~
+0 -1 9165 10 10 5
+A
+open~
+1 up sarcophagus~
+if( !is_open( room, up ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, up );
+  }
+else
+  send_to_char( #char_open, ch );
+~
+E
+char~
+You shove the lid off the opening above you.
+~
+E
+room~
+$n shoves the lid off the opening above you.
+~
+E
+char_open~
+It's already open.
+~
+!
+0 0 0
+-1
+S
+
+#9165
+Dark Shaft~
+The shaft appears to be about 5 meters across, but there is only a single
+ladder which allows a person to climb up and down.  Dark and dank, the
+shaft continues into shear darkness in both directions.
+~
+[Loxus] 'open door' and 'open trap' tell you its locked, only 'open down' works correctly
+~
+335020044 1 9 0
+D4
+~
+~
+0 -1 9164 10 10 5
+D5
+trap door~
+~
+423 -1 3500 10 10 5
+A
+open~
+1 down~
+if( !is_open( room, down ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, down );
+  }
+else
+  send_to_char( #char_open, ch );
+~
+E
+char~
+You shove the trap door open below you.
+~
+E
+room~
+$n shoves the trap door open below you.
+~
+E
+char_open~
+It's already open.
+~
+!
+0 0 0
+-1
+S
+
+#9166
+Tomb of the Exarch~
+Under Construction.
+~
+~
+335020044 1 9 0
+-1
+S
+
+#0
+

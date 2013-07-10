@@ -1,0 +1,294 @@
+#AREA
+The Greenhouse~
+Phule~
+~
+
+0 0
+4
+#ROOMS
+
+#44500
+Windowed Entryway~
+Panes of green-coloured glass surround you on all sides of this small, 10
+feet by 10 feet entryway.  The ceiling itself is also made of the
+greenish glass, nearly 30 feet overhead.  Sliding doors lead out of the
+greenhouse to the west and into its interior to the east. 
+~
+[Merior] second sentence needs work
+~
+301465600 0 5 0
+D1
+sliding glass door~
+sliding glass door e east~
+131 -1 44501 10 10 5
+D3
+sliding glass door~
+sliding glass door w west~
+391 1278 44502 10 10 5
+A
+~
+~
+act_tochar( #care, ch );
+continue;
+~
+E
+care~
+You carefully slide open the door.
+~
+!
+8 0 10
+1 17 1509949540 -2 0
+-1
+S
+
+#44501
+Inside the Greenhouse - Small Potted Plants~
+This large, expansive section of the greenhouse is filled with
+tables holding nearly two hundred potted plants and flowers of all
+varieties.  The room measures approximately 50 feet in length and width,
+with the sloped green-glass ceiling about 65 feet overhead.  A sliding
+glass door leads to the greenhouse's entryway to the west and a small
+glass-enclosed hallway leads east out of the room.  Above that eastern
+exit a large, prominent sign hangs conspicuously.
+~
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 44503 10 10 5
+D3
+"sliding glass door"~
+"sliding glass door"~
+131 -1 44500 10 10 5
+E
+sign~
+The sign reads in bold, firm print:
+ 
+@I WARNING!!  TRAINED PERSONNELL ONLY!!
+ 
+@I @I ENTER AT YOUR OWN RISK.
+~
+E
+potted plants flowers~
+From tomatoes to strawberries, orchids to daffodils, the collection of
+foilage is immense.
+~
+-1
+S
+
+#44502
+Yellow Brick Path~
+This narrow path of sandstone bricks leads up to a building of
+green-coloured glass to the east and to a clearing in the sand to the
+west.  The small yellow brick road is well-kept and clean, but one brick
+seems to be out of place.  A small sign hangs off a sliding glass door
+which enters the greenhouse to the east.
+~
+[Merior] some might take offense at the colors of the brick ;)
+[Phule] they can bite me :)
+~
+301465600 12 8 0
+D1
+sliding glass door~
+sliding glass door e east~
+391 1278 44500 10 10 5
+D3
+~
+~
+0 -1 44508 10 10 5
+E
+brick~
+The brick appears to be very loose, and is raised about a half inch above
+the other bricks as if something were hidden under it.  The brick also
+bears a strange set of initials: "ROYGBIV".
+~
+E
+sign~
+The sign reads:
+PRIVATE PROPERTY.  KEEP OUT.
+~
+A
+~
+~
+act_tochar( #care, ch );
+continue;
+~
+E
+care~
+You carefully slide open the glass door.
+~
+!
+8 0 2
+A
+lift search push pull poke move~
+brick~
+if( rflag( reset0, room ) ) {
+  act_tochar( #lift, ch );
+  act_notchar( #rlift, ch );
+  obj_to_char( oload( 1278 ), ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #noth, ch );
+  act_notchar( #rnoth, ch );
+  }
+~
+E
+lift~
+You lift up the brick and discover a small glass key beneath it. 
+Amazingly the glass has not been shattered by the weight of the brick.
+~
+E
+rlift~
+$n lifts an out of place brick and gets something from underneath it.
+~
+E
+noth~
+You lift the brick but don't find anything.
+~
+E
+rnoth~
+$n lifts an out of place brick but doesn't seem to find anything.
+~
+!
+0 0 0
+-1
+S
+
+#44503
+Inside the Greenhouse - Glass Enclosement~
+This small, 10 by 10 by 10 enclosure seems to serve as a connection
+between the main area of the greenhouse to the west and another section
+to the east.  The air seems strangely more still to the east, as if even
+the air chooses to avoid entering the greenhouse's dark recesses in that
+direction.
+~
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 44504 10 10 5
+D3
+~
+~
+0 -1 44501 10 10 5
+-1
+S
+
+#44504
+Inside the Greenhouse - Rare Plant Viewing Room~
+Through sliding doors to the north, east, and south stand large
+glass-enclosed rooms where the sultan's most prized vegetative
+possessions are kept.  From the descriptive sign beside the north door,
+you gather that to the north an enormous, elephant-sized venus flytrap is
+tended, but no signs are posted to the east or south.  To the west, a
+small glass-enclosed tunnel leads back to the main area of he greenhouse.
+~
+~
+301465600 0 9 0
+D0
+sliding glass door~
+sliding glass door n north~
+131 -1 44505 10 10 5
+D1
+sliding glass door~
+sliding glass door e east~
+131 -1 44506 10 10 5
+D2
+sliding glass door~
+sliding glass door s south~
+131 -1 44507 10 10 5
+D3
+~
+~
+0 -1 44503 10 10 5
+1145 17 1509949540 -2 0
+-1
+S
+
+#44505
+Inside the Greenhouse - Venus Fly Trap~
+This large, glass-enclosed room is bare.  Completely bare.  The only
+thing visible aside from dust and a few blood splotches is an extremely
+large clay pot filled with soil in the center of the room.  A sliding
+glass door leads south out of the room.
+~
+~
+301465600 0 9 0
+D2
+"sliding glass door"~
+"sliding glass door"~
+131 -1 44504 10 10 5
+966 9 1509949540 3 0
+-1
+S
+
+#44506
+Inside the Greenhouse - Predatory Daisy~
+The glass which encloses this enormous room is tinted a bright shade of
+yellow, probably to suit whatever plant is kept here.  A few empty
+barrels sit in the corners of this room, apparently used to hold water
+for its inhabitant as one is still damp.  A sliding glass door leads out
+of the room to the west.
+~
+[Merior] isnt daisy kinda intelligent?
+[Phule] it wants to take over the world
+~
+301465600 0 9 0
+D3
+"sliding glass door"~
+"sliding glass door"~
+131 -1 44504 10 10 5
+967 9 1509949540 3 0
+-1
+S
+
+#44507
+Inside the Greenhouse - Plant Beast~
+The glass of the greenhouse walls are much thicker here than elsewhere,
+and has thousands and thousands of tiny spores embedded into its panes. 
+The shattered remains of a few water barrels lie smashed against the
+southern wall, hurled by some powerful force.  A sliding glass door leads
+north out of the large room.
+~
+~
+301465600 0 9 0
+D0
+"sliding glass door"~
+"sliding glass door"~
+131 -1 44504 10 10 5
+E
+remains~
+Mostly splinters, and the odd nail.  The nails are so rusty that the
+slightest touch may shatter them.
+~
+321 9 1509949540 3 0
+-1
+S
+
+#44508
+Balloon Landing Area~
+A perfect circle of large red rocks surround this flat section of sand, a
+marker from the ground as a fixture of guidance from above.  A short path
+of yellow brick leads east towards a large building of green-coloured
+glass.  A small sign is staked into the ground nearby.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 44502 10 10 5
+E
+sign~
+Enjoy your visit.
+ 
+Blow the balloon whistle when you wish to return.
+~
+-1
+S
+
+#0
+

@@ -1,0 +1,1956 @@
+#AREA
+Natural Caves~
+Ender Ruthler Florian~
+~
+
+0 0
+0
+#ROOMS
+
+#2500
+Cave Entrance~
+A thin, rocky ledge stretches north to south through this yawning cave. 
+Most of the cave's surfaces are too slippery or precarious to walk on. 
+Judging from the amount of detritus littered around the cave, it use to
+be heavily occupied once.  But now, you see little evidence of current
+dwellers.  To the south, at the cave's mouth, you can see a large,
+cascading waterfall.  The cave widens to the north, where the floor
+becomes less slippery.
+~
+*H
+~
+301465601 11 6 0
+D0
+~
+~
+0 -1 2501 10 10 5
+D2
+~
+~
+0 -1 25005 10 10 5
+59 9 1509949540 3 0
+-1
+S
+
+#2501
+Cave Tunnel~
+A long, steep tunnel descends north, further under the mountain.  The
+temperature of the cavern is much cooler than you are accustomed to.  To
+the south, you can see a faint illumination outlining the edges of an
+opening.  Beads of moisture run down the side walls of the limestone
+cavern.
+~
+*H
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 2504 10 10 5
+D2
+~
+~
+0 -1 2500 10 10 5
+A
+~
+~
+ch = rand_player( room );
+if( random( 1, 2 ) == 1 )
+act_tochar( #cold, ch );
+else
+act_tochar( #wind, ch );
+~
+E
+cold~
+A cold wind blasts your fast, sending a shiver down your spine.
+~
+E
+wind~
+You can hear a faint, rhythmic chant carried on the wind.
+~
+!
+2 150 0
+233 9 1509949540 3 0
+233 9 1509949490 3 0
+-1
+S
+
+#2502
+Passageway~
+You can almost feel the weight of the mountain above pressing down upon
+you with its immensity.  The passageway runs from east to west over a
+level limestone floor.  Stalagmites formed from dripping sediment rise
+from the ground like the teeth of a cavern fish.  A small accumulation of
+luminescent fungus clings to the northern wall of the passageway, casting
+the shadows of the stalagmites onto the south wall.
+~
+*H
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2504 10 10 5
+D3
+~
+~
+0 -1 2506 10 10 5
+-1
+S
+
+#2503
+Cavern cleft~
+A damp hallway, stalagmites and stalactites adorn the ceiling and
+~
+~
+301465604 3 6 0
+D3
+~
+~
+8 -1 2547 10 10 5
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large stalagmite crashes to the ground sealing you in.
+~
+E
+to_char~
+~
+!
+1 -1 8
+A
+say~
+zelda~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+send_to_room( #to_room, room );
+~
+E
+to_all~
+The stalagmite suddenly shovels up into the cave ceiling.
+              |   |
+~
+E
+to_room~
+$n says 'Zelda'
+~
+E
+to_char~
+You mumble the word Zelda.
+~
+!
+0 1 0
+-1
+S
+
+#2504
+Cave Tunnel~
+The cavern here is much wider than the passageway that lies to the south. 
+Thick, heavy stalagmites rise from the ground, creeping around the edges
+of a small, milky pool of liquid.  Flecks of shiny minerals can be seen
+embedded in the floor and the eastern wall appears to have several
+mineral deposits in it.  To the far south, you can see a miniscule amount
+of light streaming through a cave opening.  The passageway continues to
+head north at a steep angle while to the west it branches along a more
+even path.
+~
+*H
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2505 10 10 5
+D2
+~
+~
+0 -1 2501 10 10 5
+D3
+~
+~
+0 -1 2502 10 10 5
+E
+mineral deposits~
+Closer examination of the deposits reveal them to be some sort of guano,
+possibly bat.  
+~
+E
+floor~
+The floor is covered in white and brown mineral deposits.
+~
+A
+~
+~
+ch = rand_player( room );
+act_tochar( #water, ch );
+~
+E
+water~
+To the distant south, you can hear the faint rush of water.
+~
+!
+2 100 0
+A
+~
+~
+if( random( 1, 8 ) == 1 )
+  act_tochar( #crunch, ch );
+~
+E
+crunch~
+You feel a crunch as you step on and crush a few mineral fragments.
+~
+!
+1 0 11
+59 9 1509949540 3 0
+-1
+S
+
+#2505
+Picture Room~
+The walls of this particular cavern are lined with murals depicting
+various forms of community life within the caves.  Drab hues of brown and
+gray adorn the granite wall surfaces, with an occasional patch of white
+made visible by the flickering light you provide.  The cave passages form
+an intersection here, continuing from east to west and upward to the
+south.  A single torch burning a foul-smelling substance illuminates the
+immediate area.  
+~
+~
+301465613 11 6 0
+D0
+passageway~
+passageway~
+235 -1 2517 10 10 5
+D1
+~
+~
+0 -1 2510 10 10 5
+D2
+~
+~
+0 -1 2504 10 10 5
+D3
+~
+~
+0 -1 2508 10 10 5
+E
+1 north~
+The north wall, like the other walls of this cavern, is also covered in
+murals.  However, the wall itself looks quite different, being smoother
+than the others.  A thin crack surrounds the wall where it joins with the
+rest of the room.
+~
+E
+torch~
+This torch looks very old and has strange circular scrape marks around it.
+~
+E
+bone~
+This appears to be the bone of a large, bird-like animal, possibly the
+fibia of a giant eagle.  Crudely etched into its surface is a
+pictographic representation of some sort of communal gathering.  
+~
+A
+2 twist 3 turn~
+torch~
+if( is_open( room, north ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, north );
+  end;
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #r_open, ch );
+  open( room, north );
+  }
+~
+E
+r_open~
+$n twists the torch and opens a hidden passageway.
+~
+E
+open~
+You twist the torch and suddenly a hidden passageway opens.
+~
+E
+close~
+You twist the torch and a wall swings about concealing the passage to the
+north.
+~
+E
+rclose~
+$n twists a torch and a wall swings about concealing the passage to the
+north.
+~
+!
+0 0 0
+229 9 1509949540 3 0
+229 9 1509949490 3 0
+229 9 1509949465 3 0
+229 9 1509949465 3 0
+-1
+S
+
+#2506
+Natural Spring~
+A strange number of non-thallophytic plants grow along the edges of the
+dirt-covered cavern floor.  Among them are numberous pothos vines as well
+as dark creepers.  The flora within the limestone cavern grows along the
+edges of a small, crystal-clear spring.  The cavern continues to the
+north and east.
+~
+*H
+[Waylander] numberous should be numerous
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2507 10 10 5
+D1
+~
+~
+0 -1 2502 10 10 5
+E
+pothos~
+Flourishing here in the cool mist of the cave is Object's golden pothos. 
+With dark, chlorophyllic leaves and sinuous branches, this small plant
+fares significantly better here than on the wall of its owner's office. 
+~
+E
+natural spring~
+The sping bubbles lightly out of a crack in the wall, the water, however,
+does not look fit to drink.  
+~
+E
+plants~
+The apparent lifesource to the non-characteristic plants here is a small,
+natural spring.  Near the spring, and faring well in this otherwise
+lifeless grotto is an interesting-looking pothos.  
+~
+22 17 1509949540 -2 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#2507
+Nature's Cavern~
+This limestone cavern is very large and spacious.  The walls are lined
+with numerous paintings drawn in chalk and depict things such as animals
+and plants.  Piles of wood, long since petrified, lie stacked on the
+floor within ancient fire pits.  Bat guano litters the floor in large
+heaps.  Clearly, bats have been living within the cavern for quite some
+time.  The cavern extends to the west, south, and east.
+~
+*H
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2508 10 10 5
+D2
+~
+~
+0 -1 2506 10 10 5
+D3
+~
+~
+0 -1 2514 10 10 5
+357 17 1509949540 -2 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+79 17 1509949445 -2 0
+-1
+S
+
+#2508
+Nature's Cavern~
+Simple etchings on the north wall show pictographic representations of
+various local fauna, including the cave bat and some form of rodentia. 
+Dark brown marks, quite possibly blood, stain the areas within and
+immediately surrounding the etchings, perhaps there as talismen to ward
+or warn of these creatures.  To both the east and west of this cavern are
+small passageways that you might be able to enter.  
+~
+[Waylander] talismen looks wrong...perhaps runes of warding?
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2505 10 10 5
+D3
+~
+~
+0 -1 2507 10 10 5
+59 9 1509949540 3 0
+-1
+S
+
+#2509
+Nature's Cavern~
+Empty space.
+~
+~
+301465604 3 6 0
+-1
+S
+
+#2510
+Gathering Room~
+This is the eastern side of the gathering room.  Many important clan
+meetings have taken place in this room.  If you listen closely you can
+almost hear the chantings of the clan leaders who gather here. 
+~
+[Nettle] closly->closEly
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2511 10 10 5
+D3
+~
+~
+0 -1 2505 10 10 5
+16 9 1509949540 3 0
+-1
+S
+
+#2511
+Cave Dweller's Living Area~
+The warmth of kindred family spirits seems to surround you as you enter
+what is obviously the living area of the cave dwellers.  Oil stains line
+the walls from torches dipped in animal fat and rocks litter the floor
+partitioning the sleeping areas.  Still there is the pervading feeling of
+fear and mystery as you wonder what lies ahead in the passages and
+rooms.  
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2542 10 10 5
+D1
+~
+~
+0 -1 2512 10 10 5
+D3
+~
+~
+0 -1 2510 10 10 5
+79 17 1509949445 -2 0
+-1
+S
+
+#2512
+Nature's Cavern~
+As you step into this room, you cannot help to shiver and a prickly
+feeling to go up and down your spine.  The walls of the cavern undulate
+in such a way as to create many shadows which jump and dance startlingly
+when you move.
+~
+~
+301465604 11 6 0
+D2
+~
+~
+0 -1 2513 10 10 5
+D3
+~
+~
+0 -1 2511 10 10 5
+-1
+S
+
+#2513
+Nature's Cavern~
+The natural coolness of the cave has a new bone chilling feeling here. 
+Scattered about the room are the bones of animals who have come here
+to die.  There is only uneasiness in this room, the feeling of spirits
+not at rest.  The only escape from this room of bones is back the way
+you came.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2512 10 10 5
+124 17 1509949540 -2 0
+16 9 1509949540 3 0
+-1
+S
+
+#2514
+The Medicine Man's Room~
+Unlike the rough, natural cavern to the east, this cavern looks to be
+more of a modified chamber.  Its walls have been smoothed somewhat and
+are graced by numerous paintings.  There is an air of respect however
+around the chamber that is hard to place.  A stone slab lies in the
+center of the room and looks very much like a funeral bier.  To the
+north, beyond this structured chamber, lies yet more cavern.
+~
+*H
+~
+301465612 11 6 0
+D0
+~
+~
+0 -1 2515 10 10 5
+D1
+~
+~
+0 -1 2507 10 10 5
+D5
+stone bier~
+stone bier~
+0 -1 72500 10 10 5
+E
+long stone funeral bier~
+Resting in the center of the chamber is a long slab of stone, cut into a
+rectangular shape.  Upon the slab are scattered bits of dried herbs and
+plant remnants.  There are chips and flecks of pale white bone.
+~
+A
+~
+~
+ch = rand_player( room );
+act_room( #lav, ch );
+~
+E
+lav~
+A ghostly odor of lavender and lilacs wafts past your nose.
+~
+!
+2 10 0
+A
+nod~
+spectre medicine man ghost~
+if( mob_in_room( 2146, room ) ) {
+  act_tochar( #nod, ch );
+  act_notchar( #rnod, ch );
+  wait( 2 );
+  act_tochar( #accept, ch );
+  act_notchar( #raccept, ch );
+  wait( 1 );
+  act_room( #open, ch );
+remove_rflag( reset0, room );
+  }
+else
+  continue;
+~
+E
+nod~
+You nod to the spectre of the medicine man.
+~
+E
+rnod~
+$n nods to the spectre of the medicine man.
+~
+E
+accept~
+The medicine man seems to understand your acceptance.
+~
+E
+raccept~
+The spectre of the medicine man nods back to $n.
+~
+E
+open~
+@GThe spectre of the medicine man raises his hands and chants wildly.  He
+then dances in a circle about the stone bier.  When he is done, you hear
+a crackle of energy and see a field of force enclosing the limestone
+shaft in the floor shimmer into sight and fade away.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset0, room ) )
+act_tochar( #cant, ch );
+else
+continue;
+~
+E
+cant~
+A field of force prevents you from adventuring down the limestone shaft.
+~
+E
+to_char~
+You climb down the limestone shaft carefully, using handholds carved into
+its side.
+~
+E
+to_room~
+$n climbs down the limestone shaft in the floor.
+~
+!
+3 0 32
+79 17 1509949450 -2 0
+2146 9 1509949540 3 0
+-1
+S
+
+#2515
+Nature's Cavern~
+Crude indentations have been dug into the walls on both the west and east
+sides of the narrow, limestone passageway.  Within the small hollows lay
+the still forms of decaying corpses veiled thinly by cobwebs and dust. 
+To either side of each funerary niche there are places to jam torches
+into the walls, to illuminate the alcoves.  The limestone cavern
+continues north to south along a level floor.
+~
++t
+what's with sign redit
+*H
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2516 10 10 5
+D2
+~
+~
+0 -1 2514 10 10 5
+E
+sign~
+clean up descs for rest of branch
+~
+230 9 1509949540 3 0
+230 9 1509949540 3 0
+-1
+S
+
+#2516
+Ancient Burial Grounds~
+This limestone chamber appears to be a burial ground of sorts.  Numerous
+funerary niches line the walls.  Along with the niches, several stone
+biers fill the chamber along with a large number of graves.  Many of the
+older graves have been dug up and the bones within scattered about the
+room.  Painted along the walls and biers are faded pictures depicting
+warriors, animals, and battle.
+~
+*H
+[Evergreen] it's should be its when you wake the skeleton
+~
+301465604 11 6 0
+D2
+~
+~
+0 -1 2515 10 10 5
+A
+1 look 3 examine~
+skeleton body~
+obj = obj_in_room( 420, room );
+if( !obj )
+  continue;
+else {
+  act_tochar( #chup, ch );
+  act_notchar( #rup, ch );
+  junk_obj( obj );
+  mob = mload( 3000, room );
+    attack_weapon( mob, ch, 1d4, "claw" );
+  }
+~
+E
+rup~
+As $n disturbs the skeleton rises silently.
+~
+E
+chup~
+Having disturbed it's rest the skeleton rises.
+~
+E
+nocorpse~
+You don't see that here.
+~
+!
+0 0 0
+420 17 1509949540 -2 0
+-1
+S
+
+#2517
+Nature's Cavern~
+The walls of the cavern about you seem to radiate a sort of natural
+light.  Large stalactites hang from the ceiling, and likewise,
+stalagmites protrude from the floor.  To the south you can see the floor
+is severely scraped.  It is quite obvious that the south wall swings out
+somehow.  You expect from the marks on it that it just requires a good
+push.  
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 2518 10 10 5
+D2
+secret wall~
+secret wall~
+235 -1 2505 10 10 5
+A
+1 push~
+wall 1 south~
+if( !is_open( room, south ) ) {
+  send_to_char( #ch, ch );
+  open( room, south );
+  act_notchar( #room, ch );
+  }
+else
+  act_tochar( #is_open, ch );
+~
+E
+room~
+$n pushes on the south wall and it swings open.
+~
+E
+ch~
+You push the south wall and it swings open.
+~
+E
+is_open~
+Better look again.  Push in that direction and you'll likely fall flat on
+your face.
+~
+!
+0 0 0
+A
+pull close tug~
+wall 1 south~
+if( is_open( room, south ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, south );
+  }
+else
+  act_tochar( #is_open, ch );
+~
+E
+close~
+Amidst a heavy scraping sound and with a bit of effort you manage to tug
+the wall back into place to the south.
+~
+E
+rclose~
+$n tugs and pulls at the wall to the south until closes up concealing the
+opening that was there.  How odd that the wall moves like that.
+~
+E
+is_open~
+And how do you propose to do that?
+~
+!
+0 0 0
+59 9 1509949540 3 0
+-1
+S
+
+#2518
+Glowing Passageway~
+Fallen rocks adorn the ground here, perhaps victims of gravity. 
+A phosphorescent lichen emits a faint green glow from the walls, but not
+nearly enough to illuminate the room or its contents.  The passage
+continues upward to the south, and further descends the cave to the
+north.  
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 2519 10 10 5
+D2
+~
+~
+0 -1 2517 10 10 5
+E
+lichen~
+This green thallophytic plant is moist to the touch, and somewhat spongy
+in texture.  An eerie incandescence emanates from its surface, which
+quickly extinguishes when a component is removed from the symbiosis.
+~
+A
+take~
+lichen~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+$n removes a small piece of lichen from the wall which instantly dies in
+$s hand.  
+~
+E
+to_char~
+You remove a small piece of the symbiosis which quickly dies in your hand.
+~
+!
+0 0 0
+88 17 1509949480 -2 0
+-1
+S
+
+#2519
+Passageway Intersection~
+This passageway is part of a vast network of natural, limestone caverns. 
+No sources of natural illumination can been seen along the passageway. 
+The T-shaped intersection branches off to the north, south, and west. 
+Directly to the south you see a faint, green glow.
+~
+*H
+~
+301465612 11 6 0
+D0
+~
+~
+0 -1 2520 10 10 5
+D2
+~
+~
+0 -1 2518 10 10 5
+D3
+~
+~
+0 -1 2533 10 10 5
+A
+~
+~
+wait( 1 );
+if( rflag( reset0, find_room( 2520 ) ) ) {
+  if( find_skill( ch, searching ) > 5 ) { 
+    if( random( 1, 2 ) == 1 )
+      act_tochar( #sense, ch );
+    end;
+    }
+  if( find_stat( ch, level ) > random( 3, 10 ) )
+    if( random( 1, 2 ) == 1 )
+    act_tochar( #sense2, ch );
+  }
+else
+  continue;
+~
+E
+sense2~
+Your seasoned sense of awareness causes you to notice a small, concealed
+pressure plate in the floor off to the north.  Seems like if you went
+north you'd have to step upon it.
+~
+E
+sense~
+You think you see some sort of pressure plate concealed in the floor, a
+few paces off to the north.  You'll have to step upon it if you head
+north.
+~
+!
+1 -1 12
+A
+inspect~
+1 north pressure plate trap~
+if( rflag( reset0, find_room( 2520 ) ) ) {
+  if( find_skill( ch, inspect ) > random( 4, 12 ) ) {
+    act_tochar( #trap, ch );
+    act_notchar( #rtrap, ch );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rtrap, ch );
+    }
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+trap~
+Kneeling down, you can clearly see a pressure plate trap to the north.  A
+carefully placed pebble would probably jam it.
+~
+E
+rtrap~
+$n kneels down on the ground and inspects it.
+~
+E
+nothing~
+You find nothing unusual.
+~
+E
+already~
+The pressure plate trap has already been disarmed by a cleverly placed
+pebble.
+~
+!
+0 0 0
+A
+throw toss place untrap disarm~
+pebble nice-looking trap pressure plate~
+if( rflag( reset0, find_room( 2520 ) ) ) {
+  if( has_obj( 78, ch ) ) {
+    if( find_skill( ch, untrap ) > random( 1, 10 ) ) {
+      act_tochar( #throw, ch );
+      act_notchar( #rthrow, ch );
+      junk_obj( has_obj( 78, ch ), 1 );
+      remove_rflag( reset0, find_room( 2520 ) );
+      }
+    else {
+      act_tochar( #miss, ch );
+      act_notchar( #rmiss, ch );
+      junk_obj( has_obj( 78, ch ), 1 );
+      }
+    }
+  else
+    act_tochar( #nopebble, ch );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+throw~
+You throw a pebble and it lands directly underneath the pressure plate!
+~
+E
+rthrow~
+$n throws a pebble and it lands directly underneath the pressure plate!
+~
+E
+nopebble~
+Perhaps an inspection of the trap would help you figure out what tools
+you need to disarm it.
+~
+E
+miss~
+You throw a pebble north, trying to lodge it under the pressure plate but
+your throw goes wide!
+~
+E
+rmiss~
+$n throws a pebble north, trying to lodge it under the pressure plate but
+$s throw goes wide.
+~
+E
+already~
+The pressure plate has already been disarmed by a cleverly placed pebble.
+~
+!
+0 0 0
+A
+1 look~
+pressure plate~
+if( rflag( reset0, find_room( 2520 ) ) )
+act_tochar( #plate, ch );
+else
+act_tochar( #no, ch );
+~
+E
+plate~
+You see a pressure plate of sorts set into the floor to the north.  Crude
+in design, it has a large gap, large enough for a stone or pebble,
+between itself and the ground.
+~
+E
+no~
+At one time, there was a pressure plate just to the north.  However, a
+pebble has been jammed under it.
+~
+!
+0 0 0
+-1
+S
+
+#2520
+Nature's Cavern~
+Here, the walls have a hardened and glazed appearance.  It's as though
+some mysterious force has baked the minerals to form this glaze, while a
+strange mixture of splintered stone and ash make up the floor.  
+~
+[Lantol] The fireball trap here should be doing fire damage, i believe...
+[Rue] code is correct for fire damage
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2521 10 10 5
+D2
+~
+~
+0 -1 2519 10 10 5
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  act_tochar( #Char_enter, ch );
+  act_notchar( #Room_Enter, ch );
+  loop( all_in_room ) {
+    i = dice( 6, 5 );
+    dam_message( rch, i, "the fireball" );
+    inflict_fire( rch, mob, i, "fireball" );
+    }
+  if( find_stat( ch, str ) < random( 8, 14 ) ) {
+    act_tochar( #Char_Trans, ch );
+    act_notchar( #Room_Trans, ch );
+    transfer( ch, find_room( 2519 ) );
+    act_notchar( #Return_Room, ch );
+    }
+  }
+else
+  act_tochar( #stuck, ch );
+~
+E
+Return_Room~
+@R@b$n comes flying in from the north, slightly burnt and crisp.
+~
+E
+Room_Trans~
+@R@b$n gets blown out of the room by the raging fireball!
+~
+E
+Char_Trans~
+@R@bThe fireball knocks you head over heels!
+~
+E
+Room_Enter~
+@b@RAs $n enters the room a blazing fireball engulfs $m. 
+~
+E
+Char_Enter~
+@R@bAs you enter, a blazing ball of fire shoots out of the wall at you!
+~
+E
+stuck~
+You step on a pressure plate as you enter, but it appears to be jammed.
+~
+!
+1 0 4
+-1
+S
+
+#2521
+Top of the Pit~
+Before you lies a large gaping hole in the ground.  On the far side of
+the hole you can see a small ledge with a shadowy crevice behind it. 
+There are several large stalactites hanging from the ceiling over the
+hole.  A long rope is tied to one of them and dangles down into the pit.
+~
+~
+301465604 11 6 0
+D2
+~
+~
+0 -1 2520 10 10 5
+A
+2 slide 3 climb~
+2 rope 2 cord 1 down~
+send_to_char( #Jump, ch );
+act_notchar( #char_jump, ch );
+transfer( ch, find_room( 2522 ) );
+act_notchar( #Char_Enter, ch );
+~
+E
+Char_Enter~
+$n comes sliding down the rope.
+~
+E
+char_jump~
+$n grabs the rope and slides down into the pit.
+~
+E
+Jump~
+You grab the rope and slide down to a ledge in the pit.
+~
+!
+0 0 0
+A
+3 swing~
+2 rope 2 cord 1 north~
+if( !can_fly( ch ) ) { 
+  if( !is_player( ch ) )
+    end;
+  }
+send_to_char( #Swing, ch );
+act_notchar( #Char_Swing, ch );
+transfer( ch, find_room( 2548 ) );
+act_notchar( #Char_Enter, ch );
+~
+E
+Char_Enter~
+$n grabs the rope and swings across from the other side.
+~
+E
+Char_Swing~
+$n grabs the rope and swings across the pit to the ledge on the other side.
+~
+E
+Swing~
+You grab the rope and swing to the ledge on the other side of the pit.
+~
+!
+0 0 0
+-1
+S
+
+#2522
+A Small Rocky Ledge in a Pit~
+You are standing on a small rocky ledge part of the way down the pit.  A
+rope ends here, hanging down from the darkness above.  The ledge bends
+around part of the pit to the small mouth of a tunnel heading south.  
+~
+[Celine] the down action here is lame. :P
+~
+301465604 11 6 0
+D2
+~
+~
+0 -1 2523 10 10 5
+A
+3 climb 3 scale~
+2 rope 2 cord 1 up~
+send_to_char( #Char_Climb, ch );
+act_notchar( #Room_Climb, ch );
+transfer( ch, find_room( 2521 ) );
+act_notchar( #Char_Enter, ch );
+~
+E
+Char_Enter~
+$n climbs up the rope out of the pit.
+~
+E
+Room_Climb~
+$n grabs hold of the rope and climbs to the top of the pit.
+~
+E
+Char_Climb~
+You grab hold of the rope and climb up to the top of the pit.
+~
+!
+0 0 0
+A
+2 jump 2 leap~
+2 pit 2 well 2 hole 1 down~
+if( find_skill( ch, swimming ) > 0 ) {
+  send_to_char( #Char_Jump, ch );
+  act_notchar( #Room_Jump, ch );
+  transfer( ch, find_room( 2549 ) );
+  act_notchar( #Room_Enter, ch );
+  }
+else
+send_to_char( #no, ch );
+~
+E
+no~
+You don't want to go down there, you can't swim.
+~
+E
+Room_Enter~
+$n comes flying in from above.
+~
+E
+Room_Jump~
+$n leaps into the dark pit.
+~
+E
+Char_Jump~
+You jump into the dark pit.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #Rock_Fall, room );
+~
+E
+Rock_Fall~
+A rock dropping down from above almost hits you!
+~
+!
+2 100 0
+A
+1 down~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+I dunno, it looks kinda like a long drop...
+~
+!
+0 0 0
+59 9 1509949540 3 0
+59 8 1509949441 3 0
+-1
+S
+
+#2523
+Small Tunnel~
+This tunnel is small with a low ceiling and narrow walls.  To the north
+the tunnel ends at some kind of shaft, at a ledge, while east the tunnel
+continues a ways before ending into a large cavern.  
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2522 10 10 5
+D1
+~
+~
+0 -1 2524 10 10 5
+E
+south s~
+The door has been expertly hidden so that it blends perfectly into the
+rock around it.  A small dark keyhole lies in its center.
+~
+59 9 1509949540 3 0
+59 9 1509949490 3 0
+59 9 1509949490 3 0
+-1
+S
+
+#2524
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The
+drops of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.
+~
+no_mob to keep dragon alone
+[Lansharra] stalactites
+[Lansharra] hang
+~
+301465612 11 6 0
+D1
+~
+~
+0 -1 2556 10 10 5
+D2
+~
+~
+0 -1 2558 10 10 5
+D3
+~
+~
+0 -1 2523 10 10 5
+-1
+S
+
+#2533
+Passageway~
+The passageway once again narrows as it passes between larger caverns. 
+To the west a dull green glow radiates, apparently from the walls
+themselves.  The passageway continues to the east and west.  
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2519 10 10 5
+D3
+~
+~
+0 -1 2534 10 10 5
+429 9 1509949540 3 0
+-1
+S
+
+#2534
+Passageway~
+The passageway is impeded by large stalagmites and stalactites protruding
+from the floor and ceiling.  The passageway continues, toward a bend in
+the caverns to the west, and to the east.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 2533 10 10 5
+D3
+~
+~
+0 -1 2535 10 10 5
+-1
+S
+
+#2535
+Nature's Cavern~
+The walls sparkle in the light like a million diamonds.  They are damp
+and the floor is muddy.  The passageway widens into a small cavern as it
+turns to the east and north.  
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2536 10 10 5
+D1
+~
+~
+0 -1 2534 10 10 5
+D3
+~
+~
+0 -1 2553 10 10 5
+E
+mud water floor~
+The floor is damp and muddy.  Water seems to be seeping in from the north.
+~
+E
+walls diamonds~
+Upon closer examination, you realize that the "diamonds" were really
+light reflecting off of crystals embedded into the walls and the water to
+the north.
+~
+59 9 1509949540 3 0
+-1
+S
+
+#2536
+Nature's Cavern~
+Stepping into this large natural cavern, the first thing you notice is
+the huge pool dominating most of the room.  An occasional splash disturbs
+the otherwise peaceful serenity of this area.  A small plank bridge has
+been extended across the center of it allowing you access to the other
+side.  
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2537 10 10 5
+D1
+~
+~
+0 -1 2554 10 10 5
+D2
+~
+~
+0 -1 2535 10 10 5
+D3
+~
+~
+0 -1 2552 10 10 5
+E
+bridge~
+A rickety looking bridge constructed of old logs, lashed together with
+bits of rawhide.  
+~
+E
+pool~
+A large crystal clear pool being fed from an underground spring.  As you
+look closer you see the shapes of many small fish darting about.  
+~
+E
+sign~
+change room name
+rework water stuff
+add action stuff to do with the water
+remove darkness
+~
+E
+Small white fish~
+Small white cave fish swimming around frantically in the pool. As you look closer you notice they have no eyes.
+~
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+1513 17 1509949540 -2 0
+-1
+S
+
+#2537
+Vertical Passageway~
+This chamber is at the base of a very long, vertical passageway.  While
+it is difficult from this vantage point to determine the exact height of
+this tunnel, it is apparent that the most adroit of spelunkers would
+attempt such a journey.  Heavy cast iron rungs are set into the wall of
+the passageway providing some assistance in traversing the otherwise
+sheer face of the bedrock.  The caverns continue at a significantly more
+reasonable angle to the south and east of here.
+~
+need to bar creatures who shouldn't be able to make it up somehow
+*H
+~
+301465612 11 5 0
+D1
+~
+~
+0 -1 2555 10 10 5
+D2
+~
+~
+0 -1 2536 10 10 5
+D4
+~
+~
+1024 -1 26500 10 10 5
+E
+sign~
+add extras(maybe)
+good desc and name
+~
+A
+~
+~
+acode( find_room( 26508 ), 1 );
+continue;
+~
+!
+3 0 16
+59 9 1509949540 3 0
+-1
+S
+
+#2542
+The Apse~
+This room is obviously the home of the religious leader of the cave
+dwellers.  It is a vaulted room with an altar to their gods.  
+~
+[Mantispid] There is an Altar in the description, but you can't sacrifice anything here.
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 2543 10 10 5
+D2
+~
+~
+0 -1 2511 10 10 5
+-1
+S
+
+#2543
+Traverse Gallery~
+You follow a long low tunnel that gets tight and widens at intervals. 
+Along much of the walls are pictures crudely drawn in plant inks,
+depicting scenes of spirits and supernatural beings.  The tunnel at one
+point turns and heads east and south.  
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2544 10 10 5
+D2
+~
+~
+0 -1 2542 10 10 5
+-1
+S
+
+#2544
+Traverse Gallery~
+The pathway twists and turns as it heads east and west.  The smell of
+decaying meat is strong here, and gets stronger the farther east you go. 
+Bones litter the sides of the passage, some animal, but others appear to
+be humanoid. Could they be sacrifices from the primitive cave dwellers?
+~
+flagging the west on the action caused a bug so leave it unflagged for now
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 2545 10 10 5
+D3
+~
+~
+0 -1 2543 10 10 5
+A
+~
+~
+if( find_stat( ch, level ) < 10 )
+  act_tochar( #warn, ch );
+else
+  continue;
+~
+E
+warn~
+@bThe spirit of a dead warrior rises from the ground to tell you that you
+are not yet ready for what lies beyond.  
+@n
+~
+!
+3 1 2
+-1
+S
+
+#2545
+The Crypt~
+On the wall you see a drawing of a man lying with his arms outstretched
+as if he had fallen over backwards.  Over the man stands a hideous
+creature, its bull-like horns pointing at the man lying before it.  The
+@B@bfountain@n in the center of the room looks to be a recent addition
+compared to the rest of the room.
+~
+drinking from fountain should make wierd appear
+~
+301465604 11 6 0
+D3
+~
+~
+0 -1 2544 10 10 5
+E
+fountain~
+This fountain is made from gleaming white marble that contrasts with the
+rough stone walls of the rest of the caves.  
+~
+1 17 1509949540 -2 0
+482 9 1509949540 3 0
+-1
+S
+
+#2546
+Cavern cleft~
+Under Construction.
+~
+~
+301465604 3 6 0
+-1
+S
+
+#2547
+Cavern cleft~
+Under Construction.
+~
+~
+301465604 3 6 0
+-1
+S
+
+#2548
+Shadowy Crevice~
+Here on the other side of the pit you can see the shadowy crevice more
+clearly.  It looks like there is a tunnel that has been hewn out of the
+solid rock.  A long rope is tied to one of the stalactites on the
+ceiling.  
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 31502 10 10 5
+A
+3 swing~
+2 rope 2 cord 1 south~
+if( !can_fly( ch ) ) { 
+  if( !is_player( ch ) )
+    end;
+  }
+send_to_char( #Char_Exit, ch );
+act_notchar( #Room_Exit, ch );
+transfer( ch, find_room( 2521 ) );
+act_notchar( #Char_Enter, ch );
+~
+E
+Char_Enter~
+$n comes swinging across the pit on a rope.
+~
+E
+Room_Exit~
+$n grabs the rope and swings across the pit.
+~
+E
+Char_Exit~
+You grab the rope and swing across the pit.
+~
+!
+0 0 0
+-1
+S
+
+#2549
+The Pit~
+The bottom of the pit opens into a natural underground cavern.  It's not
+large, but its floor is lost somewhere below the surface of the dark
+water that wells up and fills the room: An underground river.  Some light
+catches your eye to the north, and you see a ledge just above you.  Old,
+slime-covered rings have been driven into the wall, a way to climb out.
+~
+[Ssleestaq] can these be made skinnable?
+[Lansharra] crocodile's foreleg
+~
+301465604 6 8 0
+D0
+~
+~
+0 -1 2550 10 10 5
+E
+ledge~
+The ledge juts out, just above the roiling dark water.  Rings driven into
+the wall of the cavern begin from the ledge on the side of an opening. 
+~
+E
+1 north opening~
+Faint light flickers along the walls of a tunnel.
+~
+E
+slime rings~
+Old slime covered brass rings that have been driven at intervals, up the
+side of the cavern, near the opening and ledge.  Looks like someone
+wanted to be able to pass through this way.  You could not see the rings
+before, from above.  
+~
+A
+3 climb 2 jump~
+3 rings 1 up 2 top~
+if( random( 0, 100 ) > 40 ) {
+  send_to_char( #Climb_Yes, ch );
+  act_notchar( #Char_Yes, ch );
+  transfer( ch, find_room( 2522 ) );
+  act_notchar( #Room_Yes, ch );
+  };
+else {
+  send_to_char( #Climb_No, ch );
+  act_notchar( #Room_No, ch );
+  };
+~
+E
+Room_No~
+$n slips and falls back into the water.
+~
+E
+Climb_No~
+You slip on some slime and fall back into the water.
+~
+E
+Room_Yes~
+$n climbs out of the pit.
+~
+E
+Char_Yes~
+$n manages to climb out of the pit.
+~
+E
+Climb_Yes~
+You manage to make it to the top and out of this pit.
+~
+!
+0 0 0
+327 9 1509949540 3 0
+327 9 1509949515 3 0
+327 9 1509949490 3 0
+324 17 1509949540 -2 0
+-1
+S
+
+#2550
+Narrow Passage~
+To the north, the passage leads towards a chamber lit from flickering
+firelight.  South, the passage ends at a chamber dominated by the
+surface of a dark underwater river.  
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 2551 10 10 5
+D2
+~
+~
+0 -1 2549 10 10 5
+-1
+S
+
+#2551
+Secluded Cave Chamber~
+What an odd chamber.  The last thing you expected was thick maroon
+carpeting, scattered with large pillows and low tables of delicately
+crafted wood, surrounding an open-hearth fire pit.  The chamber is warm
+but still damp, and comfortable in a closed-in sort of way.  From behind
+some interceding stalactites, you see that two of the walls are actually
+ebon-wood bookcases sporting large dark tomes and old volumes.  
+~
+[Lansharra] extras of bookcases, tome, volumes, stalactites, fire pit, carpeting, etc?
+[Brenna] When you give the mind flayer a ruby, useful is misspelled.
+~
+301465605 0 6 0
+D2
+~
+~
+0 -1 2550 10 10 5
+E
+tables food~
+The tables are for low sitting and are delicately carved from rosewood and
+ebon.  They support platters of food, unlit oil lamps, open tomes, and
+other things.  
+~
+E
+carpeting pillows~
+The carpet is a rich thick maroon, of some material that seems unaffected
+by the dampness.  Scattered around over much of its surface are sitting
+pillows, of somber dark colors and expensive designs.  
+~
+417 9 1509949540 3 0
+-1
+S
+
+#2552
+Nature's Cavern~
+Stepping into this large natural cavern, the first thing you notice is
+the huge pool dominating most of the room.  An occasional splash disturbs
+the otherwise serenity of this area.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 2536 10 10 5
+D2
+~
+~
+0 -1 2553 10 10 5
+59 9 1509949540 3 0
+1513 17 1509949540 -2 0
+-1
+S
+
+#2553
+Nature's Cavern~
+Stepping into this large natural cavern, the first thing you notice is
+the huge pool dominating most of the room.  An occasional splash disturbs
+the otherwise peaceful serenity of this area.
+~
+[Lansharra] what's the pool? you can't sear it. look at it.
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 2552 10 10 5
+D1
+~
+~
+0 -1 2535 10 10 5
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+1513 17 1509949540 -2 0
+-1
+S
+
+#2554
+Nature's Cavern~
+Stepping into this large natural cavern, the first thing you notice is
+the huge pool dominating most of the room.  An occasional splash disturbs
+the otherwise peaceful serenity of this area.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 2555 10 10 5
+D3
+~
+~
+0 -1 2536 10 10 5
+59 9 1509949540 3 0
+1513 17 1509949540 -2 0
+-1
+S
+
+#2555
+Nature's Cavern~
+Stepping into this large natural cavern, the first thing you notice is
+the huge pool dominating most of the room.  An occasional splash disturbs
+the otherwise peaceful serenity of this area.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 2554 10 10 5
+D3
+~
+~
+0 -1 2537 10 10 5
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#2556
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The
+drops of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.
+~
+~
+301465612 11 6 0
+D0
+~
+~
+0 -1 2559 10 10 5
+D1
+~
+~
+0 -1 2561 10 10 5
+D2
+~
+~
+0 -1 2557 10 10 5
+D3
+~
+~
+0 -1 2524 10 10 5
+59 9 1509949540 3 0
+-1
+S
+
+#2557
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The drops
+of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.  
+~
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 2556 10 10 5
+D3
+~
+~
+0 -1 2558 10 10 5
+59 9 1509949490 3 0
+-1
+S
+
+#2558
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The drops
+of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.  
+~
+[Lansharra] stalactites hang...equally...
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 2524 10 10 5
+D1
+~
+~
+0 -1 2557 10 10 5
+59 9 1509949540 3 0
+-1
+S
+
+#2559
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The drops
+of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.  
+~
+[Lansharra] stalactites
+[Lansharra] dripping
+[Lansharra] equally
+~
+301465612 11 9 0
+D1
+~
+~
+0 -1 2560 10 10 5
+D2
+~
+~
+0 -1 2556 10 10 5
+-1
+S
+
+#2560
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The drops
+of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.
+~
+~
+301465612 11 9 0
+D2
+~
+~
+0 -1 2561 10 10 5
+D3
+~
+~
+0 -1 2559 10 10 5
+A
+~
+~
+loop( all_in_room ) {
+if( has_obj( 1735, rch ) )
+  act_tochar( #glint, rch );
+}
+end;
+~
+E
+glint~
+A flicker of light gleams off of a dark obsidian keyhole in the rock of
+the north wall.
+~
+!
+2 750 0
+-1
+S
+
+#2561
+Large Cavern~
+You have just entered a large cavern hewn out of solid stone.  Large
+stalactites hang from the ceiling with water dripping off them.  The drops
+of water land on the equally large stalagmites.  There must be some
+volcanic activity nearby, as the floor of the room is quite hot, with
+steam rising from the shallow pools of water.  
+~
+[Lansharra] extras of steam? holes? volcanic vents?
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 2560 10 10 5
+D3
+~
+~
+0 -1 2556 10 10 5
+62 9 1509949490 3 0
+-1
+S
+
+#0
+

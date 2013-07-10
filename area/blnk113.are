@@ -1,0 +1,1764 @@
+#AREA
+Gypsy Island~
+Sign~
+~
+
+0 0
+3
+#ROOMS
+
+#60500
+Bend in the Tunnel~
+The tunnel begins to turn here.  Darkness and cold chill you to the bone
+as the tunnel continues.  Plant life is very sparse here and the walls
+are very dark.  The tunnel begins to widen and a slight current moves
+northward through the tunnel.
+~
+~
+301596684 7 9 0
+D0
+~
+~
+0 -1 60504 10 10 5
+D1
+~
+~
+0 -1 60501 10 10 5
+-1
+S
+
+#60501
+Start of a Tunnel~
+The walls of the tunnel are very slick.  Algae and moss cover the
+limestone walls creating a soft layer over the cold hard rock.  Bits of
+coral grow along the walls, allowing small crustaceans and sea creatures
+to survive in this watery dungeon.  Air bubbles float through the water
+from the east.
+~
+~
+301596684 7 9 0
+D1
+~
+~
+0 -1 60502 10 10 5
+D3
+~
+~
+0 -1 60500 10 10 5
+E
+east air bubbles~
+The water to the east looks to be filled with air bubbles.
+~
+E
+wall algae covered~
+Thick coats of moss and algae cover the walls here creating a soft layer
+of life over the cold hard stone.
+~
+1737 9 1509949540 3 0
+1737 9 1509949540 3 0
+-1
+S
+
+#60502
+Under the Old Well~
+A tunnel filled with water looms before you; rock walls traced with coral
+confine your movement.  Perfectly placed smooth stones line the walls all
+around you creating a tunnel through the aquatic cave.  Small pieces of
+plant and stone dance through the current.  Small bubbles of air enter
+the water through a crack in the top part of the aqueduct.
+~
+~
+301465612 7 9 0
+D3
+~
+~
+0 -1 60501 10 10 5
+E
+up crack ~
+A small crack above you lets air bubbles into the water of the aqueduct.
+~
+E
+tile stone smooth~
+The stone tiles have been placed perfectly.  Not a space or crack can be
+found on any of the walls.
+~
+1737 9 1509949540 3 0
+1737 9 1509949540 3 0
+-1
+S
+
+#60503
+Bottom of an Old Mine~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#60504
+Tunnel of Limestone - Vast Opening in the Tunnel~
+The tunnel is very wide here.  Walls covered in a different stonework
+than at the beginning of the tunnel open to a vast and encasing room. 
+Schools of fish dart back and forth through the tunnel avoiding the
+center of the room, hiding in the shadows near the walls.  A large crack
+in the wall to the east shows the earth under the stone walls of the
+tunnel.
+~
+~
+301596684 7 9 0
+D0
+~
+~
+0 -1 60505 10 10 5
+D2
+~
+~
+0 -1 60500 10 10 5
+E
+stone walls~
+The stone on the walls here is very strange.  It looks as if the pattern
+of a giant eight-armed being has been placed in the tiles.
+~
+E
+fish school~
+Large quantities of fish patrol these waters.  Small schools dart back
+and forth avoiding the eastern wall of the tunnel.
+~
+A
+look search l~
+crack wall~
+if( !mob_in_room( 1759, room ) )
+  if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #jump, ch );
+  act_notchar( #rsquid, ch );
+  mload( 1759, room );
+  }
+else
+  act_tochar( #none, ch );
+else
+  act_tochar( #none, ch );
+~
+E
+rsquid~
+@RA massive squid comes out of the crack.@n
+~
+E
+jump~
+@RA massive squid comes out of the crack.@n
+~
+E
+none~
+You cannot see anything in the crack.
+~
+!
+0 0 0
+-1
+S
+
+#60505
+Tunnel of Limestone - Decaying Walls~
+As the massive stone walls crumble and decay, remnants of stone fall to
+the floor of the tunnel and mix with the sand.  Large amounts of seaweed
+and moss grow from the cracks in the wall.  The ground is covered with
+sand and rock, completely hiding the floor of the tunnel.  The walls
+begin to close in to the distant west and the tunnel opens up to the
+south.
+~
+~
+301596676 7 9 0
+D2
+~
+~
+0 -1 60504 10 10 5
+D3
+~
+~
+0 -1 60506 10 10 5
+E
+walls crumble decay~
+The walls have broken apart and crumbled here, bare dirt and earth show
+through the aqueduct.
+~
+A
+search~
+debris ground rock sand floor~
+act_tochar( #nothing, ch );
+~
+E
+nothing~
+You search through the debri but cannot find anything of value.
+~
+!
+0 0 0
+1737 9 1509949540 3 0
+-1
+S
+
+#60506
+Tunnel of Limestone - Wall of Coral~
+Massive sheets of coral line the walls of the tunnel, creating a mesh of
+living rock.  Small crustaceans and other sea creatures crawl back and
+forth.  The ceiling lacks the stonework found elsewhere in the aqueduct,
+it is infact just bare earth.  A slight current disturbs the small
+deposits of sand that lie on the floor of the tunnel.
+~
+~
+301596684 7 9 0
+D1
+~
+~
+0 -1 60505 10 10 5
+D3
+~
+~
+0 -1 60507 10 10 5
+E
+coral wall rock sheet mesh living~
+The coral entirely covers the walls here.  Small fish and crustaceans
+dart back and forth between holes in the coral.  A small hole in the
+coral attracts your interest.
+~
+E
+holes~
+The small holes in the coral wall are occupied with countless small
+crustaceans and sea creatures.
+~
+A
+search~
+hole coral~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10) == 8) {
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 16 ), ch );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else 
+  act_tochar( #nothing, ch );
+~
+E
+find~
+You find a platinum coin in the coral.
+~
+E
+rfind~
+$n finds a platinum coin in the coral.
+~
+E
+nothing~
+You do not find anything.
+~
+!
+0 0 0
+1763 9 1509949540 3 0
+-1
+S
+
+#60507
+Limestone Tunnel - Bits of Coral~
+Schools of fish patrol the waters here.  Deep sand lines the floor,
+providing shelter and life for many small creatures.  The floor begins to
+slope downwards to the south, into the darkening waters.  A swift current
+creates a mighty undertow, that pulls you south.
+~
+~
+301596684 7 9 0
+D1
+~
+~
+0 -1 60506 10 10 5
+D2
+~
+~
+0 -1 60508 10 10 5
+E
+fish~
+Massive numbers of fish swarm through the waters.  The small creatures
+living in the walls give ample supply of food for the fish.
+~
+A
+~
+~
+send_to_room( #tow, room );
+ch = rand_player( room );
+if( find_stat( ch, dex ) < 10 ) {
+  wait( 1 );
+  act_tochar( #pulled, ch );
+  act_notchar( #rpulled, ch );
+  transfer( ch, find_room( 60508 ) );
+  }
+~
+E
+tow~
+@BThe swift current pulls at your feet.@n
+~
+E
+pulled~
+@BThe swift current pulls you south farther into the tunnel.@n
+~
+E
+rpulled~
+@BThe swift current pulls $n south deeper into the tunnel.@n
+~
+!
+2 500 0
+1763 9 1509949540 3 0
+-1
+S
+
+#60508
+Limestone Tunnel - Fossil-Covered Wall~
+Small embeddings of ancient creatures line the walls of the tunnel before
+you.  Hidden in the shadows of the southern wall is a small niche created
+by the fossils.  Few fish venture into this part of the tunnel and little
+activity can be seen.  One large fossil can be seen on the eastern wall;
+it looks almost humanoid.  The current is amazingly strong from the west
+here making it hard to swim north.
+~
+~
+301596676 7 9 0
+D0
+~
+~
+0 -1 60507 10 10 5
+D3
+~
+~
+0 -1 60509 10 10 5
+E
+fossils imprints~
+The walls are lined with small fossils of long dead and extinct creatures. 
+Small newer fossils begin to form over the older ones showing the history
+of the aqueduct.  One large humanoid fossil appears on the far side of
+the room, it appears to have something in his hand.
+~
+E
+humanoid~
+This ancient being has long since left this world.  Perhaps he was once
+the owner of the well and died in attempts to repair the once good source
+of water.  One can only speculate what happened to this sad soul.
+~
+A
+search~
+fossil humanoid~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 3 ) == 2 ) {
+    act_tochar( #search, ch );
+    act_notchar( #rsearch, ch );
+    obj_to_char( oload( 16 ), ch );
+    }
+  else 
+    act_tochar( #nope, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+search~
+You search through the fossil and find a platinum coin.
+~
+E
+rsearch~
+$n begins to search through the fossil and finds a platinum coin.
+~
+E
+nope~
+You do not find anything on the fossil.
+~
+!
+0 500 0
+A
+~
+~
+act_tochar( #pull, ch );
+~
+E
+pull~
+@BThe current beings to pull you west.@n
+~
+!
+2 0 0
+1763 9 1509949540 3 0
+1737 9 1509949540 3 0
+-1
+S
+
+#60509
+Tunnel Junction~
+A turn in the aqueduct sends the tunnel south and east here.  Violent
+currents come together and form large whirlpools and undertows.  The wall
+of the tunnel to the west is cracked deeply allowing a rush of salt water
+to pour into the aqueduct.  Darkness covers the trail to the south.
+~
+~
+301596684 7 9 0
+D1
+~
+~
+0 -1 60508 10 10 5
+D2
+~
+~
+0 -1 60511 10 10 5
+E
+crack~
+The tunnel has a deep and gaping crack in it.  Massive amounts of salt
+water pour into the aqueduct tainting its fresh water.  The current found
+in the tunnel must originate here.
+~
+A
+enter swim~
+crack west w~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+send_to_room( #room, find_room( 60510 ) );
+transfer( ch, find_room( 60510 ) );
+~
+E
+enter~
+@CYou swim through the current and enter the crack in the western wall.@n
+~
+E
+renter~
+@C$n swims through the current and enters the crack in the western wall.@n
+~
+E
+room~
+@CYou see $n swim through the crack in the eastern wall.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #whirl, room );
+~
+E
+whirl~
+@BYou momentarily get caught in the whirlpool created by the current.@n
+~
+!
+2 250 0
+-1
+S
+
+#60510
+Path along the Floor of the Sea~
+A vast sea of water and life covers you.  A small path of rock stretches
+forth under your feet, making its way through the vast sand-covered floor
+of the sea.  Seaweed larger than the tallest tree stretch up out of the
+sand causing a dark shade to fall along the sea floor.  To the east a
+great stone wall, covered in coral towers up through the water.  A large
+crack cuts into the wall allowing water to flow through it.
+~
+~
+301465600 7 9 0
+D0
+~
+~
+0 -1 60512 10 10 5
+E
+seaweed~
+The seaweed here is enormous.  Huge strands of green and brown stretch up
+to the top of the sea.  The massive plants prevent travel west.
+~
+E
+east stone wall~
+The massive stone wall has a small crack in it.  It looks as though you
+could swim through the crack and into the rock.
+~
+A
+enter~
+crack east~
+act_tochar( #east, ch );
+act_notchar( #reast, ch );
+send_to_room( #room, find_room( 60509 ) );
+transfer( ch, find_room( 60509 ) );
+~
+E
+east~
+@CYou swim east through the crack in the wall of coral.@n
+~
+E
+reast~
+@C$n swims through the crack in the coral wall to the east.@n
+~
+E
+room~
+@CYou see $n swim through the crack in the western wall.@n
+~
+!
+0 0 2
+1772 9 1509949540 3 0
+-1
+S
+
+#60511
+Limestone Tunnel - Dead End~
+Black stone walls encase this end of the aqueduct creating a dead end. 
+Swift current flows in from the north causing the water to turn and move
+in a turbulent manner.  In the southern end of the room a steel ladder
+has been placed in the wall allowing you to travel upwards.
+~
+~
+301596676 7 9 0
+D0
+~
+~
+0 -1 60509 10 10 5
+D4
+~
+~
+0 -1 60548 10 10 5
+E
+ladder~
+A small steel ladder leads up into the darkness and the black rocks that
+create this part of the aqueduct.  The ladder is very old and rusted.
+~
+E
+black stone wall~
+The giant limestone walls block your progress in all directions save to
+the north.  Age and erosion have blackened them to a pitch-like color.  A
+small ladder is bolted into one of the walls.
+~
+1763 9 1509949540 3 0
+-1
+S
+
+#60512
+Bottom of the Sea - Mixing of the Tides~
+A great intersection in the stone path lies before you; trails lead off
+in every direction.  Great tides wash in from all around you creating a
+great whirlpool. Sand and debris float through the water bouncing
+violently off anything they come in contact with.  To the west a towering
+structure rises up from the sand.
+~
+~
+301465608 7 9 0
+D0
+~
+~
+0 -1 60515 10 10 5
+D1
+~
+~
+0 -1 60513 10 10 5
+D2
+~
+~
+0 -1 60510 10 10 5
+D3
+giant coral door~
+giant coral door west~
+391 2569 60514 10 10 5
+E
+west structure~
+This large mass of coral and rock seems to be a building of sorts.  A
+giant door to your east seems to be the only way into the structure.
+~
+A
+~
+~
+act_tochar( #west, ch );
+continue;
+~
+E
+west~
+@RYou swim into the giant structure to the west.@n
+~
+!
+3 0 8
+A
+~
+~
+send_to_room( #current, room );
+~
+E
+current~
+@RThe powerful whirlpool nearly throws you east.@n
+~
+!
+2 500 0
+1818 9 1509949540 3 0
+-1
+S
+
+#60513
+Edge of a Deep Abyss~
+The bottom of the sea drops out from under you creating a great cliff. 
+The trail comes to a sudden halt as the darkness from the abyss begins to
+the east.  It is as if a black cloth has covered the sea.  The small path
+leads back to the west.  The outside walls of an aqueduct lie to the
+south blocking your progress in the direction.
+~
+~
+301465600 7 9 0
+D3
+~
+~
+0 -1 60512 10 10 5
+E
+abyss east down~
+The deep water looks cold and forbidding.
+~
+E
+west w~
+To the west you see a towering structure rise up out of the sea.
+~
+A
+climb~
+down abyss d~
+act_tochar( #noclimb, ch );
+~
+E
+noclimb~
+You think about climbing down but become frightened and decide to stay on
+the top of the cliff.
+~
+!
+0 0 0
+1774 9 1509949540 3 0
+-1
+S
+
+#60514
+Merman Stronghold - Common Area~
+Huge walls of golden coral and deep grained marble rise up all around you. 
+Great tapestries line the walls depicting the history of the mermen.  A
+small table with a few chairs surrounding it seems bolted to the tone
+floor.
+~
+~
+301465608 7 9 0
+D1
+giant coral door~
+giant coral door east e~
+391 2569 60512 10 10 5
+D3
+~
+~
+0 -1 60516 10 10 5
+E
+tapestries wall~
+The walls are covered in amazing tapestries.  Woven in seaweed and some
+other strange material the colors dazzle the eye.  The entire history of
+this people can be seen across the walls of this great room.
+~
+E
+table chairs~
+These small chairs are made of a deep grained coral.  They look as if
+they would float away if it were not for the bolts holding them down to
+the floor.
+~
+1763 9 1509949540 3 0
+-1
+S
+
+#60515
+Wall of Coral~
+Giant coral walls rise forth out of the sea creating an impasse.  Sheer
+cliffs of living rock encase this area leaving the southern end as the
+only escape.  Small fish and seahorses swim back and forth hiding in the
+shadows of the wall.  A small hole lies in the eastern edge of the wall;
+small air bubbles rise from it.
+~
+~
+301465600 7 9 0
+D2
+~
+~
+0 -1 60512 10 10 5
+E
+coral cliffs rock~
+The cliffs of coral rise up like a giant wall, nearly touching the top of
+the sea.
+~
+E
+fish~
+The fish in this area act very scared and seem to be avoiding the eastern
+wall.
+~
+A
+search look l~
+hole~
+if( !mob_in_room( 1773, room ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #search, ch );
+    act_notchar( #reel, ch );
+    wait( 1 );
+    act_tochar( #eel, ch );
+    act_notchar( #attack, ch );
+    mload( 1773, room );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+eel~
+@YA jet black eel lunges from the hole.@n
+~
+E
+reel~
+@Y$n searches through the hole in the wall.@n
+~
+E
+attack~
+@YA jet black eel lunges from the hole.@n
+~
+E
+nothing~
+You find nothing special in the hole.
+~
+E
+search~
+@YYou search through the hole in the wall.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #fish, room );
+~
+E
+fish~
+@WYou see a small fish dart away from the eastern wall in terror.@n
+~
+!
+2 200 0
+1737 9 1509949540 3 0
+1737 9 1509949540 3 0
+-1
+S
+
+#60516
+Merman Stronghold - Hallway~
+Small stone carvings of great mermen in battle line the walls here.  To
+the west a massive golden door lies.  Hallways stretch off to the north
+and the south.  Darkness covers both hallways making it difficult to see
+what lies beyond.
+~
+~
+301465608 13 9 0
+D0
+small door~
+small door north n~
+131 -1 60517 10 10 5
+D1
+~
+~
+0 -1 60514 10 10 5
+D2
+small door~
+small door south s~
+131 -1 60553 10 10 5
+D3
+massive golden door~
+west massive golden door~
+391 2569 60554 10 10 5
+E
+door west~
+A massive golden door stands before you to the west.  Intricate carvings
+lace its surface and a giant bone handle serves as a door knob.
+~
+E
+carving walls~
+The stone walls here have intracite carvings that cover them almost
+entirely.  Great merman battle scenes and the history of this people seem
+depicted through this hall.
+~
+E
+bone knob~
+This giant bone looks like it came from the body of a whale or some other
+large creature.  It serves as the only way to open the door to the west.
+~
+1774 9 1509949540 3 0
+-1
+S
+
+#60517
+Merman Stronghold - Kitchen~
+Huge knives and utensils hang from the ceiling in this room.  A large
+kettle of sorts sits on a large table, apparently used in the making of
+great feasts.  Cupboards filled with fish and a vast array of seaweeds
+line the walls, making the only exit from this room to the south.
+~
+~
+301465600 7 9 0
+D2
+small door~
+small door south s~
+131 -1 60516 10 10 5
+E
+kettle~
+This huge steel kettle holds some massive amount of food to be served to
+the members of the stronghold.  Bits of seaweed and small pieces of fish
+lay on the counter next to it, apparently being prepared for the meal.
+~
+E
+knives utensils spoons forks~
+The small hooks hanging from the ceiling offer an array of utensils. 
+Forks, spoons and knives all hang down ready for use.
+~
+E
+cupboards~
+These cupboards offer a great deal of storage space for a cook.  Made of
+fine wood and coral they seem very sturdy as they are attatched to the
+walls of teh kitchen.
+~
+1817 9 1509949540 3 0
+-1
+S
+
+#60518
+Edge of a Sandy Beach~
+Deep wind penetrates you to the bone as it blows in from the sea.  A
+small rusty ladder leads into cave in and the sound of water splashing
+against the caves walls echo through the air.  A small path leads off to
+the north.  A small pillar of smoke rises up in the distance coming from
+some sort of settlement.
+
+A small wind scarred sign stands here in the sand.
+~
+begin the island
+[Sign] Do not approve from here on.
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60519 10 10 5
+D5
+~
+~
+0 -1 60556 10 10 5
+E
+sign wind scarred~
+@RBEWARE@n
+
+@CThis small isle is home to a group of outcast Gypsies@n @CExhiled to
+this island by the Brotherhood of Orelumber The Gypsy are a strange and
+wicked people, please turn around.  @n 
+
+
+
+
+~
+-1
+S
+
+#60519
+Path Along the Beach~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60522 10 10 5
+D1
+~
+~
+0 -1 60521 10 10 5
+D2
+~
+~
+0 -1 60518 10 10 5
+D3
+~
+~
+0 -1 60520 10 10 5
+-1
+S
+
+#60520
+Under a Giant Palm Tree~
+Under Construction.
+~
+~
+301465601 10 9 0
+D1
+~
+~
+0 -1 60519 10 10 5
+-1
+S
+
+#60521
+Palm Covered Beach~
+Under Construction.
+~
+~
+301465601 10 9 0
+D3
+~
+~
+0 -1 60519 10 10 5
+-1
+S
+
+#60522
+Path Along the Beach~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60523 10 10 5
+D2
+~
+~
+0 -1 60519 10 10 5
+-1
+S
+
+#60523
+Before the Gypsy Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60527 10 10 5
+D2
+~
+~
+0 -1 60522 10 10 5
+-1
+S
+
+#60524
+Caverns Ending~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#60525
+Caverns Ending~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#60526
+Caverns Ending~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#60527
+Worn Trail through the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60530 10 10 5
+D1
+~
+~
+0 -1 60529 10 10 5
+D2
+~
+~
+0 -1 60523 10 10 5
+D3
+~
+~
+0 -1 60528 10 10 5
+-1
+S
+
+#60528
+Western Trail Through the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60531 10 10 5
+D1
+~
+~
+0 -1 60527 10 10 5
+-1
+S
+
+#60529
+Eastern Trail through the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60532 10 10 5
+D3
+~
+~
+0 -1 60527 10 10 5
+-1
+S
+
+#60530
+Village Sqaure~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60541 10 10 5
+D1
+~
+~
+0 -1 60532 10 10 5
+D2
+~
+~
+0 -1 60527 10 10 5
+D3
+~
+~
+0 -1 60531 10 10 5
+-1
+S
+
+#60531
+Path through the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D1
+~
+~
+0 -1 60530 10 10 5
+D2
+~
+~
+0 -1 60528 10 10 5
+D3
+~
+~
+0 -1 60537 10 10 5
+-1
+S
+
+#60532
+Before a Decrepit Cart~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60545 10 10 5
+D1
+~
+~
+0 -1 60533 10 10 5
+D2
+~
+~
+0 -1 60529 10 10 5
+D3
+~
+~
+0 -1 60530 10 10 5
+-1
+S
+
+#60533
+Eastern Edge of the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D1
+~
+~
+0 -1 60534 10 10 5
+D3
+~
+~
+0 -1 60532 10 10 5
+-1
+S
+
+#60534
+Edge of the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60535 10 10 5
+D1
+~
+~
+0 -1 60546 10 10 5
+D2
+~
+~
+0 -1 60536 10 10 5
+D3
+~
+~
+0 -1 60533 10 10 5
+-1
+S
+
+#60535
+Wagon of the Gypsy Cleric~
+Under Construction.
+~
+~
+301465601 10 9 0
+D2
+~
+~
+0 -1 60534 10 10 5
+-1
+S
+
+#60536
+The Gypsy Temple~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60534 10 10 5
+-1
+S
+
+#60537
+Western Edge of the Path~
+Under Construction.
+~
+~
+301465601 10 9 0
+D1
+~
+~
+0 -1 60531 10 10 5
+D3
+~
+~
+0 -1 60538 10 10 5
+-1
+S
+
+#60538
+Outskirts of the Village~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60539 10 10 5
+D1
+~
+~
+0 -1 60537 10 10 5
+D2
+~
+~
+0 -1 60540 10 10 5
+D3
+~
+~
+0 -1 60547 10 10 5
+-1
+S
+
+#60539
+The Wagon of the Gypsy Magi~
+Under Construction.
+~
+~
+301465601 10 9 0
+D2
+~
+~
+0 -1 60538 10 10 5
+-1
+S
+
+#60540
+The Gyspy Supply Wagon~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60538 10 10 5
+-1
+S
+
+#60541
+Path to the Large Wagon~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60542 10 10 5
+D2
+~
+~
+0 -1 60530 10 10 5
+-1
+S
+
+#60542
+Before the Large Wagon~
+Under Construction.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 60544 10 10 5
+D2
+~
+~
+0 -1 60541 10 10 5
+-1
+S
+
+#60543
+Bottom of an Old Well~
+Walls of thick granite create a great circular pit.  A water line showing
+the abundance of water that was once present in the great well lies far
+above.  A faint crack runs across the floor of the well, small amounts of
+moisture and droplets of water escape from it.  A small lever lies on the
+east wall rusted in the up position.  A small ladder gives access to the
+surface.
+~
+~
+301465609 11 5 0
+D4
+~
+~
+0 -1 60552 10 10 5
+E
+lever~
+The wall of the well has a small lever placed on it.  The lever has long
+since rusted stiff in the up position.
+~
+E
+water line up~
+The top of the well has a large ring around it, showing how much water
+the well once held.
+~
+E
+ladder~
+The small wooden ladder looks old but strong.  It looks to be the only
+way out of the well.
+~
+A
+pull~
+lever~
+act_tochar( #rust, ch );
+act_notchar( #rrust, ch );
+wait( 1 );
+if( find_stat( ch, str ) > 15 ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  wait( 1 );
+  send_to_room( #open, find_room( 60502 ) );
+  send_to_room( #flood, room );
+  wait( 1 );
+  send_to_room( #down, room );
+  transfer_all( room, find_room( 60502 ) );
+  wait( 1 );
+  send_to_room( #close, find_room( 60502 ) );
+  }
+else {
+  act_tochar( #weak, ch );
+  act_notchar( #rweak, ch );
+  }
+~
+E
+rust~
+You pull down on the lever with all your might.
+~
+E
+rrust~
+$n pulls down on the lever with all $s might.
+~
+E
+flood~
+The crack in the floor opens and water fills the well.
+~
+E
+down~
+@RYou are pulled through the crack in the floor!@n
+~
+E
+open~
+The crack above you opens.
+~
+E
+close~
+The crack above you closes.
+~
+E
+pull~
+The lever finally moves from its rusted state.
+~
+E
+rpull~
+$n finally moves the lever from its rusted state.
+~
+E
+weak~
+You cannot move the lever.
+~
+E
+rweak~
+$n cannot move the lever.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #land, ch );
+act_notchar( #rland, ch );
+~
+E
+land~
+You fall to the floor of the well.
+~
+E
+rland~
+$n falls into the well from above.
+~
+!
+1 0 47
+A
+~
+~
+act_tochar( #up, ch );
+act_notchar( #rup, ch );
+continue;
+~
+E
+up~
+You climb up the ladder and exit the well.
+~
+E
+rup~
+$n climbs up the ladder and out of the well.
+~
+!
+3 0 16
+-1
+S
+
+#60544
+Wagon of the Gypsy Leader~
+Under Construction.
+~
+~
+301465601 10 9 0
+D2
+~
+~
+0 -1 60542 10 10 5
+-1
+S
+
+#60545
+Gypsy Trading Post~
+Under Construction.
+~
+~
+301465601 10 9 0
+D2
+~
+~
+0 -1 60532 10 10 5
+-1
+S
+
+#60546
+Gypsy Burial Ground~
+Under Construction.
+~
+~
+301465601 10 9 0
+D3
+~
+~
+0 -1 60534 10 10 5
+-1
+S
+
+#60547
+Gypsy Food Tent~
+Under Construction.
+~
+~
+301465601 10 9 0
+D1
+~
+~
+0 -1 60538 10 10 5
+-1
+S
+
+#60548
+Damp Tunnel~
+Damp cold ground lies under your feet as you stand in the western end of
+a small tunnel.  A deep water-filled hole lies in the ground and waves of
+water pour from it as the current from below moves about.  Darkness
+blocks your view to the east and a ladder lies on the floor leading down
+into the hole.
+~
+~
+301596684 11 9 0
+D1
+~
+~
+0 -1 60543 10 10 5
+D5
+~
+~
+0 -1 60511 10 10 5
+E
+ladder~
+This small ladder stretches deep into the water below.  Darkness and cold
+block your view into the water.
+~
+A
+~
+~
+act_tochar( #leave, ch );
+act_notchar( #rleave, ch );
+continue;
+~
+E
+leave~
+You slide down the tunnel and fall into a well.
+~
+E
+rleave~
+$n starts into the tunnel.
+~
+!
+3 0 2
+-1
+S
+
+#60549
+Dry Tunnel~
+Under Construction.
+~
+~
+301465601 11 9 0
+-1
+S
+
+#60550
+Dry Tunnel~
+Under Construction.
+~
+~
+301465601 11 9 0
+-1
+S
+
+#60551
+Bottom of an Old Well~
+Under Construction.
+~
+~
+301465601 11 9 0
+-1
+S
+
+#60552
+Before a Rotting Shack~
+You stand at the steps of a small shack.  Wooden doors hang loosely on
+rusted hinges, creaking softly in the breeze.  A small stone well lays in
+the ground a ladder allows access to the bottom of it.  A faint gravel
+path leads off to the beach in the distance.
+~
+~
+301465600 11 9 0
+D0
+rotting wooden door~
+rotting wooden door north n~
+131 -1 60557 10 10 5
+D5
+~
+~
+0 -1 60543 10 10 5
+-1
+S
+
+#60553
+Merman Stronghold - Nursery~
+Small toys and games line the floor of this room.  Cradles and small beds
+line the walls leaving the inner part of the room open for play.  One
+large rocking chair sits in the far corner of the room, rocking to and
+fro in the current.
+~
+~
+301465600 7 9 0
+D0
+small door~
+small door north n~
+131 -1 60516 10 10 5
+E
+floor toys games~
+The floor here is covered in small toys and games intended to entertain
+small children for hours.
+~
+E
+rocking chair~
+The lone rocking chair sits in the corner and rocks to the current of the
+water.
+~
+1816 9 1509949540 3 0
+-1
+S
+
+#60554
+Merman Stronghold - Throne of Coral~
+Great marble walls climb high into the sea and a great ceiling of coral
+looks down upon the room.  A giant coral throne sits before the western
+wall.  A giant seal hangs above the door to the east.  The floor is adorn
+in a large rug, completly covering the hard stone floor of the stronghold.
+~
+~
+301465600 13 9 0
+D1
+massive golden door~
+west massive golden door~
+391 -1 60516 10 10 5
+D3
+~
+~
+227 -1 60555 10 10 5
+E
+seal~
+The giant seal of the merman stronghold towers above you on the eastern
+wall.  Golden coral and bits of metal make it glisten in the light.
+~
+E
+rug~
+The rug is made of fine seaweed and a silk-like substance.  It is very
+soft and seems to cover all of the floor beneath your feet.
+~
+A
+push~
+throne~
+if( !is_open( room, west ) ) {
+  act_tochar( #throne, ch );
+  act_notchar( #rthrone, ch );
+  open( room, west );
+  junk_obj( obj_in_room( 2601, room ) );
+  obj_to_room( oload( 2603 ), room );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+throne~
+@BYou push the throne of coral over and reveal a passageway.@n
+~
+E
+rthrone~
+@B$n pushes the throne of coral over and reveals a passageway.@n
+~
+E
+open~
+The throne is already moved.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+@BYou swim through the passage way in the western wall.@n
+~
+!
+3 0 8
+1776 9 1509949540 3 0
+2601 17 1509949540 -2 0
+-1
+S
+
+#60555
+Merman Stronghold - Secret Tunnel~
+A small stone tunnel of solid granite protrudes to the north.  Swift
+currents pushes you back into the southern wall and makes it very
+difficult to move.  A small lever stretches forth from the wall to the
+east.  The tunnel slopes of steeply to the north.
+~
+~
+301465600 13 5 0
+D0
+~
+~
+0 -1 60556 10 10 5
+D1
+~
+~
+227 -1 60554 10 10 5
+E
+lever~
+The small lever looks as if it would move quite easily.
+~
+E
+stone granite~
+This tunnel is made of solid granite.  It looks as if it was made by some
+form of magic or other unnatural form.
+~
+A
+pull~
+lever~
+if( !is_open( room, east ) ) {
+  send_to_room( #throne, find_room( 60554 ) );
+  open( room, east );
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  junk_obj( obj_in_room( 2601, find_room( 60554 ) ) );
+  obj_to_room( oload( 2603 ), find_room( 60554 ) );
+  }
+else
+  act_tochar( "The lever is already down.", ch );
+~
+E
+open~
+You pull the lever and reveal a passageway to the east.
+~
+E
+ropen~
+$n pulls the lever and reveals a passageway to the east.
+~
+E
+throne~
+The coral throne is moved to the side revealing a passageway.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #current, room );
+~
+E
+current~
+@BThe strong current pushes you up against the southern wall of the
+tunnel.@n 
+~
+!
+2 400 0
+-1
+S
+
+#60556
+Bottom of a Hole~
+You stand at the bottom of a deep hole.  To the south a dark tunnel
+begins, descending into a watery tunnel.  A small ladder is placed in
+the northern edge of the hole, providing an escape to the surface.
+~
+~
+301465600 13 9 0
+D2
+~
+~
+0 -1 60555 10 10 5
+D4
+~
+~
+0 -1 60518 10 10 5
+E
+ladder~
+The small ladder leads upward onto what looks like a beach.
+~
+A
+~
+~
+act_tochar( #storm, ch );
+~
+E
+storm~
+A mighty sandstorm makes it impossible to climb up the ladder.
+~
+!
+3 0 16
+-1
+S
+
+#60557
+Inside a Rotting Shack~
+You stand inside a small rotting shack.  A small oil lamp lights the
+room, shadows dance off the walls as the flame flickers.  A small table
+with a lone chair stands in the corner of the room.  Dirt and debris
+cover the floor making it hard to walk without stepping on something.
+~
+~
+335020037 11 5 0
+D2
+rotting wooden door~
+rotting wooden door south s~
+131 -1 60552 10 10 5
+1858 9 1509949540 3 0
+-1
+S
+
+#0
+

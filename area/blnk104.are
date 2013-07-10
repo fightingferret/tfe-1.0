@@ -1,0 +1,1981 @@
+#AREA
+Sea Sprite Colony~
+Orb~
+Sea Sprite Colony~
+
+20 0
+0
+#ROOMS
+
+#56000
+Before The Barrier Reef~
+To the east looms a vast coral reef.  As hard as stone and twice as
+beautiful, the reef is a bright orange-red, the color of the setting sun. 
+Dotted here and there with anemones, sea cucumbers and various starfish,
+the reef teems with life.  A wide archway opens to the east, too
+symmetrical to be natural.
+~
+no_mob
+~
+301465609 13 9 0
+D0
+~
+~
+0 -1 56033 10 10 5
+D1
+~
+~
+0 -1 56001 10 10 5
+E
+archway east e~
+The archway is a tall curve, polished smooth, and its pores are filled in
+with silver.
+~
+E
+reef coral~
+The bright orange reef must have taken thousands of years to accumlate. 
+Tiny, live coral still survive on the top of the reef, renewing the
+process of building it.
+~
+E
+anemone~
+This living mass of prickly spines clings to the reef, hoping for a stray
+fish to swim close enough for it to catch.
+~
+A
+touch take get search~
+aenemone~
+act_tochar( #touch, ch );
+act_notchar( #rtouch, ch );
+i = 2d10;
+inflict( ch, ch, i, "sharp spines" );
+poison( ch );
+~
+E
+TOUCH~
+@MYou try to grasp the anemone but its sharp spines wound you!
+~
+E
+rtouch~
+@M$n tries to grasp the anemone but its sharp spines wound $m.
+~
+!
+0 0 0
+-1
+S
+
+#56001
+Within a Coral Archway~
+Standing within the archway, you notice the coral is finely polished and
+the pores have been filled in with a fine, silvery metal giving the coral
+a mottled look.  The floor of the archway is smooth, burnished coral,
+sprinkled liberally with sand.  To the east and south lie coral hallways,
+glowing with a faint light.
+~
+~
+301465605 13 6 0
+D1
+~
+~
+0 -1 56002 10 10 5
+D2
+~
+~
+0 -1 56003 10 10 5
+D3
+~
+~
+0 -1 56000 10 10 5
+E
+floor sand~
+Carefully polished, the floor of the archway is smooth, porous coral. 
+Sand from the sea's floor has drifted in and now lies on the floor in
+little piles.
+~
+E
+archway silver pores~
+The pores of the coral archway have been filled in with a decorative,
+silver metal.
+~
+A
+~
+~
+if( mob_in_room( 1459, room ) ) {
+  if( find_stat( ch, align ) == 0 ) {
+    wait( 1 );
+    act_tochar( #warm, ch );
+    act_tochar( #greet, ch );
+    }
+  if( find_stat( ch, align ) == 3 ) {
+    wait( 1 );
+    act_tochar( #warm, ch );
+    act_tochar( #greet, ch );
+    }
+  if( find_stat( ch, align ) == 6 ) {
+    wait( 1 );
+    act_tochar( #warm, ch );
+    act_tochar( #greet, ch );
+    }
+  }
+else
+  continue;
+~
+E
+greet~
+@eThe sprite says: "Welcome to the Coral Hall, good traveler.  Its seldom
+we see air breathers down here!" 
+~
+E
+warm~
+The sea sprite guard greets you warmly.
+~
+E
+block~
+The guard plants himself in front of you and says, "@eI'm sorry, evil is
+not welcome here." 
+~
+!
+1 0 8
+A
+~
+~
+if( mob_in_room( 1459, room ) ) {
+  i = find_stat( ch, align );
+  if( i == 2 ) {
+    act_tochar( #block, ch );
+    end;
+    }
+  if( i == 5 ) {
+    act_tochar( #block, ch );
+    end;
+    }
+  if( i == 8 ) {
+    act_tochar( #block, ch );
+    end;
+    }
+  else
+continue;
+  }
+else
+  continue;
+~
+E
+block~
+The guard plants himself in front of you and says, @e"I'm sorry, evil is
+not welcome here." 
+~
+!
+3 0 6
+1459 137 1509949540 3 0
+1459 9 1509949540 3 0
+-1
+S
+
+#56002
+A Coral Hallway~
+This large hallway has been worked out of the coral itself.  Polished to
+an orange gleam, the walls and floor are porous, allowing water to pass
+freely through them.  Phosphorescent moss grows out of some of the
+coral's pores, shedding a dim, silvery glow on the hallway.  The powdery
+white sand that covers the floor billows up with every step you take.
+~
+~
+301465605 13 6 0
+D1
+~
+~
+0 -1 56011 10 10 5
+D3
+~
+~
+0 -1 56001 10 10 5
+E
+shells garlands~
+Made of a myriad of tiny, silver shells, this garland waves gently with
+the currents 
+~
+E
+moss~
+A faintly glowing moss grows out of the coral walls, casting light on the
+chamber.
+~
+A
+reach get take remove grab~
+garlands shell~
+act_tochar( #reach, ch );
+act_notchar( #rgarland, ch );
+~
+E
+reach~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+E
+rgarland~
+$n tries to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+1459 9 1509949540 3 0
+-1
+S
+
+#56003
+A Coral Hallway~
+Wide and vaulted, the hallway's ceiling stretches high into the reef. 
+The coral glows faintly, the result of phosphorescent moss growing out of
+many of its pores.  Garlands of silvery seashells grace the ceilings, and
+larger shells have been placed artistically on the walls.
+~
+no_mob
+~
+301465609 7 9 0
+D0
+~
+~
+0 -1 56001 10 10 5
+D2
+~
+~
+0 -1 56004 10 10 5
+E
+garlands~
+Made of a myriad of tiny, silver shells, this garland waves gently with
+the currents.
+~
+A
+get reach grab remove take~
+garlands shells~
+act_tochar( #garland, ch );
+~
+E
+garland~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+-1
+S
+
+#56004
+A Coral Hallway - Within a Well-Tended Garden~
+Gently waving seaweed in every shade of green and blue grows out of the
+porous coral.  Sponges grow along the wall, covering the barrier coral
+almost completely in some places.  Here and there, a lucky anemone has
+caught one of the lightning fast fish that swim among the plants and is
+enjoying a leisurely meal.
+~
+~
+301465605 13 6 0
+D0
+~
+~
+0 -1 56003 10 10 5
+D1
+~
+~
+0 -1 56026 10 10 5
+D3
+~
+~
+0 -1 56005 10 10 5
+E
+sponges~
+Porous, soft material make up these colorful sponges.
+~
+E
+seaweed green blue~
+Gently swaying seaweed grows here in every shade of blue and green possible. 
+~
+E
+tiny fish~
+Tiny, bright orange fish with thin black stripes streak through the
+plants, taking a nibble of the seaweed or dodging the waving tentacles of
+a hungry aenemone.
+~
+E
+anemone~
+This round mass of black spines clings to the coral wall waiting for a
+tasty fish to pass by.
+~
+A
+get take grasp grab touch remove~
+aenemone~
+act_tochar( #spine, ch );
+act_notchar( #rspine, ch );
+i = 10d2;
+inflict( ch, ch, i, "spines" );
+poison( ch );
+~
+E
+spine~
+@MYou try to grasp the aenemone but its sharp spines wound you!
+~
+E
+rspine~
+@M$n tries to grasp the aenemone but its sharp spines wound $m!
+~
+!
+0 0 0
+A
+get take catch grab~
+tiny fish~
+act_tochar( #fish, ch );
+~
+E
+fish~
+You try to grasp the tiny fish but it darts away.
+~
+!
+0 0 0
+-1
+S
+
+#56005
+A Coral Hall - Before the Kelp Beds~
+The smooth, orange-red walls are bare except for the light-giving moss
+which grows out of some of the pores.  Walled on two sides by the smooth
+coral, the eastern archway heads into what appears to be a garden, while
+the southern archway leads into a sea of dark green.
+~
+[Cucho] in the room east of here that is...
+~
+301465613 13 6 0
+D1
+~
+~
+0 -1 56004 10 10 5
+D2
+~
+~
+0 -1 56006 10 10 5
+E
+s south ~
+To the south lies a sea of murky green light reflected through the clear water.
+~
+E
+east e~
+There is a lush, colorful garden to the east, filled with plants and tiny
+marine life.
+~
+A
+~
+~
+if( !mob_in_room( 1451, room ) && !mob_in_room( 1451, find_room( 56004 ) ) ) {
+  if( rflag( reset0, room ) ) {
+    mload( 1451, room );
+    act_tochar( #fin, ch );
+    mob = mob_in_room( 1451, room );
+    interpret( mob, "east" );
+    remove_rflag( reset0, room );
+    }
+  }
+~
+E
+fin~
+@BA school of angel fish swims out from around a corner in a flurry of fins.
+~
+!
+1 0 6
+-1
+S
+
+#56006
+Within the Kelp Beds~
+The green kelp stalks rise, tall and straight, to the surface where the
+broad leaves spread out over the water.  Planted in rows and carefully
+tended, the kelp opens to allow small trails between the huge marine
+plants.  Many varieties of colorful seaweed grow in a border along the
+trails, lending some color to the dark green of the kelp beds.
+~
+[Orb] sprite/fish combo
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56005 10 10 5
+D2
+~
+~
+0 -1 56007 10 10 5
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+gardens colorful seaweed border~
+Blue, silver, and green seaweed has been planted in spiraling patterns in
+beds bordering the trail through the kelp.
+~
+A
+west~
+~
+act_tochar( #kelp, ch );
+~
+E
+kelp~
+The kelp stalks are too dense to allow passage that way.
+~
+!
+0 0 0
+A
+east~
+~
+act_tochar( #east, ch );
+~
+E
+east~
+The kelp stalks are too dense to allow passage that way.
+~
+!
+0 0 0
+1451 41 1509949540 3 0
+1449 73 1509949540 3 0
+-1
+S
+
+#56007
+Within the Kelp Beds - Along a Small Trail~
+This small trail in the kelp is used mainly by the fishherds.  Schools of
+fish flit past you occasionally, on some unseen course.  The thick stalks
+of kelp obscure your vision to the east and west, though schools of
+garishly colored fish are occasionally visible as flashes of yellow, red,
+or green.
+~
+[Orb] sprite/fish combo
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56006 10 10 5
+D3
+~
+~
+0 -1 56008 10 10 5
+E
+seaweed border garden~
+Blue, silver, and green seaweed has been planted in spiraling patterns in
+beds bordering the trail through the kelp.
+~
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+A
+~
+~
+act_room( #fish, ch );
+~
+E
+fish~
+A school of fish sweeps past you in a rush of bubbles.
+~
+!
+2 150 0
+A
+east south~
+~
+act_tochar( #west, ch );
+~
+E
+west~
+The kelp stalks are too dense to allow passage that way.
+~
+!
+0 0 0
+A
+east~
+~
+act_tochar( #east, ch );
+~
+E
+east~
+The kelp stalks are too dense to allow passage that way.
+~
+!
+0 0 0
+1451 41 1509949540 3 0
+1449 73 1509949540 3 0
+-1
+S
+
+#56008
+Within the Kelp Beds - Along a Small Trail~
+The trail leads through the greenish-brown kelp forest.  The trail winds
+around to the south from here, straight and narrow with softly rounded
+corners.  The tall kelp stalks which line the trail rise to the surface
+where their leaves spread out over the water.  Beds of colored seaweed
+decorate the sides of the path in spiraling patterns.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56007 10 10 5
+D2
+~
+~
+0 -1 56009 10 10 5
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+colored seaweed garden bed~
+Blue, silver, and green seaweed has been planted in spiraling patterns in
+beds bordering the trail through the kelp.
+~
+A
+west north~
+~
+act_tochar( #kelp, ch );
+~
+E
+kelp~
+The kelp stalks are too dense to allow passage that way.
+~
+!
+0 0 0
+A
+west~
+~
+act_tochar( #west, ch );
+~
+E
+west~
+The kelp stalks are too dense to allow passage that way.
+~
+!
+0 0 0
+-1
+S
+
+#56009
+Within the Kelp Beds - A Turn in the Trail~
+The sandy trail turns eastward here, into the heart of the kelp beds.  The
+trail seems to get narrower here, the kelp stalks encroaching on the
+decorative seaweed.  It is slightly darker here, the light from the
+surface of the water struggles through dense kelp to reach the sea floor.
+~
+[Orb] sprite/fish combo
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56008 10 10 5
+D1
+~
+~
+0 -1 56010 10 10 5
+E
+seaweed decorative bed~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+seaweed decoratived bed~
+Blue, silver, and green seaweed has been planted in spiraling patterns in
+beds bordering the trail through the kelp.
+~
+1451 41 1509949540 3 0
+1449 73 1509949540 3 0
+-1
+S
+
+#56010
+A Narrow Trail in the Kelp Beds~
+The sandy floor is covered in small, smooth stones, worn down by the
+constant current.  Almost completely lightless, the room is crowded by
+dense kelp stalks.  Passage to the east is walled off by a huge cluster
+of kelp.  There is a small cord hanging from one of the giant kelp stalks.
+~
+~
+301467649 13 9 0
+D1
+kelp~
+kelp~
+195 -1 56024 10 10 5
+D3
+~
+~
+0 -1 56009 10 10 5
+E
+small cord~
+This is a long cord with a spiral shell on the end, set down where a
+small sprite could easily reach it.
+~
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+east e~
+The kelp has grown together in a thick cluster, prohibiting passage to
+the east.
+~
+A
+pull yank grab take~
+cord string shell~
+if( rflag( reset0, room ) ) {
+  act_room( #poke, ch );
+  wait( 1 );
+  act_room( #scream, ch );
+  wait( 1 );
+  act_room( #ask, ch );
+  remove_rflag( reset0, room );
+  }
+else
+act_room( #go, ch );
+~
+E
+poke~
+A tiny sprite ducks her head out of a small gap in the kelp.
+~
+E
+scream~
+@e"Eeeek!  Air breather!"@n  The sprite dives back behind the kelp.
+~
+E
+ask~
+A tiny voice speaks out from behind the kelp, @e"I cant let you in, Air
+breather.  Go around to my sister on the other side!" 
+~
+E
+go~
+A tiny voice cries, @e"Go 'way!"
+~
+!
+0 0 0
+A
+east e~
+~
+act_tochar( #east, ch );
+continue;
+~
+E
+east~
+The kelp is too dense for you to pass through.
+~
+!
+0 0 0
+-1
+S
+
+#56011
+A Coral Hallway~
+The high, vaulted ceiling of the hall stretches high into the reef.  The
+coral glows faintly, the result of phosphorescent moss growing out of
+many of its pores.  Fine white sand covers the floor like a carpet, and
+brightly colored shells have been placed artistically on the polished
+coral walls.
+~
+~
+301465605 13 6 0
+D1
+~
+~
+0 -1 56012 10 10 5
+D3
+~
+~
+0 -1 56002 10 10 5
+E
+shells walls~
+The shells on the walls have been gently inserted into the larger pores
+of the coral, creating an abstract design.
+~
+E
+phosphorescent moss~
+A silvery moss grows out of many of the coral wall's pores, shedding a
+faint glow on the hallway.
+~
+A
+get reach grab remove take~
+garlands~
+act_tochar( #reach, ch );
+act_notchar( #rreach, ch );
+~
+E
+reach~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+E
+rreach~
+$n tries to to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+A
+get take reach grab remove search~
+shells walls~
+act_tochar( #reach, ch );
+act_notchar( #rreach, ch );
+~
+E
+reach~
+The shells are firmly attached to the wall.
+~
+E
+rreach~
+$n tries to pry a shell from the wall but it is firmly attached.
+~
+!
+0 0 0
+-1
+S
+
+#56012
+A Coral Hallway - A Bend in the Hall~
+A wall of coral forbids passage to the east.  Covered in a lovely mural,
+the wall is flat and smooth.  Garlands of painted seashells sway gently
+in the ebb and swell of the sea's waters.  The porous coral allows water
+to flow freely through the halls.
+~
+~
+301465605 13 6 0
+D2
+~
+~
+0 -1 56013 10 10 5
+D3
+~
+~
+0 -1 56011 10 10 5
+E
+wall mural~
+Thousands of tiny shells have been affixed to the wall to form a picture. 
+Depicting a school of fish and a tiny sprite following it, this mural is
+a masterpiece of shell art.
+~
+E
+garlands~
+Made of a myriad of tiny, silver shells, this garland waves gently with
+the currents.
+~
+A
+get take reach grab remove ~
+garlands shells~
+act_tochar( #garland, ch );
+~
+E
+garland~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+1459 9 1509949540 3 0
+1459 9 1509949540 3 0
+-1
+S
+
+#56013
+A Coral Hallway~
+Smooth orange-red coral, polished to perfection, has been shaped into a
+wide hallway.  Broad and vaulted, the hallway is wide enough to accommodate
+a large number of occupants.  The porous coral allows the seas currents to
+flow freely through the corridor, gently swaying the phosphorescent moss
+which grows out of the pores.
+~
+no_mob
+~
+301465613 13 6 0
+D0
+~
+~
+0 -1 56012 10 10 5
+D2
+~
+~
+0 -1 56014 10 10 5
+E
+moss~
+A silvery moss grows out of many of the coral wall's pores, shedding a
+faint glow on the hallway.
+~
+-1
+S
+
+#56014
+A Coral Hallway - Within a Well-Tended Garden~
+The many plants growing from the porous coral here give this room the
+aura of a garden.  Sea cucumbers, oddly colored seaweed and countless
+aenemones grow out of the pores in the coral.  Tiny fish swim among the
+being caught every now and then by a hungry anemone.  The plants and
+animals all appear to be carefully tended and the color pattern is
+obviously purposeful.
+~
+~
+301465605 13 6 0
+D0
+~
+~
+0 -1 56013 10 10 5
+D1
+~
+~
+0 -1 56015 10 10 5
+D3
+~
+~
+0 -1 56025 10 10 5
+E
+plants seaweed sea cucumbers~
+Sea cucumbers and seaweed in every color of the rainbow grow out of the
+pores in the coral wall.  Carefully tended and trimmed, this underwater
+garden is a colorful addition to the coral halls.
+~
+E
+tiny fish~
+Tiny, bright orange fish with thin black stripes streak through the
+plants, taking a nibble of the seaweed or dodging the waving tentacles of
+a hungry anemone.
+~
+E
+anemone~
+This round mass of black spines clings to the coral wall waiting for a
+tasty fish to pass by.
+~
+A
+touch get grab take~
+aenemone~
+act_tochar( #spine, ch );
+act_notchar( #rspine, ch );
+i = 2d10;
+inflict( ch, ch, i, "spines" );
+poison( ch );
+~
+E
+spine~
+@MYou try to grasp the aenemone but its sharp spines wound you!
+~
+E
+rspine~
+@M$n tries to grasp the aenemone but its sharp spines wound $m!
+~
+!
+0 0 0
+A
+get take catch grab~
+tiny fish~
+act_tochar( #fish, ch );
+~
+E
+fish~
+You try to grasp the tiny fish but it darts away.
+~
+E
+rfish~
+$n tries to grasp the tiny fish but it darts away.
+~
+!
+0 0 0
+1458 9 1509949540 3 0
+-1
+S
+
+#56015
+A Coral Hall - Before the Kelp Beds~
+Strung about with garlands of painted seashells, this decorative room is
+walled on two sides by smooth, orange coral.  Dotted here and there with
+phosphorescent moss, the walls are otherwise unadorned.  The gentle deep
+water current flows through the passage.  To the west, a hallway
+stretches into the distance, while to the south, a coral archway leads to
+a sea of dark green.
+~
+no_mob
+~
+301465613 13 9 0
+D2
+~
+~
+0 -1 56016 10 10 5
+D3
+~
+~
+0 -1 56014 10 10 5
+E
+garlands~
+Made of a myriad of tiny, silver shells, this garland waves gently with
+the currents.
+~
+A
+get reach grab remove take~
+garlands shells~
+act_tochar( #garlands, ch );
+act_notchar( #rgarland, ch );
+~
+E
+garlands~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+E
+rgarland~
+$n tries to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+-1
+S
+
+#56016
+Within the Kelp Beds~
+Thick stalks of giant-sized kelp rise up to the distant surface, waving
+gently in the current.  The chlorophyll in the kelp colors the water a
+brownish-green, a rather murky color.  The uniformly planted kelp bed is
+bordered by brightly colored seaweed.
+~
+[Orb] sprite/fish here
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56015 10 10 5
+D2
+~
+~
+0 -1 56017 10 10 5
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+seaweed~
+Blue, silver, and green seaweed has been planted in spiraling patterns in
+beds bordering the trail through the kelp.
+~
+A
+east west~
+~
+act_tochar( #kelp, ch );
+~
+E
+kelp~
+The kelp is too thick to pass through.
+~
+!
+0 0 0
+A
+east~
+~
+act_tochar( #kelp, ch );
+~
+E
+kelp~
+The kelp is too thick to pass through.
+~
+!
+0 0 0
+1451 41 1509949540 3 0
+1449 73 1509949540 3 0
+-1
+S
+
+#56017
+Within the Kelp Beds - Along a Small Trail~
+The carefully tended sandy trail winds around and through the vast kelp
+beds.  The greenish-brown of the kelp makes the clear water seem murky,
+though the bright beds of seaweed bordering the kelp help to lighten the
+gloom.  Occasional schools of fish flit past you on the way to the
+plankton grounds.
+~
+[Orb] sprite/fish here
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56016 10 10 5
+D1
+~
+~
+0 -1 56018 10 10 5
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+seaweed~
+Blue, silver, and green seaweed has been planted in spiraling patterns in
+beds bordering the trail through the kelp.
+~
+A
+south west~
+~
+act_tochar( #kelp, ch );
+~
+E
+kelp~
+The kelp is too thick for you to pass through.
+~
+!
+0 0 0
+1451 41 1509949540 3 0
+1449 73 1509949540 3 0
+-1
+S
+
+#56018
+Within the Kelp Beds - Along a Small Trail~
+The kelp stalks in the beds to the east have been harvested recently.  A
+number of small seedlings have been planted to replace the harvested
+stalks.  Bordering beds of colorful seaweed provide some relief from the
+constant greenish-brown color of the kelp.  Flickers of movement from
+within the kelpbeds to the north catch your eye, though you never see any
+more than flashes of color.
+~
+~
+301465601 13 9 0
+D2
+~
+~
+0 -1 56019 10 10 5
+D3
+~
+~
+0 -1 56017 10 10 5
+E
+kelp~
+The kelp beds to the east have been harvested, leaving tiny seedlings in
+place of the giant adult plants.
+~
+E
+seaweed~
+The beds of bright seaweed lend a flash of color to the otherwise gloomy
+kelp beds.
+~
+-1
+S
+
+#56019
+Within the Kelp Beds - A Turn in the Trail~
+The sandy trail turns softly to run north and west.  The heart of the
+kelp beds lie to the west, while the path widens and brightens to the
+north.  The kelp stalks are a little denser here, ready to be harvested.
+~
+[Orb] reset sprite/fish here.
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56018 10 10 5
+D3
+~
+~
+0 -1 56020 10 10 5
+1451 41 1509949540 3 0
+1449 73 1509949540 3 0
+-1
+S
+
+#56020
+A Narrow Trail in the Kelp Beds~
+Small, round rocks are scattered along the sandy trail, worn smooth by
+the ever-changing currents.  The stalks of kelp are very close together
+here and prohibit passage further into the beds.  To the west, the kelp
+grows together so thickly that it makes an impenetrable wall.  A small
+cord hangs down from one of the giant stalks.
+~
+A small sprite will admit you into the inner zone
+This needs to be fixed when/if the alignment fix is made.
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56019 10 10 5
+D3
+kelp~
+kelp~
+195 -1 56021 10 10 5
+E
+cord~
+The long cord is made of a stretchy, blue fiber.  A white spiral seashell
+is knotted into the bottom.
+~
+A
+pull yank grab take remove tug~
+cord~
+if( !is_open( room, west ) ) {
+  act_room( #poke, ch );
+  wait( 1 );
+  act_room( #gasp, ch );
+  wait( 1 );
+  if( find_stat( ch, align ) == 2 ) {
+    act_room( #evil, ch );
+    act_room( #revil, ch );
+    }
+  if( find_stat( ch, align ) == 5 ) {
+    act_room( #evil, ch );
+    act_room( #revil, ch );
+    }
+  if( find_stat( ch, align ) == 8 ) {
+    act_room( #evil, ch );
+    act_room( #revil, ch );
+    }
+  if( find_stat( ch, align ) == 0 ) {
+    act_room( #good, ch );
+    open( room, west );
+    }
+  if( find_stat( ch, align ) == 3 ) {
+    act_room( #good, ch );
+    open( room, west );
+    }
+  if( find_stat( ch, align ) == 6 ) {
+    act_room( #good, ch );
+    open( room, west );
+    }
+  }
+else
+  act_room( #nothing, ch );
+~
+E
+poke~
+A tiny sprite pokes her head out of a gap between the kelp stalks.
+~
+E
+gasp~
+The tiny sprite peers at you curiously.  @e"What do you want here, Air
+Breather?" 
+~
+E
+evil~
+Before you can answer the sprite looks hard at you, then squeaks and
+dives back behind the kelp.
+~
+E
+revil~
+A small voice calls out from behind the kelp, @e"We dont let evils in, go
+'way!" 
+~
+E
+good~
+The sprite smiles and says, @e"Oh!  Come in, good travelers!"
+~
+E
+nothing~
+A tiny voice calls out, @e"Its already open, silly air breather!"
+~
+!
+0 0 0
+A
+hack chop cut slash~
+west kelp~
+if( is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+else {
+  act_tochar( #hack, ch );
+  act_notchar( #rhack, ch );
+  wait( 1 );
+  if( find_stat( ch, str ) > 13 ) {
+    act_tochar( #through, ch );
+    act_notchar( #rthrough, ch );
+    open( room, west );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    }
+  }
+~
+E
+hack~
+You begin to hack at the kelp.
+~
+E
+through~
+You hack your way through the kelp to the passage on the other side.
+~
+E
+rhack~
+$n hacks at the thick kelp stalks.
+~
+E
+rthrough~
+$n hacks a hole through the kelp, showing the hallway on the other side.
+~
+E
+nothing~
+You try to hack your way through the thick kelp, but you are just not
+strong enough.
+~
+E
+rnothing~
+$n hacks and chops at the kelp, to no avail.
+~
+E
+open~
+The kelp has already been cleared.
+~
+!
+0 0 0
+-1
+S
+
+#56021
+A Narrow Passageway in the Kelp~
+A narrow hallway has been cut out of the kelp stalks.  The floor is
+finely filtered white sand; no pebbles or gravel are mixed in with it. 
+No fish or anemones live here, only the silent sand and the kelp stalks. 
+A slender cord hangs down from a nearby kelp stalk.
+~
+no_mob
+~
+301465609 13 9 0
+D0
+~
+~
+0 -1 56027 10 10 5
+D1
+kelp~
+kelp~
+195 -1 56020 10 10 5
+D3
+~
+~
+0 -1 56022 10 10 5
+E
+cord~
+This long cord has a spiral seashell on the end of it.
+~
+A
+pull yank grab take~
+cord~
+if( !is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, east );
+  }
+else 
+  act_tochar( #nothing, ch );
+~
+E
+open~
+You pull the cord and the kelp opens.
+~
+E
+ropen~
+$n pulls the cord and the kelp opens.
+~
+E
+nothing~
+You pull the cord, but the kelp is already open.
+~
+!
+0 0 0
+1459 137 1509949540 3 0
+-1
+S
+
+#56022
+A Wide Clearing in the Kelp - Before a Crack in the Floor~
+Cut out of the the kelp stalks, this narrow passageway is bathed in a
+bluish light.  Filtering in from between the kelp stalks to the north,
+the light is bright enough to illuminate the entire hall, if dimly.  The
+fine, white sand that covers the floor has been swept away from a small
+crack by the current or perhaps the passage of fish.
+~
+enter crack
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56021 10 10 5
+D3
+~
+~
+0 -1 56023 10 10 5
+E
+crack floor~
+Deep and dark, this wide crack in the floor yawns at your feet.
+~
+A
+enter~
+crack hole down~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 56032 ) );
+act_notchar( #arrive, ch );
+~
+E
+enter~
+You enter the dark crack in the floor.
+~
+E
+renter~
+$n disappears into the crack in the floor.
+~
+E
+arrive~
+$n comes climbing through the crack.
+~
+!
+0 0 0
+-1
+S
+
+#56023
+Before The Barrier Reef~
+A swath has been cut out of the kelp stalks to form a narrow passageway. 
+The giant stalks of kelp which make up the corridor appear very old, as
+their stalks are as thick as a good-sized troll.  Covered in fine, white
+sand, the ground is level and clear of debris.  Filled with a dim, bluish
+light, the hallway is narrow and confining.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56022 10 10 5
+D3
+~
+~
+0 -1 56024 10 10 5
+E
+kelp stalks~
+The stalks of kelp are thick with age, and more brown than green in color. 
+~
+-1
+S
+
+#56024
+A Passageway in the Kelp - Before a Wide Hall~
+A narrow passageway has been cut into the kelp.  The passageway continues
+to the east and opens up into a wide hall to the north.  The floor of the
+room is covered in a fine, white sand and several old kelp leaves have
+collected here.  To the west, the kelp grows together too thickly to
+permit passage.  The light shining from the north illuminates the room
+with a dim blue light.
+~
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 56030 10 10 5
+D1
+~
+~
+0 -1 56023 10 10 5
+D3
+kelp~
+kelp~
+195 -1 56010 10 10 5
+E
+north~
+A silvery-blue light shines in from the north.
+~
+1459 137 1509949540 3 0
+-1
+S
+
+#56025
+A Coral Hallway - Within a Well-Tended Garden~
+Every shade of green imaginable can be found in the seaweeds and sea
+cucumbers growing out of the coral walls.  So dense that the orange of
+wall is seen only in flashes, the plant and animal growth along the wall
+is well tended.  Black anemones with silver-tipped spines wait patiently
+for one of the brightly colored fish to swim by, providing them with a
+meal.
+~
+~
+301465605 13 6 0
+D1
+~
+~
+0 -1 56014 10 10 5
+D3
+~
+~
+0 -1 56026 10 10 5
+E
+seaweed green cucumbers~
+Waving gently in the current, the plants exhibit every shade of green
+imaginable.  Broad-leafed seaweed borders the more rigid sea cucumbers.
+~
+E
+anemeones~
+This round mass of black spines clings to the coral wall waiting for a
+tasty fish to pass by.
+~
+E
+tiny fish~
+Tiny, bright orange fish with thin black stripes streak through the
+plants, taking a nibble of the seaweed or dodging the waving tentacles of
+a hungry anemone.
+~
+A
+touch get grab take~
+aenemones~
+act_tochar( #spine, ch );
+act_notchar( #rspine, ch );
+i = 10d2;
+inflict( ch, ch, i, "spines" );
+poison( ch );
+~
+E
+spine~
+@MYou try to grasp the aenemone but its sharp spines wound you!
+~
+E
+rspine~
+@M$n tries to grasp the aenemone but its sharp spines wound $m!
+~
+!
+0 0 0
+A
+get take catch grab~
+tiny fish~
+act_tochar( #fish, ch );
+act_tochar( #rfish, ch );
+~
+E
+fish~
+You try to grasp the tiny fish but it darts away.
+~
+E
+rfish~
+$n tries to grasp the tiny fish but it darts away.
+~
+!
+0 0 0
+1458 9 1509949540 3 0
+-1
+S
+
+#56026
+A Coral Hallway - Within a Well-Tended Garden~
+Brightly colored fish dart through the seaweeds and sponges growing out
+of the coral.  Coral fans of various sizes and colors protrude from the
+barrier coral like a lady's lace fan.  Tiny seahorses grasp the seaweed
+with their tails, awaiting a tasty morsel of brine shrimp to float by.
+~
+[Cucho] patiently is twice in the 4th and 5th line
+~
+301465605 13 6 0
+D1
+~
+~
+0 -1 56025 10 10 5
+D3
+~
+~
+0 -1 56004 10 10 5
+E
+fish~
+Tiny, bright orange fish with thin black stripes streak through the
+plants, taking a nibble of the seaweed or dodging the waving tentacles of
+a hungry aenemone.
+~
+E
+fan~
+Made out of hundreds of tiny, ossified corals this delicate structure
+resembles a lacey fan.
+~
+A
+get take catch grab~
+seahorse~
+act_tochar( #get, ch );
+act_notchar( #rget, ch );
+~
+E
+get~
+You try to grab the tiny seahorse but it darts away.
+~
+E
+rget~
+$n tries to grab the tiny seahorse but it darts away.
+~
+!
+0 0 0
+A
+get grab take remove search~
+coral lace fan~
+act_tochar( #fan, ch );
+act_notchar( #rfan, ch );
+~
+E
+fan~
+As you try to grab one of the fans, it crumbles to dust.
+~
+E
+rfan~
+As $n reaches out to grab a fan, it crumbles to dust.
+~
+!
+0 0 0
+A
+get grab take catch~
+fish~
+act_tochar( #fish, ch );
+act_Notchar( #rfish, ch );
+~
+E
+fish~
+You try to grasp the tiny fish but it darts away.
+~
+E
+rfish~
+$n tries to grasp the tiny fish but it darts away.
+~
+!
+0 0 0
+1458 9 1509949540 3 0
+1485 137 1509949540 3 0
+-1
+S
+
+#56027
+A Wide Clearing in the Kelp~
+The blue coral with which the floor is tiled are finely polished, and
+they enhance the bluish light cast by magical lanterns.  The kelp stalks
+forming the walls of the hall are thick with countless years of growth. 
+Strung high above you, between the tall stalks of kelp, are many garlands
+of shells which create a moving, silvery ceiling.
+~
+~
+301465601 13 9 0
+D2
+~
+~
+0 -1 56021 10 10 5
+D3
+~
+~
+0 -1 56028 10 10 5
+E
+tiles floor~
+Small tiles, perhaps the width of a sprite's small hand, have been laid
+down on the floor here.  Fitted together so perfectly that no gaps are
+evident, the craftsmanship is excellent.
+~
+E
+lantern light~
+Faceted glass spheres enclose bluish balls of light.
+~
+E
+kelp~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+thick stalks form the walls of the long hall.  Densely packed together,
+the stalks are impossible to pass through.
+~
+E
+garlands shells~
+Made of a myriad of tiny, silver shells, the garlands wave gently with
+wave gently with the currents.
+~
+A
+get take reach grab touch~
+garlands~
+act_tochar( #garlands, ch );
+~
+E
+garlands~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+E
+rgarlands~
+$n tries to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+1459 9 1509949540 3 0
+-1
+S
+
+#56028
+A Wide Clearing in the Kelp~
+Magical, blue lanterns hang from the huge stalks of kelp, casting a bluish
+tint throughout the room.  The ground is covered with tiny tiles of white
+coral.  Sculptures made from various types of shells are set tastefully on
+coral pedestals.  The gentle current sets the kelp stalks swaying with its
+motion.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56027 10 10 5
+D3
+~
+~
+0 -1 56029 10 10 5
+E
+tiny tiles~
+Small tiles, perhaps the width of a sprite's small hand, have been laid
+down on the floor here.  Fitted together so perfectly that no gaps are
+evident, the craftsmanship is excellent.
+~
+E
+kelp stalks~
+A brownish-green color, the huge plant resembles an underwater tree.  The
+long stalks are rooted in the rich soil of the ocean floor.  The garlands
+in the room hide the tops of the stalks, leaving only the thick, brown
+stalks in view.
+~
+E
+lantern light~
+Faceted glass spheres enclose bluish balls of light.
+~
+E
+garlands up ceiling~
+Made of a myriad of tiny, silver shells, the garlands wave gently with
+the currents.
+~
+E
+sculptures~
+Made from pearly white shells, these lovely abstract sculptures are very
+small.
+~
+A
+get take reach grab touch~
+garlands~
+act_tochar( #garlands, ch );
+~
+E
+garlands~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+-1
+S
+
+#56029
+A Wide Clearing in the Kelp~
+The kelp stalks here have been cleared away to leave a wide clearing. 
+The ground is covered with tiny tiles of blue coral.  The ceiling is
+composed of many garlands of silvery shells.  Magical lanterns containing
+blue balls of light hang from the kelp stalks.  The reflected light casts
+a bluish tint through the hall as the lanterns sway gently with the
+current.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56028 10 10 5
+D3
+~
+~
+0 -1 56030 10 10 5
+E
+tiny tiles~
+The small, blue tiles are the width of a sprite's small hand, and have
+been laid together so perfectly that no gaps are evident.
+~
+E
+kelp stalks~
+Brownish-green kelp stalks form the walls of this peculiar hall.  The
+long stalks are rooted in the rich soil of the ocean floor while the
+leaves float along the surface of water, soaking up precious sunlight.
+~
+E
+magical lantern~
+Faceted glass spheres enclose bluish balls of light.
+~
+E
+garlands ceiling up~
+Made of a myriad of tiny, silver shells, the garlands wave gently with
+the currents.
+~
+A
+get take reach grab touch~
+garlands~
+act_tochar( #garlands, ch );
+~
+E
+garlands~
+You try to reach the garlands of shells, but the ceiling is too high.
+~
+!
+0 0 0
+-1
+S
+
+#56030
+A Corner of the Clearing - A Coral Throne~
+Lined by thick stalks of kelp which create a formidable wall, this part of
+the hall has been tiled with polished, white coral.  Kept carefully swept
+free of sand, the floor shines and sparkles with a bluish tint cast by
+light from magical lanterns.  In the western corner of the room, a small
+throne of polished blue coral is set almost against the kelp stalks.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 56029 10 10 5
+D2
+~
+~
+0 -1 56024 10 10 5
+E
+blue coral throne~
+This tiny throne is made of blue coral which has been polished to
+perfection.
+~
+E
+floor tile~
+Small tiles, perhaps the width of a sprite's small hand, have been laid
+down on the floor here.  Fitted together so perfectly that no gaps are
+evident, the craftsmanship is excellent.
+~
+A
+sit rest~
+throne~
+act_tochar( #tiny, ch );
+~
+E
+tiny~
+The throne is far too tiny for the likes of you.
+~
+!
+0 0 0
+1465 9 1509949540 3 0
+2113 17 1509949540 -2 0
+-1
+S
+
+#56031
+Before The Barrier Reef~
+Under Construction.
+~
+~
+301465601 7 9 0
+-1
+S
+
+#56032
+A Dark Cave~
+This rough cave in the sea floor is jagged and dark.  The floor of the
+cave is littered with the remains of fish, and what appears to be several
+sprites, as well.  Bones, bits of rotting flesh, and tatters of turquoise
+clothing are stirred up by your entrance.
+~
+~
+301465601 7 9 0
+D4
+~
+~
+0 -1 56022 10 10 5
+E
+pile clothes bones~
+The floor of the cave is piled with detritus.  Bones, bits of cloth, and
+small rocks litter the floor.
+~
+A
+search~
+pile bones cloth~
+if( rflag( reset0, room ) ) {
+  if( is_player( ch ) ) {
+    if( random( 1, 50 ) < 40 ) {
+      act_tochar( #fail, ch );
+      act_notchar( #rfail, ch );
+      remove_rflag( reset0, room );
+      }
+    else {
+      act_tochar( #search, ch );
+      act_notchar( #rsearch, ch );
+      obj_to_char( oload( 1996 ), ch );
+      }
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+~
+E
+search~
+You search the pile of bones and cloth, revealing a small gem stone!
+~
+E
+rsearch~
+$n searches through the pile of bones and cloth, finding something useful.
+~
+E
+fail~
+You search the pile of bones and cloth, finding nothing.
+~
+E
+rfail~
+$n searches the pile of bones and cloth, finding nothing.
+~
+!
+0 0 0
+1460 9 1509949540 3 0
+-1
+S
+
+#56033
+Along the Sea Floor~
+Thick seaweed has been pruned back to make a very narrow path.  Covered
+with powdery white sand, the path appears carefully tended.  Sponges grow
+alongside multi-colored seaweed, creating a colorful border of foliage
+around the sandy trail.  Anemones and tiny fish live among the bordering
+vegetation.
+~
+~
+301465608 7 9 0
+D0
+~
+~
+0 -1 56034 10 10 5
+D2
+~
+~
+0 -1 56000 10 10 5
+E
+seaweed~
+Seaweed of multiple shades of blue and green have been trimmed to a
+border alongside the passage.
+~
+-1
+S
+
+#56034
+Along the Sea Floor - Near a Large Rock~
+Small anemones with black spines dot the sandy floor waiting for an
+unlucky fish to swim by.  The seaweed grows thickly, obscuring the rocks
+and white sand almost entirely.  The green of the plant-life is broken by
+bright flashes of color as tiny, garishly colored fish dart in and out of
+the plants.  A lump of rock juts up into the middle of the room, nearly
+three feet high.
+~
+~
+301465608 7 9 0
+D2
+~
+~
+0 -1 56033 10 10 5
+D3
+~
+~
+0 -1 56035 10 10 5
+E
+rock boulder lump~
+This large, greyish boulder pokes its upper half out of the the sea.
+~
+A
+push shove move pull ~
+boulder lump rock stone~
+act_Tochar( #push, ch );
+act_notchar( #rpush, ch );
+~
+E
+push~
+The rock is deeply imbedded in the ocean floor and will not budge.
+~
+E
+rpush~
+$n tries to move the boulder but the stone is too heavy.
+~
+!
+0 0 0
+-1
+S
+
+#56035
+Along the Sea Floor~
+Green seaweed waves gently in the current.  Sea cucumbers grow in a
+variety of colors, though the plants are uncommonly small.  Brown sand
+mixes with powdery white sand in a salt and pepper mix on the rocky
+ground.  The brown sand is prevalent to the west and fades to white
+eastward.
+~
+~
+301465608 7 9 0
+D1
+~
+~
+0 -1 56034 10 10 5
+D3
+~
+~
+0 -1 56036 10 10 5
+-1
+S
+
+#56036
+Along the Sea Floor~
+Sloping downward into the deeper sea, the sand here is littered with sharp
+stones and gravel.  The seaweed is a murky brown and most of it lies in
+dead tangles around the few living strands still clinging to the rocky
+floor.  A few stunted sea cucumbers, which are an unhealthy brown, grow
+among the rocks.
+~
+[Ssleestaq] look
+[Ssleestaq] oops. should let us pick cucumbers.
+~
+301465608 7 9 0
+D0
+~
+~
+0 -1 56037 10 10 5
+D1
+~
+~
+0 -1 56035 10 10 5
+E
+seaweed~
+Decaying and limp, the seaweed is an ugly brown color.  The few live
+strands are being choked out by the accumulation of dead plants.
+~
+E
+cucumbers~
+Stunted and brown, the sea cucumbers are withered and dying.
+~
+-1
+S
+
+#56037
+Along the Sea Floor - Before an Underwater Cavern~
+The sea floor here is covered with brownish sand and gravel, and shards
+of sharp stone litter the ground.  Murky seaweed chokes out the few other
+plants trying to grow here.  In the shadow of a large rock formation to
+north, the marine life is sparse here.
+~
+~
+301465608 7 9 0
+D0
+~
+~
+0 -1 22046 10 10 5
+D2
+~
+~
+0 -1 56036 10 10 5
+E
+seaweed~
+Dead and dying seaweed lies in brown tangles on the rocks.
+~
+-1
+S
+
+#0
+

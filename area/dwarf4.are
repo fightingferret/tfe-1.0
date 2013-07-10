@@ -1,0 +1,2237 @@
+#AREA
+Kha-da~
+Karn~
+~
+
+0 0
+0
+#ROOMS
+
+#27000
+Cave Entrance~
+Though the outside of the cave looks natural enough you soon realise that
+this is a tunnel and not a cave.  The walls and floor are much too
+straight and level and the tunnel holds a true line to the east.  Snow is
+blown in from out side and the wind, whistles across the mouth of the
+cave making this quite a noisy place to stand.  
+~
+~
+301465612 0 6 0
+D1
+~
+~
+0 -1 27001 10 10 5
+D3
+~
+~
+0 -1 26536 10 10 5
+A
+~
+~
+junk_mob( mob_in_room( 242, room ) );
+continue;
+~
+E
+to_all~
+"And don't come back either scum!", says the dwarf guard as he heads back
+down the tunnel.  
+~
+!
+3 -1 63
+78 17 1509949442 -2 0
+-1
+S
+
+#27001
+Tunnel~
+The tunnel continues a reasonable distance into the mountain.  The floor
+and sides of the tunnel are too regular to be natural as it is holding to
+quite a straight line.  
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 27002 10 10 5
+D3
+~
+~
+0 -1 27000 10 10 5
+-1
+S
+
+#27002
+Tunnel~
+The tunnel gently slopes up to a heavy iron portcullis which has big
+sharp iron spikes sticking out on this side.  The floor of the tunnel is
+merely smoothed off rock.  The tunnel is actually quite wide still here
+probably nearly twenty feet across.  In the darkness above you you notice
+an array of small lights like stars at night.  
+  
+A newly painted sign is bolted to the wall.
+~
+[Rue] fix code to check ent reps when ent reps are fixed
+[Lansharra] is the gate open all the time now?
+[Lansharra] what happened to the goblin threat?
+~
+301465612 0 6 0
+D1
+portcullis~
+portcullis~
+151 -1 27003 10 10 5
+D3
+~
+~
+0 -1 27001 10 10 5
+E
+sign~
+<<<<< Welcome to Kha-da >>>>>
+   
+We the people of Kha-da, welcome you to our city and hope that you will
+enjoy our hospitality.  Please feel free to visit our fine eating
+establishments and partake of a little Dwarven cuisine.  
+   
+Visit the splendour of our temple.  Watch the sacred anvil banging in
+the Square.  Keep warm with some Hot Rocks.  Visit our fine shops and
+craftspeople.  
+   
+(this message has been sponsored by the 1st Secure Bank of Kha-da.
+ The people who *want* your money. )
+~
+E
+u up lights~
+Looking more closely, you now can make out what must be a well lit room
+on the other side of the ceiling and that these 'holes' actually are part
+of whatever defense system there is here.  
+~
+E
+portcullis~
+The portcullis is surberbly built.  It would take a serious amount of
+magic or a big seige engine to break it.  There doesn't seem to be anyway
+in from this side perhaps if you bang on it you might get someone's
+attention?  
+~
+A
+bash knock bang~
+portcullis gate east~
+if( is_player( ch ) ) {
+  if( is_open( room, east ) ) {
+    send_to_char( #nothing, ch );
+    continue;
+    }
+  if( has_obj( 319, ch ) ) {
+    act_tochar( #killer_go_home, ch );
+    act_notchar( #rkiller, ch );
+    end;
+    }
+  else {
+    if( reputation( ch, Khedrun ) > 0 ) {
+      act_notchar( #to_room, ch );
+      act_room( #to_all, ch );
+      open( room, east );
+      send_to_room( #port_open, find_room( 27003 ) );
+      send_to_room( #wind_winch, find_room( 27034 ) );
+      }
+    else {
+      if( race( ch ) == ent  ) {
+        act_notchar( #to_room, ch );
+        act_room( #to_all, ch );
+        open( room, east );
+        send_to_room( #port_open, find_room( 27003 ) );
+        send_to_room( #wind_winch, find_room( 27034 ) );
+        end;
+        }
+      send_to_char( #clan_char, ch );
+      act_notchar( #clan_room, ch );
+      }
+    }
+  }
+~
+E
+wind_winch~
+A small bell rings and the dwarf grinder starts to wind the winch
+singing, 
+"Way, Hey,
+ up she rises..."
+  
+and the winch slowly winds up.
+~
+E
+port_open~
+Clanka, clanka, clank. The portcullis slowly opens.
+~
+E
+clan_room~
+A Dwarf Guard peers out from a small peek-door and not recognising $n say
+something obscene and shuts the peek-door.  
+~
+E
+clan_char~
+A Dwarf guard peers out through a small peek-door at you and not
+recognising you says something obscene in Dwarvish at you and shuts the
+peek-door.  
+~
+E
+to_all~
+A small peek-door opens and a Dwarf guard peers out and looks you over.
+He nods in recognition to you and slowly the portcullis opens.
+~
+E
+to_room~
+$n bangs loudly on the portcullis.
+~
+E
+to_char~
+You bang loudly on the portcullis.
+~
+E
+nothing~
+It's hard to do that when the portcullis is already open.
+~
+E
+killer_go_home~
+A dwarf guard peers out from a small peek-door, grumbles something
+obscene at you and slams the small peek-door.
+~
+E
+rkiller~
+A dwarf guard peers out from a small peek-door, grumbles something
+obscene at $n and slams the small peek-door.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #to_all, find_room( 27035 ) );
+~
+E
+to_all~
+Through the holes you see someone enter the killing zone below.
+~
+!
+1 -1 63
+A
+~
+~
+send_to_room( #to_all, find_room( 27035 ) );
+continue;
+~
+E
+to_all~
+You see someone leave the killing zone below.
+~
+!
+3 -1 63
+-1
+S
+
+#27003
+Tunnel~
+The tunnel has enough room for about eight dwarfs to march side by side
+and more than high enough for a dwarf to swing his axe.  To the west
+there is a heavy iron portcullis protected by big sharp spikes and to the
+east the tunnel opens up into a cavern of some kind.  The ground is
+actually paved with a criss-cross pattern of stones though the sides and
+roof of the tunnel are smoothly finished rock.  
+    
+Beside the portcullis is a large lever set into the wall.
+~
+[Banfiz] I do believe that the dwarfs in the room description should be dwarves.
+~
+301465677 0 6 0
+D1
+~
+~
+0 -1 27004 10 10 5
+D3
+portcullis~
+portcullis~
+151 -1 27002 10 10 5
+A
+pull~
+lever~
+if( is_player( ch ) ) {
+  if( is_open( room, west ) )
+    send_to_char( #nothing, ch );
+  else {
+    send_to_char( #to_char, ch );
+    act_notchar( #to_room, ch );
+    act_room( #to_all, ch );
+    open( room, west );
+    send_to_room( #to_room2, find_room( 27002 ) );
+    send_to_room( #winch_up, find_room( 27034 ) );
+    }
+  }
+~
+E
+winch_up~
+A small bell rings, and then the dwarf grinder starts to wind the winch
+singing, 
+"Way, Hey,
+ up she rises..."
+   
+and the winch slowly winds up.
+~
+E
+to_room2~
+With clanks and clunks, the portcullis slowly opens.
+~
+E
+to_all~
+Clanks, clanka clank. The portcullis slowly opens.
+~
+E
+to_room~
+$n pulls the lever.
+~
+E
+to_char~
+You pull the lever.
+~
+E
+nothing~
+You pull the lever but nothing happens.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( is_player( ch ) ) {
+  if( is_open( room, west ) ) {
+    send_to_char( #to_char, ch );
+    act_notchar( #to_room, ch );
+    act_room( #to_all, ch );
+    close( room, west );
+    send_to_room( #all, find_room( 27002 ) );
+    send_to_room( #winch_down, find_room( 27034 ) );
+    }
+  else
+    send_to_char( #nothing, ch );
+  }
+~
+E
+winch_down~
+A small bell rings twice, and then the dwarf grinder starts to unwind the
+winch singing, 
+"Woa, ho,
+ down we goe-ho..."
+  
+and the winch slowly unwinds.
+~
+E
+all~
+CLANG! The portcullis drops down, shut.
+~
+E
+to_all~
+CLANG! The portcullis drops down, shut.
+~
+E
+to_room~
+$n pushes the lever.
+~
+E
+to_char~
+You push the lever.
+~
+E
+nothing~
+You push the lever, but nothing happens.
+~
+!
+0 0 0
+A
+l look~
+lever~
+if( is_player( ch ) ) {
+  if( is_open( room, west ) )
+    send_to_char( #to_char_open, ch );
+  else
+    send_to_char( #to_char_closed, ch );
+  }
+~
+E
+to_char_closed~
+The lever is flush with the wall and would need to be pulled for it to
+work.  
+~
+E
+to_char_open~
+The lever has been pulled slightly away from the wall.
+~
+!
+0 0 0
+-1
+S
+
+#27004
+Kha-da, Square~
+This is part of the main square of Kha-da.  It is at the bottom of a
+large sinkhole, in which you can see a number of levels above you as the
+sinkhole rises up.  The floor throughout the square is paved with an
+intricate pattern of criss-cross stones in two different shades of
+brown. There are a number of peddlers here selling their wares.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27009 10 10 5
+D1
+~
+~
+0 -1 27005 10 10 5
+D3
+~
+~
+0 -1 27003 10 10 5
+-1
+S
+
+#27005
+Kha-da, Square~
+This is the southern wall of the main square of Kha-da.  Along the wall
+sit a number of dwarfs on low wooden benches.  Beside them sits a Clerk
+at a desk, and in front of these dwarfs a little out from the wall itself
+is a single anvil set upon a simple stone plinth.
+   
+A large and ancient anvil rests on a plinth.
+~
+[Belgar] dwarf clerk desc,  there -> their
+~
+301465677 0 6 0
+D0
+~
+~
+0 -1 27008 10 10 5
+D1
+~
+~
+0 -1 27006 10 10 5
+D3
+~
+~
+0 -1 27004 10 10 5
+E
+anvil~
+This anvil looks very old and must have been here for many centuries.
+~
+A
+bang ring~
+anvil~
+if( has_quest( ch, 4 ) ) {
+  if( has_obj( 234, ch ) ) {
+    send_to_area( #clang, room );
+    if( doing_quest( ch, 4 ) )
+      update_quest( ch, 4 );
+    end;
+    }
+  }
+if( has_obj( 181, ch ) || has_obj( 338, ch ) || has_obj( 3001, ch ) ) {
+  act_tochar( #tink, ch );
+  act_notchar( #rtink, ch );
+  end;
+  }
+if( has_obj( 890, ch ) || has_obj( 3019, ch ) ) {
+  act_tochar( #tink2, ch );
+  act_notchar( #rtink2, ch );
+  end;
+  }
+if( has_obj( 584, ch ) || has_obj( 3020, ch ) ) {
+  act_tochar( #clank, ch );
+  act_notchar( #rclank, ch );
+  end;
+  }
+if( has_obj( 654, ch ) || has_obj( 965, ch ) || has_obj( 1534, ch )
+  || has_obj( 1670, ch ) || has_obj( 1802, ch ) ) {
+  act_tochar( #clank2, ch );
+  act_notchar( #rclank2, ch );
+  end;
+  }
+act_tochar( #get_hammer, ch );
+~
+E
+tink~
+A tiny little tink resounds barely carrying its sounds beyond the range
+of the anvil.
+
+Several nearby dwarves look your way with dumbfounded stares then quickly
+fall to the ground in a fit of guffaws and chortles at the pitiful sound
+created at your behest.  Maybe someone in town could suggest a better
+hammer to use.
+~
+E
+tink2~
+A little tink resounds at your efforts carrying its sound as far away as
+a softly spoken word might.
+
+Several nearby dwarves look your way with dumbfounded stares then quickly
+fall to the ground in a fit of guffaws and chortles at the pitiful sound
+created at your behest.  Maybe someone in town could suggest a better
+hammer to use.
+~
+E
+clank~
+A fair clank resounds from your mighty hammer blow upon the anvil.
+
+Nearby dwarves glance your way barely concealing mirthful chuckles.  When
+several whispers result in louder guffaws, you aren't so sure whether it
+is in appreciation of your skill or lack thereof.  Maybe someone in town
+could suggest a better hammer to use.
+~
+E
+clank2~
+A loud clank resounds from your mighty hammer blow, echoing back from the
+nearby walls.
+
+Nearby dwarves look your way with smiles barely noticable beneath their
+proud beards.  A few even go to the effort of offering a quiet little
+clap at your success, though others walk off without much more than a nod.
+~
+E
+clang~
+A resounding CLANG echoes throughout the halls and caverns of the
+keep as the great anvil in Kha-da Square is rung.
+
+As the ringing sound echoes away to nothing, the silence is complete for
+only a moment.  Suddenly a loud "Huazzah!" errupts from every dwarven
+citizen as they raise a cheer throughout the keep.
+
+~
+E
+rtink~
+A tiny sound, sort of a "tink" seems to come from $n's directions.
+
+After a moments silence every dwarf in sight falls to the ground in fits
+of guffaws and chortles, most of them pointing in $n's direction.
+~
+E
+rtink2~
+A tremulous little tinking sounds comes from the grand anvil as $n
+strikes it with a hammer.
+
+Moments later several nearby dwarves fall to the ground in fits of
+guffaws and chortles at the pitiful sound $n created.
+~
+E
+rclank~
+A solemn clank sounds as $n strikes the grand anvil with a hammer.
+
+Nearby dwarves glance $n's way barely concealing mirthful smiles that
+only widen after they whisper to each other in barely concealed tones of
+derision.
+~
+E
+rclank2~
+A loud clank resounds from $n's mighty hammer blow upon the grand anvil.
+
+Nearby dwarves look $n's way with smiles barely noticable beneath their
+proud beards.  A few even go to the effort of offering a quiet little
+clap at $n's success, though others walk off without much more than a nod.
+~
+E
+get_hammer~
+It might help if you found a hammer to ring the anvil with first.
+~
+E
+test~
+Code reaches this point.
+~
+!
+0 0 0
+228 9 100 3 0
+372 9 1509949540 3 0
+-1
+S
+
+#27006
+Kha-da, Square~
+All to the west extends the main square of Kha-da.  You can hear the
+sounds of hawkers as they proclaim their wares.  Above you extending up
+into the gloomy dark is a shaft or sinkhole.  As it rises you can see a
+number of lights from level cut into the sides of the shaft.  
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27007 10 10 5
+D1
+~
+~
+0 -1 27051 10 10 5
+D2
+gate~
+gate~
+131 -1 27014 10 10 5
+D3
+~
+~
+0 -1 27005 10 10 5
+232 9 1509949540 3 0
+-1
+S
+
+#27007
+Kha-da, Square~
+All the west extends the main square of Kha-da. You can hear the
+sounds of hawkers as they proclaim their wares. Above you and to
+the south is a dark, gloomy shaft extending into the darkness above.
+A number of lights can be seen coming from above.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27012 10 10 5
+D1
+iron gate~
+iron gate~
+0 -1 27015 10 10 5
+D2
+~
+~
+0 -1 27006 10 10 5
+D3
+~
+~
+0 -1 27008 10 10 5
+245 9 1509949540 3 0
+242 9 1509949540 3 0
+372 9 1509949540 3 0
+-1
+S
+
+#27008
+Kha-da, Square~
+You are standing at the bottom of an extremely large and high sinkhole. 
+Looking up you can see a number of levels cut into the sides of the
+sinkhole as it rises up.  The main square of Kha-da extends in all the
+four directions from here, where you can see Dwarfs going about their
+normal business and traders plying the available custom.  
+   
+A small fountain burbles with water here.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27011 10 10 5
+D1
+~
+~
+0 -1 27007 10 10 5
+D2
+~
+~
+0 -1 27005 10 10 5
+D3
+~
+~
+0 -1 27009 10 10 5
+1 17 1509949540 -2 0
+242 9 1509949540 3 0
+372 9 1509949540 3 0
+-1
+S
+
+#27009
+Kha-da Square~
+To the west of here you see through an open doorway some Guards.  All to
+the east is the main square of Kha-da.  Above you extending up into the
+gloomy dark is a sinkhole or shaft.  You can see however a number of
+lights from levels cut into the sides of the shaft.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27010 10 10 5
+D1
+~
+~
+0 -1 27008 10 10 5
+D2
+~
+~
+0 -1 27004 10 10 5
+D3
+~
+~
+0 -1 27032 10 10 5
+-1
+S
+
+#27010
+Kha-da, Square~
+This is the north-western corner of the main square of Kha-da.  North of
+here through an iron gate are some stairs.  Above you extending up into
+the gloom is a large shaft.  Though it is darker higher up you can see
+lights from a number of levels cut into the sides of the shaft. 
+
+~
+~
+301465669 0 6 0
+D0
+gate~
+gate~
+131 -1 27013 10 10 5
+D1
+~
+~
+0 -1 27011 10 10 5
+D2
+~
+~
+0 -1 27009 10 10 5
+245 9 1509949540 3 0
+263 9 1509949540 3 0
+372 9 1509949540 3 0
+-1
+S
+
+#27011
+Kha-da, Square~
+You can hear the sounds of hawkers selling their wares in the square.
+Above you extending up into the dark is a shaft or sinkhole.  There is
+quite a bustle of dwarfs going about their daily business.  
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 27049 10 10 5
+D1
+~
+~
+0 -1 27012 10 10 5
+D2
+~
+~
+0 -1 27008 10 10 5
+D3
+~
+~
+0 -1 27010 10 10 5
+-1
+S
+
+#27012
+Kha-da, Square~
+The smell of something tasty greets you from the east of here.  Above
+extends a sinkhole and you can see a number of lights on different
+levels as it goes up.  
+~
+[Terek] Guards Modified (yes that damage is real) die darkies!
+~
+301469765 1 6 0
+D0
+~
+~
+0 -1 27028 10 10 5
+D1
+~
+~
+0 -1 27029 10 10 5
+D2
+~
+~
+0 -1 27007 10 10 5
+D3
+~
+~
+0 -1 27011 10 10 5
+219 9 1509949540 3 0
+26 17 1509949520 -1 0
+27 17 1509949540 -1 0
+372 9 1509949540 3 0
+330 17 1509949540 -1 0
+-1
+S
+
+#27013
+Stairs, level Main Square~
+Sturdy stairs head up and down, a handrail runs along both the inside and
+outside walls.  At each level there is a heavy iron gate that can be
+closed.  At each half level there is a small flat platform obviously
+designed for fighting from.  The sounds of the market square can be heard
+comming from the south exit of this level.
+~
+no mob
+~
+301465677 0 6 0
+D2
+gate~
+gate~
+131 -1 27010 10 10 5
+D4
+~
+~
+0 -1 27018 10 10 5
+-1
+S
+
+#27014
+Lifter, level Kha-da Square~
+This room open up into a 20 by 10 foot area with a wooden floor held by a
+chain at each corner of the room.  Peering over the edge of the wooden
+floor you can see up and down a number of different levels.  On the east
+wall of the room there are two smaller chains side by side, one painted
+red and the other painted blue.  Beside the chains there is a small
+sign.  
+~
+no_mob
+~
+301465677 0 6 0
+D0
+gate~
+gate~
+131 -1 27006 10 10 5
+E
+floor~
+The floor though made of wood looks quite sturdy and well made.  You can
+see a number of wheels at the edges of the floor which seem to keep the
+floor from banging against the walls of the shaft.  
+~
+E
+sign~
++---------------+
+         |  Red  - up    |
+         |  Blue - down  |
+         +---------------+
+~
+A
+pull~
+red chain~
+send_to_char( #ch, ch );
+act_notchar( #room, ch );
+transfer_all( room, find_room( 27027 ) );
+~
+E
+room~
+$n pulls the red chain and the lift goes up a level.
+~
+E
+ch~
+You pull the red chain and the lift goes up a level.
+~
+!
+0 0 0
+A
+pull~
+blue~
+send_to_char( #char, ch );
+~
+E
+char~
+You are already on the bottom floor so pulling the blue chain does
+nothing.  
+~
+!
+0 0 0
+-1
+S
+
+#27015
+Tunnel~
+This is a medium-sized tunnel that runs west-east.  It is about fifteen
+feet across and has no less than three heavy irons gates in it's length.
+The sides and roof are merely smoothly finished rock, but the floor has a
+criss-crossing pattern of paving stones.  Just to the west of here the
+tunnel opens up into the main square of Kha-da.  
+~
+~
+301465669 0 6 0
+D1
+iron gate~
+iron gate~
+0 -1 27016 10 10 5
+D3
+iron gate~
+iron gate~
+0 -1 27007 10 10 5
+-1
+S
+
+#27016
+Tunnel~
+Although the sides and roof are merely smoothly finished rock, the floor
+is covered in a criss-crossing pattern of paving stones.  What you notice
+most about the tunnel however are the three heavy iron gates in its'
+length.  Just to the east of here the tunnel opens up into a temple.  
+~
+~
+301465669 0 6 0
+D1
+gate~
+gate~
+0 -1 27017 10 10 5
+D3
+gate~
+gate~
+0 -1 27015 10 10 5
+A
+~
+~
+if( reputation( ch, thorstag ) < 0 ) {
+act_tochar( #tochar, ch );
+act_notchar( #notchar, ch );
+transfer( ch, find_room( 27007 ));
+act_notchar( #notchar2, ch );
+}
+~
+E
+notchar2~
+$n is pushed out of the temple by several very large guards.
+~
+E
+notchar~
+One of the large guards sees $n and says, "Your type isn't liked by
+us!" and the guards puch him back out the door to the north.
+~
+E
+tochar~
+One of the large guards sees you and says, "Your type isn't liked by
+us!" and the guards puch you back out the door to the north.
+~
+!
+1 0 1
+372 9 1509949540 3 0
+-1
+S
+
+#27017
+Temple - West Wing~
+Gold is all over this very large room.  The roof is gold, gold pillars
+stand straight and tall, and gold statues line the sides of the hall. 
+This is the west wing of a temple.  Many benches run in two aisles down
+the length of the room.  To the east, in the center of the temple, is a
+magnificent golden altar.  
+   
+There is a Newbie sign on the wall - Look Sign.
+~
+~
+301465799 0 6 0
+D1
+~
+~
+0 -1 27038 10 10 5
+D3
+gate~
+gate~
+0 -1 27016 10 10 5
+E
+sign~
+Welcome to Forest's Edge.  This is the Temple in the city of Kha-da home
+of the Dwarfs of clan Khedrun.  In general there should be some equipment
+and provisions here to help you get started, please don't keep on taking
+them as you improve in level.  Type 'Help' to get you used to this Mud. 
+Good places to start for low level characters is out the main gate, go
+south and look out for a sign leading to the goblin caves.  There is a
+bounty on Goblins so be sure to collect their ears.  If you get stuck you
+can always 'chat' to everyone on the mud for some help.  
+  
+Happy hunting, and may your axe never dull,
+   
+                        Karn - Immortal of the Dwarfs
+    
+~
+A
+take grab steal get~
+gold statue pillars benches~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 27033 ) );
+~
+E
+to_room~
+Four burly dwarf guards quickly appear, grab $n and frog-march them away.
+~
+E
+to_char~
+Four burly dwarf guards appear out of no where and grab you before you
+realise it.  They then frog-march you to a small, dingey and smelly
+room.  
+~
+!
+0 0 0
+26 17 1509949540 -2 0
+158 17 1509949450 -2 0
+171 17 1509949450 -2 0
+3013 17 1509949450 -2 0
+-1
+S
+
+#27018
+Stairs, level Diamond Way~
+Sturdy stairs head up and down, a handrail runs along both the inside and
+outside walls.  At each level there is a heavy iron gate that can be
+closed.  At each half level there is a small flat platform obviously
+designed for fighting from.  
+~
+no mob
+~
+301465677 0 6 0
+D2
+gate~
+gate~
+131 -1 27019 10 10 5
+D5
+~
+~
+0 -1 27013 10 10 5
+-1
+S
+
+#27019
+Diamond Way~
+From here you can look over the edge down into the main square of Kha-da
+and up at further levels cut into the sinkhole.  To the north are the
+stairs and reeling drunkingly out is the occasional dwarf from a bar to
+the west.  These dwarves seem barely able to manage the stairs and you'd
+hate to think what they would do in the lifter.  
+~
+~
+301465669 0 6 0
+D0
+gate~
+gate~
+131 -1 27018 10 10 5
+D1
+~
+~
+0 -1 27026 10 10 5
+D2
+~
+~
+0 -1 27020 10 10 5
+D3
+door~
+door~
+128 -1 27030 10 10 5
+242 9 1509949540 3 0
+372 9 1509949540 3 0
+-1
+S
+
+#27020
+Diamond Way~
+Lit by lamps on the outside wall you can see that the Way continues north
+and south from here.  Peering over the side you can see down into the
+main square below and up into the sinkhole as it rises.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27019 10 10 5
+D2
+~
+~
+0 -1 27021 10 10 5
+D3
+~
+~
+0 -1 27044 10 10 5
+242 9 1509949540 3 0
+-1
+S
+
+#27021
+Diamond Way~
+This it the south west corner of Diamond Way.  The Way is lit by oil
+lamps set high on the outside wall of the perimeter that runs around the
+sinkhole.  Peering down into the shaft you can see the main square of
+Kha-da and up into the gloomy dark.
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27020 10 10 5
+D1
+~
+~
+0 -1 27022 10 10 5
+D3
+~
+~
+0 -1 27034 10 10 5
+242 9 1509949540 3 0
+-1
+S
+
+#27022
+Diamond Way~
+Diamond Way continues east and west from here and is lit by lamps set
+high on the wall.  Looking over a small wall into the shaft you can see
+down into the main square and up into the gloomy dark of the sinkhole as
+it rises.  
+~
+~
+301465669 0 6 0
+D1
+~
+~
+0 -1 27023 10 10 5
+D2
+~
+~
+0 -1 27047 10 10 5
+D3
+~
+~
+0 -1 27021 10 10 5
+-1
+S
+
+#27023
+Diamond Way~
+From here you can see down into the main square of Kha-da and up the
+shaft into the gloomy dark.  There is a small wall that protects the path
+around the sinkhole.  A office can be seen to the east and strange
+rumbling sounds can be heard to the south.  
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27024 10 10 5
+D1
+~
+~
+0 -1 27043 10 10 5
+D2
+gate~
+gate~
+131 -1 27027 10 10 5
+D3
+~
+~
+0 -1 27022 10 10 5
+242 9 1509949540 3 0
+242 9 1509949540 3 0
+372 9 1509949540 3 0
+-1
+S
+
+#27024
+Diamond Way~
+The low wall that runs around the shaft side of Diamond Way has crumbled
+away a little here.  Otherwise you can see a shop to the east of here and
+the Way continues north and south from here.  
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27025 10 10 5
+D1
+~
+~
+0 -1 27037 10 10 5
+D2
+~
+~
+0 -1 27023 10 10 5
+242 9 1509949540 3 0
+242 9 1509949540 3 0
+-1
+S
+
+#27025
+Diamond Way~
+Lit by lamps on the walls of the Way, you can see a shop to the north and
+over the edge of the railing into the main square below.  
+~
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 27036 10 10 5
+D1
+~
+~
+0 -1 27045 10 10 5
+D2
+~
+~
+0 -1 27024 10 10 5
+D3
+~
+~
+0 -1 27026 10 10 5
+372 9 1509949540 3 0
+-1
+S
+
+#27026
+Diamond Way~
+The perimeter continues around to the east and west cut out of the walls
+of the sinkhole. Although the path is called Diamond Way you haven't seen
+any diamonds set into the stone yet.  To the north you can see the
+entrance to a weapon shop.  
+~
+~
+301465677 0 6 0
+D0
+~
+~
+0 -1 27031 10 10 5
+D1
+~
+~
+0 -1 27025 10 10 5
+D3
+~
+~
+0 -1 27019 10 10 5
+242 9 1509949540 3 0
+-1
+S
+
+#27027
+Lifter, level Diamond Way~
+This room opens up into a 20 by 10 foot area with a wooden floor held by
+a chain at each corner of the room.  Against one wall there is a blue and
+a red chain.  
+~
+no mob
+~
+301465677 0 6 0
+D0
+gate~
+gate~
+131 -1 27023 10 10 5
+A
+pull~
+blue chain~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer_all( room, find_room( 27014 ) );
+~
+E
+room~
+$n pulls the blue chain and the lift goes down a level.
+~
+E
+char~
+You pull on the blue chain and the lift goes down a level.
+~
+!
+0 0 0
+A
+pull~
+red~
+send_to_char( #char, ch );
+~
+E
+char~
+The lift is on the top floor so pulling the red chain does nothing.
+~
+!
+0 0 0
+-1
+S
+
+#27028
+Hot Rock Shop~
+Over on the west side of the room are large piles of smoothly rounded
+rocks sorted out into piles according to size.  In the middle of the
+south side of the room is a winch and a number of wicker baskets.  Below
+the winch is a hole in the ground, out of which steam rises.  Just inside
+the door is a small table behind which there is probably a clerk.  
+~
+fix this grinder, same as in room 27034, also, make aedit to get stuff
+out of basket 
+~
+335024199 1 5 0
+D2
+~
+~
+0 -1 27012 10 10 5
+E
+rocks~
+These rocks seem to be of a special type of mineral and are quite heavy
+to handle, they must be very dense.  The rocks have been sorted into
+different sizes, but all are smooth to the touch.  
+~
+E
+winch~
+The winch consists of a wheel and ratchet system for lowering and raising
+the baskets containing the rocks.  To operate the winch it looks like you
+would either wind or unwind the winch.  
+~
+E
+weighing machine~
+The weighing machine is a simple pole suspended length-ways from the
+ceiling, at each end of the pole two baskets are attached to the pole by
+some light chains.  Beside the machine are a number of metal weights. 
+These are used to guage the weight of rock put in one basket.  
+~
+A
+l look~
+winch~
+if( rflag( status1, room ) )
+  send_to_char( #to_char_up, ch );
+else
+  send_to_char( #to_char_down, ch );
+~
+E
+to_char_down~
+The winch is currently lowered.
+~
+E
+to_char_up~
+The winch is currently raised.
+~
+!
+0 0 0
+A
+wind~
+winch~
+if( rflag( status1, room ) )
+  send_to_char( #winch_already_up, ch );
+else {
+if( find_stat( ch, str ) > 13 ) {
+    send_to_char( #wind_winch_char, ch );
+    act_notchar( #wind_winch_room, ch );
+    set_rflag( status1, room );
+    }
+  else {
+    send_to_char( #char_not_strong, ch );
+    act_notchar( #room_not_strong, ch );
+    }
+  }
+~
+E
+room_not_strong~
+$n struggles and strains with the winch in a feeble attempt to wind it up
+but $e is simply not strong enough.  
+~
+E
+char_not_strong~
+You attempt to wind the winch but your puny muscles are not strong enough
+to turn the winch.  
+~
+E
+wind_winch_room~
+$n winds the winch, raising the baskets from below.
+~
+E
+wind_winch_char~
+You wind the winch raising the baskets from below.
+~
+E
+winch_already_up~
+The winch is already wound up.
+~
+!
+0 0 0
+A
+unwind~
+winch~
+if( rflag( status1, room ) ) {
+  send_to_char( #unwind_winch_char, ch );
+  act_notchar( #unwind_winch_room, ch );
+  remove_rflag( status1, room );
+  }
+else
+  send_to_char( #winch_already, ch );
+~
+E
+winch_already~
+You can't unwind the winch because it is already unwound.
+~
+E
+unwind_winch_room~
+$n unwinds the winch, lowering the baskets.
+~
+E
+unwind_winch_char~
+You unwind the winch lowering the baskets.
+~
+!
+0 0 0
+1951 9 1509949540 3 0
+141 17 1509949540 -1 0
+142 17 1509949540 -1 0
+143 17 1509949540 -1 0
+1999 17 1509949460 -1 0
+2837 17 1509949445 -1 0
+872 17 1509949450 -2 0
+-1
+S
+
+#27029
+Hagar's Hall of Food~
+The passage from the square opens up into quite a large hall.  There are
+tables and benches along the north and south walls and enough places to
+sit a hundred dwarfs easily.  The smell of mushrooms and fish wafts down
+the hall from the far end where you can see some doors to what must be
+the kitchen area.  Standing next to a counter by the entrance to the
+square is a tubby dwarf.  Behind him there is a menu on the wall listing
+the dishes of this establishment.  
+~
+~
+335020111 0 5 0
+D3
+~
+~
+0 -1 27012 10 10 5
+A
+read~
+menu~
+send_to_char( #to_char, ch );
+~
+E
+to_char~
+Hagar's Hall of Food - Menu
+  
+    - Mushroom Soup
+    - Mushroom Pie
+    - Boiled Mushrooms
+    - Steamed Mushrooms
+ 
+    - Cavefish Soup
+    - Poached Cavefish
+    - Roast Cavefish
+    - Cold Roast Cavefish
+~
+!
+0 0 0
+A
+l look~
+menu~
+send_to_char( #to_char, ch );
+~
+E
+to_char~
+You stare blankly at the menu before realising that you should try to
+read it.  
+~
+!
+0 0 0
+A
+1 order~
+~
+send_to_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+262 9 1509949540 3 0
+158 17 1509949540 -1 16
+171 17 1509949540 -1 0
+172 17 1509949540 -1 0
+173 17 1509949540 -1 0
+1460 17 1509949540 -1 0
+-1
+S
+
+#27030
+Dragon-Slayer~
+This is a bar dedicated to the honourable dwarven profession of Dragon
+Slaying.  Since most dwarf heros have slayed the odd dragon or two it is
+full of dragon scales, dragon teeth, other trophies so on.  Behind the
+bar is an old battle-worn dwarf that looks like a dragon might have got
+the better of him one day.  But as they say, any dragon you can walk away
+from is a good dragon.  Along the walls are a number of dragon scales,
+dragon teeth and other trophies.  
+~
+[Marija] I believe this room should be flagged as sanc since it's a shopkeeper..
+~
+335020103 0 5 0
+D1
+door~
+door~
+128 -1 27019 10 10 5
+A
+~
+~
+i = random( 1, 10 );
+if( i == 1 )
+act_room( #one, ch );
+if( i == 2 )
+act_room( #two, ch );
+~
+E
+two~
+"So this elf comes up to me, and asks for the gem!  Typical.  The Eleint 
+- bah.  Pass me an ale, will ya, Drurh?" 
+~
+E
+one~
+You hear some dwarves laughing about goblins and their inability to mine
+their way out of a cave-in.
+~
+!
+2 50 0
+221 9 1509949540 3 0
+24 17 1509949510 -1 26
+23 17 1509949490 -1 26
+-1
+S
+
+#27031
+Master Smith, Harkin~
+A number of axes and other weapons line the shelves of this shop. 
+Although there is no forge here there is a small work-bench for minor
+work and sharpening.  The axes take pride of place here and any other
+weapons are somewhere down the back of the shop.  
+~
+~
+335020103 0 5 0
+D2
+~
+~
+0 -1 27026 10 10 5
+A
+1 order~
+~
+send_To_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+222 9 1509949540 3 0
+3014 17 1509949540 -1 0
+3013 17 1509949510 -1 0
+3016 17 1509949480 -1 0
+3000 17 1509949500 -1 0
+3018 17 1509949520 -1 0
+3020 17 1509949480 -1 0
+3028 17 1509949530 -1 0
+380 17 1509949445 -1 0
+935 17 1509949445 -1 0
+3033 17 1509949445 -1 0
+966 17 1509949465 -1 0
+3021 17 1509949445 -1 0
+745 17 1509949445 -1 0
+1056 17 1509949490 -1 0
+1060 17 1509949450 -1 0
+-1
+S
+
+#27032
+Guard's Room~
+There are a number of staunch guards sitting around a table playing cards. 
+The room is otherwise fairly spartan though an iron grill in the west
+wall covers what is obviously an armoury of weapons and other equipment. 
+Another iron grill door in the north wall leads into a room with a number
+of sorry looking dwarfs.  There is a sign above the door.  A water trough
+has been placed in the center of the room for various personal pets to
+drink from and rest in safety.
+~
+[Issib] how by looking at this goblin do I know it is scared
+[Celine] Um, have you ever seen anyone scared irl?  Think about it.
+~
+301465671 0 6 0
+D0
+iron grill~
+iron grill~
+151 -1 27033 10 10 5
+D1
+~
+~
+0 -1 27009 10 10 5
+E
+sign~
+------------
+          <<< Gaol >>>
+          ------------
+  
+~
+242 9 1509949540 3 0
+242 9 1509949540 3 0
+-1
+S
+
+#27033
+Gaol~
+Looking about, you are now standing in a dirty, smelly room with nothing
+to sit on other than the floor - and you don't really want to do that. 
+You are now in Dwarf Gaol and will have to spend some time here with the
+other occupants until someone decides you have served enough time for
+your crimes.  
+~
+~
+301465685 0 6 0
+D2
+iron grill~
+iron grill~
+151 -1 27032 10 10 5
+A
+~
+~
+ch = rand_char( find_room( 27033 ) );
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 27032 ) );
+act_notchar( #to_all, ch );
+~
+E
+to_all~
+$n is let out of the Gaol.
+~
+E
+to_room~
+A dwarf guard rattle some keys in the lock and then sticks his head in
+and points at $n.  "Right, you.  Out and don't let me catch you doing
+that again." he says.
+~
+E
+to_char~
+A dwarf guard rattles some keys in the lock, sticks his head in and
+points at you.  "Right, you.  Out and don't let me catch you doing that
+again." he says.  
+~
+!
+2 75 0
+-1
+S
+
+#27034
+Winch room~
+A mass of gears, rope, chain, wheels, pulleys, and levers clutter this
+room.  Two strapping young dwarfs stripped to the waist are in this
+room.  Over in one corner of the room is a bell when it rings the dwarfs
+set to and start to wind a windlass or if it is wound release it slowly. 
+~
+fix this grinder's actions, nothing happens in room, she just sings basically
+~
+301465669 0 6 0
+D1
+~
+~
+0 -1 27021 10 10 5
+D3
+~
+~
+0 -1 27035 10 10 5
+377 9 1509949540 3 0
+-1
+S
+
+#27035
+Murder room~
+There are about two dozen holes drilled into the floor of this room in a
+nice neat pattern that covers the entire floor in an efficent manner. In
+one corner of the room is a large dwarf-sized iron pot.  The pot is set
+in a cradle so that it can be tipped and is on wheels so that it can be
+moved around the room.  
+~
+[Mokel] heavy
+[Paige] pot desc = bad
+~
+301465669 0 6 0
+D1
+~
+~
+0 -1 27034 10 10 5
+E
+iron pot~
+Looking more closely at the pot you can see a little bit of oil in the bottom of it. It is quite heavy and while with a bit of effort you could push it around the room, there is no way it will get through the door.
+~
+E
+holes~
+Getting down on the ground and peering through a hole you can see the
+occasional light of a traveller as they leave or enter through the
+portcullis below.  
+~
+A
+1~
+1~
+send_to_char( #to_char, ch );
+act_notchar( #room, ch );
+room = find_room( 27002 );
+send_to_room( #oil, room );
+loop( all_in_room ) {
+  i = dice( 3, 10 );
+  dam_message( rch, i, "The burning oil" );
+  inflict( rch, mob, i, "burning oil" );
+  }
+~
+E
+oil~
+Before you have time to react, boiling oil pours from holes in the
+ceiling above, cauterizing your skin and disfiguring you in a most horrid
+and painful way.  
+~
+E
+room~
+With a mighty heavy, $n overturns the pot, spilling its boiling, acrid
+contents onto the area below.
+~
+E
+to_char~
+With a mighty heavy, you overturn the pot, spilling its boiling, acrid
+contents onto the area below.  
+~
+!
+0 0 0
+-1
+S
+
+#27036
+Glond's Armoury~
+Set on stands are quite a number of different suits of armour.  Banded,
+scale, chainmail, plate and so on.  If there is a certain type metal
+armour ever made then it is probably here somewhere.  Then on the walls
+of this shop are dozens and dozens of shields of different sizes and
+shapes.  
+~
+~
+335020103 0 5 0
+D2
+~
+~
+0 -1 27025 10 10 5
+A
+1 order~
+~
+send_To_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+226 9 1509949540 3 0
+2063 17 1509949441 -1 0
+2003 17 1509949515 -1 0
+2103 17 1509949490 -1 0
+2182 17 1509949490 -1 0
+2001 17 1509949525 -1 0
+2080 17 1509949490 -1 0
+2101 17 1509949515 -1 0
+2180 17 1509949465 -1 0
+506 17 1509949450 -1 0
+2002 17 1509949490 -1 0
+985 17 1509949490 -1 0
+2043 17 1509949470 -1 0
+2023 17 1509949470 -1 0
+2005 17 1509949470 -1 0
+-1
+S
+
+#27037
+Damon Hill - Jeweler~
+A U-shaped counter blocks, and only permits you a little way into this
+shop.  Over behind the counter you can see a dwarf hunched over a desk
+working on something small and intricate.  But what really catches your
+eye are dozens of gems, rings and other jewelery on small velvet pads
+sitting on shelves against the far wall.  
+~
+~
+301465671 0 6 0
+D3
+~
+~
+0 -1 27024 10 10 5
+A
+1 order~
+~
+send_to_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+677 9 1509949540 3 0
+180 17 1509949540 -1 0
+182 17 1509949465 -1 0
+180 17 1509949505 -1 0
+1039 17 75 -1 0
+-1
+S
+
+#27038
+Temple Centre, Altar~
+Set up, on a circular dais is a completely golden altar, upon which is a
+huge platter of gold coins, all polished and gleaming in the bright
+light.  Beside the altar, set out in a square, are four golden
+candlestick stands that must be about five feet tall.  Looking up, you
+can see the ceiling covered in the golden relief of a dwarf battling with
+a Dragon.  
+
+A very large platter of shiny gold coins rests here, glimmering.
+~
+remember to add code with priest shoving pet out of room
+People keep tripping get all acode when they try to get all off their
+mounts.
+-Talis
+~
+301465799 0 6 0
+D0
+~
+~
+0 -1 27039 10 10 5
+D3
+~
+~
+0 -1 27017 10 10 5
+A
+take grab get steal~
+all gold coins altar candlesticks~
+if( mob_in_room( 239, room ) ) {
+  act_tochar( #no, ch );
+  act_notchar( #rno, ch );
+  wait( 1 );
+  transfer( ch, find_room( 27033 ) );
+  act_notchar( #arr, ch );
+  }
+else
+  act_tochar( #haha, ch );
+~
+E
+not_char~
+Four burly dwarf guards spring out of no where grab $n and bundle them
+off somewhere.  
+~
+E
+to_char~
+From out of no where spring four burly dwarf guards who bundle you up and
+drag you through the square to a small, smelly room.  
+~
+E
+no~
+As you reach for the platter of coins the dwarven priest lets out a
+bellow and several guards come running in and apprehend you.  The next
+thing you know you're being dragged off through some dark tunnel and
+tossed into a cramped, smelly room.
+~
+E
+rno~
+As $n reaches for the plate of gold coins the dwarven priests lets out an
+enraged bellow.  Sudednly several dwarven guards rush into the room, see
+the problem, and drag $n away for theft.
+~
+E
+arr~
+The cell door opens just long enough for several guards to toss $n in,
+then it slams shut and you hear the lock clicking shut again.
+~
+E
+haha~
+You reach for the gold coins only to find them turn to a dish of small
+pebbles when you touch them.  Appearantly an elaborate illusion that has
+effectively ensnared many a thief for the crafty dwarves of Kha-da.  I
+wonder where they really keep their gold.  In the bank maybe?
+~
+!
+0 0 0
+239 9 1509949540 3 0
+98 17 1509949540 -1 0
+1194 17 1509949540 -1 0
+109 17 1509949490 -1 0
+-1
+S
+
+#27039
+Temple, North Wing~
+There are a more aisles of benches here and the high vaulted ceiling is
+covered in gold.  Golden statues of dwarfs with a balance in one hand and
+coins in the other line the sides of the temple.  The room is brightly
+lit by many lamps that have been fixed to the walls.  
+~
+~
+301465671 0 6 0
+D0
+gate~
+gate~
+131 -1 27040 10 10 5
+D2
+~
+~
+0 -1 27038 10 10 5
+239 9 1509949540 3 0
+-1
+S
+
+#27040
+Tunnel~
+After a short passage through some very dark rock the tunnel opens up
+into a huge box-like cavern.  The cavern is flooded and a still, dark
+water fills the square sides of a cavern that must be at least 300 feet
+square.  At the center of this cavern, a cube-like building rises from
+the lake, crossing the lake to the building is a thin rickety bridge that
+only looks like it's a few good axe swings away from being tumbled into
+the water.  There are no paths around the side of the square cavern and
+no paths around the outside of the building, both simply go straight up
+out of the water.  
+~
+~
+335020101 0 5 0
+D2
+gate~
+gate~
+131 -1 27039 10 10 5
+E
+bridge~
+The bridge extends from the building in the centre of the lake to the
+tunnel edge.  It looks very flimsy but might be crossable.  
+~
+A
+go jump cross~
+bridge 1 north~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 27041 ) );
+~
+E
+to_room~
+$n crosses over the bridge.
+~
+E
+to_char~
+You cross onto the bridge.
+~
+!
+0 0 0
+-1
+S
+
+#27041
+Bridge~
+Standing on the flimsy bridge you can see a cube-like building to your
+north and a tunnel entrance to the south, small lamps on the railing of
+the bridge provide the only light in this cavernous room.  To the north
+standing on top of the building are a number of dwarf guards in heavy
+plate mail.  
+~
+~
+335020101 0 5 0
+D0
+~
+~
+0 -1 27042 10 10 5
+D2
+~
+~
+0 -1 27040 10 10 5
+-1
+S
+
+#27042
+1st Secure Bank of Kha-da~
+You enter the building and find yourself in a smallish room with a number
+of grilled tellers.  Armed guards stand both inside the building and
+out.  The 1st Secure Bank looks very secure.  Opposite the teller stands
+a bench with weighing equipment for measuring valuable objects.  The room
+has a very somber and serious mood.  
+~
+~
+335022181 0 5 0
+D2
+~
+~
+0 -1 27041 10 10 5
+-1
+S
+
+#27043
+Bounty Office~
+A waist high counter seperates you from the rest of the office where some
+dwarfs are sitting behind desks shuffling paperwork. Beside the counter
+is a handcart full of very smelly and yucky body parts.  Over the counter
+hangs a sign.  
+~
+~
+301465671 0 6 0
+D3
+~
+~
+0 -1 27023 10 10 5
+E
+sign~
++-------------------------+
+           |                         |
+           |      Bounty Office      |
+           |                         |
+           |  - Goblin Ears          |
+           |  - Orc's Ears           |
+           |  - Dragon Teeth         |
+           +-------------------------+
+~
+A
+list~
+~
+send_to_char( #to_char, ch );
+~
+E
+to_char~
+The dwarf clerk says, "I'm sorry I only buy Goblin ears and other body
+parts." 
+~
+!
+0 0 0
+228 9 1509949540 3 0
+-1
+S
+
+#27044
+Quzar's Reliable Magic Shoppe~
+Covered in books, scrolls, jars, bubbling pots, and steamming cups this
+is an extremely cluttered room.  There are books on chairs, under chairs,
+mugs overflowing with strange froth.  And an extremely unusally colored
+bird sitting on a perch in one corner of the room.  
+~
+[Worfle] first line of the Prenslie quest should read 'a goblin ear FOR
+me latest creation' I would guess 
+~
+335020103 0 5 0
+D1
+~
+~
+0 -1 27020 10 10 5
+E
+bird~
+Staring at the bird the bird stares back at you, it has a bit of a moth
+wing in it's beak.
+~
+A
+1 order~
+~
+send_to_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+238 9 1509949540 3 0
+78 17 1509949540 -1 0
+37 17 1509949540 -1 0
+1025 17 1509949500 -1 0
+1029 17 1509949480 -1 0
+1020 17 1509949500 -1 0
+249 17 1509949465 -1 0
+1182 17 1509949540 -1 0
+977 17 1509949490 -1 0
+81 17 1509949540 -1 0
+79 17 1509949515 -1 0
+284 17 1509949540 -1 0
+872 17 1509949540 -1 0
+1269 17 1509949490 -1 0
+189 17 1509949465 -1 0
+210 17 1509949465 -1 0
+1410 17 1509949480 -1 0
+1194 17 1509949465 -1 0
+474 17 1509949540 -1 0
+1974 17 1509949490 -1 0
+98 17 1509949540 -1 0
+243 17 1509949540 -1 0
+-1
+S
+
+#27045
+Y.D.C.A.~
+The Young Dwarves' Carefull Assault school is a large room with lots of
+large rocks tied to steel bars, dwarfs attacking wooden posts and the
+smell of a strange pungent herb in the air.  Against one wall are racks
+of blunted practice weapons and running down the side of the opposite
+wall are a number of dwarfs, flat on their backs lying on wooden benches
+lifting a steel pole with rocks tied to it, up and down repeatdley.  
+~
+[Clai'mh] carefull
+~
+301465671 0 6 0
+D3
+~
+~
+0 -1 27025 10 10 5
+234 9 1509949540 3 0
+-1
+S
+
+#27046
+Deserted Shrine~
+Outcast's restarting place.
+~
+~
+301465605 0 6 0
+-1
+S
+
+#27047
+Marander's Cut Price Armour~
+Armour and shields clutter the room, most of it is just dumped on tables
+and none of it looks new.  Some of it even looks extremely well past
+new.  The 'subdued' lighting gives the place a run down sort of feeling. 
+You think the reason the lighting isn't too great is that the owner
+doesn't want the blemishes and broken bits on the goods in the room to
+show up.  
+~
+~
+335020103 0 5 0
+D0
+~
+~
+0 -1 27022 10 10 5
+A
+1 order~
+~
+send_to_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+275 9 1509949540 3 0
+116 17 1509949520 -1 0
+2080 17 1509949520 -1 0
+2060 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2041 17 1509949540 -1 0
+2001 17 1509949540 -1 0
+2101 17 1509949540 -1 0
+2060 17 1509949540 -1 0
+2200 17 1509949465 -1 0
+-1
+S
+
+#27048
+Karn's Office~
+A stark and sparten place.
+~
+~
+301465613 0 6 0
+D0
+~
+~
+0 -1 27050 10 10 5
+E
+test~
+none~
+-1
+S
+
+#27049
+Gawn's General~
+This store is just simply jamped packed with everything you could ever
+hope to imagine or need.  There is shelving all around the walls of this
+store, with pots, pans, rope, kettles, spades, picks, bags, packs,
+rations, etc etc.  
+~
+~
+335020111 0 5 0
+D2
+~
+~
+0 -1 27011 10 10 5
+A
+1 order~
+~
+send_to_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+344 9 1509949540 3 0
+55 17 1509949540 -1 0
+6 17 1509949540 -1 0
+25 17 1509949510 -1 0
+234 17 1509949540 -1 0
+230 17 1509949490 -1 0
+229 17 1509949540 -1 0
+26 17 1509949540 -1 0
+948 17 1509949540 -1 0
+-1
+S
+
+#27050
+Karn's Office~
+Under Construction.
+~
+~
+301465613 0 6 0
+D2
+~
+~
+0 -1 27048 10 10 5
+-1
+S
+
+#27051
+Da'nuks Wild and Savage Animals~
+With smelly animal cages along the north and south walls, full of;
+barking, chirping and baying animals this is quite a noisey and smelly
+pet shop.  
+~
+[Belgar] noisey noisy
+~
+335028295 0 6 0
+D3
+~
+~
+0 -1 27006 10 10 5
+D5
+"floor grate" grate~
+"floor grate" grate~
+375 -1 27052 10 10 5
+A
+1 order~
+~
+send_To_char( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+383 9 1509949540 3 0
+-1
+S
+
+#27052
+Wild Animals, hidey-hole~
+This is where the animals stay.
+~
+~
+301465669 0 6 0
+D4
+~
+~
+375 -1 27051 10 10 5
+109 9 1509949540 3 0
+115 9 1509949540 3 0
+110 9 1509949540 3 0
+114 9 1509949540 3 0
+119 9 1509949540 3 0
+975 9 1509949540 3 0
+-1
+S
+
+#0
+

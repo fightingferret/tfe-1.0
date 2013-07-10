@@ -1,0 +1,4310 @@
+#AREA
+The Great Icalah Tree~
+Starshine~
+The Great Icalah Tree~
+
+5 0
+0
+#ROOMS
+
+#66500
+The Roots of a Giant Tree~
+Thrusting out of the earth in gigantic majesty is a huge tower of a tree
+trunk.  This close to the trunk, all one sees is a broad expanse of rich,
+dark wood.  Large cracks form geometric patterns about the girth of the
+tree; a layer of bark threatens to detach from the main trunk.  On the
+right side of the trunk, the wood and its attendant crevices are shaded
+green by a small-leafed moss.  Giant roots thrust in and out of the
+earth, creating humps higher than your head, bringing sustenance to this
+ancient tree.  Far above, a canopy of leaves blocks out sunlight, keeping
+the air here rich with moisture.
+~
+~
+301465600 3 8 0
+D0
+~
+~
+0 -1 66521 10 10 5
+D1
+~
+~
+0 -1 66523 10 10 5
+D2
+~
+~
+0 -1 66525 10 10 5
+D3
+~
+~
+0 -1 66519 10 10 5
+E
+bark trunk~
+The rich color of the trunk is the result of the moisture clinging to the
+bark.  Growth and aging have resulted in cracks and unevenness in the
+trunk and in some of the bark peeling back from the main trunk.  The moss
+softens the edges of the cracked bark, but you think perhaps you can
+climb the trunk...if you are careful.
+~
+E
+green small-leafed moss~
+The moss is quite beautiful, its tiny leaflets creating rosettes when
+seen up close.  The moss is plush and seems to have been a partner of the
+tree for quite a long time.  Tiny droplets of moisture cling to the
+surface of the bright green moss.
+~
+E
+roots humps~
+The roots look like humped monsters, thrusting out of the earth at the
+base of the tree and back into the earth some distance away.  There are
+vertical striations along the length of each root, apparently the method
+by which the root grew.  Moss and lichen grow on some of the roots and on
+the ground.
+~
+E
+canopy leaf leaves~
+The canopy is so high, a fog obscures the details of the leaves.  Small,
+sparse shafts of light can be seen through the dense canopy, but not
+enough for you to make out any details of the outside world, other than
+to determine whether it is day or night.
+~
+E
+ground~
+The ground is covered with a thick carpet of new and old leaves, some
+probably from the tree, some probably from its neighbors.  Some of the
+leaves are so old, you can see fungus growing upon them.  You recognize
+some of the leaves as coming from an oak tree.  Most of the leaves,
+however, are of a variety you do not recognize.
+~
+A
+climb~
+tree trunk bark 1 up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66501 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    send_to_char( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66501 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+noclimb~
+You try to climb the tree, but find your skill inadequate to the
+challenge.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+climb~
+Finding some handholds, you pull yourself up the tree trunk.
+~
+E
+climb1~
+Panting, you pause to rest.
+~
+E
+oclimb~
+Finding handholds in the bark, $n climbs up the tree.
+~
+E
+arr~
+$n climbs up the tree trunk from below.
+~
+E
+fly~
+You fly up the tree trunk, finally pausing to survey your surroundings.
+~
+E
+ofly~
+$n flies up the tree trunk, finally pausing to survey $s surroundings.
+~
+E
+farr~
+$n flies up the tree trunk from below.
+~
+!
+0 0 1
+A
+up~
+~
+acode( room, 1 );
+~
+!
+0 0 1
+A
+~
+~
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_area( #wood, room );
+  end;
+  }
+if( i == 2 ) {
+  send_to_area( #rustle, room );
+  end;
+  }
+if( i == 3 ) {
+  send_to_area( #bird, room );
+  end;
+  }
+if( i == 4 ) {
+  send_to_area( #scamp, room );
+  end;
+  }
+if( i == 5 ) {
+  send_to_area( #breath, room );
+  end;
+  }
+~
+E
+wood~
+A distant rat-ta-tat-tat reverberates through the wood.
+~
+E
+rustle~
+A cool breeze sends a faintly rustling through the canopy.
+~
+E
+bird~
+The flapping of wings breaks the silence.
+~
+E
+scamp~
+Leaves rustle as something small scampers out of sight.
+~
+E
+breath~
+Small droplets of moisture tickle your nose as you breathe.
+~
+!
+2 75 0
+A
+~
+root ground leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+if( i == 2 ) {
+    send_to_char( #some, ch );
+    act_notchar( #osome, ch );
+    obj_to_char( oload( 28104 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You search the leaves on the ground, throwing them every which way.
+You see nothing unusual in the dry, decaying ground matter.
+~
+E
+onoth~
+$n searches the leaves on the ground, throwing them every which way.
+~
+E
+some~
+Searching through the leaves on the ground, you find a green,
+unusual-looking one.
+~
+E
+osome~
+$n plays around in the leafy ground cover and find something green.
+~
+!
+9 0 0
+A
+get pick~
+moss clump~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #moss, ch );
+    act_notchar( #omoss, ch );
+    obj_to_char( oload( 2857 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You try to pluck away a clump of moss, but it crumbles into pieces in your hands.
+~
+E
+onoth~
+$n pulls out a clump of moss, but it crumbles into pieces no larger than dust particles.
+~
+E
+moss~
+You pull off a clump of moss.
+~
+E
+omoss~
+$n pulls off a clump of moss.
+~
+!
+0 0 0
+A
+get scrape~
+lichen~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #lich, ch );
+    act_notchar( #olich, ch );
+    obj_to_char( oload( 2858 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You attempt to scrape off some lichen, but end up only with green-dusted hands.
+~
+E
+onoth~
+$n tries unsuccessfully to scrape a piece of lichen off the bark.
+~
+E
+lich~
+You successfully peel off a small patch of lichen.
+~
+E
+olich~
+$n peels off a small patch of lichen.
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, dex ) < random( 5, 15 ) ) {
+  i = random( 1, 3 );
+  send_to_char( #trip, ch );
+  dam_message( ch, i, "tripping over the root" );
+  inflict( ch, mob, i, "tripping over the root" );
+  act_notchar( #otrip, ch );
+  }
+~
+E
+trip~
+You trip over a wayward root.
+~
+E
+otrip~
+$n trips over a wayward root.
+~
+!
+1 0 15
+-1
+S
+
+#66501
+On the Trunk of a Giant Tree~
+You cling tightly to crevices in the trunk of the huge tree, the ground
+barely visible below.  Before you is a wall of rough bark.  The bark is
+moist and covered sporadically with lichen and moss, making it slippery
+and treacherous to climb.  The canopy above you is barely visible through
+the misty fog.  Around you, standing respectfully away from this giant,
+is a lush forest of venerable old trees.
+~
+~
+301465600 3 5 0
+E
+wall bark lichen moss~
+The bark is so close to your face that you can smell the wet,
+fungus-encrusted wood with each breath.  The wood is very strong and
+healthy, and you can see that the tree supports a great community, as you
+see scurrying bugs, feeding birds and myriad other plants and animals
+along the trunk of the tree.
+~
+E
+canopy misty fog~
+You peer upward through the fog, trying to make out details of the dense
+canopy high above.  While you can make out some movement up there, you
+cannot see much else.  The air is crisp and the fog leaves droplets of
+moisture on all that it touches.
+~
+E
+crevices~
+The tree trunk is peppered with many crevices, the result of the thick
+bark cracking.  Some of the crevices are rather deep, while others are
+barely more than surface scratches.  You are unable to see all the way
+into several of the deeper crevices.
+~
+E
+forest trees~
+Seeming to leave this giant some space, the forest stands a slight
+distance from you.  Looking away from the trunk, you see that you are
+just below the height of the forest canopy.  The air is moist and becomes
+a soft mist as you look down.
+~
+A
+climb~
+1 down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66500 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66500 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Climbing down, you at last see some brown below you.
+~
+E
+climb1~
+After what seems like an eternity, you at last reach solid earth.
+~
+E
+oclimb~
+$n cautiously climbs down the tree.
+~
+E
+arr~
+$n climbs down from above.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly down the tree trunk, at last reaching the ground.
+~
+E
+ofly~
+$n flies down the tree trunk.
+~
+E
+farr~
+$n flies down the tree trunk from above.
+~
+!
+0 0 1
+A
+d down~
+~
+acode( room, 1 );
+~
+!
+0 0 0
+A
+climb~
+tree trunk bark~
+send_to_char( #noclimb, ch );
+act_notchar( #onoclimb, ch );
+~
+E
+noclimb~
+You scratch your head, trying to decide whether to climb up or down.
+~
+E
+onoclimb~
+$n scratches $s head, looking up and down the tree trunk in confusion.
+~
+!
+0 0 0
+A
+u up~
+~
+acode( room, 5 );
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66502 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66502 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+climb~
+Using crevices in the bark, you continue climbing up the tree.
+~
+E
+climb1~
+At last, you pull yourself onto a large branch.
+~
+E
+oclimb~
+$n climbs up the trunk of the tree.
+~
+E
+arr~
+$n clamors onto the tree branch from below.
+~
+E
+fly~
+You fly up the gigantic tree trunk.
+~
+E
+ofly~
+$n flies up the gigantic tree trunk.
+~
+E
+farr~
+$n flies up the tree trunk from below.
+~
+!
+0 0 1
+A
+~
+cracks crevices~
+if( !is_player( ch ) )
+  end;
+i = random( 1, 50 );
+send_to_char( #wigg, ch );
+if( i < 16 ) {
+  send_to_char( #bite, ch );
+  dam_message( ch, 1, "a bug's bite" );
+  inflict( ch, mob, i, "a bug's bite" );
+  act_notchar( #obite, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( i == 49 ) {
+    act_tochar( #found, ch );
+    act_notchar( #ofound, ch );
+    obj_to_char( oload( 621 ), ch );
+    end;
+    }
+  if( i == 48 ) {
+    act_tochar( #found, ch );
+    act_notchar( #ofound, ch );
+    obj_to_char( oload( 621 ), ch );
+    end;
+    }
+  if( i == 47 ) {
+    act_tochar( #found, ch );
+    act_notchar( #ofound, ch );
+    obj_to_char( oload( 2299 ), ch );
+    end;
+    }
+  }
+send_to_char( #brush, ch );
+~
+E
+wigg~
+You wiggle your fingers into various crevices.
+~
+E
+brush~
+Something brushes the tips of your searching fingers and you draw your
+hands back.
+~
+E
+bite~
+Something takes a bite at your hand.
+~
+E
+obite~
+$n shivers, winces, and jerks back $s hand.
+~
+E
+found~
+Your fingertips brush against something long and you draw it out.
+~
+E
+ofound~
+$n draws something out on $s fingertips.
+~
+!
+9 0 0
+A
+get pick~
+moss clump~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 15 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #moss, ch );
+    act_notchar( #omoss, ch );
+    obj_to_char( oload( 2857 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You try to pluck away a clump of moss, but it crumbles into pieces in your hands.
+~
+E
+onoth~
+$n pulls out a clump of moss, but it crumbles into pieces no larger than dust particles.
+~
+E
+moss~
+You pull off a clump of moss.
+~
+E
+omoss~
+$n pulls off a clump of moss.
+~
+!
+0 0 0
+A
+get scrape~
+lichen~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #lich, ch );
+    act_notchar( #olich, ch );
+    obj_to_char( oload( 2858 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You attempt to scrape off some lichen, but end up only with green-dusted hands.
+~
+E
+onoth~
+$n tries unsuccessfully to scrape a piece of lichen off the bark.
+~
+E
+lich~
+You successfully peel off a small patch of lichen.
+~
+E
+olich~
+$n peels off a small patch of lichen.
+~
+!
+0 0 0
+-1
+S
+
+#66502
+A Crook Formed by a Giant Trunk and a Giant Branch~
+You are wedged in the crook of a giant tree, between the trunk and one of
+its larger branches.  The trunk forms a wall to your west, curving very
+slightly away from you.  The branch grows east, heading up and away from
+the trunk.  It is as broad as a city street.  The trunk falls away, down
+into misty whiteness.  Above, the canopy is thick, but seems to consist
+mainly of branches too small to stand upon.
+~
+[Sappersil] change west message a little bit to indicate hole.
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66503 10 10 5
+E
+trunk bark~
+The dark, brown bark is moist and supports a nice soft mat of lichen and
+moss.  Among the shadows of the cracked and peeling bark, you make out a
+slight shadow.  Closer examination of the shadow reveals a small hole,
+perhaps leading to the home of a denizen of this treetop.  The crevices
+in the rough bark also seem to make the trunk climbable, both upwards and
+downwards.
+~
+E
+branch~
+The branch is very large, quite appropriate for such a large tree.  The
+branch heads off to the east and you think you can walk upon its surface,
+albeit very carefully.
+~
+E
+fog misty whiteness down~
+Below you, the trunk of the tree disappears into almost a perfect fog of
+whiteness...quite a ways down...  You can climb the trunk of the tree, if
+you are careful.
+~
+E
+canopy above up~
+The canopy above you is quite full of leaves and branches.  However,
+there are few large branches of the sort that might be able to hold your
+weight.  A few leaves hang down from higher branches, close enough for
+you to see the veins and lobes of each leaf.  One branch above you,
+growing west away from the trunk, looks like it might be large enough to
+support you.  You think you might be able to reach it with a bit of
+climbing.
+~
+E
+leaves leaf veins lobes~
+The leaves of this tree are quite unique.  Each leaf is five-lobed, with
+the central lobe longer than the others and more pointed.  The other four
+lobes are almost round by comparison.  The leaves are a velvety medium
+green in color and each leaf is edged in white.
+~
+E
+hole~
+You see darkness beyond the hole.  Perhaps, you could try entering it...
+~
+A
+climb~
+tree trunk bark~
+send_to_char( #noclimb, ch );
+act_notchar( #onoclimb, ch );
+~
+E
+noclimb~
+You scratch your head, trying to decide whether to climb up or down.
+~
+E
+onoclimb~
+$n scratches $s head, looking up and down the tree trunk in confusion.
+~
+!
+0 0 0
+A
+climb~
+1 down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66501 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66501 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Slipping off the branch, you slowly climb down.
+~
+E
+climb1~
+Finding yourself semi-comfortable, you pause to catch your breath.
+~
+E
+oclimb~
+$n grits $s teeth and climbs down the tree.
+~
+E
+arr~
+$n climbs down from above.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly down the tree trunk.
+~
+E
+ofly~
+$n flies down the tree trunk.
+~
+E
+farr~
+$n flies down the tree trunk from above.
+~
+!
+0 0 1
+A
+down~
+~
+acode( room, 2 );
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  transfer( ch, find_room( 66507 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66507 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Making sure not to look down, you continue climbing up.
+~
+E
+climb1~
+You pull yourself onto a broad branch in the lower canopy.
+~
+E
+oclimb~
+$n climbs up the trunk of the tree.
+~
+E
+arr~
+$n clamors onto the tree branch from below.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly up the gigantic tree trunk.
+~
+E
+ofly~
+$n flies up the gigantic tree trunk.
+~
+E
+farr~
+$n flies up the tree trunk from below.
+~
+!
+0 0 1
+A
+up~
+~
+acode( room, 4 );
+~
+!
+0 0 0
+A
+enter~
+darkness hole~
+send_to_char( #hole, ch );
+act_notchar( #ohole, ch );
+transfer( ch, find_room( 66506 ) );
+act_notchar( #arr, ch );
+~
+E
+hole~
+You squeeze yourself through the hole in the tree trunk.
+~
+E
+ohole~
+$n climbs into a small hole in the tree trunk.
+~
+E
+arr~
+$n squeezes into the room from a small hole to the east.
+~
+!
+0 0 0
+A
+west~
+~
+acode( find_room( 66517 ), 5 );
+~
+!
+0 0 0
+A
+~
+~
+send_to_char( #in, ch );
+continue;
+~
+E
+in~
+You follow the rise of the branch.
+~
+!
+3 1 2
+A
+get pick~
+moss clump~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 15 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #moss, ch );
+    act_notchar( #omoss, ch );
+    obj_to_char( oload( 2857 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You try to pluck away a clump of moss, but it crumbles into pieces in your hands.
+~
+E
+onoth~
+$n pulls out a clump of moss, but it crumbles into pieces no larger than dust particles.
+~
+E
+moss~
+You pull off a clump of moss.
+~
+E
+omoss~
+$n pulls off a clump of moss.
+~
+!
+0 0 0
+A
+get scrape~
+lichen~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #lich, ch );
+    act_notchar( #olich, ch );
+    obj_to_char( oload( 2858 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You attempt to scrape off some lichen, but end up only with green-dusted hands.
+~
+E
+onoth~
+$n tries unsuccessfully to scrape a piece of lichen off the bark.
+~
+E
+lich~
+You successfully peel off a small patch of lichen.
+~
+E
+olich~
+$n peels off a small patch of lichen.
+~
+!
+0 0 0
+-1
+S
+
+#66503
+A Branch of a Giant Tree~
+You find yourself on the broad branch of a gigantic tree, high above the
+ground.  The bark of the branch is rough, cracks here and there showing its
+age.  Moss and lichen have taken up residence in the moist wood.  Above
+you, some close enough to touch, are leaves and branches from higher up
+in the tree canopy.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66504 10 10 5
+D3
+~
+~
+0 -1 66502 10 10 5
+E
+ground~
+You can make out no details of the ground, besides a slight variation in
+the color of the fog below you.  The trunk of the tree disappears
+dramatically into the mist, its almost black wood a sharp contrast to
+the white of the fog.
+~
+E
+bark branch moss lichen~
+The branch is quite strong, the wood alive.  Nonetheless, moss and lichen
+have taken up residence on the bark, creating patches of light and
+dark green that are not leaves.
+~
+E
+canopy above up leaves leaf fruit~
+Close above your head, branches dip down, dripping with leaves and fruit. 
+The leaves are a five-lobed wonder - a medium green outlined in white. 
+The fruit is a golden yellow, no larger than a chicken's egg.  One looks
+like it might be close enough to pick.
+~
+A
+1 north 1 south~
+~
+send_to_char( #back, ch );
+act_notchar( #oback, ch );
+~
+E
+back~
+Realizing that a deadly plummet awaits you, you quickly leap back from
+the edge.
+~
+E
+oback~
+$n walks toward the edge of the branch, then quickly steps back.
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+A
+get pick~
+fruit~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    send_to_char( #fruit, ch );
+    act_notchar( #ofruit, ch );
+    obj_to_char( oload( 2855 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You look, but seeing no ripe fruit, decide to leave them on their stems.
+~
+E
+onoth~
+$n peers at the unripe fruit.
+~
+E
+fruit~
+You carefully pick a ripe fruit from the tree.
+~
+E
+ofruit~
+$n picks a ripe fruit off the tree.
+~
+!
+0 0 0
+A
+touch brush~
+leaf leaves branches~
+send_to_char( #touch, ch );
+act_notchar( #otouch, ch );
+~
+E
+touch~
+You reach out and brush the nearby leaves and branches with your fingertips.
+~
+E
+otouch~
+$n reaches out, touching the nearby leaves and branches.
+~
+!
+0 0 0
+A
+get pick~
+moss clump~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 15 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #moss, ch );
+    act_notchar( #omoss, ch );
+    obj_to_char( oload( 2857 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You try to pluck away a clump of moss, but it crumbles into pieces in your hands.
+~
+E
+onoth~
+$n pulls out a clump of moss, but it crumbles into pieces no larger than dust particles.
+~
+E
+moss~
+You pull off a clump of moss.
+~
+E
+omoss~
+$n pulls off a clump of moss.
+~
+!
+0 0 0
+A
+get scrape~
+lichen~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #lich, ch );
+    act_notchar( #olich, ch );
+    obj_to_char( oload( 2858 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You attempt to scrape off some lichen, but end up only with green-dusted hands.
+~
+E
+onoth~
+$n tries unsuccessfully to scrape a piece of lichen off the bark.
+~
+E
+lich~
+You successfully peel off a small patch of lichen.
+~
+E
+olich~
+$n peels off a small patch of lichen.
+~
+!
+0 0 0
+A
+~
+~
+send_to_char( #west, ch );
+  continue;
+~
+E
+west~
+You follow the descending branch.
+~
+!
+3 0 8
+1933 9 1509949540 3 0
+1933 9 1509949540 3 0
+-1
+S
+
+#66504
+A Branch of a Giant Tree~
+You stand on the large branch of a gigantic tree.  Leaves and other
+branches dip down from the canopy above.  Beneath your feet, the wood is
+strong, full of life.  Very far below, the tree trunk disappears into a
+carpet of white.  The branch slopes down to the west, joining with the
+trunk of the tree, while to the east, it becomes narrower, splitting into
+leafy branchlets.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66505 10 10 5
+D3
+~
+~
+0 -1 66503 10 10 5
+E
+leaves branches canopy above~
+The canopy above is an almost perfect umbrella of leaves.  It is with
+great difficulty that you can see any sky above you at all.  Beautiful,
+lush white-edged leaves almost brush your head.  Something or somethings
+scurry about up there, causing the odd branch to bounce and stir.
+~
+E
+wood branch~
+This branch you are on is quite healthy and strong, sprouting many leaves
+as it narrows and dips to the east.  There are some small patches of
+lichen, but the wood is otherwise unadorned.  To the west, the branch
+connects to the main trunk.
+~
+E
+trunk carpet white below~
+Far below lies a carpet of billowing whiteness, through which the dark
+trunk of the tree disappears.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+touch brush~
+leaf leaves branches~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+-1
+S
+
+#66505
+A Branch of a Giant Tree~
+This branch is very large here, although it is broader to the west where
+it connects with the main tree trunk.  To the east, the branch ends in a
+myriad of small, leafy limbs and white-edged green leaves.  The bark
+covering the branch is rough and unmarked, this particular limb not
+having encountered any trauma.  Close above your head, brushing your
+hair, are the leaves and ends of other branches.  Eastwards, the branch
+is too weak to support you.
+~
+~
+301465600 3 5 0
+D3
+~
+~
+0 -1 66504 10 10 5
+E
+branch bark~
+The bark here is fairly young, as evidenced by the small, fine striations
+and lack of any large cracks.
+~
+E
+limbs~
+Small branchlets droop below where you stand, sprouting plentiful leaves.
+~
+E
+leaves~
+The leaves, a pretty green, are haloed in white.  They drop down from
+other branches above your head, as well as drip from the end of this
+branch.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+1 east~
+~
+send_to_char( #back, ch );
+act_notchar( #oback, ch );
+~
+E
+back~
+You step east, but quickly hop back when the branch starts to bend...
+~
+E
+oback~
+$n takes a step east, but quickly hops back when the branch starts to bend...
+~
+!
+0 0 0
+A
+touch brush~
+leaf leaves branches branchlets~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+1933 9 1509949540 3 0
+-1
+S
+
+#66506
+A Nesting Hole in a Giant Tree~
+Rough wood encloses a cozy nesting hole.  The wood is chipped in spots,
+leaving jagged ends, although, in general, the walls are smooth if a bit
+pitted.  Feathers and wood chips line the bottom of the hole, and some
+soft down feathers are snagged on the uneven wood.  Bits of straw are
+interwoven with stalks of grass to form the rest of the floor.  Speckled
+bit of shell lie about in the nest.
+~
+hmm...work on checking if woodpecker is a pet? *scratches head*
+~
+301465604 0 5 0
+E
+wood chips~
+The wood is pitted, as if it has been worked over with a small chisel. 
+Wood chips are scattered among the feathers, grass, and leaves on the
+floor of the hole.
+~
+E
+floor feathers nest stalks straw grass~
+The nest is a loose weave of long stems of straw and dried grass, with
+wood chips, various feathers, some shell bits, and bird guano.  A strange
+conglomeration, but somehow, it is kept free of pests and mold.
+~
+E
+shell~
+Bits of shell are scattered about the nest, some of it still moist.
+~
+A
+enter~
+hole~
+send_to_char( #hole, ch );
+act_notchar( #ohole, ch );
+transfer( ch, find_room( 66502 ) );
+act_notchar( #arr, ch );
+~
+E
+hole~
+You squeeze yourself through the hole in the tree trunk.
+~
+E
+ohole~
+$n climbs into a small hole in the tree trunk.
+~
+E
+arr~
+$n squeezes into the room from a small hole to the west.
+~
+!
+0 0 0
+A
+east~
+~
+acode( room, 1 );
+~
+!
+0 0 0
+A
+search~
+nest~
+if( !is_player( ch ) )
+  end;
+if( mob_in_room( 1940, room ) ) {
+send_to_char( #mom, ch );
+act_notchar( #omom, ch );
+end;
+}
+if( mob_in_room( 1941, room ) ) {
+send_to_char( #kid, ch );
+act_notchar( #okid, ch );
+end;
+}
+if( rflag( reset0, room ) ) {
+send_to_char( #rummage, ch );
+act_notchar( #orummage, ch );
+remove_rflag( reset0, room );
+i = random( 1, 20 );
+if( i == 1 ) {
+  send_to_char( #feath, ch );
+  act_notchar( #ofind, ch );
+  obj_to_char( oload( 2812 ), ch );
+  end;
+  }
+if( i == 2 ) {
+  send_to_char( #garnet, ch );
+  act_notchar( #ofind, ch );
+  obj_to_char( oload( 737 ), ch );
+  end;
+  }
+if( i == 3 ) {
+  send_to_char( #dfeath, ch );
+  act_notchar( #ofind, ch );
+  obj_to_char( oload( 2814 ), ch );
+  end;
+  }
+if( i == 4 ) {
+  send_to_char( #worm, ch );
+  act_notchar( #ofind, ch );
+  obj_to_char( oload( 1594 ), ch );
+  end;
+  }
+if( i > 17 ) {
+  send_to_char( #grass, ch );
+  act_notchar( #ofind, ch );
+  obj_to_char( oload( 1595 ), ch );
+  end;
+  }
+}
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+ofind~
+$n finds pulls something from the tangled mess of the nest.
+~
+E
+noth~
+You find nothing worth keeping.
+~
+E
+rummage~
+You rummage through the mess that is the nest.
+~
+E
+orummage~
+$n rummages through the mess that is the nest.
+~
+E
+feath~
+You discover a pure white feather!
+~
+E
+garnet~
+You dig out a dark red gem!
+~
+E
+dfeath~
+You find a soft, grey feather!
+~
+E
+worm~
+You find a disgusting, half-digested worm. Yech!
+~
+E
+grass~
+You find a blade of grass!
+~
+E
+onoth~
+$n does not seem to find anything.
+~
+E
+mom~
+You can't search the nest with that large woodpecker sitting on it.
+~
+E
+kid~
+A young woodpecker wiggles and keeps you from searching the nest.
+~
+E
+omom~
+$n tries to search the nest but cannot do it properly with that large
+woodpecker sitting in it.
+~
+E
+okid~
+A baby woodpeckers wiggles and keeps $n from properly searching the nest.
+~
+!
+0 0 0
+1940 9 1509949540 3 0
+1941 9 1509949540 3 0
+1941 9 1509949540 3 0
+1941 9 1509949540 3 0
+-1
+S
+
+#66507
+A Knobby Branch by a Giant Tree Trunk~
+This gigantic branch rises west, away from the gloriously proportioned
+trunk.  No small branches sprout from this part of the branch, but there
+is evidence that such small branches once existed: Several knobs decorate
+the bark below your feet.  Westwards, the branch seems large and sturdy
+enough to permit you to move in that direction.  Down, it is a long ways
+to the ground, but the trunk has enough nooks and crannies for you to
+climb down safely...if you are careful.  Upwards, the trunk climbs
+further into the skies and you can make out at least one other large
+branch.
+~
+~
+301465600 3 5 0
+D3
+~
+~
+0 -1 66508 10 10 5
+E
+knobs~
+The knobs are rounded protrusions on the bark of the branch.  One knob
+matches the scale of the tree; it is, in other words, quite huge.  On the
+end of each knob is a rounded swirling pattern, evidence of the way the
+tree grows.
+~
+E
+trunk east~
+The tree trunk is a wall of dark brown wood, its curvature barely
+discernible.  Nooks and crannies in the cracked bark permit nimble
+creatures to climb up and down this big monster.
+~
+A
+climb~
+tree trunk bark~
+send_to_char( #noclimb, ch );
+act_notchar( #onoclimb, ch );
+~
+E
+noclimb~
+You scratch your head, trying to decide whether to climb up or down.
+~
+E
+onoclimb~
+$n scratches $s head, looking up and down the tree trunk in confusion.
+~
+!
+0 0 0
+A
+climb~
+1 down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66502 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66502 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Finding handholds and footholds on the trunk, you climb down.
+~
+E
+climb1~
+Inching around the trunk, you come to rest on a branch just below the canopy.
+~
+E
+oclimb~
+$n carefully climbs off the branch and down the tree.
+~
+E
+arr~
+$n climbs down from above.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly down the tree trunk.
+~
+E
+ofly~
+$n flies down the tree trunk.
+~
+E
+farr~
+$n flies down the tree trunk from above.
+~
+!
+0 0 1
+A
+down~
+~
+acode( room, 2 );
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66512 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66512 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Pulling yourself up the rough bark, you aim for a twisted branch on the
+north side of the trunk.
+~
+E
+climb1~
+Panting, you anchor yourself for a much needed rest.
+~
+E
+oclimb~
+$n grabs onto breaks in the bark and climbs up the trunk of the tree.
+~
+E
+arr~
+$n clamors onto the tree branch from below.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly up the gigantic tree trunk.
+~
+E
+ofly~
+$n flies up the gigantic tree trunk.
+~
+E
+farr~
+$n flies up the tree trunk from below.
+~
+!
+0 0 1
+A
+up~
+~
+acode( room, 4 );
+~
+!
+0 0 0
+A
+east~
+~
+acode( find_room( 66517 ), 5 );
+~
+!
+0 0 0
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+1935 9 1509949540 3 0
+1939 9 1509949520 3 0
+-1
+S
+
+#66508
+A Broad Knobby Branch~
+Several rounded knobs protrude from the rough, brown bark of this branch. 
+The branch grows roughly east to west and is quite large in girth.  East,
+it connects up with the big brown wall that is the tree trunk.  The
+ground is a long ways down, while leaves and small branches dangling from
+above brush your head.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66507 10 10 5
+D3
+~
+~
+0 -1 66509 10 10 5
+E
+knobs~
+The knobs are what remains of old branches that for one reason or another
+are no longer attached to the branch.  Each knob ends in a faint ring
+pattern, surrounded by thick bark.
+~
+E
+bark sap branch~
+The bark is moist and rough.  Sticky sap fills and oozes out of a crack
+in the bark.  There is also dried sap at different spots on the branch,
+evidence of other breaches in the protective bark of the tree.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+touch brush~
+leaves branches~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+A
+pluck break get cut~
+sprig branch~
+if( !is_player( ch ) )
+  end;
+i = random( 1, 20 );
+if( i <= 7 ) {
+  j = random( 1, 10 );
+  send_to_char( #dama, ch );
+  dam_message( ch, j, "the branches' slap" );
+  inflict( ch, mob, j, "the branches' slap" );
+  act_notchar( #odama, ch );
+end;
+  }
+if( i == 8 ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_char( #sprig, ch );
+    act_notchar( #osprig, ch );
+    obj_to_char( oload( 2859 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+A strange feeling tells you to leave the tree alone.
+~
+E
+onoth~
+$n starts to touch a branch, then changes $s mind.
+~
+E
+dama~
+As you reach out, intending to cut off a sprig, branches whip out at you.
+You decide it might be safer to leave the tree alone.
+~
+E
+odama~
+As $n begins cutting off a small sprig, tree branches lash at $m.
+$n jumps away from the branches, deciding to leave the tree alone.
+~
+E
+sprig~
+You cuts off a sprig of leaves.
+~
+E
+osprig~
+$n cuts off a sprig of leaves.
+~
+!
+0 0 0
+-1
+S
+
+#66509
+At a Split on a Large Knobby Branch~
+This branch, high above the mist-enshrouded ground, is quite broad and
+strong.  There are small variations in the bark, finer than that to the
+east.  Leaves and the ends of various branches bow down from above.  To
+the east is the trunk of the great tree to which this branch belongs. 
+The branch ends to the west in a spray of small branchlets, while one
+"path" splits off south and looks traversable.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66508 10 10 5
+D2
+~
+~
+0 -1 66510 10 10 5
+D3
+~
+~
+0 -1 66511 10 10 5
+E
+fruit~
+The fruit looks ripe and might be pickable.
+~
+E
+bark~
+The bark here is finer than the bark to the east as the branch tapers to
+an end westwards.  There are small knots here, where old branches have
+broken off.
+~
+E
+branch~
+The branch splits, sending a smaller limb south.  The southern split
+looks like it might be explorable...for the right person.
+~
+E
+leaves above~
+Leaves and the ends of small branches brush against your head.  The
+leaves are a beautiful green, outlined in a translucent white.  Looking
+more closely at the branches, you discern some fruit hidden behind a
+couple of leaves.
+~
+A
+1 north~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+touch brush~
+leaves branches~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+A
+get pick~
+fruit~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    send_to_char( #fruit, ch );
+    act_notchar( #ofruit, ch );
+    obj_to_char( oload( 2855 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You look, but seeing no ripe fruit, decide to leave them on their stems.
+~
+E
+onoth~
+$n peers at the unripe fruit.
+~
+E
+fruit~
+You carefully pick a ripe fruit from the tree.
+~
+E
+ofruit~
+$n picks a ripe fruit off the tree.
+~
+!
+0 0 0
+A
+pluck break get cut~
+sprig branch~
+acode( find_room( 66508 ), 4 );
+~
+!
+0 0 0
+1933 9 1509949540 3 0
+1935 9 1509949540 3 0
+-1
+S
+
+#66510
+South of a Split in a Giant Branch~
+This limb splits off from a branch twice its girth to the north.  While
+itself quite large, this branch is really only half the size of the one
+north.  The branch ends in a feathering of small, leafed boughs to the
+south, none of which appear capable of supporting any significant weight. 
+East, in the distance, is the trunk of a huge tree, while quite far down
+is the mist-blanketed ground.  North is the safety of a larger, more
+secure-looking branch.
+~
+~
+301465600 3 4 0
+D0
+~
+~
+0 -1 66509 10 10 5
+E
+boughs leafed~
+South, the branch splits into much smaller branchlets, which in turn
+sprout leaves and fruit.  You cannot go any further south; this is as far
+on the branch as a person of your size can reach.
+~
+E
+trunk east~
+Looking east, you can see a huge trunk, its curvature barely discernible
+even at this distance.  The branch to the north of you seems to grow from
+that trunk.
+~
+E
+ground mist-blanketed down~
+The mist makes it difficult to judge the distance to the ground. 
+However, the lack of any details in the mist gives the impression that
+the mist is quite far down and that a fall from this height would be
+quite catastrophic.
+~
+A
+1 east 1 west~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+1 south~
+~
+send_to_char( #back, ch );
+act_notchar( #oback, ch );
+~
+E
+back~
+You step south, but quickly hop back when the branch starts to bend...
+~
+E
+oback~
+$n takes a step south, but quickly hops back when the branch starts to bend...
+~
+!
+0 0 0
+1935 9 1509949540 3 0
+-1
+S
+
+#66511
+West of a Split in a Giant Branch~
+There are small, fine cracks in the texture of the bark on this part of
+the branch.  The branch ends to the west in a spray of fine branchlets
+and leaves, while far to the east is the trunk from which this branch
+grows.  Leaves and branches from further up the canopy drape down and
+brush your head.  The ground below is obscured by a distant misty
+whiteness.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66509 10 10 5
+E
+cracks texture bark~
+The fine cracks and lines are a natural variation in the bark.  Small
+patches of gray-green lichen have colonized some of the bark.
+~
+E
+west spray fine branchlets leaves~
+This huge branch comes to an end to the west, ending your exploration in
+that direction.  You see a few clumps of moss in the small branches to
+the west.  Perhaps, if you are careful, you might be able to pick one off...
+~
+E
+canopy drape~
+You are in the canopy of a gigantic tree, where the leaves and branches
+are thick, limiting movement.  Leaves brush against your head as you move
+and branches snag on your person.  Growing on the branches coming down
+from above, you see some clumps of moss.  You think you might be able to
+reach one...
+~
+E
+ground~
+Looking down, all you see is a grayish-white mist.  It is too far below
+to see any details of the moisture in the mist or of the ground the mist
+must be covering.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+1 west~
+~
+send_to_char( #back, ch );
+act_notchar( #oback, ch );
+~
+E
+back~
+You step west, but quickly hop back when the branch starts to bend...
+~
+E
+oback~
+$n takes a step west, but quickly hops back when the branch starts to bend...
+~
+!
+0 0 0
+A
+touch brush~
+leaf leaves~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+A
+pluck break get cut~
+sprig branch~
+acode( find_room( 66508 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+moss clump~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 15 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #moss, ch );
+    act_notchar( #omoss, ch );
+    obj_to_char( oload( 2857 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You try to pluck away a clump of moss, but it crumbles into pieces in your hands.
+~
+E
+onoth~
+$n pulls out a clump of moss, but it crumbles into pieces no larger than dust particles.
+~
+E
+moss~
+You pull off a clump of moss.
+~
+E
+omoss~
+$n pulls off a clump of moss.
+~
+!
+0 0 0
+1933 9 1509949540 3 0
+-1
+S
+
+#66512
+Hugging the Trunk of a Giant Tree~
+The trunk of a giant tree is right in front of your face, so close that
+you can smell the wetness of the bark and the lichen that shares its
+surface with you.  Above you, growing north away from the tree trunk, is
+a giant branch that might be able to support you.  Below is the way down,
+and several more large branches.
+~
+~
+301465600 3 5 0
+E
+bark lichen~
+The lichen is a patch of dull green.  Tiny droplets of moisture are
+peppered on its surface.
+~
+E
+below~
+Far below, although it is difficult to judge the exact distance, is a
+white mist.  The mist hides the ground, except for a vague hint of
+darkness.
+~
+A
+climb~
+tree trunk bark~
+send_to_char( #noclimb, ch );
+act_notchar( #onoclimb, ch );
+~
+E
+noclimb~
+You scratch your head, trying to decide whether to climb up or down.
+~
+E
+onoclimb~
+$n scratches $s head, looking up and down the tree trunk in confusion.
+~
+!
+0 0 0
+A
+climb~
+1 down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66507 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66507 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Having taken your breather, you cautiously move down.
+~
+E
+climb1~
+Inching around the trunk, you drop onto a broad branch.
+~
+E
+oclimb~
+$n takes a deep breath and starts to climb down the tree trunk.
+~
+E
+arr~
+Looking relieved, $n drops down from above.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly down the tree trunk.
+~
+E
+ofly~
+$n flies down the tree trunk.
+~
+E
+farr~
+$n flies down the tree trunk from above.
+~
+!
+0 0 1
+A
+down~
+~
+acode( room, 2 );
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66513 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66513 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb1~
+Limbs aching, you climb onto a bent branch near the top of the canopy.
+~
+E
+oclimb~
+Finding handholds in the rough bark, $n climbs up the trunk.
+~
+E
+arr~
+$n clamors onto the tree branch from below.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+climb~
+You climb up the tree, using the rough bark to your advantage.
+~
+E
+fly~
+You fly up the gigantic tree trunk.
+~
+E
+ofly~
+$n flies up the gigantic tree trunk.
+~
+E
+farr~
+$n flies up the tree trunk from below.
+~
+!
+0 0 1
+A
+up~
+~
+acode( room, 4 );
+~
+!
+0 0 0
+A
+get scrape~
+lichen~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    remove_rflag( reset0, room );
+    send_to_char( #lich, ch );
+    act_notchar( #olich, ch );
+    obj_to_char( oload( 2858 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You attempt to scrape off some lichen, but end up only with green-dusted hands.
+~
+E
+onoth~
+$n tries unsuccessfully to scrape a piece of lichen off the bark.
+~
+E
+lich~
+You successfully peel off a small patch of lichen.
+~
+E
+olich~
+$n peels off a small patch of lichen.
+~
+!
+0 0 0
+-1
+S
+
+#66513
+A Twist in a Giant Branch~
+This branch is broad enough to be a street.  Rising gently from the tree
+trunk to south, it twists and kinks east.  It looks as if some great
+force had tried to break this branch when it was young by turning it
+around its circumference, causing the branch to bend.  The scars have
+long been healed over, the only evidence a strange twirl in the bark at
+the point where the branch bends east.  The trunk to your south looks
+climbable, both upwards and down to the ground.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66514 10 10 5
+E
+twists kinks twirl turn scars~
+The scars make the bark resemble a rope, twin braided cracks going around
+the wood.  Old, dried sap mark the blemishes.
+~
+E
+trunk bark tree ~
+The trunk to the south is huge and covered with a thick layer of cracked,
+rough bark.  It rises further into the sky and you can make out another
+large branch before the canopy ends in sky.
+~
+E
+sap blemishes~
+The sap, for the most part, is dried and cracked.  It looks like it was
+used by the tree to "bandage" its wounds.
+~
+A
+climb~
+tree trunk bark~
+send_to_char( #noclimb, ch );
+act_notchar( #onoclimb, ch );
+~
+E
+noclimb~
+You scratch your head, trying to decide whether to climb up or down.
+~
+E
+onoclimb~
+$n scratches $s head, looking up and down the tree trunk in confusion.
+~
+!
+0 0 1
+A
+climb~
+1 down~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66512 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66512 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Taking a deep breath, you slip off the branch, climbing down.
+~
+E
+climb1~
+Inching around the trunk, you stop to catch your breath.
+~
+E
+oclimb~
+$n takes a deep breath and starts to climb down the tree trunk.
+~
+E
+arr~
+Looking relieved, $n climbs down from above.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly down the tree trunk.
+~
+E
+ofly~
+$n flies down the tree trunk.
+~
+E
+farr~
+$n flies down the tree trunk from above.
+~
+!
+0 0 1
+A
+down~
+~
+acode( room, 2 );
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66517 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66517 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+You claw your way up the tree.
+~
+E
+climb1~
+Panting heavily in the thin air, you drag yourself onto a large branch at
+the top of the canopy.
+~
+E
+oclimb~
+$n grabs onto breaks in the bark and climbs up the trunk of the tree.
+~
+E
+arr~
+$n clamors onto the tree branch from below.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly up the gigantic tree trunk.
+~
+E
+ofly~
+$n flies up the gigantic tree trunk.
+~
+E
+farr~
+$n flies up the tree trunk from below.
+~
+!
+0 0 1
+A
+up~
+~
+acode( room, 4 );
+~
+!
+0 0 0
+A
+south~
+~
+acode( find_room( 66517 ), 5 );
+~
+!
+0 0 0
+A
+1 west 1 north~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+1933 9 1509949540 3 0
+-1
+S
+
+#66514
+Near a Turn on a Giant Branch~
+Just to the west of you, this giant branch makes a twisting turn south
+before ending at a massive tree trunk.  This branch looks quite healthy,
+though its girth here is less than it is to the west.  The branch
+continues to the east, still large enough to traverse.
+~
+~
+301467648 3 5 0
+D1
+~
+~
+0 -1 66515 10 10 5
+D3
+~
+~
+0 -1 66513 10 10 5
+E
+twisting turn~
+The turn is the result of a twisting of the bark around the wood of the
+branch.  The result is that this portion of the branch is quite a bit
+smaller than that to the west, just before the turn.  This section and
+the remainder of the branch looks stunted by comparison.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+-1
+S
+
+#66515
+On a Branch of a Giant Tree~
+This branch grows from a giant tree trunk to the west.  East of you, the
+branch tapers to a smaller width, splitting eventually into smaller
+branches and clumps of leaves.  Several small branches grow out of the
+bark here, which combined with the greenery hanging down from above
+creates an almost private bower.  It is very peaceful here, high above in
+this lofty world.
+~
+~
+301465600 3 5 0
+D1
+~
+~
+0 -1 66516 10 10 5
+D3
+~
+~
+0 -1 66514 10 10 5
+E
+branches clumps bark greenery bower~
+You are surrounded by green, only able to make out the broad expanse of
+bark directly beneath your feet.  Tiny drops of moisture adhere to the
+leaves and a soft, cool breeze causes the leaves to brush against you. 
+The setting is idyllic, if you can forget that one wrong move would
+result in a nasty meeting with the ground far below.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+touch brush~
+leaf leaves branches~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+A
+pluck break get cut~
+sprig branch~
+acode( find_room( 66508 ), 4 );
+~
+!
+0 0 0
+1935 9 1509949540 3 0
+1935 9 1509949540 3 0
+-1
+S
+
+#66516
+On a Branch of a Giant Tree~
+The branch ends in leafy clumps far to the east, but this is as far as
+you can safely travel on this branch.  To the west, the branch meets up
+with the tree trunk, which eventually leads to the ground.  Greenery
+drops from the canopy above you and sprouts from the bark at your feet.
+~
+~
+301465600 3 5 0
+D3
+~
+~
+0 -1 66515 10 10 5
+E
+greenery canopy bark feet~
+Leaves drop down from above and sprout from branchlets that grow out of
+the bark on which you stand.  Taking a deep breath, you smell the
+freshness of the crisp air, peppered with droplets of moisture.
+~
+A
+1 north 1 south~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+1 east~
+~
+acode( find_room( 66505 ), 2 );
+~
+!
+0 0 0
+A
+touch brush~
+leaf leaves branches~
+acode( find_room( 66503 ), 4 );
+~
+!
+0 0 0
+A
+get pick~
+leaf leaves~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 5 );
+  if( i == 1 ) {
+    send_to_char( #leaf, ch );
+    act_notchar( #oleaf, ch );
+    obj_to_char( oload( 2854 ), ch );
+    end;
+    }
+  }
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+Seeing already missing leaves, you decide against further damaging the tree.
+~
+E
+onoth~
+$n reaches out, gently touching the furry leaves.
+~
+E
+leaf~
+Finding a perfect leaf, you carefully pluck it from its home.
+~
+E
+oleaf~
+$n picks a leaf from a nearby branch.
+~
+!
+0 0 0
+A
+pluck break get cut~
+sprig branch~
+acode( find_room( 66508 ), 4 );
+~
+!
+0 0 0
+1933 9 1509949540 3 0
+-1
+S
+
+#66517
+A Quiet Branch of a Giant Tree~
+This branch, while broad enough for you to stand, is not very large
+compared to the older branches far below.  The rest of the canopy above
+your head consists of much smaller branches.  The ground is far below,
+the distance difficult to judge through the mist that enshrouds it.  The
+branch grows away from the trunk to the north, while the trunk itself
+looks barely climbable.  Curiously, there is a lack of small animal life
+here...
+~
+~
+301465600 3 5 0
+D0
+~
+~
+0 -1 66518 10 10 5
+E
+ground mist below~
+It is very difficult to judge distance when all you see is a broad
+expanse of white.  Such is where the trunk leads.  All you know is that
+you are high above the ground.
+~
+E
+trunk~
+The bark on the trunk here is fairly smooth, the variations in the wood
+almost fine.  You do not see a way to climb up, but it looks like it
+might be possible to climb down.
+~
+E
+north branch~
+To the north, the branch, while starting to taper to an ending, looks like
+it might still be broad enough for you to explore.
+~
+E
+above canopy~
+This high up, the canopy is thinner and you can make out patches of sky. 
+An occasional movement in the leaves above you give evidence to still
+more living beings up there...ones that you cannot reach.
+~
+A
+climb~
+1 down tree trunk bark~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  transfer( ch, find_room( 66513 ) );
+  act_notchar( #farr, ch );
+  }
+else {
+  if( find_skill( ch, climb ) < 3 ) {
+    act_tochar( #noclimb, ch );
+    act_notchar( #onoclimb, ch );
+    end;
+    }
+  send_to_char( #climb, ch );
+  wait( 1 );
+  if( char_in_room( ch, room ) ) {
+    send_to_char( #climb1, ch );
+    act_notchar( #oclimb, ch );
+    transfer( ch, find_room( 66513 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+~
+E
+climb~
+Taking a deep breath, you start climbing down.
+~
+E
+climb1~
+Inching around the trunk, you drop onto a broad branch.
+~
+E
+oclimb~
+$n takes a deep breath and starts to climb down the tree trunk.
+~
+E
+arr~
+Looking relieved, $n climbs down from above.
+~
+E
+noclimb~
+You cannot find any handholds to use to climb the tree.
+~
+E
+onoclimb~
+$n tries to climb the tree, but fails miserably.
+~
+E
+fly~
+You fly down the tree trunk.
+~
+E
+ofly~
+$n flies down the tree trunk.
+~
+E
+farr~
+$n flies down the tree trunk from above.
+~
+!
+0 0 1
+A
+down~
+~
+acode( room, 1 );
+~
+!
+0 0 0
+A
+climb~
+u up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #ofly, ch );
+  }
+else {
+  send_to_char( #nope, ch );
+  act_notchar( #onope, ch );
+  }
+~
+E
+nope~
+You are unable to climb further up the tree.
+~
+E
+onope~
+$n tries futilely to climb up the trunk.
+~
+E
+fly~
+You cannot see anywhere to land up there, and decide to stay here.
+~
+E
+ofly~
+$n looks like $e might fly up, but seeing no place
+else to go, changes $s mind.
+~
+!
+0 0 0
+A
+up~
+~
+acode( room, 3 );
+~
+!
+0 0 0
+A
+south~
+~
+send_to_char( #bonk, ch );
+act_notchar( #obonk, ch );
+i = random( 1, 4 );
+dam_message( ch, i, "the tree's rough bark" );
+inflict( ch, mob, i, "the tree's rough bark" );
+~
+E
+bonk~
+You throw yourself against the solid trunk of the tree.
+~
+E
+obonk~
+$n throws $mself against the immovable tree trunk.
+~
+!
+0 0 0
+A
+1 east 1 west~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+-1
+S
+
+#66518
+Near the End of a Quiet Branch in a Giant Tree~
+It is quiet here and devoid of movement, considering the animal activity
+evident in the other branches of the canopy.  The branch grows from the
+giant tree trunk to the south and tapers to an end to the north.  This is
+as far on the branch as someone of your size can explore.
+~
+~
+301465600 3 5 0
+D2
+~
+~
+0 -1 66517 10 10 5
+E
+trunk south~
+While still quite gigantic, the tree trunk increases in size as it
+descends into the mist below.  Above, the trunk breaks into several
+vertical branches too small to climb.
+~
+E
+branch bark~
+The bark of the branch is fairly smooth and supple, signifying the life
+within the branch.  Green leaves growing from the end of the branch
+rustle in the gentle breeze.
+~
+E
+canopy up~
+Here at the top of the canopy, the leaves are not very dense, there being
+only a few branches above you.  The sky is visible above, while below is
+a lush carpet of green leaves and vibrant branches.
+~
+A
+1 east 1 west~
+~
+acode( find_room( 66503 ), 1);
+~
+!
+0 0 0
+A
+1 north~
+~
+send_to_char( #back, ch );
+act_notchar( #oback, ch );
+~
+E
+back~
+You step north, but quickly hop back when the branch starts to bend...
+~
+E
+oback~
+$n takes a step north, but quickly hops back when the branch starts to bend...
+~
+!
+0 0 0
+1942 9 1509949505 3 0
+-1
+S
+
+#66519
+Moist, Shaded Forest - Surrounded by Trees~
+Growing densely together, tall towering trees reach for the sun.  The sky
+is visible only as tiny splotches against the leafy canopy.  The air is
+humid and slightly misty.  A carpet of dead leaves hides the soil
+underneath, as a few small plants peek through the ground cover.  East is
+a tree of giant proportions, dwarfing the tall, mature trees of the rest
+of the forest.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 66520 10 10 5
+D1
+~
+~
+0 -1 66500 10 10 5
+D2
+~
+~
+0 -1 66526 10 10 5
+D3
+~
+~
+0 -1 44774 10 10 5
+E
+splotches canopy sky~
+High above, the leaves of the tree overlap, creating a dense, lush canopy
+that blocks out the sky.  Only small dots of open air are visible, the
+canopy forming an almost perfect ceiling for the woody, moist air and
+quiet of the forest.
+~
+E
+carpet leaves cover ground plants soil~
+Fallen leaves cover the ground in a plush, wet carpet.  Small leafy
+shoots dart out from between the leaves, making a bid for their own part
+of the sun.
+~
+E
+trees forest~
+Proud, mature trees stand tall, showing their connection with the distant
+past.  Some of the trunks are covered with moss; others show damage from
+past encounters with disaster.  The forest spreads out in all directions.
+~
+E
+1 east giant~
+East, through the forest of trunks, you make out a giant tree trunk and
+just barely make out that tree's dominating crown, growing above all the
+others.  Despite the height and maturity of the surrounding trees, the
+giant manages to put the others to shame.
+~
+A
+~
+leaves carpet ground~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them about.
+~
+!
+9 0 0
+130 9 1509949515 3 0
+-1
+S
+
+#66520
+Northern Edge of a Dense, Shaded Forest~
+Thick brown trunks stand straight, thrusting out of the ground in their
+anxious bid for sunlight.  Myriad leaves overhead form a dense, soft
+canopy, where the sky is barely discernible through small holes between
+the leaves and branches.  Within this protective shade, the air is moist
+and cool, the moisture turning into a soft mist away from the forest
+floor.  Dead leaves crunch softly underfoot, releasing a pleasant, woody
+scent.  The forest continues in all directions but north, where the
+ground drops off sharply into a deep, mist-filled canyon.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 66521 10 10 5
+D2
+~
+~
+0 -1 66519 10 10 5
+D3
+~
+~
+0 -1 44775 10 10 5
+E
+trunks~
+The trees of this forest are old, their trunks wide, standing silent
+testament to the times they have survived.  Several are marked by cracks
+from some sort of damage or other, the cracks now healed over.  There are
+also the old stumps of lost branches, the stumps mostly just knobs now.
+~
+E
+cracks~
+A few of cracks are quite large, now covered over with scarred bark and
+dark, dried sap.  Most, however, are small, caused possibly by fierce
+weather.
+~
+E
+leaves ground cover underfoot canopy shoots mist~
+Green leaves form a dense canopy above while dead ones carpet the ground. 
+The canopy is soften by the light mist that hangs just below it.  The
+leafy carpet is thick and unbroken, except for a few determined, leafy
+shoots.  The small shoots struggle up from between dead leaves, their
+green leaves searching for whatever little sunlight makes it down here.
+~
+E
+canyon 1 north mist-filled~
+Looking north, the ground breaks off sharply, straight down into a deep,
+moisture-filled canyon.  Roots, shoots, and discarded leaves run right up
+to the cliff edge, the roots even showing beneath the lip of the canyon. 
+Shoots grow densely on the edge, where there is more light, while the
+occasional leaf drifts its way to the depths below.
+~
+A
+~
+leaves carpet ground~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them all about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+!
+9 0 0
+A
+1 north~
+~
+send_to_char( #edge, ch );
+act_notchar( #oedge, ch );
+~
+E
+edge~
+Stepping close to the edge of the canyon, you see small weeds and shrubs
+hanging tenaciously to the steep cliff.  Suddenly, the soil loosens
+beneath your feet, and you quickly flee back to safer ground!
+~
+E
+oedge~
+$n steps close to the edge of the canyon and peeks down.
+Suddenly, $e looks alarmed and leaps back to safer ground!
+~
+!
+0 0 0
+A
+~
+cracks~
+send_to_char( #crack, ch );
+act_notchar( #ocrack, ch );
+~
+E
+crack~
+There are no cracks deep enough to search.  They are either all covered
+with sap or bark, leaving mere "scars." 
+~
+E
+ocrack~
+$n runs $s hands over a couple of the larger cracks on the nearby tree
+trunks.
+~
+!
+9 0 0
+-1
+S
+
+#66521
+Northern Edge of a Dense, Shaded Forest~
+Here, just south of a misty canyon, trees grow tall and lush.  Fallen
+trunks give witness to a past disaster, though those trunks are now
+half-rotten, eaten through by natural decay and voracious insects. 
+Discarded leaves form a moist carpet underfoot, while south is a tree
+that dwarves the other trees of the forest.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 66522 10 10 5
+D2
+~
+~
+0 -1 66500 10 10 5
+D3
+~
+~
+0 -1 66520 10 10 5
+E
+canyon~
+The canyon, a deep crack in the ground, cuts off growth and movement
+north.  Lean saplings grow at and over the edge, surviving only because
+at the edge, they can spread their leaves to the sun.
+~
+E
+trees forest 1 south~
+Old, majestic trees grow in this forest that spreads out in all
+directions but north.  Branches and leaves above create a moist, lush
+environment below, with the morning dew and fog never quite dissipating.
+~
+E
+leaves carpet underfoot~
+Green leaves rustle gently above, while fallen ones crush softly
+underfoot.
+~
+E
+trunks fallen insects decay~
+A few tree trunks, evidence of a past disaster, lie on their sides,
+rotting the years away.  Most are no more than husks of bark, home to
+insects and fungus.  Roots torn from the ground are now covered by fungus
+and lichen.
+~
+A
+~
+leaves carpet ground~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them all about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+!
+9 0 0
+A
+1 north~
+~
+acode( find_room( 66520 ), 2 );
+~
+!
+0 0 1
+A
+~
+fallen trunks~
+i = random( 1, 3 );
+if( i == 3 ) {
+  send_to_char( #insect, ch );
+  act_notchar( #oinsect, ch );
+  }
+else
+  send_to_char( #bark, ch );
+act_notchar( #obark, ch );
+~
+E
+bark~
+You search the remnants of the fallen trunks, grabbing at the rotten bark. 
+As your fingers touch the old bark, it crumples into small pieces,
+useless except as fertilizer.
+~
+E
+obark~
+$n grabs at the old bark of a fallen tree trunk, but it falls apart as $e
+touches it.
+~
+E
+insect~
+You search the remnants of the fallen trunks and find nothing but
+scurrying insects.
+~
+E
+oinsect~
+$n looks over and under what is left of the fallen trunks.  $e finally
+leaves off in disgust, finding nothing worth mentioning.
+~
+!
+9 0 0
+203 9 1509949540 3 0
+2508 9 1509949510 3 0
+-1
+S
+
+#66522
+Northeastern Corner of a Dense, Shaded Forest~
+Leafy branches form a dense weave overhead as the forest grows right up
+to the edge of the precipice that cuts off movement to the north and east. 
+Mushrooms grow out of the dead leaves that cover the ground in a thick,
+soft mat.  Southwest is a tree, which is comparably much larger than the
+other trees of the forest.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 66523 10 10 5
+D3
+~
+~
+0 -1 66521 10 10 5
+E
+trees forest~
+Lush trees, grown tall in their age, form the forest here, the forest extending
+west and south.  Small saplings grow near the precipice, vying for the
+light there that penetrates the edge of the canopy.
+~
+E
+leafy branches weave overhead 1 up~
+High overhead, branches spread out from the trunks of their respective
+trees, touching other branches, intertwining, mingling, and mixing,
+forming a rustling green roof, softened by mist.
+~
+E
+precipice roots 1 north 1 east canyon~
+Roots grow over the edge of the precipice, and peeking over the edge, you
+can see roots jutting out of the wall of the canyon.  Young trees line
+the edge of the canyon, some on the verge of falling in.
+~
+E
+mushrooms~
+Clumps of dark mushrooms and other fungus hide in the darkness and
+moisture of the leafy carpet.  Some look tempting enough to pick...
+~
+E
+dead leaves cover ground mat~
+Wet, dead leaves cover the ground, some decayed remnants of past years,
+others newly fallen and still showing some green.
+~
+E
+southwest giant~
+Southwest, a giant tree thrusts up higher than the surrounding canopy. 
+What you can glimpse of its trunk looks more like wall of bark than a tree trunk.
+~
+A
+~
+leaves cover ground~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them all about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+!
+9 0 0
+A
+1 north 1 east~
+~
+acode( find_room( 66520 ), 2 );
+~
+!
+0 0 0
+A
+get pick~
+mushroom fungus~
+if( !is_player( ch ) )
+end;
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  act_notchar( #onoth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 8 );
+if( i < 5 ) {
+  send_to_char( #noth, ch );
+  act_notchar( #onoth, ch );
+  end;
+  }
+send_to_char( #mush, ch );
+act_notchar( #omush, ch );
+if( i == 5 )
+  obj_to_char( oload( 885 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1522 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 1113 ), ch );
+else
+  if( i == 8 )
+  obj_to_char( oload( 1286 ), ch );
+~
+E
+noth~
+You try to pick up a mushroom but grab too hard and it breaks into small
+pieces that fall through your fingers.
+~
+E
+onoth~
+$n picks up a small mushroom, but accidentally crushes it, turning it to
+dust.
+~
+E
+mush~
+You grab a mushroom from a nearby mushroom patch.
+~
+E
+omush~
+$n gets a mushroom from a nearby patch.
+~
+!
+0 0 0
+960 9 1509949500 3 0
+-1
+S
+
+#66523
+Eastern Edge of a Dense, Shaded Forest~
+Trees grow tall and dense, some askew and looking as if, at any second,
+they might fall into the canyon to the east.  Right at the edge of the
+canyon, only saplings grow, as the soil there is too loose for tall
+trees, while it is the only chance at sunlight for a young tree.  West, a
+giant tree dominates the skyline.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 66522 10 10 5
+D2
+~
+~
+0 -1 66524 10 10 5
+D3
+~
+~
+0 -1 66500 10 10 5
+E
+forest canyon 1 east trees~
+This peninsula of forest, which continues for a few steps north and
+south, grows uncaring of the dangerous precipices surrounding the forest
+on three sides - away to the north and south and immediately to the east. 
+The dense trees provide a moisture-rich environment, complemented by the
+rising mist of the canyons.
+~
+E
+1 west giant~
+To the west, through the intervening tree trunks and leaves, you can see
+a giant tree, taller than the rest of the trees of the forest.
+~
+A
+1 east~
+~
+acode( find_room( 66520 ), 2 );
+~
+!
+0 0 0
+A
+~
+leaves carpet ground~
+send_to_char( #noth, ch );
+act_notchar( #onoth, ch );
+~
+E
+noth~
+You find nothing but dead leaves and other detritus, none worth keeping.
+~
+E
+onoth~
+$n plays with the leaves on the ground.
+~
+!
+9 0 0
+587 17 1509949540 -2 0
+-1
+S
+
+#66524
+Southeastern Corner of a Dense, Shaded Forest~
+At the southern corner of this promontory overlooking a mist-filled
+canyon, the trees grow proudly right up to the edge of the precipice. 
+The moisture in the air turns into a light mist just under the forest
+canopy.  The soft, wet blanket of leaves on the ground is broken only by
+small, feisty shoots and wayward roots.  Northwest is a tree that is
+obviously the king of this forest, being in height much greater than that
+of the surrounding trees.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 66523 10 10 5
+D3
+~
+~
+0 -1 66525 10 10 5
+E
+canyon mist-filled edge precipice 1 east 1 south~
+The ground drops off without warning, preventing further movement east or
+south.  Instead, before you is a mist-filled canyon topped on the
+opposite side by an equally imposing forest.  The edge of the precipice
+is crowded with young saplings competing for the last bit of space in
+this old growth forest.
+~
+E
+mist canopy~
+The leaves forming the canopy above are softened by the mist just below
+them.  The "roof" of this forest keeps in so much moisture that it
+creates a mist as the wetness piles up on itself.
+~
+E
+trees northwest king~
+Proud trees grow, crowding into each other in their thirst for the sky. 
+Peeking northwest, through the trunks, you can make out a tree taller
+than its peers.  It is, indisputably, the king of the forest.
+~
+E
+leaves blanket ground shoots roots~
+Leaves, most long dead and decaying, carpet the ground, broken only by a
+few struggling shoots that do not yet realize that only at the precipice
+is there light left enough to grow.  The leafy carpet undulates up and
+down where it covers over large above-ground tree roots.
+~
+A
+~
+leaves carpet ground blanket~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them all about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+!
+9 0 0
+A
+1 east 1 south~
+~
+acode( find_room( 66520 ), 2 );
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, dex ) < random( 5, 15 ) ) {
+  i = random( 1, 3 );
+  send_to_char( #trip, ch );
+  dam_message( ch, i, "tripping over the root" );
+  inflict( ch, mob, i, "tripping over the root" );
+  act_notchar( #otrip, ch );
+  }
+~
+E
+trip~
+You trip over a wayward root.
+~
+E
+otrip~
+$n trips over a wayward root.
+~
+!
+1 -1 9
+28 9 1509949500 3 0
+755 9 1509949540 3 0
+358 17 1509949540 -2 0
+-1
+S
+
+#66525
+Southern Edge of a Dense, Shaded Forest~
+Tall, majestic trees, although dwarfed by the giant to the north, proudly
+thrust their leafy crowns high and into the sky.  A soft, wet carpet of
+dead leaves covers the ground, broken only by dark mushroom patches and
+big roots.  A dark, fog-shrouded canyon looms immediately south.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 66500 10 10 5
+D1
+~
+~
+0 -1 66524 10 10 5
+D3
+~
+~
+0 -1 66526 10 10 5
+E
+trees giant 1 north~
+North, through gaps in the intervening tree trunks, you make out a tree
+the proportions of which boggle the mind.  Its trunk is far larger than
+those of its fellows and its crown reaches far above the forest canopy.
+~
+E
+crowns sky 1 up~
+High above, intertwining leaves and branches form a dense canopy,
+blocking out most of the sky.  This canopy, an affective protective
+cover, keeps the forest shaded and wet.
+~
+E
+carpet dead leaves covers ground roots mushroom patches~
+Fallen leaves form a thick carpet over the ground, covering all,
+including tree roots that thrust out of the soil.  Mushrooms and other
+fungus, growing in dewy patches, have taken advantage of the rotting
+plant material that is their nourishment.
+~
+E
+fog-shrouded canyon 1 south~
+Immediately south is a huge wound in the ground, bandaged by mist.  The
+leafy carpet stops abruptly at its edge, as do the slim saplings that
+grow right at the lip of the gap, feasting on the light available in the
+day.
+~
+A
+~
+leaves carpet ground~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them all about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+!
+9 0 0
+A
+get pick~
+mushrooms fungus~
+if( !is_player( ch ) )
+  end;
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  act_notchar( #onoth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 8 );
+if( i < 5 ) {
+  send_to_char( #noth, ch );
+  act_notchar( #onoth, ch );
+  end;
+  }
+send_to_char( #mush, ch );
+act_notchar( #omush, ch );
+if( i == 5 )
+  obj_to_char( oload( 885 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1522 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 1113 ), ch );
+else
+  if( i == 8 )
+  obj_to_char( oload( 1286 ), ch );
+~
+E
+noth~
+You try to pick up a mushroom but grab too hard and it breaks into small
+pieces that fall through your fingers.
+~
+E
+onoth~
+$n picks up a small mushroom, but accidentally crushes it, turning it to
+dust.
+~
+E
+mush~
+You grab a mushroom from a nearby mushroom patch.
+~
+E
+omush~
+$n gets a mushroom from a nearby patch.
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, dex ) < random( 5, 15 ) ) {
+  i = random( 1, 3 );
+  send_to_char( #trip, ch );
+  dam_message( ch, i, "tripping over the root" );
+  inflict( ch, mob, i, "tripping over the root" );
+  act_notchar( #otrip, ch );
+  }
+~
+E
+trip~
+You trip over a wayward root.
+~
+E
+otrip~
+$n trips over a wayward root.
+~
+!
+1 0 11
+A
+1 south~
+~
+acode( find_room( 66520 ), 2 );
+~
+!
+0 0 0
+755 9 1509949540 3 0
+-1
+S
+
+#66526
+Southwestern Corner of a Dense, Shaded Forest~
+Mature trees, grown large with age, claim the ground all around.  They
+march in disorder north and east as far as the eye can see.  Even the
+gorge, which blocks travel west and south, do not quite stop the
+greenery, halting only the tall trees: Small plants grow up to the canyon
+lip and over its edge.  The air is humid and quiet except for the sounds
+of the forest.  Fallen leaves cover the ground, while lively, green ones
+hide away the sky.  Northeast, through the forest of trunks, is a giant
+tree larger than the ones which surround it.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 66519 10 10 5
+D1
+~
+~
+0 -1 66525 10 10 5
+E
+mature trees forest trunks~
+This is an old forest, the trees in it survivors of eons of rot,
+predation, and inclement weather.  Trunks are scarred, cracked,
+sap-covered, and healed over.  The trees grow closely together that their
+leaves meet and they now form their own weather.  Here beneath the forest
+canopy, the air is cool and moist, the morning and evening mists never
+departing.
+~
+E
+giant northeast~
+Away to the northeast, through gaps in the surrounding tree trunks, is a
+tree bigger than others of the forest.  This tree is quite amazing, since
+it grows in a forest of trees which are themselves quite large by normal
+standards.
+~
+E
+edge gorge 1 south 1 west greenery~
+The old trees stop short of the edge of the gorge, but opportunistic
+saplings grow right up to the lip, some even leaning over the edge,
+ceasing only when they grow too large and gravity pulls them down into
+the gorge.
+~
+E
+leaves ground cover sky 1 up~
+Leaves rustle in the gentle breeze and branches high up in the canopy rub
+against each other, creating a distant moaning sound.  Small patches of
+sky show through from above, shining a faint light upon the leafy,
+decaying carpet beneath your feet.
+~
+A
+~
+leaves carpet ground~
+if( !is_player( ch ) )
+  end;
+send_to_char( #play, ch );
+act_notchar( #oplay, ch );
+if( !rflag( reset0, room ) ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+i = random( 1, 10 );
+if( i == 1 ) {
+  send_to_char( #insect, ch );
+  end;
+  }
+if( i > 7 ) {
+  send_to_char( #noth, ch );
+  end;
+  }
+send_to_char( #some, ch );
+act_notchar( #osome, ch );
+if( i == 2 )
+  obj_to_char( oload( 755 ), ch );
+else
+  if( i == 3 )
+  obj_to_char( oload( 415 ), ch );
+else
+  if( i == 4 )
+  obj_to_char( oload( 1246 ), ch );
+else
+  if( i == 5 )
+  obj_to_char( oload( 672 ), ch );
+else
+  if( i == 6 )
+  obj_to_char( oload( 1594 ), ch );
+else
+  if( i == 7 )
+  obj_to_char( oload( 2314 ), ch );
+~
+E
+play~
+You play around with the leaves on the ground, throwing them about.
+~
+E
+oplay~
+$n plays with the leaves on the ground, throwing them all about.
+~
+E
+noth~
+You find nothing worth keeping, just dead, rotting leaves.
+~
+E
+some~
+You find something interesting among all the leaves.
+~
+E
+osome~
+$n finds something among the leaves.
+~
+E
+insect~
+You find nothing but insects that scurry quickly away.
+~
+!
+9 0 0
+A
+1 south 1 west~
+~
+acode( find_room( 66520 ), 2 );
+~
+!
+0 0 0
+-1
+S
+
+#0
+

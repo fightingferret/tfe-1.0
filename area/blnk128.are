@@ -1,0 +1,5812 @@
+#AREA
+Sjerdil's Tower~
+Olah~
+~
+
+30 0
+4
+#ROOMS
+
+#68000
+Tower Foyer -- Entrance~
+You are at the entrance to an aged tower.  A plush carpet has been spread
+all along the room, covering much of the wooden floor.  Dangling from the
+dusty ceiling is a surprisingly fine crystalline chandelier.  An eerie
+silence pervades the foyer.  The only interruption to the silence is an
+occasional creaking noise, perhaps of the tower settling...  or something
+else.  A large heavy oak door lies to the south, allowing departure from
+the tower.
+~
+[Merior] is chandelier crystal or crystalline?
+[Starshine] extra south: keyhole?
+[Starshine] make creak a random acode, rather than in room desc?  add
+action listen, perhaps?
+[Starshine] extra wooden floor: would be nice for flavor to get a
+description of the wood and floor...
+~
+301465604 0 8 0
+D0
+~
+~
+0 -1 68001 10 10 5
+D1
+~
+~
+0 -1 68009 10 10 5
+D2
+large heavy oak door~
+large heavy oak door~
+391 3148 68060 10 10 5
+D3
+~
+~
+0 -1 68008 10 10 5
+E
+plush carpet wooden floor~
+The scarlet carpet is thick, but shows sign of wear and tear.  Several
+holes mar it, revealing the dusty wooden floor.
+~
+E
+ceiling fine crystal chandelier~
+The chandelier dangles precariously from the cracked wooden ceiling.  It
+appears remarkably free of scratches, and it still sparkles in the light. 
+Its candles have all run out of wax, however.  Someone obviously hasn't
+gotten around to replacing them.
+~
+E
+1 south large heavy oak door~
+The door stands over six feet tall and several feet wide.  It's made
+from dark gray oak and looks solidly built.
+~
+A
+~
+~
+send_to_room( #sway, room );
+~
+E
+sway~
+The chandelier gently sways back and forth, giving off a soft creaking
+noise.
+~
+!
+2 300 0
+-1
+S
+
+#68001
+Tower Foyer -- Stairwell~
+The northern wall is painted in the distinctive @Yyellow@n and @Rred@n
+that give the entire foyer a somewhat cheerful look.  It is in sharp
+contrast to the decrepit look evinced by the worn carpet and chipped wood
+from the wall and floor.  Protruding its way out from the wall is a small
+crank with a furred handle.  A narrow wooden stairwell stands alone at
+the middle of the room.  Twisting and turning, it leads upstairs into
+unknown darkness.
+~
+up to room 68011
+north is 68002
+[Starshine] room desc: change to "painted a distinctive..." or perhaps the yellow/red color should be pointed out in other foyer rooms, if it's also on other walls? seems like it'd be rather noticeable.
+[Starshine] extra north: remove keyword north. paint isn't dull?
+[Starshine] extra carpet: add keywords floor/wood?
+[Starshine] use color on stairwell in roomdesc?
+~
+301465604 0 8 0
+D0
+crank~
+crank~
+235 -1 68002 10 10 5
+D1
+~
+~
+0 -1 68003 10 10 5
+D2
+~
+~
+0 -1 68000 10 10 5
+D3
+~
+~
+0 -1 68004 10 10 5
+D4
+ceiling~
+ceiling~
+162 -1 68011 10 10 5
+E
+crank furred handle~
+The crank looks like a small gnome could grasp its handle.  It appears
+firmly attached to the wall, but if you try hard enough, you think you
+might be able to turn it enough so that it'd move.
+~
+E
+stairwell~
+Narrow and worn-looking, the stairwell winds its way upward.  A few drops
+of blood lie on a few of the steps.  The bloodstains are small and have
+mostly dried out.
+~
+E
+carpet~
+The faded scarlet carpet contains patches of dust.  Moth-eaten holes
+abound, like dirty puddles of water on an old street.  The cracked wooden
+floor can be seen under the carpet holes.
+~
+E
+1 north northern wall yellow red~
+The red circles painted on top of the bright yellow of the wall dominate
+the mood of the room.  The designs are reminiscent of a clown's costume. 
+At the lower right portion of the wall is a crank.
+~
+A
+climb~
+narrow wooden stairwell up u~
+act_tochar( #climb, ch );
+act_notchar( #nclimb, ch );
+transfer( ch, find_room( 68011 ) );
+act_notchar( #narrive, ch );
+loop( followers ) {
+  if( !is_resting( rch ) ) {
+    transfer( rch, find_room( 68011 ) );
+    act_notchar( #narrive, rch );
+    }
+  }
+~
+E
+climb~
+You carefully climb up the narrow wooden stairwell.
+~
+E
+nclimb~
+$n carefully climbs up the narrow wooden stairwell.
+~
+E
+narrive~
+$n arrives from below.
+~
+!
+0 0 0
+A
+turn~
+small crank furred handle~
+if( is_open( room, north ) ) {
+  act_tochar( #turn, ch );
+  act_notchar( #nturn, ch );
+  wait( 2 );
+  send_to_room( #close, room );
+  send_to_room( #sclose, find_room( 68002 ) );
+  close( room, north );
+  }
+else {
+  act_tochar( #turn, ch );
+  act_notchar( #nturn, ch );
+  wait( 2 );
+  send_to_room( #open, room );
+  send_to_room( #sopen, find_room( 68002 ) );
+  open( room, north );
+  }
+~
+E
+turn~
+You start turning the crank around and around.
+~
+E
+nturn~
+$n starts to turn the crank around and around.
+~
+E
+open~
+@RThe wall slowly turns itself halfway, allowing passage northward.@n
+~
+E
+close~
+@RThe wall slowly turns, sealing off passage northward.@n
+~
+E
+sclose~
+@RThe wall slowly turns itself halfway, sealing off passage southward.@n
+~
+E
+sopen~
+@RThe wall slowly turns, allowing passage southward.@n 
+~
+!
+0 0 0
+2078 9 1509949540 3 0
+-1
+S
+
+#68002
+A Hidden Chamber~
+You are in a narrow, unlit hallway.  Although cobwebs now hang from the
+ceilings and walls, this small chamber appears as though it was once
+often used.  The wooden floors show a lot of wear, as if many feet have
+trod upon it.  Greasy stains and spills have marred the floor and the
+southern wall.  At the lower right-hand side of the southern wall is a
+small crank with a furred, black handle.  Gazing northward, you can make
+out what appears to be a kitchen; while to the east and west are a few
+rooms with a lot of old tools.
+~
+south is 68001
+[Starshine] perhaps change right-hand side? not sure having the rdesc depend on a direction of viewing is good.
+[Starshine] perhaps include mention of crank in extra wall?
+[Starshine] acode 1: the turning messages can be taken out of the if's and consolidated.
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68007 10 10 5
+D1
+~
+~
+0 -1 68019 10 10 5
+D2
+crank~
+crank~
+235 -1 68001 10 10 5
+D3
+~
+~
+0 -1 68020 10 10 5
+E
+greasy stains spills floor southern wall~
+Black, oily splotches about the size of a large hand have been splattered
+randomly upon the floor and walls.  Strangely, one of them looks to be in
+the shape of a gnome, while another looks like some sort of hideous
+winged creature.
+~
+E
+crank furred black handle~
+The crank looks as though a small gnome could grasp its handle.  It
+appears firmly attached to the wall, but if you try hard enough, you
+think you might be able to turn it enough so that it'd move.
+~
+A
+turn~
+small crank~
+if( is_open( room, south ) ) {
+  act_tochar( #turn, ch );
+  act_notchar( #nturn, ch );
+  wait( 2 );
+  send_to_room( #close, room );
+  send_to_room( #nclose, find_room( 68001 ) );
+  close( room, south );
+  }
+else {
+  act_tochar( #turn, ch );
+  act_notchar( #nturn, ch );
+  wait( 2 );
+  send_to_room( #open, room );
+  send_to_room( #nopen, find_room( 68001 ) );
+  open( room, south );
+  }
+~
+E
+turn~
+You start turning the crank around and around.
+~
+E
+nturn~
+$n starts turning the crank around and around.
+~
+E
+close~
+@RThe wall slowly turns, sealing off passage southward.@n
+~
+E
+nclose~
+@RThe wall slowly turns, sealing off passage northward.@n
+~
+E
+open~
+@RThe wall slowly turns itself halfway, allowing passage southward.@n
+~
+E
+nopen~
+@RThe wall slowly turns itself halfway, allowing passage northward.@n
+~
+!
+0 0 0
+-1
+S
+
+#68003
+Tower Foyer~
+Like the rest of the foyer, this section shows many signs of wear and
+abuse.  The carpet has many large holes, and the walls have several
+cracks in the shapes of a lightning bolt.  Cluttered into one huge pile,
+old wooden and stuffed dolls rest neglected at the northeast corner of
+the foyer.  In the middle of the partially carpeted floor is a cracked
+wooden door.  Disrupting the strange @Yyellow@n and @Rred@n design of the
+eastern wall is a small wooden door.
+~
+[Starshine] room desc: cracks in the shapes of lightning bolts...
+[Starshine] perhaps add keyword northeast to extra pile?
+[Starshine] perhaps have floor door desc in extra floor?
+[Starshine] use 1 down keyword in extra cracked
+[Starshine] acode 1: if add end; after line 13, believe you can delete lines 17, 23, 27, 29, 31, and 33.
+[Starshine] add that stairs creak in acode 2?
+~
+301465604 0 8 0
+D1
+small wooden door~
+small wooden door~
+391 2988 68014 10 10 5
+D2
+~
+~
+0 -1 68009 10 10 5
+D3
+~
+~
+0 -1 68001 10 10 5
+D5
+cracked wooden door~
+cracked wooden door~
+131 -1 68005 10 10 5
+E
+carpet floor holes~
+The once scarlet carpet is now dusty and faded, looking more like a
+lavender or pink shade.  Many large holes have formed, allowing you to
+see the wooden floor.
+~
+E
+walls cracks lightning bolt yellow red designs~
+The walls are painted in a @Yyellowish@n color with large @Rred@n circles
+on top of it.  Some deep cracks have formed against the wall, possibly
+due to the tower's age or caused by something external.
+~
+E
+huge pile dolls corner~
+A thin layer of dust has accumulated upon this pile of toys.  Small
+wooden figurines of various animals, fairies, and gnomes as well as
+stuffed, plush dolls of animals lie on top of each other.  Some are
+missing arms, legs, or tails, while others appear in decent condition,
+merely untouched for a long while.
+~
+E
+1 down cracked copper ring~
+The door is made of gray, cracked wood with a copper ring attached to it. 
+The ring is large enough for a small hand to grasp.  It looks like it can
+be used to open and close a door leading down.
+~
+A
+~
+huge pile dolls corner~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 7 ) {
+    act_tochar( #doll, ch );
+    act_notchar( #ndoll, ch );
+    obj_to_char( oload( 3088 ), ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #nfail, ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+doll~
+You search through the pile of dolls and fine one in nice condition.
+~
+E
+ndoll~
+$n searches through the pile of dolls and finds one to $s liking.
+~
+E
+fail~
+You search through the pile of dolls but don't find any worth getting.
+~
+E
+nfail~
+$n searches through the pile of dolls but doesn't take any.
+~
+!
+9 0 0
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You carefully go down the staircase.
+~
+!
+3 0 32
+-1
+S
+
+#68004
+Tower Foyer~
+Thin layers of dust blanket the carpeted floor.  The smell of stale air
+permeates throughout much of this part of the foyer.  The once bright
+colors of the northern and western walls appear more faded, the paint
+having been worn out.  A cracked wooden door on an uncarpeted section of
+the floor lies at the center, while a small marble door stands against
+the western wall.
+~
+[Merior] perhaps refer to the door as a trapdoor?
+[Merior] same comment about carpet color here
+[Merior] extra for down door - again, trapdoor seems more sensible
+[Merior] wall extra - red circles in between what?  why do they give a
+peculiar feeling?
+[Starshine] room desc: colors appear more faded than what?
+[Starshine] extra marble: why _still_ smooth and cool?
+[Starshine] extra walls: in-between
+[Starshine] new acode for look down? if down open, then see stairs, if closed, see door?
+[Starshine] could also use acode for look west as well. if you wish.
+~
+301465604 0 8 0
+D1
+~
+~
+0 -1 68001 10 10 5
+D2
+~
+~
+0 -1 68008 10 10 5
+D3
+small marble door~
+small marble door~
+131 -1 68013 10 10 5
+D5
+cracked wooden door~
+cracked wooden door~
+131 -1 68017 10 10 5
+E
+carpeted floor~
+The scarlet carpet is very worn due to years of use and no apparent
+maintenance.  The dust covering it makes the color dull and almost pink.
+~
+E
+cracked wooden door copper ring~
+The door is made of gray, cracked wood with a copper ring attached to it. 
+The ring is large enough for a small hand to grasp.  It looks like it can
+be used to open or close a door leading down.
+~
+E
+marble door 1 west~
+The door is still smooth and cool to the touch.  A few cracks have formed
+along the edges of it.
+~
+E
+walls~
+Painted in yellow with large red circles in between, the walls give off a
+peculiar feeling to the room.  The colors are now faded, however, due to
+neglect.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You carefully go down the staircase.
+~
+!
+3 0 32
+-1
+S
+
+#68005
+Tower Basement~
+Many tiny dust particles scatter into the air, making it difficult to
+look around clearly.  Some of them cling to your face and onto your
+clothes.  Off to the north is a silver, knobless door.  Numerous symbols
+line up and down its smooth-looking surface.  In the middle of this room
+is a narrow wooden staircase which leads upstairs.  The basement appears
+to expand further east, west, and south.
+~
+need translation tablet to read riddle
+riddle needs to be answered to go north
+[Starshine] room desc says nothing about red stains on door...
+[Starshine] reddish extra: blots or bolts?
+[Starshine] add creaking to stais as you go up?
+[Starshine] remove door extra? since acode 1 does that?
+[Starshine] are there hints to riddle some where? not sure i would get this, but then i'm a riddle-idiot *whine*
+[Starshine] acode 2: anyway to get this to work with '  ? also, should there be a message/action if door is already open?
+~
+301465604 0 7 0
+D0
+silver door~
+silver door~
+471 -1 68006 10 10 5
+D1
+~
+~
+0 -1 68031 10 10 5
+D2
+~
+~
+0 -1 68012 10 10 5
+D3
+~
+~
+0 -1 68016 10 10 5
+D4
+cellar door~
+cellar door~
+131 -1 68003 10 10 5
+E
+narrow wooden staircase~
+The staircase is wooden, and a few cracks in its steps make climbing it
+somewhat tough.
+~
+E
+reddish stains surface door~
+The markings appear fairly old.  Small red blots start near the top of
+the door and form a thin trail down the bottom of the door.
+~
+E
+tiny dust particles air~
+The particles are very small but still visible due to the plethora of
+dust.  They glisten like silver sparkles when reflecting light.
+~
+A
+l look~
+north n silver knobless door symbols smooth-looking surface~
+if( has_obj( 2993, ch ) )
+  act_tochar( #read, ch );
+else
+  act_tochar( #fail, ch );
+~
+E
+read~
+For some odd reason, the symbols seem recognizable to you.  Upon careful
+examination, they translate as follows: 
+
+@MThe man who invented it doesn't want it.
+The man who purchased it doesn't need it.
+The man who needs it doesn't know it.@n
+
+Say what I am, and things will open up for you.
+~
+E
+fail~
+The symbols along the silver, knobless door to the north of you look
+arcane and are indecipherable by you.
+~
+!
+0 0 0
+A
+say~
+coffins~
+act_tochar( #coffin, ch );
+act_notchar( #ncoffin, ch );
+if( !is_open( room, north ) ) {
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #open, find_room( 68006 ) );
+  open( room, north );
+  }
+~
+E
+coffin~
+@CYou say the word: "coffin".@n
+~
+E
+ncoffin~
+@C$n says the word: "coffin".@n
+~
+E
+open~
+@CSuddenly, the door makes a rumbling sound and then slowly opens.@n
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You carefully go up the stairs.
+~
+!
+3 0 16
+2041 9 1509949540 3 0
+-1
+S
+
+#68006
+A Storage Room~
+A strange, tremendous warmth seems to be originating from something along
+the corners of the room.  Rolling down the dark stone walls are thick,
+brownish stains.  Perhaps the stains were caused by the heat mixing with
+chemicals in the walls, or perhaps they were caused by something else... 
+Scattered into tall, island-like stacks all across the floor are
+dust-covered toys and dolls.  A faint light seems to be emanating from
+one of the stacks.
+~
+[Nereus] Could make the ooze have to be killed to get the globe
+[Starshine] add target piles to acode 1?
+[Starshine] object globe (2994): is this a light? desc sounds like it's supposed to be a light.
+[Starshine] action touch wall? ooze is rather interesting.
+~
+301465604 0 8 0
+D2
+silver door~
+silver door~
+471 -1 68005 10 10 5
+E
+walls stains~
+The bulbous, brownish heads of the thick and gooey stains look like round
+balls.  They form snake-like patterns against the wall, giving a hideous
+appearance to the room.
+~
+E
+stacks toys dolls faint light~
+Wooden and stuffed dolls and figurines form stacks all across the room. 
+A thin layer of dust blankets the piles, demonstrating that the toys have
+not been untouched for a long time.  You can detect a soft glow coming
+from one of the stacks in the northern part of the room.
+~
+E
+soft glow~
+The glow is faint, but detectable through the stack of toys.
+~
+A
+~
+stacks northern~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #globe, ch );
+  act_notchar( #nglobe, ch );
+  obj_to_room( oload( 2994 ), room );
+  if( !mob_in_room( 2141, room ) ) {
+    send_to_room( #load, room );
+    mload( 2141, room );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+globe~
+You search through the stack and uncover something.
+~
+E
+nglobe~
+$n searches through the stack and uncovers something.
+~
+E
+nada~
+You search through the stack, but don't find anything of interest.
+~
+E
+nnada~
+$n searches through the stack, but doesn't find anything of interest.
+~
+E
+load~
+@yAll of a sudden, an enormous gooey substance emerges from the wall!@n
+~
+!
+9 0 0
+A
+open~
+silver door south s~
+if( is_open( room, south ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, south );
+  }
+~
+E
+nada~
+The silver door is already open.
+~
+E
+open~
+You open the silver door to the south.
+~
+E
+nopen~
+$n opens the silver door to the south.
+~
+!
+0 0 0
+2103 9 1509949540 3 0
+-1
+S
+
+#68007
+A Kitchen~
+Small and unorganized, this kitchen appears to be a makeshift room used
+to prepare and serve food as quickly as possible.  Dusty cupboards hang
+just high enough for a gnome-sized person to reach.  A blackened stove
+has been placed at the northern end, with a few half-burnt logs still in
+it.  To the north is an almost-clear glass door leading outside to a deck. 
+To the east is a small door with a window at the top of it leading to
+what looks like a pantry; while to the west is an eating area.  To the
+south is an unlit hallway.
+~
+logs and flint used to summon a flame demon each reset, will add hint
+somewhere in descrip later possibly 
+flame demon resets a charcoal for claw custom
+[Starshine] room desc: make last sentence "South is an unlit hallway."?
+[Starshine] extra dusty: change "deteriorated"? not really an adjective.
+[Starshine] would be nice to have east/west/south/north extras, since you should be able to look in a direction...
+[Starshine] add to acode 1: burn command?
+[Starshine] you want a mob to load if enough logs and have flint. right now - if the area has just reset and a demon is already here (someone fled from it) and i type light stove, it says i need logs, if i then put on logs, i can pop another demon. is this meant?
+[Starshine] acode 2: perhaps should be: if demon in room, you can't get close enough to the stove, else if reset0, put log in stove, remove reset0.
+[Starshine] then acode 1: if demon in room, you can't get close enough to the stove to light it. else if reset0, need more logs, else check flint, load demon.
+[Starshine] might want to make use of reset1 (remove reset1 when demon loaded) so you can only load 1 demon a reset. right now, i can keep killing demons as long as i have flint.
+[Starshine] hmm...OR could set flag reset0 when demon loaded, so player has to put in another log, which player probably doesn't have a lot of.
+[Starshine] add hint - the stove still looks usable, but would need a fresh log before it could be lit...?
+~
+301465604 0 7 0
+D0
+glass door~
+glass door~
+131 -1 68010 10 10 5
+D1
+small pantry door~
+small pantry door~
+131 -1 68030 10 10 5
+D2
+~
+~
+0 -1 68002 10 10 5
+D3
+pantry door~
+pantry door~
+0 -1 68036 10 10 5
+E
+dusty cupboards~
+Now bare, the cupboards have become dusty and deteriorated.
+~
+E
+blackened stove half-burnt logs~
+The stove stands about two feet high.  From the thick amounts of dust
+which have gathered upon it, it's obvious that the stove has remained
+unused for a long time.  A few short, partially blackened logs can be
+seen within the stove, remnants from the last time the stove was used.
+~
+A
+light~
+blackened stove fire wood log~
+if( !mob_in_room( 2089, room ) || !rflag( reset0, room ) ) {
+  if( has_obj( 79, ch ) ) {
+    obj = has_obj( 79, ch );
+    act_tochar( #flint, ch );
+    act_notchar( #nflint, ch );
+    junk_obj( obj, 1 );
+    wait( 1 );
+    send_to_room( #gulf, room );
+    wait( 1 );
+    send_to_room( #load, room );
+    mload( 2089, room );
+    }
+  else
+    act_tochar( #wrong, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+flint~
+You light the blackened stove with a piece of flint.
+~
+E
+nflint~
+$n lights the blackened stove with a piece of flint.
+~
+E
+gulf~
+@YThe stove ignites and bursts into flames!@n
+~
+E
+load~
+@YA creature surrounded in flames suddenly emerges from the fire!@n
+~
+E
+wrong~
+You need a piece of flint to light the blackened stove.
+~
+E
+nada~
+The blackened stove needs more logs to sustain a fire.
+~
+!
+0 0 0
+A
+place put~
+oak log blackened stove~
+if( rflag( reset0, room ) ) {
+  if( has_obj( 137, ch ) ) {
+    obj = has_obj( 137, ch );
+    act_tochar( #log, ch );
+    act_notchar( #nlog, ch );
+    junk_obj( obj, 1 );
+    remove_rflag( reset0, room );
+    }
+  else
+    act_tochar( #wrong, ch );
+  }
+else
+  act_tochar( #done, ch );
+~
+E
+log~
+You place an oak log into the blackened stove.
+~
+E
+nlog~
+$n places an oak log into the blackened stove.
+~
+E
+wrong~
+The stove doesn't look like it could use that.
+~
+E
+done~
+There seems to be enough logs in the blackened stove already.
+~
+!
+0 0 0
+-1
+S
+
+#68008
+Tower Foyer~
+This section of the foyer is even more dilapidated than the rest. 
+Splattered haphazardly along the worn carpet are dried bloodstains from a
+not so recent struggle.  A gnome-sized dent has been deeply ingrained
+into the brightly painted western wall.  Hanging along the southern wall
+is a framed drawing of a small gnomish child.
+~
+[Nereus] extras - [ foyer ]
+added it altho it didn't seem to make much sense for one since the rdesc
+is basically of the foyer, hence rname 
+[Merior] i agree - dont need foyer extra
+[Merior] might want carpet not scarlet to better show the blood?
+[Merior] not sure i understand ion shield on the mob or detect hidden
+[Merior] marmor is kinda low - up by like 4 to 6 each
+[Starshine] replace "ingrained" it's functioning as a verb and has a different meaning in that capacity.
+[Starshine] extra worn: bloodstains
+[Starshine] extra western: use 1 western would include 1 west in keywords here.
+[Starshine] extra southern: perhaps add 1 before southern keyword here? also "...a stuffed"
+[Starshine] why is mob's mflag left hand checked when nothing sets on it?
+[Starshine] not sure i understand why sentinels are sentinel
+~
+301465604 0 8 0
+D0
+~
+~
+0 -1 68004 10 10 5
+D1
+~
+~
+0 -1 68000 10 10 5
+E
+worn carpet dried bloodstains~
+The scarlet carpet shows signs of much use and abuse.  The dried reddish
+blood stains really stand out from the faded carpet.
+~
+E
+gnome-sized dent brightly painted western wall 1 west~
+The dent is perhaps two feet deep.  A great force must have shoved some
+poor being into the wall.  Scattered directly below the dented wall are
+dried yellow and red paint chips.
+~
+E
+southern drawing framed small gnomish child~
+The chalk drawing is very exquisitely done.  It depicts a happy-looking
+gnomish child dragging an stuffed animal doll and a few other toys out on
+a grassy field.
+~
+E
+foyer~
+The foyer is pretty spacious, although much dust has accumulated all
+around it.
+~
+2078 9 1509949540 3 0
+-1
+S
+
+#68009
+Tower Foyer~
+The walls of these rooms are painted in a bright @Yyellow@n and mixed
+with splotches of deep @Rred@n circles.  The strange designs of the walls
+contrast with the decaying look of the room.  Cobwebs inhabit the
+southeast corner of the room, like a thick veil covering the floor's
+edges.  Almost half an inch of dust has accumulated upon the worn carpet.
+~
+[Nereus] extras - [ splotches yellow red walls designs ]
+didn't think there needs to be more description of the walls since
+they're most of the rdesc already 
+[Starshine] would be nice to have an extra of walls for people who think
+there might be something to the circles...
+[Starshine] maybe have something bite you on search? :P
+[Starshine] same comment as 68000 about wooden floor
+[Starshine] acode 1: i believe if you have end; after line 13, then just
+need 1 set of fails, instead of the double set.
+~
+301465604 0 8 0
+D0
+~
+~
+0 -1 68003 10 10 5
+D3
+~
+~
+0 -1 68000 10 10 5
+E
+worn carpet~
+The scarlet carpet is thick, but shows signs of wear and tear.  Several
+holes have formed, revealing the wooden floor.
+~
+E
+cobwebs corner southeast veil~
+Silky and thick, it is almost impossible to see through the opaqueness of
+the cobwebs.
+~
+A
+~
+cobwebs corner~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = 1d3;
+  if( i == 2 ) {
+    act_tochar( #search, ch );
+    act_notchar( #nsearch, ch );
+    obj_to_char( oload( 2988 ), ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #nfail, ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+search~
+You search through the cobwebs and grab onto something.
+~
+E
+nsearch~
+$n searches through the cobwebs and grabs onto something.
+~
+E
+fail~
+You search through the cobwebs but can't find anything.
+~
+E
+nfail~
+$n searches through the cobwebs but finds nothing.
+~
+!
+9 0 0
+2078 9 1509949540 3 0
+-1
+S
+
+#68010
+Tower Deck~
+This spacious wooden deck overlooks the expansive forest north of you. 
+Gazing northward beyond the railing of the deck, you marvel at the dark
+green, leafy tops of many trees.  Appearing faded and gray, the wooden
+finish of the deck's railing and floor has eroded, making it slightly
+dangerous for anyone to tread upon without fear of a loose board suddenly
+breaking.  You can move westward along the deck, or head through the
+glass door and back south into the tower.
+~
+subject to change depending on where i plan to put the tower
+[Starshine] um, tower is south...:P
+[Starshine] room desc: tread upon it
+[Starshine] extra forest/northward/trees?
+[Starshine] add sagging/creaking board action? A weak floorboard sags under your weight? or the boards creak or something?
+[Starshine] perhaps a nice breeze random? :P
+~
+301465600 0 9 0
+D2
+glass door~
+glass door~
+131 -1 68007 10 10 5
+D3
+~
+~
+0 -1 68037 10 10 5
+E
+railing floor board~
+The wooden boards are gray and cracked.  Too much weight upon the
+railings or floor might cause the deck to collapse.
+~
+-1
+S
+
+#68011
+Hallway -- Second Floor~
+This narrow, unlit hallway extends north and south along wooden
+floorboards which have become creaky and worn.  Somber blue and red paint
+along the walls has chipped away, revealing the dark gray stone of the
+walls.  Hanging crookedly from them are a few oil paintings.  A twisting
+staircase in the middle of the hallway leads downstairs to the main floor.
+~
+[Starshine] add enter code - some people step on a nail as they come in? might be rare.
+[Starshine] room desc: highlight staircase? also, note there are doors east and west? also add extras 1 east, 1 west? maybe also 1 north, 1 south?
+[Starshine] perhaps say that south (could be an extra) the hallway becomes tiled.
+[Starshine] more moving aggressives in halls please.
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68023 10 10 5
+D1
+blue wooden door~
+blue wooden door~
+131 -1 68025 10 10 5
+D2
+~
+~
+0 -1 68024 10 10 5
+D3
+lavender wooden door~
+lavender wooden door~
+131 -1 68026 10 10 5
+D5
+floor~
+floor~
+162 -1 68001 10 10 5
+E
+floorboards~
+Graying and cracked, the floorboards have seen a lot of use.  A few nails
+protrude from them making it necessary for one to watch his or her step.
+~
+E
+oil paintings dark gray stone walls~
+The cracked paint interrupts the swirling blue and red designs of the
+walls.  Hanging from the walls are some remarkable paintings depicting
+idyllic scenes, such as a gnomish child playing with a toy bird while
+racing across a green field.  Another painting is a portrait of the same
+child with a pet dog next to him, where the child wears an effervescent
+smile, and the dog is waving its tail.
+~
+E
+staircase~
+The wooden staircase is not very sturdy-looking.  As it twists and turns
+its way downward, it forms a symmetric helical pattern.
+~
+A
+climb~
+twisting staircase down d~
+act_tochar( #climb, ch );
+act_notchar( #nclimb, ch );
+transfer( ch, find_room( 68001 ) );
+act_notchar( #narrive, ch );
+loop( followers ) {
+  if( !is_resting( rch ) ) {
+    transfer( rch, find_room( 68001 ) );
+    act_notchar( #narrive, rch );
+    }
+  }
+~
+E
+climb~
+You carefully climb down the twisting staircase.
+~
+E
+nclimb~
+$n carefully climbs down the twisting staircase.
+~
+E
+narrive~
+$n arrives from above.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #creak, room );
+send_to_room( #creak, find_room( 68023 ) );
+send_to_room( #creak, find_room( 68024 ) );
+~
+E
+creak~
+A soft creaky noise from the floor interrupts the silence of the hallway.
+~
+!
+2 300 0
+-1
+S
+
+#68012
+Tower Basement~
+This section of the basement is even more dank and dustier than the rest. 
+Brownish and greenish fungi have sprouted across the ground and even
+along the gray walls.  Moving around the soft, sloppy floor may prove
+rather arduous and unpleasant.  The muddy ground also gives off a musky,
+sickening odor.  In the southeast corner, some broken pieces of wood have
+formed a small, rotten-smelling pile.
+~
+[Starshine] action enter - you sink a few inches into the soggy soil?
+[Starshine] heh. maybe a chance of you slipping - end up sitting <grin>
+[Starshine] add keyword ground to rextra 1?
+[Starshine] add extra north - see stairs leading up? course, then might need extras west, south, east <grin>
+[Starshine] acode 1: if add end; after line 13, can delete lines 17-23, 27, and 33.
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68005 10 10 5
+D3
+~
+~
+0 -1 68015 10 10 5
+E
+fungi floor walls brownish greenish~
+The moldy, fungi-like substances form small islands on the slushy ground. 
+Some of them have infected the corners of the walls as well.
+~
+E
+corner wood pile pieces debris broken decaying~
+A strange odor emanates from this pile of decaying wood.  Dust and other
+debris seem to have also formed onto the pile.
+~
+A
+~
+southeast corner broken pieces wood small rotten-smelling pile~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 7 ) {
+    act_tochar( #finger, ch );
+    act_notchar( #nfinger, ch );
+    obj_to_char( oload( 2947 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+finger~
+You search through the rotten-smelling pile and find something.
+~
+E
+nfinger~
+$n searches through the rotten-smelling pile and finds something.
+~
+E
+nada~
+You search through the rotten-smelling pile, but don't find anything
+worthwhile.
+~
+E
+nnada~
+$n searches through the rotten-smelling pile, but doesn't find anything.
+~
+!
+9 0 0
+-1
+S
+
+#68013
+An Instrument Room~
+Painted on the wooden walls of this once grand room are light @cblue@n
+linear designs.  A bay window lies to the west, many small pillows placed
+within it.  In the middle of the room is a fine harp, although dust has
+collected upon its strings and wooden finish.  A few old instruments have
+accumulated into a small pile on the floor next to the harp.
+~
+[Starshine] room desc ....old instruments have been placed in a small pile...
+[Starshine] extra bay: ...or listen to...?
+[Starshine] extra blue: Perhaps "Along the light-brown wooden walls are two-feet wide vertical..."?
+[Starshine] add strings/dust/wooden finish to extra harp? or make new extras?
+~
+301465604 0 7 0
+D1
+marble door~
+marble door~
+131 -1 68004 10 10 5
+E
+instruments small pile~
+The pile consists of various old instruments that may or may not still be
+working.  Gnome-sized harps, wooden and silver flutes, and a few guitars
+have made their way into the pile.
+~
+E
+bay window~
+Extending a few feet beyond the room, the bay window is furnished with
+many soft pillows, allowing someone to rest and enjoy the view outside or
+to the music of times past.
+~
+E
+harp~
+The wooden harp stands almost four feet high.  Its smooth curves and
+tough strings reveal its once prized nature.
+~
+E
+light blue linear designs~
+The designs along the light-brown wooden walls are of two feet wide
+vertical blue lines.  Between the blue lies are white lines which aren't
+as bright now due to age.
+~
+A
+play~
+fine harp~
+act_tochar( #play, ch );
+act_notchar( #nplay, ch );
+i = random( 7, 13 );
+wait( 1 );
+if( find_stat( ch, dex ) > i ) {
+  send_to_room( #music, room );
+  if( is_open( room, east ) ) {
+    send_to_room( #music, find_room( 68004 ) );
+    send_to_room( #music, find_room( 68008 ) );
+    send_to_room( #music, find_room( 68001 ) );
+    send_to_room( #music, find_room( 68000 ) );
+    }
+  }
+else {
+  send_to_room( #bad, room );
+  if( is_open( room, east ) ) {
+    send_to_room( #bad, find_room( 68004 ) );
+    send_to_room( #bad, find_room( 68008 ) );
+    send_to_room( #bad, find_room( 68001 ) );
+    send_to_room( #bad, find_room( 68000 ) );
+    }
+  }
+~
+E
+play~
+You begin strumming the harp, shaking off the dust from the strings.
+~
+E
+nplay~
+$n begins strumming the harp, shaking off the dust from the strings.
+~
+E
+music~
+@CThe sounds of a pleasant, soothing little tune echoes through the
+area.@n 
+~
+E
+bad~
+@CA discordant, screeching noise rips through the walls, giving you a
+painful headache.@n 
+~
+!
+0 0 0
+A
+~
+instruments pile~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 20 );
+  if( i == 13 ) {
+    act_tochar( #flute, ch );
+    act_notchar( #nflute, ch );
+    obj_to_char( oload( 1070 ), ch );
+    end;
+    }
+  if( i == 20 ) {
+    act_tochar( #flute, ch );
+    act_notchar( #nflute, ch );
+    obj_to_char( oload( 1411 ), ch );
+    end;
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #nfail, ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+flute~
+You search through the pile of instruments and find one that's still in
+nice condition.
+~
+E
+nflute~
+$n searches through the pile of instruments and takes one.
+~
+E
+fail~
+You search through the pile of instruments, but don't find any in
+worthwhile condition.
+~
+E
+nfail~
+$n searches through the pile of instruments, but doesn't find any in
+worthwhile condition.
+~
+!
+9 0 0
+-1
+S
+
+#68014
+A Servant's Closet~
+It's extremely difficult to breathe in here with so much dust floating
+all around this cramped room.  Littering much of the floor are broken
+furniture and bits of wood.  A lot of the debris surrounds a small,
+soot-covered cot which lies at a corner of the room.  Some of the
+@bblue@n paint has peeled off the walls, leaving small piles all along
+the edges of the floor.
+~
+reset gnomish servant ghost pops off tablet of translation for riddle and
+obelisk 
+[Starshine] perhaps make extremely difficult to breathe an action?
+[Starshine] make cot no.show since room desc already describes it?
+[Starshine] extra floor: chopped-off armrests
+[Starshine] extra blue: cylindrical stacks? *ponder*
+~
+301465604 0 5 0
+D3
+small wooden door~
+small wooden door~
+391 2988 68003 10 10 5
+E
+floor broken furniture bits wood debris~
+The chopped off arm rests and legs of rocking chairs and the broken
+remains of a small table rest in an untidy heap across the floor and
+beside a cot.  Scattered all around the room are wood chips and splinters
+from a few inches to a foot long.
+~
+E
+small soot-covered cot corner~
+Grayish soot stains this once white cot.  The cot stretches only five or
+so feet long, and its cracked wooden legs don't seem to be able to
+withstand much weight on it.
+~
+E
+blue paint walls~
+The paint is very dry and gives off no distinct odor.  The dried paint
+chips are thin and pointy, forming small cylindrical stacks.
+~
+2101 9 1509949540 3 0
+3082 17 1509949540 -2 0
+-1
+S
+
+#68015
+Tower Basement~
+You have to carefully watch your step, as several small holes in the
+ground make moving precarious.  Enough moisture has accumulated into the
+holes to allow the formation of miniature pools on the floor.  Lining
+much of the gray, deteriorating wall are strange red markings.  A strong,
+foul smell seems to be emanating from something to the east.
+~
+[Starshine] add acode so there're chance of tripping on holes?
+[Starshine] extra 2: are markings meaningless?
+[Starshine] enter code - sink into ground, squish into room, or some other effect of the ground?
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68016 10 10 5
+D1
+~
+~
+0 -1 68012 10 10 5
+D3
+~
+~
+0 -1 68018 10 10 5
+E
+holes floor ground pools~
+The ground is dark brown and exceedingly soft.  Several holes have
+formed, as though something punctured the floor with something large and
+round.  The liquid in the holes is so dark that it's practically opaque.
+~
+E
+southern wall markings~
+The markings are deeply etched, and appear as though someone has
+scrawled on the wall rather hastily.
+~
+A
+drink sip~
+miniature pools floor water liquid~
+act_tochar( #drink, ch );
+act_notchar( #ndrink, ch );
+poison( ch );
+~
+E
+drink~
+You take a sip of the liquid in the pools on the floor.
+~
+E
+ndrink~
+$n takes a sip of the liquid in the pools on the floor.
+~
+!
+0 0 0
+A
+fill~
+container cup bottle waterskin flask horn bucket vial chalice canteen~
+act_tochar( #cant, ch );
+~
+E
+cant~
+There isn't enough liquid in the pools to fill a container.
+~
+!
+0 0 0
+2041 9 1509949540 3 0
+-1
+S
+
+#68016
+Tower Basement~
+The air is so moist and thick here that you can almost taste it.  Lying
+to the north against the dull gray wall is a bronze door, with many
+strange symbols written along its metal surface.  The low ceiling above
+you is filled with many cobwebs; while down below, dried up
+exoskeletons of little insects litter the soft floor.
+~
+need translation tablet to read riddle
+riddle to open north
+[Starshine] soft floor==soggy? action flavor on entry - sink into soggy floor?
+[Starshine] dummy action - search cobwebs/nest/beams?
+[Starshine] acode 1: aset target to 1 north bronze door strange symbols metal surface - might not need strange.
+[Starshine] extra wall? perhaps have 1 north wall be separated out as extra? and acode 1 just for door metal surface...?
+[Starshine] acode 2: anyway to make this work with ' ? also, should have something in action if the door is already open. close it or say that nothing happens, or something?
+~
+301465604 0 7 0
+D0
+bronze door~
+bronze door~
+471 -1 68021 10 10 5
+D1
+~
+~
+0 -1 68005 10 10 5
+D2
+~
+~
+0 -1 68015 10 10 5
+D3
+~
+~
+0 -1 68017 10 10 5
+E
+ceiling cobwebs~
+The wooden support of the ceiling looks dangerously fragile.  Cobwebs
+have formed into a thick clump that resembles a bird's nest resting on
+one of the beams.
+~
+E
+skeletons floor insects exoskeletons~
+Miniature exoskeletons of beetles and the remains of other bugs lie
+scattered upon the muddy soil.  Some of them are decomposing and becoming
+entrenched within the floor.
+~
+A
+look~
+north n bronze door strange symbols metal surface~
+if( has_obj( 2993, ch ) )
+  act_tochar( #read, ch );
+else
+  act_tochar( #fail, ch );
+~
+E
+fail~
+The symbols along the bronze door to the north of you look arcane and are
+indecipherable by you.
+~
+E
+read~
+For some odd reason, the symbols seem recognizable to you.  Upon careful
+examination, they translate as follows: 
+
+@GI am not alive, yet I grow.
+I cannot breathe, yet I need air.
+I do not have lungs, yet water kills me.@n
+
+Say what I am, and things will open up for you.
+~
+!
+0 0 0
+A
+say~
+fire~
+act_tochar( #fire, ch );
+act_notchar( #nfire, ch );
+if( !is_open( room, north ) ) {
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #open, find_room( 68021 ) );
+  open( room, north );
+  }
+~
+E
+fire~
+@CYou say the word: "fire".@n
+~
+E
+nfire~
+@C$n says the word: "fire".@n
+~
+E
+open~
+@CSuddenly, the door makes a rumbling sound and then slowly opens.@n
+~
+!
+0 0 0
+-1
+S
+
+#68017
+Tower Basement~
+The damp brown soil which makes up the basement floor is soft and sloppy. 
+Mold and grime have infected the floor, giving off an unpleasant scent. 
+To the north of you is a metallic door with many strange symbols written
+on it.  A staircase leads upstairs, while a blackened door lies to the
+west.
+~
+need translation tablet to read riddle
+riddle answer needed for north
+[Nereus] Is there any way to open the western door?
+get a thief to pick it
+[Merior] extras for doors?
+[Merior] is kinda late now... but why dark and darkness as two separate actions?
+[Merior] puppet - hair strike is kinda odd-sounding
+[Merior] you've got the barette on the marionette's legs ;)
+[Merior] up marmor a bit
+[Merior] why ion_shield?
+[Starshine] acode entering - add flavor by having muddy ground give a little to one's weight?
+[Starshine] add extra circular patterns?
+[Starshine] add extra 1 west?
+[Starshine] acode 1: use 1 north as target?
+[Starshine] add flavor when north door is already open?
+[Starshine] acode 4: add creaking to message?
+~
+301465604 0 7 0
+D0
+metallic door~
+metallic door~
+471 -1 68022 10 10 5
+D1
+~
+~
+0 -1 68016 10 10 5
+D2
+~
+~
+0 -1 68018 10 10 5
+D3
+blackened door~
+blackened door~
+391 -1 68032 10 10 5
+D4
+cellar door~
+cellar door~
+131 -1 68004 10 10 5
+E
+damp brown soil basement floor mold grime~
+The soil is dark brown and almost muddy.  Dark green patches of mold form
+circular patterns all across the ground.  They give off a smell
+resembling a cross between rotten eggs and old, unwashed clothes.
+~
+E
+staircase~
+The staircase is wooden, and a few cracks in its steps make climbing it
+somewhat tough.
+~
+A
+l look~
+north n metallic door strange symbols~
+if( has_obj( 2993, ch ) )
+  act_tochar( #read, ch );
+else
+  act_tochar( #fail, ch );
+~
+E
+read~
+For some odd reason, the symbols seem recognizable to you.  Upon careful
+examination, they translate as follows: 
+
+@YIt cannot be seen, cannot be felt,
+@Icannot be heard, cannot be smelt.
+It lies behind stars and under hills,
+@Iand empty holes it fills.
+It comes first and follows after,
+@Iends life, kills laughter.@n
+
+Say what I am, and things will open up for you.
+~
+E
+fail~
+The symbols along the metallic door to the north of you look arcane and
+are indecipherable by you.
+~
+!
+0 0 0
+A
+say~
+dark~
+act_tochar( #dark, ch );
+act_notchar( #ndark, ch );
+if( !is_open( room, north ) ) {
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #open, find_room( 68022 ) );
+  open( room, north );
+  }
+~
+E
+dark~
+@CYou say the word: "dark".@n
+~
+E
+ndark~
+@C$n says the word: "dark".@n
+~
+E
+open~
+@CSuddenly, the door makes a rumbling sound and then slowly opens.@n
+~
+!
+0 0 0
+A
+say~
+darkness~
+act_tochar( #darkness, ch );
+act_notchar( #ndarkness, ch );
+if( !is_open( room, north ) ) {
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #open, find_room( 68022 ) );
+  open( room, north );
+  }
+~
+E
+darkness~
+@CYou say the word: "darkness".@n
+~
+E
+ndarkness~
+@CYou say the word: "darkness".@n
+~
+E
+open~
+@CSuddenly, the door makes a rumbling sound and then slowly opens.@n
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You carefully go up the staircase.
+~
+!
+3 0 16
+2041 9 1509949540 3 0
+-1
+S
+
+#68018
+Tower Basement~
+The air feels dense, and dust seems to flow all around the room.  Some of
+the dust reaches your nostrils, making it tough to breathe.  Cracks almost
+an inch wide stretch across the western and southern stone walls.  Drops
+of water have seeped through some of the cracks and onto the soggy ground.
+~
+[Starshine] again, code for entrance flavor?
+[Starshine] extra 1: use keywords cracks 1 southern 1 western walls?
+[Starshine] dummy acode search crack?
+[Starshine] dummy acode drink puddles?
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68017 10 10 5
+D1
+~
+~
+0 -1 68015 10 10 5
+E
+cracks southern western s w walls~
+The gray walls are worn and eroded.  Cracks have formed along them
+possibly due to the water pressure near the foundation of the tower.
+~
+E
+drops water soggy ground~
+The water is an almost opaque orange-brown color, forming small puddles
+along the soggy ground.
+~
+A
+~
+blah~
+act_tochar( #sneeze, ch );
+act_notchar( #nsneeze, ch );
+~
+E
+sneeze~
+Too much dust reaches your nostrils, and you begin sneezing violently!
+~
+E
+nsneeze~
+$n sneezes violently!
+~
+!
+2 400 0
+-1
+S
+
+#68019
+A Workshop~
+This room looks as though a wild hurricane blew through it.  The wood
+from the ceiling is cracked, and the beams supporting it appear ready to
+collapse at any moment.  Forming thick, unkempt piles at the corners of
+the room are light brown wood chips and sawdust.  Partially covered
+within the piles are rusty hammers, chisels, nails, carving knives, and
+other tools.  You can leave west.
+~
+[Starshine] are there tame hurricanes? :P
+[Starshine] room desc: make last sentence a bit more descriptive?
+[Starshine] extra 1: keyword unkempt
+[Starshine] extra piles: hmm...delete "almost"? "desert-like"
+[Starshine] add keyword wood to extra ceiling
+[Starshine] acode 1: if add end; after line 11, can delete lines 15-21, 25, and 31.
+~
+301465604 0 8 0
+D3
+~
+~
+0 -1 68002 10 10 5
+E
+unkept piles corners chips sawdust hammers chisels nails knives tools~
+The piles stand almost a few feet high.  They give the room a desert like
+quality as they form small tan-colored hills all around the floor.
+~
+E
+ceiling beams~
+Thick wooden beams, which once gave the ceiling firm support, now look
+aged and worn.  Several cracks in the beams make it seem as though the
+ceiling will give way soon.
+~
+A
+~
+unkept piles corners chips sawdust hammers chisels nails knives tools~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) == 7 ) {
+    act_tochar( #sprite, ch );
+    act_notchar( #nsprite, ch );
+    obj_to_char( oload( 2633 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+nada~
+You search all around the room, but find nothing of great interest.
+~
+E
+nnada~
+$n searches all around the room, but comes up empty-handed.
+~
+E
+sprite~
+You search the piles and find something interesting.
+~
+E
+nsprite~
+$n searches through the piles and finds something.
+~
+!
+9 0 0
+2081 9 1509949540 3 0
+-1
+S
+
+#68020
+A Workshop~
+The thick smell of dust and decaying wood envelops this room.  Chisels,
+hammers, and rusty saws lie scattered about, appearing unused for quite
+some time.  At the middle of the room is a cluttered worktable.  A tall
+pile of sawdust clings to the foot of the table, and oily steel and brass
+blocks lie nearby on the floor and upon the table.  You can leave east.
+~
+claw skinned off beast
+maybe make worktable an object?
+[Starshine] room desc: perhaps instead of last sentence, be more descriptive?
+[Starshine] extra table: is cluttered
+[Starshine] add keyword tools to extra chisels?
+[Starshine] is sawdust tall enough to search?
+[Starshine] beast (2081) desc: function as
+~
+301465604 0 8 0
+D1
+~
+~
+0 -1 68002 10 10 5
+E
+worktable table~
+This wide table it cluttered with many unfinished toys and gadgets.  Wood
+chips and oily substances have been randomly dispersed upon the table,
+giving it a dirty brown, worn look.
+~
+E
+pile sawdust foot~
+Soft piles of light-brown sawdust form an anthill-like pile against the
+feet of the worktable.
+~
+E
+chisels hammers rusty saws~
+Rusty, well-worn chisels, saws with dull blades, and lightly stained
+hammers lie all about the floor of the workroom, probably lying unused
+for quite some time.
+~
+E
+oily steel brass blocks~
+The blocks are stained in a thick, oily substance.  They have become
+stuck to the floor and the table.
+~
+A
+~
+table worktable~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search the worktable, but find nothing worthwhile.
+~
+E
+nnada~
+$n searches the worktable, but finds nothing.
+~
+!
+9 0 0
+2081 9 1509949540 3 0
+-1
+S
+
+#68021
+A Storage Room~
+Dry paint, along with the muddy soil and surprising dampness of this
+room, combine to emit an almost unbearable odor.  Cluttered all across
+the floor and atop some crates and storage boxes are piles of dolls,
+gadgets, and other toys.  A film of dust covers the toys as well as
+everything else in the room, from the blackened floor to the grayish
+stone walls.  Lying against the northern wall is a bookshelf which still
+contains some worn documents and letters.
+~
+[Starshine] move keyword 1 northern from extra 1 to extra 2.
+[Starshine] extra wall: ...books with torn-out...
+[Starshine] acode 1: use target 1 northern?
+[Starshine] yo-yo (3037) either: knot (or possible loop)?
+~
+301465604 0 8 0
+D2
+bronze door~
+bronze door~
+471 -1 68016 10 10 5
+E
+floor crates boxes dolls gadgets toys 1 north~
+You can barely see the floor due to stacks of crates, boxes and toys
+covering much of it.  Small baby dolls, figurines, and items which you
+can't seem to figure out have accumulated into disorganized piles,
+remaining abandoned and unused for too long.
+~
+E
+wall bookshelf documents letters~
+A bookshelf barely over three feet high rests against the hard, cracked
+wall.  Dusty books which torn out pages and indecipherable words rest
+within the bookshelf.  A few yellowed parchments, documents, and various
+letters also rest upon the shelf.
+~
+E
+dry paint muddy soil~
+Sharp, little dried red, blue, yellow, and orange paint bits have become
+moistened due to the muddiness of the brown-black soil.  They give off an
+intoxicating scent, almost leaving you feeling nauseous.
+~
+A
+~
+northern wall bookshelf documents letters~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #letter, ch );
+  act_notchar( #nletter, ch );
+  obj_to_char( oload( 2995 ), ch );
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+letter~
+You search the bookshelf and find a letter which looks interesting.
+~
+E
+nletter~
+$n searches the bookshelf and takes something from it.
+~
+E
+nada~
+You search through the bookshelf, but find nothing of interest.
+~
+E
+nnada~
+$n searches through the bookshelf, but finds nothing of interest.
+~
+!
+9 0 0
+A
+open~
+south s bronze door~
+if( is_open( room, south ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, south );
+  }
+~
+E
+nada~
+The bronze door is already open.
+~
+E
+open~
+You open the bronze door to the south.
+~
+E
+nopen~
+$n opens the bronze door to the south.
+~
+!
+0 0 0
+A
+~
+floor crates boxes dolls gadgets toys~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( random( 1, 10 ) ) {
+    act_tochar( #toy, ch );
+    act_notchar( #ntoy, ch );
+    obj_to_char( oload( 3037 ), ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #nfail, ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+toy~
+You search through the toys and find one in nice condition.
+~
+E
+ntoy~
+$n searches through the toys and takes one.
+~
+E
+fail~
+You search through the toys, but don't find any worth getting.
+~
+E
+nfail~
+$n searches through the toys, but doesn't pick any of them up.
+~
+!
+9 0 0
+2103 9 1509949540 3 0
+-1
+S
+
+#68022
+A Storage Room~
+Wading through this room requires carefully watching your step, as long
+forgotten trinkets and toys have been strewn about.  A few thin sheets of
+dust blanket the toys, as though covering up the innocence of days gone
+by.  Situated around and beside the toys are small wooden boxes and
+crates.  You can leave through the metallic door to the south.
+~
+harlequins might pop something in the future
+possibly a mask and funky costume
+[Starshine] entry - sometimes you crunch a toy underfoot?
+~
+301465604 0 8 0
+D2
+metallic door~
+metallic door~
+471 -1 68017 10 10 5
+E
+trinkets toys thin sheets dust~
+Dust, soft and gray, covers most of the toys.  Puppets with tangled
+strings, gnomish baby dolls, and other trinkets sit atop one another,
+never having the opportunity to bring joy to some small child.
+~
+E
+boxes crates~
+Stacked on top of one another are two feet by two feet wooden boxes and
+crates.  Most of them are nailed shut making it impossible to see what is
+inside them.
+~
+A
+~
+trinkets toys~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #dart, ch );
+  act_notchar( #ndart, ch );
+  obj_to_char( oload( 2996 ), ch );
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+dart~
+You search through the toys and trinkets and grab a dart that looks
+interesting.
+~
+E
+ndart~
+$n searches through the toys and trinkets and grabs something.
+~
+E
+nada~
+You search through the toys and trinkets, but find nothing worth taking.
+~
+E
+nnada~
+$n searches through the toys and trinkets, but takes nothing.
+~
+!
+9 0 0
+A
+open~
+south s metallic door~
+if( is_open( room, south ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, south );
+  }
+~
+E
+nada~
+The metallic door is already open.
+~
+E
+open~
+You open the metallic door to the south.
+~
+E
+nopen~
+$n opens the metallic door to the south.
+~
+!
+0 0 0
+2103 9 1509949540 3 0
+-1
+S
+
+#68023
+A Narrow Hallway~
+Cobwebs resembling cotton sheets hang lazily from the ceiling.  The
+swirling red and blue patterns along the walls create a hallucinogenic
+effect that makes you dizzy if you stare at it for too long.  To the
+north of you is a narrow archway leading into a smoke-filled room.  The
+unlit hallway continues south.
+~
+[Nereus] extras - [ 1 north smoke-filled ]
+didn't feel like an extra since players can just go north to see it and
+can't tell much from here 
+[Starshine] room desc: sheets or threads? are wall patterns that bright?
+[Starshine] flavor action - search/get cobwebs?
+[Starshine] room desc: describe what is east/west please
+[Starshine] acode 1 arch: perhaps use "under" rather than "through"? through sounds like pass door.
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68027 10 10 5
+D1
+bright blue door~
+bright blue door~
+131 -1 68028 10 10 5
+D2
+~
+~
+0 -1 68011 10 10 5
+D3
+white door~
+white door~
+131 -1 68029 10 10 5
+E
+cotton sheets cobwebs ceiling~
+Thick and gray cobwebs hang like a large bird's nest from the beams
+supporting the ceiling above you.
+~
+E
+swirling red blue patterns walls~
+The walls are a swirling mix of red and blue.  The more you look at it,
+the more it seems that the designs are rotating, like interlocking gears
+or the waves of a whirlpool.  After a few more glances, the patterns make
+you feel a little nauseous.
+~
+E
+narrow archway~
+The archway allows anyone under seven feet tall to pass through without
+ducking underneath it.
+~
+A
+~
+~
+act_tochar( #arch, ch );
+continue;
+~
+E
+arch~
+You pass through the archway.
+~
+!
+3 0 1
+-1
+S
+
+#68024
+A Dark Hallway~
+Glistening tiles have been laid upon the floor here, making it appear a
+little grander than the rest of the hallway.  A black bear skin rug lies
+in front of a red wooden door to the east.  To the west is a passage into
+a small room.  Looking south, you see a window door made of stained-glass
+that leads to the outside.  Draping it is a dusty cloth curtain with
+embroidered red and orange flowery designs.
+~
+[Nereus] rdesc, sentence 2 - think bear skin ought to be one word.
+bear skin is two words, and coon skin cap uses 2, too
+[Starshine] interesting. my webster's dictionary says both bearskin and coonskin are single words.
+[Starshine] second floor. perhaps instead of just leading outside, should say leads to a deck or balcony?
+[Starshine] hmm...indicate curtain only half-covers the glass door in room desc? so we can understand how we can see past curtain...
+[Starshine] extra floor: tiles don't sound glistening here...
+[Starshine] extra black: fix bearskin
+[Starshine] extra window: is door center made of one piece of glass or is glass somehow multi-colored?
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 68011 10 10 5
+D1
+red wooden door~
+red wooden door~
+131 -1 68039 10 10 5
+D2
+balcony door~
+balcony door~
+131 -1 68038 10 10 5
+D3
+~
+~
+0 -1 68040 10 10 5
+E
+tiles floor~
+The tiles of the floor are hexagonal and have lost most of their polish. 
+Some of them are red while others are black.  The tiles have been
+arranged to form a pattern reminiscent of a game board.
+~
+E
+black bear skin rug~
+The thick, black bear skin rug has been placed in a slanted position.  It
+lies lazily in front of the door and covers about five feet of the floor. 
+Looking more carefully, you notice reddish stains dispersed randomly on
+the rug, possible signs of a previous struggle.
+~
+E
+curtain window~
+The curtain covers half of the window.  Embroidered pictures of tulips
+and roses line the curtain.  The window door is a translucent red and
+yellow, and seems to create a wheel-like pattern.
+~
+-1
+S
+
+#68025
+A Bedroom~
+This cozy, moderately furnished room contains most of the essentials for
+comfortable living.  The wooden paneling of the walls are worn but
+strangely give off a fresh, pine tree smell.  Spread from wall to wall of
+the room is a thickly furred mat.  An oak desk sits upon the mat and next
+to a dusty, yet soft and comfortable-looking bed.
+~
+maybe add a clue to story in desk search later
+[Starshine] room desc: moderately or modestly?
+[Starshine] room desc: pine-tree or pine. comma before bed.
+[Starshine] extra dusty: duck feather. not sure why remains of pillows in a dusty room should indicate disturbance? are pillows shredded?
+[Starshine] dummy action search cracks? or perhaps just an extra.
+[Starshine] acode 1: if have end; after line 11, can delete lines 15-25, and 31.
+~
+301465604 0 8 0
+D3
+bedroom door~
+bedroom door~
+131 -1 68011 10 10 5
+E
+dusty soft comfortable-looking bed~
+The bed appears to easily be able to fit someone of dwarven height and a
+wide girth.  Dust covers the wooden headboard and the mattress, and the
+remains of a few duckfeather pillows are the only evidence that something
+has disturbed this room.
+~
+E
+oak desk~
+The desk is made of pure oak wood and extends about three feet long and
+two feet high.  A few quills and empty ink bottles clutter the desk, but
+nothing else of much interest remains.
+~
+E
+thickly furred mat~
+Possibly made of wolf or fox hide, the mat's softness makes moving around
+pleasant.  You notice a few dried stains, possibly from spilled juice.
+~
+E
+wooden paneling walls~
+Dark brown with a few cracks, the walls have seen many years.  If they
+could speak, who knows what stories they would tell of what happened here?
+~
+A
+~
+bed~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 4 ) ) {
+    act_tochar( #duck, ch );
+    act_notchar( #nduck, ch );
+    obj_to_char( oload( 1121 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+duck~
+You search through the bed and find something.
+~
+E
+nduck~
+$n searches the bed and gets something.
+~
+E
+nada~
+You search the bed, but don't find anything of use.
+~
+E
+nnada~
+$n searches the bed, but doesn't take anything.
+~
+!
+9 0 0
+A
+~
+desk~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search the desk, but find nothing of value.
+~
+E
+nnada~
+$n searches the desk, but doesn't take anything.
+~
+!
+9 0 0
+2114 9 1509949540 3 0
+1384 17 1509949540 -2 0
+-1
+S
+
+#68026
+A Bedroom~
+The bright lavender color of the walls establishes a cool, soothing feel
+to this room.  Standing against the northern wall is a purple wooden
+wardrobe with flowery designs along its doors.  A small bed rests against
+the western wall, next to a draped window.  Covering the floor is a deep
+blue carpet, which matches the atmosphere which the walls create.
+~
+[Nereus] search action in bed/wardrobe would be cool
+wardrobe is a no.show object that you can open for some clothes which may
+reset 
+[Nereus] Ahh.. cool
+[Starshine] extra floor: remove second well?
+[Starshine] add extra flowery designs? could be added to extra wardrobe.
+~
+301465604 0 8 0
+D1
+bedroom door~
+bedroom door~
+131 -1 68011 10 10 5
+E
+wardrobe~
+Made of oak and painted in a dark purple, the wardrobe stands about four
+feet high.  It stands somewhat crookedly against the wall.
+~
+E
+small bed~
+A film of dust has gathered upon the soft, plush mattress and solid oak
+headboard.  The bed is small, able to only fit a normal-sized gnome.
+~
+E
+floor carpet~
+Covering end-to-end of this room is a thick, blue carpet.  It remains
+well-kept with occasional dust balls hinting that the carpet has not been
+well taken care of recently.
+~
+E
+walls~
+The walls are painted in a bright lavender with floral designs along the
+bottom edges.  Daffodil, daisy, and tulips designs encompass the room,
+giving it a cheerful look.
+~
+A
+~
+small bed~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the small bed, but don't find anything worth getting.
+~
+E
+nnada~
+$n searches through the small bed, but doesn't take anything.
+~
+!
+9 0 0
+2113 9 1509949540 3 0
+1384 17 1509949540 -2 0
+3042 49 1509949540 -2 0
+2222 81 1509949445 -2 0
+1651 81 1509949444 -2 0
+1210 81 1509949444 -2 0
+2212 81 1509949445 -2 0
+1180 81 1509949445 -2 0
+1644 81 1509949450 -2 0
+-1
+S
+
+#68027
+A Strange, Dark Chamber~
+A thin cloud of smoke permeates throughout this circular chamber.  The
+source of the smoke is difficult to determine, although it may be coming
+from a hole in the ceiling.  In the middle of the room is a towering
+marble obelisk with many arcane symbols inscribed around its smooth
+surface.  You can leave by passing through the archway to the south.
+~
+rub/wipe obelisk to reveal clue but need tablet to see it, call or yell
+for demon, then use the globe to room 68043 
+answer is in tile found on balcony
+[Starshine] room desc: "throughout" is redundant.
+[Starshine] extra obelisk: ...almost touching the ceiling...seem...
+[Starshine] extra obelisk: are lines horizontally dividing obelisk? also, what're beasts trying to touch - the normal things?
+[Starshine] why no.mob?
+~
+301465612 0 8 0
+D2
+~
+~
+0 -1 68023 10 10 5
+D4
+ceiling~
+ceiling~
+234 -1 68043 10 10 5
+E
+cloud smoke hole ceiling~
+A constant stream of white smoke seems to be coming from the hole in the
+ceiling.  The hole is only about the size of a human finger. 
+Surprisingly, the smoke doesn't appear to obstruct normal breathing.
+~
+E
+towering marble obelisk symbols~
+The black marble obelisk stretches ten feet in the air, almost piercing
+through the ceiling.  Strange inscriptions surround its surface.  Several
+lines seems to section off the obelisk, possibly as a representation of
+different planes of existence or worlds.  On the bottom are
+ferocious-looking beasts lifting up their hands or other limbs trying to
+touch the things above.  The middle depicts familiar things such as trees
+and humanoids.  The top of the obelisk is the most difficult to decipher. 
+A small smudge of something green partially covers it.  If you reach high
+enough, you think you could wipe it off.
+~
+E
+archway~
+The archway allows anyone under seven feet tall to pass through it
+without ducking underneath it.
+~
+A
+wipe rub~
+smudge obelisk symbols~
+act_tochar( #rub, ch );
+act_notchar( #nrub, ch );
+loop( all_in_room ) {
+  if( has_obj( 2993, rch ) )
+    act_tochar( #clue, rch );
+  else
+    act_tochar( #fail, rch );
+  }
+~
+E
+rub~
+You attempt to wipe off the smudge on the obelisk.
+~
+E
+nrub~
+$n attempts to wipe off the smudge on the obelisk.
+~
+E
+clue~
+@rImmediately, the symbols flare up, and somehow you seem able to
+understand what they say:@n@y 
+@ICall my name, and I shall come to you.
+@II shall grant you your heart's desire, if you let me.@n
+~
+E
+fail~
+The arcane symbols on the obelisk begin to pulse, but you can't make out
+what they mean.
+~
+!
+0 0 0
+A
+call yell~
+Dactyron~
+act_tochar( #call, ch );
+act_notchar( #ncall, ch );
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  wait( 1 );
+  send_to_room( #shift, room );
+  wait( 1 );
+  send_to_room( #stand, room );
+  if( mob_in_room( 2129, find_room( 68059 ) ) ) {
+    wait( 1 );
+    send_to_room( #globe, room );
+    }
+  }
+else {
+  wait( 1 );
+  send_to_room( #globe, room );
+  }
+~
+E
+call~
+You call for Dactyron.
+~
+E
+ncall~
+$n calls for Dactyron.
+~
+E
+shift~
+@RThe obelisk begins to tremble, and the smoke swirls around you.@n
+~
+E
+stand~
+@RA counter with a concave surface emerges from the obelisk.@n
+~
+E
+globe~
+Someone orders you to: 'Place the globe on the counter!'
+~
+!
+0 0 0
+A
+place~
+gleaming black globe counter obelisk~
+if( has_obj( 2994, ch ) ) {
+  obj = has_obj( 2994, ch );
+  if( !rflag( reset0, room ) ) {
+    act_tochar( #put, ch );
+    act_notchar( #nput, ch );
+    junk_obj( obj, 1 );
+    wait( 1 );
+    send_to_room( #force, room );
+    wait( 1 );
+    loop( all_in_room ) {
+      transfer( rch, find_room( 68043 ) );
+      act_tochar( #trans, ch );
+      act_notchar( #ntrans, ch );
+      }
+    }
+  else
+    act_tochar( #where, ch );
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+put~
+You carefully place the gleaming black globe onto the obelisk's counter.
+~
+E
+nput~
+$n places the gleaming black globe onto the obelisk's counter.
+~
+E
+force~
+@CThe hole on the ceiling begins to open up, and a mighty force tugs at
+you -- dragging you upward.@n
+~
+E
+trans~
+You get transported into the room above.
+~
+E
+ntrans~
+$n gets transported to this room.
+~
+E
+cant~
+You do not have the globe.
+~
+E
+where~
+There doesn't seem to be anything to place the globe on the obelisk.
+~
+!
+0 0 0
+A
+ask call yell~
+globe~
+act_tochar( #ask, ch );
+act_notchar( #nask, ch );
+if( mob_in_room( 2129, find_room( 68059 ) ) ) {
+  wait( 1 );
+  send_to_room( #globe, room );
+  }
+~
+E
+ask~
+You ask about the globe.
+~
+E
+nask~
+$n asks about the globe.
+~
+E
+globe~
+Someone yells back:
+@I"Go look for it.  It's the key to reaching me and should be lying
+@Iaround somewhere in the tower."@n 
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #arch, ch );
+continue;
+~
+E
+arch~
+You pass through the archway.
+~
+!
+3 0 4
+-1
+S
+
+#68028
+A Nursery Room~
+The light blue paint and wondrous drawings along the walls remind you
+that this now dilipidated place may have once been cherished by its
+former inhabitants.  The painting of a bright yellow sun with a broad,
+smiling face gazes cheerfully at you from the ceiling.  On the carpeted
+floor, worn dolls and toy balls lie scattered about.  Resting against the
+eastern wall is a small crib in the shape of a ship.
+~
+[Nereus] extras - [ painting sun bright yellow ]
+didn't think of anything more to add to it for it to be an extra
+[Starshine] room desc: dilapidated. inhabitant or inhabitants? sun is still bright?
+[Starshine] extras drawings/walls, painting/ceiling (could just say - a nice cheerful sun and doesn't appear to be anything more)
+[Starshine] add 1 eastern ship keywords to extra crib. in crib extra, perhaps also say it is in the shape of a ship?
+[Starshine] room desc: point out door to west. might have extra 1 west to describe door.
+[Starshine] acode 1: add target ship?
+[Starshine] acode 1: same thing. if use end; can shorten code
+~
+301465604 0 7 0
+D3
+bright blue door~
+bright blue door~
+131 -1 68023 10 10 5
+E
+floor dolls toy balls~
+Lying all across the now faded blue carpet are stuffed dolls of gnomes,
+bear cubs, birds, and dogs, as well as balls with stars painted on them. 
+The toys are so worn and ripped apart that they probably can't be of much
+use anymore.
+~
+E
+crib~
+The crib is about four feet long as it narrows at its extremities.  The
+railings of the crib are uneven and some of them look very fragile. 
+Drawn along its dark brown exterior are images of a jovial spotted dog,
+flowers, and raggedy dolls.  Inside the crib are small, dusty pillows and
+a few mostly-torn stuffed dolls.
+~
+A
+~
+crib~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 7 ) {
+    act_tochar( #search, ch );
+    act_notchar( #nsearch, ch );
+    obj_to_char( oload( 3089 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+search~
+You search the crib and find something neat.
+~
+E
+nsearch~
+$n searches the crib and finds something.
+~
+E
+nada~
+You search the crib, but find nothing worthwhile.
+~
+E
+nnada~
+$n searches the crib, but doesn't take anything.
+~
+!
+9 0 0
+A
+~
+floor dolls toy balls~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search the floor, but don't think any of the toys are worth taking.
+~
+E
+nnada~
+$n searches the floor, but doesn't take anything.
+~
+!
+9 0 0
+2113 9 1509949540 3 0
+-1
+S
+
+#68029
+A Game Room~
+Deep yellow wood, mixed with smooth white stone, create a rather pleasant
+yet banal design for the walls of this room.  A few dartboards hang along
+the western wall.  Prominently placed as the heart of the room is a chess
+table made of solid granite.  At one corner is a pile of wooden boards
+with various patterns on them.  Some show diamond-shaped, black and red
+designs while others have squares drawn around their edges.
+~
+throw dart from basement to reveal lever
+pull lever to go up to room 68051 
+[Starshine] room desc: ...at the heart...(or at the center?)
+[Starshine] room desc: describe what is east please.
+[Starshine] extra dartboards: add 1 western as keyword?
+[Starshine] extra dartboards: hangs...or is embedded?
+[Starshine] acode 1: add play to command? use darts as target rather than dart?
+[Starshine] should someone be able to get/pull dart from the boards?
+[Starshine] acode 4 cant: perhaps reword "the lever cannot be pushed further"?
+[Starshine] acode 5 cant: perhaps reword "the lever cannot be pulled further"?
+~
+301465604 0 8 0
+D1
+white door~
+white door~
+131 -1 68023 10 10 5
+D4
+~
+~
+235 -1 68051 10 10 5
+E
+dartboards~
+The round, black and red dartboards still have several darts stuck on them. 
+One of the darts hangs near the exact center of the board.
+~
+E
+granite solid chess table~
+Some dust smears the edges of the gray and white granite chess table. 
+That doesn't detract from the finely-carved shape of the table, however. 
+The wooden chess pieces on the table have been arranged in a pattern that
+makes them appear as though a game was already in progress but then
+suddenly disrupted.  Examining it closer, you notice that one piece is
+missing.
+~
+E
+pile wooden boards~
+About ten or so square wooden boards lie stacked on top of one another in
+a haphazard fashion.  Each of the boards display different patterns.
+~
+E
+darts~
+The silvery metal point of the darts look very sharp and pointy.  Red and
+green fabric have been wound to form its soft handle.  Connected to the
+base of the handle is a dark blue feather.
+~
+A
+throw~
+sharp blue-feathered dart dartboards~
+if( has_obj( 2996, ch ) ) {
+  obj = has_obj( 2996, ch );
+  act_tochar( #throw, ch );
+  act_notchar( #nthrow, ch );
+  junk_obj( obj, 1 );
+  if( rflag( reset0, room ) ) {
+    i = random( 2, 9 );
+    if( find_stat( ch, dex ) > i ) {
+      wait( 1 );
+      send_to_room( #work, room );
+      wait( 1 );
+      send_to_room( #reveal, room );
+      remove_rflag( reset0, room );
+      }
+    else {
+      wait( 1 );
+      send_to_room( #miss, room );
+      obj_to_room( oload( 2996 ), room );
+      }
+    }
+  else {
+    wait( 1 );
+    send_to_room( #miss, room );
+    obj_to_room( oload( 2996 ), room );
+    }
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+throw~
+You throw a sharp blue-feathered dart at a dartboard.
+~
+E
+nthrow~
+$n throws a sharp blue-feathered dart at a dartboard.
+~
+E
+work~
+The dart hits the bull's eye!
+~
+E
+reveal~
+The dartboard slowly slides to its left, revealing a @clever@n.
+~
+E
+miss~
+The dart misses the bull's eye, then mysteriously falls to the floor.
+~
+E
+cant~
+You do not have a sharp blue-feathered dart.
+~
+!
+0 0 0
+A
+~
+pile boards~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the pile of wooden boards, but find nothing worth
+taking.
+~
+E
+nnada~
+$n searches through the pile of wooden boards, but doesn't take anything.
+~
+!
+9 0 0
+A
+l look~
+lever~
+if( rflag( reset0, room ) )
+  act_tochar( #nada, ch );
+else
+  act_tochar( #lever, ch );
+~
+E
+nada~
+You do not see that here.
+~
+E
+lever~
+The lever is made of steel.  It looks like it can still be pushed or
+pulled.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( rflag( reset0, room ) )
+  act_tochar( #nada, ch );
+else {
+  if( is_open( room, up ) ) {
+    act_tochar( #push, ch );
+    act_notchar( #npush, ch );
+    wait( 1 );
+    send_to_room( #close, room );
+    send_to_room( #dclose, find_room( 68051 ) );
+    close( room, up );
+    }
+  else
+    act_tochar( #cant, ch );
+  }
+~
+E
+push~
+You push the lever.
+~
+E
+npush~
+$n pushes the lever.
+~
+E
+close~
+The ladder leading upstairs mysteriously vanishes.
+~
+E
+dclose~
+The ladder leading downstairs mysteriously vanishes.
+~
+E
+cant~
+The lever is already in the pushed position.
+~
+E
+nada~
+You do not see that here.
+~
+!
+0 0 0
+A
+pull~
+lever~
+if( rflag( reset0, room ) )
+  act_tochar( #nada, ch );
+else {
+  if( is_open( room, up ) )
+    act_tochar( #cant, ch );
+  else {
+    act_tochar( #pull, ch );
+    act_notchar( #npull, ch );
+    wait( 1 );
+    send_to_room( #open, room );
+    send_to_room( #dopen, find_room( 68051 ) );
+    open( room, up );
+    }
+  }
+~
+E
+cant~
+The lever is already in the pulled position.
+~
+E
+pull~
+You pull the lever.
+~
+E
+npull~
+$n pulls the lever.
+~
+E
+open~
+A ladder slides from the ceiling, allowing passage upstairs.
+~
+E
+dopen~
+The floor opens up, and a ladder slides down the floor, allowing passage
+downstairs.
+~
+E
+nada~
+You do not see that here.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up the ladder.
+~
+!
+3 0 16
+A
+l look~
+ladder~
+if( is_open( room, up ) )
+  act_tochar( #ladder, ch );
+else
+  act_tochar( #nada, ch );
+~
+E
+ladder~
+The ladder is silver and sparkles brightly.
+~
+E
+nada~
+You do not see that here.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset2, room ) ) {
+  remove_rflag( reset2, room );
+  if( !mob_in_room( 2135, room ) && !mob_in_room( 2136, room ) ) {
+    close( room, east );
+    wait( 1 );
+    send_to_room( #rumble, room );
+    wait( 1 );
+    send_to_room( #load, room );
+    i = random( 1, 2 );
+    if( i == 1 )
+      mload( 2135, room );
+    if( i == 2 )
+      mload( 2136, room );
+    wait( 1 );
+    open( room, east );
+    }
+  }
+~
+E
+rumble~
+@CA rumbling from the chess table can be heard.@n
+~
+E
+load~
+@CA chess piece suddenly emerges from the chess table, quickly growing
+larger and sprouting arms and legs!@n 
+~
+!
+1 0 2
+-1
+S
+
+#68030
+A Pantry~
+The air is musky in here with the lingering smell of cheese and wine
+dominating your senses.  Empty sacks, cans, and bottles lie scattered
+into piles in the corners of the room.  It looks like some creature has
+nibbled through them and eaten away whatever preserved items were in
+those containers.  A pile of logs has been put in the middle of the
+floor, stored here to fuel the stove in the kitchen.  The door leading
+back out lies to the west.
+~
+[Starshine] perhaps say west is the kitchen?
+[Starshine] perhaps instead of resetting log, use search logs instead?
+~
+301465604 0 6 0
+D3
+small pantry door~
+small pantry door~
+131 -1 68007 10 10 5
+E
+sacks cans bottles piles corners~
+The sacks have been gnawed through by something with sharp teeth no doubt. 
+The cans and bottles are also empty and have been crushed.
+~
+E
+logs~
+The logs are about a foot thick and a few feet long.  From the thickness
+and dryness of their bark, the logs probably serve as firewood.
+~
+A
+~
+sacks cans bottles piles corners~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the pantry, but find nothing useful left in the piles
+and corners of the room.
+~
+E
+nnada~
+$n searches through the pantry, but finds nothing.
+~
+!
+9 0 0
+137 17 1509949540 -2 0
+74 9 1509949540 3 0
+74 9 1509949540 3 0
+-1
+S
+
+#68031
+Basement Corner~
+This isolated area of the basement looks drab and smells of decaying wood
+and waterlogged stone.  Narrow cracks have formed along the wooden beams
+supporting the ceiling.  Larger cracks have also formed along the upper
+corners of the stone walls.  On the bottom corners, water has trickled
+through the cracks and onto the floors creating several small puddles as
+well as a soggy ground.
+~
+[Starshine] action flavor: squishy ground as you enter?
+[Starshine] dummy action sear cracks?
+[Starshine] extra cracks: could say just cracks from age. nothing unusual to them?
+[Starshine] dummy action: drink water/puddles?
+[Starshine] add extra puddles, ground. add dummy action get nails, search beams?
+~
+301465604 0 7 0
+D3
+~
+~
+0 -1 68005 10 10 5
+E
+wooden beams ceiling~
+The beams are dull gray, and the nails connecting them to the ceiling are
+very rusty.  You can make out several cracks and holes in the wood.
+~
+E
+stone walls water~
+The walls are damp with many cracks along their chipped surface.  Water
+has started to leak through those cracks.
+~
+-1
+S
+
+#68032
+Storage Closet~
+This room is cluttered with all sorts of used and worn out items.  Piles
+of filthy torn clothes have gathered at the corners of this stuffy room. 
+Spread out upon the soggy floor is a wooden-plaited mat.  Many layers of
+dust have gathered upon it, as well as on the wooden shelf which hangs
+against the western wall.  Rusty, mostly-empty cans, which once contained
+bright red, orange, and blue paint, rest upon the shelf.
+~
+get glyph for chest
+need a thief to pick to get in and out of this room
+[Starshine] room desc: move last sentence to extra cans? since you have to look at cans to determine the paint inside them?
+[Starshine] extra piles: moth-eaten, well-worn. perhaps remove the faint reference? a bit wierd for ogres to faint from odors i think.
+[Starshine] extra shelf: add 1 western to keywords?
+[Starshine] perhaps stains in the shelf extra should be visible in room desc?
+[Starshine] action for jump mat/corner?
+[Starshine] perhaps also search mat? could just stir up dust <grin>
+[Starshine] doll (2103) desc: dots encircle its cheeks or do 2 large dots form its cheeks?
+~
+301465604 0 7 0
+D1
+blackened door~
+blackened door~
+391 -1 68017 10 10 5
+E
+piles clothes corners~
+The clothes are moth eaten, full of holes, and make you want to faint
+from breathing in their noxious odor.  You can make out some of them as
+once being skirts, overalls, and well worn trousers.
+~
+E
+floor mat~
+Cracked wooden sticks have been plaited together to form a mat which
+blankets over half the floor of this room.  Layers of dust have formed on
+it.  As you examine the mat closer, you notice strange, muddy footprints
+resembling a chicken's along the corner of the mat.
+~
+E
+cans shelf~
+Large, cylindrical cans collect rust as they rest upon the shelf.  Red,
+yellow, blue and various mixes of those paint stains line the shelf and
+the ground directly below it.
+~
+E
+muddy footprints~
+Many footprints have formed at the corner of the mat and nowhere else on
+the mat.  It's as though its owner jumped up and down on that part of the
+mat many times.
+~
+A
+~
+piles clothes corners~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the piles of clothes, but they're all too torn and
+smelly to be of any use.
+~
+E
+nnada~
+$n searches through the piles of clothes, but nothing results from it
+except for $n's developing a foul smell.
+~
+!
+9 0 0
+A
+~
+cans shelf~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #glyph, ch );
+  act_notchar( #nglyph, ch );
+  obj_to_char( oload( 3026 ), ch );
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+glyph~
+You search through the shelf and find something in a paint can.
+~
+E
+nglyph~
+$n searches through the shelf and takes something.
+~
+E
+nada~
+You search through the shelf and cans, but find nothing of interest.
+~
+E
+nnada~
+$n searches through the shelf and cans, but doesn't find anything.
+~
+!
+9 0 0
+2103 9 1509949540 3 0
+-1
+S
+
+#68036
+A Supper Nook~
+This brightly painted room seems to serve as an eating area.  Resting at
+the middle of the room is a round, wooden table.  A dusty, wooden board
+surrounds the tabletop allowing several gnome-sized people to sit on it. 
+A few, faded paintings of a gnomish couple hang from the northern and
+southern walls.  To the north is a window with frilly drapes, allowing
+you to view the trees outside.  Heading east would lead into a kitchen.
+~
+table object and board (chair) object later
+[Starshine] demon (2089) desc: ...from it towards you.
+[Starshine] room desc: raised dusty, wooden board?
+[Starshine] extra walls: bespectacled
+[Starshine] could use table/board extras instead of objects...
+[Starshine] window to the north, with paintings?  maybe move window or
+painting to west wall?
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 68007 10 10 5
+E
+paintings northern southern walls~
+Hanging from the bright blue and orange walls are paintings depicting a
+few gnomes in serene poses.  One painting shows a gnomish female with
+silver hair next to a cheerful-looking, spectacled gnomish man, both of
+whom are standing in front of this tower.  Another painting is of the
+same couple resting before a fireplace, where the female is embroidering
+and the male holding a wooden doll.
+~
+E
+window drapes~
+The window is oval and mostly transparent.  A frilly curtain with painted
+flowery designs blocks part of the window.  Looking past it, you see a
+deck and tall trees outside.
+~
+A
+l look~
+window drapes north n~
+if( mob_in_room( 2102, find_room( 68037 ) ) )
+  act_tochar( #imp, ch );
+else
+  act_tochar( #nada, ch );
+~
+E
+imp~
+The window is oval and mostly transparent.  A frilly curtain with painted
+flowery designs blocks part of the window.  Looking past it, you see a
+deck and tall trees outside.  You also notice a cackling imp through the
+window.
+~
+E
+nada~
+The window is oval and mostly transparent.  A frilly curtain with painted
+flowery designs blocks part of the window.  Looking past it, you see a
+deck with tall trees outside.
+~
+!
+0 0 0
+-1
+S
+
+#68037
+Tower Deck~
+The western part of the deck looks very worn-looking.  A few loose boards
+on the floor look ready to collapse at any second.  Rusty nails protrude
+through the faded wood, making it difficult to move around the deck. 
+Resting along the western ledge are a few clay pots.  The soil in them
+are barren and the plants long-dead.  The deck extends further east.
+~
+to be adjusted when i figure out exact location of tower
+[Nereus] How about an action to step on a rusty nail when entering/exiting room?
+gosh you're mean ;)
+[Nereus] Why yes, I am
+[Starshine] room desc: This part of the deck...?
+[Starshine] extra north/west - forest, south - window, wall of tower, east - deck and door?
+[Starshine] change acode 1 to both get and search? since searching clay pots where you end up finding a pot seems a bit strange.
+[Starshine] acode 2/3 - randomize? or use stat check?
+[Starshine] perhaps load flint as part of search pots action? rather than just leaving it lying about?
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 68010 10 10 5
+E
+clay pots ledge~
+The pots are large enough for a small tree to grow in.  A few cracks
+along the sides of the pots can be detected.  Gazing over the ledge are
+more forest top, lush and vibrant green.
+~
+E
+rusty nails worn-looking floor faded wood~
+The nails are bent but still sharp, as they stick out through the gray
+wood of the deck's floorboards.  The wood is scratched and many cracks
+have formed, creating gaping holes at random areas of the deck.
+~
+A
+~
+clay pots ledge~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 7 );
+  if( i == 3 ) {
+    act_tochar( #pot, ch );
+    act_notchar( #npot, ch );
+    obj_to_char( oload( 3081 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+pot~
+You search through the pots on the ledge and take one.
+~
+E
+npot~
+$n searches through the pots on the ledge and takes one.
+~
+E
+nada~
+You search through the pots on the ledge, but don't find any worth taking.
+~
+E
+nnada~
+$n searches through the pots on the ledge, but doesn't take any.
+~
+!
+9 0 0
+A
+~
+~
+act_tochar( #ouch, ch );
+act_notchar( #nouch, ch );
+dam_message( ch, 5d5+5, "stepping on a rusty nail" );
+inflict( ch, mob, 5d5+5, "stepping on a rusty nail" );
+continue;
+~
+E
+ouch~
+As you leave the room, you accidentally get your foot caught on a rusty
+nail.
+~
+E
+nouch~
+As $n leaves the room, $e accidentally gets $s foot caught on a rusty
+nail.
+~
+!
+3 0 2
+A
+~
+~
+act_tochar( #ouch, ch );
+act_notchar( #nouch, ch );
+dam_message( ch, 5d5+5, "stepping on a rusty nail" );
+inflict( ch, mob, 5d5+5, "stepping on a rusty nail" );
+~
+E
+ouch~
+As you enter the room, you accidentally step on a loose rusty nail.
+~
+E
+nouch~
+As $n enters the room, $e accidentally steps on a loose rusty nail.
+~
+!
+1 0 2
+79 17 1509949540 -2 0
+2102 9 1509949540 3 0
+-1
+S
+
+#68038
+A Balcony~
+You are on a rundown balcony overlooking the entrance to the tower. 
+Narrow cracks have formed on the floor's tiles, and some of them have
+become dislodged from the balcony.  The railing is made of a grayish
+stone and forms a continuous semi-circle.  Gazing southward, you are
+treated to a magnificent view of towering beech and oak trees of the
+dense forest.
+~
+rdesc may change depending on where the tower will be located
+search for tile to give help for answer to obelisk name
+[Starshine] room desc: remove "from the balcony"? i believe dislodged is informative enough.
+[Starshine] extra view: use 1 south for keyword?
+[Starshine] perhaps add extras or new keywords to extra view of 1 east 1 west. add extra 1 north?
+[Starshine] tile (3039) either: remove "written in primal"?
+[Starshine] should tile be loaded each reset?
+~
+335020032 0 6 0
+D0
+balcony door~
+balcony door~
+131 -1 68024 10 10 5
+E
+railing~
+The railing still looks sturdy.  Bird droppings lie scattered all across
+its ledge, but don't give off any detectable odor.
+~
+E
+floor tiles~
+The tiles of the floor are red, white, and black.  They form a
+whirlpool-like pattern where the tiles get smaller and smaller at the
+center.  Several tiles have been cracked due to prolonged exposure to the
+elements, and some of them are detached from the balcony floor.
+~
+E
+view south s~
+Gray beech trees and majestic oak trees dominate your view from here.
+~
+A
+search get take~
+tiles floor~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #tile, ch );
+  act_notchar( #ntile, ch );
+  obj_to_char( oload( 3039 ), ch );
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+tile~
+You search the floor, and take one of the loose tiles.
+~
+E
+ntile~
+$n searches the floor, and takes one of the loose tiles.
+~
+E
+nada~
+You search across the tiles on the floor, but can't find any worth taking.
+~
+E
+nnada~
+$n searches the tiles on the floor, but doesn't take any.
+~
+!
+0 0 0
+-1
+S
+
+#68039
+A Master Bedroom~
+A powerful force seems to have decimated this once splendid room.  The
+carpet has been ripped apart, with many holes and reddish stains scattered
+all across it.  A full-sized bed draped in torn, stained fabric rests
+against the eastern wall.  Next to the bed is a wide office desk with a
+very cluttered top.  A large, oval-shaped window lies on the southern
+wall, its glass partially broken.  A lever hangs just beside the window.
+~
+pull lever to go up to room 68047
+need to give her love letter to assign quest 
+maybe add full-sized bed object later
+[Starshine] xyla (2111) desc: ...blowing upon it.
+[Starshine] xyla (2111) will she have a nightgown?
+[Starshine] xyla mped 4 evil: what that name is...
+[Starshine] perhaps move lever sentence to window extra? levers shouldn't be so easy to find :P
+[Starshine] room desc: add that there's a door west.
+[Starshine] perhaps xyla should disappear when quest is done? and also not appear except for people who have not done quest. not sure how you want to do a group where some people have done quest and some have not. could have acode with some randomness that has her thanking people who have done the quest.
+[Starshine] acode 1 cant: perhaps say "The lever has already been pulled." instead?
+[Starshine] acode 2 nada: perhaps say "The lever has already been pushed."?
+[Starshine] acodes 1 and 2: hole in ceiling or whole ceiling?
+[Starshine] she asks about letter when i search desk even if i haven't asked her about the letter. maybe this needs to be two quests? *ponder* or maybe this encourages me to ask about letter *grin*
+~
+301465604 0 9 0
+D3
+bedroom door~
+bedroom door~
+131 -1 68024 10 10 5
+D4
+upstairs door~
+upstairs door~
+235 -1 68047 10 10 5
+E
+full-sized bed fabric~
+This fairly large bed could easily fit three small humans were it not in
+such fragile condition.  The four curved poles look ready to fall over at
+any moment as they struggle to support the torn fabric.
+~
+E
+office desk top~
+The rectangular desk looks about three feet wide and five feet long. 
+Many scratches mar its black wooden finish.  The desk has become
+exceedingly disorganized, with piles of paper accumulating upon the
+desktop.
+~
+E
+oval-shaped window~
+The window frame is wooden and egg-shaped.  Abrupt cracks on the window
+pane have left random holes, which are demonstrated by occasional wind
+gusts that flow through the holes and cause the window curtain to wave.
+~
+E
+carpet~
+The brown carpet curls at the corners of the room as many holes and cuts
+have damaged much of it.  Several splotches of dried bloodstains can also
+be detected on what remains of the carpet.
+~
+E
+lever~
+The silvery lever looks like it can be pushed or pulled.
+~
+A
+pull~
+lever~
+if( is_open( room, up ) )
+  act_tochar( #cant, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #npull, ch );
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #dopen, find_room( 68047 ) );
+  open( room, up );
+  }
+~
+E
+cant~
+The lever is already in the pulled position.
+~
+E
+pull~
+You pull the lever.
+~
+E
+npull~
+$n pulls the lever.
+~
+E
+open~
+The ceiling opens up, and a ladder slides down, allowing passage upstairs.
+~
+E
+dopen~
+The floor opens up, and a ladder slides down, allowing passage downstairs.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( is_open( room, up ) ) {
+  act_tochar( #push, ch );
+  act_notchar( #npush, ch );
+  wait( 1 );
+  send_to_room( #close, room );
+  send_to_room( #dclose, find_room( 68047 ) );
+  close( room, up );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+push~
+You push the lever.
+~
+E
+npush~
+$n pushes the lever.
+~
+E
+close~
+The ladder slides back up, and the ceiling closes.
+~
+E
+dclose~
+The ladder slides back up, and the floor closes.
+~
+E
+nada~
+The lever is already in the pushed position.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up the ladder.
+~
+!
+3 0 16
+A
+look~
+ladder~
+if( is_open( room, up ) )
+  act_tochar( #ladder, ch );
+else
+  act_tochar( #nada, ch );
+~
+E
+ladder~
+The ladder is silver and sparkles brightly.
+~
+E
+nada~
+You do not see that here.
+~
+!
+0 0 0
+A
+~
+office desk top~
+act_tochar( #search, ch );
+act_notchar( #nsearch, ch );
+wait( 1 );
+if( mob_in_room( 2111, room ) && !has_quest( ch, 52 ) ) {
+  mob = mob_in_room( 2111, room );
+  tell( mob, ch, #ask );
+  wait( 1 );
+  interpret( mob, "sigh" );
+  }
+~
+E
+search~
+You search the top of the office desk, but don't find anything useful.
+~
+E
+nsearch~
+$n searches the top of the office desk, but doesn't find anything.
+~
+E
+ask~
+@GHave you found my missing letter in that pile?  I've looked all over
+for it, but couldn't find it there.@n
+~
+!
+9 0 0
+2111 9 1509949540 3 0
+-1
+S
+
+#68040
+A Sitting Room~
+A thick red carpet covers the entire floor of this quaint room.  Arranged
+in a semi-circle at the middle of the room are three petite couches.  A
+few small round windows resembling portholes lie against the southern
+wall, allowing a glimpse of the outside.  Hanging along the western wall
+are a couple of paintings.  The dark hallway lies to the east through the
+narrow corridor.
+~
+add uniform and pike to soldier doll later
+[Starshine] should sitting room have door?
+[Starshine] extra couches: delete word "threaded"?
+[Starshine] extra window: perhaps say outside window shows 2nd floor, view, balcony to right?
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 68024 10 10 5
+E
+thick red carpet floor~
+The carpet is so thick that it almost resembles overgrown red-colored
+grass.  Patches of dust lie scattered all across the carpet, like gray
+isles in a sea of red.
+~
+E
+petite couches~
+The wooden couches are slightly dusty.  They could probably fit someone
+of diminutive height.  Yellow and red threaded designs cover the seat and
+armrest of each couch.
+~
+E
+1 south small round porthole shaped windows~
+The windows are very small, barely a foot in diameter.  Red and orange
+embroidered flower designs line the curtains covering most of the windows.
+~
+E
+paintings 1 west~
+The paintings hang rather crookedly from the wall.  One depicts an old
+gnomish couple smiling blankly ahead; while another painting shows what
+looks to be the couple, but only many years younger.
+~
+3040 17 1509949540 -2 0
+3040 17 1509949540 -2 0
+3040 17 1509949540 -2 0
+2114 9 1509949540 3 0
+-1
+S
+
+#68041
+A Round, Smoky Chamber~
+Many pieces of junk litter the tiled floor of this round, spacious room. 
+Grabbing your attention is a pile of smelly remains of some poor soul who
+wandered here.  The bones appear snapped in half, and insects now reside
+within a cracked skull.  Oddly enough, the smoke, which permeates through
+the chamber, seems to avoid the pile of bones, forming a round, smokeless
+gap above it.  At the southern end of the room stands a wide, carpeted
+stairwell.
+~
+[Starshine] should this hallway and 2 more rooms be protected by more than 2 aggressives?
+[Starshine] extra junk: doesn't care
+[Starshine] extra smoke: use 'detectable' instead of 'recognizable'?
+[Starshine] extra stairwell: what is condition of carpet? if new, should note that is unusual.
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 68042 10 10 5
+D4
+~
+~
+0 -1 68053 10 10 5
+E
+junk tiled floor~
+The trash that has been thrown haphazardly across the floor include dried
+up pieces of meat, broken toy parts, and spilled bottles of stale alcohol. 
+Whoever inhabits this place obviously didn't care too much for tidiness.
+~
+E
+pile remains bones cracked skull~
+The pile of bones reek.  They appear to possibly be the remains of a
+small humanoid who had wandered in here and had his or her body shredded
+to pieces.
+~
+E
+smoke~
+The vapors are white in color and seem to conform to your movements. 
+They produce no recognizable scent.
+~
+E
+wide carpeted stairwell~
+The stairwell is covered in a thick red carpet with purple silk lining
+along its side.  It ascends pretty far up along many steps.
+~
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up the wide, carpeted stairwell.
+~
+!
+3 0 16
+A
+~
+junk tiled floor~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the junk on the tiled floor, but find nothing worth
+taking.
+~
+E
+nnada~
+$n searches through the junk on the tiled floor, but takes nothing.
+~
+!
+9 0 0
+A
+~
+pile remains bones~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 7 ) {
+    act_tochar( #skull, ch );
+    act_notchar( #nskull, ch );
+    obj_to_char( oload( 2226 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+skull~
+You search through the pile of bones, taking a skull from the remains.
+~
+E
+nskull~
+$n searches through the pile of bones and takes something from it.
+~
+E
+nada~
+You search through the pile of bones, but don't find anything worth
+taking.
+~
+E
+nnada~
+$n searches through the pile of bones, but doesn't take anything.
+~
+!
+9 0 0
+2128 9 1509949540 3 0
+-1
+S
+
+#68042
+Smoky Hallway -- Third Floor~
+The scentless gas continues to permeate through this part of the hallway. 
+Gazing down through the smoke, you notice broken toys, half-eaten chunks
+of meat, and other assorted trash left disposed upon the creaky wooden
+floor.  When you look up and examine the walls, the strange inferno-like
+patterns along its rough stone surface appear to dance.  The hallway
+widens a bit to the north, as well as to the south of you.
+~
+[Starshine] extra gas: use 'detectable' instead of 'recognizable'?
+[Starshine] does shifting wall have an effect? hurt people? monster pops out?
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 68043 10 10 5
+D2
+~
+~
+0 -1 68041 10 10 5
+E
+floor down broken toys half-eaten meat trash~
+Thrown carelessly across the cracked, aging floor are chewed up doll
+parts and the remains of wooden ship models and figures.  The stench of
+decaying meat from a nearby pile overwhelms your nostrils making you want
+to move quickly away from the smell.
+~
+E
+walls stone surface inferno-like patterns~
+Red, shadowy designs blaze across the wall.  The mysterious shifting
+patterns eerily resemble a fiery fence surrounding you.
+~
+E
+scentless gas smoke~
+The vapors are white in color and seem to conform to your movements. 
+They produce no recognizable scent.
+~
+A
+~
+~
+send_to_room( #shift, room );
+~
+E
+shift~
+@yThe fiery patterns along the wall shift rapidly from side to side.@n
+~
+!
+2 500 0
+A
+~
+floor broken pile toys half-eaten meat trash~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the floor and its trash, but don't find anything worth
+taking.
+~
+E
+nnada~
+$n searches through the floor and the trash, but doesn't take anything.
+~
+!
+9 0 0
+-1
+S
+
+#68043
+Smoky Hallway -- Third Floor~
+A thick, fog-like vapor fills the space around you.  You can almost feel
+its soft, silky texture.  Besides the smoke, the only other noticeable
+item of interest is an ebony statue of a winged beast, which stands all
+alone in the northeastern corner.  At the middle of the floor is a small
+hole where some of the gas is funneling through to the room below. 
+Looking southward, the hallway seems to narrow a bit.
+~
+move statue action to open passage down to room 68027 
+[Starshine] room desc: In the middle...
+[Starshine] extra vapor: does gas produce scent at all?
+[Starshine] add keyword northeastern to extra ebony?
+[Starshine] why no.mob?
+~
+301465612 0 8 0
+D2
+~
+~
+0 -1 68042 10 10 5
+D5
+floor~
+floor~
+234 -1 68027 10 10 5
+E
+thick fog-like vapor smoke gas~
+The vapors are white in color and seem to conform to your movements. 
+They produce no recognizable scent.
+~
+E
+ebony statue winged beast corner~
+As dark as night, the statue of a crouched beast stands almost serenely
+at its corner.  With outstretched wings and razor-sharp claws, the statue
+stares blankly at you.  Upon further examination, you notice a dust-free
+area at the base of the statue, revealing that it had been previously
+moved.
+~
+E
+small hole~
+No wider than a few inches, the hole seems to be acting as an outlet for
+the smoke.  A steady stream of the vapors flows downward through the hole.
+~
+A
+move push~
+ebony statue winged beast~
+act_tochar( #move, ch );
+act_notchar( #nmove, ch );
+wait( 1 );
+send_to_room( #open, room );
+wait( 1 );
+loop( all_in_room ) {
+  i = 3d5+15;
+  transfer( rch, find_room( 68027 ) );
+  act_tochar( #fall, rch );
+  act_notchar( #nfall, rch );
+  dam_message( rch, i, "the terrible fall" );
+  inflict( rch, mob, i, "falling down painfully" );
+  interpret( rch, "rest" );
+  }
+~
+E
+move~
+You move the ebony statue of a winged beast.
+~
+E
+nmove~
+$n moves the ebony statue of a winged beast.
+~
+E
+open~
+@CThe hole on the floor suddenly opens up, and you feel yourself plunging
+down the room.@n 
+~
+E
+fall~
+You fall into the room below, landing on your bottom!
+~
+E
+nfall~
+$n falls from the rooom above, landing on $s bottom!
+~
+!
+0 0 0
+-1
+S
+
+#68045
+Dark Hallway -- Third Floor~
+Passage through the hallway ends northward as a metallic stairwell stands
+all alone.  Several elaborate markings have been etched near the foot of
+the stairwell.  Dispersed into a small, discontinuous circle on the floor
+beside the eastern wall are some bone fragments.  The hallway continues
+further south.
+~
+[Nereus] metallic stairway stands all alone - sounds odd
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 68046 10 10 5
+D4
+~
+~
+0 -1 68055 10 10 5
+E
+metallic stairwell~
+The stairwell is made of copper and is rusting.  Many dried metal bits
+lie on the steps, as well as some blood splotches.
+~
+E
+elaborate markings~
+The markings look like like depictions of grotesque torture techniques. 
+One shows a person having his or her limbs stretched apart on a rack. 
+Another shows a pendulum swinging as its victim lies on a table.
+~
+E
+small discontinuous circle bone fragments~
+Parts of skulls and arm and leg bones have been placed into a circular
+shape.  The bones are remarkably white and free of dirt, and no
+detectable smell flows from them.
+~
+E
+walls~
+The images of the flames along the wall appear almost surreal.  They
+never appear to look the same after a second or third glance.
+~
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up the metallic stairwell.
+~
+!
+3 0 16
+A
+~
+circle bone fragments discontinuous small~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the circle of bone fragments, but don't find anything
+worth taking.
+~
+E
+nnada~
+$n searches through the circle of bone fragments, but doesn't take
+anything.
+~
+!
+9 0 0
+2128 9 1509949540 3 0
+-1
+S
+
+#68046
+Dark Hallway -- Third Floor~
+The orange and red flame patterns continue to be displayed across the
+walls.  Several partially split beams have fallen from the ceiling making
+passage through the hallway somewhat troublesome.  On the floor, layers
+of dust have formed.  You can make out some strange-looking footprints
+within the dust.  Obviously, someone has recently been here.
+~
+[Nereus] Isn't this rdesc identical to the one on the other side
+was going for the 'deja vu' effect, will change later i guess
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 68045 10 10 5
+D2
+~
+~
+0 -1 68047 10 10 5
+E
+flame patterns walls orange red~
+The images of the flames are almost surreal.  They never appear to look
+the same after a second or third glance.
+~
+E
+beams~
+The beams are cracked with many termite-eaten holes within them.  Some
+lay against the floor and partly block movement through the hallway.
+~
+E
+floor dust strange-looking footprints~
+Footprints of a creature with three clawed toes can be detected within
+the thick layers of dust along the wooden floor.
+~
+A
+~
+~
+send_to_room( #shift, room );
+~
+E
+shift~
+@yThe fiery patterns along the wall shift rapidly from side to side.@n
+~
+!
+2 500 0
+-1
+S
+
+#68047
+Dark Hallway -- Third Floor~
+The red and orange shadowy patterns depicted along the dark stone walls
+of this hallway resemble the flames of a raging inferno.  The floorboards
+don't look very worn and a lot of dust has accumulated, indicating these
+halls probably haven't been passed through very often.  A copper lever
+hangs against the southern wall beside an egg-shaped window.  The hallway
+continues northward.
+~
+lever to go down to 68039
+~
+301465612 0 6 0
+D0
+~
+~
+0 -1 68046 10 10 5
+D5
+downstairs door~
+downstairs door~
+235 -1 68039 10 10 5
+E
+red orange shadowy patterns dark stone walls~
+The images of the flames are almost surreal.  They never appear to look
+the same after a second or third glance.
+~
+E
+floor floorboards dust~
+About an inch of dust has formed upon the wooden floor.  A few rusty
+nails protrude through the floorboards which don't show many signs of
+advanced age, such as cracks or a dulled color.
+~
+E
+copper lever~
+The lever is made of shiny copper and looks as if it can still be pushed
+or pulled.
+~
+E
+egg-shaped window~
+The window is about the size of a gnome's head.  The glass is stained due
+to lack of cleaning, preventing you from seeing much of the outside.
+~
+A
+pull~
+lever~
+if( is_open( room, down ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #npull, ch );
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #uopen, find_room( 68039 ) );
+  open( room, down );
+  }
+~
+E
+nada~
+The lever is already in the pulled position.
+~
+E
+pull~
+You pull the copper lever.
+~
+E
+npull~
+$n pulls the copper lever.
+~
+E
+open~
+The floor opens up, and a ladder slides down, allowing passage downstairs.
+~
+E
+uopen~
+The ceiling opens up, and a ladder slides down, allowing passage upstairs.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( is_open( room, down ) ) {
+  act_tochar( #push, ch );
+  act_notchar( #npush, ch );
+  wait( 1 );
+  send_to_room( #close, room );
+  send_to_room( #uclose, find_room( 68039 ) );
+  close( room, down );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+push~
+You push the copper lever.
+~
+E
+npush~
+$n pushes the copper lever.
+~
+E
+close~
+The ladder slides back up, and the floor closes.
+~
+E
+uclose~
+The ladder slides back up, and the ceiling closes.
+~
+E
+nada~
+The lever is already in the pushed position.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the stairs.
+~
+!
+3 0 32
+A
+l look~
+ladder~
+if( is_open( room, down ) )
+  act_tochar( #ladder, ch );
+else
+  act_tochar( #nada, ch );
+~
+E
+ladder~
+The ladder is silver and sparkles brightly.
+~
+E
+nada~
+You do not see that here.
+~
+!
+0 0 0
+-1
+S
+
+#68049
+Hallway -- Third Floor~
+The halls here are decked in gaudy trinkets, such as small copper
+pentagrams and miniature skulls of various animals.  On the floor are the
+decomposing remains of previous visitors.  They lie spread across the
+eastern wall, a testament or possible warning of the dangers of your
+current location.  The hallway comes to an abrupt end southward as a
+metallic stairwell stands, providing passage upstairs.
+~
+rune in remains for entrance to demon
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 68050 10 10 5
+D4
+~
+~
+0 -1 68057 10 10 5
+E
+east walls gaudy trinkets pentagrams miniature skulls small copper~
+The trinkets are embedded within and against the walls.  Taking a step
+back, you notice that combined, they form an swirling image of a
+whirlpool.
+~
+E
+floor decomposing remains~
+Bones and mostly decayed flesh lie scattered in disorganized heaps along
+the eastern wall.  The skeletons look small enough to be of a dwarf's or
+gnome's.  The wretched smell and tangled mess make it difficult to be
+sure.
+~
+E
+metallic stairwell~
+The stairwell is made of copper and is rusting.  Many dried metal bits
+lie on the steps, as well as some blood splotches.
+~
+A
+~
+floor decomposing remains~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 5 ) == 2 ) {
+    act_tochar( #rune, ch );
+    act_notchar( #nrune, ch );
+    obj_to_char( oload( 3070 ), ch );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+rune~
+You search through the decomposing remains on the floor and find
+something interesting.
+~
+E
+nrune~
+$n searches through the decomposing remains on the floor and finds
+something.
+~
+E
+nada~
+You search through the decomposing remains on the floor, but find nothing
+interesting.
+~
+E
+nnada~
+$n searches through the decomposing remains on the floor, but doesn't
+find anything.
+~
+!
+9 0 0
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up the metallic stairwell.
+~
+!
+3 0 16
+2128 9 1509949540 3 0
+-1
+S
+
+#68050
+Hallway -- Third Floor~
+The orange and red flame patterns continue to be displayed across the
+stone walls.  Several partially split beams have fallen from the ceiling
+making passage through the hallway somewhat troublesome.  On the floor,
+layers of dust have formed.  You can make out some strange-looking
+footprints within the dust.  Obviously, someone has recently been here.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 68051 10 10 5
+D2
+~
+~
+0 -1 68049 10 10 5
+E
+flame patterns stone walls orange red~
+The images of the flames are almost surreal.  They never appear to look
+the same after a second or third glance.
+~
+E
+beams~
+The beams are cracked with many termite-eaten holes within them.  Some
+lay against the floor and partly block movement through the hallway.
+~
+E
+floor dust strange-looking footprints~
+Footprints of a creature with three clawed toes can be detected within
+the thick layers of dust along the wooden floor.
+~
+A
+~
+~
+send_to_room( #shift, room );
+~
+E
+shift~
+@yThe fiery patterns along the wall shift rapidly from side to side.@n
+~
+!
+2 500 0
+-1
+S
+
+#68051
+Hallway -- Third Floor~
+The red and orange shadowy patterns depicted along the dark stone walls
+of this hallway resemble the flames of a raging inferno.  The floorboards
+don't look that worn, and a lot of dust has accumulated, indicating that
+these halls probably haven't been passed through very often.  A rusty
+brass lever hangs against the northern wall beside an egg-shaped window. 
+The hallway continues southward.
+~
+down to 68029
+~
+301465612 0 6 0
+D2
+~
+~
+0 -1 68050 10 10 5
+D5
+floor~
+floor~
+235 -1 68029 10 10 5
+E
+red orange shadowy patterns dark stone walls~
+The images of the flames are almost surreal.  They never appear to look
+the same after a second or third glance.
+~
+E
+floor floorboards dust~
+About an inch of dust has formed on the wooden floor.  A few rusty nails
+protrude through the floorboards, which don't show many signs of advanced
+age, such as cracks or a dulled color.
+~
+E
+rusty brass lever~
+The lever is tarnished and rusted.  However, it looks as if it can still
+be pushed or pulled.
+~
+E
+egg-shaped window~
+The window is about the size of a gnome's head.  The glass is
+transluscent but uncleaned, making it difficult to see much of the
+outside.
+~
+A
+pull~
+lever~
+if( is_open( room, down ) )
+  act_tochar( #cant, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #npull, ch );
+  wait( 1 );
+  send_to_room( #open, room );
+  send_to_room( #uopen, find_room( 68029 ) );
+  open( room, down );
+  }
+~
+E
+cant~
+The lever is already in the pulled position.
+~
+E
+pull~
+You pull the rusty brass lever.
+~
+E
+npull~
+$n pulls the rusty brass lever.
+~
+E
+open~
+The floor opens up, and a ladder slides down the floor, allowing passage
+downstairs.
+~
+E
+uopen~
+A ladder slides from the ceiling, allowing passage upstairs.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( is_open( room, down ) ) {
+  act_tochar( #push, ch );
+  act_notchar( #npush, ch );
+  wait( 1 );
+  send_to_room( #close, room );
+  send_to_room( #uclose, find_room( 68029 ) );
+  close( room, down );
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+push~
+You push the rusty brass lever.
+~
+E
+npush~
+$n pushes the rusty brass lever.
+~
+E
+close~
+The ladder leading downstairs mysteriously vanishes.
+~
+E
+uclose~
+The ladder leading upstairs mysteriously vanishes.
+~
+E
+cant~
+The lever is already in the pushed position.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the ladder.
+~
+!
+3 0 32
+A
+l look~
+ladder~
+if( is_open( room, down ) )
+  act_tochar( #ladder, ch );
+else
+  act_tochar( #nada, ch );
+~
+E
+ladder~
+The ladder is silver and sparkles brightly.
+~
+E
+nada~
+You do not see that here.
+~
+!
+0 0 0
+-1
+S
+
+#68053
+A Massive Stairwell~
+This stairwell is surprisingly ostentatious, unlike much of the rest of
+this otherwise ordinary-looking tower.  The polished banister of the
+stairwell is made of thick oak wood, and its smooth texture demonstrates
+its fine craftsmanship.  The trek along this massive, carpeted stairwell
+continues a little further upward, but there are many more steps downward.
+~
+~
+301465604 0 6 0
+D4
+~
+~
+0 -1 68054 10 10 5
+D5
+~
+~
+0 -1 68041 10 10 5
+E
+stairwell banister carpeted~
+The stairwell consists of countless steps, each carpeted in red with
+purple-dyed silk along its sides.  The banister is remarkably shiny and
+made of dark brown oak.
+~
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb to the top of the stairwell.
+~
+!
+3 0 16
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the stairwell.
+~
+!
+3 0 32
+-1
+S
+
+#68054
+Before the Obsidian Doors~
+You are at the top of the carpeted stairwell before a pair of huge,
+obsidian-banded doors.  A granite gargoyle rests at the foot of the side
+of each door, as though protecting whatever lies beyond them.  The
+strange, smoke-like vapors which filled most of the lower floor seems to
+be originating through the doors to the north.
+~
+Leaving north will zap everyone unless it gets untrappped
+mushroom-shaped rune protects the carrier from arrows, too
+~
+301465604 0 8 0
+D0
+obsidian-banded doors~
+obsidian-banded doors~
+131 -1 68059 10 10 5
+D5
+~
+~
+0 -1 68053 10 10 5
+E
+huge obsidian-banded doors~
+The doors are over ten feet high and are a solid black color.  Near the
+top of the right door is a carved image of a horned beast's head with
+glittering scarlet eyes.  Its fangs look long and sharp, and its
+expression is one of pure hatred.
+~
+E
+granite gargoyle~
+The gargoyles are in a crouched, alert position, looking ready to pounce
+on someone.  Just above them is an octagonal symbol.  At its center is a
+mushroom-shaped hole.
+~
+E
+carpeted stairwell~
+The stairwell consists of countless steps, each carpeted in red with
+purple-dyed silk along its side.  The railing is remarkably shiny and
+made of dark brown oak.
+~
+E
+smoke-like vapors~
+The vapors are white in color and seem to comform to your movements. 
+They produce no recognizable scent.
+~
+E
+octagonal symbol mushroom-shaped hole~
+The octagonal symbol is about several inches long.  You're can't make out
+what is in the mushroom-shaped hole at the middle of the symbol.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the carpeted stairwell.
+~
+!
+3 0 32
+A
+inspect~
+octagonal symbol mushroom-shaped hole~
+i = random( 2, 6 );
+if( find_skill( ch, inspect ) > i ) {
+  act_tochar( #inspect, ch );
+  act_notchar( #ninspect, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+inspect~
+You inspect the octagonal symbol and the mushroom-shaped hole, and
+realize that a thin wire has been attached from the octagonal symbol,
+hurting anyone who heads north past the doors.
+~
+E
+ninspect~
+$n inspects the octagonal symbol and the mushroom-shaped hole, then
+signal that the octagonal symbol is a trap.
+~
+E
+nada~
+You see nothing unusual.
+~
+!
+0 0 0
+A
+untrap disarm~
+octagonal symbol~
+i = random( 0, 9 );
+if( rflag( reset0, room ) ) {
+  act_tochar( #try, ch );
+  act_notchar( #ntry, ch );
+  wait( 1 );
+  act_tochar( #arrow, ch );
+  act_notchar( #narrow, ch );
+  if( has_obj( 3070, ch ) ) {
+    act_tochar( #rune, ch );
+    act_notchar( #nrune, ch );
+    }
+  else {
+    dam_message( ch, 5d5+5, "a poison-tipped arrow" );
+    inflict( mob, ch, 5d5+5, "a poison-tipped arrow" );
+    poison( ch );
+    }
+  if( find_skill( ch, untrap ) > i ) {
+    remove_rflag( reset0, room );
+    act_tochar( #success, ch );
+    act_notchar( #nsuccess, ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #nfail, ch );
+    }
+  }
+else
+  act_tochar( #done, ch );
+~
+E
+try~
+You carefully attempt to untrap the octagonal symbol.
+~
+E
+ntry~
+$n attempts to untrap the octagonal symbol.
+~
+E
+rune~
+@BThe mushroom-shaped rune suddenly glows, protecting you from the
+arrows.@n 
+~
+E
+arrow~
+@BPoison-tipped arrows fly from the octagonal symbol and towards you!@n
+~
+E
+narrow~
+@BPoison-tipped arrows fly from the octagonal symbol and towards $n!@n
+~
+E
+nrune~
+@BThe mushroom-shaped rune suddenly glows, protecting $n from the
+arrows.@n 
+~
+E
+success~
+You successfully untrap the octagonal symbol, rendering it harmless.
+~
+E
+nsuccess~
+$n successfully untraps the octagonal symbol, rendering it harmless.
+~
+E
+fail~
+You are unable to successfully untrap the octagonal symbol.
+~
+E
+nfail~
+$n is unable to successfully untrap the octagonal symbol.
+~
+E
+done~
+The octagonal symbol has already been untrapped.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  loop( all_in_room ) {
+    if( is_player( rch ) ) {
+      i = 3d10+25;
+      send_to_room( #arrows, room );
+      if( has_obj( 3070, rch ) ) {
+        act_tochar( #rune, ch );
+        act_notchar( #nrune, ch );
+        }
+      else {
+        dam_message( rch, i, "a poison-tipped arrow" );
+        inflict( mob, rch, i, "a poison-tipped arrow" );
+        poison( rch );
+        }
+      }
+    continue;
+    }
+  }
+else
+  continue;
+~
+E
+arrows~
+@BPoison-tipped arrows suddenly come flying at you!@n
+~
+E
+rune~
+@BThe mushroom-shaped rune suddenly glows, protecting you from the
+arrows.@n 
+~
+E
+nrune~
+@BThe mushroom-shaped rune suddenly glows, protecting $n from the
+arrows.@n 
+~
+!
+3 0 1
+2128 9 1509949540 3 0
+-1
+S
+
+#68055
+A Metallic Stairwell~
+The stairwell continues further up and down along numerous metal steps. 
+Dried bloodstains and slimy footprints on the steps hint that someone has
+recently climbed these stairs.  The handrails look exceedingly old and
+worn out, with bits of their surface having peeled off.  At the top of
+the stairwell is a door.  Hanging from the ceiling beside the door is a
+silver cord.
+~
+~
+301465604 0 5 0
+D4
+upstairs door~
+upstairs door~
+195 -1 68056 10 10 5
+D5
+~
+~
+0 -1 68045 10 10 5
+E
+steps bloodstains footprints~
+The bloodstains have dried but still appear to be recently spilled. 
+Footprints of a three-toed creature can be seen on every other step of
+the stairwell.
+~
+E
+handrails~
+The handrails are made of copper.  Mostly rusted, you think it'd be wise
+to avoid using them.
+~
+E
+silver cord~
+The cord dangles from the dusty ceiling above you.  A slimy substance
+seems to be dripping from it.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the metallic stairwell.
+~
+!
+3 0 32
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up past the top of the metallic stairwell.
+~
+!
+3 0 16
+A
+pull~
+silver cord~
+act_tochar( #pull, ch );
+act_notchar( #npull, ch );
+if( is_open( room, up ) ) {
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 68056 ) );
+  close( room, up );
+  }
+else {
+  send_to_room( #open, room );
+  send_to_room( #dopen, find_room( 68056 ) );
+  open( room, up );
+  }
+~
+E
+pull~
+You pull the silver cord.
+~
+E
+npull~
+$n pulls the silver cord.
+~
+E
+close~
+The door suddenly closes.
+~
+E
+open~
+The door suddenly opens up, allowing passage upstairs.
+~
+E
+dopen~
+The door suddenly opens.
+~
+!
+0 0 0
+-1
+S
+
+#68056
+A Confined Cell~
+Cobwebs and bugs infest each corner of this dank room.  The stone walls
+are chipped and filled with many little holes.  Once painted in black and
+green, they're now discolored and appear dull and gray.  Hanging off each
+wall are rows of rusty chains and locks.  A couple of skeletons remain
+chained on the eastern wall, as though absorbed by it.  A dusty wooden
+door lies on the western part of the soiled floor.
+~
+toymaker's ghost trapped here and needs to be free to go to spirit world
+with wife 
+will load when dactyron is gone and disappear if he isn't
+[Nereus] extras - [ chipped stone holes little ], add to walls
+thought 2 sentences in rdesc of walls was enough so didn't add an extra
+~
+301465604 0 7 0
+D5
+dusty wooden door~
+dusty wooden door~
+195 -1 68055 10 10 5
+E
+cobwebs bugs corner~
+Thick cobwebs inhabit each corner and crevice of the cell.  Beetles and
+ants crawl in and around them, oblivious to your presence.
+~
+E
+rusty chains locks skeletons~
+Although rusted and chipped, the silvery chains are quite strong and
+sturdy.  The skeletons that lie chained against the wall look ghastly,
+their skulls giving a saddened expression.  Bugs and worms crawl on and
+through them.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the metallic stairwell.
+~
+!
+3 0 32
+A
+open~
+down d dusty wooden door~
+if( is_open( room, down ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, down );
+  }
+~
+E
+nada~
+The dusty wooden door is already open.
+~
+E
+open~
+You open the dusty wooden door leading down.
+~
+E
+nopen~
+$n opens the dusty wooden door leading down.
+~
+!
+0 0 0
+A
+close~
+down d dusty wooden door~
+if( is_open( room, down ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #nclose, ch );
+  close( room, down );
+  }
+else
+  act_tochar( #done, ch );
+~
+E
+close~
+You close the dusty wooden door.
+~
+E
+nclose~
+$n closes the dusty wooden door.
+~
+E
+done~
+The dusty wooden door is already closed.
+~
+!
+0 0 0
+A
+~
+cobwebs corners~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the cobwebs in the corners of the room, but don't find
+anything worth taking.
+~
+E
+nnada~
+$n searches through the cobwebs in the corners of the room, but doesn't
+find anything worth taking.
+~
+!
+9 0 0
+-1
+S
+
+#68057
+A Metallic Stairwell~
+The stairwell continues further up and down along numerous metal steps. 
+Dried bloodstains and slimy footprints on the steps hint that someone has
+recently climbed these stairs.  The handrails look exceedingly old and
+worn out, with bits of their surface having peeled off.  At the top of
+the stairwell is a door.  Hanging from the ceiling beside the door is a
+silver cord.
+~
+~
+301465604 0 5 0
+D4
+upstairs door~
+upstairs door~
+195 -1 68058 10 10 5
+D5
+~
+~
+0 -1 68049 10 10 5
+E
+steps bloodstains footprints~
+The bloodstains have dried, but still appear to be recently spilled. 
+Footprints of a three-toed creature can be seen on every other step of
+the stairwell.
+~
+E
+handrails~
+The handrails are made of copper.  Mostly rusted, you think it would be
+wise to avoid using them.
+~
+E
+silver cord~
+The cord dangles from the dusty ceiling above you.  A slimy substance
+seems to be dripping from it.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You climb down the metallic stairwell.
+~
+!
+3 0 32
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up past the top of the metallic stairwell.
+~
+!
+3 0 16
+A
+pull~
+silver cord~
+act_tochar( #pull, ch );
+act_notchar( #npull, ch );
+if( !is_open( room, up ) ) {
+  send_to_room( #open, room );
+  send_to_room( #dopen, find_room( 68058 ) );
+  open( room, up );
+  }
+else {
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 68058 ) );
+  close( room, up );
+  }
+~
+E
+pull~
+You pull on the silver cord.
+~
+E
+npull~
+$n pulls on the silver cord.
+~
+E
+open~
+The door suddenly opens, allowing passage upstairs.
+~
+E
+dopen~
+The door suddenly opens.
+~
+E
+close~
+The door suddenly closes.
+~
+!
+0 0 0
+-1
+S
+
+#68058
+A Vault~
+Shelves filled with all sorts of exotic-looking artifacts surround this
+cluttered room.  Some of them look ready to collapse beneath the
+tremendous weight of what they carry.  On the middle of the floor is a
+metal toy chest, decorated in yellow, red, and blue designs.  A shiny,
+bronze-plated door lies a few feet next to the chest.
+~
+toy chest reset requiring demon head glyph from west basement room
+will make the toy later for quest to give to gnomish child in orlumber
+~
+301465604 0 6 0
+D5
+bronze-plated door~
+bronze-plated door~
+195 -1 68057 10 10 5
+E
+shelves exotic-looking artifacts~
+Dusty wooden shelves hang against the walls encircling this room. 
+Stacked upon them are finely-carved wooden dolls, models, and other toys.
+~
+E
+metal toy chest~
+Yellow five-pointed stars, red crescents, and blue diamond shapes
+decorate the exterior of this metal toy chest.  Relatively large, but
+only occupying a small portion of the room, the chest extends about five
+feet long and two feet wide.  A symbol of a horned demon's head hangs
+next to the chest's lock.
+~
+A
+open~
+shiny bronze-plated door down d~
+if( is_open( room, down ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, down );
+  }
+~
+E
+nada~
+The shiny, bronze-plated door is already open.
+~
+E
+open~
+You open the shiny, bronze-plated door.
+~
+E
+nopen~
+$n opens the shiny, bronze-plated door.
+~
+!
+0 0 0
+A
+close~
+shiny bronze-plated door down d~
+if( is_open( room, down ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #nclose, ch );
+  close( room, down );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+close~
+You close the shiny, bronze-plated door.
+~
+E
+nclose~
+$n closes the shiny, bronze-plated door.
+~
+E
+nada~
+The shiny, bronze-plated door is already closed.
+~
+!
+0 0 0
+A
+~
+shelves exotic-looking artifacts~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the exotic-looking artifacts on the shelves, but find
+nothing that suits your fancy.
+~
+E
+nnada~
+$n searches through the exotic-looking artifacts on the shelves, but
+doesn't take any.
+~
+!
+9 0 0
+A
+pick~
+A closed metal toy chest~
+if( rflag( reset0, room ) ) {
+  if( has_obj( 3026, ch ) ) {
+    remove_rflag( reset0, room );
+    send_to_room( #glow, room );
+    act_notchar( #npick, ch );
+    continue;
+    }
+  else
+    act_tochar( #fail, ch );
+  }
+else
+  act_tochar( #done, ch );
+~
+E
+npick~
+$n picks open the metal toy chest.
+~
+E
+glow~
+@cThe demon-headed glyph glows faintly.@n
+~
+E
+fail~
+A magical aura prevents you from picking the chest.
+~
+E
+done~
+It's already unlocked.
+~
+!
+0 0 0
+2128 9 1509949540 3 0
+3041 49 1509949540 -2 0
+3037 81 1509949460 -2 0
+2386 81 1509949455 -2 0
+2369 81 15 -2 0
+2633 81 15 -2 0
+3089 81 1509949460 -2 0
+3153 81 1509949460 -2 0
+3152 81 1509949460 -2 0
+3088 81 1509949460 -2 0
+3093 81 1509949450 -2 0
+3151 81 1509949455 -2 0
+-1
+S
+
+#68059
+A Lavish Throne Room~
+Blue and silver glitter from the domed ceiling of this extravagantly
+furnished, yet extremely warm chamber.  Piles of coins resembling ocean
+waves surround the room, sparkling so brightly that they might blind
+someone who stared at them for too long.  Menacingly situated at the
+center is a huge throne of bones.  From behind the throne stream out
+thick white vapors.  Just below and before the throne upon the marble-
+tiled floor is an immense, neatly-drawn pentagram.
+~
+[Nereus] sit throne - 'a multitude of spikes come' -> 'a multitude of
+spikes comes' 
+~
+301465605 0 9 0
+D2
+obsidian-banded doors~
+obsidian-banded doors~
+131 -1 68054 10 10 5
+E
+piles coins~
+The piles of coins are like steep hills.  They seem to give off so much
+light, making you feel dizzy.
+~
+E
+marble-tiled floor pentagram neatly-drawn immense~
+The round pentagram has been drawn very skillfully in solid black.  Heat
+seems to be generating from the core of the pentagram, as though it were
+supplying this room with almost unbearable warmth.
+~
+E
+throne bones~
+The throne appears to be made of the skulls and skeletons of some small
+humanoids.  Judging by its colossal size, the throne looks like it was
+designed to fit someone or something about the size of a small dragon.
+~
+E
+smoke thick white vapors~
+The vapors are white in color and seem to conform to your movements. 
+They produce no recognizable scent.
+~
+E
+domed ceiling~
+The ceiling is curved with little holes ingrained sporadically around it. 
+Light seems to pass through the holes.
+~
+A
+~
+piles coins~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the pile of coins, but they all suddenly disappear
+from your grasp.
+~
+E
+nnada~
+$n searches through the pile of coins, but the coins just disappear.
+~
+!
+9 0 0
+A
+sit rest~
+throne bones~
+act_tochar( #ouch, ch );
+act_notchar( #nouch, ch );
+i = 4d4+10;
+dam_message( ch, i, "a sharp spike" );
+inflict( mob, ch, i, "a throne of bone's sharp spike" );
+~
+E
+ouch~
+As you try to sit on the throne of bones, a multitude of spikes comes
+flying at you.
+~
+E
+nouch~
+As $n tries to sit on the throne of bones, a multitude of spikes comes
+flying at $m.
+~
+!
+0 0 0
+2129 9 1509949540 3 0
+-1
+S
+
+#68060
+Before an Old Tower~
+You stand before an enormous stone tower.  The blue paint on its facade
+is cracked and peeling, leaving behind a decrepit, abandoned appearance
+to the tower.  A large heavy oak door to the north serves as the only
+obvious entrance.  Long strands of ivy grow beside the door and covers
+much of the tower's front.  Dense, overgrown shrubs and trees obstruct
+travel west and south.  To the east, a plant-covered trail slopes its way
+downward.
+~
+possibly make a pool/lake area west of here in future
+~
+301465600 3 9 0
+D0
+heavy oak door~
+heavy oak door~
+391 3148 68000 10 10 5
+D1
+~
+~
+0 -1 68061 10 10 5
+E
+1 north large heavy oak door~
+The door stands over six feet tall and several feet wide.  It's made
+from dark gray oak and looks solidly built.
+~
+E
+enormous stone tower~
+The tower rises too high in the air for you to see its peak.  You notice
+a balcony, with a cracks along its edges, overlooking the entrance.  A
+few pebbles occasionally fall from the balcony.
+~
+E
+blue paint facade~
+Now faded and dried, the blue paint which covers the exterior of the
+tower only partially remains.  Some of the fallen paint chips have formed
+miniature piles which quickly diminish with a passing wind.
+~
+E
+dense overgrown shrubs trees~
+Bright green ferns and shrubs have grown tightly together.  Above and
+beside them are tall oak trees which obscure your view of whatever lies
+beyond them.
+~
+E
+1 east plant-covered trail~
+The trail has many plants growing along it, but looks passable.  It seems
+to continue a great distance eastward.
+~
+E
+long strands ivy front~
+The ivy is light green, long, and sinewy.  It winds its way up the sides
+of the tower, like a snake crawling around ready to pounce on its prey.
+~
+-1
+S
+
+#68061
+An Overgrown Path~
+Chirping noises from the dense forest to the north and south are the only
+sounds disturbing the eerie stillness of the area.  Growing almost
+uncontrollably along the trail are dark green ferns and shrubs.  Past the
+tall trees to the northwest, you can make out an aged tower whose stone
+appears worn and eroded.  You can move up the trail eastward, or down the
+trail westward.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 68062 10 10 5
+D3
+~
+~
+0 -1 68060 10 10 5
+E
+dense forest tall trees 1 north 1 south northwest~
+A multitude of tall oak trees grow closely together in the forest. 
+Growing below and beside the trees are many broad-leafed ferns and bushes. 
+The plants grow too tightly together to allow anyone to easily enter the
+forest.
+~
+E
+dark green ferns shrubs bushes broad-leafed~
+The ferns are a healthy shade of green, while the shrubs are verdant with
+many branches.  They cover most of the area to the north and south, and
+have begun to overtake the trail as well.
+~
+E
+aged tower stone northwest~
+You can see a tower which stands as high as the oak trees of the forest. 
+You can't study its detail too clearly from here, but do notice how faded
+and worn its exterior looks.
+~
+-1
+S
+
+#68062
+An Overgrown Path~
+The strong, minty smell from the plants which grow along the trail
+overwhelms your senses.  Their foliage is very dense, making it a trying
+endeavor to proceed north or south.  A slight breeze sometimes passes by,
+creating a wave-like rustling among the plants.  Enough of the path has
+been cleared to allow you to travel east and west.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 68063 10 10 5
+D3
+~
+~
+0 -1 68061 10 10 5
+E
+plants foliage~
+Bright green, leafy ferns and bushes grow wildly along and beside the
+trail.  A fragrant scent emanates from several of them, revitalizing your
+sense of smell.
+~
+415 17 1509949540 -2 0
+-1
+S
+
+#68063
+An Overgrown Path -- Before a Gazebo~
+To the north of you stands a gazebo which obviously has not been cared
+for lately.  Its wood is cracked and faded gray, and many rocks and twigs
+cover the steps of the entrance.  Trees surround its wooden railing, like
+giant, intimidating guardians.  The trail slopes slightly down if you
+head east, and upward if you head west.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 68065 10 10 5
+D1
+~
+~
+0 -1 68064 10 10 5
+D3
+~
+~
+0 -1 68062 10 10 5
+E
+1 north gazebo~
+The round, wooden gazebo stands about ten feet and wide.  Its roof is
+domed, like a hut's.  Bird droppings and dried leaves cover the roof.
+~
+E
+wood~
+The gazebo's wood has decayed from years of exposure to the elements.  It
+is gray and many splinters spring out from it.
+~
+E
+trees~
+The towering oak trees which fill the area to the south of you, also
+surround the gazebo.  They grow surprisingly close together and form a
+protective barrier around the gazebo.
+~
+E
+wooden railing~
+The worn wooden railing of the gazebo is cracked and stained with bird
+droppings and crushed berries.
+~
+E
+rocks twigs entrance~
+Many small gray rocks and brown twigs lie scattered along the cracked
+wooden steps leading into the gazebo.
+~
+A
+~
+~
+act_tochar( #north, ch );
+continue;
+~
+E
+north~
+You head up the cracked wooden steps of the gazebo.
+~
+!
+3 0 1
+-1
+S
+
+#68064
+An Overgrown Path~
+Thick branches from the grand oak trees surrounding you have fallen upon
+the trail.  Much vegetation has sprouted along the trail, so much so that
+you can barely make out the ground below.  Looking up, the canopy of tree
+limbs blocks out much of the sky.  The trail continues east and on an
+upward slope west.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 68066 10 10 5
+D3
+~
+~
+0 -1 68063 10 10 5
+E
+thick branches~
+The heavy-looking branches are several feet long and a dull gray.  They
+have fallen haphazardly on the trail, causing some difficulty to progress
+along the trail.
+~
+E
+vegetation~
+Wildly growing shrubs and bushes grow all around the trail.  Some have
+grown too tightly together, impeding movement to the north and toouth.
+~
+E
+1 up canopy tree limbs sky~
+The many tree limbs extending from the tall oak trees prevent a clear
+view of the sky above.
+~
+E
+ground~
+From what little you see of it, the ground is dark brown and moist.
+~
+358 17 1509949540 -2 0
+-1
+S
+
+#68065
+An Old Gazebo~
+You are inside the withered remains of what was once perhaps a fine
+gazebo.  Its wooden finish is now cracked and shows signs of many years
+of deterioration.  Surrounding your view beyond the worn wooden rails of
+the gazebo are immense oak trees.  A pile of broken branches lie strewn
+along the ground, probably windswept from the trees outside.  You can
+leave through the steps to the south.
+~
+search for key to enter and leave tower here
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 68063 10 10 5
+E
+wooden finish~
+The wooden finish of the gazebo is gray and cracked.  Some wood chips lie
+scattered about the ground.
+~
+E
+worn rails~
+The railing is very old and worn.  Some of the wood has been broken in
+half.  Along the ledge of the railing are bird droppings and other stains.
+~
+E
+immense oak trees~
+You can only see the bark of the oak trees around you.  They grow real
+closely together and prevent you from seeing anything beyond them.
+~
+E
+pile broken branches~
+The branches are most likely of the oak trees outside of the gazebo. 
+They are thick and gray, and form a surprisingly neat pile at the middle
+of the floor.
+~
+A
+~
+pile broken branches~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #key, ch );
+  act_notchar( #nkey, ch );
+  obj_to_char( oload( 3148 ), ch );
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+key~
+You search through the pile of broken branches and find something.
+~
+E
+nkey~
+$n searches through the pile of broken branches and finds something.
+~
+E
+nada~
+You search through the pile of broken branches, but find nothing of use.
+~
+E
+nnada~
+$n searches through the pile of broken branches, but finds nothing of use.
+~
+!
+9 0 0
+A
+~
+~
+act_tochar( #south, ch );
+continue;
+~
+E
+south~
+You head down the steps of the gazebo.
+~
+!
+3 0 4
+-1
+S
+
+#68066
+An Overgrown Path~
+A soft, cool breeze brushes against you, as you stand at a bend in the
+trail.  Dwarfing your presence are towering oak trees which fill most of
+the area to the north and east.  The trees and plants, growing beside the
+trees, have grown too closely together to allow you to make out much of
+what lies past them, let alone allow passage through them.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 68067 10 10 5
+D3
+~
+~
+0 -1 68064 10 10 5
+E
+1 north 1 east towering oak trees plants~
+The oak trees stretch for many feet high in the air, having lived
+undoubtedly for many years.  Low lying shrubs grow beside the trees,
+densely packed together.
+~
+-1
+S
+
+#68067
+An Overgrown Path~
+A huge, moss-filled log blocks movement westward as the quiet trail
+continues to wind its way north and east through the dense forest.  Many
+ferns and bushes grow along the trail and fill the area with a pleasant
+smell.  Disrupting the silence of the forest is an occasional chirping
+sound from insects somewhere nearby.
+~
+listening sound action maybe
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 68066 10 10 5
+D1
+~
+~
+0 -1 68068 10 10 5
+E
+huge moss-filled log~
+The log is of a fallen oak tree.  Thick clumps of dark-green moss grows
+randomly along its bark.  Many insects crawl along the moss.
+~
+E
+ferns bushes~
+The ferns are broad-leafed and have grown abundantly along the sides of
+the trail.  The bushes grow sporadically in the middle of the trail.  The
+plants give off a combined fresh, pleasant scent.
+~
+-1
+S
+
+#68068
+An Overgrown Path~
+The silence of the forest is rather surprising since wildlife should
+probably somewhere beyond the densely-grown oak trees.  A lot of
+vegetation has started to overtake the trail, making maneuvering around a
+little more difficult.  The trail continues eastward, where the
+vegetation growth has thinned out, and westward.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 68069 10 10 5
+D3
+~
+~
+0 -1 68067 10 10 5
+E
+1 north 1 south densely-grown oak trees~
+The trees stretch high in the air, denoting the advanced age of the
+forest.  Their heigh blocks out much of the possible light from the sky.
+~
+E
+vegetation~
+Dark-green, leafy bushes and shrubs grow wildly along the trail.  They
+smell of fresh, strong mint, nearly overwhelming your senses.
+~
+-1
+S
+
+#68069
+A Cleared Trail~
+A narrow dirt trail free of plants has been cleared, allowing possible
+passage westward.  Tall oak trees surround your view of the north and
+south, making movement in those directions improbable.  Looking eastward,
+the trail comes to an end, as it forms a junction with a path littered
+with black dust fragments.
+~
+east is 39008 to black hills road
+~
+301465600 3 9 0
+D1
+~
+~
+34 -1 39008 10 10 5
+D3
+~
+~
+0 -1 68068 10 10 5
+E
+1 north 1 south tall oak trees~
+The trees stretch high in the air, denoting the advanced age of the
+forest.  Their height blocks out much of the possible light from the sky.
+~
+-1
+S
+
+#0
+

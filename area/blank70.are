@@ -1,0 +1,1172 @@
+#AREA
+Barren Brush~
+Kaos~
+~
+
+10 0
+0
+#ROOMS
+
+#46000
+Scrub Brush~
+The forest on this side of the trail seems strangely scarce and
+downtrodden.  Small bits of what must have been shrubs and bushes are now
+just sticks and twigs.  The soil here is mostly sand and fine dirt with
+small tufts of grass that have somehow survived.  There is a road to the
+east of here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46001 10 10 5
+D1
+~
+~
+0 -1 42271 10 10 5
+D2
+~
+~
+0 -1 46007 10 10 5
+D3
+~
+~
+0 -1 46012 10 10 5
+E
+1 east road~
+To the east, you see a well-worn road.
+~
+1027 8 1509949490 3 0
+-1
+S
+
+#46001
+Scrub Brush~
+The area around you is nothing but a sordid collection of withered beauty. 
+Twisted old vines and underbrush litter the area, making it difficult to
+move.  The sandy soil that makes up the lifesblood for these plants
+makes it quite difficult to thrive.  You may move in any direction from
+here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46004 10 10 5
+D1
+~
+~
+0 -1 46002 10 10 5
+D2
+~
+~
+0 -1 46000 10 10 5
+D3
+~
+~
+0 -1 46013 10 10 5
+-1
+S
+
+#46002
+Scrub Brush~
+On this, the western side of the Old Forest Trail, the soil has a large
+sand content, consistent with that of the trail.  Old, twisted pieces of
+rotten vines and dead underbrush litter the area around, making for a
+quite desolate picture.  Small pebbles lie strewn all around the area
+here.  You can move in any direction, and there is a road to the east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46003 10 10 5
+D1
+~
+~
+0 -1 42284 10 10 5
+D2
+~
+~
+0 -1 42271 10 10 5
+D3
+~
+~
+0 -1 46001 10 10 5
+-1
+S
+
+#46003
+Scrub Brush~
+The way becomes hard to follow here, mostly because of the scraggly vines
+that seem to be grabbing at you from the ground.  Small insects seem to
+crawl into tiny pits and crevasses in the sandy soil that dominates the
+area.  You may move in any direction here, provided the underbrush
+allows you to.  There is a road to the east of here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46005 10 10 5
+D1
+~
+~
+0 -1 42283 10 10 5
+D2
+~
+~
+0 -1 46002 10 10 5
+D3
+~
+~
+0 -1 46004 10 10 5
+E
+1 east road~
+There is an old, well-travelled road to the east.
+~
+A
+~
+~
+if( random( 1, 10 ) > 3 ) {
+  send_to_room( #to_room, room );
+  end;
+  }
+~
+E
+to_room~
+A small insect flies from one of the small pits and lands directly on
+your arm!
+~
+!
+2 250 0
+A
+look search open~
+pit pits~
+if( is_player( ch ) ) {
+  if( rflag( reset1, room ) ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    mload( 609, room );
+    mload( 609, room );
+    if( random( 1, 10 ) < 6 )
+      mload( 609, room );
+    if( random( 1, 10 ) < 4 )
+      mload( 609, room );
+    remove_rflag( reset1, room );
+    }
+  else
+    send_to_char( #false_char, ch );
+  }
+else
+  send_to_room( #notplayer );
+~
+E
+true_char~
+You find a cloud of insects flying directly towards your face!
+~
+E
+true_room~
+$n finds a large cloud of insects enveloping $s head!
+~
+E
+false_char~
+You find that the pits are empty.
+~
+E
+notplayer~
+$n finds that the pits are quite empty.
+~
+!
+0 0 0
+959 8 1509949540 3 0
+-1
+S
+
+#46004
+Scrub Brush~
+Looking around you, nothing else is to be seen except ugly brown vines
+and wilted black shrubbery.  The occasional insect is the only sign of
+life that you can find around here.  To the north, you can see the tops
+of a few trees poking upwards towards the dark sky.  You can move in any
+direction from here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46006 10 10 5
+D1
+~
+~
+0 -1 46003 10 10 5
+D2
+~
+~
+0 -1 46001 10 10 5
+D3
+~
+~
+0 -1 46014 10 10 5
+E
+top tops tree trees 1 north~
+The bright green trees poke their tops over the horizon to the north.
+~
+-1
+S
+
+#46005
+Scrub Brush~
+The desolate brush and dead undergrowth almost cease to exist here.  The
+ground rises up to the north, and you can see the tops of trees over the
+incline.  You can hear the sounds of a forest that is alive eminating
+from within.  You may head in any direction from here, and there is a
+road to the east.
+~
+[Nettle] you can't head north from here
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 42270 10 10 5
+D2
+~
+~
+0 -1 46003 10 10 5
+D3
+~
+~
+0 -1 46006 10 10 5
+E
+1 east road~
+To the east lies a well-worn road that leads north and south.
+~
+-1
+S
+
+#46006
+Scrub Brush~
+The decrepit brush gives way to a more lush forest to the north here,
+where the ground rises sharply.  Tall, green trees rise straight up in
+front of you and create a stark contrast to the thin twigs that lie at
+your feet. You may proceed to the east, south, or west.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 46005 10 10 5
+D2
+~
+~
+0 -1 46004 10 10 5
+D3
+~
+~
+0 -1 46015 10 10 5
+959 8 1509949540 3 0
+-1
+S
+
+#46007
+Scrub Brush~
+You have entered a gathering of twisted vines and burnt-out shrubbery.
+The small bits of scraggly bushes and leafless plants claw at you as you
+walk by them.  Small rocks and pebbles mix in with the sandy soil under
+you.  A tall rock formation rises up a long way to the west and a road
+lies to the east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46000 10 10 5
+D1
+~
+~
+0 -1 42272 10 10 5
+D2
+~
+~
+0 -1 46008 10 10 5
+D3
+~
+~
+0 -1 46011 10 10 5
+E
+rock rock formation 1 west~
+The rock formation to the west looks quite small in the distance.
+~
+-1
+S
+
+#46008
+Scrub Brush~
+The way seems to blend into what is left of the brush here.  The brush
+gives in to a tangle of thin, spindly branches and torn underbrush that
+looks like it has been dead for quite some time.  A closer look to the
+west reveals more of this scrub brush than first appeared.  You may move
+in any direction from here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46007 10 10 5
+D1
+~
+~
+0 -1 42273 10 10 5
+D2
+~
+~
+0 -1 46009 10 10 5
+D3
+~
+~
+0 -1 46010 10 10 5
+E
+1 west~
+To the west, you can see a break in the underbrush.
+~
+E
+1 east~
+To the east, you can see a road running north and south.
+~
+-1
+S
+
+#46009
+Scrub Brush~
+The underbrush has grown especially thick and tangled here.  Although
+none of it seems to still be alive, it is rather difficult to try and
+break through it.  There is a rock shelf that rises up to the west and
+south, but you can see a road to the east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46008 10 10 5
+D1
+~
+~
+0 -1 42274 10 10 5
+D2
+~
+~
+0 -1 42304 10 10 5
+E
+rock shelf~
+The rock formation that rises up to the west and south reaches straight
+up, high into the sky.
+~
+1027 8 1509949540 3 0
+-1
+S
+
+#46010
+Scrub Brush~
+The small scrub that you have been walking through comes to an abrupt
+halt at the rock shelf that rises up here to the west and south.  The
+brush that remains around is withered and broken, and much of it is
+completely without leaves of any kind.  The stratified rock paints a
+beautiful picture against the horrid ground that you have grown
+accustomed to travelling on.  You may continue to the north or east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46011 10 10 5
+D1
+~
+~
+0 -1 46008 10 10 5
+E
+rock shelf~
+The layers of rock that make up this rock shelf are all of different
+colors and create a wonderful effect in themselves.
+~
+-1
+S
+
+#46011
+Scrub Brush~
+The brush and debris that is littered around you here is a testament to
+how unkempt a place can really become.  Small twigs and withered vines
+surround you everywhere you look.  The occasional insect crawling around
+on the dead piles of vegetation are the only sign of life here.  You may
+move in any direction.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46012 10 10 5
+D1
+~
+~
+0 -1 46007 10 10 5
+D2
+~
+~
+0 -1 46010 10 10 5
+D3
+~
+~
+0 -1 46022 10 10 5
+E
+vegetation~
+This sparse vegetation is piled up high in dead bunches around the area
+here.
+~
+-1
+S
+
+#46012
+Scrub Brush~
+Large, dead vines and branches clutter the area surrounding you.  The
+sandy soil makes a loud gritty sound when you move upon it, and small
+insects crawl in and out of the small pits that have been dug in it. 
+This forest was once fabled to contain the most beautiful collection of
+foliage in the realm, but now is as desolate as anything you have ever
+seen.  You may move in any direction from here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46013 10 10 5
+D1
+~
+~
+0 -1 46000 10 10 5
+D2
+~
+~
+0 -1 46011 10 10 5
+D3
+~
+~
+0 -1 46021 10 10 5
+E
+pits~
+These small pits have been pushed directly into the soil by some unknown
+force or object.
+~
+A
+~
+~
+if( random( 1, 10 ) > 3 ) {
+  send_to_room( #to_room, room );
+  end;
+  }
+~
+E
+to_room~
+A small bug crawls from one of the pits in the ground and lands on your
+arm!
+~
+!
+2 150 0
+A
+look search open~
+pit pits~
+if( is_player( ch ) ) {
+if( rflag( reset1, room ) ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    mload( 609, room );
+      mload( 609, room );
+ if( random( 1, 10 ) < 6 )
+   mload( 609, room );
+  if( random( 1, 10 ) < 4 )
+    mload( 609, room );
+    remove_rflag( reset1, room );
+    }
+  else
+    send_to_char( #false_char, ch );
+}
+else
+  send_to_room( #notplayer );
+~
+E
+true_char~
+You find a huge mass of insects flying directly towards your face!
+~
+E
+true_room~
+$n finds a huge mass of insects flying directly towards $s face!
+~
+E
+false_char~
+You find the pits are empty.
+~
+E
+notplayer~
+$n finds nothing in the pits.
+~
+!
+0 0 0
+999 8 1509949540 3 0
+-1
+S
+
+#46013
+Scrub Brush~
+The underbrush here has grown seemingly impassible, as it grabs at your
+feet every step of the way.  You can make out small areas where the brush
+is not as thick that may permit you to pass.  The faded green thistles
+and withered vines tangle in a great mass all around you in every
+direction.  You may continue through the brambles in any direction.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46014 10 10 5
+D1
+~
+~
+0 -1 46001 10 10 5
+D2
+~
+~
+0 -1 46012 10 10 5
+D3
+~
+~
+0 -1 46020 10 10 5
+993 8 1509949540 3 0
+-1
+S
+
+#46014
+Scrub Brush~
+As you gaze around you, you can see nothing more than the same desolation
+that you have been wading through before.  Vines and decrepit underbrush
+litter the area, and small insects crawl in and out of the husks of the
+vegetation that used to live here.  You can move in any direction from
+here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46015 10 10 5
+D1
+~
+~
+0 -1 46004 10 10 5
+D2
+~
+~
+0 -1 46013 10 10 5
+D3
+~
+~
+0 -1 46019 10 10 5
+E
+shell shells vegetation~
+These dead carcasses of old vegetation serve as living quarters for tiny
+insects that inhabit the area.
+~
+A
+random~
+~
+act_room( #to_room, ch );
+end;
+~
+E
+to_room~
+A small insect crawls from the carcass of a large vine and jumps onto
+your arm!
+~
+!
+0 250 0
+A
+look search open take~
+vine vines carcass plant plants vegetation shell shells husk husks~
+if( is_player( ch ) ) {
+if( rflag( reset1, room ) ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    mload( 609, room );
+ if( random( 1, 10 ) < 6 )
+   mload( 609, room );
+  if( random( 1, 10 ) < 4 )
+    mload( 609, room );
+    remove_rflag( reset1, room );
+    }
+  else
+    send_to_char( #false_char, ch );
+}
+else
+  send_to_room( #notplayer );
+~
+E
+true_char~
+You see a swarm of insects flying directly for your face!
+~
+E
+true_room~
+$n finds a large swarm of insects heading for $s face!
+~
+E
+false_char~
+You find the shells quite empty.
+~
+E
+notplayer~
+$n finds the shells are quite empty.
+~
+!
+0 0 0
+-1
+S
+
+#46015
+Scrub Brush~
+The dead vines and twisted, mangled leaves that hang from them are all
+that surrounds you, save the appearance of a treetop to the north.  The
+ground is barely visible amongst all of the debris and underhangs that
+inhabits the area.  The smell of rotting vines hangs heavy in the air
+around.  You may move in any direction from here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46016 10 10 5
+D1
+~
+~
+0 -1 46006 10 10 5
+D2
+~
+~
+0 -1 46014 10 10 5
+D3
+~
+~
+0 -1 46018 10 10 5
+1027 8 1509949540 3 0
+-1
+S
+
+#46016
+A Tree~
+The undergrowth that is present in this area looks as if it has been
+pulled back away from an enormous tree that grows here.  Its bright
+green leaves and healthy looking bark make this tree a true wonder
+amongst all of this death and decay.  You have a particularly safe
+feeling while sitting under this tree.  To the north and east, the ground
+rises sharply and you can see the tops of more trees up above.
+~
+tree is climbable
+[Brunt] phy
+~
+301465602 3 9 0
+D2
+~
+~
+0 -1 46015 10 10 5
+D3
+~
+~
+0 -1 46017 10 10 5
+E
+tree~
+This tall tree rises higher than you can see from this vantage point. 
+Its trunk is larger in circumference that any tree you have ever seen
+before.  It also seems to have very sturdy branches...
+~
+A
+climb~
+~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 46026 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( is_mounted( ch ) ) {
+  send_to_char( #nomount, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room( 46026 ) );
+  act_notchar( #success2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+fly~
+You float up to the closest branch to the ground.
+~
+E
+flying~
+$n flies up to the first branch on the tree.
+~
+E
+flying2~
+$n flies up from below.
+~
+E
+nomount~
+Your mount refuses to climb the tree.
+~
+E
+success~
+Finally reaching the first branch, you pull yourself up into the tree.
+~
+E
+success1~
+$n finally reaches the lowest branch and climbs up the tree.
+~
+E
+success2~
+$n comes clambering up from below.
+~
+E
+fail~
+You slip and almost hurt yourself.
+~
+E
+failed~
+$n slips and almost falls while attempting to climb the tree.
+~
+!
+0 0 0
+-1
+S
+
+#46017
+Circle of Trees~
+The brush and small twigs seem to have formed a wide circle here.  The
+ground left in this circle is completely bare, save a few rocks mixed in
+with the sandy soil.  There are a few trees that rim the circle, much
+larger than the other trees in the surrounding areas.  Strangely enough,
+they seem to have a few green leaves on them.  A small crack in the
+ground trickles water into a makeshift rock well.  A large rock shelf
+rises up to the north and west, blocking your path.
+~
+clan house?
+[Dalthas] humongous (look shelf)
+~
+301465602 3 9 0
+D1
+~
+~
+0 -1 46016 10 10 5
+D2
+~
+~
+0 -1 46018 10 10 5
+E
+crack well~
+This small rock well looks as if it could have been crafted by mortal
+hands, but doesn't look as if it has been used recently.
+~
+E
+rock shelf~
+The rock shelf that rises up here creates a humongous shadow upon the
+ground.
+~
+E
+tree trees~
+These tall trees dwarf any others that you have seen in the area.
+~
+E
+leaves~
+These lush green leaves are a stark contrast to the dead ones on the
+trees around the rest of the area.
+~
+82 17 1509949540 -2 0
+-1
+S
+
+#46018
+Scrub Brush~
+Among the organic debris that is strewn around the area, a north-south
+running path looks as if it has been cleared.  The remainder of the brush
+is bunched up on either side of a clearing.  The path leads north.  To
+the west, the way is blocked by a looming rock formation.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46017 10 10 5
+D1
+~
+~
+0 -1 46015 10 10 5
+D2
+~
+~
+0 -1 46019 10 10 5
+E
+rock formation~
+The rock formation the rises up to the west creates an enormous shadow,
+in which you are currently standing.
+~
+A
+climb~
+rock formations rocks shelf~
+act_tochar( #climb, ch );
+act_notchar( #no_climb, ch );
+end;
+~
+E
+climb~
+The rock slips and almost causes you to fall and hurt yourself!
+~
+E
+no_climb~
+$n falls and almost hurts $mself in a vain attempt to climb the rock
+wall.
+~
+!
+0 0 0
+999 8 1509949540 3 0
+821 8 1509949465 3 0
+-1
+S
+
+#46019
+Scrub Brush~
+The scrub brush comes to an end at a large rock shelf to the west here. 
+The beautiful layers of stratified rock have piled up to form a wonderful
+pattern in themselves.  Small tufts of grass poke out from underneath of
+the formation, a testament to the perserverance of life.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46018 10 10 5
+D1
+~
+~
+0 -1 46014 10 10 5
+D2
+~
+~
+0 -1 46020 10 10 5
+E
+1 west rock shelf formation~
+The rock formation that rises up to the west blocks out most of the view
+of the sky here.
+~
+A
+climb~
+rock shelf rocks formation~
+act_tochar( #climb, ch );
+act_notchar( #no_climb, ch );
+end;
+~
+E
+climb~
+The rock slips out from under your foot and almost causes you to fall and
+hurt yourself!
+~
+E
+no_climb~
+$n slips and almost falls in an unsuccessful attempt to climb the rock
+shelf.
+~
+!
+0 0 0
+959 8 1509949540 3 0
+-1
+S
+
+#46020
+Scrub Brush~
+Upon first glance, the brush that surrounds you looks to be no more alive
+than the soil that it is planted in.  Broken down vines and the
+occasional bent tree litter the area.  Except for the occasional insect,
+this area seems devoid of life.  To the west, you see a rock formation
+that rises high up into the sky.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46019 10 10 5
+D1
+~
+~
+0 -1 46013 10 10 5
+D2
+~
+~
+0 -1 46021 10 10 5
+D3
+~
+~
+0 -1 46025 10 10 5
+1027 8 1509949465 3 0
+-1
+S
+
+#46021
+Scrub Brush~
+This area looks to have once been rich in animal and plant life, but is
+now devoid of such.  Old, dead vines and grasses litter the area here,
+mixed in with a few small animal bones.  The gritty soil hides some of
+the underbrush and bone matter here, leaving only a few small pieces
+poking through.  Once rumored to have been the most beautiful forest in
+the realm, this is now nothing.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46020 10 10 5
+D1
+~
+~
+0 -1 46012 10 10 5
+D2
+~
+~
+0 -1 46022 10 10 5
+D3
+~
+~
+0 -1 46024 10 10 5
+-1
+S
+
+#46022
+Scrub Brush~
+The gritty soil runs into a solid stone wall to the south of here.  Small
+bits of grass and other debris poke out from under the rock formation,
+but are still struggling to survive, most likely for lack of water.  You
+may proceed in every direction except south, where the rock has made the
+way impassable.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46021 10 10 5
+D1
+~
+~
+0 -1 46011 10 10 5
+D3
+~
+~
+0 -1 46023 10 10 5
+E
+rock wall~
+This huge rock wall reaches toward the sky to the south.  You are
+currently located in the shadow of this large rock formation.
+~
+1027 8 1509949540 3 0
+-1
+S
+
+#46023
+Scrub Brush~
+The thin brush that you have been making your way through gives way to a
+large rock formation that forms a corner at this point.  The soil is
+almost completely sand and fine pebbles mixed with the remnants of what
+looks to have been vines and grass.  You may move north and east.
+~
+[Dalthas] whish ---> with
+[Elysia] whish in the scrub brush south of enormous brambles
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46024 10 10 5
+D1
+~
+~
+0 -1 46022 10 10 5
+E
+rock shelf 1 west 1 south~
+The western and southern skies are dominated by an enormous rock
+formation.  This rock shelf creates a huge shadow, which you are
+currently located in.
+~
+A
+climb~
+rock formation rocks shelf~
+act_tochar( #climb, ch );
+act_notchar( #no_climb, ch );
+end;
+~
+E
+climb~
+The rock slips out from under your foot and almost makes you fall and
+hurt yourself!
+~
+E
+no_climb~
+$n almost falls in an unsuccessful attempt to climb the rock wall.
+~
+!
+0 0 0
+821 8 1509949455 3 0
+-1
+S
+
+#46024
+Scrub Brush~
+The brush that you have been walking through comes to an abrupt halt at
+the rock shelf that rises up to the west here.  The beautiful hues of
+brown and yellow present in the rock are almost mesmerizing in the
+patterns they form.  Small tufts of grass and debris poke out from under
+the rock, barely staying alive.  You may proceed in any direction except
+west due to the rock formation.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 46025 10 10 5
+D1
+~
+~
+0 -1 46021 10 10 5
+D2
+~
+~
+0 -1 46023 10 10 5
+E
+rock shelf formation~
+This tall rock shelf creates an enormous shadow upon the ground here.
+~
+A
+climb~
+rock shelf rocks formation~
+act_tochar( #climb, ch );
+act_notchar( #no_climb, ch );
+end;
+~
+E
+climb~
+The rock slips out from under your foot and almost makes you fall and
+hurt yourself!
+~
+E
+no_climb~
+$n almost falls in an unsuccessful attempt to climb the rock wall.
+~
+!
+0 0 0
+999 8 1509949490 3 0
+-1
+S
+
+#46025
+Scrub Brush~
+The scraggly brush comes to an end here at a rock shelf that rises up to
+the north and west.  You can see many small insects and tiny plant life
+that seems to grow in the cracks in the rock.  This rock looks to be
+impassible to the west and north.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 46020 10 10 5
+D2
+~
+~
+0 -1 46024 10 10 5
+E
+1 west 1 north rock shelf formation~
+The rock shelf that rises up to the west looms like a tower over you.
+~
+A
+climb~
+rock shelf mountain rocks~
+act_tochar( #climb, ch );
+act_notchar( #no_climb, ch );
+end;
+~
+E
+climb~
+The rock slips out from under your foot and almost makes you fall and
+hurt yourself!
+~
+E
+no_climb~
+$n almost falls in an unsuccessful attempt to climb the rock wall.
+~
+!
+0 0 0
+959 8 1509949540 3 0
+1027 8 1509949540 3 0
+-1
+S
+
+#46026
+A Tree~
+The view from the top of this tree is absolutely breathtaking.  To the
+north, you can see the Cairn Mountains rising it their regal splendor,
+and you can make out the road leading up to them.  You can see the tops
+of other trees around you, and you suddenly realize that you are higher
+up that you originally thought.
+~
+[Nettle] rising it their regal...
+~
+301465600 3 6 0
+D5
+~
+~
+0 -1 46016 10 10 5
+A
+d down~
+~
+continue;
+~
+!
+0 0 0
+-1
+S
+
+#0
+

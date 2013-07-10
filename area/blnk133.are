@@ -1,0 +1,2329 @@
+#AREA
+Mist-filled Marsh~
+Olah~
+Mist-filled Marsh~
+
+5 0
+0
+#ROOMS
+
+#70500
+On a Riverbank - South of the Elhanni River~
+The rhythmic sounds of the smoothly flowing Elhanni River to the north
+echoes all around you.  The dark brown soil here has formed a steep
+riverbank, resembling a five-foot high cliff.  Growing along the soil are
+several reeds and even some wildflowers.  You can also detect some
+animal tracks leading southward towards a misty area.
+~
+~
+301465608 2 9 0
+D0
+~
+~
+0 -1 70513 10 10 5
+D2
+~
+~
+0 -1 70501 10 10 5
+D3
+~
+~
+0 -1 70504 10 10 5
+E
+dark brown soil riverbank~
+The soil is soft and smooth, giving off a slightly pungent odor.  It is
+mostly black with occasional brown mixed within.
+~
+E
+reeds wildflowers~
+The few reeds which grow here are light green and appear faded, reaching
+a height of half a foot.  Several white lilies also grow nearby on the
+edge of the river.
+~
+E
+animal tracks~
+The tracks vary from small bird-like tracks to strange unfamiliar ones,
+possibly of some sort of giant insects and other wild creatures.  They
+seem to be heading southward.
+~
+A
+~
+~
+act_tochar( #head, ch );
+drain_stat( ch, int, 1, -1 );
+continue;
+~
+E
+head~
+@BAs you enter the mist, you begin to feel a little light-headed.@n
+~
+!
+3 0 4
+A
+~
+~
+acode( find_room( 39365 ), 1 );
+continue;
+~
+!
+3 0 1
+A
+sniff smell~
+soil~
+acode( find_room( 70504 ), 6 );
+~
+!
+0 0 0
+A
+take get~
+reeds wildflowers lily lilies~
+act_tochar( #nada, ch );
+~
+E
+nada~
+None of the plants seems interesting enough to take.
+~
+!
+0 0 0
+A
+dig get~
+soil~
+acode( find_room( 70504 ), 3 );
+~
+!
+0 0 0
+-1
+S
+
+#70501
+Edge of a Mist-filled Marsh~
+A thin cloud of mist surrounds this place and appears to thicken if you
+head in every direction but north, where you can hear the faint sound of
+a swiftly flowing river.  You notice how slick and smooth-looking the
+black soil is here.  Shallow water blankets part of the ground here and
+create a marsh, while tall plants peek their way up through the water.
+~
+[Starshine] perhaps allow people to pick a lily sometimes?
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 70500 10 10 5
+D1
+~
+~
+0 -1 70519 10 10 5
+D2
+~
+~
+0 -1 70502 10 10 5
+D3
+~
+~
+0 -1 70503 10 10 5
+E
+film mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+E
+blackened soil~
+The soil is solid black, very moist, and pleasantly soft.
+~
+E
+tall plants~
+You are able to make out a few plants such as cattails and sedges growing
+in the water.  Most of the plants appear to be over three feet tall.
+~
+E
+shallow water ground~
+The water doesn't look too deep, although you are unable to determine how
+deep it really is.  Plants sticking their way up make it seem like the
+water should be shallow enough for anyone to wade through easily.
+~
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You can feel the mist gently tugging at you as you leave.
+~
+!
+3 0 1
+A
+smell sniff~
+mist~
+act_tochar( #smell, ch );
+act_notchar( #nsmell, ch );
+~
+E
+smell~
+The scent of the mist is quite pleasurable, and your mind is filled with
+happy thoughts.
+~
+E
+nsmell~
+$n seems a little groggy as after $e sniffs the mist.
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+act_tochar( #nada, ch );
+~
+E
+nada~
+The water doesn't look drinkable.
+~
+!
+0 0 0
+A
+get pick~
+cattails sedges plants~
+act_tochar( #nada, ch );
+~
+E
+nada~
+The plants are too big and thick to pick.
+~
+!
+0 0 0
+A
+~
+water ground~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the water, but end up with nothing but a wet hand.
+~
+E
+nnada~
+$n searches through the water, but ends up with nothing but a wet hand.
+~
+!
+9 0 0
+2149 9 1509949540 3 0
+-1
+S
+
+#70502
+A Mist-filled Marsh~
+The cool, relatively still water isn't very deep here, but many creatures
+seem to live within it.  The bubbles which flow to the top and the random
+ripple patterns demonstrate that some things are swimming below, even
+though it's difficult to see through the water.  Forming circular
+patterns, like miniature atolls along the surface of the dark water, are
+strangely tall pondweeds.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70501 10 10 5
+D1
+~
+~
+0 -1 70520 10 10 5
+D2
+~
+~
+0 -1 70518 10 10 5
+D3
+~
+~
+0 -1 70506 10 10 5
+E
+cool still dark water~
+The water is cool, dark, and shallow.
+~
+E
+bubbles surface~
+Clear round bubbles as small as a grain of sand to as big as a dwarf's
+eyeball form along the surface of the water, eventually bursting with a
+soft 'POP!' sound.
+~
+E
+ripple patterns~
+The circular ripples along the water originate from random spots.  They
+expand out in waves before dissipating several feet away from their
+source.
+~
+E
+strangely tall pondweeds~
+The pondweeds grow to enormous heights here.  Their leaves are dark-green
+and curved.  Some of them have grown white flowers along the sides of the
+long stems.
+~
+A
+~
+water ground~
+acode( find_room( 70501 ), 5 );
+~
+!
+9 0 0
+A
+get catch grab~
+bubbles~
+act_tochar( #pop, ch );
+act_notchar( #npop, ch );
+~
+E
+pop~
+You attempt to grab a bubble, but it immediately bursts.
+~
+E
+npop~
+$n attempts to grab a bubble, but it immediately bursts.
+~
+!
+0 0 0
+A
+get pick take~
+pondweeds flowers~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+2149 9 1509949540 3 0
+-1
+S
+
+#70503
+Edge of a Mist-filled Marsh~
+An eerie stillness pervades the area, with the only noticeable sound
+being the very soft babbling of a river somewhere off to the immediate
+north.  Surrounding you is a strange, white mist, making it somewhat
+difficult to detect everything that may lie around you.  The mist thins
+out to the north, but thickens if you head west and south.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 70504 10 10 5
+D1
+~
+~
+0 -1 70501 10 10 5
+D2
+~
+~
+0 -1 70506 10 10 5
+D3
+~
+~
+0 -1 70505 10 10 5
+E
+strange white mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+A
+~
+~
+act_tochar( #tug, ch );
+continue;
+~
+E
+tug~
+You can feel the mist gently tug at you as you leave.
+~
+!
+3 0 1
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+-1
+S
+
+#70504
+On a Riverbank - South of the Elhanni River~
+The slick, black soil clings to the few reeds which grow on the riverbank. 
+Dispersed along the soil are random silvery specks, which sparkle in the
+light.  To the north and west, the cool, rippling sounds of the Elhanni
+River offer soothing music to your listening senses.  The south can be
+seen less clearly, however, as a strange fog obscures much of your view
+of that direction.
+~
+[Starshine] acode 5 message: change to 'burbles' rather than 'bubbles'?
+~
+301465608 2 9 0
+D0
+~
+~
+0 -1 70514 10 10 5
+D1
+~
+~
+0 -1 70500 10 10 5
+D2
+~
+~
+0 -1 70503 10 10 5
+E
+slick blackened soil~
+The soil is soft and extremely moist.  It is a jet black color, and gives
+off a slightly pungent scent.
+~
+E
+few reeds~
+Only a few reeds have managed to grow from the blackened soil.  They
+extend a few feet in the air and are a light-green shade, mixed with a
+tan color on the edge of the leaves.
+~
+E
+random silvery specks~
+The specks occasionally sparkle brightly.  They are only the size of a
+grain of sand, yet able to give off an intense light.
+~
+E
+strange fog 1 south~
+The fog is thick and white, preventing you from determining what lies
+south.
+~
+A
+~
+~
+act_tochar( #head, ch );
+drain_stat( ch, int, 1, -1 );
+continue;
+~
+E
+head~
+@BAs you enter the mist, you begin to feel a little light-headed.@n
+~
+!
+3 0 4
+A
+~
+~
+acode( find_room( 39365 ), 1 );
+continue;
+~
+!
+3 0 1
+A
+dig get~
+soil ground specks~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You dig through the soil, and the specks softly flow out of your grasp.
+~
+E
+nnada~
+$n digs through the soil, and the specks softly flow out of $s grasp.
+~
+!
+0 0 0
+A
+get search break~
+reeds~
+act_tochar( #nada, ch );
+~
+E
+nada~
+You search through the reeds, but find nothing worthwhile.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #bubble, room );
+send_to_room( #bubble, find_room( 70500 ) );
+send_to_room( #bubble, find_room( 39365 ) );
+send_to_room( #bubble, find_room( 39364 ) );
+send_to_room( #bubble, find_room( 39361 ) );
+send_to_room( #bubble, find_room( 39327 ) );
+send_to_room( #bubble, find_room( 39367 ) );
+send_to_room( #bubble, find_room( 39368 ) );
+send_to_room( #bubble, find_room( 39325 ) );
+~
+E
+bubble~
+@bThe river burbles quietly, producing a gentle musical sound.@n
+~
+!
+4 100 0
+A
+sniff smell~
+soil~
+act_tochar( #smell, ch );
+act_notchar( #nsmell, ch );
+~
+E
+smell~
+The soil smells foul, causing you to making a disgusted look.
+~
+E
+nsmell~
+$n makes a disgusted look after sniffing at the soil.
+~
+!
+0 0 0
+-1
+S
+
+#70505
+A Mist-filled Marsh~
+The air is cloaked in a thick white mist that encompasses the area around
+you.  The mist seems less dense as you gaze eastward.  Growing through
+the dark, cool water are cattails which have reached abnormal heights of
+over ten feet and sedges whose leaves cover parts of the marsh like a
+spiny blanket.  Most of the plants are grouped closely together and act
+like a curtain for whatever lies within them.
+~
+~
+301465600 13 9 0
+D1
+~
+~
+0 -1 70503 10 10 5
+D2
+~
+~
+0 -1 70507 10 10 5
+D3
+~
+~
+0 -1 70508 10 10 5
+E
+thick white mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+E
+dark cool water~
+The water is cool and shallow, approximately two feet deep.  The mist and
+darkness of the water prevents you from seeing what lives below the
+water's surface.
+~
+E
+plants cattails sedges leaves~
+The cattails extend over ten feet into the air.  Their stems are round
+and thick like a troll's forearm.  The sedges are also very large.  Long
+spiny leaves extend from them like the tentacles of a giant squid.  The
+incredible size of the plants blocks out much of whatever lies within or
+behind them.
+~
+A
+1 north~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+get take pick~
+cattails sedges~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+2191 9 1509949515 3 0
+-1
+S
+
+#70506
+A Mist-filled Marsh~
+Tall cattails seem to flourish in the cool water of the marsh.  Their
+round, cylindrical stems are dark brown and about as thick as an ogre's
+forearm.  The water level here is approximately two feet deep, and you
+can even feel the soggy ground below.  The mist seems to thin out to the
+north, but it's very difficult to see through it as you look in the other
+directions.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70503 10 10 5
+D1
+~
+~
+0 -1 70502 10 10 5
+D2
+~
+~
+0 -1 70512 10 10 5
+D3
+~
+~
+0 -1 70507 10 10 5
+E
+tall cattails round cylindrical stems~
+The cattails have grown to over ten feet in height.  Their stems are
+thick, almost a foot in diameter.  Most of them grow together in tight
+clumps randomly along the water.
+~
+E
+cool water~
+The water is cool, dark, and shallow.
+~
+E
+mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+A
+get pick take~
+cattails~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+sniff smell~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+656 9 1509949540 3 0
+-1
+S
+
+#70507
+A Mist-filled Marsh -- Among Many Arrowheads~
+Immense, decorative arrowhead plants grow randomly here.  Their
+dark-green, pointy leaves extend high in the air, reminiscent of jagged
+green spikes protruding from a pit trap.  Moisture from the leaves
+continuously drips slowly from them and softly splash when it reaches the
+water's surface.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70505 10 10 5
+D1
+~
+~
+0 -1 70506 10 10 5
+D2
+~
+~
+0 -1 70511 10 10 5
+D3
+~
+~
+0 -1 70509 10 10 5
+E
+arrowhead plants dark-green pointy leaves~
+The arrowheads soar through the air for about ten feet.  They grow in
+clumps, and from a distance, their leaves and stems would probably look
+like a bunch of green javelins stuffed within a massive, white misty
+quiver.
+~
+E
+moisture~
+Dwarf-sized pools of water have collected along the leaves of the
+arrowheads.
+~
+E
+water's surface~
+The water is dark and shallow, about two feet deep.
+~
+A
+get take pick~
+arrowheads plants leaves~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+1784 9 1509949540 3 0
+-1
+S
+
+#70508
+A Mist-filled Marsh~
+The water is calm and cool here, with occasional ripples possibly from
+tiny insects, the only disturbance to the tranquillity of the water's
+surface.  Thick, overgrown leaves grow to the north, sealing off any
+passage in that direction.  The dense mist which surrounds you continues
+to gently flow through the air in all directions.
+~
+~
+301465600 13 9 0
+D1
+~
+~
+0 -1 70505 10 10 5
+D2
+~
+~
+0 -1 70509 10 10 5
+D3
+~
+~
+0 -1 70523 10 10 5
+E
+water ripples surface~
+The water is cool and shallow, approximately two feet deep.  Circular
+wave-like patterns can be seen randomly along the water's surface.  They
+spread out in all directions before dissipating a few feet away from
+their source.
+~
+E
+dense mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+E
+1 north thick overgrown leaves~
+The light-green leaves have grown to enormous heights and are closely
+spaced, blocking off movement northward.
+~
+A
+1 north~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+1784 9 1509949540 3 0
+-1
+S
+
+#70509
+A Mist-filled Marsh~
+Various plants appear to thrive within the soil and moist climate of the
+marsh, despite the lack of sunlight able to pass through the thick veil
+of mist.  The mist acts almost like a butterfly net, capturing any light
+that attempts to penetrate through it.  Looking down, you notice huge
+water lilies floating on the surface of the shallow water.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70508 10 10 5
+D1
+~
+~
+0 -1 70507 10 10 5
+D2
+~
+~
+0 -1 70510 10 10 5
+D3
+~
+~
+0 -1 70524 10 10 5
+E
+thick veil mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+E
+1 down huge water lilies water surface~
+Water lilies about four feet wide seem to thrive along the dark water's
+surface.  The lilies have ivory white buds and light green leaves.
+~
+E
+black soil~
+The soil is probably solid black, soggy, and feels very soft.
+~
+A
+sniff smell~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+pick take get~
+lily lilies~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+656 9 1509949540 3 0
+2149 9 1509949540 3 0
+-1
+S
+
+#70510
+A Mist-filled Marsh~
+Thick stalks of sawgrass form a wall to the west, closing off passage
+there.  Filtering through the massive stalks are the cool marsh water and
+the ever-present mist.  The water is very shallow, only a foot deep, and
+has mostly evaporated if you head east.  It deepens, however, if you move
+north or south.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70509 10 10 5
+D1
+~
+~
+0 -1 70511 10 10 5
+D2
+~
+~
+0 -1 70515 10 10 5
+E
+1 west thick stalks sawgrass gate massive~
+The light green blades and stalks of sawgrass line the western horizon,
+reaching heights of ten feet and above.  The sawgrasses weave together to
+form too difficult an membrane for anyone around your size to fit through.
+~
+E
+cool water~
+The water is cool, dark, and shallow.
+~
+E
+ever-present mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, it
+gives off a pleasant, almost intoxicating floral scent, like that of a
+rose mixed with poppies.
+~
+A
+1 west~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+~
+water ground~
+acode( find_room( 70501 ), 5 );
+~
+!
+9 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+-1
+S
+
+#70511
+A Mist-filled Marsh -- Wet Clearing~
+You are on a patch of solid black soil that is mostly free of any water. 
+The ground remains soggy, though, and you can detect many animal tracks
+headed in random directions.  Several short mounds have formed
+sporadically along this wet clearing.  A pile of peat-covered remains of
+an odd-looking animal protrude from one of the mounds, still
+well-preserved in the soil.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 70507 10 10 5
+D1
+~
+~
+0 -1 70512 10 10 5
+D2
+~
+~
+0 -1 70516 10 10 5
+D3
+~
+~
+0 -1 70510 10 10 5
+E
+patch solid black soil~
+The soil is grainy and moist, but very soft and pleasant to touch.
+~
+E
+ground animal tracks~
+Large footprints have formed all along the soil.  Some appear to be that
+of frogs, insects, birds, and mammals.
+~
+E
+short mounds~
+The mounds are about half a foot tall and consist of mainly black, soggy
+soil.
+~
+E
+pile peat-covered remains odd-looking animal~
+Lying within a short mound of soil is a large, soil-covered corpse of a
+strange creature resembling a a scaly lizard, but with dark wings of an
+owl and the bushy tail of a fox.
+~
+A
+~
+mounds pile peat-covered remains odd-looking animal~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the pile of animal remains, but end up with nothing
+but muddy, smelly hands.
+~
+E
+nnada~
+$n searches through the pile of animal remains, but ends up with nothing
+but muddy, smelly hands.
+~
+!
+9 0 0
+A
+dig search~
+soil mounds~
+acode( find_room( 70512 ), 4 );
+~
+!
+0 0 0
+A
+search move~
+pile remains animal~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #mag, ch );
+  act_notchar( #nmag, ch );
+  wait( 1 );
+  send_to_room( #load, room );
+  mload( 2219, room );
+  end;
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+mag~
+You search through the animal remains and seem to have uncovered
+something.
+~
+E
+nmag~
+$n searches through the animal remains and seems to have uncovered
+something.
+~
+E
+load~
+@bAn enormous maggot that had been feeding on the remains suddenly appears
+through the mist.@n 
+~
+E
+nada~
+You search through the animal remains, but find nothing interesting.
+~
+E
+nnada~
+$n searches through the animal remains, but finds nothing.
+~
+!
+0 0 0
+656 9 1509949540 3 0
+-1
+S
+
+#70512
+A Mist-filled Marsh -- Wet Clearing~
+The water level is practically nil here, and you can actually see the
+black soil, which feels soft and velvety against your feet.  The mist
+continues to permeate through this area of the marsh, sometimes causing
+you to detect eerie aberrations in the distance.  The mist is too thick
+for you to assess whether you can trust what your eyes had seen or not.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 70506 10 10 5
+D1
+~
+~
+0 -1 70518 10 10 5
+D2
+~
+~
+0 -1 70517 10 10 5
+D3
+~
+~
+0 -1 70511 10 10 5
+E
+water~
+The water has mostly cleared out, and the black soil can be seen here.
+~
+E
+mist eerie aberrations~
+The thick, fog-like mist deflects, absorbs, and refracts light here,
+causing you to see strange things, such as humanoid foxes and ghostly
+creatures.  You are unable to determine if what you see is real or due to
+the mist's toying with your imagination, since the images fade just as
+quickly as they appear.
+~
+E
+black soil~
+The soil is a midnight-black and is very grainy.  Its soft texture makes
+it comfortable to touch.
+~
+A
+~
+~
+rch = rand_player( room );
+act_tochar( #ghost, rch );
+~
+E
+ghost~
+@cThe blurred, transluscent figure of a woman with flowing white hair
+flickers into view, then quickly vanishes...@n 
+~
+!
+2 200 0
+A
+~
+~
+rch = rand_player( room );
+act_tochar( #were, rch );
+~
+E
+were~
+@bA creature with glowing red eyes and a feral face materializes in the
+mist, then suddenly vanishes...@n 
+~
+!
+2 200 0
+A
+~
+~
+rch = rand_player( room );
+act_tochar( #spec, rch );
+~
+E
+spec~
+@gA faded outline of a pale old man appears from the mist, letting out a
+loud groan, then quickly vanishes...@n 
+~
+!
+2 100 0
+A
+dig touch search~
+soil~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You dig through the soft soil, but end up with nothing but a muddy hand.
+~
+E
+nnada~
+$n digs through the soft soil, but ends up with nothing but a muddy hand.
+~
+!
+0 0 0
+1784 9 1509949540 3 0
+-1
+S
+
+#70513
+On the Elhanni River~
+The surface of the river glistens in the light, as you move along its
+crystal clear waters.  In fact, the water is so clear here that you can
+see the tan, sandy ground many meters below you.  From the northeast, the
+river flows more rapidly, but slows down toward the west.  To the north
+and south are steep riverbanks.
+~
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 39364 10 10 5
+D2
+~
+~
+0 -1 70500 10 10 5
+D3
+~
+~
+0 -1 70514 10 10 5
+E
+tan sandy ground~
+The ground appears light brown, soft, and grainy.
+~
+E
+1 north 1 south riverbanks~
+Steep embankments composed of muddy soil have formed along the sides of
+the river.
+~
+A
+~
+~
+i = random( 2, 9 );
+if( find_stat( ch, dex ) > i ) {
+  act_tochar( #climb, ch );
+  act_notchar( #nclimb, ch );
+  continue;
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+climb~
+You struggle up the riverbank.
+~
+E
+nclimb~
+$n struggles up the riverbank.
+~
+E
+fail~
+You attempt to climb up the riverbank, but slowly slide back down.
+~
+E
+nfail~
+$n attempts to climb up the riverbank, but slowly slides back down.
+~
+!
+3 0 5
+A
+1 east~
+~
+act_tochar( #nada, ch );
+~
+E
+nada~
+The river is rushing too hard from the east to move in that direction.
+~
+!
+0 0 0
+A
+~
+tan sandy ground~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search the sandy ground, but find nothing interesting.
+~
+E
+nnada~
+$n searches the sandy ground, but finds nothing interesting.
+~
+!
+9 0 0
+324 17 1509949540 -2 0
+-1
+S
+
+#70514
+On the Elhanni River~
+You are swimming on the cool, running waters of the Elhanni.  The width
+of the river extends a good distance from north to south before reaching
+a riverbank on both ends.  The depth of the water is substantial, but a
+few rocks have managed to jut up randomly along the river.  The Elhanni
+continues to flow swiftly from the east, but more slowly down toward the
+southeast.
+~
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 39365 10 10 5
+D1
+~
+~
+0 -1 70513 10 10 5
+D2
+~
+~
+0 -1 70504 10 10 5
+E
+rocks~
+The rocks are black-brown and extremely durable, at least enough to
+withstand the constantly flowing water.  They are in various shapes --
+some resembling furniture and others resembling animals.
+~
+E
+1 north 1 south riverbanks~
+Steep embankments composed of muddy soil have formed along the sides of
+the river.
+~
+A
+get move search~
+rocks~
+act_tochar( #nada, ch );
+~
+E
+nada~
+The rocks are way too large and heavy for you to move and don't appear to
+have anything interesting to get.
+~
+!
+0 0 0
+A
+~
+~
+i = random( 2, 9 );
+if( find_stat( ch, dex ) > i ) {
+  act_tochar( #climb, ch );
+  act_notchar( #nclimb, ch );
+  continue;
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+climb~
+You struggle up the steep riverbank.
+~
+E
+nclimb~
+$n struggles up the steep riverbank.
+~
+E
+fail~
+You attempt to climb up the riverbank but slowly slide back down.
+~
+E
+nfail~
+$n attempts to climb up the riverbank but slowly slides back down.
+~
+!
+3 0 5
+324 17 1509949540 -2 0
+-1
+S
+
+#70515
+A Mist-filled Marsh -- Among Strange-looking Plants~
+The water reaches past your knees in this part of the marsh.  Growing in
+tight clumps are huge aquatic, strange-looking plants.  Imperfectly
+round, hollow tubers are attached to their partially submerged leaves. 
+The tubers seem to function as a flotation device for the plants.  Also
+extending from the leaves are spikes of splendid yellow flowers, each
+about several inches long.
+~
+maybe make tubers an invis object container with stuff in it
+[Kharas] Not sure if typo or not.  duck-frog (aka white duck) If you look at it, it is green with white feathers (wing tips are listed as black-green) but when you hit it you "hit a white ducks brown-feathered body" ???
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70510 10 10 5
+D1
+~
+~
+0 -1 70516 10 10 5
+E
+water~
+The water is dark, cool, and shallow here.
+~
+E
+huge aquatic strange-looking plants~
+The plants stand over eight feet tall.  Their stems are dark green and
+thick, forming a mesh-like pattern.
+~
+E
+imperfectly round hollow tubers~
+The tubers look like hollow, oval bulbs.  They are light green and very
+buoyant, as they float along the surface of the water.
+~
+E
+leaves~
+The leaves are bright green and very broad.  Only a few of them extend
+from the stems above the surface of the water.  Most probably grow
+underneath it.
+~
+E
+splendid yellow flowers~
+The flowers grow in pairs beside the leaves of the plants.  Their petals
+are a light yellow and the extensions within them, such as the stamens,
+stick straight up for about a foot high.
+~
+A
+1 west 1 south~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #catch, room );
+~
+E
+catch~
+@bA small muskrat swims by, then suddenly gets trapped in one of the
+plant's tubers.@n 
+~
+!
+2 200 0
+A
+~
+water ground~
+acode( find_room( 70501 ), 5 );
+~
+!
+9 0 0
+A
+get take pick~
+leaves tubers flowers spikes~
+act_tochar( #fail, ch );
+act_notchar( #nfail, ch );
+~
+E
+fail~
+You attempt to pick the plants, but are unable to do so.
+~
+E
+nfail~
+$n attempts to pick the plants, but seems unable to do so.
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+656 9 1509949540 3 0
+-1
+S
+
+#70516
+A Mist-filled Marsh -- Wet Clearing~
+The ground is composed of midnight-black, grainy soil.  Although the
+water line has receded along this section of the marsh, the soil remains
+very moist.  Massive plants dominate the view to the south, and the mist
+continues to flow over and through it.  Dark water covers the ground to
+the east and west, but the north remains relatively free of water.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 70511 10 10 5
+D1
+~
+~
+0 -1 70517 10 10 5
+D3
+~
+~
+0 -1 70515 10 10 5
+E
+ground midnight-black grainy soil~
+Water has soaked in the ground here, but doesn't cover it.  The soil is
+very grainy, black, and soft to the touch.  Some tracks can be seen
+within the soft ground.
+~
+E
+1 south massive plants~
+Tall plants grow tightly together and reach heights of over ten feet in
+the air.  Their foliage and stems line the south, forming an enormous
+barrier, impermeable to anything larger than a small insect.
+~
+E
+mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, it
+gives off a pleasant, almost intoxicating floral scent, like that of a
+rose mixed with poppies.
+~
+E
+tracks~
+The tracks circle around and appear to be that of some creature with
+webbed feet, paws, or clawed toes.
+~
+A
+1 south~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+sniff smell~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+dig~
+ground soil~
+acode( find_room( 70512 ), 4 );
+~
+!
+0 0 0
+2190 9 1509949540 3 0
+-1
+S
+
+#70517
+A Mist-filled Marsh -- By a Huge Log~
+Extending throughout much of the southern horizon is a huge, peat-covered
+log -- most of it imbedded within the soil and barely rising above the
+watery surface.  The black soil acts like a thin, grainy film along the
+decaying bark of the log.  Looking south past the log are tall plants
+whose dense foliage conceals whatever lies beyond them.
+~
+south is inside log, 70525
+[Kwee] should i be able to scan a room south named (closed)?
+[Nettle] ...been around here a long time ago (lose the ago)
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70512 10 10 5
+D1
+~
+~
+0 -1 70522 10 10 5
+D2
+~
+~
+138 -1 70525 10 10 5
+D3
+~
+~
+0 -1 70516 10 10 5
+E
+southern horizon huge peat-covered log decaying bark~
+Although you can only see the unsubmerged portion of the log, it appears
+to be exceedingly enormous, as it stretches for a substantial distance
+across the southern horizon.  Black grains of soil cover its tough bark,
+and some plants have started to grow on it.  This well-preserved log has
+probably been around here a long time ago, since no trees currently grow
+here.
+~
+E
+1 south tall plants dense foliage~
+Tall plants grow tightly together and reach heights of over ten feet in
+the air.  Their foliage and stems line the south, forming an ominous
+barrier, impermeable to anything larger than a tiny insect.
+~
+E
+black soil~
+The soil is solid black and has a soft, grainy texture.
+~
+A
+1 south~
+~
+act_tochar( #cant, ch );
+~
+E
+cant~
+The log is blocking your way south.
+~
+!
+0 0 0
+A
+climb~
+1 south log~
+act_tochar( #slip, ch );
+act_notchar( #nslip, ch );
+~
+E
+slip~
+You try to climb up the log, but slip back down.
+~
+E
+nslip~
+$n attempts to climb up the log, but slips back down.
+~
+!
+0 0 0
+A
+enter~
+1 south log~
+if( num_in_room( find_room( 70525 ) ) < 4 ) {
+  act_tochar( #enter, ch );
+  act_notchar( #nenter, ch );
+  transfer( ch, find_room( 70525 ) );
+  act_notchar( #arrive, ch );
+  }
+else {
+  act_tochar( #crowd, ch );
+  act_notchar( #ncrowd, ch );
+  }
+~
+E
+enter~
+You find an opening at the top of the log and enter it.
+~
+E
+nenter~
+$n somehow manages to enter the log.
+~
+E
+arrive~
+$n enters the log from outside.
+~
+E
+crowd~
+You try to enter the log, but realize it's too crowded for you to fit
+into.
+~
+E
+ncrowd~
+$n attempts to enter the log but fails.
+~
+!
+0 0 0
+1722 9 1509949540 3 0
+-1
+S
+
+#70518
+A Mist-filled Marsh -- By Exotic-looking Plants~
+Several enormous, exotic-looking plants have sprouted along the cool
+waters here.  They appear to be pitcher plants, exhibited by their
+distinctive vase-shaped leaves.  Water partially fills the leaves, and
+tiny insect appendages lie trapped within the foliage.  Looking westward
+through the mist, you notice that the water on the ground seems to have
+evaporated there.
+~
+~
+301465604 13 9 0
+D0
+~
+~
+0 -1 70502 10 10 5
+D1
+~
+~
+0 -1 70521 10 10 5
+D2
+~
+~
+0 -1 70522 10 10 5
+D3
+~
+~
+0 -1 70512 10 10 5
+E
+enormous exotic-looking pitcher plants~
+The plants resemble huge, green water containers.  They stand over five
+feet above the water and appear non-threatening.
+~
+E
+mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+E
+cool waters~
+The water is cool, dark, and shallow here.
+~
+E
+tiny insect appendages vase-shaped leaves foliage~
+Chewed up remains of insect legs, as well as torn wings, antennae,
+mandibles, and exoskeletons of various insects, rest within the leaves of
+the pitcher plants.  The scene reminds you of an insect grave.
+~
+A
+~
+~
+send_to_room( #buzz, room );
+wait( 1 );
+send_to_room( #fall, room );
+~
+E
+buzz~
+@yA tiny insect comes buzzing by, then rests on the leaf of a pitcher
+plant.@n
+~
+E
+fall~
+@yThe insect suddenly gets trapped in the water within the leaf, writhing
+and squirming before losing its life.@n 
+~
+!
+2 200 0
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+get take grab~
+leaves pitcher~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+1722 9 1509949540 3 0
+-1
+S
+
+#70519
+A Mist-filled Marsh -- Among Some Cattails~
+Clumps of cattails resembling eight-foot long pitchforks randomly rise
+from the watery surface.  The water appears dark and rather shallow, and
+an occasional splash can be heard in the distance.  The thickness of the
+mist which encompasses the area prevents you from determining the source
+of the splash sounds.  Tall sedges growing to the north and east extend
+their spiny leaves and obstruct movement through them.
+~
+~
+301465600 13 9 0
+D2
+~
+~
+0 -1 70520 10 10 5
+D3
+~
+~
+0 -1 70501 10 10 5
+E
+clumps cattails~
+The cattails extend over eight feet through the mist-filled air from the
+surface of the shallow water.  Their stems are as wide and round as a
+troll's forearm, and their thick brown bulbs are twice the stem's
+diameter.
+~
+E
+watery surface~
+The water level is approximately two-feet high.  The mist and the
+darkness of the water prevents you from seeing anything that lives below
+its surface.
+~
+E
+mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+E
+1 north 1 east tall sedges spiny leaves~
+The sedges grow exceedingly close together.  Their spiny, light-green
+leaves are over ten feet long, yet are thin as cloth.  The leaves form a
+dense barrier and prevent movement through and scanning of anything to
+the north and east of you.
+~
+A
+1 north 1 east~
+~
+act_tochar( #leave, ch );
+act_notchar( #nleave, ch );
+dam_message( ch, 1d4+0, "the sharp blade of a plant" );
+inflict( ch, mob, 1d4+0, "the sharp blade of a plant" );
+~
+E
+leave~
+You attempt to move through the plants, but are repelled by the dense
+foliage.
+~
+E
+nleave~
+$n attempts to move through the plants, but is repelled by the dense
+foliage.
+~
+!
+0 0 1
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+A
+~
+cattails sedges plants~
+act_tochar( #search, ch );
+act_notchar( #nsearch, ch );
+dam_message( ch, 2d2+0, "the sharp tip of a sedge" );
+inflict( ch, mob, 2d2+0, "the sharp tip of a sedge" );
+~
+E
+search~
+You search through the plants, but find nothing interesting.
+~
+E
+nsearch~
+$n searches through the plants, but finds nothing.
+~
+!
+9 0 0
+A
+~
+water ground~
+acode( find_room( 70501 ), 5 );
+~
+!
+9 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+2191 9 1509949540 3 0
+-1
+S
+
+#70520
+A Mist-filled Marsh -- Among Many Sawgrasses~
+Sawgrasses have reached enormous heights here, and most of them have
+grown closely together along the eastern edge of the marsh.  Their light
+green foliage extends from the water like sharp spears piercing through
+the mist-shrouded air.  The mist flows above and through the plants and
+continue to envelop you.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70519 10 10 5
+D2
+~
+~
+0 -1 70521 10 10 5
+D3
+~
+~
+0 -1 70502 10 10 5
+E
+1 east sawgrasses green foliage plants~
+Forming a consecutive, spiky pattern to the east are sawgrasses, most of
+which have grown over twelve feet high.  They are densely packed and
+block out the view of anything that may exist beyond them.
+~
+E
+water~
+The water is cool, dark, and shallow here.
+~
+E
+mist~
+The mist is white and very thick.  It prevents you from seeing anything
+clearly for more than a distance of ten feet away.  Surprisingly, the
+mist gives off a pleasant, almost intoxicating floral scent, like that of
+a rose mixed with poppies.
+~
+A
+1 east~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+smell sniff~
+mist~
+acode( find_room( 70501 ), 2 );
+~
+!
+0 0 0
+2190 9 1509949515 3 0
+-1
+S
+
+#70521
+A Mist-filled Marsh~
+The mist appears even thicker here, making it somewhat difficult to
+breathe.  Looking down, you realize that something not quite right is
+happening.  The grainy, black soil suddenly feels exceedingly soft and
+slushy here, and you can feel something grab at your feet, trying to drag
+you down.  It might be wise to quickly move away from this section of the
+marsh.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70520 10 10 5
+D3
+~
+~
+0 -1 70518 10 10 5
+E
+mist~
+The mist thickens in this section of the marsh, making it very difficult
+to get a good glimpse of anything around you here.  Its added density
+feels suffocating, so leaving seems like a good idea right about now.
+~
+E
+grainy black soil~
+The soil feels very soft and squishy here, although you can't easily see
+it through the mist and water.
+~
+A
+~
+~
+rch = rand_player( room );
+send_to_room( #choke, room );
+loop( all_in_room ) {
+  if( is_player( rch ) ) {
+    dam_message( rch, 2d2+2, "the choking mist" );
+    inflict( rch, mob, 2d2+2, "choking mists" );
+    }
+  }
+~
+E
+choke~
+@BThe mist condenses and begins to choke at your throat!@n
+~
+!
+2 700 0
+A
+~
+~
+i = random( 1, 5 );
+if( is_player( ch ) && !is_mounted( ch ) ) {
+  if( i > 2 ) {
+    act_tochar( #leave, ch );
+    act_notchar( #nleave, ch );
+    end;
+    }
+  else {
+    act_tochar( #free, ch );
+    act_notchar( #nfree, ch );
+    continue;
+    }
+  }
+else
+  continue;
+~
+E
+leave~
+@GYou attempt to leave, but are unable to break free from whatever's
+grabbing your feet!@n 
+~
+E
+nleave~
+@G$n attempts to leave, but is unable to break free from whatever's
+grabbing $s feet!@n 
+~
+E
+free~
+@GYou break free from whatever was grabbing your feet!@n
+~
+E
+nfree~
+@G$n breaks free from whatever was grabbing $s feet!@n
+~
+!
+3 0 9
+A
+1 south 1 east~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+~
+soil ground water~
+act_tochar( #vine, ch );
+act_notchar( #nvine, ch );
+~
+E
+vine~
+You search through the ground and feel a thick vine tugging at you.
+~
+E
+nvine~
+$n searches through the ground.
+~
+!
+9 0 0
+2190 9 1509949540 3 0
+-1
+S
+
+#70522
+A Mist-filled Marsh -- By a Strange Plant~
+A number of plants of considerable size appear to prosper throughout the
+mist-shrouded marsh.  Capturing your attention is a tall plant with
+leaves covered with sticky, club-shaped projections.  The miniscule,
+broken remains of some unsuspecting insects can be detected along the
+leaves.  To the east and south of you grow sedges and sawgrasses, grouped
+tightly together to form an impenetrable barrier.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70518 10 10 5
+D3
+~
+~
+0 -1 70517 10 10 5
+E
+1 east 1 south sedges sawgrasses barrier~
+The long, spiny leaves of the sedges and the light-green blades of the
+sawgrasses grow in a tight bunch to the east and south of you.  The
+plants stand over ten feet tall from the top of the water's surface and
+act as a filter, preventing anything bigger than an ant to pass through
+them.
+~
+E
+sticky club-shaped projections miniscule broken remains insects~
+The projections of the plant extend for many feet from its stem.  A
+gooey, viscous substance hangs on the projections.  Immersed within the
+substance are broken, fragmented remains of some dragonflies and
+mosquitoes.
+~
+E
+tall plant leaves~
+The plant stands over six feet tall.  It is very odd-looking, and its
+leaves are bright green and yellow.  Judging by the shape of its leaves,
+the plants are probably sundews.
+~
+A
+1 east 1 south~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #buzz, room );
+wait( 1 );
+send_to_room( #stuck, room );
+~
+E
+buzz~
+@gA tiny insect comes buzzing by, then lands on the leaf of a plant
+here.@n 
+~
+E
+stuck~
+@gThe insect quickly gets stuck on the club-shaped projection of the
+leaf, writhing and squirming before eventually losing its life.@n 
+~
+!
+2 200 0
+-1
+S
+
+#70523
+A Mist-filled Marsh~
+Tranquil and quiet, the dark, shallow marsh water continues to the south
+and east, remaining relatively clear of plants.  The north and west,
+however, is sealed off by sedges which grow tightly together and extend
+over ten feet high from the surface of the water.  A breeze sometimes
+passes through them and is the only noticeable disturbance here.
+~
+~
+301465600 13 9 0
+D1
+~
+~
+0 -1 70508 10 10 5
+D2
+~
+~
+0 -1 70524 10 10 5
+E
+1 south 1 east dark shallow marsh water surface~
+The water is cool and shallow, a little over two feet deep.  Its dark
+color keeps you from seeing anything which may live below its surface.
+~
+E
+1 north 1 west sedges~
+The sedges have grown over ten feet long.  They've become tightly packed
+next to one another.  Their long, spiny leaves extend far across the
+north and west of you, filtering the water and preventing anything too
+big to cross through it.
+~
+A
+1 west 1 north~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+~
+water marsh~
+acode( find_room( 70501 ), 5 );
+~
+!
+9 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+2149 9 1509949540 3 0
+-1
+S
+
+#70524
+A Mist-filled Marsh -- Near the Remains of an Animal~
+Massive plants, such as arrowheads and cattails, grow densely together
+and seal off travel to the west and south of you.  A small rise in the
+soil here reveals the partially buried remains of some four-legged animal. 
+The peaty soil has preserved the body well, although a slightly pungent
+scent continues to emanate from it.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 70523 10 10 5
+D1
+~
+~
+0 -1 70509 10 10 5
+E
+1 west 1 south massive plants arrowheads cattails~
+The pointy-tipped leaves of giant arrowheads extend high into the air. 
+Growing closely beside them are various other plants such as cattails,
+whose large round brown bulbs near their tops tower over you.  The plants
+form a tight barrier to the west and south.
+~
+E
+rise peaty soil~
+The rise of soil barely extends several inches above the surface of the
+water here.  The soil is solid black, grainy, and very soft to the touch. 
+It gives off a slightly unpleasant aroma.
+~
+E
+remains four-legged animal~
+Most of the fur of the animal is covered in the black soil.  The creature
+resembles a dog-sized rat, but it appears to have a beaver-like tail. 
+Its clear white eyes stare blankly into space, and tiny bugs have started
+feeding on the remains.  The smell it leaves behind is unpleasant, but
+bearable.
+~
+A
+~
+rise peaty soil~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search the rise of peaty soil, but come up with nothing but dirty
+hands and knees.
+~
+E
+nnada~
+$n searches the rise of peaty soil, but comes up with nothing but dirty
+hands and knees.
+~
+!
+9 0 0
+A
+take get~
+remains four-legged animal~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You try to take the remains of the animal, but it is buried too deep
+within the soil.
+~
+E
+nnada~
+$n tries to take the remains of the animal, but seems unable to do it.
+~
+!
+0 0 0
+A
+1 west 1 south~
+~
+acode( find_room( 70519 ), 1 );
+~
+!
+0 0 0
+A
+get take pick~
+arrowheads cattails bulbs~
+acode( find_room( 70501 ), 4 );
+~
+!
+0 0 0
+A
+get take cut~
+tail~
+act_tochar( #fail, ch );
+act_tochar( #nfail, ch );
+~
+E
+fail~
+You try to get the tail, but it's too decomposed to be of any use.
+~
+E
+nfail~
+$n tries to get the tail, then decides otherwise.
+~
+!
+0 0 0
+A
+search move~
+fur animal remains soil bugs~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #mag, ch );
+  act_notchar( #nmag, ch );
+  wait( 1 );
+  send_to_room( #load, room );
+  mload( 2219, room );
+  end;
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+mag~
+You search through the remains of the animal in the soil and seem to have
+uncovered something.
+~
+E
+nmag~
+$n searches through the remains of the animal in the soil and seems to
+have uncovered something.
+~
+E
+load~
+@bAn enormous maggot that was feeding on the animal remains suddenly appears
+through the mist.@n 
+~
+E
+nada~
+You search through the remains of the animal in the soil, but find
+nothing interesting.
+~
+E
+nnada~
+$n searches through the remains of the animal in the soil, but finds
+nothing interesting.
+~
+!
+0 0 0
+A
+drink~
+water marsh~
+acode( find_room( 70501 ), 3 );
+~
+!
+0 0 0
+2191 9 1509949540 3 0
+-1
+S
+
+#70525
+Inside a Log~
+You are inside an enormous, hollow log, which seems to have sunken only
+partially.  The air is extremely moist and thick.  None of the mist which
+shrouds the marsh outside seems to be able to penetrate through here. 
+Soft, black mud about a few inches deep cover the bottom end of the log. 
+Tiny insects scurry along the floor and around the top, oblivious to your
+presence.  An opening near the top allows you to leave the log.
+~
+~
+335020044 0 9 0
+D0
+~
+~
+138 -1 70517 10 10 5
+E
+soft black mud~
+The mud is solid black, soft, and grainy.
+~
+E
+tiny insects floor top~
+Miniscule pillbugs, ants, and other insects crawl around the log.  They
+seem too busy going about their business to notice you.
+~
+E
+opening~
+The opening looks just large enough for you to fit through.
+~
+A
+enter leave~
+opening top~
+act_tochar( #leave, ch );
+act_notchar( #nleave, ch );
+transfer( ch, find_room( 70517 ) );
+act_notchar( #exit, ch );
+~
+E
+leave~
+You leave through the opening at the top of the log.
+~
+E
+nleave~
+$n leaves through the opening at the top of the log.
+~
+E
+exit~
+$n climbs out of the log.
+~
+!
+0 0 0
+A
+search dig~
+soft black mud~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 5, 12 ) == 10 ) {
+    act_tochar( #coin, ch );
+    act_notchar( #ncoin, ch );
+    obj_to_char( oload( 2 ), ch );
+    end;
+    }
+  }
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+coin~
+You dig through the mud and find a shiny coin!
+~
+E
+ncoin~
+$n digs through the mud and finds something.
+~
+E
+nada~
+You dig through the mud, but end up with nothing but a dirty hand.
+~
+E
+nnada~
+$n digs through the mud, but ends up with nothing but a dirty hand.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

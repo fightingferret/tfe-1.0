@@ -1,0 +1,2353 @@
+#AREA
+Naraki Desert~
+Phule~
+~
+
+0 0
+4
+#ROOMS
+
+#42500
+Knee-Deep in Soft Sand~
+The rising immensities of two gigantic dunes to the northeast and
+southeast is further embellished by the sinking sensation you feel in the
+soft Naraki sands which have gladly welcomed you up to your knees.  You
+can trudge through the sand to the east between the dunes, and the sand
+to the north and west looks no deeper that the sand in which you
+presently stand.  To the south a half-sunken carcass marks a pool of
+quicksand.
+~
+BIG dune to ne and se
+[Merior] sands welcome you up to your kness? i know what you mean, but...
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42501 10 10 5
+D1
+~
+~
+0 -1 35861 10 10 5
+D3
+~
+~
+0 -1 42503 10 10 5
+A
+~
+~
+send_to_area( #sand, room );
+~
+E
+sand~
+A gust of desert wind sends a spray of fine sand across your path.
+~
+!
+2 200 0
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+78 17 1509949540 -2 0
+877 8 1509949540 3 0
+-1
+S
+
+#42501
+Behind a Massive Dune~
+A massive dune rises just to the south of the east horizon, blocking
+sight of nearly one-third of your eastward gaze.  The soft sands in which
+you stand envelop you to your knees, and yet seem no deeper to the south
+or west.  Scattered among the sands here are a few fish skeletons,
+bleached white by the sun and picked clean by time.  Perhaps this area
+was once underwater.
+~
+[Merior] fish? hmmm
+[Merior] how can you tell how deep sand is that you arent standing in?
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 42500 10 10 5
+D3
+~
+~
+0 -1 42502 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+78 17 1509949540 -2 0
+877 8 1509949540 3 0
+-1
+S
+
+#42502
+Knee-Deep in Soft Sand~
+To the west an impassable dune rises, too soft and steep to be crossed. 
+To the south it appears there is a way around the dune, and to the north
+and west the monotony of the rolling dunes are interrupted by flat, soft
+sand which appears safe.  The tell-tale marks of a serpent's slithering
+passage crisscross the sand.
+~
+what is west here? terrain here should flow
+[Merior] dunes interupted by sand... isnt that backwards?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42507 10 10 5
+D1
+~
+~
+0 -1 42501 10 10 5
+D2
+~
+~
+0 -1 42503 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+A
+w we wes west~
+~
+act_tochar( #fail, ch );
+~
+E
+fail~
+You try to climb up the dune but only end up back where you started.
+~
+!
+0 0 0
+78 17 1509949540 -2 0
+878 8 1509949540 3 0
+-1
+S
+
+#42503
+On the Lip of a Dune~
+You are immersed to the knees in warm, soft sand which is blowing about
+in a swirl of winds.  The passable soft sand continues to the north and
+east, while a steep dip in the terrain falls off to the west and down. 
+The clouds above are scarce, and if present, whispy at best.
+~
+[Merior] dune rat? isnt a common desert beast ;)
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42502 10 10 5
+D1
+~
+~
+0 -1 42500 10 10 5
+D5
+~
+~
+0 -1 42504 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 31
+A
+w we wes west~
+~
+interpret( ch, "down" );
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #descend, ch );
+continue;
+~
+E
+descend~
+You quickly descend the steep dune.
+~
+!
+3 0 32
+878 8 1509949540 3 0
+-1
+S
+
+#42504
+Between Two Dunes~
+You are in a small oval-shaped pocket between two rising dunes to the
+east and west.  The sandy slope up the east dune appears solid enough to
+pass.  The wind dips even down this far below the sand's surface,
+sweeping along the edge of the dunes and down into this small area.
+~
+[Merior] if dunes are east and west, why cant you go north and south?
+[Merior] you are all under the sand here? the wind goes under the surface too?
+~
+301465600 10 9 0
+D3
+~
+~
+0 -1 42505 10 10 5
+D4
+~
+~
+0 -1 42503 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+A
+e ea eas east~
+~
+interpret( ch, "up" );
+~
+!
+0 0 0
+882 8 1509949540 3 0
+-1
+S
+
+#42505
+Between Two Dunes~
+You are in a small oval-shaped pocket between two rising dunes to the
+east and west.  The dune to the west appears wind-blown solid enough to
+climb.  It is several degrees cooler in this small pocket than on the
+surface of the sand, as the sun only heats this sand for about three
+hours a day, making it the ideal resting place for the desert's
+inhabitants.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42504 10 10 5
+D4
+~
+~
+0 -1 42506 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+A
+w we wes west~
+~
+interpret( ch, "up" );
+~
+!
+0 0 0
+882 8 1509949540 3 0
+-1
+S
+
+#42506
+On the Lip of a Dune~
+To the east the desert drops down to form a small pocket several feet
+below the general level of the sand, while to the west you can see the
+opening of a small desert cave.  Travel north and south is not advisable
+due to the extreme instability of the sand ridge.
+~
+[Merior] venomous?
+[Merior] why cant i enter the pocket? or is this the down... a bit unclear
+[Merior] an extra or two might help here, like in most of the desert
+~
+301465600 10 9 0
+D3
+~
+~
+0 -1 42512 10 10 5
+D5
+~
+~
+0 -1 42505 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+A
+e ea eas east~
+~
+interpret( ch, "down" );
+~
+!
+0 0 0
+882 8 1509949540 3 0
+-1
+S
+
+#42507
+Knee-Deep in Soft Sand~
+To the north and east more impassable dunes create an image of inexorable
+desert stretching into uncrossable oblivion, discouraging any thought of
+journeys in those directions.  A soft ridge of sand curves around to the
+west, while to the south more deep sand awaits the traveller.
+~
+[Merior] two parts of first sentence dont quite fit together
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 42502 10 10 5
+D3
+~
+~
+0 -1 42508 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+878 8 1509949540 3 0
+-1
+S
+
+#42508
+Knee-Deep in Soft Sand~
+To the north and south rise impassable dunes of shifting sand, framing
+this small east-west valley in the sea of sand.  To the west the sand
+continues toward the sound of the ocean, while to the east the sand
+stretches inexorably, perhaps indefinitely.  Tales of lost wanderers
+dying of thirst and exposure drift flittingly into your mind and you
+think it best you move on.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42507 10 10 5
+D3
+~
+~
+0 -1 42509 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+878 8 1509949540 3 0
+-1
+S
+
+#42509
+Knee-Deep in Soft Sand~
+Two ridges, one to the south and one to the east, come together here
+amidst towering, shifting dunes of sand.  The sand to the west appears
+firmer and is tainted somewhat with the smell of salt.  From the
+northwest you hear the sounds of the ocean.
+~
+west is beach are
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42508 10 10 5
+D2
+~
+~
+0 -1 42510 10 10 5
+D3
+~
+~
+0 -1 42511 10 10 5
+A
+dig~
+~
+act_tochar( #dig, ch );
+obj_to_room( oload( 1039 ), room );
+~
+E
+dig~
+You dig in the sand, uncovering something shiny!!
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+78 17 1509949540 -2 0
+-1
+S
+
+#42510
+Knee-Deep in Soft Sand~
+You are standing between two rising, formiddable dunes to the east and
+west which cannot be climbed successfully.  Small rodent tracks head
+north and south through the pass, and the cry of a seagull echoes eerily
+across the sands to the northwest.  Some several score feet to the south
+a small cave opening beckons.
+~
+[Merior] formidable
+[Merior] extra for tracks, cave, etc.
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42509 10 10 5
+D2
+~
+~
+0 -1 42512 10 10 5
+E
+cave~
+The mouth of the cave is small; you would have to crawl to get inside the
+cave.  Sand blows over the top of it and spills down in a shower of sand
+in front of the opening.
+~
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+-1
+S
+
+#42511
+Above a Desert Beach~
+The sand disappears and is replaced by dry, packed, sun-scorched earth
+which ends in a cliff-like face to the west and returns to the sands of
+the desert to the east.  There is a small climbable path down the cliff
+and onto a beautiful beach which this cliff overhangs and overlooks. 
+With water the color of the sky and white sand stretching along its
+coast, the mighty oceans of the west seem peaceful and quiet this close
+to shore.
+~
+[Merior] last sentence garbled.
+[Merior] first 2 sentences try to do an awful lot... take your time...
+~
+301465608 12 9 0
+D1
+~
+~
+0 -1 42509 10 10 5
+D5
+~
+~
+0 -1 42515 10 10 5
+-1
+S
+
+#42512
+Before a Small Cave Opening~
+Another sand dune rises, a natural barrier to passage, to the west, while
+to the south a small cave opening beckons.  To the east you can see a
+downward slope into a small desert ridge, and to the north soft,
+knee-deep sand stretches towards the sound of the ocean.  A ridge of sand
+leads west, bending around the cave to the south.
+~
+tiny 2-room cave to south
+you need to add some rextras here
+[Merior] how can you see how deep the sand is?
+[Merior] armadillo description ball has become famous?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42510 10 10 5
+D1
+~
+~
+0 -1 42506 10 10 5
+D2
+~
+~
+0 -1 42513 10 10 5
+D3
+~
+~
+0 -1 42534 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 59
+A
+~
+~
+act_tochar( #crawl, ch );
+continue;
+~
+E
+crawl~
+You crawl into the cave opening.
+~
+!
+3 0 4
+877 8 1509949540 3 0
+-1
+S
+
+#42513
+Entrance to a Small Desert Cave~
+This hole is about four and a half-feet high, making it an easy crawl. 
+The desert wind continues to blow sand across your vision, swirling about
+in the small chamber.  A strange smell wafts in from the south, and the
+desert is to the north.
+~
+~
+301465612 11 5 0
+D0
+~
+~
+0 -1 42512 10 10 5
+D2
+~
+~
+0 -1 42514 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You climb out of the cave opening and stand up.
+~
+!
+3 0 63
+-1
+S
+
+#42514
+A Lion's Den~
+Littered with the crunched bones of several small rodents, this cozy
+little escape from the desert outside is obviously the home of a lion. 
+Many shed hairs litter the ground, hard rock with a thin covering of sand
+which the wind has blown in.  A small tunnel leads out of the den to the
+north.
+~
+[Merior] not convinced a lion would find good prey around here...
+dune rats, besides is old lion and can't "make it" other places
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 42513 10 10 5
+A
+~
+~
+act_tochar( #crawl, ch );
+continue;
+~
+E
+crawl~
+You crawl into the small tunnel.
+~
+!
+3 0 1
+880 8 1509949540 3 0
+-1
+S
+
+#42515
+A Beach of White Sand~
+This north-south beach of fine white sand feels warm on your feet, and
+the sound of the surf accompanies the sight of softly lapping ocean waves
+to the west.  Seagulls come and go, pecking at mussel shells and fish
+skeletons.  Scattered amongst the grains of sand are several seashells
+which crumble beneath your feet.  A climbable cliff face leads up and
+back to the desert, while a small alcove is inset in the cliff face to
+the east.
+~
+sand sharks, seahawks, sting rays, jellyfish, oysters, blowfish 
+[Merior] too many identical room descriptions...
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42516 10 10 5
+D1
+~
+~
+0 -1 42521 10 10 5
+D2
+~
+~
+0 -1 42519 10 10 5
+D3
+~
+~
+0 -1 42524 10 10 5
+D4
+~
+~
+0 -1 42511 10 10 5
+78 17 1509949540 -2 0
+886 8 1509949540 3 0
+-1
+S
+
+#42516
+A Beach of White Sand~
+This north-south beach of fine white sand feels warm on your feet, and
+the sound of the surf accompanies the sight of softly lapping ocean waves
+to the west.  Seagulls come and go, pecking at mussel shells and fish
+skeletons.  Scattered amongst the grains of sand are several seashells
+which crumble beneath your feet.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42517 10 10 5
+D2
+~
+~
+0 -1 42515 10 10 5
+D3
+~
+~
+0 -1 42525 10 10 5
+887 8 1509949540 3 0
+-1
+S
+
+#42517
+A Beach of White Sand~
+This north-south beach of fine white sand feels warm on your feet, and
+the sound of the surf accompanies the sight of softly lapping ocean waves
+to the west.  Seagulls come and go, pecking at mussel shells and fish
+skeletons.  Scattered amongst the grains of sand are several seashells
+which crumble beneath your feet.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42518 10 10 5
+D2
+~
+~
+0 -1 42516 10 10 5
+D3
+~
+~
+0 -1 42526 10 10 5
+887 8 1509949540 3 0
+78 17 1509949540 -2 0
+-1
+S
+
+#42518
+A Beach of White Sand~
+This north-south beach of fine white sand feels warm on your feet, and
+the sound of the surf accompanies the sight of softly lapping ocean waves
+to the west.  Seagulls come and go, pecking at mussel shells and fish
+skeletons.  Scattered amongst the grains of sand are several seashells
+which crumble beneath your feet.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 42517 10 10 5
+D3
+~
+~
+0 -1 42527 10 10 5
+886 8 1509949540 3 0
+189 17 1509949540 -2 0
+-1
+S
+
+#42519
+A Beach of White Sand~
+This north-south beach of fine white sand feels warm on your feet, and
+the sound of the surf accompanies the sight of softly lapping ocean waves
+to the west.  Seagulls come and go, pecking at mussel shells and fish
+skeletons.  Scattered amongst the grains of sand are several seashells
+which crumble beneath your feet.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42515 10 10 5
+D2
+~
+~
+0 -1 42520 10 10 5
+D3
+~
+~
+0 -1 42523 10 10 5
+189 17 1509949540 -2 0
+887 8 1509949540 3 0
+-1
+S
+
+#42520
+A Beach of White Sand~
+This north-south beach of fine white sand feels warm on your feet, and
+the sound of the surf accompanies the sight of softly lapping ocean waves
+to the west.  Seagulls come and go, pecking at mussel shells and fish
+skeletons.  Scattered amongst the grains of sand are several seashells
+which crumble beneath your feet.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42519 10 10 5
+D3
+~
+~
+0 -1 42522 10 10 5
+886 8 1509949540 3 0
+-1
+S
+
+#42521
+A Small Alcove Beneath a Cliff~
+This sea-breeze filled alcove is a refreshing break from the sun-beaten
+terrain outside.  Hard, packed earth rises above you and overhead forming
+a protective barrier against the sun's rays except in the late hours when
+the setting sun has lost much of its radiant energy.  The sand beneath
+your feet is cool and relaxing.  This would be a good place for a rest.
+~
+[Merior] sun-beaten at night too?
+[Merior] comma after overhead
+[Merior] except in the late hours... is this necessary?
+~
+301465600 10 9 0
+D3
+~
+~
+0 -1 42515 10 10 5
+189 17 1509949540 -2 0
+78 17 1509949540 -2 0
+-1
+S
+
+#42522
+In the Surf~
+You are standing knee-deep in the softly crashing surf.  Seashells and
+soft sand line the gound beneath the warm waters.  To the west the
+shallows off the shore lurk, lined with coral in which all denizens of
+the ocean may await.  To the east the white sand beaches of Narak stretch.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42523 10 10 5
+D1
+~
+~
+0 -1 42520 10 10 5
+D3
+~
+~
+0 -1 42528 10 10 5
+888 8 1509949540 3 0
+-1
+S
+
+#42523
+In the Surf~
+You are standing knee-deep in the softly crashing surf.  Seashells and
+soft sand line the gound beneath the warm waters.  To the west the
+shallows off the shore lurk, lined with coral in which all denizens of
+the ocean may await.  To the east the white sand beaches of Narak stretch.
+~
+[Merior] oyster is in the surf, yet description is on edge of beach
+[Merior] oyster not done
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42524 10 10 5
+D1
+~
+~
+0 -1 42519 10 10 5
+D2
+~
+~
+0 -1 42522 10 10 5
+D3
+~
+~
+0 -1 42529 10 10 5
+889 8 1509949540 3 0
+-1
+S
+
+#42524
+In the Surf~
+You are standing knee-deep in the softly crashing surf.  Seashells and
+soft sand line the gound beneath the warm waters.  To the west the
+shallows off the shore lurk, lined with coral in which all denizens of
+the ocean may await.  To the east the white sand beaches of Narak stretch.
+Off the to east a cliff rises above the sand.
+~
+[Merior] you are standing? you stand?
+[Merior] ground, not gound
+[Merior] shallows off the shore lurk?... in fact, that whole sentence sounds very odd
+[Merior] jellyfish
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42525 10 10 5
+D1
+~
+~
+0 -1 42515 10 10 5
+D2
+~
+~
+0 -1 42523 10 10 5
+D3
+~
+~
+0 -1 42530 10 10 5
+888 8 1509949540 3 0
+-1
+S
+
+#42525
+In the Surf~
+You are standing knee-deep in the softly crashing surf.  Seashells and
+soft sand line the gound beneath the warm waters.  To the west the
+shallows off the shore lurk, lined with coral in which all denizens of
+the ocean may await.  To the east the white sand beaches of Narak stretch.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42526 10 10 5
+D1
+~
+~
+0 -1 42516 10 10 5
+D2
+~
+~
+0 -1 42524 10 10 5
+D3
+~
+~
+0 -1 42531 10 10 5
+889 8 1509949540 3 0
+-1
+S
+
+#42526
+In the Surf~
+You are standing knee-deep in the softly crashing surf.  Seashells and
+soft sand line the gound beneath the warm waters.  To the west the
+shallows off the shore lurk, lined with coral in which all denizens of
+the ocean may await.  To the east the white sand beaches of Narak stretch.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42527 10 10 5
+D1
+~
+~
+0 -1 42517 10 10 5
+D2
+~
+~
+0 -1 42525 10 10 5
+D3
+~
+~
+0 -1 42532 10 10 5
+888 8 1509949540 3 0
+-1
+S
+
+#42527
+In the Surf~
+You are standing knee-deep in the softly crashing surf.  Seashells and
+soft sand line the gound beneath the warm waters.  To the west the
+shallows off the shore lurk, lined with coral in which all denizens of
+the ocean may await.  To the east the white sand beaches of Narak stretch.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42518 10 10 5
+D2
+~
+~
+0 -1 42526 10 10 5
+D3
+~
+~
+0 -1 42533 10 10 5
+889 8 1509949540 3 0
+-1
+S
+
+#42528
+In the Shallows~
+You are swimming in shallow water above a sharp coral reef which houses
+unknown denizens of the ocean.  Not many small fish are seen, which means
+either the seahawks have been particularly busy of late, or some
+underwater predator has moven into the area.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 42529 10 10 5
+D1
+~
+~
+0 -1 42522 10 10 5
+890 8 1509949540 3 0
+-1
+S
+
+#42529
+In the Shallows~
+You are swimming in shallow water above a sharp coral reef which houses
+unknown denizens of the ocean.  Not many small fish are seen, which means
+either the seahawks have been particularly busy of late, or some
+underwater predator has moven into the area.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 42530 10 10 5
+D1
+~
+~
+0 -1 42523 10 10 5
+D2
+~
+~
+0 -1 42528 10 10 5
+-1
+S
+
+#42530
+In the Shallows~
+You are swimming in shallow water above a sharp coral reef which houses
+unknown denizens of the ocean.  Not many small fish are seen, which means
+either the seahawks have been particularly busy of late, or some
+underwater predator has moven into the area.
+~
+[Merior] same comment here... vary descriptions
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 42531 10 10 5
+D1
+~
+~
+0 -1 42524 10 10 5
+D2
+~
+~
+0 -1 42529 10 10 5
+890 8 1509949540 3 0
+-1
+S
+
+#42531
+In the Shallows~
+You are swimming in shallow water above a sharp coral reef which houses
+unknown denizens of the ocean.  Not many small fish are seen, which means
+either the seahawks have been particularly busy of late, or some
+underwater predator has moven into the area.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 42532 10 10 5
+D1
+~
+~
+0 -1 42525 10 10 5
+D2
+~
+~
+0 -1 42530 10 10 5
+891 8 1509949540 3 0
+-1
+S
+
+#42532
+In the Shallows~
+You are swimming in shallow water above a sharp coral reef which houses
+unknown denizens of the ocean.  Not many small fish are seen, which means
+either the seahawks have been particularly busy of late, or some
+underwater predator has moven into the area.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 42533 10 10 5
+D1
+~
+~
+0 -1 42526 10 10 5
+D2
+~
+~
+0 -1 42531 10 10 5
+890 8 1509949540 3 0
+-1
+S
+
+#42533
+In the Shallows~
+You are swimming in shallow water above a sharp coral reef which houses
+unknown denizens of the ocean.  Not many small fish are seen, which means
+either the seahawks have been particularly busy of late, or some
+underwater predator has moven into the area.
+~
+~
+301465600 6 9 0
+D1
+~
+~
+0 -1 42527 10 10 5
+D2
+~
+~
+0 -1 42532 10 10 5
+D3
+~
+~
+0 -1 42580 10 10 5
+891 8 1509949540 3 0
+-1
+S
+
+#42534
+Knee-Deep in Soft Sand~
+The knee-deep sand gives way to the south, where the desert's terrain
+becomes rocky.  To the east is the mouth of a small desert cave, and to
+the west and north a sheer drop overlooks a white sand beach.  The desert
+to the south appears somewhat more prolific in its insectuous population,
+as a slight buzz is in the air from the beating of many wings.
+~
+[Merior] sand gives way to a direction?
+[Merior] insectuous population?
+[Merior] just put bugs where they belong... not in this rdesc
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42512 10 10 5
+D2
+~
+~
+0 -1 42535 10 10 5
+A
+~
+~
+act_tochar( #trudge, ch );
+continue;
+~
+E
+trudge~
+You trudge through the soft sand.
+~
+!
+3 0 63
+-1
+S
+
+#42535
+A Desert of Rocky Sand~
+This rocky ridge passes between a sheer drop into the ocean to the west
+and sides of what must be a small cave to the east.  The desert terrain
+here is rocky, intermixed with the sand which has blown in from the north. 
+Several eerily large pupa cases litter the area where growing insects
+must have shed their young skins.
+~
+[Merior] first sentence doesnt quite work.
+[Merior] terrain is intermixed with sand?
+[Merior] eerily large? isnt that your interpretation of them?
+~
+301465608 10 9 0
+D0
+~
+~
+0 -1 42534 10 10 5
+D2
+~
+~
+0 -1 42536 10 10 5
+E
+pupa cases~
+These disgusting, dried, cracking remnants of growing insects are as
+large as your leg.  Some pretty big bugs must have crawled out of these
+strange shells.
+~
+-1
+S
+
+#42536
+A Desert of Rocky Sand~
+Scattered rocks litter the dry, sandy ground in an irregular pattern,
+interspersed with the discarded shells of large insects.  The desert
+terrain to the north seems much more sandy and soft, while to the south
+and west this rocky, sparsely-vegetated terrain spreads out away from the
+side of a small cave to the east.
+~
+[Merior] first sentence hard to follow... pattern is interspersed?
+[Merior] dont much like last sentence either...
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42535 10 10 5
+D2
+~
+~
+0 -1 42537 10 10 5
+D3
+~
+~
+0 -1 42543 10 10 5
+893 9 1509949540 3 0
+-1
+S
+
+#42537
+A Desert of Rocky Sand~
+Rocks litter the sands of the desert, along with strangely large pupa
+shells from what appear to be giant insects.  The sparsely-vegetated
+desert terrain spreads out in all compass directions, but a massive dune
+of sand is visible to the east.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42536 10 10 5
+D1
+~
+~
+0 -1 42538 10 10 5
+D2
+~
+~
+0 -1 42540 10 10 5
+D3
+~
+~
+0 -1 42542 10 10 5
+79 17 1509949485 -2 0
+-1
+S
+
+#42538
+A Desert of Rocky Sand~
+A wide stretch of rocky, coarse sand stretches to the south and west,
+while an upward-jutting sandstone face to the east blocks view of the
+desert in that direction.  A treacherous sand pit lies to the north.  If
+you were to fall into it, you would probably never again escape.
+~
+[Merior] sandstone face to the east?
+[Merior] need action for those of us dumb enough to try to go north
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 42539 10 10 5
+D3
+~
+~
+0 -1 42537 10 10 5
+893 9 1509949540 3 0
+-1
+S
+
+#42539
+A Desert of Rocky Sand~
+An upward-jutting slab of sandstone to the east is the only change from
+the monotony of rocky sand stretching in allother directions.  A loose
+scrabbling from above announces the presence of life above.  Far to the
+northwest you can barely make out the edge of a mighty ocean, almost
+hidden by the sloping sands.
+~
+[Merior] all other
+[Merior] scrabbling from above announces life above? and is there always life up there?
+[Merior] can we get to the above?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42538 10 10 5
+D2
+~
+~
+0 -1 42548 10 10 5
+D3
+~
+~
+0 -1 42540 10 10 5
+79 17 1509949490 -2 0
+941 9 1509949540 3 0
+-1
+S
+
+#42540
+A Desert of Rocky Sand~
+A northwest to southeast running cliff edge lies to the southwest, and a
+desert of rocky, course sand spreads out to the north and east.  In the
+not-so-distant northwest lies a mighty ocean, high crests of light blue
+water visible from this vantage.
+~
+[Merior] coarse sand...
+[Merior] awful lot of directions in first sentence
+[Merior] water is light blue? thought it was darker...
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42537 10 10 5
+D1
+~
+~
+0 -1 42539 10 10 5
+D2
+~
+~
+0 -1 42550 10 10 5
+D3
+~
+~
+0 -1 42541 10 10 5
+893 9 1509949540 3 0
+-1
+S
+
+#42541
+A Desert of Rocky Sand~
+Other than a sharp drop down a sandstone cliff to the south, a desert of
+rocky, coarse sand spreads in all directions.  A mighty ocean is visible
+far to the northwest over the slope of the desert.  A beach must be near
+because you can hear the sound of gently crashing waves.
+~
+[Merior] couldnt you hear the waves if the ocean were near... whether or not there were a beach?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42542 10 10 5
+D1
+~
+~
+0 -1 42540 10 10 5
+D3
+~
+~
+0 -1 42545 10 10 5
+941 9 1509949540 3 0
+-1
+S
+
+#42542
+A Desert of Rocky Sand~
+A desert of rocky sand spreads all about you, approaching a cliff drop to
+the northwest.  Bits of flint, sandstone, and and various pebbles
+litter the coarse-grained sand, along with the remains of eerily large
+insect exoskeletons.
+~
+[Merior] sandstone have a purpose?
+[Merior] extra for exoskeleton
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42543 10 10 5
+D1
+~
+~
+0 -1 42537 10 10 5
+D2
+~
+~
+0 -1 42541 10 10 5
+D3
+~
+~
+0 -1 42544 10 10 5
+1225 17 1509949485 -2 0
+-1
+S
+
+#42543
+A Desert of Rocky Sand~
+A sheer drop to a white beach sand lies to the north and west off this
+ride of rock and sand.  An eerily chill breeze blows up from the beach,
+out of place in the raw, sizzling heat of the desert, but soon the heat
+returns, just as strong as ever.  The rocky desert spreads to the east
+and south, without much vegetation in sight.
+~
+[Merior] white beach sand? doesnt sound right...
+[Merior] what kind of physical feature is a ride?
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42536 10 10 5
+D2
+~
+~
+0 -1 42542 10 10 5
+-1
+S
+
+#42544
+A Desert of Rocky Sand~
+On the edge of a cliff which drops to the north and west, this shelf of
+rocky sand spreads ou to the south and east away from the dizzying height
+and sight of a great ocean of crashing waves.  Bits of loose rock and
+sandstone are scattered about, and the only sounds are the hot desert
+sands sizzling and an eerily echoing insect shriek.
+~
+[Merior] first sentence hard to follow (plus a typo in it)
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42542 10 10 5
+D2
+~
+~
+0 -1 42545 10 10 5
+893 9 1509949540 3 0
+-1
+S
+
+#42545
+A Desert of Rocky Sand~
+A sheer drop down a sandstone face to the south marks the end of the
+desert of rock and sand which spreads in all other directions.  To the
+west it appears the sandstone rock juts out to form a narrow cliff, and
+to the northwest you can see a mighty ocean which spreads endlessly to a
+glittering blue horizon.
+~
+[Merior] first sentence a bit garbled
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42544 10 10 5
+D1
+~
+~
+0 -1 42541 10 10 5
+D3
+~
+~
+0 -1 42546 10 10 5
+941 9 1509949540 3 0
+-1
+S
+
+#42546
+Sandstone Cliff Above a Rocky Beach~
+The rocky desert to the east gives way to solid sandstone at your feet,
+an outcropping cliff which overlooks the majestic ocean to the northwest. 
+A small trail hew into the rock leads down toward a small beach of rocky
+sand.
+~
+[Merior] first sentence a bit confusing
+[Merior] trail hewn?
+~
+301465608 10 9 0
+D1
+~
+~
+0 -1 42545 10 10 5
+D5
+~
+~
+0 -1 42547 10 10 5
+-1
+S
+
+#42547
+A Rocky Desert Beach~
+This small beach is unsafe for swimming, as razor-sharp reefs line the
+steeply-sloped shore.  A rough-cut trail leads up the cliff to a desert
+of rocky sand, and to the east a large cave opening leads into the rock
+of the cliff.
+~
+[Merior] extra for trail, cliff, cave..
+[Phule] look cave: The large cave opening leads into the rock of the cliff.
+[Phule] look cliff: There is a large cave opening leading into the cliff.
+[Phule] um... wheee
+[Phule] it's in the room description
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42579 10 10 5
+D4
+~
+~
+0 -1 42546 10 10 5
+-1
+S
+
+#42548
+A Desert of Rocky Sand~
+You stand sandwiched between a high rising sandstone wall to the
+northeast and a sheer drop into a canyon to the southwest.  Small dunes
+of coarse, rocky sand spread out in all directions away from this tight
+squeeze.  From high above you hear a faint scratching noise, as if
+something is lurking in on the sandstone rocks above.
+~
+no_mob
+gilas and cicadas to nw, scorpions and cougars to se
+[Merior] again, i want to go up here
+[Merior] would like to be able to look up here and/or listen..
+~
+301465608 10 9 0
+D0
+~
+~
+0 -1 42539 10 10 5
+D1
+~
+~
+0 -1 42549 10 10 5
+D2
+~
+~
+0 -1 42551 10 10 5
+D3
+~
+~
+0 -1 42550 10 10 5
+-1
+S
+
+#42549
+A Desert of Rocky Sand~
+A nearly sheer face rises into the air overhead to the north,
+disappearing into large sandstone boulders and vertical slabs of rock. 
+To the west the desert nearly disappears between the sandstone face and a
+sharp cliff drop, but to the south and east you see not much else aside
+from more rock-littered desert.
+~
+[Merior] dont quite understand the mountain lions out here in the desert...
+[Merior] sheer rock face? human face?
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42554 10 10 5
+D2
+~
+~
+0 -1 42552 10 10 5
+D3
+~
+~
+0 -1 42548 10 10 5
+11 9 1509949540 3 0
+-1
+S
+
+#42550
+A Desert of Rocky Sand~
+You stand at the edge of a cliff amidst a desert of coarse, rocky sand,
+above a sheer drop into a canyon below.  The sand formations lining the
+canyon's walls are many-lined and quite colourful, as the passing years
+during the canyon's formation left nature's perfect brushstrokes still
+evident, etched on the sandstone for all time.
+~
+[Merior] extra sure would be nice here
+[Merior] which way is down?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42540 10 10 5
+D1
+~
+~
+0 -1 42548 10 10 5
+-1
+S
+
+#42551
+A Desert of Rocky Sand~
+The rock-littered sand of the desert come to a cliff's edge here,
+overlooking massive drops into a canyon to the west and south.  A narrow
+ridge of sandstone crosses the canyon to the south toward sand which
+appears much lighter, as the gusts of wind which scarcely move these
+coarse grains toss the sands to the south into the air in a fine powdery
+spray.  To the north and west the rocky sand spreads away from this
+precipice.
+~
+massive canyon to west and south - rock bridge spans to south across
+canyon 
+south to 42560
+[Merior] penultimate sentence tries to do too much
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42548 10 10 5
+D1
+~
+~
+0 -1 42552 10 10 5
+11 9 1509949540 3 0
+-1
+S
+
+#42552
+A Desert of Rocky Sand~
+This rock-littered desert of coarse sand comes to an abrupt end to the
+south, dropping off a ledge of sandstone and falling 150 feet to a canyon
+floor.  The desert spreads to the northeast, while to the west you see a
+rock ridge which apparently crosses the canyon.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42549 10 10 5
+D1
+~
+~
+0 -1 42553 10 10 5
+D3
+~
+~
+0 -1 42551 10 10 5
+745 9 1509949540 3 0
+-1
+S
+
+#42553
+A Desert of Rocky Sand~
+A deep drop into a desert canyon to the south marks the edge of a
+rock-littered desert of coarse-grained sand which spreads in all other
+directions.  The high rising outline of a tall sandstone face to the
+northwest is visible, and you can also make out the flitting shadows of
+movement in that area behind a few boulders on the face.
+~
+[Merior] is there always movement?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42554 10 10 5
+D1
+~
+~
+0 -1 42556 10 10 5
+D3
+~
+~
+0 -1 42552 10 10 5
+-1
+S
+
+#42554
+A Desert of Rocky Sand~
+A boulder-lined slope to the north is impassably steep, but scratching
+sounds from above announce it as anything but uninhabited.  In all other
+directions a rock-littered desert spreads its arms in a harsh greeting. 
+Large, sharp-clawed tracks in the sand announce the recent presence of a
+large feline predator.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42555 10 10 5
+D2
+~
+~
+0 -1 42553 10 10 5
+D3
+~
+~
+0 -1 42549 10 10 5
+-1
+S
+
+#42555
+A Desert of Rocky Sand~
+An expansive canyon to the north winds its way to the east and rises into
+a massive sandstone face to the northwest.  Bits of rock litter the
+coarse grains of this desert, large bits of sand which the wind finds
+difficult to blow.  A strange patch of green catches your eye to the east.
+~
+[Merior] extra for green?
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42558 10 10 5
+D2
+~
+~
+0 -1 42556 10 10 5
+D3
+~
+~
+0 -1 42554 10 10 5
+11 9 1509949540 3 0
+-1
+S
+
+#42556
+A Desert of Rocky Sand~
+This rock-littered desert of coarse sand ends in a 150-foot drop to the
+south into a deep desert canyon.  In all other directions the coarse sand
+spreads out, reaching toward a high-rising sandstone face to the
+northwest.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42555 10 10 5
+D1
+~
+~
+0 -1 42557 10 10 5
+D3
+~
+~
+0 -1 42553 10 10 5
+745 9 1509949540 3 0
+-1
+S
+
+#42557
+A Desert of Rocky Sand~
+This rock-littered desert of coarse sand seems to want to swallow your
+feet whole as the loosely-packed grains envelop you to the knees.  The
+sands end abruptly to the south in the form of a 150-foot drop into a
+deep canyon, and spread to the north and west.  A large stone pillar to
+the east marks what appears to be a road through the desert.
+~
+[Merior] and spreads out?
+[Merior] for pillar/road?
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42558 10 10 5
+D1
+~
+~
+0 -1 35760 10 10 5
+D3
+~
+~
+0 -1 42556 10 10 5
+-1
+S
+
+#42558
+A Desert of Rocky Sand~
+This coarse-grained desert is not entirely devoid of vegetation.  A small
+shrub of some sort grows in a patch of dirt and rock near the edge of a
+desert canyon to the north.  To the south and west you can see not much
+else aside from more rock-littered desert, and far to the east you can
+barely make out the silhouette of a large stone pillar rising above a
+dune's crest.
+~
+[Merior] extra for pillar?
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42559 10 10 5
+D2
+~
+~
+0 -1 42557 10 10 5
+D3
+~
+~
+0 -1 42555 10 10 5
+E
+small shrub~
+This small, scraggly bush seems to be holding quite firmly to its life
+here in the desert.
+~
+745 9 1509949540 3 0
+-1
+S
+
+#42559
+A Desert of Rocky Sand~
+Bits of rock litter the coarse-grained sands of the desert here.  To the
+north a sheer drop into a desert canyon blocks movement, while to the
+west you can see not much else aside from more desert.  To the east you
+see a large stone pillar which appears to be marking a road.  That same
+road appears to bend around a dune to the south.
+~
+[Merior] extra for pillar, road?
+~
+301465608 10 9 0
+D1
+~
+~
+0 -1 35758 10 10 5
+D2
+~
+~
+0 -1 35760 10 10 5
+D3
+~
+~
+0 -1 42558 10 10 5
+-1
+S
+
+#42560
+A Rock Ridge Spanning a Desert Canyon~
+~
+no_mob
+north to 42551
+~
+301465608 10 9 0
+D0
+~
+~
+0 -1 42551 10 10 5
+D2
+~
+~
+0 -1 42561 10 10 5
+-1
+S
+
+#42561
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42560 10 10 5
+D1
+~
+~
+0 -1 42562 10 10 5
+D2
+~
+~
+0 -1 42563 10 10 5
+D3
+~
+~
+0 -1 42564 10 10 5
+-1
+S
+
+#42562
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42576 10 10 5
+D2
+~
+~
+0 -1 42566 10 10 5
+D3
+~
+~
+0 -1 42561 10 10 5
+-1
+S
+
+#42563
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42561 10 10 5
+D1
+~
+~
+0 -1 42566 10 10 5
+D2
+~
+~
+0 -1 42568 10 10 5
+D3
+~
+~
+0 -1 42565 10 10 5
+-1
+S
+
+#42564
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42561 10 10 5
+D2
+~
+~
+0 -1 42565 10 10 5
+D3
+~
+~
+0 -1 42570 10 10 5
+-1
+S
+
+#42565
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42564 10 10 5
+D1
+~
+~
+0 -1 42563 10 10 5
+D3
+~
+~
+0 -1 42569 10 10 5
+-1
+S
+
+#42566
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42562 10 10 5
+D1
+~
+~
+0 -1 42575 10 10 5
+D2
+~
+~
+0 -1 42567 10 10 5
+D3
+~
+~
+0 -1 42563 10 10 5
+-1
+S
+
+#42567
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42566 10 10 5
+D3
+~
+~
+0 -1 42568 10 10 5
+-1
+S
+
+#42568
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42563 10 10 5
+D1
+~
+~
+0 -1 42567 10 10 5
+-1
+S
+
+#42569
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42570 10 10 5
+D1
+~
+~
+0 -1 42565 10 10 5
+D2
+~
+~
+0 -1 42571 10 10 5
+D3
+~
+~
+0 -1 42572 10 10 5
+-1
+S
+
+#42570
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42564 10 10 5
+D2
+~
+~
+0 -1 42569 10 10 5
+-1
+S
+
+#42571
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42569 10 10 5
+D3
+~
+~
+0 -1 42573 10 10 5
+-1
+S
+
+#42572
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 42569 10 10 5
+D2
+~
+~
+0 -1 42573 10 10 5
+-1
+S
+
+#42573
+A Desert of Shifting Sands~
+Under Construction.
+~
+desert and pyramid to west.
+~
+301465608 10 9 0
+D0
+~
+~
+0 -1 42572 10 10 5
+D1
+~
+~
+0 -1 42571 10 10 5
+D5
+~
+~
+0 -1 42574 10 10 5
+-1
+S
+
+#42574
+A Dark Hole~
+Under Construction.
+~
+~
+301465600 10 9 0
+D4
+~
+~
+0 -1 42573 10 10 5
+-1
+S
+
+#42575
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 42576 10 10 5
+D1
+~
+~
+0 -1 42577 10 10 5
+D3
+~
+~
+0 -1 42566 10 10 5
+-1
+S
+
+#42576
+A Desert of Shifting Sands~
+Under Construction.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 42575 10 10 5
+D3
+~
+~
+0 -1 42562 10 10 5
+-1
+S
+
+#42577
+A Desert of Shifting Sands~
+Under Construction.
+~
+east to 35764
+~
+301465608 10 9 0
+D0
+~
+~
+0 -1 42578 10 10 5
+D1
+~
+~
+0 -1 35764 10 10 5
+D3
+~
+~
+0 -1 42575 10 10 5
+-1
+S
+
+#42578
+A Desert of Shifting Sands~
+Under Construction.
+~
+poss. entrance to canyon
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 42577 10 10 5
+-1
+S
+
+#42579
+A Dark Cave Entrance~
+This large cave entrance is filled with the echos of crashing waves.  The
+dampness of the floor reveals that high tides sometimes find their way
+into this part of the cave, a frightening proposition for anyone caught
+deep inside the cave when the water rushes in.  However, the presence of
+the ocean does nothing to cool off the steaming, blistering heat
+emanating from the cave.
+~
+entrance to salamander-men caverns
+also has fire ants, etc.
+no_mob
+~
+301465612 11 9 0
+D1
+~
+~
+0 -1 43500 10 10 5
+D3
+~
+~
+0 -1 42547 10 10 5
+-1
+S
+
+#42580
+Above an Underwater Tunnel~
+The warm water of the ocean laps at your body as you swim here, floating
+above a dark hole in the stone of the ocean floor below.  To the east the
+water grown shallow and sandy; in all other directions the endless waves
+spread out endlessly.
+~
+~
+301465600 6 9 0
+D1
+~
+~
+0 -1 42533 10 10 5
+D5
+~
+~
+0 -1 42581 10 10 5
+-1
+S
+
+#42581
+An Underwater Tunnel~
+Surrounded on all sides by rock, the vertical passage is completely
+submerged in water.  Above you the surface beckons, while below you dark
+water gathers in a small underwater chamber.
+~
+~
+301465600 6 9 0
+D4
+~
+~
+0 -1 42580 10 10 5
+D5
+~
+~
+0 -1 42582 10 10 5
+-1
+S
+
+#42582
+A Small Underwater Chamber~
+The water is dark, yet not chill as sunlight sometimes reaches this deep
+to warm the underwater rocks below you.  A passage leads north, and above
+you is more open water.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 42583 10 10 5
+D4
+~
+~
+0 -1 42581 10 10 5
+-1
+S
+
+#42583
+A Small Underwater Chamber~
+The water is not cold, although it is extremely dark.  A passage leads up
+toward what appears to be an underwater cave, and another leads south
+along this underwater passage.
+~
+~
+301465604 6 9 0
+D2
+~
+~
+0 -1 42582 10 10 5
+D4
+~
+~
+0 -1 42584 10 10 5
+-1
+S
+
+#42584
+A Secret Cave~
+This cavernous chamber is damp and dark, and a musty smell envelops it,
+intermixed with the smell of salt.  A passage leads down into dark water.
+~
+~
+301465612 11 9 0
+D5
+~
+~
+0 -1 42583 10 10 5
+1106 9 1509949540 3 0
+-1
+S
+
+#0
+

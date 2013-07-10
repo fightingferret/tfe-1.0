@@ -1,0 +1,2632 @@
+#AREA
+Renegade Gnome Lair~
+Tempus Kiian Merior~
+Renegade Gnome Lair~
+
+25 0
+0
+#ROOMS
+
+#38250
+Narrow Tunnel~
+The tunnel continues east and west here, leading you further underground. 
+Several torches line the walls, providing alot of smoke and little light.
+~
+~
+301465613 0 5 0
+D1
+~
+~
+0 -1 38253 10 10 5
+D3
+~
+~
+0 -1 38251 10 10 5
+-1
+S
+
+#38251
+Narrow Tunnel~
+As you enter this section of the tunnel, you can see that it leads to a
+large, dug out cavern to the west.  You see a gnome or two walk through
+the cavern once and a while, going to their jobs.  Assorted corpses and
+bones lead you to believe that they will attack on sight to protect their
+cavern.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 38250 10 10 5
+D3
+~
+~
+0 -1 38252 10 10 5
+-1
+S
+
+#38252
+Large Cavern~
+The ceiling of this cavern stretches twenty feet above you.  You see
+hanging from the ceiling of the center of the cavern, a large bunch of
+torches, giving off a dim light.  The gnome patrols frequent this area,
+looking out for intruders.
+~
+[Flieger] description of the gnome scout... "you thick you see"
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38254 10 10 5
+D1
+~
+~
+0 -1 38251 10 10 5
+D2
+~
+~
+0 -1 38255 10 10 5
+D3
+~
+~
+0 -1 38256 10 10 5
+E
+rock wall~
+These walls are ancient and roughly cut, but they have been smoothed
+somewhat smoothed over time by small amounts of water driping through
+cracks in the wall.
+~
+E
+torch~
+These torches line the entire lenght of the walls, but they only give off
+enough light for you to see.
+~
+680 9 1509949540 3 0
+908 9 1509949540 3 0
+761 9 1509949540 3 0
+-1
+S
+
+#38253
+Narrow Tunnel~
+You climb further down the shaft and find yourself deep underground. 
+Torches are mounted along the walls of the tunnel, giving off a dim light. 
+A tunnel leads west and pitches down slightly, leading you further
+underground.  A ladder is on the eastern wall leading up.
+~
+~
+301465613 0 5 0
+D3
+~
+~
+0 -1 38250 10 10 5
+D4
+~
+~
+447 -1 38289 10 10 5
+A
+open~
+1 up stump~
+open( room, up );
+act_tochar("You open the bottom of the stump.", ch );
+act_notchar("$n opens the bottom of the stump.", ch );
+~
+!
+0 0 0
+680 9 1509949540 3 0
+908 9 1509949540 3 0
+-1
+S
+
+#38254
+Large Cavern~
+Here in the northeast corner of this large cavern, you see a tunnel
+leading north, to a smaller cavern.  The east wall here is roughly cut,
+and a rock ceiling slopes down toward you.
+~
+[Fyli] renegade scout: rappid - > rapid
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38259 10 10 5
+D2
+~
+~
+0 -1 38252 10 10 5
+D3
+~
+~
+0 -1 38258 10 10 5
+E
+rock wall~
+These walls are ancient and roughly cut, but they have been somewhat
+smoothed over time by small amounts of water driping through cracks in
+the wall.
+~
+683 9 1509949540 3 0
+-1
+S
+
+#38255
+Large Cavern~
+You are in the southeast corner of this large cavern.  You see a short,
+unused tunnel leading south to what must be a store room of some sort,
+packed with wooden crates.  There is a layer of dust on the rough walls
+here.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38252 10 10 5
+D2
+~
+~
+0 -1 38286 10 10 5
+D3
+~
+~
+0 -1 38257 10 10 5
+E
+rock wall~
+These walls are ancient and roughly cut, but they have been smoothed
+somewhat smoothed over time by small amounts of water dripping through
+cracks in the wall.
+~
+-1
+S
+
+#38256
+Large Cavern~
+You are near the central part of the west wall of this cavern.  It looks
+like it had originally been tunneled out, but then filled back in for
+some unknown reason.  Perhaps the tunnel led to somewhere that was a
+little too easy to find?
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38258 10 10 5
+D1
+~
+~
+0 -1 38252 10 10 5
+D2
+~
+~
+0 -1 38257 10 10 5
+D3
+~
+~
+479 -1 38287 10 10 5
+E
+rock wall~
+These walls are ancient and roughly cut, but they have been somewhat
+smoothed over time by small amounts of water dripping through cracks in
+the wall.  Large rocks and packed dirt block the exit west.  You may be
+able to dig through it.
+~
+E
+w | west~
+Large rocks and packed dirt block the exit west.  You may be able to dig
+through it.
+~
+A
+dig~
+west~
+if( find_stat( ch, str ) > random( 15, 20 ) ) {
+  act_tochar( #yestochar, ch );
+  act_notchar( #yesnotchar, ch );
+  open( find_room( 38256 ), west );
+  }
+else {
+  act_tochar( #notochar, ch );
+  act_notchar( #nonotchar, ch );
+  }
+~
+E
+nonotchar~
+$n starts digging in the rubble blocking the exit to the west, but is
+unable to move aside the large rocks.
+~
+E
+notochar~
+You start digging in the rubble blocking the exit to the west, but you
+are unable to move aside some of the large rocks and you can't get
+through.
+~
+E
+yesnotchar~
+$n starts digging in the rubble blocking the exit to the west.  Finally
+after moveing aside some very large boulders, the exit is clear.
+~
+E
+yestochar~
+You dig with your bare hands in the dirt and rocks that block the exit
+to the west.  After moving aside some very large boulders at the bottom
+of the rubble, you finally break through.
+~
+!
+0 0 0
+760 9 1509949540 3 0
+908 9 1509949540 3 0
+-1
+S
+
+#38257
+Large Cavern~
+Here, in the southwest corner of this large cavern, you see anvils and
+hammers use by the gnome blacksmiths to make and repair weapons and armor. 
+To the south and west are roughly cut walls, and to the north and east,
+the cavern continues.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38256 10 10 5
+D1
+~
+~
+0 -1 38255 10 10 5
+E
+rock wall~
+These walls are ancient and roughly cut, but they have been smoothed
+somewhat smoothed over time by small amounts of water driping through
+cracks in the wall.
+~
+E
+anvil~
+Several anvils are set up around a small fire where obviously weapon
+repairs are made.
+~
+-1
+S
+
+#38258
+Large Cavern~
+This corner of the cavern is much like the rest of the cavern.  Small
+cracks line the section of wall here, from which small drops of water
+drip occasionally.  The cavern continues to the east and south.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 38254 10 10 5
+D2
+~
+~
+0 -1 38256 10 10 5
+E
+notch handle~
+This notch is cut about 1 foot into the rock.  As you look closer, you
+see a small handle inside the notch.  The handle inside is surrounded by
+scratch marks going in a circle.
+~
+E
+rock wall~
+These walls are ancient and roughly cut, but they have been smoothed
+somewhat smoothed over time by small amounts of water dripping through
+cracks in the wall.  You notice a small notch cut into the wall here near
+the corner of the cavern.
+~
+A
+turn~
+handle~
+act_tochar( #char, ch );
+act_notchar( #notchar, ch );
+act_room( #all, ch );
+open( find_room( 38263 ), west );
+~
+E
+all~
+You hear a slight rumbling coming from another section of the caverns.
+~
+E
+notchar~
+$n reaches inside the notch and turns the handle.
+~
+E
+char~
+You reach inside the notch and turn the handle.
+~
+!
+0 0 0
+-1
+S
+
+#38259
+Short Tunnel~
+This short tunnel connects a large cavern to the south, and a smaller
+cavern to the north.  The light here is somewhat dimmer than in the first
+tunnel, and the guard patrols are more frequent.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38260 10 10 5
+D2
+~
+~
+0 -1 38254 10 10 5
+-1
+S
+
+#38260
+Smaller Cavern~
+As you look around this smaller cavern, you see that it is mainly used as
+a checkpoint to keep intruders from going further into the caverns. 
+After you examine the walls a bit, you see that these walls are roughly
+cut.  A large crack in the rocks lead to the west.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38261 10 10 5
+D1
+~
+~
+0 -1 38311 10 10 5
+D2
+~
+~
+0 -1 38259 10 10 5
+D3
+~
+~
+0 -1 38262 10 10 5
+908 9 1509949540 3 0
+-1
+S
+
+#38261
+Smaller Cavern~
+The rock walls of this cavern are very rough, and the ceiling is low
+enough that you almost hit your head on protrusions of rock that hang
+down.  Spiders play among the nooks and crannies of the ceiling busily
+spinning webs.
+~
+~
+301465605 0 5 0
+D2
+~
+~
+0 -1 38260 10 10 5
+D3
+~
+~
+0 -1 38263 10 10 5
+E
+web~
+The spiders who spun these webs are never to far away incase they catch any prey.
+~
+E
+protrusion~
+Several chucks of rock hang down from the low ceiling.
+~
+-1
+S
+
+#38262
+Smaller Cavern~
+Like in the rest of this small cavern, the walls and ceiling here in the
+southwest corner are roughly cut.  A cobweb hangs down covering the
+corner of the cavern.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 38263 10 10 5
+D1
+~
+~
+0 -1 38260 10 10 5
+A
+get~
+web~
+if( rflag( reset0, room ) ) {
+  act_tochar("You grab one of the webs.", ch );
+  obj_to_char( oload( 81 ), ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar("You can't find a sutiable web.");
+~
+!
+0 0 0
+-1
+S
+
+#38263
+Smaller Cavern~
+Here in the northwest corner of this cavern, you see several gnome-sized
+chairs and a wooden gate across the tunnel to the west.  You guess that
+this is a checkpoint to assure that intruders do not sneak in, unnoticed.
+~
+[Gribble] unnoticed spelled wrong
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 38261 10 10 5
+D2
+~
+~
+0 -1 38262 10 10 5
+D3
+gate~
+gate~
+471 -1 38264 10 10 5
+E
+gate | west~
+This large iron bar gate spans the entrance to the western tunnel.  It is
+tightly shut and you don't see how to open it from here.
+~
+E
+chair~
+@BThis small chair only sits about one foot of the ground and it looks
+like it is used for the gnomes to sit while they guard the gate.
+~
+680 9 1509949540 3 0
+908 9 1509949540 3 0
+908 9 1509949540 3 0
+761 9 1509949540 3 0
+-1
+S
+
+#38264
+Tunnel~
+This short tunnel connects the large cavern to the west and the smaller
+cavern to the east.  The dim flickering light cast by the torches
+projects distorted shadows along the walls.
+~
+~
+301465605 0 5 0
+D1
+gate~
+gate~
+471 -1 38263 10 10 5
+D3
+~
+~
+0 -1 38265 10 10 5
+-1
+S
+
+#38265
+Large Cavern~
+Roughly the same size as entrance level cavern, the walls are much
+smoother here and the ceiling is higher.  This cavern appears to serve as
+the main dining area to the gnomes, as there is a large long table in the
+center of the room which is set with at least fifty tarnished metal place
+settings.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 38264 10 10 5
+D2
+~
+~
+0 -1 38266 10 10 5
+D3
+~
+~
+0 -1 38267 10 10 5
+E
+rock wall~
+These walls seem to be somewhat newer than the walls in first cavern, and
+they are smoother and more carefuly worked.  Every ten feet or so there
+is a small carving of dragons or knights cut into the rock.  The ceiling
+rises 15 feet above you.
+~
+-1
+S
+
+#38266
+Large Cavern~
+A long table sits in the middle of the cavern and looks to seat a
+multitude of beings.  Food scraps and bones cover the floor, flung
+haphazardly from the table.  The cavern continues to the north and west. 
+There is a small notch cut in the east wall.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38265 10 10 5
+D3
+~
+~
+0 -1 38268 10 10 5
+E
+notch~
+This notch is cut about 1 foot into the rock.  As you look closer, you see
+a small handle inside the notch.  The handle inside is surrounded by
+scratch marks going in a circle.
+~
+E
+rock wall~
+These walls seem to be somewhat newer than the walls in first cavern, and
+they are smoother and more carefuly worked.  Every ten feet or so there
+is a small carving of dragons or knights cut into the rock.  The ceiling
+rises 15 feet above you.
+~
+A
+turn~
+handle~
+act_tochar( #char, ch );
+act_notchar( #notchar, ch );
+act_room( #all, ch );
+open( find_room( 38264 ), east );
+~
+E
+all~
+You here a slight rumbling coming from another section of the caverns.
+~
+E
+notchar~
+$n reaches inside the notch and turns the handle.
+~
+E
+char~
+You reach inside the notch and turn the handle.
+~
+!
+0 0 0
+680 9 1509949540 3 0
+-1
+S
+
+#38267
+Large Cavern~
+You stand near a long table which dominates the cavern.  The table looks
+to be thirty feet long and there is enough chairs for at least fifty
+gnomes.  The large chair at the end of the table is encrusted in gold and
+in it are carved dragons and other mythic beasts.
+~
+[Lansharra] gnome chieftain, not chieftan
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 38265 10 10 5
+D2
+~
+~
+0 -1 38268 10 10 5
+D3
+~
+~
+0 -1 38269 10 10 5
+E
+gold large chair dragons beasts~
+On closer inspection the chair consists of odd and ends of iron pyrite
+glued on in a crude imitation of gold.
+~
+E
+rock wall~
+These walls seem to be somewhat newer than the walls in first cavern, and
+they are smoother and more carefuly worked.  Every ten feet or so there
+is a small carving of dragons or knights cut into the rock.  The ceiling
+rises 15 feet above you.
+~
+359 9 1509949540 3 0
+23 17 1509949540 -2 0
+683 9 1509949540 3 0
+765 9 1509949540 3 0
+908 9 1509949540 3 0
+761 9 1509949540 3 0
+760 9 1509949540 3 0
+-1
+S
+
+#38268
+Large Cavern~
+You notice something strange about the tunnel leading to the south.  A
+faint glinting catches your eye.  The finely cut cavern continues to the
+east, west, and south.  You see the long table to the north.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38267 10 10 5
+D1
+~
+~
+0 -1 38266 10 10 5
+D2
+~
+~
+0 -1 38276 10 10 5
+D3
+~
+~
+0 -1 38270 10 10 5
+E
+rock wall~
+These walls seem to be somewhat newer than the walls in first cavern, and
+they are smoother and more carefuly worked.  Every ten feet or so there
+is a small carving of dragons or knights cut into the rock.  The ceiling
+rises 15 feet above you.
+~
+908 9 1509949540 3 0
+-1
+S
+
+#38269
+Large Cavern~
+Here in the northwest corner, you see a small tunnel leading west into
+what looks like a living area of some sort.  This cavern continues east
+and south, and the ceiling stretches above you.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 38267 10 10 5
+D2
+~
+~
+0 -1 38270 10 10 5
+D3
+~
+~
+0 -1 38271 10 10 5
+E
+rock wall~
+These walls seem to be somewhat newer than the walls in first cavern, and
+they are smoother and more carefuly worked.  Every ten feet or so there
+is a small carving of dragons or knights cut into the rock.  The ceiling
+rises 15 feet above you.
+~
+-1
+S
+
+#38270
+Large Cavern~
+The southwestern corner is carefully carved out like the rest of this
+cavern.  Torches line the walls and a large fixture hangs from the center
+of the cavern that provides just enough light to see clearly.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38269 10 10 5
+D1
+~
+~
+0 -1 38268 10 10 5
+E
+rock wall~
+These walls seem to be somewhat newer than the walls in first cavern, and
+they are smoother and more carefuly worked.  Every ten feet or so there
+is a small carving of dragons or knights cut into the rock.  The ceiling
+rises 15 feet above you.
+~
+-1
+S
+
+#38271
+Tunnel~
+This short tunnel connects the large dining cavern to the east and a
+smaller cavern to the west, which looks like it is used for the living
+areas for the gnomes.  Rats and mice scurry from under your feet.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 38269 10 10 5
+D3
+~
+~
+0 -1 38272 10 10 5
+-1
+S
+
+#38272
+Small Cavern~
+You see that this small cavern has been set aside to be the sleeping
+quarters for the gnomes.  Bunks line the north wall and continue west. 
+To the south, you see a small food preparation area.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 38271 10 10 5
+D2
+~
+~
+0 -1 38274 10 10 5
+D3
+~
+~
+0 -1 38273 10 10 5
+E
+rock wall~
+These walls are fairly damp, and you see bits of mold growing in a crack
+here and there.
+~
+-1
+S
+
+#38273
+Small Cavern~
+This northwest corner of this cavern is lined with bunks.  There seem to
+be many more bunks than gnomes you've seen here in the caverns, the rest
+must be some where on the surface.  The bunks themselves look very dirty
+and are infested with insects.
+~
+need to check an rflag so can only load 1 rat
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 38272 10 10 5
+D2
+~
+~
+0 -1 38275 10 10 5
+E
+bunk~
+These wire-framed bunks line the walls of this small cavern.  On a bottom
+bunk near the corner you think you see a small bulge under the covers. 
+You could probably see whats under there if you pulled the covers back.
+~
+E
+rock wall~
+These walls are fairly damp, and you see bits of mold growing in a crack
+here and there.
+~
+A
+pull~
+covers~
+if( rflag( reset0, room ) ) {
+  act_tochar( #tochar, ch );
+  act_notchar( #notchar, ch );
+  mload( 2511, room );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( "You lift up the covers but find nothing.", ch );
+~
+E
+notchar~
+$n pulls back the covers and a rat climbs out and drops onto the floor.
+~
+E
+tochar~
+You pull back the covers and a rat climbs out and drops onto the floor.
+~
+!
+0 0 0
+680 9 1509949540 3 0
+680 9 1509949540 3 0
+683 9 1509949540 3 0
+680 9 1509949540 3 0
+760 9 1509949540 3 0
+-1
+S
+
+#38274
+Small Cavern~
+Several large pots sit on cooking fires overflowing with a thick boiling
+stew.  A grill lies pushed to the side of the fire, rusting from disuse. 
+You guess that the gnomes haven't seen much fresh meat recently.  There
+is a small well dug into the ground here.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38272 10 10 5
+D3
+~
+~
+0 -1 38275 10 10 5
+E
+rock wall~
+These walls are fairly damp, and you see bits of mold growing in a crack
+here and there.
+~
+82 17 1509949540 -2 0
+719 17 1509949540 -2 0
+-1
+S
+
+#38275
+Small Cavern~
+In the southwest corner there are a number of chairs set up in a
+semicircle around a small fireplace.  Used by the gnomes for
+story-telling and relaxing, the fire is always blazing.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38273 10 10 5
+D1
+~
+~
+0 -1 38274 10 10 5
+E
+rock wall~
+These walls are fairly damp, and you see bits of mold growing in a crack
+here and there.
+~
+-1
+S
+
+#38276
+Tunnel~
+The strange glimmering from the south is more intense here.  The walls,
+are finely cut, and unlike the other areas this warren are free from
+cobwebs and dust.  Many tracks have been worn into the stone floor from
+scuffing feet.  The torches, set into fixtures in the walls, cast a dim
+light that is just bright enough for you to see.
+~
+~
+301465613 0 9 0
+D0
+~
+~
+0 -1 38268 10 10 5
+D2
+~
+~
+0 -1 38277 10 10 5
+-1
+S
+
+#38277
+Very Large Cavern~
+As you look around this very large cavern, you guess that it must have
+taken many months to carve out the solid rock.  You see the source of the
+glinting, an extremely large crystal chandelier of a dwarven design, hangs
+from the center of the room.  Around the edges of this cavern are several
+items that must have come from different areas from far away.  The
+warriors that patrol this cavern look like they would fight to the death
+to protect the items.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38276 10 10 5
+D1
+~
+~
+0 -1 38280 10 10 5
+D2
+~
+~
+0 -1 38278 10 10 5
+D3
+~
+~
+0 -1 38281 10 10 5
+683 9 1509949540 3 0
+683 9 1509949540 3 0
+-1
+S
+
+#38278
+Very Large Cavern~
+Far above you, here in the central part of this very large cavern, is
+the large crystal chandelier.  It slowly twists on its rope and casts a
+glimering light around the cavern.  The cavern continues to the east,
+west, and south.  You notice a large, thick iron door to your south.
+~
+[Lansharra] um, where's the iron door?
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38277 10 10 5
+D1
+~
+~
+0 -1 38279 10 10 5
+D2
+iron door~
+iron door~
+391 62 38283 10 10 5
+D3
+~
+~
+0 -1 38282 10 10 5
+E
+crystal chandelier~
+This crystal chandelier is of a dwarven design, it's small prisms are
+intricately carved with figures from dwarven myths and stories.
+~
+761 9 1509949540 3 0
+680 9 1509949540 3 0
+683 9 1509949540 3 0
+-1
+S
+
+#38279
+Very Large Cavern~
+Here you see a human sized suit of plate mail tightly chained to the wall. 
+It looks very old, its joints are quite rusty and it looks like it would
+fall apart if you tried to touch it.  However, it seems to have an aura
+of good around it, like it might have been once worn by a great knight. 
+You wonder how gnomes got it and what they would want with it?
+~
+[Fyli] look armor has many typoes.
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38280 10 10 5
+D3
+~
+~
+0 -1 38278 10 10 5
+E
+plate armor~
+This old suit of plate mail armor is tightly chained to the wall. 
+Although allmost all the plates are rusted beyond repair, you may beable
+to find a good peice of metal.
+~
+683 9 1509949540 3 0
+-1
+S
+
+#38280
+Very Large Cavern~
+Here you see a large painting of the city of Medienne.  The painting looks
+very old and is very well done.  It looks quite expensive, and you wonder
+what it is doing here in these caverns.  The cavern continues to the south
+and west.
+~
+~
+301465605 0 9 0
+D2
+~
+~
+0 -1 38279 10 10 5
+D3
+~
+~
+0 -1 38277 10 10 5
+E
+painting~
+Vibrant colors and bold strokes depict a young town on a sunny day. 
+Vendors roam the steets selling their wares, and children run fleeing
+from their parents.
+~
+-1
+S
+
+#38281
+Very Large Cavern~
+The northwest corner of this cavern is filled with small trinkets from
+far away lands.  None of them have any value, but you can tell from their
+exotic nature that they didn't come from anywhere around here.  The walls
+are extremely finely cut, and the ceiling is several dozen feet above you.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 38277 10 10 5
+D2
+~
+~
+0 -1 38282 10 10 5
+-1
+S
+
+#38282
+Very Large Cavern~
+In this part of the cavern you see three statues depicting several nude
+female elves picking fruit.  They are quite well done and you are sure
+that no gnome craftsman could do work as fine as this.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38281 10 10 5
+D1
+~
+~
+0 -1 38278 10 10 5
+683 9 1509949540 3 0
+683 9 1509949540 3 0
+-1
+S
+
+#38283
+Cavern Alcove~
+Here in this secluded portion of the cavern, you are amazed by the number
+of exotic, mysterious items of unknown origin.  You realize that these
+gnomes must be acquiring all of the things they have by stealing them. 
+There are several large chests here, which must contain some of the
+gnomes most highly guarded treasure.
+~
+[Fyli] in gnome barb desc, manors -> manners
+~
+301465613 0 5 0
+D0
+iron door~
+iron door~
+391 62 38278 10 10 5
+A
+open~
+target door north~
+act_tochar("Ok.", ch );
+act_notchar("$n opens the door.");
+open( room, north );
+~
+!
+0 0 0
+A
+open~
+A slightly rusty large chest very~
+mob = mob_in_room( 79, room );
+if( mob ) {
+  act_tochar( #tochar, ch );
+  act_notchar( #toroom, ch );
+  attack_weapon( mob, victim, 2d4, "tackle" );
+  }
+else
+  continue;
+~
+E
+toroom~
+$n moves to open one of the chests, but the huge gnome blocks and attacks.
+~
+E
+tochar~
+You move to open on of the chests, but the huge gnome blocks and attacks you.
+~
+!
+0 0 0
+79 9 1509949540 3 0
+79 9 1509949540 3 0
+482 49 1509949540 -2 0
+2203 81 1509949445 -2 0
+893 81 1509949443 -2 0
+929 80 1509949443 -2 0
+611 81 1509949450 -2 0
+615 81 1509949450 -2 0
+1074 81 1509949445 -2 0
+16 81 1509949445 -2 0
+12 81 1509949515 -2 0
+12 81 1509949515 -2 0
+12 81 1509949515 -2 0
+2063 81 1509949455 -2 0
+998 81 1509949465 -2 0
+998 81 1509949465 -2 0
+983 81 1509949455 -2 0
+983 81 1509949455 -2 0
+938 81 1509949443 -2 0
+973 81 1509949465 -2 0
+1054 81 1509949455 -2 0
+933 81 1509949445 -2 0
+1130 81 1509949445 -2 0
+1150 81 1509949445 -2 0
+1053 81 1509949450 -2 0
+909 81 1509949443 -2 0
+1045 80 1509949443 -2 0
+901 80 1509949443 -2 0
+2696 81 1509949445 -2 0
+79 9 1509949490 3 0
+-1
+S
+
+#38286
+Side Cavern~
+As you look around this small, out-of-the-way cavern, it looks like no
+one has been here for quite a while.  Dust covers the floor and empty
+shelves, and empty wooden crates are haphazardly stacked near the back of
+the cavern.  As you look closer you notice that several of the crates are
+unopened.
+~
+~
+301465613 0 9 0
+D0
+~
+~
+0 -1 38255 10 10 5
+E
+crates~
+As you inspect these crates, you notice that a few of them are unopened,
+and they might contain something of value.  You may be able to find
+something in them.
+~
+A
+search~
+crates~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #notochar, ch );
+  act_notchar( #nonotchar, ch );
+  end;
+  }
+if( find_skill( ch, searching ) > random( 4, 6 ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #tochar, ch );
+  act_notchar( #notchar, ch );
+obj_to_room( oload( 50 ), room );
+obj_to_room( oload( 2060 ), room );
+  }
+else {
+  act_tochar( #notochar, ch );
+  act_notchar( #nonotchar, ch );
+  }
+~
+E
+nonotchar~
+$n searches through the boxes and crates, but dosn't seem to find anything.
+~
+E
+notochar~
+You search through the boxes and crates for several minutes, but find nothing.
+~
+E
+notchar~
+$n searches through the boxes and crates, and finds something!
+~
+E
+tochar~
+You search through the boxes and crates, and you find something!
+~
+!
+0 0 0
+683 9 1509949540 3 0
+761 9 1509949540 3 0
+-1
+S
+
+#38287
+Abandoned Tunnel~
+A thick layer of dust covers the floor and bare walls of this tunnel and
+cobwebs hang from the ceiling.  The exit to the west has been firmly
+blocked, and you doubt that you could ever dig through it.  There is
+lighter rubble blocking the east exit.
+~
+~
+301465605 0 9 0
+D1
+way~
+way~
+479 -1 38256 10 10 5
+A
+dig~
+east~
+if( is_open( room, east ) )
+  act_tochar( #no, ch );
+else {
+  if( find_stat( ch, str ) > random( 12, 20 ) ) {
+    act_tochar( #yestochar, ch );
+    act_notchar( #yesnotchar, ch );
+    open( find_room( 38287 ), east );
+    }
+  else {
+    act_tochar( #notochar, ch );
+    act_notchar( #nonotchar, ch );
+    }
+  }
+~
+E
+nonotchar~
+$n starts digging in the rubble blocking the exit to the east, but is
+unable to move aside the large rocks.
+~
+E
+notochar~
+You start digging in the rubble blocking the exit to the east, but you
+are unable to move aside some of the large rocks and you can't get
+through.
+~
+E
+yesnotchar~
+$n starts digging in the rubble blocking the exit to the east.  Finally
+after moveing aside some very large boulders, the exit is clear.
+~
+E
+yestochar~
+You dig with your bare hands in the dirt and rocks that blocks the exit
+to the west.  After moving aside some very large boulders at the bottom
+of the rubble, you finally break through.
+~
+E
+no~
+The way is already clear.
+~
+!
+0 0 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#38289
+Faint Trail~
+As you enter the corner of these cliffs, the path you have been following
+suddenly stops near a large tree stump.  The walls of the cliff to the
+west and south here have been smoothed over somewhat, as if they had
+been worn by something rubbing against them for many years.  You think
+you see the source of the river to the north.
+~
+maybe add some 'white elephant' rexs
+add extra for cliff
+no_mob
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 38290 10 10 5
+D1
+~
+~
+0 -1 38291 10 10 5
+D5
+stump~
+stump~
+447 -1 38253 10 10 5
+E
+stump~
+As you look closer at this stump, you notice that the corners have been
+rounded off, either by time or by some tool.  You notice that the
+outermost growth ring of the stump has been carved out, the stump may be
+hollow.
+~
+E
+cliff~
+The cliff is high and craggy, perhaps too steep even to attempt a climb.
+~
+A
+1 open~
+stump~
+act_tochar( #tochar, ch );
+act_notchar( #notchar, ch );
+open( room, down );
+~
+E
+notchar~
+$n feels around on the top of the stump and finds a small knot near the
+edge of the stump, $e pulls off the top of the stump and you find that
+it is hollow and a ladder leads down.
+~
+E
+tochar~
+You feel around on the top of the stump and find a small knot near the
+edge of the stump, you pull off the top of the stump and find it is
+hollow and a ladder leads down.
+~
+!
+0 0 0
+872 17 1509949445 -2 0
+-1
+S
+
+#38290
+Mountain River Source~
+Here you see the source of this mountain river.  The water is coming out
+of a small cavern in the rock of the western cliff.  The river runs to
+the east and the cliffs stretch high above you to the north and and west.
+~
+perhaps make an item based on a fountain (ie water source) and reset it here @ 1000 so chars can drink
+add some rextras to mask the stump thing
+add the river object all along it so you can drink from it the entire way
+extra for cliff/source of water
+~
+301465600 8 9 0
+D1
+~
+~
+0 -1 38292 10 10 5
+D2
+~
+~
+0 -1 38289 10 10 5
+324 17 1509949540 -2 0
+872 17 1509949445 -2 0
+-1
+S
+
+#38291
+Faint Trail~
+The trail continues to get easier to find and follow here.  A few of the
+trees have broken lower branches, and you think you see a small footprint
+in the dirt.  The trail goes on to the west and south, and to the north
+and east you see the river flowing by.
+~
+extra for footprint
+this place needs more mobs
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 38292 10 10 5
+D1
+~
+~
+0 -1 38293 10 10 5
+D2
+~
+~
+0 -1 38320 10 10 5
+D3
+~
+~
+0 -1 38289 10 10 5
+E
+branches~
+The low branches on these trees have all been eather broken off or nearly so.
+~
+2509 9 1509949540 3 0
+-1
+S
+
+#38292
+Mountain River~
+The river continues flowing to the east.  The water is cool and clear and
+runs fairly slowly.  To the north a tall cliff blocks any movement in
+that direction, and a small grove of trees lines the southern bank.
+~
+~
+301465600 8 9 0
+D1
+~
+~
+0 -1 38299 10 10 5
+D2
+~
+~
+0 -1 38291 10 10 5
+D3
+~
+~
+0 -1 38290 10 10 5
+183 9 1509949540 3 0
+324 17 1509949540 -2 0
+-1
+S
+
+#38293
+Mountain River~
+After flowing around a large outcropping of granite cliff to the northeast,
+the river turns back to the east here.  There is just enough room between
+the southern bank of the river and the tall cliffs farther to the south
+so that a small line of trees can grow.  To the east, a beaver's lodge
+blocks you from going in that direction.
+~
+why can't you climb up on lodge and go to east?
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 38299 10 10 5
+D2
+~
+~
+0 -1 38294 10 10 5
+D3
+~
+~
+0 -1 38291 10 10 5
+27 9 1509949540 3 0
+324 17 1509949540 -2 0
+-1
+S
+
+#38294
+Faint Trail~
+You continue to walk along this faint trail, being careful that you don't
+loose it in the brush.  Here and there you see some strange tracks in the
+dirt, like someone was dragging something heavy.  Through the trees to
+the north you see the river and to the south the cliffs rise into the sky.
+~
+extra for strange tracks
+cliffs too
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 38293 10 10 5
+D1
+~
+~
+0 -1 38296 10 10 5
+D3
+~
+~
+0 -1 38320 10 10 5
+-1
+S
+
+#38295
+Mountain River~
+You cross over the river again here, walking on flat stones spaced fairly
+far apart, just enough so that you have to make a small jump to reach
+them.  The river flows to the east, but to your west just up river, a
+large beaver lodge blocks you from swiming upstream.
+~
+maybe extra for beaver lodge? maybe load a beaver here? this place is empty of mobs
+[Yster] a large beaver lodge blocks you from swim(m)ing upstream.
+[Lanara] swiming
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 38318 10 10 5
+D1
+~
+~
+0 -1 38297 10 10 5
+D2
+~
+~
+0 -1 38296 10 10 5
+324 17 1509949540 -2 0
+-1
+S
+
+#38296
+Faint Trail~
+You pick up the trail again here, running from the bank of the river to
+the north to hugging the tall cliffs to the south.  The trail continues
+to the west following the cliffs.
+~
+extra for cliffs
+[Lansharra] north of here, room desc: swimming
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 38295 10 10 5
+D3
+~
+~
+0 -1 38294 10 10 5
+-1
+S
+
+#38297
+Mountain River~
+The river flows gently to the east here.  The water is crystal clear and
+is quite cold.  Thick trees line the southern bank and off in the
+distance a bit to the north, tall cliffs rise from the ground.
+~
+?
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 38319 10 10 5
+D1
+~
+~
+0 -1 38298 10 10 5
+D3
+~
+~
+0 -1 38295 10 10 5
+324 17 1509949540 -2 0
+-1
+S
+
+#38298
+Mountain River~
+As you carefully make your way across this fairly slow flowing river, you
+notice that the flat stones that you are stepping on seem to be a bit out
+of place here.  You see a fish swim along in the river once in a while
+and high overhead you think you see a falcon.
+~
+extra for stones
+[Phule] if there are stepping stones why am i swimming
+~
+301465600 8 9 0
+D0
+~
+~
+0 -1 38300 10 10 5
+D1
+~
+~
+0 -1 38302 10 10 5
+D2
+~
+~
+0 -1 38301 10 10 5
+D3
+~
+~
+0 -1 38297 10 10 5
+A
+~
+~
+act_room( "The falcon high overhead crys out.", ch );
+~
+!
+2 0 0
+324 17 1509949540 -2 0
+-1
+S
+
+#38299
+Mountain River~
+An offshoot of the large granite cliffs juts down from the northern
+cliffs and blocks any movement to the east.  The offshoot also blocks the
+flow of the water and makes it make a turn to the south.
+~
+offshoot? not sure what you mean by this
+make it clear that you are in water here
+~
+301465600 8 9 0
+D2
+~
+~
+0 -1 38293 10 10 5
+D3
+~
+~
+0 -1 38292 10 10 5
+324 17 1509949540 -2 0
+872 17 1509949450 -2 0
+-1
+S
+
+#38300
+Faint Trail~
+You continue following this very faint trail that winds its way through
+the trees and brush in this small valley between two large hills.  The
+path starts following the river back to the west and to the south you can
+cross the river.
+~
+describe what is north of here, etc
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 38298 10 10 5
+D3
+~
+~
+0 -1 38319 10 10 5
+-1
+S
+
+#38301
+Faint Trail~
+You can hardly make out this small trail from the surrounding foliage. 
+The pine trees are quite thick in places preventing any movement in that
+direction.  To the east you see the once great Black Hills Road and to
+the north you see a gentle mountain river.
+~
+second sentence doesn't make sense
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 38298 10 10 5
+D1
+~
+~
+0 -1 38304 10 10 5
+587 17 1509949540 -2 0
+-1
+S
+
+#38302
+Black Hills Road - Bridge over Mountain River~
+A slowly-flowing mountain river crosses the road here, and a wide stone
+bridge, clearly of some age, has been constructed to provide a facile
+means of crossing.  To the east and west, the river flows between
+forested, craggy hills, while the road continues north and south of the
+bridge.
+~
+no mob
+~
+301465608 12 9 0
+D0
+~
+~
+0 -1 38303 10 10 5
+D1
+~
+~
+0 -1 38327 10 10 5
+D2
+~
+~
+0 -1 38304 10 10 5
+D3
+~
+~
+0 -1 38298 10 10 5
+E
+wide stone bridge~
+This stones of this old bridge have become stained with time in some
+places and bleached by sunlight and the elements in others.  In between
+the large pieces of rock from which it was constructed grow grasses and
+weeds.
+~
+-1
+S
+
+#38303
+Black Hills Road~
+The Black Hills road continues north and south here, leading through an
+area of craggy hills and stands of odd pines and various other trees.  To
+the south, you spy a mountain river crossing the road, while the road
+heads up a slight slope to the north.
+~
+will continue north toward orlumber
+n is 39000
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 39000 10 10 5
+D2
+~
+~
+0 -1 38302 10 10 5
+A
+~
+~
+~
+!
+0 0 0
+-1
+S
+
+#38304
+Black Hills Road~
+This wide road continues climbing into the hills, and the pine trees
+covering the hills seem to be thicker here than on the hills to the south. 
+On the western side of the trail, you see a large hill rise up, and to
+the north of here you see a river has cut through that hill making a
+small valley.  To the west, you see a faint trail leading into the woods.
+~
+need rextras
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 38302 10 10 5
+D1
+~
+~
+0 -1 38325 10 10 5
+D2
+~
+~
+0 -1 38305 10 10 5
+D3
+~
+~
+0 -1 38301 10 10 5
+2509 9 1509949540 3 0
+755 9 1509949490 3 0
+-1
+S
+
+#38305
+Black Hills Road~
+There are heavy tracks here in the road, where horses and oxen had to
+struggle a bit more to carry their load up the hills.  The road is
+flanked on the west by hills covered with pine trees and on the east by
+somewhat smaller hills covered with elm and oak trees.  The road
+continues to climb into the hills to the north.
+~
+need rextras
+you need maybe 1 room to the east and 1 to the ne to vary it/break out from the path system
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 38304 10 10 5
+D1
+~
+~
+0 -1 38323 10 10 5
+D2
+~
+~
+0 -1 38306 10 10 5
+-1
+S
+
+#38306
+Black Hills Road~
+This wide road is flanked by tall hills covered with dark green pine on
+the east and oak and maple trees on the west.  Several pairs of deep ruts
+have been cut by countless wagons moving back and forth over the years,
+but now weeds grow here and there on the road and you hardly see anyone
+on it at all.  The road rises steadily into the hills to the north.
+~
+maybe vary sentence structure some?  -k
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 38305 10 10 5
+D1
+~
+~
+0 -1 38321 10 10 5
+D2
+~
+~
+0 -1 38310 10 10 5
+872 17 1509949445 -2 0
+2509 9 1509949490 3 0
+-1
+S
+
+#38307
+Black Hills Road~
+Under Construction.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 38308 10 10 5
+D3
+~
+~
+0 -1 38305 10 10 5
+-1
+S
+
+#38308
+Black Hills Road~
+Under Construction.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 38307 10 10 5
+D2
+~
+~
+0 -1 38309 10 10 5
+D3
+~
+~
+0 -1 38306 10 10 5
+-1
+S
+
+#38309
+Black Hills Road~
+Under Construction.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 38308 10 10 5
+D3
+~
+~
+0 -1 38310 10 10 5
+-1
+S
+
+#38310
+Black Hills Road~
+This wide road is flanked by tall hills covered with dark green pine
+trees.  Several pairs of deep ruts have been cut by countless wagons
+moving back and forth over the years, but now weeds grow here and there
+on the road and you hardly see anyone on it at all.
+~
+pines grow on east and oaks/ems on west
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 38306 10 10 5
+D2
+~
+~
+0 -1 37207 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#38311
+Natural Caverns~
+Rough stalactites hang from the ceiling these rather cramped natural
+caverns.  You see that this entire cavern system built by these gnomes
+must have originally been natural caves that they cut out to suit their
+needs.
+~
+~
+301465613 0 4 0
+D1
+~
+~
+0 -1 38312 10 10 5
+D3
+~
+~
+0 -1 38260 10 10 5
+-1
+S
+
+#38312
+Natural Caverns~
+A thin layer of dust layers the walls here, although a trail of foot
+prints are in the dust on the ground, going both ways.  These caverns
+continue to the north and south, and you think you see light from the cut
+caverns to the west.
+~
+~
+301465605 0 4 0
+D0
+~
+~
+0 -1 38314 10 10 5
+D2
+~
+~
+0 -1 38313 10 10 5
+D3
+~
+~
+0 -1 38311 10 10 5
+-1
+S
+
+#38313
+Natural Caverns~
+This small offshoot of these caverns ends to the south.  Small insects
+crall about on the walls and you see beddings probably from some rodent. 
+Your only exit is to the north.
+~
+[Lansharra] crawl
+[Lansharra] bedding
+~
+301465605 0 4 0
+D0
+~
+~
+0 -1 38312 10 10 5
+-1
+S
+
+#38314
+Natural Caverns~
+This area is much like the rest of these natural caverns.  You have to
+watch your footing to make sure that you don't stumble over rocks and
+other things jutting out of the ground.  The cavern leads south and
+narrows slightly to the east.
+~
+~
+301465605 0 4 0
+D1
+~
+~
+0 -1 38315 10 10 5
+D2
+~
+~
+0 -1 38312 10 10 5
+-1
+S
+
+#38315
+Natural Caverns~
+The cavern dead ends here.  You see a cold campfire and several pieces of
+cloth laid on the ground for beds.  An empty weapon rack sits at the back
+of the cavern.  From a small crack in the north wall, you hear running
+water.
+~
+~
+301465605 0 4 0
+D0
+~
+~
+0 -1 38316 10 10 5
+D3
+~
+~
+0 -1 38314 10 10 5
+728 9 1509949540 3 0
+728 9 1509949540 3 0
+728 9 1509949490 3 0
+-1
+S
+
+#38316
+Natural Caverns~
+The dark river curves abruptly eastward and a faint light shines from the
+cavern wall in that direction.  A narrow rock ledge leads to the west and
+the cavern expands to the south.
+~
+~
+301465605 8 9 0
+D2
+~
+~
+0 -1 38315 10 10 5
+D3
+~
+~
+0 -1 38317 10 10 5
+-1
+S
+
+#38317
+Natural Caverns~
+A cold dark river rushes from the depths of the hills.  The surrounding
+bedrock has been eroded by the waters passage and the caverns are
+constantly changing.  A thin strip of slick rock slowly narrows and
+dissappears to the west.
+~
+~
+301465605 8 9 0
+D1
+~
+~
+0 -1 38316 10 10 5
+324 17 1509949540 -2 0
+-1
+S
+
+#38318
+Faint Trail~
+The path winds its way along the river bank, and then it turns into the
+river to the south.  To the north and west tall cliffs rise into the sky.
+~
+rextras for the cliffs, maybe bushes
+actions sent_to_char, continue for when you enter water
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 38319 10 10 5
+D2
+~
+~
+0 -1 38295 10 10 5
+-1
+S
+
+#38319
+Faint Trail~
+As you follow the trail along the river bank, you notice that here and
+there the trail just seems to stop and you have to look carefully to find
+it again.  The river gurgles to the south and the path continues to the
+east and west.  A rocky cliff blocks any movement to the north.
+~
+extra for cliff
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 38300 10 10 5
+D2
+~
+~
+0 -1 38297 10 10 5
+D3
+~
+~
+0 -1 38318 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#38320
+Faint Trail~
+The trail is a little easier to follow here, you guess that has been a
+little more traffic in this area.  There are scrape marks on the trees
+and along the ground.  The cliff blocks to the the west and south, and
+to the north and east the trail continues.
+~
+extras - scrape marks, trees, ground, cliff
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 38291 10 10 5
+D1
+~
+~
+0 -1 38294 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#38321
+Hills - North of Pennan~
+A narrow road runs to your west, linking Pennan to the north.  Far to the
+west you can see the Black Hills dark on the horizon.  The land here is
+also hilly, but is green with plant life.  Many small oaks and elms dot
+the hillside, and bright flowers provide color to the scene.
+~
+extra for plants, maybe a bush or something
+[Ssleestaq] make it so that it says "you cannot pick any more flowers" instead of 'you need a lock pick to pick a lock'
+[Samalo] i like sniff plant
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 38323 10 10 5
+D1
+~
+~
+0 -1 38322 10 10 5
+D3
+~
+~
+0 -1 38306 10 10 5
+1998 17 1509949540 -2 0
+-1
+S
+
+#38322
+Rolling Hills North of Pennan~
+Rolling hills, covered with green grass extend north and west.  Many
+large trees, primarily elms and oaks, though with occasional poplars and
+birches, dot the landscape in those directions.  To your east and south
+are more hills, covered with low shrubs and verdant grasses.
+~
+extras for plants
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 38324 10 10 5
+D3
+~
+~
+0 -1 38321 10 10 5
+2509 9 1509949490 3 0
+-1
+S
+
+#38323
+Hills - East of the Black Hills Road~
+You stand just to the east of the Black Hills road, the main north-south
+thoroughfare in this part of the world.  In all other directions stretch
+a lightly wooded area, full of elm and oak saplings casting their shade
+on verdant grass.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 38325 10 10 5
+D1
+~
+~
+0 -1 38324 10 10 5
+D2
+~
+~
+0 -1 38321 10 10 5
+D3
+~
+~
+0 -1 38305 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#38324
+Near the Giant Oak and Elm~
+The lightly wooded area extends in all directions, as small oaks and elms
+establish their footing.  To your east is a giant oak, unusual in this
+area for its great size.  Another large tree, this time an elm grows to
+your north.  Perhaps they are responsible for all the smaller trees.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 38326 10 10 5
+D1
+~
+~
+0 -1 40251 10 10 5
+D2
+~
+~
+0 -1 38322 10 10 5
+D3
+~
+~
+0 -1 38323 10 10 5
+-1
+S
+
+#38325
+Wooded Hills - Near the Mountain River~
+This area looks almost like the hide of a spotted animal, with dark
+blotches of trees dotting the otherwise green, grassy landscape.  To your
+east grows a tall elm, providing more shade under its branches than its
+smaller fellows.  To your west runs the Black Hills road.  The ground
+slopes down towards the north as it goes to meet a slowly flowing river.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 38327 10 10 5
+D1
+~
+~
+0 -1 38326 10 10 5
+D2
+~
+~
+0 -1 38323 10 10 5
+D3
+~
+~
+0 -1 38304 10 10 5
+E
+river~
+A fast-moving river flows rapidly to your north.  Small twigs and other
+bits of plants float on the top as the water rushes from the western
+hills.
+~
+324 17 1509949540 -2 0
+2693 17 1509949460 -2 0
+-1
+S
+
+#38326
+By the Large Elm Tree~
+A large elm tree grows straight and tall, with many large branches. 
+Smaller elms, as well as oaks, grow on the rolling hills to your east and
+west.  The tree itself blocks your way north, and you cannot see what
+might be beyond it.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 38328 10 10 5
+D2
+~
+~
+0 -1 38324 10 10 5
+D3
+~
+~
+0 -1 38325 10 10 5
+E
+nest~
+A bird's nest is nestled between several leafy boughs of the elm.  Every
+now and then, a flutter of wings can be seen, and a chirp heard.
+~
+E
+elm tree~
+A great elm tree dominates the area.  Its trunk is broad, and covered
+with brown bark.  The many great branches are very high, and difficult to
+reach.  A small bird's nest peeks out from a leafy branch high atop the
+tree.
+~
+A
+climb~
+1 up tree elm~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room(  38329 ) );
+  act_notchar( #rfly, ch );
+  end;
+  }
+if( is_mounted( ch ) ) {
+  send_to_char( #nomount, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room(  38329 ) );
+  act_notchar( #rsuccess, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+failed~
+You see $n try to climb the tree, then slip back down.
+~
+E
+fail~
+You slip, and find yourself on the ground.
+~
+E
+success1~
+You see $n climb up the elm and disappear.
+~
+E
+success~
+You climb up the tall elm tree.
+~
+E
+nomount~
+You cannot climb the tree when mounted.
+~
+E
+flying~
+You see $n go flying up the tree.
+~
+E
+fly~
+You fly up the tree.
+~
+E
+noclimb~
+You cannot climb the great elm tree.
+~
+E
+rfly~
+$n flies up from below.
+~
+E
+rsuccess~
+$n climbs up from below.
+~
+!
+0 0 0
+755 9 1509949540 3 0
+-1
+S
+
+#38327
+In the Mountain River~
+The water slowly flows by swift and clear.  Small twigs float by,
+twirling as they reach tiny whirlpools, then moving on when another takes
+their place.  The water is cold and fresh, as it flows between rugged
+hills.  A stone bridge to your west provides a passage for the Black
+Hills Road to cross the river.
+~
+~
+301465600 6 9 0
+D2
+~
+~
+0 -1 38325 10 10 5
+D3
+~
+~
+0 -1 38302 10 10 5
+E
+twig branch~
+Small twigs from many types of trees float by.  Their variety can be
+determined by the still-surviving leaves that just barely hang on to the
+disintegrating branches.
+~
+324 17 1509949540 -2 0
+-1
+S
+
+#38328
+Near the Large Elm Tree~
+You stand in an open, grassy area just north of a gigantic oak tree. 
+Rolling hills spread out to the north and east, covered with low, green
+vegetation and small shrubs.  To your west grows a tall elm, dwarfing the
+other, smaller trees.
+~
+[Feilong] rabbit warren ...enter hole..
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 40251 10 10 5
+D3
+~
+~
+0 -1 38326 10 10 5
+E
+elm~
+A tall elm tree grows just to your west.  Almost hidden in its upper
+branches is the nest of a bird.  If you stand very still, and make no
+sound, the quiet chirps of the birds can be heard.
+~
+E
+oak~
+A tall oak tree stands to the south.  Its branches are full, and covered
+with leaves.  Several acorns lie on the ground, but many more can be seen
+high up on the branches.
+~
+-1
+S
+
+#38329
+Up the Elm Tree~
+You find yourself on a large branch, high up in the elm.  A small nest
+lies just out of reach to the east.  The green leaves of the tree move
+gently in the breeze, tickling your face, and making it difficult to
+breathe.
+~
+~
+301465600 3 4 0
+E
+egg shell~
+Broken bits of sky blue shells lie on the bottom of the nest.  One shell
+seems to be covering up something shiny.
+~
+E
+nest~
+A small nest made of twigs and hay is the home for several small robins. 
+Several broken egg shells litter the bottom of the nest.
+~
+E
+branch tree~
+You cling tightly to the branch.  As you survey your perch, you notice
+that several smaller branches lead back down towards the ground.
+~
+A
+search~
+egg shell~
+if( rflag( reset1, room ) ) {
+  if( random( 1, 4 ) > 2 ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    obj_to_char( oload( 14 ), ch );
+    remove_rflag( reset1, room );
+    }
+  else
+    send_to_char( #false_char, ch );
+  }
+else
+  send_to_char( #false_char, ch );
+~
+E
+false_char~
+You find nothing in the nest but some broken shells.
+~
+E
+true_room~
+You see $n reach into the nest and get something.
+~
+E
+true_char~
+You find a silver coin in the nest.
+~
+!
+0 0 0
+A
+climb~
+1 down elm tree~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room(  38326 ) );
+  act_notchar( #rfly, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #success, ch );
+  act_notchar( #success1, ch );
+  transfer( ch, find_room(  38326 ) );
+  act_notchar( #rsuccess, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+failed~
+$n starts to climb down the elm, then stops and climbs back up.
+~
+E
+fail~
+You start to slip, and clutch the broad branches of the elm.
+~
+E
+success1~
+You see $n climb down the trunk of the elm and disappear.
+~
+E
+success~
+You climb down the trunk of the elm.
+~
+E
+flying~
+You see $n fly down towards the ground.
+~
+E
+fly~
+You fly down to the ground.
+~
+E
+rfly~
+$n flies down from branches overhead.
+~
+E
+rsuccess~
+$n climes down the trunk of an elm tree.
+~
+!
+0 0 0
+932 137 1509949515 3 0
+-1
+S
+
+#38330
+invasion2~
+Under Construction.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 38332 10 10 5
+D1
+~
+~
+0 -1 38331 10 10 5
+D2
+~
+~
+0 -1 38334 10 10 5
+D3
+~
+~
+0 -1 38333 10 10 5
+683 41 1509949540 3 0
+680 73 1509949540 3 0
+680 73 1509949540 3 0
+680 73 1509949540 3 0
+-1
+S
+
+#38331
+invasion2~
+Under Construction.
+~
+~
+301465600 12 9 0
+D3
+~
+~
+0 -1 38330 10 10 5
+683 41 1509949540 3 0
+680 73 1509949540 3 0
+680 73 1509949540 3 0
+680 73 1509949540 3 0
+-1
+S
+
+#38332
+invasion2~
+Under Construction.
+~
+~
+301465600 12 9 0
+D2
+~
+~
+0 -1 38330 10 10 5
+761 41 1509949540 3 0
+728 73 1509949540 3 0
+728 73 1509949540 3 0
+728 73 1509949540 3 0
+728 73 1509949540 3 0
+728 73 1509949540 3 0
+-1
+S
+
+#38333
+invasion2~
+Under Construction.
+~
+~
+301465600 12 9 0
+D1
+~
+~
+0 -1 38330 10 10 5
+760 41 1509949540 3 0
+79 73 1509949540 3 0
+79 73 1509949540 3 0
+79 73 1509949540 3 0
+-1
+S
+
+#38334
+invasion2~
+Under Construction.
+~
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 38330 10 10 5
+765 105 1509949540 3 0
+760 105 1509949540 3 0
+761 73 1509949540 3 0
+728 73 1509949540 3 0
+-1
+S
+
+#0
+

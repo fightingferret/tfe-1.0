@@ -1,0 +1,3225 @@
+#AREA
+Eerie Caverns~
+Rue~
+Eerie Caverns~
+
+20 0
+0
+#ROOMS
+
+#65500
+Small Clearing at the Base of a Cliff~
+Set off to the side of the trail, this small clearing is sparsely dotted
+with tufts of grass.  Rimmed by sharp stones and a sheer cliff face to
+the west, the clearing seems a great place to rest.  Rounded boulders
+poke from beneath the hard-packed dirt, and the remains of several small
+fire pits can clearly be seen.
+~
+connects to  26539
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 26539 10 10 5
+D4
+~
+~
+0 -1 65501 10 10 5
+E
+tufts grass~
+The grass grows in thick tufts along the edges and cracks of the boulders. 
+The grass is browned, and must be quite tough to live in this cold
+climate.
+~
+E
+boulders rounded~
+These large boulders are half buried in the hard packed dirt.  Tufts of
+grass sprout from the ground near the boulders.  Made of granite, the
+boulders are rounded by the weather and erosion.
+~
+E
+fire pits~
+Remnants of past fire pits can clearly be seen in the clearing.  Dark ash
+and charred sticks fill some of the old pits.
+~
+A
+up u~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65501 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else {
+  if( find_skill( ch, climb ) > random( 3, 5 ) ) {
+    act_tochar( #climb, ch );
+    act_notchar( #rmclimb, ch );
+    transfer( ch, find_room( 65501 ) );
+    act_notchar( #cliarrive, ch );
+    loop( followers ) {
+      ch = rch;
+      acode( room, 1 );
+      }
+    end;
+    }
+  else {
+    send_to_char( #nochar, ch );
+    act_notchar( #noroom, ch );
+    }
+  }
+~
+E
+fly~
+You easily fly up the rock face.
+~
+E
+rmfly~
+$n flies up the cliff face.
+~
+E
+arrive~
+$n flies up from below.
+~
+E
+climb~
+You carefully grab small handholds and hoist yourself up the cold stone.
+~
+E
+rmclimb~
+$n slowly climbs the rock face, finally disappearing over a ledge.
+~
+E
+cliarrive~
+$n pulls $mself over the ledge.
+~
+E
+nochar~
+You make it partially up, but come to a point where you have to retreat
+back down the cliff.
+~
+E
+noroom~
+$n tries to climb the rock, but gives up and comes back down.
+~
+!
+0 0 0
+A
+search~
+pit fire ash~
+act_tochar( #poke, ch );
+act_notchar( #rmpoke, ch );
+~
+E
+poke~
+You poke around in the old fire pit, but find nothing of any use.
+~
+E
+rmpoke~
+$n pokes about in the ash, but finds nothing.
+~
+!
+0 0 0
+A
+~
+~
+if( is_player( ch ) ) {
+  if( class( ch ) == ranger )
+    act_tochar( #notice, ch );
+  }
+~
+E
+notice~
+Your keen senses notice some tracks on the ground.  Looking more closely,
+you notice the unmistakeable tracks of goblins leading towards the cliff
+face.
+~
+!
+1 0 2
+246 17 1509949450 -2 0
+-1
+S
+
+#65501
+Spacious Ledge on the Rock Face~
+The cool stone of the rock face is quite rough.  Handholds and places to
+stand abound, although they are spaced far enough apart to make the climb
+difficult.  Below you can see a small clearing ringed by boulders.  By
+the looks of things you could climb still higher.
+~
+~
+301465600 5 9 0
+D4
+~
+~
+0 -1 65502 10 10 5
+D5
+~
+~
+0 -1 65500 10 10 5
+E
+clearing boulders~
+Below you there is a small clearing surrounded by stone.  You are quite
+high up the mountainside, and can see snow on the nearby peaks.
+~
+A
+down do dow d~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65500 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else {
+  if( find_skill( ch, climb ) > random( 3, 5 ) ) {
+    act_tochar( #climb, ch );
+    act_notchar( #rmclimb, ch );
+    transfer( ch, find_room( 65500 ) );
+    act_notchar( #cliarrive, ch );
+    loop( followers ) {
+      ch = rch;
+      acode( room, 1 );
+      }
+    end;
+    }
+  else {
+    send_to_char( #nochar, ch );
+    act_notchar( #noroom, ch );
+    }
+  }
+~
+E
+fly~
+You fly gently over the ledge and down to the clearing below.
+~
+E
+rmfly~
+$n flies downward towards the clearing.
+~
+E
+arrive~
+$n flies in from above.
+~
+E
+climb~
+You lower yourself over the edge, and slowly make your way down the cliff.
+~
+E
+rmclimb~
+$n lowers $mself over the edge of the cliff.
+~
+E
+cliarrive~
+$n appears from over the ledge and slowly climbs
+down the cliff face.
+~
+E
+nochar~
+You start to lower yourself over the ledge, but just manage to catch
+yourself before you fall.  With a pounding heart you pull yourself back
+up and back to the safety of the ledge.
+~
+E
+noroom~
+$n begins to lower $mself over the edge, but the panicked
+look on $s face and subsequent mad scramble back to the safety of the
+ledge show that $e nearly fell.
+~
+!
+0 0 0
+A
+up u~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65502 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else {
+  if( find_skill( ch, climb ) > random( 3, 5 ) ) {
+    act_tochar( #climb, ch );
+    act_notchar( #rmclimb, ch );
+    transfer( ch, find_room( 65502 ) );
+    act_notchar( #cliarrive, ch );
+    loop( followers ) {
+      ch = rch;
+      acode( room, 2 );
+      }
+    end;
+    }
+  else {
+    send_to_char( #nochar, ch );
+    act_notchar( #noroom, ch );
+    }
+  }
+~
+E
+fly~
+You easily fly up the rock face.
+~
+E
+rmfly~
+$n flies up the cliff face.
+~
+E
+arrive~
+$n flies up from below.
+~
+E
+climb~
+You carefully make your way up the rough stone of the cliff.
+~
+E
+cliarrive~
+$n pulls $mself over the ledge.
+~
+E
+rmclimb~
+$n slowly climbs up the cliff.
+~
+E
+nochar~
+You start to climb up higher, but fear overtakes you and you tremble as
+you lower yourself back to the ledge.
+~
+E
+noroom~
+$n tries to climb the rock, but gives up and comes back down.
+~
+!
+0 0 0
+-1
+S
+
+#65502
+Near a Crack in the Wall~
+The chipped wall of stone rises still higher, but a large overhang
+prevents further movement up.  Far below you, a small clearing interrupts
+the greyish stone of Cairn Mountains, as well as a small trail down to
+the east and south.  Thankfully, there are many places to grip onto the
+wall here, the stone being very rough and weathered.  A large vertical
+crevice splits into the stone here, partially hidden under the shadow of
+the overhang.
+~
+~
+301465600 5 9 0
+D3
+~
+~
+171 -1 65503 10 10 5
+D5
+~
+~
+0 -1 65501 10 10 5
+E
+overhang~
+The overhang projects out at a sharp angle, making climbing any higher
+impossible.  The smooth stone above you provides too few handholds to
+even try.
+~
+E
+crevice~
+A large crevice slices into the stone face.  It is nearly six feet tall
+and looks wide enough to fit an ogre inside.  However, it twists in such a
+way as to prevent you from seeing what is inside.
+~
+A
+enter~
+crevice crack~
+act_tochar( #enter, ch );
+act_notchar( #rmenter, ch );
+transfer( ch, find_room( 65503 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You slide into the crack with surprising ease.
+~
+E
+rmenter~
+$n slides into the crevice and disappears from sight.
+~
+E
+arrive~
+$n pushes in through the crack to the east.
+~
+!
+0 0 8
+A
+down~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65501 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else {
+  if( find_skill( ch, climb ) > random( 3, 5 ) ) {
+    act_tochar( #climb, ch );
+    act_notchar( #rmclimb, ch );
+    transfer( ch, find_room( 65501 ) );
+    act_notchar( #cliarrive, ch );
+    loop( followers ) {
+      ch = rch;
+      acode( room, 2 );
+      }
+    end;
+    }
+  else {
+    send_to_char( #nochar, ch );
+    act_notchar( #noroom, ch );
+    }
+  }
+~
+E
+fly~
+You jump off the ledge and fly downward.
+~
+E
+rmfly~
+$n hops off the ledge and begins to fly down the cliff.
+~
+E
+arrive~
+$n flies in from above.
+~
+E
+climb~
+You lower yourself down and calmly begin your descent.
+~
+E
+rmclimb~
+$n lowers $mself and begins to climb downwards.
+~
+E
+cliarrive~
+$n climbs down from above.
+~
+E
+nochar~
+You begin to climb down, but nearly fall and barely manage to get back to
+the ledge.
+~
+E
+noroom~
+$n starts to climb down, but panics and returns to the ledge.
+~
+!
+0 0 0
+-1
+S
+
+#65503
+Winding Tunnel~
+You are surrounded by cold and damp stone; the chill air moves slowly
+towards the west.  The quarters are cramped, and it is difficult to see
+very far ahead.  The small tunnel twists and turns sharply, heading
+mainly to the west.  A large crack dominates the easternmost part of the
+tunnel, and a strong breeze seems to come from it.
+~
+[Caer] "It is because you are a very small animal that you will be Useful
+in the adventure before us." Winnie-the-Pooh 
+~
+301596740 5 9 0
+D1
+~
+~
+171 -1 65502 10 10 5
+D3
+~
+~
+0 -1 65504 10 10 5
+E
+crack large~
+Upon closer examination, the crack appears to be a way out of the cave. 
+It is nearly six feet tall, and wide enough for an ogre to squeeze
+through.  The crevice turns at an angle, making it impossible to tell if
+it is light or dark outside.
+~
+A
+enter~
+crevice crack~
+act_tochar( #enter, ch );
+act_notchar( #rmenter, ch );
+transfer( ch, find_room( 65502 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You slide into the crevice, leaving the dark tunnel.
+~
+E
+rmenter~
+$n slides into the crack and disappears.
+~
+E
+arrive~
+$n suddenly appears from inside the crevice.
+~
+!
+0 0 0
+1957 41 1509949540 3 0
+1957 73 1509949540 3 0
+-1
+S
+
+#65504
+Winding Tunnel~
+The tunnel twists and turns as it heads in a generally eastern and
+western direction.  Dark crevices and dank nooks dot the sides of the
+tunnel.  A cool breeze comes from the west and exits out of one of the
+crevices, stealing past you silently.  An occasional drip can be heard,
+echoing down one of the small nooks and into the tunnel.
+~
+~
+301596740 5 9 0
+D0
+~
+~
+43 -1 65505 10 10 5
+D1
+~
+~
+0 -1 65503 10 10 5
+E
+crevices nooks~
+The deep crevices and dark nooks are difficult to get a clear look at. 
+They wind and twist making seeing aything in them almost impossible.  One
+of the crevices looks large enough to squeeze through.
+~
+A
+enter~
+crevice crack~
+act_tochar( #exit, ch );
+act_notchar( #rmexit, ch );
+transfer( ch, find_room( 65505 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+exit~
+You slide easily through the crevice.
+~
+E
+rmexit~
+$n slides through the crevice, disappearing.
+~
+E
+arrive~
+$n suddenly appears from a crevice in the south wall.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #drip, room );
+~
+E
+drip~
+The sound of dripping water echoes around you, the sound amplified by the
+cave.
+~
+!
+2 200 0
+-1
+S
+
+#65505
+Hidden Valley~
+Steep granite cliffs climb into the sky blocking all directions but north. 
+Along the floor of the valley a thick carpet of green grass grows spreads
+out to the north.  Along the walls a few trees grow, with tangled vines
+hanging from their limbs.  The air is cool, and the wind crisp.
+~
+acode for climbing
+up is 65507
+[Lansharra] extra of trees, vines?
+[Lansharra] extra for crack/crevice?
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 65506 10 10 5
+D2
+~
+~
+43 -1 65504 10 10 5
+D4
+~
+~
+0 -1 65507 10 10 5
+E
+cliffs granite~
+The rough granite walls reach high above you.  The east wall is
+particularly rough, and what appear to be handholds become very apparent
+as you look more closely.  To the south several stones butt up against
+the wall, partially blocking a crack from your view.
+~
+E
+grass~
+The grass is thick and luxuriant.  As you move along, it puts out a
+pleasant scent where your passage has crushed it.
+~
+A
+enter~
+crack crevice~
+act_tochar( #enter, ch );
+wait( 1 );
+act_notchar( #rmenter, ch );
+transfer( ch, find_room( 65504 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You easily push into the crack in the stone wall.
+~
+E
+rmenter~
+$n disappears into the rock face to the south.
+~
+E
+arrive~
+$n pops out of the crevice in the north wall.
+~
+!
+0 0 0
+A
+u up~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65507 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+fly~
+You easily fly up.
+~
+E
+rmfly~
+$n flies upward.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+nope~
+You can't fly!
+~
+!
+0 0 0
+A
+climb~
+east wall stone rock cliff up~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room( 65513 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 3 );
+  }
+~
+E
+cli~
+The slope is easy to climb, with plenty of handholds.  The air gets
+colder as you climb, and you finally pull yourself into the mouth of a
+large cave to the east.
+~
+E
+rmcli~
+$n easily scales the eastern wall.
+~
+E
+arrives~
+$n climbs up from below.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+In a panic, you try to scramble up the cliff, but slide down.
+~
+!
+3 0 16
+A
+smell~
+~
+act_tochar( #sniff, ch );
+~
+E
+sniff~
+The grass smells like fresh peppermint, a pleasant odor that wafts all
+about you.
+~
+!
+0 0 0
+A
+~
+~
+obj_to_room( oload( 2755 ), find_room( 19 ) );
+continue;
+~
+!
+1 0 4
+-1
+S
+
+#65506
+Hidden Valley - Ruins of a Temple~
+Vines and thick undergrowth sprout around and on the ruins of an ancient
+temple nestled in the narrow valley.  Beneath the foliage unadorned stone
+pillars climb into the sky.  The roof has long since collapsed, leaving
+only the outline left by the pillars.  Steep cliffs of dark granite climb
+high above you to the north, east, and west.
+~
+acode for climbing
+up is 65508
+     Vnum: 65509 is room to climb to
+
+[Caer] It's a very funny thought that, if Bears were Bees,
+[Caer] They'd build their nests at the *bottom* of trees.
+[Caer] And that being so (if the Bees were Bears),
+[Caer] We shouldn't have to climb up all these stairs.
+
+temple can be expanded later- no plans currently
+~
+301465664 5 9 0
+D2
+~
+~
+0 -1 65505 10 10 5
+D4
+~
+~
+0 -1 65508 10 10 5
+E
+vines undergrowth thick~
+Tangles of vines, shrubs and small trees grow amidst the fragile stone of
+an ancient temple.  The vines grow over the toppled pillars, while shrubs
+grow in the damp ground beneath them.
+~
+E
+pillars stone~
+Decomposing marble pillars still stand beneath the encroaching greenery. 
+Some pillars have fallen, while others lean at extreme angles, defying
+gravity for who knows how much longer.  The ruined stone steps leave
+bricks scattered about the area, half-hidden beneath the grass and other
+plantlife.
+~
+E
+cliffs dark granite~
+The steep granite walls rise high above you in all directions save south. 
+To the north what appears to be a ledge sits thirty or so feet above you.
+~
+E
+ledge~
+The rough granite wall looks like you should be able to climb it to reach
+the ledge.
+~
+A
+up u~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65508 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+fly~
+You easily fly up.
+~
+E
+rmfly~
+$n flies upward.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+nope~
+You can't fly!
+~
+!
+0 0 0
+A
+climb~
+north wall rock cliff up~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room( 65509 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+cli~
+The slope is easy to climb, with plenty of handholds.  When you reach the
+top, you pull yourself onto the ledge to the north.
+~
+E
+rmcli~
+$n easily scales the northern wall.
+~
+E
+arrives~
+$n climbs up from below.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else
+  act_tochar( #jump, ch );
+~
+E
+jump~
+In a panic, you try to scramble up the cliff, but slide down.
+~
+!
+3 0 16
+-1
+S
+
+#65507
+Above the Valley - In the Air~
+Flying high above the green valley below, you feel the freedom of flight. 
+A strong wind howls above you along the tops of the cliffs that form the
+valley, creating great turbulence in the air and making flight out of the
+valley impossible.  Below you the green grass of the valley grows, and to
+the east a small cave opens up on the cliffside.
+~
+value should be set to about 9000 on random code
+~
+301465664 9 9 0
+D0
+~
+~
+0 -1 65508 10 10 5
+D1
+~
+~
+0 -1 65513 10 10 5
+D5
+~
+~
+0 -1 65505 10 10 5
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room( 65505 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+2 0 0
+A
+east eas ea e~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+acode(find_room( 65507 ), 1 );
+~
+!
+0 0 0
+A
+n north nort nor~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+acode(find_room( 65507 ), 1 );
+~
+!
+0 0 0
+A
+down dow do d~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+acode(find_room( 65507 ), 1 );
+~
+!
+0 0 0
+1853 9 1509949515 3 0
+1854 8 1509949540 3 0
+-1
+S
+
+#65508
+Above the Temple - In the Air~
+Soaring high above the green valley below your breath is nearly taken
+away by the howling wind that screams above you.  Turbulent air buffets
+you and it is difficult to even stay aloft as the wind tosses you about
+like a feather.  To the north you see the safety of a large and dark cave. 
+below you are the remains of a temple, slowly being choked by the
+greenery of the valley.
+~
+Need some extras to look at, and possibly a random action about the
+experience of flying.  ;) -- Caer 
+~
+301465664 9 9 0
+D0
+~
+~
+0 -1 65509 10 10 5
+D2
+~
+~
+0 -1 65507 10 10 5
+D5
+~
+~
+0 -1 65506 10 10 5
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room( 65506 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+0 0 0
+A
+down dow do d~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65508 ), 1 );
+~
+!
+0 0 0
+A
+south sout sou so s~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65508 ), 1 );
+~
+!
+0 0 0
+A
+n north nort nor no~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65508 ), 1 );
+~
+!
+0 0 0
+-1
+S
+
+#65509
+Cave Mouth - Overlooking the Hidden Valley~
+You stand on a cliff-edge overlooking a small valley that spreads out
+below to the south.  The wind howls about you, chilling you to your bones
+and making hearing difficult.  To the north looms a large cave mouth,
+gaping wide and providing some shelter from the wind.  Large piles of
+guano are spattered about the ledge, and you can smell more from inside
+the cave.
+~
+wind whistling by
+[Caer] Weenie.
+~
+301465664 11 5 0
+D0
+~
+~
+0 -1 65510 10 10 5
+D2
+~
+~
+0 -1 65508 10 10 5
+E
+valley~
+From here you have a spectacular view of the valley below.  It stretches
+off into the distance, the green grass vibrant against the dark stone of
+the valley walls.  The ruins of a temple of some sort are just below you,
+although somewhat obscured by trees and vines.  Along the eastern wall,
+far to the south, you can see a tunnel leading into the stone cliff.
+~
+E
+guano piles~
+Sticky and white, these guano piles were left by some very large birds! 
+They smell of rot, and small bits of bone can be seen in some of them.
+~
+E
+bone bits~
+The bones appear to be those of small rodents.
+~
+A
+south sout sou so s~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+Climbing down would be better for your health than jumping off the cliff.
+~
+!
+0 0 0
+A
+climb~
+d down south cliff~
+act_tochar( #climb, ch );
+act_notchar( #rmclimb, ch );
+transfer( ch, find_room( 65506 ) );
+act_notchar( #cliarrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+climb~
+You easily lower yourself down the cliff.
+~
+E
+rmclimb~
+$n disappears below the edge of the ledge.
+~
+E
+cliarrive~
+$n climbs down from the cliff to the north.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room( 65506 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the
+valley floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling to the valley floor.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+3 0 32
+A
+~
+~
+send_to_room( #wind, room );
+~
+E
+wind~
+A chill wind howls by the cave mouth, eerily whistling across the stone
+cliff face.
+~
+!
+2 200 0
+1853 137 1509949540 3 0
+-1
+S
+
+#65510
+Inside a Dark and Smelly Cave~
+Broken stalactites litter the floor, and large heaps of guano dot the
+cave floor.  The ground is uneven, probably because the cave is natural. 
+The walls are rough, and climb up into the darkness above.  A large
+passage leads to the south, where a good deal of fresh air rushes into
+the cave.  You can see a large ledge on the west wall about twenty feet
+above you.
+~
+up is 65511
+ledge is 65512
+~
+301465604 11 7 0
+D2
+~
+~
+0 -1 65509 10 10 5
+D4
+~
+~
+0 -1 65511 10 10 5
+E
+stalactites broken~
+Shattered columns of stone lie about the floor.  They appear to have been
+broken off ages ago, from how thickly they are covered in guano.  The
+stone is seemingly randomly placed, as you can find no order to its
+arrangement at all.
+~
+E
+ledge west wall~
+The ledge appears to be quite wide, and the rough wall looks like it
+would not be very difficult to climb.  As you look closer at the ledge it
+becomes apparent that there is a tunnel leading off behind it.
+~
+E
+guano heaps~
+Thick piles of guano cover the floor.  Much of it has turned a light tan
+color, but there are many fresh and white piles dotting the room.
+The fresh piles are sticky, and give off a revolting odor.
+~
+A
+up u~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65511 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+fly~
+You easily fly up.
+~
+E
+rmfly~
+$n flies upward.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+nope~
+You can't fly!
+~
+!
+0 0 0
+A
+climb~
+western wall w u up ledge~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room( 65512 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+cli~
+There are many handholds which make for an easy climb.  You reach the
+ledge, and pull yourself westwards onto it.
+~
+E
+rmcli~
+$n easily scales the western wall.
+~
+E
+arrives~
+$n climbs up from below.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+continue;
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+You try to scramble up, but end up back on the cave floor.
+~
+!
+3 0 16
+A
+search~
+guano pile~
+acode( find_room( 65526 ), 2 );
+~
+!
+0 0 0
+-1
+S
+
+#65511
+In a Cave - Flying~
+The rough stone of this naturally large cavern is bumpy and pocked. 
+Small stalactites hang from the ceiling, and their is evidence of larger
+ones that have been broken off.  The ceiling is somewhat rounded, curving
+downwards towards the uneven floor.  To the west you can see a small
+ledge that leads into a dark tunnel.
+~
+fix ter
+~
+301465604 9 9 0
+D3
+~
+~
+0 -1 65512 10 10 5
+D5
+~
+~
+0 -1 65510 10 10 5
+E
+stalactites~
+Tiny calcified stalactites hang from the damp stone of the ceiling.  The
+largest are only an inch or two long, and are a greenish-white hue.
+~
+E
+broken large~
+The bases of several larger stalactites remain on the ceiling, however
+they have all been broken off.
+~
+E
+ledge west tunnel dark~
+The rough stone of the cave forms a large ledge along the west wall, and
+just beyond the ledge a tunnel looms.
+~
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room( 65510 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+2 0 0
+A
+d do dow down~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65511 ), 1 );
+~
+!
+0 0 0
+A
+w we wes west~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65511 ), 1 );
+~
+!
+0 0 0
+A
+sl sleep si sit re rest r m me meditate~
+~
+acode(find_room( 65511 ), 1 );
+~
+!
+0 0 0
+1854 9 1509949540 3 0
+-1
+S
+
+#65512
+Cave Tunnel~
+This tunnel has seen obvious work done to straighten and expand it.  The
+tunnel is almost a perfect cylinder carved out of the dark stone.  The
+floor is spattered with large piles of droppings; some damp and others
+old and dry.  To the west the tunnel ends, looking out over a large
+cavern.  A smaller cave opens up along the east end of the tunnel.  A
+thick rope hangs over the edge to the west.
+~
+add flee code
+west od 65514
+east is 65511
+climbing down east is  Vnum: 65510
+[Rue] 
+~
+301465604 11 7 0
+D1
+~
+~
+0 -1 65511 10 10 5
+D3
+~
+~
+0 -1 65514 10 10 5
+E
+droppings piles~
+Large piles of stinking guano are spattered all over the floor.  Many of
+them are still fresh, while others are dry and browned with age.
+~
+E
+cavern~
+It is difficult to see very far through the darkness, but it appears as
+if the cavern leads quite some distance to the west.  A rope is tied a
+thick iron ring near the western edge, and hangs down over the edge.
+~
+E
+rope ring~
+Attached to a thick iron ring, the heavy rope hangs down into the cavern
+below.
+~
+E
+work obvious~
+Rough chisel marks carved ages ago still show on the walls of the tunnel. 
+Whoever did this work was either lazy or in a hurry, as it shows no skill
+in stoneworking.
+~
+A
+climb~
+climb e east d down~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room( 65510  ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+cli~
+The climb down is made easy by the high number of handholds.
+~
+E
+rmcli~
+$n easily climbs down to the east.
+~
+E
+arrives~
+$n climbs down from the west.
+~
+!
+0 0 0
+A
+climb descend~
+w west rope~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65515  ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+cli~
+You easily climb down the thick rope to the cavern floor.
+~
+E
+rmcli~
+$n descends the rope to the west.
+~
+E
+arrives~
+$n climbs down the rope, jumping the last foot to the floor.
+~
+!
+0 0 0
+A
+search~
+guano pile~
+acode( find_room( 65526 ), 2 );
+~
+!
+0 0 0
+A
+west wes we w e ea eas east~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+Climbing down would be better for your health than jumping down to the floor.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room(  65510 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the
+cavern floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling down to the cavern floor.
+~
+E
+fallpain~
+Hitting the cave floor
+~
+!
+3 0 2
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room(  65515 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the cavern floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling down to the cavern floor.
+~
+E
+fallpain~
+Hitting the cave floor
+~
+!
+3 0 8
+-1
+S
+
+#65513
+Small Cave - Overlooking the Hidden Valley~
+This small cave seems to have been carved from the cliffside ages ago,
+the ancient stonework worn by the passage of time.  A massive slab of
+stone, a bit darker than that of the cave itself, leans against the east
+wall of the cave.  Attached to the stone are the remnants of two iron
+chains, long since rusted into a useless state.  A small brass and iron
+gong hangs suspended from a stone frame alongside the north wall. 
+Looking out the cave you can see the grey stone of the valley wall to the
+west, and down below the green grass of the valley.
+~
+~
+301465604 5 9 0
+D3
+~
+~
+0 -1 65507 10 10 5
+E
+slab massive~
+Carved from a single slab of almost black granite, this massive slab
+leans against the far wall of the cave.  A deep groove is carved along
+each side of the slab, leading to a small pool at the base.  The rusty
+remnants of manacles still hang from near the top of the slab.
+~
+E
+groove~
+Each of these grooves has been carved deeply into the granite slab.
+They run parallel to the long edges of the stone, and lead towards a deep
+depression in the floor.
+~
+E
+depression bowl~
+The depression is about a foot deep, the sides of which are covered with
+a red-brown crust.  The sides are polished smooth, and two deep grooves
+in the stone slab lead towards the bowl.
+~
+E
+chains manacles iron~
+The thick iron chains are rusted beyond any use.  They are frozen almost
+rope-like by rust as they hang across the granite slab.  At one time they
+must have held a captive against the stone.
+~
+E
+gong iron brass~
+This gong is untouched by tarnish or rust.  The gong itself is fashioned
+from iron with a brass rim.  To thin metal wires hang from the gong frame
+and suspend the disk in the air.  A small padded mallet is connected to
+the dark stone frame as well, with enough play to effectively strike the
+gong.
+~
+A
+west wes we w~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+You should climb down instead of jumping out of the cave.
+~
+E
+rmcli~
+$n climbs down the cliff.
+~
+E
+arrives~
+$n climbs down from above.
+~
+E
+You should probably climb down instead of leaping into the unknown~
+You should probably climb down instead of falling down.
+~
+!
+0 0 0
+A
+climb~
+down d out west w cliff~
+act_tochar( #climb, ch );
+act_notchar( #rmclimb, ch );
+transfer( ch, find_room( 65505 ) );
+act_notchar( #cliarrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+climb~
+You easily climb down the slope.
+~
+E
+rmclimb~
+$n climbs out of the cave.
+~
+E
+cliarrive~
+$n climbs down from above.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room( 65505 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the
+valley floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling to the valley floor.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+3 0 8
+A
+bang ring hit pound~
+gong~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  act_tochar( #uring, ch );
+  act_notchar( #rings, ch );
+  send_to_area( #gong, room );
+  i = random( 1, 10 );
+  Wait( 2 );
+  send_to_room( #flapping, room );
+  if( i == 1 ) {
+    mload( 1857,  room );
+    mload( 1854, room );
+    end;
+    }
+  if( i < 5 ) {
+    mload( 1854, room );
+    mload( 1854, room );
+    }
+  mload( 1854, room );
+  end;
+  }
+else {
+  act_tochar( #uring, ch );
+  act_notchar( #rings, ch );
+  wait( 1 );
+  act_room( #nothing, ch );
+  }
+~
+E
+gong~
+The resonant sound of the gong echoes throughout the area!  The sound
+echoes sonorously through the cold air, the single note reverberating off
+the stone over and over.
+~
+E
+rings~
+$n bangs the gong!
+~
+E
+nothing~
+Strangely, the gong makes no noise.
+~
+E
+flapping~
+You hear a flurry of flapping sounds, followed quickly by a horrible
+stench and a darkening of the sky at the cave entrance!
+~
+E
+uring~
+You bang the gong solidly!
+~
+!
+0 0 0
+-1
+S
+
+#65514
+In a Large Cavern - In the Air~
+The cave roof arches high over the irregular stone floor below.  The dark
+stone blends with the darkness, making it difficult to judge distance. 
+The cavern stretches out far to the west, and a small carved tunnel leads
+off to the east.  A particularly rancid smell rises from the floor of the
+cave making the air thick and almost palpatable.
+~
+[Caer] Again, since the smell is mentioned in rdesc, a smell/sniff action might be appropriate here.
+~
+301465604 12 9 0
+D1
+~
+~
+0 -1 65512 10 10 5
+D3
+~
+~
+0 -1 65517 10 10 5
+D5
+~
+~
+0 -1 65515 10 10 5
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room( 65515 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+2 0 0
+A
+~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+acode(find_room( 65514 ), 1 );
+~
+!
+3 0 8
+A
+~
+~
+if( can_fly( ch ) ) {
+continue;
+end;
+}
+else
+acode(find_room( 65514 ), 1 );
+~
+!
+3 0 32
+A
+~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65514 ), 1 );
+~
+!
+3 0 2
+1854 9 1509949540 3 0
+1854 9 1509949540 3 0
+-1
+S
+
+#65515
+Cavern Floor - East End~
+You are at the east end of a large cavern, the walls of which rise high
+above you into darkness.  Bits of stone cover the uneven floor,
+intermingled with the stinking piles of guano.  Steep walls rise up in
+each direction except the west, where the cavern stretches out beyond
+your range of vision in the darkness.  A thick rope hangs down along the
+east wall.
+~
+up is 65515
+up is 65514
+[Caer] I LOVE THE GOBLINS! *dance*
+~
+301465604 11 7 0
+D3
+~
+~
+0 -1 65516 10 10 5
+D4
+~
+~
+0 -1 65514 10 10 5
+E
+rope thick~
+A thick hemp hemp rope hangs from the ledge up above you.  It looks like
+it would be an easy task to climb up there using the rope.
+~
+E
+guano piles~
+Thick drifts of dry and brown guano cover the floor.  It is dusty and has
+the consistency of potting soil.  Damp spots occur where the guano is
+fresher.
+~
+A
+search~
+guano pile~
+acode( find_room( 65526 ), 2 );
+~
+!
+0 0 0
+A
+climb~
+rope east up~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65512 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+cli~
+You easily climb up the thick rope.
+~
+E
+rmcli~
+$n climbs the rope to the west.
+~
+E
+arrives~
+$n climbs up from the west.
+~
+!
+0 0 0
+A
+u up~
+~
+if( can_fly( ch ) ) {
+act_tochar( #fly, ch );
+act_notchar( #rmfly, ch );
+ transfer( ch, find_room( 65514 ) );
+act_notchar( #arrive, ch );
+end;
+}
+else
+act_tochar( #nope, ch );
+~
+E
+fly~
+You easily fly up.
+~
+E
+rmfly~
+$n flies upward.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+nope~
+You can't fly!
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+continue;
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+You try to scramble up, but end up back on the cave floor.
+~
+!
+3 0 16
+-1
+S
+
+#65516
+Cavern Floor - West End~
+The floor of the cave is spattered with a thick layer of guano.  The
+rough stone walls of the cavern rise high above you into the darkness. 
+Broken bits of stalactites litter the floor, partially hidden beneath the
+guano.  To the east the cavern stretches out into darkness, while a small
+tunnel leads off to the west.  Up through the darkness, you can make out
+two small caves; one to the north and one to the south.  With some
+effort, you could climb up to them.
+~
+air up is 65517
+~
+301465604 11 7 0
+D1
+~
+~
+0 -1 65515 10 10 5
+D3
+~
+~
+0 -1 65520 10 10 5
+D4
+~
+~
+0 -1 65517 10 10 5
+E
+guano~
+Several inches of dried and old guano covers the floor.  Small insects
+crawl over and in the guano, feeding happily upon it.
+~
+E
+broken stalactites~
+Although partially buried under the guano, the remnants of stalactites can
+be seen on the floor.  They are all broken from the fall, resting in
+small pieces.
+~
+A
+search~
+guano pile~
+acode( find_room( 65526 ), 2 );
+~
+!
+0 0 0
+A
+climb~
+n no north~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65518 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+cli~
+The climb is difficult, but you manage to pull yourself up the north wall
+and into the small roost in the north wall.
+~
+E
+rmcli~
+$n slowly climbs the north wall.
+~
+E
+arrives~
+$n climbs in  from the south.
+~
+!
+0 0 0
+A
+climb~
+s so south~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65519 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 3 );
+  }
+~
+E
+cli~
+The climb is difficult, but you manage to pull yourself up the south wall
+and into the small opening in the south wall.
+~
+E
+rmcli~
+$n slowly climbs the south wall.
+~
+E
+arrives~
+$n climbs in from the north.
+~
+!
+0 0 0
+A
+climb~
+up~
+act_tochar( #which, ch );
+~
+E
+which~
+Which wall do you want to climb up?
+~
+!
+0 0 0
+A
+u up~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65517 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+fly~
+You easily fly up.
+~
+E
+rmfly~
+$n flies upward.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+nope~
+You can't fly!
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+continue;
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+You try to scramble up, but end up back on the cave floor.
+~
+!
+3 0 16
+-1
+S
+
+#65517
+In a Large Cavern - In the Air~
+You are in the air, near the ceiling of a large cavern.  The cold stone
+curves over your head, irregular where stalactites once grew.  A large
+hole is in the north wall, while a similar feature marks the south wall
+as well.  Nearly forty feet below you is the rugged and guano covered
+floor of the cave.
+~
+down is 65516
+north is 65518
+south is 65516
+east is 65514
+~
+301465604 12 9 0
+D0
+~
+~
+0 -1 65518 10 10 5
+D1
+~
+~
+0 -1 65514 10 10 5
+D2
+~
+~
+0 -1 65519 10 10 5
+D5
+~
+~
+0 -1 65516 10 10 5
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room( 65516 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65517 ), 1 );
+~
+!
+3 0 1
+A
+~
+~
+if( can_fly( ch ) ) {
+continue;
+end;
+}
+else
+acode(find_room( 65517 ), 1 );
+~
+!
+3 0 4
+A
+~
+~
+if( can_fly( ch ) ) {
+continue;
+end;
+}
+else
+acode(find_room( 65517 ), 1 );
+~
+!
+3 0 2
+A
+~
+~
+if( can_fly( ch ) ) {
+continue;
+end;
+}
+else
+acode(find_room( 65517 ), 1 );
+~
+!
+3 0 32
+-1
+S
+
+#65518
+Cramped Roost~
+Twigs, leaves and other refuse make a comfortable nest in this cave.  The
+ceiling is low, and ribbed, making it difficult for those over six feet
+tall to stand up straight.  The stone walls are rough, mottled and
+covered with a thick lichen.  A large opening in the south wall peers out
+over a large cavern.
+~
+climb down code 65516
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 65517 10 10 5
+E
+twigs leaves refuse nest~
+A thick pile of leaves covers the floor of this cramped cave.  The leaves
+and twigs are intermixed with guano and old bones.  The whole nest is
+several inches deep, and spongy under your feet.
+~
+E
+ceiling ribbed~
+The low ceiling is formed from striated granite that appears folded into
+wavy forms.  The walls are smooth, although covered with a layer of oil
+thT gives off a rancid smell.
+~
+E
+mottled lichen blood spatters~
+Upon closer examnination what appeared at first as lichen, can be seen to
+be blood spatters.
+~
+A
+climb~
+d down s south~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65516 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+cli~
+You lower yourself from the cave and climb slowly down the wall.
+~
+E
+rmcli~
+$n slowly climbs down and out of the roost.
+~
+E
+arrives~
+$n climbs down from the north.
+~
+!
+0 0 0
+A
+s so sou sout south~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+Climbing down would be better for your health than jumping down to the floor.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room( 65516 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the cavern floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling down to the cavern floor.
+~
+E
+fallpain~
+Hitting the cave floor
+~
+!
+3 0 4
+A
+search~
+nest twigs~
+if( is_player( ch ) ) {
+  i = random( 1, 5 );
+  if( rflag( reset1, room ) ) {
+    if( i == 1 ) {
+      act_tochar( #fpile, ch );
+      act_notchar( #rfpile, ch );
+      obj = oload( 2755 );
+      obj_to_char( obj, ch );
+      remove_rflag( reset1, room );
+      end;
+      }
+    act_tochar( #pile, ch );
+    act_notchar( #rpile, ch );
+    end;
+    }
+  act_tochar( #pile, ch );
+  act_notchar( #rpile, ch );
+  end;
+  }
+~
+E
+fpile~
+You poke around in the nest until you find a feather!
+~
+E
+rfpile~
+$n pokes around in the nest, finally pulling out a ragged feather.
+~
+E
+pile~
+You poke around in the nest, but find nothing useful.
+~
+E
+rpile~
+$n pokes around in the nest, but gives up after a while.
+~
+!
+0 0 0
+1855 9 1509949540 3 0
+1854 9 1509949540 3 0
+-1
+S
+
+#65519
+Dark Roost~
+A thick bed of dry leaves and twigs covers the floor of this cramped cave. 
+The small entrance to the cave leads out to the north, and from there
+drops down about forty feet to the cave floor.  The walls are covered
+with a thick layer of grime and a blanket of torn and dirty feathers is
+mixed in with the leaves and twigs.
+~
+climb down code to room 65516
+north is 65517
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 65517 10 10 5
+E
+nest twigs leaves dry~
+The dry leaves and twigs have been formed into a nest of sorts.  Most of
+the cave is filled by the nest, which is covered in a rancid-smelling oil.
+~
+E
+grime walls~
+The grime covering the walls is oily and smells terrible.
+~
+E
+feathers~
+These feathers are torn and broken, they would appear to be useless.
+~
+A
+climb~
+d down s south~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65516 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+cli~
+You lower yourself from the cave and climb slowly down the wall.
+~
+E
+rmcli~
+$n slowly climbs down and out of the roost.
+~
+E
+arrives~
+$n climbs down from the south.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room( 65516 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the cavern floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling down to the cavern floor.
+~
+E
+fallpain~
+Hitting the cave floor
+~
+!
+3 0 1
+A
+north nort nor no n~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+Climbing down would be better for your health than jumping down to the floor.
+~
+!
+0 0 0
+A
+search~
+nest~
+if( is_player( ch ) ) {
+  i = random( 1, 5 );
+  if( rflag( reset1, room ) ) {
+    if( i == 1 ) {
+      act_tochar( #fpile, ch );
+      act_notchar( #rfpile, ch );
+      obj = oload( 2755 );
+      obj_to_char( obj, ch );
+      remove_rflag( reset1, room );
+      end;
+      }
+    act_tochar( #pile, ch );
+    act_notchar( #rpile, ch );
+    end;
+    }
+  act_tochar( #pile, ch );
+  act_notchar( #rpile, ch );
+  end;
+  }
+~
+E
+fpile~
+You poke around in the nest until you find a feather!
+~
+E
+rfpile~
+$n pokes around in the nest, finally pulling out a ragged feather.
+~
+E
+pile~
+You poke around in the nest, but find nothing useful.
+~
+E
+rpile~
+$n pokes around in the nest, but gives up after a while.
+~
+!
+0 0 0
+1855 9 1509949540 3 0
+1854 9 1509949540 3 0
+-1
+S
+
+#65520
+Curving Tunnel~
+The tunnel curves, changing from natural walled caves to the east, to an
+expanded and smooth-walled hallway to the south.  White and black
+splotches of guano cover the floor, some splattering up the sides of the
+wall.  The air is thick here, and the sounds of water dripping in the
+dark, hidden recesses of the cave echo about in the eerie silence.
+~
+~
+301465604 11 7 0
+D1
+~
+~
+0 -1 65516 10 10 5
+D2
+~
+~
+0 -1 65521 10 10 5
+E
+guano~
+There is less guano than most of the rest of the cave here.  What little
+guano there is is quite fresh and sticky.
+~
+E
+wall~
+The walls here have been worked by unskilled tunnelers.  What at first
+glance appeared to be smooth walls is actually rather crudely carved
+stone.
+~
+A
+search~
+guano pile~
+act_tochar( #nope, ch );
+~
+E
+nope~
+There is so little guano here that searching through it is useless.
+~
+!
+0 0 0
+-1
+S
+
+#65521
+Hall of Statues~
+This hallway is large, chiseled from the natural caves, and expanded both
+to the sides and upwards.  Four large statues are arranged around the
+hallway, two each facing north and south.  They are all carved to
+resemble harpies, with wings folded along their backs, and spears in
+their hands.  To the south a large chamber opens up, while the hallway
+continues to the north.
+~
+~
+301465604 11 7 0
+D0
+~
+~
+0 -1 65520 10 10 5
+D2
+~
+~
+0 -1 65522 10 10 5
+E
+statues harpies~
+These statues are large, almost fifteen feet tall.  They are carved out
+of a black granite with small silvery flecks.  Each harpy statue carries
+a stout spear in its hands, and is in a crouched position with wings
+folded back.  Each face is carved into a look of hatred and fury.  Two
+face south, and the other two face north.  The craftsmanship is
+outstanding, and the stone is polished to a shine.
+~
+A
+search~
+statues harpies~
+act_tochar( #nada, ch );
+act_notchar( #rnada, ch );
+~
+E
+nada~
+You search the statues for anything out of the ordinary, but can't find
+anything.
+~
+E
+rnada~
+$n spends some time looking over the statues.
+~
+!
+0 0 0
+1857 9 1509949540 3 0
+1957 137 1509949540 3 0
+1955 137 1509949540 3 0
+-1
+S
+
+#65522
+Spiraled Chamber~
+Broken bones lay in a random pile about the floor, mixing with the guano
+that seems to be everywhere.  Above you the rough walls stretch up and
+into the darkness.  The stench of death is heavy here, mingling with the
+scent of guano.  A large opening along the south wall leads into a cave,
+while to the north another opening leads into a long hallway.  Far above
+you in the darkness, the flickering of a muted light can be seen faintly
+illuminating the high cave.
+~
+~
+301465604 11 7 0
+D0
+~
+~
+0 -1 65521 10 10 5
+D2
+~
+~
+0 -1 65524 10 10 5
+D4
+~
+~
+0 -1 65523 10 10 5
+E
+bones broken~
+A tangled pile of broken bones covers the floor.  Aside from the fact
+they have been stripped clean of flesh and gnawed on extensively, they
+don't appear special.
+~
+A
+climb~
+u up~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65525 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+cli~
+You pull yourself up the cylindrical tunnel and into a stinking cave to
+the east.
+~
+E
+rmcli~
+$n slowly climbs up the dark tunnel.
+~
+E
+arrives~
+$n climbs into the cave from below.
+~
+!
+0 0 0
+A
+up u~
+~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 65523 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+fly~
+You easily fly up.
+~
+E
+rmfly~
+$n flies upward.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+nope~
+You can't fly!
+~
+!
+0 0 0
+A
+search~
+bones broken~
+act_tochar( #bones, ch );
+act_notchar( #rbones, ch );
+~
+E
+bones~
+You sift through the shattered bones, finding nothing but filth.
+~
+E
+rbones~
+$n sifts through the bones, giving up after a fruitless search.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+continue;
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+You try to scramble up, but end up back on the cave floor.
+~
+!
+3 0 16
+-1
+S
+
+#65523
+Jagged Cave - In the Air~
+Dark stone, and jagged formations make up the curving cavern walls. 
+Along the eastern wall, a large cave mouth opens, flanked on either side
+by carved figures.  A foul stench, stronger than the rest of the caves,
+seeps from the opening to the east.  A few bones litter the entrance of
+the cave, stripped clean of any flesh.  The cave is too dark to see down
+more than a few feet.
+~
+east is 65525
+65522
+is air room
+~
+301465605 9 5 0
+D1
+~
+~
+0 -1 65525 10 10 5
+D5
+~
+~
+0 -1 65522 10 10 5
+E
+carved figures~
+These human-sized figures are carved out of the stone of the wall.  They
+depict tortured humans writhing in agony, chained to a slab of stone.
+~
+E
+bones~
+You could get a better look at the bones if you entered the cave.
+~
+E
+formations stone~
+The cave walls are jagged here, natural stone and carved rock mingling at
+sharp angles.
+~
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room(  65522 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+2 0 0
+A
+~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  acode(find_room( 65523 ), 1 );
+~
+!
+3 0 2
+A
+~
+~
+if( can_fly( ch ) ) {
+continue;
+end;
+}
+else
+acode(find_room( 65523 ), 1 );
+~
+!
+3 0 32
+A
+~
+~
+loop( all_in_room ) {
+  if( !can_fly( rch ) ) {
+    act_tochar( #fall, rch );
+    act_notchar( #rmfalls, ch );
+    transfer( rch, find_room( 65522 ) );
+    i = dice( 4, 20 );
+    dam_message( rch, i, #fallpain );
+    inflict( rch, rch, i, "Falling" );
+    }
+  }
+~
+E
+fall~
+You plummet downwards!
+~
+E
+rmfalls~
+$n falls downwards towards the ground.
+~
+E
+fallpain~
+Hitting the ground
+~
+!
+1 0 34
+1853 9 1509949475 3 0
+-1
+S
+
+#65524
+Dark Cave Above a Stinking Pit~
+This dark and cramped cave reeks of rot.  A gaping pit carves downward,
+and seems to be the source of the stench.  An old iron railing rims the
+pit, too short to be an effective means to prevent your falling in.
+A huge pile of guano rests on the cave floor at the edge of the pit.
+~
+~
+301465668 11 7 0
+D0
+~
+~
+0 -1 65522 10 10 5
+D5
+~
+~
+0 -1 65526 10 10 5
+E
+pit~
+A deep pit is carved out of the dark stone floor.  Rimmed by a rusty iron
+rail about two feet tall.  From within the pit a horrendous smell wafts
+upward.  The pit is about fifty feet in diameter, however, it is so dark
+seeing to the bottom is impossible.
+~
+E
+iron railing~
+Too short to prevent anybody from toppling into the pit, this iron
+railing runs the full circumference of the pit.  Rusted and bent, it has
+seen years of abuse and neglect.
+~
+E
+guano pile~
+The pile of guano reeks!  It is comprised of a thick mixture of old and
+fresh guano, creating a sticky mess that looks like it is shoveled into
+the pit.
+~
+A
+~
+~
+if( mob_in_room( 1947, find_room( 65526  ) ) ) {
+find_room( 65524 );
+i = 1d3;
+if( i == 1 )
+send_to_room( #croak, room );
+if( i == 2 )
+  send_to_room( #stomp, room );
+}
+~
+E
+croak~
+@YA deep and resonating croak echos up from within the pit!@n
+~
+E
+stomp~
+@YThe ground shakes as a huge bulk shifts around down below!@n 
+~
+!
+2 50 0
+A
+feed shovel~
+stomp guano~
+act_tochar( #feed, ch );
+act_notchar( #rfeed, ch );
+send_to_room( #plop,  find_room( 65526  ) );
+if( rflag( reset1, room ) ) {
+  if( mob_in_room( 1947, find_room( 65526  ) ) ) {
+    remove_rflag( reset1, room );
+    send_to_room( #feeds,  find_room( 65526  ) );
+    wait( 1 );
+    send_to_room( #feeding, room );
+    }
+  }
+~
+E
+feed~
+You grab the filthy shovel and dump some of the guano down into the pit.
+~
+E
+rfeed~
+$n grabs the shovel and dumps a clump of guano into the pit.
+~
+E
+feeds~
+@YThe stomp hungrily hops towards the fresh pile of guano and devours it
+in one bite!@n 
+~
+E
+plop~
+A sticky pile of guano falls from above, plopping sickly onto the floor!
+~
+E
+feeding~
+@YYou hear sounds of frantic feeding coming from inside the pit!@n
+~
+!
+0 0 0
+A
+get take~
+guano-covered shovel~
+act_tochar( #nope, ch );
+act_notchar( #rnope, ch );
+~
+E
+nope~
+The thick chain prevents you from taking the shovel.
+~
+E
+rnope~
+$n tugs at the shovel, but the chain holds firm.
+~
+!
+0 0 0
+A
+search~
+pile guano heap~
+if( is_player( ch ) ) {
+  i = random( 1, 25 );
+  if( rflag( reset2, room ) ) {
+    if( i == 1 ) {
+      act_tochar( #fpile, ch );
+      act_notchar( #rfpile, ch );
+      send_to_room( #plop,  find_room( 65526  ) );
+      obj = oload( 2762 );
+      obj_to_room( obj, find_room( 65526  ) );
+      remove_rflag( reset2, room );
+      end;
+      }
+    act_tochar( #pile, ch );
+    act_notchar( #rpile, ch );
+    end;
+    }
+  act_tochar( #pile, ch );
+  act_notchar( #rpile, ch );
+  end;
+  }
+~
+E
+pile~
+You dig about in the guano for a while, smearing yourself with the
+stinking slop.
+~
+E
+rpile~
+$n plunges $s hands into the stinking pile of guano! Pheew!
+~
+E
+fpile~
+@Y You plunge your hands into the stinking guano knocking something out
+of the pile, which bounces across the floor and falls in the pit below. 
+@n 
+~
+E
+rfpile~
+@Y$n plunges $s hands into the guano and searches about.  As $e gives up,
+something shiny falls from the pile, bouncing into the pit.@n
+~
+E
+plop~
+Something small and shiny falls in from above, landing softly in the
+guano.
+~
+!
+0 0 0
+919 137 1509949540 3 0
+2723 17 1509949540 -2 0
+1953 137 1509949540 3 0
+-1
+S
+
+#65525
+Stinking Cave Littered with Bones~
+The dark stone of the cave walls practically drip with gore.  Shattered
+bones and discarded weapons and armor litter the floor, glinting in the
+feeble light emitted by the sputtering brazier along the southern wall. 
+The stench here is overpowering, the scent of rot mixes with a
+sickly-sweet smoke that wafts through the thick air.  To the west a
+tunnel leads to a precipitous drop, and down into darkness.
+~
+climb down to 65522
+air west is  65523
+~
+301465605 12 7 0
+D3
+~
+~
+0 -1 65523 10 10 5
+E
+armor weapons discarded~
+Broken and useless bits of weapons and armor are strewn about in a
+chaotic mess.  None of them have any value as they are all tarnished,
+rusty and broken.
+~
+E
+bones~
+These bones are of various humanoids.  They have been gnawed on and split
+open; the marrow sucked clean out.
+~
+A
+climb~
+d down w west~
+act_tochar( #cli, ch );
+act_notchar( #rmcli, ch );
+transfer( ch, find_room(  65522 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+cli~
+You lower yourself down and slowly climb down the dark tunnel.
+~
+E
+rmcli~
+$n lowers $mself down the exit to the west.
+~
+E
+arrives~
+$n climbs down from above.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #rmfalls, ch );
+  transfer( ch, find_room( 65522 ) );
+  i = dice( 4, 20 );
+  dam_message( ch, i, #fallpain );
+  inflict( ch, ch, i, "Falling" );
+  }
+~
+E
+fall~
+In a moment of panic you leap from the cave and fall screaming to the cave floor.
+~
+E
+rmfalls~
+$n panics, leaping from the cave and falling down the tunnel.
+~
+E
+fallpain~
+Hitting the cave floor
+~
+!
+3 0 8
+A
+w west wes we~
+~
+if( can_fly( ch ) ) {
+  continue;
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+Climbing down would be better for your health than jumping down to the floor.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #flicker, room );
+~
+E
+flicker~
+The orange glow from the brazier flickers, causing shadows to dance along
+the cave wall.
+~
+!
+2 200 0
+A
+get~
+incense orange stick~
+if( is_player( ch ) )
+continue;
+~
+!
+0 0 0
+2732 49 1509949540 -2 0
+2733 81 1509949540 -2 0
+2664 81 1509949450 -2 0
+1856 9 1509949540 3 0
+1857 9 1509949460 3 0
+1853 9 1509949460 3 0
+-1
+S
+
+#65526
+Pit~
+The floor of the pit is covered with bones and a thick damp layer of
+guano.  Gore literally drips from the walls, rotting as it slowly creeps
+down the pitted black stone.  Thick iron rungs are embedded in the stone,
+and lead up and out of the pit.  The stench of death hangs heavy in the
+air, mixing with smells of guano and excrement.
+~
+~
+301465676 11 7 0
+D4
+~
+~
+0 -1 65524 10 10 5
+E
+rungs iron~
+Looped bands of iron are embedded deeply in the north wall of the pit. 
+They are clearly intended to be a ladder of some sort to provide easy
+entry and exit for the pit.  The iron is a bit rusty, and some of the
+lower ones are bent and appear gnawed on.
+~
+E
+guano~
+The guano here is several inches thick, and in a state of decomposition. 
+Tiny beetles and worms crawl in and among the piles of guano, feeding
+upon the rich and satisfying meal, in a neverending quest for sustenance.
+~
+E
+gore~
+Blood, bits of flesh, stray feathers and other unidentifiable things
+cover the walls.  It is all decomposing, and has turned black with mold
+and rot.
+~
+A
+~
+~
+act_tochar( #up, ch );
+act_notchar( #rup, ch );
+continue;
+~
+E
+up~
+You clasp the rungs and quickly exit the pit.
+~
+E
+rup~
+$n grabs the rungs and climbs quickly out of the pit.
+~
+!
+3 0 16
+A
+search~
+guano piles~
+if( is_player( ch ) ) {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    i = random( 1, 15 );
+    if( i < 4 ) {
+      obj = oload( 2755  );
+      act_tochar( #found_itemh, ch, obj );
+      act_notchar( #found_rmitemh, ch, obj );
+      obj_to_char( obj, ch );
+      end;
+      }
+    }
+  send_to_char( #empty_char, ch );
+  act_notchar( #empty_notchar, ch );
+  }
+~
+E
+found_itemh~
+You dig through the guano searching for something, when your hands comes
+across a feather!
+~
+E
+found_rmitemh~
+$n searches through the dusty piles of guano, finally pulling out a
+feather!
+~
+E
+empty_char~
+You dig through the guano searching for something, but you come up with
+nothing other than a smelly hand.
+~
+E
+empty_notchar~
+$n digs through the dusty guano searching for something, but comes up
+with nothing.
+~
+!
+0 0 0
+1947 9 1509949540 3 0
+-1
+S
+
+#0
+

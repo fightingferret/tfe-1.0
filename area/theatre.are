@@ -1,0 +1,3654 @@
+#AREA
+Theatre in the Hills~
+Fenlyn~
+Theatre in the Hills~
+
+35 0
+0
+#ROOMS
+
+#57000
+Theatre Entrance~
+On this side of the entrance doors is a huge wooden arch walkway leading
+to the arena of the theatre complex.  Poster advertisements announcing
+the shows that have played at the theatre decorate the sides of the walls. 
+Old candlesticks on the walls keep the otherwise dark walkway lit. 
+Painted on the ceiling is a fluffy cloudscape, but some of the paint
+appears chipped revealing its age.
+~
+no refund acode
+open s
+~
+335024133 2 8 0
+D0
+~
+~
+0 -1 57001 10 10 5
+D2
+theatre's main door~
+main door~
+195 -1 57079 10 10 7
+E
+candlesticks~
+The candles drip with wax while offering a flickering light to the room.
+~
+E
+cloudscape ceiling~
+The clouds are painted on a sky blue background on the ceiling. 
+Remarkably, one of the clouds seems to have your face hidden in it.
+~
+E
+posters walls~
+The posters advertise shows that have played here, but the dates on the
+posters are from many years ago.
+~
+A
+sell value~
+red-colored yellow-colored cyan-colored all tickets~
+if( mob_in_room( 1490, room ) ) {
+  act_tochar( #noway, ch );
+  end;
+  }
+continue;
+~
+E
+noway~
+Jodain tells you: "Sorry.  No refunds are given here."
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( !is_open( room, south ) )
+  end;
+close( room, south );
+send_to_room( #close, room );
+send_to_room( #close, find_room( 57079 ) );
+send_to_room( #ent, find_room( 84 ) );
+mob = mload( 1569, find_room( 84 ) );
+obj_to_char( oload( 2 ), mob );
+interpret( mob, "put gold theatre" );
+junk_mob( mob );
+~
+E
+slams~
+The entrance door closes by itself.
+~
+E
+close~
+The theatre door closes by itself.
+~
+E
+ent~
+@b@YSomeone has entered the Theatre in the Hills.@n
+~
+!
+1 0 4
+A
+open~
+main door south sout sou so s~
+if( is_open( room, south ) ) 
+  act_tochar( #already, ch );
+else {
+  open( room, south );
+  act_tochar( "You open the main door to the south.", ch );
+  act_notchar( "$n opens the main door to the south.", ch );
+  send_to_room( #opens, find_room( 57079 ) );
+  }
+~
+E
+already~
+The main door is already open.
+~
+E
+opens~
+The theatre's main door opens.
+~
+!
+0 0 4
+1490 9 1509949540 3 0
+2133 17 1509949540 -1 0
+2131 17 1509949525 -1 0
+2132 17 1509949510 -1 0
+1557 9 1509949540 3 0
+-1
+S
+
+#57001
+Theatre Entrance~
+This end of the tunnel appears to be the admission area.  A cracked
+wooden @Csign@n hangs from a chain above the entrance.  The wooden walls
+are made of a heavy, slightly weathered oak that has very few knot holes.
+Fewer posters line the walls here and are also rather weathered and faded
+from a long life of being stuck to a wall.
+~
+~
+335020037 2 8 0
+D0
+theatre entry door~
+theatre entry door~
+131 -1 57002 10 10 5
+D2
+~
+~
+0 -1 57000 10 10 5
+E
+chain sign wooden~
+The sign hanging from the chain states:
+@I@I@E"Welcome to the Theatre in the Hills.  Please hand your red-colored
+@I@Iticket to the door guard.  Tickets may be purchased south of here."@n
+~
+E
+door north n~
+The door seems to be the only way to gain admission to the theatre's
+performance area.
+~
+A
+~
+~
+wait( 1 );
+if( !is_open( room, north ) )
+  end;
+close( room, north );
+send_to_room( #slams, room );
+send_to_room( #slams, find_room( 57002 ) );
+~
+E
+slams~
+The theatre entry door creaks closed.
+~
+!
+1 0 1
+A
+~
+~
+if( find_stat( ch, level ) > 90 ) {
+  act_tochar( "Since you are immortal, you are allowed to pass.", ch );
+  continue;
+  }
+if( !is_player( ch ) )
+  continue;
+else {
+  mob = mob_in_room( 1491, room );
+  if( mob_in_room( 1491, room ) ) {
+    tell( mob, ch, #heh );
+    if( is_open( room, north ) ) {
+      close( room, north );
+      send_to_room( #closes, room );
+      send_to_room( #closes2, find_room( 57002 ) );
+      }
+    end;
+    }
+  }
+continue;
+~
+E
+heh~
+You aren't getting in here without a ticket, buddy!
+~
+E
+closes~
+The collection guard closes the door.
+~
+E
+closes2~
+The theatre entry door closes.
+~
+!
+3 0 1
+1491 9 1509949540 3 0
+-1
+S
+
+#57002
+In the Audience~
+A vast space of dirt covers the audience area.  It looks like the pit
+would be able to hold at least a hundred people.  Several feet to the
+north is some sort of platform, but it is difficult to see from here.  To
+the south is the tunnel leading to the theatre's exit.
+~
+[Finius] look dirt:  heh.
+[Rebekka] doorway from the south
+~
+335020040 2 9 0
+D0
+~
+~
+0 -1 57003 10 10 5
+D1
+~
+~
+0 -1 57024 10 10 5
+D2
+theatre entry door~
+theatre entry door~
+131 -1 57001 10 10 5
+D3
+~
+~
+0 -1 57009 10 10 5
+E
+dirt~
+It looks like dirt to you.
+~
+A
+~
+~
+wait( 1 );
+if( !is_open( room, south ) )
+  end;
+close( room, south );
+send_to_room( #slams, room );
+send_to_room( #slams, find_room( 57001 ) );
+~
+E
+slams~
+The arena entry door creaks closed.
+~
+!
+1 0 4
+1562 9 1509949540 3 0
+-1
+S
+
+#57003
+In the Audience~
+Little pieces of grass stick up occasionally through the dirt and gravel. 
+The platform to the north is easier to see from this part of the
+audience, but the detail on the stage cannot be made out at this distance. 
+There are many footprints on the dingy ground as if many people have been
+here before.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57004 10 10 5
+D1
+~
+~
+0 -1 57025 10 10 5
+D2
+~
+~
+0 -1 57002 10 10 5
+D3
+~
+~
+0 -1 57008 10 10 5
+E
+footprints prints~
+The footprints in the dirt go off in several different directions.  It
+seems a large crowd has recently been here.
+~
+A
+get~
+grass~
+act_tochar( #beckett, ch );
+~
+E
+beckett~
+There are so few blades of grass that picking one would most likely
+attract unfriendly resistance.
+~
+!
+0 0 0
+1503 9 1509949540 3 0
+-1
+S
+
+#57004
+In the Audience~
+You stand in the center of the entire theatre.  The audience's pit is
+very large and must be able to fit an insane number of people in here.  A
+little bit of dirt kicks up on your legs as you walk through the pit.. 
+Several bits of trash litter the ground around your feet as if the place
+hasn't been cleaned in years.
+~
+[Finius] plague wears off pretty quickly.
+[Finius] commoner is really cool though.
+[Finius] on commoner i mean
+[Fenlyn] ????  There does seem to be a bug with plague.  I posted on imm board.
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57005 10 10 5
+D1
+~
+~
+0 -1 57026 10 10 5
+D2
+~
+~
+0 -1 57003 10 10 5
+D3
+~
+~
+0 -1 57007 10 10 5
+-1
+S
+
+#57005
+Before the Stage~
+The stage to the north is about six feet tall and is so tall that the
+stage floor visibility is very minute.  At the base of the stage are
+several pieces of trash that have managed to get blown into the corner
+between the stage wall and the grungy ground.
+~
+~
+335020032 2 9 0
+D1
+~
+~
+0 -1 57027 10 10 5
+D2
+~
+~
+0 -1 57004 10 10 5
+D3
+~
+~
+0 -1 57006 10 10 5
+A
+get take~
+trash garbage~
+act_tochar( #trash, ch );
+~
+E
+trash~
+You try to pick up the garbage, but the wind blows it around just out of
+your reach.
+~
+!
+0 0 0
+1564 9 1509949540 3 0
+-1
+S
+
+#57006
+Before the Stage~
+The platform is too tall to see anything on the floor of it.  On the
+gravel and dirt at your feet are the remains of a wooden crate somebody
+must have used to see all of the stage.  It is in several pieces of
+broken wood that can now only be used to fuel a fire.
+~
+~
+335020032 2 9 0
+D1
+~
+~
+0 -1 57005 10 10 5
+D2
+~
+~
+0 -1 57007 10 10 5
+D3
+~
+~
+0 -1 57013 10 10 5
+E
+wooden crate remains~
+The pieces of wood are pine, and given their current state, they are no
+longer of any value.
+~
+A
+light start~
+firewood wood~
+if( obj_in_room( 1359, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( obj_in_room( 1358, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( obj_in_room( 1357, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( obj_in_room( 1356, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( obj_in_room( 1112, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( has_obj( 26, ch ) ) {
+  junk_obj( has_obj( 26, ch ), 1 );
+  act_tochar( #light, ch );
+  act_notchar( #nclight, ch );
+  obj_to_room( oload( 1112 ), room );
+  }
+else
+  act_tochar( #notorch, ch );
+~
+E
+light~
+You throw your torch into the pieces of broken wood creating a small
+campfire.
+~
+E
+nclight~
+$n throws $s torch into the pieces of broken wood creating a small
+campfire.
+~
+E
+notorch~
+You need a torch to start a campfire.
+~
+E
+already~
+There is already a fire burning here.
+~
+!
+0 0 0
+-1
+S
+
+#57007
+In the Audience~
+Closer to the stage, the detail is a little clearer.  The platform is too
+tall to see anything on the floor of it, but there does appear to be a
+velvet curtain on the back wall flowing in the gusty wind.  Someone has
+discarded a rotten turkey leg on the ground.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57006 10 10 5
+D1
+~
+~
+0 -1 57004 10 10 5
+D2
+~
+~
+0 -1 57008 10 10 5
+D3
+~
+~
+0 -1 57012 10 10 5
+E
+leg turkey rotten~
+The turkey leg has been discarded on the ground and is covered with
+several small bugs trying to get a bite out of it.
+~
+A
+get~
+turkey leg rotting rotten~
+act_tochar( #pickup, ch );
+i = 1d1+5;
+dam_message( ch, i, "A bug bite on the hand" );
+inflict( ch, mob, i, "a lethal bug bite" );
+poison( ch );
+~
+E
+pickup~
+You pickup the turkey leg, but one of the bugs mistakes your hand for the
+turkey leg and bites it causing you to drop the leg.
+~
+E
+pickup2~
+$n picks up the turkey leg, but $e drops after being bitten by a bug.
+~
+!
+0 0 0
+1557 9 1509949540 3 0
+-1
+S
+
+#57008
+In the Audience~
+The expanse of dirt and gravel continues in all directions.  Off to the
+east and the west appear to be some sort of seating galleries for the
+upper class.  The platform stage to the north looks like it could be used
+for a number of purposes including performances of prose, plays, and
+music.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57007 10 10 5
+D1
+~
+~
+0 -1 57003 10 10 5
+D2
+~
+~
+0 -1 57009 10 10 5
+D3
+~
+~
+0 -1 57011 10 10 5
+1558 9 1509949540 3 0
+-1
+S
+
+#57009
+In the Audience~
+Dirt and gravel cover the ground of the theatre.  The dirt is a reddish
+orange color which hides some of the gray color on the gravel.  There is
+a platform far to the north, but it is very difficult to see from this
+part of the theatre.  A small distance to the west is a set of stairs
+leading up to a gallery of seats.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57008 10 10 5
+D1
+~
+~
+0 -1 57002 10 10 5
+D3
+~
+~
+0 -1 57010 10 10 5
+1679 9 1509949540 3 0
+-1
+S
+
+#57010
+In the Audience~
+A set of stairs covered with a fine red carpet with bright yellow fringe
+leads to a seating gallery to the west.  Hanging from old rusty chains
+above the small set of stairs is a very large wooden sign with words
+chisled into it.
+~
+[Finius] nice how tickets work
+[Merior] gallery extra or more in main room about it
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57011 10 10 5
+D1
+~
+~
+0 -1 57009 10 10 5
+D3
+~
+~
+0 -1 57030 10 10 5
+E
+carpet stairs west~
+What was probably a fine red carpet is now a dirt-ridden rug covering the
+steps of the stairs.
+~
+E
+sign wooden large~
+The sign says:
+@I@I@E"A cyan-colored ticket is required to gain admittance to the West
+@I@Iand Southwest Galleries.  Leaving the gallery will require purchase
+@I@Iof an additional ticket to return."@n
+~
+A
+~
+~
+if( find_stat( ch, level ) > 90 ) {
+  act_tochar( "Since you are immortal, you are allowed to pass.", ch );
+  continue;
+  }
+if( is_player( ch ) ) {
+  mob = mob_in_room( 1496, room );
+  if( mob_in_room( 1496, room ) ) {
+    tell( mob, ch, #heh );
+    end;
+    }
+  act_tochar( #leaves, ch );
+  act_notchar( #leaves2, ch );
+  transfer( ch, find_room( 57030 ) );
+  act_notchar( #arr, ch );
+  end;
+  }
+continue;
+~
+E
+heh~
+Hey!  Where's your ticket?
+~
+E
+leaves~
+You clamber up the stairs to the West Gallery.
+~
+E
+leaves2~
+$n clambers up the steps to the West Gallery.
+~
+E
+arr~
+$n arrives from the arena floor to the east.
+~
+!
+3 0 8
+1496 9 1509949540 3 0
+-1
+S
+
+#57011
+In the Audience~
+The old rotting wood along the west wall looks faded except for the
+little rectangles where some posters were once posted.  Across the wooden
+panels and advertisements is a trail of some red substance smeared
+against the wall heading north.  Some of the rotted wooden panels that
+make up the gallery wall have split open exposing several sharp oak
+splinters.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57012 10 10 5
+D1
+~
+~
+0 -1 57008 10 10 5
+D2
+~
+~
+0 -1 57010 10 10 5
+E
+posters rectangles~
+The rectangles are dark from being covered by the posters.  On the
+outside of the poster borders, the wall is faded from the the hot sun.  A
+streak of blood is smeared across the wall headed towards the ground and
+to the north.
+~
+E
+wall panels wooden~
+Splinters stick out from the wall and would probably hurt you if you
+should walk into it.
+~
+A
+1 west~
+~
+act_tochar( #west, ch );
+act_notchar( #ncwest, ch );
+i = 10d2;
+dam_message( ch, i, "Walking into a splinter-filled wall" );
+inflict( ch, mob, i, "a splintered wall" );
+~
+E
+west~
+You walk into the West Gallery's splintered wall.
+~
+E
+ncwest~
+$n walks into the West Gallery's splintered wall.
+~
+!
+0 0 0
+-1
+S
+
+#57012
+In the Audience~
+Support beams extend from the ground here in an effort to support the
+roof of the West Gallery.  The beams are banded at the top with a shiny
+metal, but a faded ring is all that remains of the band at the bottom. 
+To the northeast is a very large platform evidently used for the theatre
+performances.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57013 10 10 5
+D1
+~
+~
+0 -1 57007 10 10 5
+D2
+~
+~
+0 -1 57011 10 10 5
+E
+rings support beams~
+Several scratches have found their way into the support beams over the
+years.  In particular, several scratches exist where the bottom metal
+ring once was.
+~
+1562 9 1509949540 3 0
+-1
+S
+
+#57013
+Southwest of the Stage~
+Small piles of misplaced dirt rest on the ground leaving tiny little
+holes beside them.  At a glance, it would seem that someone had nothing
+better to do than dig the little holes.  The West Gallery wall lies to
+the west, but it is a bit too tall to scale.  To the north are a set of
+stairs leading to the stage.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57014 10 10 5
+D1
+~
+~
+0 -1 57006 10 10 5
+D2
+~
+~
+0 -1 57012 10 10 5
+E
+holes~
+The holes have scrape marks on their sides.  Traces of dried blood can
+barely be seen in the bottom of some of the holes.
+~
+A
+climb~
+wall 1 west~
+act_tochar( "The wall is just too high to climb.", ch );
+
+obj_to_char( oload( 471 ), ch );
+~
+!
+0 0 0
+-1
+S
+
+#57014
+The West Wing of the Stage~
+A set of stairs leading up to the performance stage lies to the east. 
+The stairs are shoddy, but they should be able to support a reasonable
+amount of weight.  A brass railing is mounted against the wall to provide
+support while climbing the stairs.
+~
+~
+335020040 2 9 0
+D1
+~
+~
+0 -1 57015 10 10 5
+D2
+~
+~
+0 -1 57013 10 10 5
+E
+brass railing rails~
+The rails are very tarnished and dented in some parts.  The center of the
+railing is almost bent into a flat piece of metal.
+~
+E
+stairs wooden steps~
+Cracks infect the rotting wood steps, but the steps still stand somehow.
+~
+A
+~
+~
+act_tochar( #leaves, ch );
+act_notchar( #leaves2, ch );
+continue;
+~
+E
+leaves~
+You head up the stairs.
+~
+E
+leaves2~
+$n heads up the stairs.
+~
+!
+3 0 2
+-1
+S
+
+#57015
+Stage Right~
+A shabbily constructed wooden bench sits on top of the stage at a slight
+angle.  Next to it stands an eight foot tall lamp post burning brightly
+across this part of the stage.  A streak of light reflecting from the top
+of the lamp post strikes the bench and makes the flicker of the flame
+more noticeable.
+~
+[Merior] dog skin? ick
+~
+335020033 2 9 0
+D1
+~
+~
+0 -1 57016 10 10 5
+D3
+~
+~
+0 -1 57014 10 10 5
+E
+lamp post~
+Tarnished brass makes up the base of the lamp.  Five feet of wooden shaft
+extends from the base giving the lamp post its height.  Sitting on top of
+the shaft is a lantern with a glass top.
+~
+E
+bench shabbily shabby wooden~
+The wind slowly rocks the shabby bench back and forth as you look at it.
+~
+A
+~
+~
+act_tochar( #leaves, ch );
+act_notchar( #leaves2, ch );
+continue;
+~
+E
+leaves~
+You step down towards the audience floor.
+~
+E
+leaves2~
+$n steps down towards the audience floor.
+~
+!
+3 0 8
+1568 9 1509949540 3 0
+1145 17 1509949540 -2 0
+-1
+S
+
+#57016
+Center Stage~
+The stage is made of several wooden planks that extend from the wall of
+the theatre.  These planks are old and weathered but sturdy.  Over the
+center of the stage is a large rug.  Although the stage is only a few
+feet higher from the pit, it seems much higher.  To the north is a
+curtain leading to the back of the stage area.
+~
+[Finius] add that if you try to go south, "Your anima prevents you from
+jumping off the stage to the dirt floor below" or somthing like that.
+
+Cool idea.  :)
+~
+335020041 2 9 0
+D0
+~
+~
+0 -1 57017 10 10 5
+D1
+~
+~
+0 -1 57018 10 10 5
+D3
+~
+~
+0 -1 57015 10 10 5
+E
+rug large~
+The rug's design has many triangles and squares on it.  In the middle of
+it, a large diamond shape stands out.
+~
+E
+curtain north n~
+What looks to have once been a purple velvet curtain has been ruined by
+the occasional rainstorms that afflict the hilly areas on this side of
+the world.
+~
+A
+~
+~
+if( mob_in_room( 1565, room ) ) {
+  send_to_room( #aud, find_room( 57002 ) );
+  send_to_room( #aud, find_room( 57003 ) );
+  send_to_room( #aud, find_room( 57004 ) );
+  send_to_room( #aud, find_room( 57005 ) );
+  send_to_room( #aud, find_room( 57006 ) );
+  send_to_room( #aud, find_room( 57007 ) );
+  send_to_room( #aud, find_room( 57008 ) );
+  send_to_room( #aud, find_room( 57009 ) );
+  send_to_room( #aud, find_room( 57010 ) );
+  send_to_room( #aud, find_room( 57011 ) );
+  send_to_room( #aud, find_room( 57012 ) );
+  send_to_room( #aud, find_room( 57013 ) );
+  send_to_room( #aud, find_room( 57014 ) );
+  send_to_room( #aud, find_room( 57015 ) );
+  send_to_room( #aud, find_room( 57018 ) );
+  send_to_room( #aud, find_room( 57019 ) );
+  send_to_room( #aud, find_room( 57020 ) );
+  send_to_room( #aud, find_room( 57021 ) );
+  send_to_room( #aud, find_room( 57022 ) );
+  send_to_room( #aud, find_room( 57023 ) );
+  send_to_room( #aud, find_room( 57024 ) );
+  send_to_room( #aud, find_room( 57025 ) );
+  send_to_room( #aud, find_room( 57026 ) );
+  send_to_room( #aud, find_room( 57027 ) );
+  send_to_room( #aud, find_room( 57030 ) );
+  send_to_room( #aud, find_room( 57031 ) );
+  send_to_room( #aud, find_room( 57032 ) );
+  send_to_room( #aud, find_room( 57033 ) );
+  send_to_room( #aud, find_room( 57034 ) );
+  send_to_room( #aud, find_room( 57041 ) );
+  send_to_room( #aud, find_room( 57042 ) );
+  send_to_room( #aud, find_room( 57043 ) );
+  send_to_room( #aud, find_room( 57044 ) );
+  send_to_room( #aud, find_room( 57045 ) );
+  send_to_room( #aud, find_room( 57046 ) );
+  send_to_room( #aud, find_room( 57047 ) );
+  send_to_room( #aud, find_room( 57048 ) );
+  send_to_room( #aud, find_room( 57049 ) );
+  send_to_room( #aud, find_room( 57056 ) );
+  send_to_room( #aud, find_room( 57057 ) );
+  send_to_room( #aud, find_room( 57058 ) );
+  send_to_room( #aud, find_room( 57059 ) );
+  send_to_room( #aud2, find_room( 57016 ) );
+  }
+~
+E
+aud~
+A man's voice from the stage yells,
+@I@I"Hark, let it be known that the kingdom is now under the rule of
+@I@IMundal."
+~
+E
+aud2~
+The royal-looking actor yells,
+@I@I"Hark, let it be known that the kingdom is now under the rule of
+@I@IMundal."
+~
+!
+4 25 0
+A
+~
+~
+if( mob_in_room( 1565, room ) ) {
+  send_to_room( #aud, find_room( 57002 ) );
+  send_to_room( #aud, find_room( 57003 ) );
+  send_to_room( #aud, find_room( 57004 ) );
+  send_to_room( #aud, find_room( 57005 ) );
+  send_to_room( #aud, find_room( 57006 ) );
+  send_to_room( #aud, find_room( 57007 ) );
+  send_to_room( #aud, find_room( 57008 ) );
+  send_to_room( #aud, find_room( 57009 ) );
+  send_to_room( #aud, find_room( 57010 ) );
+  send_to_room( #aud, find_room( 57011 ) );
+  send_to_room( #aud, find_room( 57012 ) );
+  send_to_room( #aud, find_room( 57013 ) );
+  send_to_room( #aud, find_room( 57014 ) );
+  send_to_room( #aud, find_room( 57015 ) );
+  send_to_room( #aud, find_room( 57018 ) );
+  send_to_room( #aud, find_room( 57019 ) );
+  send_to_room( #aud, find_room( 57020 ) );
+  send_to_room( #aud, find_room( 57021 ) );
+  send_to_room( #aud, find_room( 57022 ) );
+  send_to_room( #aud, find_room( 57023 ) );
+  send_to_room( #aud, find_room( 57024 ) );
+  send_to_room( #aud, find_room( 57025 ) );
+  send_to_room( #aud, find_room( 57026 ) );
+  send_to_room( #aud, find_room( 57027 ) );
+  send_to_room( #aud, find_room( 57030 ) );
+  send_to_room( #aud, find_room( 57031 ) );
+  send_to_room( #aud, find_room( 57032 ) );
+  send_to_room( #aud, find_room( 57033 ) );
+  send_to_room( #aud, find_room( 57034 ) );
+  send_to_room( #aud, find_room( 57041 ) );
+  send_to_room( #aud, find_room( 57042 ) );
+  send_to_room( #aud, find_room( 57043 ) );
+  send_to_room( #aud, find_room( 57044 ) );
+  send_to_room( #aud, find_room( 57045 ) );
+  send_to_room( #aud, find_room( 57046 ) );
+  send_to_room( #aud, find_room( 57047 ) );
+  send_to_room( #aud, find_room( 57048 ) );
+  send_to_room( #aud, find_room( 57049 ) );
+  send_to_room( #aud, find_room( 57056 ) );
+  send_to_room( #aud, find_room( 57057 ) );
+  send_to_room( #aud, find_room( 57058 ) );
+  send_to_room( #aud, find_room( 57059 ) );
+  send_to_room( #aud2, find_room( 57016 ) );
+  }
+~
+E
+aud~
+A man's voice from the stage yells,
+@I@I"My fair lads, fear not the destruction of your kingdom, but the
+@I@Idestruction of your villages by the evil that terrorizes the plains."
+~
+E
+aud2~
+The royal-looking actor yells,
+@I@I"My fair lads, fear not the destruction of your kingdom, but the
+@I@Idestruction of your villages by the evil that terrorizes the plains."
+~
+!
+4 30 0
+A
+~
+~
+if( mob_in_room( 1567, room ) ) {
+  send_to_room( #aud, find_room( 57002 ) );
+  send_to_room( #aud, find_room( 57003 ) );
+  send_to_room( #aud, find_room( 57004 ) );
+  send_to_room( #aud, find_room( 57005 ) );
+  send_to_room( #aud, find_room( 57006 ) );
+  send_to_room( #aud, find_room( 57007 ) );
+  send_to_room( #aud, find_room( 57008 ) );
+  send_to_room( #aud, find_room( 57009 ) );
+  send_to_room( #aud, find_room( 57010 ) );
+  send_to_room( #aud, find_room( 57011 ) );
+  send_to_room( #aud, find_room( 57012 ) );
+  send_to_room( #aud, find_room( 57013 ) );
+  send_to_room( #aud, find_room( 57014 ) );
+  send_to_room( #aud, find_room( 57015 ) );
+  send_to_room( #aud, find_room( 57018 ) );
+  send_to_room( #aud, find_room( 57019 ) );
+  send_to_room( #aud, find_room( 57020 ) );
+  send_to_room( #aud, find_room( 57021 ) );
+  send_to_room( #aud, find_room( 57022 ) );
+  send_to_room( #aud, find_room( 57023 ) );
+  send_to_room( #aud, find_room( 57024 ) );
+  send_to_room( #aud, find_room( 57025 ) );
+  send_to_room( #aud, find_room( 57026 ) );
+  send_to_room( #aud, find_room( 57027 ) );
+  send_to_room( #aud, find_room( 57030 ) );
+  send_to_room( #aud, find_room( 57031 ) );
+  send_to_room( #aud, find_room( 57032 ) );
+  send_to_room( #aud, find_room( 57033 ) );
+  send_to_room( #aud, find_room( 57034 ) );
+  send_to_room( #aud, find_room( 57041 ) );
+  send_to_room( #aud, find_room( 57042 ) );
+  send_to_room( #aud, find_room( 57043 ) );
+  send_to_room( #aud, find_room( 57044 ) );
+  send_to_room( #aud, find_room( 57045 ) );
+  send_to_room( #aud, find_room( 57046 ) );
+  send_to_room( #aud, find_room( 57047 ) );
+  send_to_room( #aud, find_room( 57048 ) );
+  send_to_room( #aud, find_room( 57049 ) );
+  send_to_room( #aud, find_room( 57056 ) );
+  send_to_room( #aud, find_room( 57057 ) );
+  send_to_room( #aud, find_room( 57058 ) );
+  send_to_room( #aud, find_room( 57059 ) );
+  send_to_room( #aud2, find_room( 57016 ) );
+  }
+~
+E
+aud~
+A female voice from the stage yells,
+@I@I"Greetings, my king.  Thou art well after your untimely illness?"
+~
+E
+aud2~
+The thespian playing a queen yells,
+@I@I"Greetings, my king.  Thou art well after your untimely illness?"
+~
+!
+4 35 0
+A
+1 south~
+~
+act_tochar( #anima, ch );
+~
+E
+anima~
+Jumping off the stage from this height would hurt.  Perhaps you should
+take the stairs.
+~
+!
+0 0 0
+A
+~
+~
+if( num_in_room( find_room( 57017 ) ) >= 3 )
+  act_tochar( #noway, ch );
+else
+  continue;
+~
+E
+noway~
+There are too many people behind the curtain for you to go backstage.
+~
+!
+3 0 1
+A
+move lift~
+rug carpet~
+if( mob_in_room( 907, room ) ) {
+  act_tochar( #nope, ch );
+  act_notchar( #nch, ch );
+  if( rflag( reset1, room ) )
+    remove_rflag( reset1, room );
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  act_tochar( #lifts, ch );
+  act_notchar( #lift2, ch );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  mload( 907, room );
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #nch, ch );
+  }
+~
+E
+lifts~
+@EAs you move the rug away from the center of the stage, several
+cockroaches scurry out from underneath.
+~
+E
+lift2~
+@EAs $n moves the rug away from the stage's center, several cockroaches
+scurry out from underneath.
+~
+E
+nope~
+You move the rug to get a look at what is underneath but find nothing of
+interest.
+~
+E
+nch~
+$n moves the rug to get a look underneath.
+~
+!
+0 0 0
+1565 9 1509949540 3 0
+1567 9 1509949540 3 0
+-1
+S
+
+#57017
+Behind the Stage Curtain~
+This hallway leading from the stage to the backstage area is not more
+than 4 wide and 6 feet tall -- a tight fit for more than two people.  A
+purple velvet curtain hangs in the doorway leading south to the stage. 
+Exits are to the south and to the north.
+~
+~
+335020045 0 8 0
+D0
+~
+~
+0 -1 57064 10 10 5
+D2
+~
+~
+0 -1 57016 10 10 5
+A
+~
+~
+if( find_stat( ch, level ) > 90 ) {
+  act_tochar( "Since you are immortal, you are allowed to pass.", ch );
+  continue;
+  }
+if( is_player( ch ) ) {
+  mob = mob_in_room( 1498, room );
+  if( mob_in_room( 1498, room ) ) {
+    tell( mob, ch, #heh );
+    end;
+    }
+  act_tochar( #leaves, ch );
+  act_notchar( #leaves2, ch );
+  transfer( ch, find_room( 57064 ) );
+  act_notchar( #arr, ch );
+  end;
+  }
+continue;
+~
+E
+heh~
+Where do you think you're going?
+~
+E
+leaves~
+You go north towards the backstage area.
+~
+E
+leaves2~
+$n leaves north toward the backstage area.
+~
+E
+arr~
+$n arrives from the south.
+~
+!
+3 0 1
+1498 9 1509949540 3 0
+-1
+S
+
+#57018
+Stage Left~
+This side of the stage has a large carved wood day-bed in the middle of
+it.  To the left of the day-bed is a waist-high table with an oil lamp on
+top.  The floor looks like it has been sanded recently and looks of a
+much better quality than the other wood that the theatre is made of. 
+~
+~
+335020033 2 9 0
+D1
+~
+~
+0 -1 57019 10 10 5
+D3
+~
+~
+0 -1 57016 10 10 5
+E
+day-bed bed carved~
+The day-bed looks like oak, but it smells like a cheap pine wood.
+~
+E
+table waist-high lamp oil~
+Something has been spilled on the table causing the table to lose its
+color in that spot.  A ring of discoloration surrounds the base of the
+oil lamp.
+~
+A
+~
+~
+act_tochar( #leaves, ch );
+act_notchar( #leaves2, ch );
+continue;
+~
+E
+leaves~
+You step down towards the audience floor.
+~
+E
+leaves2~
+$n steps down towards the audience floor.
+~
+!
+3 0 2
+1566 9 1509949540 3 0
+-1
+S
+
+#57019
+The East Wing of the Stage~
+A set of stairs leading up to the performance stage lies to the west. 
+The shoddy stairs are presumably used by whoever is performing on the
+stage to come down to the audience floor.  A brass railing is mounted
+against the wall to provide support while climbing the stairs.
+~
+~
+335020040 2 9 0
+D2
+~
+~
+0 -1 57020 10 10 5
+D3
+~
+~
+0 -1 57018 10 10 5
+E
+railing brass~
+The tarnished brass railing appears to be coming unsecure from the wall
+and would probably not be safe to hold on to.
+~
+A
+~
+~
+act_tochar( #leaves, ch );
+act_notchar( #leaves2, ch );
+continue;
+~
+E
+leaves~
+You head up the stairs.
+~
+E
+leaves2~
+$n heads up the stairs.
+~
+!
+3 0 8
+-1
+S
+
+#57020
+Southeast of the Stage~
+The ground is soaked and muddy allowing foul-smelling puddles of some
+unidentifiable liquid to permeate your nostrils in this area of the arena. 
+Footprints lead around in several directions, but to seemingly no
+destination as if people just walk around in circles here.  You spy a set
+of stairs and more standing area to the north.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57019 10 10 5
+D2
+~
+~
+0 -1 57021 10 10 5
+D3
+~
+~
+0 -1 57027 10 10 5
+E
+ground footprints~
+The footprints just go around in circles here.
+~
+A
+~
+~
+if( num_in_room( room ) >= 1 ) {
+  send_to_room( #waft, room );
+  loop( all_in_room ) {
+    if( is_player( rch ) ) {
+      drain_stat( rch, wis, 10, -1 );
+      poison( rch );
+      }
+    }
+  }
+~
+E
+waft~
+@GThe stench of the room causes you to shudder.@n
+~
+!
+4 100 0
+-1
+S
+
+#57021
+In the Audience~
+Support beams stretch from the ground to the roof of the East Gallery.  A
+few feet from the bottom of the support beam a few letters have been
+etched into the wood.  The top of the beam has a shiny metal band wrapped
+around it.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57020 10 10 5
+D2
+~
+~
+0 -1 57022 10 10 5
+D3
+~
+~
+0 -1 57026 10 10 5
+E
+letters wood beam support~
+The letters spell out "Help me."
+~
+1558 9 1509949540 3 0
+-1
+S
+
+#57022
+In the Audience~
+All along the east wall of the theatre are the remnants of old
+advertisements.  The old rotting wood looks faded except for the little
+rectangles where the posters once were attached.  One of the wooden
+panels has some yellow dripping markings on it that appears to be some
+kind of graffiti.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57021 10 10 5
+D2
+~
+~
+0 -1 57023 10 10 5
+D3
+~
+~
+0 -1 57025 10 10 5
+E
+oak panels graffiti~
+The panels are mostly sun faded but are slightly darker where the old
+posters used to be.  The yellow graffiti on the oak panel says,
+@Y"Eyes watch you in the night, but light always allows your eyes to
+watch the night."@n 
+~
+E
+posters~
+The posters are so faded from the sun that it is difficult to make any of
+the words out.
+~
+-1
+S
+
+#57023
+In the Audience~
+Posted on the wall is a very large wooden plaque.  The letters seem to be
+chisled out of the board beckoning you to read them.  A set of stairs
+covered with a fine red carpet with bright yellow fringe leads to a
+seating gallery to the east.  The wooden stairs appear sturdy enough to
+clamber up to the East Gallery.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57022 10 10 5
+D1
+~
+~
+0 -1 57045 10 10 5
+D3
+~
+~
+0 -1 57024 10 10 5
+E
+large wooden plaque sign~
+The plaque says:
+@I@I@E"Welcome to the Theatre in the Hills.  A cyan-colored ticket is
+@I@Irequired to gain admittance to the East and Southeast Galleries.
+@I@ILeaving the galleries will require purchase of an additional
+@I@Iticket."@n
+~
+A
+~
+~
+if( find_stat( ch, level ) > 90 ) {
+  act_tochar( "Since you are immortal, you are allowed to pass.", ch );
+  continue;
+  }
+if( is_player( ch ) ) {
+  mob = mob_in_room( 1497, room );
+  if( mob_in_room( 1497, room ) ) {
+    tell( mob, ch, #heh );
+    end;
+    }
+  act_tochar( #leaves, ch );
+  act_notchar( #leaves2, ch );
+  transfer( ch, find_room( 57045 ) );
+  act_notchar( #arr, ch );
+  end;
+  }
+continue;
+~
+E
+heh~
+You aren't getting through me unless you have the cyan-colored ticket.
+~
+E
+leaves~
+You clamber up the stairs towards the East Gallery.
+~
+E
+leaves2~
+$n clambers up the stairs towards the East Gallery.
+~
+E
+arr~
+$n arrives from the arena pit to the west.
+~
+!
+3 0 2
+1497 9 1509949540 3 0
+-1
+S
+
+#57024
+In the Audience~
+A small distance to the east is a set of stairs leading up to a gallery
+of seats.  There is a platform stage far to the north, but it is very
+difficult to see any detail from this part of the theatre.  A small army
+of tiny ants climb all over an apple rotting away on the ground.
+~
+[Merior] is a rotten apple you could load too ;)
+Nod, but then rdesc would be inaccurate
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57025 10 10 5
+D1
+~
+~
+0 -1 57023 10 10 5
+D3
+~
+~
+0 -1 57002 10 10 5
+E
+apple ants~
+The ants climb over what used to be a red apple.  Little spots of red are
+still visible, but the apple is slowly rotting away to a solid black.
+~
+A
+get~
+apple rotten rotting~
+act_tochar( #apple, ch );
+~
+E
+apple~
+You reach down to get the rotten apple, but the large number of ants on
+it makes you turn away.
+~
+!
+0 0 0
+1557 9 1509949540 3 0
+-1
+S
+
+#57025
+In the Audience~
+Small stones litter the dirty arena floor.  One of the stones in
+particular has a strong resemblence to a skipping stone, but most of the
+stones are rough, jagged, and gray.  Little bits of paper lie around on
+the ground.  To the north is the stage while the archway to the exit lies
+to the southwest.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57026 10 10 5
+D1
+~
+~
+0 -1 57022 10 10 5
+D2
+~
+~
+0 -1 57024 10 10 5
+D3
+~
+~
+0 -1 57003 10 10 5
+E
+stones rocks jagged rough gray~
+Most of the stones are gravel and quartz, but there is one solid black
+stone in the mix.
+~
+E
+solid black~
+The solid black rock is very smooth to the touch and would probably skip
+very far across a body of water.
+~
+E
+paper~
+The paper is so faded by the sun and weathered by rain that it is no
+longer readable.
+~
+A
+get~
+black solid skipping~
+act_tochar( #digging, ch );
+~
+E
+digging~
+You attempt to pick up the skipping stone, but the rock is buried much
+deeper in the earth than you thought.
+~
+!
+0 0 0
+A
+get~
+gravel~
+if( has_obj( 1974, ch ) )
+  act_tochar( #already, ch );
+else
+  if( rflag( reset0, room ) ) {
+  obj_to_char( oload( 1974 ), ch );
+  act_tochar( #get, ch );
+  act_notchar( #get2, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #none, ch );
+~
+E
+already~
+You already have some gravel.  Taking more would just be selfish.
+~
+E
+get~
+You scoop up a pile of gravel in your hands.
+~
+E
+get2~
+$n scoops up a pile of gravel in $s hands.
+~
+E
+none~
+You look over the gravel, but none of the stones look worthy of your
+taking.
+~
+!
+0 0 0
+A
+get~
+quartz~
+if( has_obj( 881, ch ) )
+  act_tochar( #already, ch );
+else
+  if( rflag( reset1, room ) ) {
+  obj_to_char( oload( 881 ), ch );
+  act_tochar( #get, ch );
+  act_notchar( #get2, ch );
+  remove_rflag( reset1, room );
+  }
+else
+  act_tochar( #none, ch );
+~
+E
+already~
+You don't need anymore quartz.
+~
+E
+get~
+You grab some quartz off the dirty ground.
+~
+E
+get2~
+$n grabs some quartz off the dirty ground.
+~
+E
+none~
+The pieces of quartz are too small to be at all useful.
+~
+!
+0 0 0
+1564 9 1509949540 3 0
+-1
+S
+
+#57026
+In the Audience~
+This part of the pit seems to be on a higher gradient than the other
+areas of the audience.  Not quite in the center of the arena, you still
+have a pretty good view of the stage.  A little ways to the east is a
+seating gallery, and to the north is the large stage platform.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57027 10 10 5
+D1
+~
+~
+0 -1 57021 10 10 5
+D2
+~
+~
+0 -1 57025 10 10 5
+D3
+~
+~
+0 -1 57004 10 10 5
+1503 9 1509949540 3 0
+-1
+S
+
+#57027
+Before the Stage~
+You stand directly in front of the east side of the stage.  However, it
+is so tall that it is very difficult to see anything on the stage.  The
+wall behind the stage seems to tower above your head about fifty or sixty
+feet.  Seating galleries lie to the east and west, and more standing room
+lies to the south.
+~
+~
+335020032 2 9 0
+D1
+~
+~
+0 -1 57020 10 10 5
+D2
+~
+~
+0 -1 57026 10 10 5
+D3
+~
+~
+0 -1 57005 10 10 5
+E
+goo puddle slime floor~
+As you come closer to the goo to inspect it, the smell begins to burn
+your nose and forces you to stand clear of it.
+~
+-1
+S
+
+#57028
+Dressing Room #1~
+Mirrors coat the walls here with several lanterns and candles placed
+strategically around them.  A table with various paints and hair wigs is on
+the west wall along with a rack of clothing that is on the east wall.
+The only way out of the dressing room is through the north door.
+~
+[Finius] makes me want to take the outfits..
+Heh, acode will load crap cloth stuff.
+~
+335020037 0 5 0
+D0
+dressing room door~
+dressing room door~
+391 2170 57063 10 10 5
+E
+mirrors~
+You can see yourself in the reflection of the mirror.  Your image is very
+bright due to the large amount of lantern light and candlelight in the
+room.
+~
+E
+rack clothing clothes~
+The rack in this dressing room holds many clothes of a royal nature
+including a king's robe and a jester's outfit.
+~
+A
+get~
+rack clothing clothes~
+act_tochar( #shred, ch );
+act_notchar( #nc, ch );
+~
+E
+shred~
+As you touch one of the articles of clothing on the rack, it
+disintegrates into shreds of thread.
+~
+E
+nc~
+As $n touches one of the articles of clothing on the rack, the cloth
+disintegrates into $s hands.
+~
+!
+0 0 0
+1571 9 1509949540 3 0
+-1
+S
+
+#57029
+Dressing Room #2~
+Lanterns and candles surround the mirrors mounted all over the walls in
+the dressing room.  A rack of clothing holds outfits worn by the actors
+who frequently use the dressing room is mounted on the west wall while a
+table of wigs sits along the east wall.  There doesn't appear to be an
+exit out of the dressing room other than the door to the north.
+~
+[Atrax] Red-bearded actor instead of a red bearded actor
+~
+335020037 0 5 0
+D0
+dressing room door~
+dressing room door~
+391 2171 57065 10 10 5
+E
+table wigs~
+Next to the face paint on the table is a blonde curly haired wig which
+stands out above the other wigs on the table.
+~
+E
+rack clothing clothes~
+Several outfits are hung carelessly on the rack.  Many pink dresses of
+similar size are hung next to each other.
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  obj_to_char( oload( 2238 ), ch );
+  act_tochar( #finds, ch );
+  act_notchar( #ncfind, ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #look, ch );
+  act_notchar( #nclook, ch );
+  }
+~
+E
+finds~
+You find something on the table!
+~
+E
+ncfind~
+$n finds something on the table!
+~
+E
+look~
+You search the table, but find nothing interesting.
+~
+E
+nclook~
+$n searches the table, but doesn't seem to come up with anything
+interesting.
+~
+!
+9 0 0
+1572 9 1509949540 3 0
+-1
+S
+
+#57030
+West Gallery~
+Seats in the West Gallery appear to be about five feet higher than the
+standing room in the pit before the stage.  The height advantage provides
+for a much better view of the platform stage...  even if it is far away. 
+For the most part the floor is clean, but every few feet you spy a piece
+of trash.
+~
+~
+335020045 0 6 0
+D0
+~
+~
+0 -1 57031 10 10 5
+D1
+~
+~
+0 -1 57010 10 10 5
+D2
+~
+~
+0 -1 57040 10 10 5
+E
+trash~
+Crumpled pieces of paper and old ticket stubs seem to litter the floor.
+~
+A
+e ea eas east~
+~
+send_to_char( #leaves, ch );
+continue;
+~
+E
+leaves~
+You go down the steps to the east toward the theatre's pit.
+~
+!
+0 0 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57031
+West Gallery~
+Hooded lanterns with polished brass on the side are mounted high on the
+gallery's support beams providing a full light over this seating section. 
+The floor here is made of very thin and very expensive-looking wooden
+planks.  In fact, the floor is so smooth, you almost slip!
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57032 10 10 5
+D2
+~
+~
+0 -1 57030 10 10 5
+E
+floor planks wooden~
+The floor seems to have been cleaned and refurbished rather recently, but
+a few pieces of trash still have found a place in the gallery.
+~
+E
+lantern hooded~
+A blue flame with a red streak in it shoots up from the lanterns cloth
+wick.  The oil reservoir of the lamp is made entirely of brass. 
+Protecting the flame from the wind is a tube of glass mounted on top of
+the reservoir.
+~
+1629 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57032
+West Gallery~
+Holes about the size of a copper piece seem to infest the roof above you
+in this section of the gallery.  Eminating from the top of the roof is
+some sort of tapping sound as if something is trying to dig or poke its
+way through the roof.  The West Gallery continues north towards a wooden
+door and south towards more rows of benches.
+~
+~
+335020033 0 6 0
+D0
+~
+~
+0 -1 57033 10 10 5
+D2
+~
+~
+0 -1 57031 10 10 5
+E
+roof holes~
+As you move to look at the holes, you find it more apparent that some
+wood-loving animal is pecking its way through the roof.
+~
+1679 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57033
+West Gallery~
+Pieces of various colored broken glass make a crunching noise as you walk
+over them.  Some of the pieces are dirty, but others sparkle very
+brightly and hypnotically in the flicker of the hooded lanterns on the
+support beams.  In the room to the north, a wooden door with a sign on it
+can be seen, but the letters are too small to be read from this distance. 
+More benches lie to the south.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57034 10 10 5
+D2
+~
+~
+0 -1 57032 10 10 5
+E
+glass pieces broken~
+Some of the glass pieces are clear and others have a tinge of red or
+green in them.  But all of the glass pieces are very sharp.
+~
+1629 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57034
+West Gallery~
+The gallery appears to end here as the benches are directly to the west
+of the stage.  However, the benches here are angled a little so that
+people sitting in these rows may have a chance to see the performers.  A
+rickety looking wooden door stands tall in the north wall with a sign on
+it saying "Keep Out!" 
+~
+~
+335020037 0 6 0
+D0
+office door~
+office door~
+391 2169 57060 10 10 5
+D2
+~
+~
+0 -1 57033 10 10 5
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57040
+Gallery Junction~
+Pictures of mountains and forested landscapes adorn the wall of this room
+between the west and southwest galleries.  The hardwood floor has many
+scrapes and imperfections which provides evidence to much traffic through
+the junction.
+~
+[Merior] i dont understand the torn piece of canvas
+Hmmm.  Might add a search action there.  A quest could be found possibly,
+or some object will be found rarely.
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57030 10 10 5
+D1
+~
+~
+0 -1 57041 10 10 5
+E
+pictures mountains landscapes~
+Snow covered mountains and trees are depicted in the paintings on the
+walls.  The painting on the north wall has a piece of its canvas torn out
+of the corner.
+~
+-1
+S
+
+#57041
+Southwest Gallery~
+Smaller in size this gallery offers very little difference than the
+audience pit except for the height advantage.  The stage is far to the
+north and difficult to see from this far distance.  Some of the wooden
+benches before you are overturned and heavily weathered.
+~
+~
+335020037 0 6 0
+D1
+~
+~
+0 -1 57042 10 10 5
+D2
+~
+~
+0 -1 57044 10 10 5
+D3
+~
+~
+0 -1 57040 10 10 5
+1629 9 1509949540 3 0
+2234 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57042
+Southwest Gallery~
+This corner of the Southwest Gallery offers a very poor perspective of
+the stage in comparison to the other seats in the gallery.  A thick
+support beam next to the east wall is blocking the right half of the
+distant stage.  It appears that a few of the benches on the ground are
+smashed into little bits and pieces of wood.
+~
+~
+335020037 0 6 0
+D2
+~
+~
+0 -1 57043 10 10 5
+D3
+~
+~
+0 -1 57041 10 10 5
+1679 9 1509949540 3 0
+2235 17 1509949540 -2 0
+2234 17 1509949540 -2 0
+-1
+S
+
+#57043
+Southwest Gallery~
+On a higher plane than the northern room, the view would be spectacular
+if the stage weren't so far away.  A few chairs are scattered about the
+room in lieu of the broken benches.  Smells of urine and rotting food
+attack your nostrils causing your eyes to water.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57042 10 10 5
+D3
+~
+~
+0 -1 57044 10 10 5
+1629 9 1509949540 3 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+2234 17 1509949540 -2 0
+-1
+S
+
+#57044
+Southwest Gallery~
+Weeds penetrate the back wall of the gallery, climbing upwards like a
+tall vine might.  The wood planks on the floor are cracked and rotted as
+if the theatre owners gave on trying to clean this section of seats.  A
+solitary bench is all that seems to be standing in this old worn out room.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57041 10 10 5
+D1
+~
+~
+0 -1 57043 10 10 5
+E
+weeds wall~
+Intertangled on the back wall, the weeds seem to defy gravity and climb
+from the ground to the roof.
+~
+2233 17 1509949540 -2 0
+-1
+S
+
+#57045
+East Gallery~
+The East Gallery appears to stand several feet higher than the audience
+pit.  Much more can be seen from here at this angle, but the stage is
+still far off into the distance.  More benches similar to the ones in
+this room lie to the north and a small hallway appears to lie to the
+south.
+~
+~
+335020045 0 6 0
+D0
+~
+~
+0 -1 57046 10 10 5
+D2
+~
+~
+0 -1 57055 10 10 5
+D3
+~
+~
+0 -1 57023 10 10 5
+A
+w we wes west~
+~
+send_to_char( #leaves, ch );
+continue;
+~
+E
+leaves~
+You step down the stairs towards the theatre's pit.
+~
+!
+0 0 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57046
+East Gallery~
+Mounted on the support beams that keep the gallery roof standing are
+several hooded lanterns that provide light to the seating area.  The
+wooden planked floor appears to be well kept, but little bits of garbage
+seem to hide from you under one of the old-looking benches.
+~
+[Merior] do something with the garbage?
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57047 10 10 5
+D2
+~
+~
+0 -1 57045 10 10 5
+E
+lanterns hooded~
+The lanterns flicker occasionally and barely put out enough light to
+guide your path among the benches and trash.
+~
+A
+take get~
+trash garbage~
+act_tochar( #get, ch );
+~
+E
+get~
+The trash appears to be stuck to the ground in a sticky liquid.
+~
+!
+0 0 0
+1629 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57047
+East Gallery~
+Several rows of benches are arranged so patrons can sit and watch
+performances on the nearby stage.  Scratches have found their way onto
+the wooden floor from a long time of abuse by the audiences' heels.  On
+one of the thin floor planks is a dark brown knot the size of a coin.
+~
+[Finius] bit of a smart ass yourself i see. heh, look knot...
+[Fenlyn] :)
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57048 10 10 5
+D2
+~
+~
+0 -1 57046 10 10 5
+E
+knot brown dark~
+The knot on the floor comes from where a branch grew on the tree the
+board was cut from.
+~
+1679 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57048
+East Gallery~
+Dry, cracked leaves seem to have found their way into this section of the
+East Gallery.  They look so brittle that a small wind could possibly
+crack them into tiny pieces.  The bench in the last row has collapsed
+under its own weight.  Exits lead to the north and the south.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57049 10 10 5
+D2
+~
+~
+0 -1 57047 10 10 5
+E
+leaves cracked dry leaf~
+As you look at one of the leaves on the ground, it breaks into little
+pieces from the wind.
+~
+1629 9 1509949540 3 0
+2235 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57049
+East Gallery~
+The East Gallery ends here as the wooden door frame to the north leads to
+what looks like a guard post.  The benches in this room are positioned so
+that the stage is still visible from a profile.  Several benches can be
+seen in the rooms to the south, but people who prefer standing room could
+conceivably stand in the audience pit in front of the gallery area.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57068 10 10 5
+D2
+~
+~
+0 -1 57048 10 10 5
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57055
+Gallery Junction~
+Paintings of rivers and tall waterfalls decorate the wall of this room
+between the East and Southeast Galleries.  The wood paneled floor has
+many cuts, scrapes, and imperfections which suggest that there is or was
+a heavy amount of foot traffic through this junction.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57045 10 10 5
+D3
+~
+~
+0 -1 57056 10 10 5
+E
+paintings pictures rivers waterfalls~
+The paintings feature rivers and waterfalls.  In one picture a man in a
+boat is casting a fishing line into the calm river waters.
+~
+-1
+S
+
+#57056
+Southeast Gallery~
+Much smaller than the East Gallery, the Southeast Gallery offers very
+little difference from the pit area except for the height advantage.  The
+stage is far to the north and difficult to see from this distance.  What
+looks like a mouse hole seems to be cut into the three-foot high north
+balcony.
+~
+~
+335020037 0 6 0
+D1
+~
+~
+0 -1 57055 10 10 5
+D2
+~
+~
+0 -1 57059 10 10 5
+D3
+~
+~
+0 -1 57057 10 10 5
+E
+mouse hole~
+Only about three-inches wide and tall, the mouse hole seems to let the
+small critters into the gallery from the wall.
+~
+1629 9 1509949540 3 0
+2234 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57057
+Southeast Gallery~
+This section of the Southeast Gallery gives a very poor view of the stage
+given that the west wall is blocking half of the stage in the distance. 
+A few of the benches on the ground are scarred from years of heavy use. 
+One of the benches seems to have a cracked leg.  The only exits are to
+the east and to the south.
+~
+~
+335020037 0 6 0
+D1
+~
+~
+0 -1 57056 10 10 5
+D2
+~
+~
+0 -1 57058 10 10 5
+1679 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2234 17 1509949540 -2 0
+-1
+S
+
+#57058
+Southeast Gallery~
+A little bit higher than the northern room, the view is spectacular
+except for the stage being so far away.  The floor has a little charring
+on it as if someone tried to burn something.  Lucky for the person who
+owns this place that the whole theatre didn't burn up into ashes.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57057 10 10 5
+D1
+~
+~
+0 -1 57059 10 10 5
+E
+charring charred floor~
+Ashes and black stains remain from a past fire on the floor.
+~
+1629 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57059
+Southeast Gallery~
+The wood planks on the floor are cracked and rotted with little blades of
+grass sticking up through them.  Blood stains the wall from an old battle
+fought in the room, however the stain must be old because there is
+nothing on the floor that might indicate a brawl was once held here.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57056 10 10 5
+D3
+~
+~
+0 -1 57058 10 10 5
+E
+blood stains wall~
+Blood is smeared along the east wall.  Old stains show that the blood ran
+down onto the floor, but the floor is spotless in that section.
+~
+2233 17 1509949540 -2 0
+2234 17 1509949540 -2 0
+-1
+S
+
+#57060
+Theatre Manager's Office~
+Wooden bookcases about 6 feet in height cover all of the walls in this
+office.  The books on the shelves are old, dusty, and in terrible
+condition.  A simple desk sits against the north wall with several papers
+on it stacked neatly.  Old posters are fastened to the wall reminding the
+occupant of this office of old shows past.
+~
+[Merior] actions for trying to take stuff
+[Atrax] The theatre manager hands a number of VERIOUS colored tickets to x.
+~
+335020037 0 6 0
+D1
+backstage door~
+backstage door~
+131 -1 57061 10 10 5
+D2
+West Gallery door~
+West Gallery door~
+391 2169 57034 10 10 5
+E
+bookcases bookshelf shelves~
+Several books line the shelves, but one in particular catches your eye... 
+"How to Run a Theatre." 
+~
+E
+desk papers~
+The stack of papers seem to be a budget for a show performed several
+years ago.  Elsewhere on the desk is a booklet left open with a dialogue
+written in it.
+~
+E
+posters wall~
+The posters refer to many shows done long ago.  Some of them have titles
+in huge letters.  One of the more artitic posters reads, "Theatre in the
+Hills presents 'Kingdom of Despair.'" 
+~
+A
+1 look~
+dialogue 5 booklet~
+if( !has_quest( ch, 41 ) ) {
+  act_tochar( #quest, ch );
+  assign_quest( ch, 41 );
+  }
+else
+  act_tochar( #altdialogue, ch );
+~
+E
+quest~
+The booklet has a play dialogue printed in it, but several handmade
+markings have been scribbled in the book.
+
+The markings say,
+"Note to self: Hire a helpful individual who can find a singer to come
+and perform at the theatre.  I think my Sutler friend said something
+about knowing a singer." 
+~
+E
+altdialogue~
+The booklet appears to be a script of some sort.  It also appears that
+several handwritten markings seem to be erased from the pages.
+~
+!
+0 0 0
+1569 9 1509949540 3 0
+-1
+S
+
+#57061
+Backstage~
+Discarded on the floor are several hats and wigs of many varieties.  Most
+of the hats seem to be royal in nature, but there are a few rags commonly
+worn by commoners.  All of them are in worthless condition and would
+probably rip or fall apart if they were picked up.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57062 10 10 5
+D3
+office door~
+office door~
+131 -1 57060 10 10 5
+E
+hats wigs~
+One of the hats looks like a makeshift helm, but looking at it closely
+you realize that it has no value as real armor.  A short-haired brown wig
+lies next to the fake helm on the ground.
+~
+A
+get~
+hats wigs rags~
+act_tochar( #fail, ch );
+act_notchar( #ncfail, ch );
+~
+E
+fail~
+You further destroy the wigs and hats as you try to pick them up.
+~
+E
+ncfail~
+$n further rips the wigs and hats as $e tries to pick them up.
+~
+!
+0 0 0
+-1
+S
+
+#57062
+Before a Spiraling Steel Staircase~
+A tall staircase, pounded out of sheets of steel, spirals up to a
+circular hole in the ceiling.  As the staircase enters the hole in the
+ceiling, it seems to disappear into the darkness of the second level. 
+The only exits from this room are to the Backstage towards the east, to a
+corridor towards the south, and up into the darkness.
+~
+[Merior] not sure why manager types are wearing banded stuff
+[Merior] key repops at under 100% to be cruel?
+Not so much cruel as to keep from everyone having a copy of each key to
+this place.  Part of what makes it unique is its ticket system.  I really
+don't want many keys floating around.  Anyway, dressing room doors are
+pickable 
+~
+335020037 0 9 0
+D1
+~
+~
+0 -1 57063 10 10 5
+D2
+~
+~
+0 -1 57061 10 10 5
+D4
+~
+~
+0 -1 57069 10 10 5
+1570 9 1509949540 3 0
+-1
+S
+
+#57063
+Backstage~
+Several piles of wood are stacked against the wall ready to be used in
+the construction of sets for the stage.  Some of the pieces are
+rectangular in nature, but others are shaped oddly like trapezoids and
+parallelograms.  Little tiny wood chips lie scattered on the floor.
+~
+~
+335020037 0 9 0
+D1
+~
+~
+0 -1 57064 10 10 5
+D2
+dressing room door~
+dressing room door~
+391 2170 57028 10 10 5
+D3
+~
+~
+0 -1 57062 10 10 5
+E
+wood~
+The wood is piled against the wall and are about 8 feet long each.  The
+chips on the floor are exactly the same color as the wood stack
+indicating that the wood chips are a byproduct of some construction.
+~
+1679 9 1509949540 3 0
+-1
+S
+
+#57064
+Backstage~
+Pieces of old sets lean against the walls of this tall and long backstage
+area.  Scattered about the room are wooden racks of costumes.  Some of
+the costumes are ripped, but they appear to be sturdy enough to wear
+again.  At the bottom of the racks are little wooden wheels fashioned
+like wagon wheels.
+~
+~
+335020037 0 9 0
+D1
+~
+~
+0 -1 57065 10 10 5
+D2
+~
+~
+0 -1 57017 10 10 5
+D3
+~
+~
+0 -1 57063 10 10 5
+E
+set pieces~
+The outermost set piece against the wall appears to be a castle wall made
+out of thin wood.  To add more to the illusion, a window cutout has been
+made to the middle of the set piece.
+~
+E
+racks wooden wheels~
+The racks seem to be covered with cobwebs, and the wheels seem to be
+secured to the floor.  This moving rack is not going anywhere.
+~
+A
+~
+~
+if( num_in_room( find_room( 57017 ) ) >= 3 )
+  act_tochar( #noway, ch );
+else {
+  act_tochar( #leaves, ch );
+  continue;
+  }
+~
+E
+leaves~
+You head out of the backstage area.
+~
+E
+noway~
+Too many people occupy the room to the south for you to enter.
+~
+!
+3 0 4
+A
+move roll get~
+rack clothing clothes costumes~
+act_tochar( "Some things should be looked at and not touched.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#57065
+Backstage~
+Objects of different sizes are spread out across an old wooden table with
+thin legs.  Little slips of paper identifying what the objects are
+secured to the table with very small tacks.  A large set of mirrors
+covers the north wall so that performers who stand in front of it can see
+their reflections.
+~
+[Finius] where's the key pop at?
+[Fenlyn] On stage mgr and occupants.  Stg Mgr at 35, occupants 100
+~
+335020037 0 9 0
+D1
+~
+~
+0 -1 57066 10 10 5
+D2
+dressing room door~
+dressing room door~
+391 2171 57029 10 10 5
+D3
+~
+~
+0 -1 57064 10 10 5
+E
+table objects~
+Props for a show are spread out here on the table.  One of the props is a
+bunch of flowers, but they are dried out and very old.
+~
+E
+paper slips~
+In front of the old flowers on the table is a slip that says "Bunch of
+Flowers." 
+~
+E
+mirrors north n~
+You see your reflection in the mirror.
+~
+1679 9 1509949540 3 0
+1622 9 1509949540 3 0
+-1
+S
+
+#57066
+Before a Spiraling Steel Staircase~
+A tall staircase, pounded out of sheets of steel, spirals up to a
+circular hole in the ceiling.  As the staircase enters the hole in the
+ceiling, it seems to disappear into the darkness of the second level. 
+The only exits from this room are to the Backstage towards the west, to a
+corridor towards the south, and up into the darkness.
+~
+~
+335020037 0 9 0
+D2
+~
+~
+0 -1 57067 10 10 5
+D3
+~
+~
+0 -1 57065 10 10 5
+D4
+~
+~
+0 -1 57073 10 10 5
+-1
+S
+
+#57067
+Corridor to Backstage~
+A giant yellow arrow painted on the west wall points toward the north
+exit.  Other than the arrow, the corridor has no distinguishing features
+except for the draft that seems to circulate at your feet.  Candles on
+the corridor walls supply light for the arrow but are awfully close to
+being blown out by the draft.
+~
+~
+335020037 0 6 0
+D0
+~
+~
+0 -1 57066 10 10 5
+D1
+old door~
+old door~
+131 -1 57068 10 10 5
+E
+yellow arrow~
+The arrow is a bright yellow color pointing towards the room to the north.
+~
+A
+~
+~
+wait( 1 );
+if( !is_open( room, east ) )
+  end;
+close( room, east );
+send_to_room( #slams, room );
+send_to_room( #slams, find_room( 57068 ) );
+~
+E
+slams~
+The old door swings shut.
+~
+!
+1 0 2
+-1
+S
+
+#57068
+Backstage Checkpoint~
+Judging from the weapons and armor placed on the wall, this backstage
+checkpoint doubles as the theatre's guard house.  A heavily tarnished
+plaque is mounted on the wall near the door to the west.  Benches line
+the walls so that the theatre guards can take a rest every now and then.
+~
+~
+335020037 0 6 0
+D2
+~
+~
+0 -1 57049 10 10 5
+D3
+old door~
+old door~
+131 -1 57067 10 10 5
+E
+weapons armor~
+Swords, shields, rapiers, leggings, and plate armor are just a few of the
+things found mounted on the wall.
+~
+E
+sign plaque tarnished~
+The plaque says:
+@I@I@E"Backstage: Passes required to enter backstage area."@n 
+~
+A
+~
+~
+wait( 1 );
+if( !is_open( room, west ) )
+  end;
+close( room, west );
+send_to_room( #slams, room );
+send_to_room( #slams, find_room( 57067 ) );
+~
+E
+slams~
+The old door swings shut.
+~
+!
+1 0 8
+A
+~
+~
+if( find_stat( ch, level ) > 90 ) {
+  act_tochar( "Since you are immortal, you are allowed to pass.", ch );
+  continue;
+  }
+mob = mob_in_room( 1499, room );
+if( mob_in_room( 1499, room ) ) {
+  tell( mob, ch, #heh );
+  if( is_open( room, west ) ) {
+    close( room, west );
+    send_to_room( #closes, room );
+    send_to_room( #closes2, find_room( 57067 ) );
+    }
+  end;
+  }
+continue;
+~
+E
+heh~
+Without your ticket, I won't allow you to go that way.
+~
+E
+closes~
+The backstage collections guard closes the old door to the west.
+~
+E
+closes2~
+The old door is closed from the other side.
+~
+!
+3 0 8
+1499 9 1509949540 3 0
+1679 137 1509949540 3 0
+1557 9 1509949540 3 0
+2233 17 1509949540 -2 0
+2233 17 1509949540 -2 0
+-1
+S
+
+#57069
+West Staircase, Level 2~
+A platform extends eastward from the staircase towards a storage area. 
+On the west wall someone has hastily scratched some words into the wood. 
+The staircase goes upwards into more darkness and down towards the
+backstage area.
+~
+~
+335020044 0 7 0
+D1
+~
+~
+0 -1 57070 10 10 5
+D4
+~
+~
+0 -1 57074 10 10 5
+D5
+~
+~
+0 -1 57062 10 10 5
+E
+west w wall wood words~
+The words say, "Beware of the ghastly beasts.  If not caref..."
+The message seems to be interrupted unintentionally.
+~
+-1
+S
+
+#57070
+Storage Room~
+Several shelves and bookcases line the north and south walls in this room. 
+The bookshelves on both walls are filled with books of various sizes. 
+Some are as thick as a dictionary, and others are as thin as a few coins. 
+A staircase lies to the west while more storage space lies to the east.
+~
+~
+335020036 0 7 0
+D1
+~
+~
+0 -1 57071 10 10 5
+D3
+~
+~
+0 -1 57069 10 10 5
+1625 9 1509949540 3 0
+-1
+S
+
+#57071
+Storage Room~
+Many boxes are stacked along the north wall.  Some of the boxes are
+fairly small while others are rather large and might contain many
+articles of clothing or several props that aren't being used anymore. 
+Old wooden shelves with boxes on them line the south wall.  From here you
+can go to the east or west.
+~
+[Merior] to get things inside the box i think you need to use second reset column
+[Fenlyn] as long as bag is 100% is okay to use 1_c
+~
+335020036 0 7 0
+D1
+~
+~
+0 -1 57072 10 10 5
+D3
+~
+~
+0 -1 57070 10 10 5
+E
+boxes shelves~
+All of the boxes are labeled with what each box contains, but looking in
+the boxes will actually verify their contents.
+~
+A
+~
+box~
+if( random( 1, 50 ) == 35 ) {
+  if( rflag( reset1, room ) ) {
+    obj_to_char( oload( 38 ), ch );
+    act_tochar( #get, ch );
+    act_notchar( #get2, ch );
+    }
+  }
+else {
+  act_tochar( #none, ch );
+  act_notchar( #ncnone, ch );
+  }
+remove_rflag( reset1, room );
+~
+E
+get~
+You find a scroll in one of the boxes.
+~
+E
+get2~
+$n finds something in one of the boxes.
+~
+E
+none~
+You rummage through the room and its boxes, but fail to find anything of
+any worth.
+~
+E
+ncnone~
+$n searches the whole room, but finds nothing.
+~
+!
+9 0 0
+1625 9 1509949540 3 0
+-1
+S
+
+#57072
+Storage Room~
+Bookcases loaded with books stand on the north wall of this storage area. 
+A wooden shelving system on the south wall allows for several boxes and
+other items to be stored on it.  One of the shelves appears to be labeled
+with a thin strip of paper.
+~
+[Finius] gotta be *something* to be found here. even if its crap.
+Search commands will produce crap.
+~
+335020036 0 7 0
+D1
+~
+~
+0 -1 57073 10 10 5
+D3
+~
+~
+0 -1 57071 10 10 5
+E
+strip paper shelves shelf~
+The shelf is labeled "worthless and damaged costumes."
+~
+E
+books bookcases~
+The books are crammed into the bookcases allowing no space for any more
+books.  One of the rows of books has a strip of paper torn off of all the
+spines suggesting that the books are just props used in shows.
+~
+A
+~
+shelf shelves~
+if( rflag( reset0, room ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #finds, ch );
+  obj_to_char( oload( 2236 ), ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #perhaps, ch );
+~
+E
+find~
+You find a set of torn clothes on the shelves.
+~
+E
+finds~
+$n finds a set of torn clothes on the shelves.
+~
+E
+perhaps~
+It looks as if the shelves have been searched already.
+~
+!
+9 0 0
+-1
+S
+
+#57073
+East Staircase, Level 2~
+The staircase has a little platform here that allows for exit to the west
+toward what looks like some sort of storage facility.  The steel
+staircase continues upwards toward darkness and downwards toward the
+backstage area.
+~
+~
+335020044 0 7 0
+D3
+~
+~
+0 -1 57072 10 10 5
+D4
+~
+~
+0 -1 57078 10 10 5
+D5
+~
+~
+0 -1 57066 10 10 5
+-1
+S
+
+#57074
+West Staircase, Level 3~
+The spiraling staircase ends here at its highest level.  Looking down
+from here you can see a small light from the backstage area far below. 
+You have a choice of exploring the darkness to the east or exploring the
+levels below you.
+~
+~
+335020044 0 5 0
+D1
+~
+~
+0 -1 57075 10 10 5
+D5
+~
+~
+0 -1 57069 10 10 5
+-1
+S
+
+#57075
+Effects Chamber~
+This part of the effects chamber appears to be the special effects and
+prop graveyard.  Piles of inoperable items such as horns and weapons
+litter the floor along with several rotted waterskins that were
+apparently used by either the actors or the theatre's staff.
+~
+~
+335020036 0 5 0
+D1
+~
+~
+0 -1 57076 10 10 5
+D3
+~
+~
+0 -1 57074 10 10 5
+E
+piles~
+Large and small musical instruments have found their way into these piles
+because of their lack of use.  Even a broken prop weapon has been
+discarded in these piles.
+~
+A
+~
+pile floor~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 100 ) <= 20 ) {
+    obj_to_char( oload( 2239 ), ch );
+    act_tochar( #finds, ch );
+    act_notchar( #ncfinds, ch );
+    }
+  else {
+    act_tochar( #nope, ch );
+    act_notchar( #ncnope, ch );
+    }
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #ncnope, ch );
+  }
+~
+E
+finds~
+You find a fake wooden sword in the pile.
+~
+E
+ncfinds~
+$n finds a fake wooden sword in the pile.
+~
+E
+nope~
+You search the pile but can't find anything interesting.
+~
+E
+ncnope~
+You see $n search the pile, but find nothing.
+~
+!
+9 0 0
+-1
+S
+
+#57076
+Effects Chamber~
+A large cylindrical object made of heavy iron sticks out of a large hole
+in the north wall.  Presumably it is a noise-maker and is probably
+extremely loud.  A sheet of steel hangs from the 8 foot high ceiling with
+a little mallet attached to it.
+~
+~
+335020036 0 5 0
+D1
+~
+~
+0 -1 57077 10 10 5
+D3
+~
+~
+0 -1 57075 10 10 5
+E
+cannon cylinder cylindrical iron hole large~
+The iron cylinder turns out to be a cannon used to simulate cannon fire
+in a war scene.
+~
+E
+steel sheet mallet~
+The mallet hangs from a sheet of steel begging you to hit the steel.
+~
+A
+~
+~
+if( mob_in_room( 1626, room ) ) {
+  remove_rflag( reset0, room );
+  end;
+  }
+if( !is_player( ch ) )
+  end;
+if( is_follower( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  wait( 1 );
+  send_to_room( #appears, room );
+  wait( 1 );
+  send_to_room( #mob, room );
+  mload( 1626, room );
+  mob = mob_in_room( 1626, room );
+  remove_rflag( reset0, room );
+  }
+~
+E
+appears~
+A @Mpurple mist@n begins to form on the floor!
+~
+E
+mob~
+A @Mdark phantom@n rises from the mists!
+~
+!
+1 0 10
+A
+bang~
+steel sheet~
+if( rflag( reset1, room ) ) {
+  act_tochar( #bang, ch );
+  act_notchar( #ncbang, ch );
+  send_to_area( #thunder, room );
+  remove_rflag( reset1, room );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+bang~
+You pick up the mallet and bang on the sheet of steel.
+~
+E
+ncbang~
+$n picks up the mallet and bangs on the sheet of steel.
+~
+E
+thunder~
+A loud thunder-like sound booms over the area.
+~
+E
+nope~
+Perhaps you should not hit the sheet of steel for a while.  People may
+think a storm is coming.
+~
+!
+0 0 0
+-1
+S
+
+#57077
+Effects Chamber~
+The top floor of the theatre appears to be fairly cramped as its ceiling
+is quite low and its walls are quite close together.  Still, there is
+somehow room for many people.  Several noise makers, musical and
+otherwise, are scattered about the room.  In one corner of the room is a
+wooden instrument of some kind.
+~
+~
+335020036 0 5 0
+D1
+~
+~
+0 -1 57078 10 10 5
+D3
+~
+~
+0 -1 57076 10 10 5
+E
+instrument wooden strips~
+One of the instruments appears to be a xylophone type instrument.  It is
+made of strips of wood, and each strip is of slightly different length. 
+Next to the instrument is a tiny wooden mallet that allows musicians to
+play the instrument.
+~
+A
+play~
+instruments wooden music noise xylophone~
+act_tochar( #hello, ch );
+act_notchar( #goodbye, ch );
+~
+E
+hello~
+You rummage around the room and play a tune with some of the instruments.
+~
+E
+goodbye~
+$n rummages around the room and plays a song with the instruments here.
+~
+!
+0 0 0
+A
+get take~
+instruments musical wooden xylophone noise~
+act_tochar( #noway, ch );
+act_notchar( #gimmeyourmoney, ch );
+~
+E
+noway~
+You try to lift the xylophone off the ground, but find that it is bolted
+down.
+~
+E
+gimmeyourmoney~
+$n tries to get the xylophone, but finds that it is bolted down.
+~
+!
+0 0 0
+1628 9 1509949540 3 0
+-1
+S
+
+#57078
+East Staircase, Level 3~
+You find yourself at the very top of the tall staircase.  About 50 feet
+separates this room from the bottom floor.  The steps leading down are
+small and stacked tightly on top of the others making the journey down
+perilous for those with large feet.  A platform extends to the west and
+beckons you to walk on it.
+~
+~
+335020044 0 5 0
+D3
+~
+~
+0 -1 57077 10 10 5
+D5
+~
+~
+0 -1 57073 10 10 5
+-1
+S
+
+#57079
+Before the Theatre Doors~
+Very tall and thick doors are built into the front of this wooden theatre. 
+A huge door knocker made of oak is mounted on one of the main doors,
+however, the knocker looks warped from the rains received in this part of
+the hills.  Stone statues stand watch at the front doors and the
+surrounding area.  Next to the statues sit some stone benches for the
+weary adventurer to rest on before entering the theatre.
+~
+knock/bang door
+~
+335020040 2 9 0
+D0
+theatre's main door~
+main door~
+195 -1 57000 10 10 7
+D2
+~
+~
+0 -1 57080 10 10 5
+E
+statues stone~
+The identical statues stand about 5 feet tall and flank the doors.  Each
+statue has a pair of widespread wings attached to the large-toothed
+beast's back and set of sharp claws at the end of its arms.
+~
+E
+thick doors north n~
+The set of huge double doors stands about fifteen feet tall forming a
+large arch at the top of the door frame.
+~
+A
+knock bang~
+door main theatre north~
+if( is_open( room, north ) ) {
+  act_tochar( "It's already open, so knocking would be futile.", ch );
+  end;
+  }
+if( mob_in_room( 1490, find_room( 57000 ) ) ) {
+  act_tochar( #bang, ch );
+  act_notchar( #bangs, ch );
+  wait( 1 );
+  act_room( #chgate, ch );
+  wait( 2 );
+  act_room( #clank, ch );
+  wait( 2 );
+  act_room( #opens, ch );
+  open( room, north );
+  }
+else {
+  wait( 2 );
+  act_tochar( #noone, ch );
+  }
+~
+E
+chgate~
+A voice on the other side of the gate says, "Hold on!  Lemme get this
+blasted thing unlatched!" 
+~
+E
+clank~
+You hear a loud sliding noise followed by a clank coming from the door.
+~
+E
+opens~
+A figure appears from behind the door as it opens and says,
+@I@I"Welcome to the Theatre in the Hills.  You must be here for the
+@I@Iperformance.  Come on in."
+~
+E
+noone~
+It seems that noone is answering the door.
+~
+E
+bangs~
+$n knocks on the theatre's main doors.
+~
+E
+bang~
+You knock on the theatre's main doors.
+~
+!
+0 0 1
+A
+~
+~
+wait( 1 );
+if( !is_open( room, north ) )
+  end;
+close( room, north );
+send_to_room( #slams, room );
+send_to_room( #slams, find_room( 57000 ) );
+~
+E
+slams~
+The huge door slams closed.
+~
+!
+1 0 1
+1319 17 1509949540 -2 0
+1319 17 1509949540 -2 0
+-1
+S
+
+#57080
+Path to the Theatre~
+The tall grassy path gradually turns into a dirt path heading north
+towards the wooden structure and west towards the cliff.  Heavy brush and
+weeds surround the dirt path, blocking passage to the east and the south. 
+A sign has been posted on a rotting wooden stake in the ground.
+~
+[Merior] maybe add a line in chatting about buying tickets inside
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 57079 10 10 5
+D3
+~
+~
+0 -1 57081 10 10 5
+E
+sign wooden~
+In very big letters the old cracked sign says, "Welcome to the Theatre in
+the Hills." 
+~
+1679 9 1509949540 3 0
+-1
+S
+
+#57081
+The Top of a Cliff~
+The winds on top of the cliff pick up a little as you look out off
+towards the west.  Far in the distance you can see a suspension bridge
+hanging over a ravine.  To the northeast is a large wooden building with
+huge doors at the front.  It is difficult to see much detail through the
+trees and brush, but the building looks like it has no windows.
+~
+~
+335020040 4 9 0
+D1
+~
+~
+0 -1 57080 10 10 5
+D5
+~
+~
+0 -1 57082 10 10 5
+E
+down d~
+An eighty foot drop awaits those who foolishly try to walk down the steep
+cliff.
+~
+E
+building wooden~
+The building stands alone in the distance.  It appears to be made of a
+light-colored wood and has dark wooden doors in the front.  From this
+vantage point the doors look like the only way in or out of the building.
+~
+A
+climb~
+d do dow down~
+if( find_skill( ch, climb ) <= random( 5, 9 ) ) {
+  act_tochar( #chfall, ch );
+  act_notchar( #ncfall, ch );
+  wait( 1 );
+  transfer( ch, find_room( 57082 ) );
+  act_notchar( #falls, ch );
+  i = random( 50, 150 );
+  dam_message( ch, i, "falling off the cliff" );
+  inflict( ch, mob,  i, "falling off of a cliff" );
+  end;
+  }
+act_tochar( #chdown, ch );
+act_notchar( #ncdown, ch );
+transfer( ch, find_room( 57082 ) );
+act_notchar( #arr, ch );
+~
+E
+chfall~
+As you prepare to go down the cliff face, your foot slips, and you tumble
+over the edge.
+~
+E
+ncfall~
+As $n prepares to go down the cliff, 
+$s foot slips, and $e tumbles over the edge.
+~
+E
+chdown~
+You climb down the cliff.
+~
+E
+ncdown~
+$n climbs down the cliff.
+~
+E
+falls~
+$n falls off the cliff landing in front of you.
+~
+E
+climbs~
+$n climbs down the face of the cliff.
+~
+E
+arr~
+$n climbs down from above.
+~
+!
+0 0 0
+A
+d do dow down~
+~
+act_tochar( #heckno, ch );
+~
+E
+heckno~
+You step toward the edge of the cliff and decide not to walk off the edge.
+~
+!
+0 0 0
+-1
+S
+
+#57082
+Before the Face of a Cliff~
+A craggy rock cliff stands before you and blocks your travel towards the
+east.  Several rocks and holes adorn the face of the cliff and makes it
+look perhaps climbable.  However, the cliff looks very tall and
+treacherous.  Scaling this wall of rock would be quite a chore.
+~
+[Velhart] Velhart wuz here.
+~
+335020034 4 9 0
+D0
+~
+~
+0 -1 51065 10 10 5
+D3
+~
+~
+0 -1 57083 10 10 5
+D4
+~
+~
+0 -1 57081 10 10 5
+E
+cliff rocks holes~
+The cliff stands several dozen feet high and is very craggy and rough.  The
+protruding rocks are few and far in between, but the cliff looks like it
+has an adequate number of footholds.
+~
+A
+climb~
+u up cliff rock~
+if( !is_player( ch ) ) {
+  act_room( #mob, ch );
+  end;
+  }
+if( find_skill( ch, climb ) <= random( 5, 9 ) ) {
+  act_tochar( #noclimb, ch );
+  act_notchar( #nclimb, ch );
+  end;
+  }
+act_tochar( #goes, ch );
+act_notchar( #ncgoes, ch );
+transfer( ch, find_room( 57081 ) );
+act_notchar( #arrive, ch );
+~
+E
+mob~
+$n looks up at the cliff and shakes $s head in fear.
+~
+E
+noclimb~
+You grab ahold of the face of the cliff, but lose your grip.
+~
+E
+nclimb~
+$n grabs ahold of the face of the cliff, but loses $s grip.
+~
+E
+goes~
+You stick your foot into one of the holes on the cliff and climb up.
+~
+E
+ncgoes~
+$n sticks $s foot into one of the holes on the cliff and climbs up.
+~
+E
+arrive~
+$n climbs up from below.
+~
+!
+0 0 0
+A
+up u~
+~
+act_tochar( #climbit, ch );
+~
+E
+climbit~
+There's no way to reach the top of the cliff unless you have the ability
+to climb it.
+~
+!
+0 0 0
+-1
+S
+
+#57083
+Faint Path Through the Hills~
+The path is very faint and almost invisible.  Tall grass extends from the
+ground and makes walking very strenuous even to the most experienced
+adventurer.  You notice that some of the tall grass has recently been
+trodden on towards the east.  The path continues up the hill to the east
+towards a cliff.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 57082 10 10 5
+D3
+~
+~
+0 -1 21240 10 10 5
+-1
+S
+
+#0
+

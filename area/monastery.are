@@ -1,0 +1,3737 @@
+#AREA
+Monestary~
+Earthstone Sadis Kiian~
+~
+
+0 0
+0
+#ROOMS
+
+#12500
+Inner Temple of the Monk Order~
+This is the inner temple of the monks.  Here, monks reach complete
+communion with their deity.  The holy symbols of the monks lie on shelves
+around the room, neatly arranged on shelves and pedestals.  The shelves
+are extensions from the pure redwood walls.  A peculiar text lies upon a
+dark table in the corner.  The floor is pure marble, and amazingly is a
+single piece.  There is a staircase leading down.  
+~
+[Orb] I spruced this dude up.  He had funky, hokey attacks.  He acts like
+a real monk, now.
+~
+301465605 1 7 0
+D5
+~
+~
+0 -1 12501 10 10 5
+E
+symbols~
+These are obviously the most prized possesions of the monks of this
+Order.  They are centuries old, but have been kept in perfect condition.
+In fact, they look brand new.
+~
+E
+book~
+This ancient text details the banishing of a group of the order who
+became entangled in necromancy.  Several hundred years ago, a small group
+of monks began studying black magic.  After several years of study, the
+High Council noticed strange things happening in their peaceful
+monestary.  Slowly, evidence of the corruption of the group became too
+much, and the Council banished them to the caves below.  
+~
+128 9 1509949540 3 0
+-1
+S
+
+#12501
+Stairway to the Inner Temple~
+The stairway leading up looks as if it was crafted yesterday.  There is
+no indication as to its age, as it is not worn.  Redwood walls
+surround the staircase.  Gazing upward, the staircase continues up a
+single flight to the next floor, while looking down reveals the back of
+the altar.  
+~
+~
+301465605 1 5 0
+D4
+~
+~
+0 -1 12500 10 10 5
+D5
+~
+~
+0 -1 12502 10 10 5
+-1
+S
+
+#12502
+Passage Behind the Altar~
+From your first look, you can tell that this passage is a completely
+different part of the monestary.  The walls are made of much nicer
+materials, and the decor has much more class to it.  Looking around, you
+are overcome by a feeling of peace and tranquility.  To the south stands
+a large altar.
+~
+[Malissin] action always reads as male pronoun
+~
+301465605 1 5 0
+D1
+wall~
+wall~
+235 -1 12503 10 10 5
+D2
+altar~
+altar~
+235 -1 12504 10 10 5
+D4
+~
+~
+0 -1 12501 10 10 5
+E
+1 east~
+You see nothing of interest in that direction.~
+E
+south altar~
+The altar looks to be made of some kind of oak wood.  Upon closer
+examination it looks like the altar can open.  
+~
+E
+wall fist~
+The wall has a large imprint of a fist on it.  It looks worn down as if
+many have placed their fists there.  
+~
+A
+press push place~
+fist~
+if( is_open( room, east ) )
+  {
+send_to_char( #to_char_nothing, ch );
+act_notchar( #to_room_nothing,ch );
+}
+else {
+send_to_char( #to_char, ch );
+act_notchar( #to_room,ch );
+open( room, east );
+}
+~
+E
+to_room_nothing~
+$n tries to press the outline of a fist in, but is shocked
+to discover that it has already been pushed in.
+~
+E
+to_char_nothing~
+You press your clenched fist into the outline on the wall only
+to discover that it has already been pushed in.
+~
+E
+to_room~
+$n clenches $s fist and presses it into the outline on the wall.
+A panel in the east wall slides open.
+~
+E
+to_char~
+You place your clench your hand into a fist and push it into the wall.
+A panel in the east wall slowly slides open.
+~
+!
+0 900 0
+A
+~
+~
+if( is_open( room, east ) ) {
+act_room( #to_all, ch );
+close( room, east );
+};
+~
+E
+to_all~
+A panel on the east wall slides closed.
+~
+!
+3 1000 8
+A
+~
+~
+if( is_open( room, east ) ) {
+  close( room, east );
+  send_to_room( #to_room, room );
+  }
+~
+E
+to_room~
+The wall to the east slowly closes.
+~
+!
+4 1000 0
+A
+push ~
+altar~
+if( is_open( room, south ) ){
+  send_To_char( #nada, ch );
+  act_notchar( #nada2, ch );
+  }
+else {
+  send_to_char( #algo, ch );
+  act_notchar( #algo2, ch );
+  open( room, south );
+  }
+~
+E
+algo2~
+$n pushes the altar, opening the way to the south.
+~
+E
+algo~
+You push the altar, opening the way to the south.
+~
+E
+nada2~
+$n tries to open the way to the south, and finds it already open.
+~
+E
+nada~
+The way to the south is open.
+~
+!
+0 -1 0
+A
+~
+~
+send_to_room( #message, room );
+~
+E
+message~
+A chilly breeze blows through from the east.
+~
+!
+4 100 0
+-1
+S
+
+#12503
+Beginning of the Dark Passage~
+Stepping through the wall, you see a long dark passageway heading north. 
+You are convinced that you hear screaming coming from ahead.  You are
+suddenly offended by the horrible stench of decaying bodies, and dried
+blood.
+~
+no_mob
+~
+301465613 1 5 0
+D0
+~
+~
+0 -1 12505 10 10 5
+D3
+secret door~
+secret door~
+235 -1 12502 10 10 5
+E
+dried blood~
+There are spots of dried blood covering the room.  You can identify that
+it is indeed blood from a humanoid.  There is a darkish tinge to the
+blood, as if the evil of this area has corrupted the very essence of life
+here.  
+~
+E
+fist wall~
+The indentation on the west wall looks well worn from many people placing
+their fists there.  
+~
+A
+push press place~
+fist~
+if( is_open( room, west ) )
+  act_tochar( #no, ch );
+else {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  open( room, west );
+  }
+~
+E
+no~
+The wall is already open.
+~
+E
+room~
+$n pushes $s fist into the indentation and the wall slides open.
+~
+E
+char~
+You push your fist into the indentation and the wall slides open to the
+west.  
+~
+!
+0 0 0
+-1
+S
+
+#12504
+The Altar of the White Order~
+You are standing at the altar of the monk church of the White Oak Order. 
+There is a small pulpit, which is made of a pure white, solid birch wood. 
+There a small bench for the bishop of the order to sit on during
+sermons, and meditations.  There is a strong aura of goodness, and
+kindness about this place.  You see an altar along the north wall, and
+confessionals to either side.  To the south is the large meditation mat,
+where monks gather to worship.
+~
+[Fyli] 'There a small bench' should have an is in it.
+~
+301465741 1 6 0
+D0
+altar~
+altar~
+235 -1 12502 10 10 5
+D1
+~
+~
+0 -1 12549 10 10 5
+D2
+~
+~
+0 -1 12552 10 10 5
+D3
+~
+~
+0 -1 12548 10 10 5
+E
+mat meditation~
+This is used by the monks during times of prayer and meditation.
+~
+E
+bench~
+The bench's simple lines and construction reflect its spartan
+surroundings.
+~
+E
+altar~
+Bookmarked by a pair of confessionals, the altar is a thing of beauty. 
+Mounted on the north wall, it is covered with simple but elegant carvings
+and tapestries.  It is the focus of the monk's existence.
+~
+E
+5 confessionals~
+A pair of confessionals stand off to the east and west.
+~
+E
+pulpit birch wood~
+Looming high above the room, next to the altar, is the white birchwood
+pulpit.  Spare but attractive, it is just large enough for one person to
+occupy at a time, to deliver a sermon or speech to the faithful.
+~
+E
+up~
+The ceiling is plain, except for a small ventilation grate.
+~
+A
+push move~
+altar~
+if( !is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #opens, ch );
+  open( room, north );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+opens~
+$n pushes the altar aside, revealing a secret passage.
+~
+E
+open~
+You push the altar aside, revealing a secret passage.
+~
+E
+nada~
+The altar has already been pushed aside.
+~
+!
+0 0 0
+A
+~
+~
+act_room( #chanting, ch );
+~
+E
+chanting~
+You hear chanting off in the distance, perhaps somewhere above you.
+~
+!
+2 25 0
+818 9 1509949540 3 0
+-1
+S
+
+#12505
+In the Dark Passage~
+Walking down the passage, you are overcome with nausea, and feel like
+you are going to puke.  The smell is getting worse, and there are
+decaying bodies on the ground.  You notice that you are no longer in a
+room but rather, in a cavern of some sort.  The walls of the cavern are
+jagged stone, with wooden support beams.  You see a dim light ahead, and
+the screams are much louder.  
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12506 10 10 5
+D2
+~
+~
+0 -1 12503 10 10 5
+E
+bodies decaying~
+There are some slightly decayed bodies on the floor here.  They look to
+have been dead for a little more than a week, and the smell is getting
+strong.  There are horrible looks of terror on the faces of the victims.  
+~
+A
+~
+~
+send_to_char(#to_char, ch );
+act_notchar(#to_room, ch );
+~
+E
+to_room~
+$n leans forward, and pukes.
+~
+E
+to_char~
+You lurch forward, hurling the contents of your stomach out onto the floor.
+~
+!
+2 100 0
+-1
+S
+
+#12506
+Intersection in the Dark Passage~
+You come to an intersection in the passage.  The main corridor leads
+north, with a smaller path to the west.  You hear the screams from the
+west, but can see nothing in that direction.  To the north, you see the
+dim light.  From the corner of your eye, you notice a small snake slither
+into a crack in the wall.  
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12508 10 10 5
+D2
+~
+~
+0 -1 12505 10 10 5
+D3
+~
+~
+0 -1 12507 10 10 5
+E
+crack~
+You see a small snake slither into a tiny crack in the wall.  The crack
+is about 2 inches wide, and 6 inches tall.  You can only guess how deep
+it goes.
+~
+E
+snake~
+You barely see a glimpse of a small snake, no more than 3 feet long,
+slithering into a small crack in the wall.  You couldn't make out the
+snake's colors.  
+~
+160 9 1509949540 3 0
+160 9 1509949540 3 0
+135 9 1509949540 3 0
+-1
+S
+
+#12507
+A Dark Passage~
+As you continue down the passage, you notice a foul odor, and a dim light
+coming from ahead.  The cavern is strewn with rotting corpses, and the
+smell is appalling.  The passage continues west, where there are piles of
+bodies strewn about.  You wonder if the monks know of these caves
+surrounding their monestary.  
+~
+~
+301465605 1 6 0
+D1
+~
+~
+0 -1 12506 10 10 5
+D3
+~
+~
+0 -1 12512 10 10 5
+E
+rotting corpses corpse~
+Looking down, you see many corpses in various stages of decomposition. 
+There is a mass of jellied flesh sitting in a puddle underneath the first
+corpse you see -- somebody has been here for a while.  There is a common
+thread to all of the corpses, their facial expressions.  You imagine that
+you would make a face like that if you were being sawed in half by a
+rusted nail.  
+~
+160 9 1509949540 3 0
+-1
+S
+
+#12508
+In the Dark Passage~
+As you continue down the cavern, the light ahead grows brighter.  The
+smell of the decaying corpses makes you want to puke , and the farther
+you go down the passage, the stronger the smell is growing.  There is a
+little smoke here, and it seems to be coming from the north.  On the east
+wall, you see what looks like human claw marks, and below the marks, you
+see a skeleton.
+~
+make smell a random action
+[Rastralcaz] 2nd line, there should be no space before the comma.
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12509 10 10 5
+D2
+~
+~
+0 -1 12506 10 10 5
+E
+wall marks~
+Perhaps the person was crazy, but he or she seemed to have tried hard to
+write something on the wall.  Probably as they were dying here.  
+~
+E
+skeleton~
+The only reason you take note of this particuar skeleton, is because it
+looks to have been the one that tried so hard to mark the wall here. 
+~
+160 9 1509949540 3 0
+160 9 1509949540 3 0
+-1
+S
+
+#12509
+End of the Dark Passage~
+Ahead you can see the path broaden, and the light appears to be
+immediately to the north now.  The smell almost chokes you, and the smoke
+is much thicker.  You guess that there must be a fire to the north, and
+that it is the cause of the light.  Along the sides of the cavern, you
+see that the stone gradually melds into the wood, and becomes a sort of
+mixture of the two.  To the east is a small door.  
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12511 10 10 5
+D1
+door~
+door~
+131 -1 12510 10 10 5
+D2
+~
+~
+0 -1 12508 10 10 5
+E
+wall wood stone~
+It is quite amazing.  You have never seen such a fluid transformation
+between solid stone, and wood.  It looks as if the best craftsman in the
+world performed the act.  
+~
+-1
+S
+
+#12510
+A Small Alcove~
+Stepping into this alcove, you are amazed to discover that it is clean. 
+There are no decaying bodies, and somehow, no smoke.  There is a desk in
+the center of the room, upon which many papers are strewn.
+~
+~
+301465604 1 6 0
+D3
+door~
+door~
+131 -1 12509 10 10 5
+E
+desk~
+The desk is made out of nice oak and looks quite sturdy.  Upon it lies
+many piles of papers.  
+~
+E
+papers~
+A quick glance through the papers reveals a set of notes detailing work
+done in the arts of performing the black art of summoning demons.  A
+rough sketch can be seen on one of the pages.  
+~
+E
+sketch~
+It appears to be a demon rising from a fire.
+~
+E
+notes~
+Entailed in the notes is a detailed plan for both creating, and
+controlling demons.  There is a brief suggestion that perhaps an army of
+undead monsters could be raised to take control of the monastery.  
+~
+131 9 1509949540 3 0
+-1
+S
+
+#12511
+South End of the Smoky Hall~
+The hall is a mess, filled with smoke and grime from the fires to the
+north.  Through them, you can barely make out the northern end of the
+hall.  With burning eyes, irritated from the stinging smoke, you can see
+the cavernous entrance to the south.
+~
+r/w
+~
+301465604 1 9 0
+D0
+~
+~
+0 -1 12550 10 10 5
+D2
+~
+~
+0 -1 12509 10 10 5
+A
+~
+~
+send_to_char( #char_eyes, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+$n rubs his eyes.
+~
+E
+char_eyes~
+You can't stop yourself from rubbing your eyes to alleviate the burning.
+~
+!
+2 100 0
+-1
+S
+
+#12512
+An Intersection in the Dark Hallway~
+You have reached an intersection in the path.  Looking south, you notice
+a small room carved in the stone.  There appears to be a dim light coming
+from the room.  To the west, the path continues and it is from here
+that you hear the perpetual screams.
+~
+~
+301465605 1 6 0
+D1
+~
+~
+0 -1 12507 10 10 5
+D2
+~
+~
+0 -1 12513 10 10 5
+D3
+~
+~
+0 -1 12514 10 10 5
+-1
+S
+
+#12513
+Room Carved into the Passage Wall~
+The room is simple and lit by a low burning lantern hung near the
+entrance.  Six cots take up most of the room.  There is not much else of
+interest here.  
+~
+~
+301465605 1 7 0
+D0
+~
+~
+0 -1 12512 10 10 5
+135 9 1509949540 3 0
+135 9 1509949540 3 0
+135 9 1509949540 3 0
+-1
+S
+
+#12514
+A Curve in the Dark Hallway~
+You come across an abrupt curve in the passagway.  The path now heads
+north and east.  You notice that the screaming is coming from the north,
+and you wonder why it is so loud.  The walls are evenly coated with what
+looks to be dried blood, and you note the fresh bodies lining the walls.  
+~
+need to rewrite rdescs so screams can be random actions
+[Callum] passagway should be passagway.
+[Moxie] ditorted should be distorted
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12515 10 10 5
+D1
+~
+~
+0 -1 12512 10 10 5
+E
+blood walls~
+Looking closer, you notice that the blood dried in clots.  It is almost
+as if it was burned to the walls of the cavern immediately after the
+death of the men.  You also notice that it has an unnaturally dark tinge,
+as if the evil in this place has corrupted it.  
+~
+E
+bodies~
+You examine one of the bodies more carefully, and discover that someone
+had riped some of the bones right through the skin.  As your stomach
+lurches, you notice that there is a disgustingly ditorted face on each of
+the bodies.  
+~
+-1
+S
+
+#12515
+A Long Dark Hallway~
+Skeletons litter the ground.  Some of them have obviously been tortured,
+as bones are lying in positions you didn't think possible.  Many of the
+bones have been broken or shattered.  You are beginning to suspect the
+sources of the screams that are even now coming up from the north.  The
+passage slopes downward in that direction, and the bones make footing a
+little less stable.  
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12517 10 10 5
+D2
+~
+~
+0 -1 12514 10 10 5
+E
+bones~
+There appear to be bones from elves, dwarves, and humans.  Many are
+shattered, and others have been broken and left at odd angles.  
+~
+E
+skeletons~
+Upon closer inspection, you see that the bones are dry and brittle.  You
+figure that they must have been here for years.  The thought of the
+people in the monestary not knowing of these years of killing, revolts
+you.  
+~
+160 9 1509949540 3 0
+160 9 1509949540 3 0
+-1
+S
+
+#12516
+Plateau in the Long Dark Hallway~
+You have reached a plateau in the cavern.  The corpses are piled almost
+to the ceiling here.  There must have been some person who has noticed
+all these people  missing.  The acts which must have been performed
+look almost ritualistic. The passage slants upward here.
+~
+rewrite rdescs
+[Callum] There's two spaces between people and missing.
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12518 10 10 5
+D4
+~
+~
+0 -1 12517 10 10 5
+-1
+S
+
+#12517
+A Long Dark Hallway~
+The passage continues sloping downward.  The footing is much worse, since
+there are many shattered bones lining the floor.  You can see that you
+must be careful if you wish to continue, since there is a sharp decline
+in the passage.  Ahead, you can see an abnormally high pile of bodies... 
+even for this cavern.  You are amazed at what has been done.  You can
+hardly imagine how many have died in this horrible cave.
+~
+rewrite this rdesc.
+~
+301465605 1 6 0
+D2
+~
+~
+0 -1 12515 10 10 5
+D5
+~
+~
+0 -1 12516 10 10 5
+E
+skeletons bones bodies~
+There are many bodies lining the floor.  There is virtually no flesh on
+any of the corpses, indicating that they have been here for a very long
+time.  Many of the bones on these skeletons are shattered, making a very
+ugly mess of the floor.  The shattered bones making footing tough.  
+~
+-1
+S
+
+#12518
+A Long Dark Hallway~
+Continuing down the passage, you notice that there is a dim light ahead. 
+You can't estimate the distance, but you feel that it must be close. 
+There are countless bodies, all lying naked on the ground.  You feel that
+you must avenge their deaths, or face the same fate.  To your left, you
+can see an opening in the wall which you hadn't initially noticed.  
+~
+~
+301465605 1 6 0
+D2
+~
+~
+0 -1 12516 10 10 5
+D3
+~
+~
+0 -1 12519 10 10 5
+E
+bodies corpses skeletons~
+You notice that the bodies are in various stages of decomposition.  Many
+have little or no skin, while a few look to be fresh.  Those that have
+faces look horrified.
+~
+-1
+S
+
+#12519
+Crack in the Cavern Wall~
+Entering the crack, you are amazed at how clean it is.  With the
+exception of the blood stained floor, it doesn't fit at all.  There are
+torches afixed to the walls, which keep the area bright.  The walls have
+lost the jagged look, and now appear to be polished quite nicely. 
+Several screams remind you of the tortured bodies.  Remebering the
+horified looks on their faces, you think it might be a good idea to keep
+going.
+~
+rewrite
+~
+301465606 1 6 0
+D1
+~
+~
+0 -1 12518 10 10 5
+D3
+~
+~
+0 -1 12520 10 10 5
+-1
+S
+
+#12520
+The Crack in the Cavern Wall~
+The crack grows wider here.  The walls are still adorned with torches,
+providing a steady light along the path.  The screaming is loud enough
+that you have to stop and hold your ears.  You imagine that it must be
+coming from straight ahead.  Your mind pictures the hideous acts being
+performed ahead, and you are filled with rage.  Something must be done.  
+~
+rewrite - lame - 'something must be done.'
+~
+301465604 1 6 0
+D1
+~
+~
+0 -1 12519 10 10 5
+D3
+~
+~
+0 -1 12521 10 10 5
+-1
+S
+
+#12521
+The Cells Begin~
+You see what look like prison cell doors to the north and south.  You can
+only imagine what happens behind these doors.  To the west, the hall 
+continues, with doors on both sides.
+~
+~
+301465604 1 6 0
+D0
+door~
+door~
+131 -1 12522 10 10 5
+D1
+~
+~
+0 -1 12520 10 10 5
+D2
+door~
+door~
+131 -1 12523 10 10 5
+D3
+~
+~
+0 -1 12524 10 10 5
+137 9 1509949540 3 0
+-1
+S
+
+#12522
+A Cell in the Monk Prison~
+You enter a cell in the prison.  It looks like nobody has ever had a
+chance to settle in.
+~
+~
+301465604 1 6 0
+D2
+door~
+door~
+131 -1 12521 10 10 5
+140 9 1509949540 3 0
+-1
+S
+
+#12523
+A Cell in the Monk Prison~
+You enter a cell in the prison.  It doesn't look like there is any
+furniture here, just the remains of rats and other rodents.  All about
+the floor lay bones from past tenants and even more dried blood from
+them.  
+~
+[Nezzim] fix mob
+~
+301465604 1 6 0
+D0
+~
+~
+131 -1 12521 10 10 5
+138 9 1509949540 3 0
+-1
+S
+
+#12524
+More Prison Cells~
+You go farther down the hall, and come across two more cell doors. 
+Screams come from behind the north door.  It sounds like there are
+several people being tortured, and several more bearing witness.  From
+the south door, you hear only moaning, and an occasional snore --
+obviously badly beaten men and women.  
+~
+~
+301465604 1 6 0
+D0
+door~
+door~
+131 -1 12525 10 10 5
+D1
+~
+~
+0 -1 12521 10 10 5
+D2
+door~
+door~
+131 -1 12526 10 10 5
+D3
+~
+~
+0 -1 12527 10 10 5
+-1
+S
+
+#12525
+A Torture Cell in a Monk Prison~
+This room is filled with devices of torture and pain.  There is a rack,
+several coffins with spikes lining the inner wall and in the corner you
+even see the equipment for quartering someone.  The lack of corpes give
+you the feeling that this is one portion where they clean them out.  
+~
+~
+301465605 1 6 0
+D2
+door south~
+door south~
+131 -1 12524 10 10 5
+140 9 1509949540 3 0
+138 9 1509949540 3 0
+141 9 1509949540 3 0
+141 9 1509949540 3 0
+142 9 1509949540 3 0
+274 9 1509949540 3 0
+-1
+S
+
+#12526
+Another Cell in the Monk Prison~
+Walking into the room, you see a man lying on a bed, who looks like he is
+nearly dead.  His head looks like it has been beaten against a brick wall
+for hours, and he has bones sticking through his skin.  You hear him
+moan, and it looks like he tries to open his eyes.  You notice that he
+stops moving, and doesn't breath, just lies there.  He must have died. 
+You wonder how anyone can survive the solitude in these cells.  There are
+no windows, and no light.  Somehow you know that you wouldn't survive a
+single night here, much less the days, and weeks some of these people
+must have been here.
+~
+~
+301465604 1 6 0
+D0
+~
+~
+131 -1 12524 10 10 5
+-1
+S
+
+#12527
+The End of the Cell Block in the Monk Prison~
+You come to the end of the prison cell block.  There are three cells
+left, one to the left, one to the right and one straight ahead.  The door
+at the end is unusual in that it has a small window in it.  Looking
+around, you notice a hatch in the ceiling.  You assume that this must be
+where the prison master sleeps.  
+~
+~
+301465604 1 6 0
+D0
+door~
+door~
+131 -1 12530 10 10 5
+D1
+~
+~
+0 -1 12524 10 10 5
+D2
+door~
+door~
+131 -1 12531 10 10 5
+D3
+door~
+door~
+131 -1 12528 10 10 5
+D4
+hatch~
+hatch~
+139 -1 12539 10 10 5
+-1
+S
+
+#12528
+The End Cell in the Monk Prison~
+This is the final cell in the prison block.  It is filled with broken
+chairs and beds.  All of the wood has human flesh stuck to it.  It looks
+like the furniture was used to beat the prisoners.  You wonder if the
+monks in the monestary even know about the inhumanity which pervades this
+place.  The only exit is the door through which you entered.  
+~
+~
+301465604 1 6 0
+D1
+~
+~
+131 -1 12527 10 10 5
+E
+broken furniture~
+Taking a closer look, you notice that there is flesh from many people
+stuck to the wood.  It looks like this was used to beat the person who
+used it.  There must be a really sick person to have skinned people with
+broken wood.  
+~
+-1
+S
+
+#12530
+Another Cell in the Monk Prison~
+Before you lies one of the cleanest cells you have seen here.  There is a
+small bed, and although it is covered in blood, it is in better shape
+than anything you have seen in the other cells.  You notice that there
+are no marks on the wall.  It can only be assumed that horribly wounded
+prisoners are kept here.  You can here the screaming from other cells as
+you stand here.  On the floor lies a large board in one corner.  
+~
+[Nezzim] no extras here, like bed
+~
+301465604 1 6 0
+D2
+~
+~
+131 -1 12527 10 10 5
+155 9 1509949540 3 0
+-1
+S
+
+#12531
+Another Cell in the Monk Prison~
+Entering this cell you are shocked.  It is completely empty, and void of
+life.  It looks like there used to be someone here , in fact he still
+is.  His bones are in little shards all over the room.  It is really quit
+repulsive seeing shards of bone sticking out of the wall.  It actually
+looks like he exploded.  
+~
+[Draynath] quit should be quite
+~
+301465604 1 6 0
+D0
+~
+~
+131 -1 12527 10 10 5
+E
+bones shards~
+Looking closely at the shards, you notice that there is no meat left on
+any of them.  The victim must have been around a long time after his
+accident.  You can see that the shards of bone are still quite sharp.
+~
+-1
+S
+
+#12539
+Bedroom of the Monk Prison-Master~
+This is by far the nicest room you have seen since you entered the
+caves.  There is a large bed, with a nice plump pillow.  Just looking
+around here makes you want to have a rest on a real bed.  You see only
+the bare necessities are stored here.  There is a closet, and a small
+chest both against the north wall.  
+~
+If players have been killing guards to get here, why would they fear not
+taking the gems?
+Players will want to look at the chest here.
+And is the master supposed to be out wandering around?  It says he's
+resting.
+hatch extra renamed zoom - needs finishing - action to take gems
+~
+301465604 1 6 0
+D5
+hatch~
+hatch~
+139 -1 12527 10 10 5
+E
+closet~
+You look closer at the closet and notice that it is made from a fine
+ash.  There are some ragged clothes lying in the bottom, and a ragged
+shirt hanging from a hook.  There is absolutely nothing of interest. 
+Feeling around, you notice a small latch at the back.
+~
+E
+zoom~
+A small hatch is revealed in the bottom of the closet.  Close examination
+reveals a small hoard of gems.  You decide out of fear of the prison
+guards to let them be.  
+~
+E
+small chest~
+This small chest is filled with useless junk.  Amongst the junk are a
+couple of rags, some old shirts, and a couple pair of torn pants.
+~
+A
+get take steal~
+gems~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    obj_to_char( oload( 182 ), ch );
+    act_tochar( #to_high_ch, ch, obj, mob );
+    remove_rflag( reset0, room );
+    }
+  else
+    send_to_char( #no, ch );
+  }
+~
+E
+to_low_ch~
+You pull 3 shiny gems from the hidden compartment.
+~
+E
+to_high_ch~
+You pull a shiny gem from the hidden compartment.
+~
+E
+already~
+The hidden compartment is already empty.
+~
+E
+to_no~
+You see no such thing here.
+~
+E
+no~
+You try and try, but cannot reach the gems in the small crack at the
+bottom of the closet.
+~
+!
+0 0 0
+A
+pull tug open~
+latch~
+if( rflag( reset1, room ) ) {
+act_tochar( #to_open, ch );
+act_notchar( #nc_open, ch );
+remove_rflag( reset1, room );
+}
+else
+act_tochar( #to_already, ch );
+~
+E
+to_open~
+You pull the latch, to reveal a hidden compartment.
+~
+E
+nc_open~
+$n pulls the latch, to reveal a hidden compartment.
+~
+E
+to_already~
+But it is open already!
+~
+!
+0 0 0
+A
+l look~
+latch~
+if( rflag( reset1, room ) )
+  send_to_char( #closed, ch );
+else { 
+  if( rflag( reset0, room ) )
+    send_to_char( #op_with, ch );
+  else
+    send_to_char( #op_none, ch );
+  }
+~
+E
+closed~
+This small latch is connected to a small door on the floor.
+~
+E
+op_with~
+This compartment is quite small, allowing room for only a few valuable
+posessions.  It seems that someone has left a few gems inside.
+~
+E
+op_none~
+This hidden compartment is quite small.  Someone, at some time, must have
+left some valuable possessions in this very place.
+~
+!
+0 0 0
+-1
+S
+
+#12548
+Confessional of the White Oak Order~
+You are in a solid white oak confessional.  The walls are made of solid
+white oak, as is the bench along the south wall.  There is a small window
+to the north, where the high monk listens to the confessions of the
+order's followers.  Amazingly, there isn't a scar on any of the walls, or
+bench.  The oak is kept unstained, and untarnished.  There must be a
+reverance for the Oak structures.  
+~
+~
+301465741 1 6 0
+D1
+~
+~
+0 -1 12504 10 10 5
+E
+bench~
+This bench is made completely of oak.  There are oak pegs which hold the
+legs to the body.  The bench is very simple, but it serves its purpose.
+The bench has absolutely no flaws.  
+~
+-1
+S
+
+#12549
+An Oaken Confessional~
+You are in a rather plain booth.  In the north wall you see a small
+window through which confessions are given.  Below the window lies a small
+bench on which to kneel.  All of the walls are crafted from smooth,
+knotless white oak.
+~
+~
+301465741 1 6 0
+D3
+~
+~
+0 -1 12504 10 10 5
+E
+bench~
+This is a oak bench.  It is made of pure oak, and is completely
+flawless.  It is very simple, having only a few wooden pegs holding the
+legs to the top.  
+~
+A
+kneel~
+bench~
+act_notchar( #watch_confess, ch );
+send_to_char(#confess, ch );
+~
+E
+confess~
+You kneel on a small oak bench.
+A voice comes from the window, saying 'Good day my son, what has brought
+you here?' 
+~
+E
+watch_confess~
+$n kneels on the oak bench.
+Before long, you notice quiet talking coming from behind the window.
+~
+!
+0 0 0
+-1
+S
+
+#12550
+North End of the Smokey Hall~
+The northern end of the hall is a mess much like the southern portion. 
+Smoke from a large fire directly to the north of you burns your eyes and
+makes it hard to see.  To the east and west you can make out the rough
+hewn walls of the stone cavern.  To the north, however, you are unable to
+see the wall due to the immense amount of smoke filling the room and the
+glare from the large fire.  The feeling of danger now grips at your soul,
+causing your stomach to turn and body to shake.  
+~
+~
+301465613 1 6 0
+D2
+~
+~
+0 -1 12511 10 10 5
+E
+smoke~
+The smoke curls and twists to form strange patterns and at times you even
+think you see it form the shape of a man.  
+~
+E
+log~
+The log sticking out of the fire is smaller than all the rest and you
+could probably move it.  
+~
+E
+fire~
+The fire appears to be fueled by large logs that must have been drug here
+by the monks.  You notice that one log is sticking out of the fire, it
+looks small enough to grab.
+~
+A
+move grab get take~
+log branch target~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  remove_rflag( status0, room );
+  wait( 4 );
+  act_room( #all, ch );
+  wait( 4 );
+  act_room( #all2, ch );
+  mload( 285, room );
+  set_rflag( status0, room );
+  }
+else
+  act_tochar( #char2, ch );
+~
+E
+char2~
+After removing the log from the fire you feel that you have wronged and
+replace it just how you found it.  
+~
+E
+all2~
+@b@WSuddenly the smoke in the rooms curls and twists to form a demon!
+~
+E
+all~
+The fire suddenly flares up and you hear screams of tortured souls
+eminate from within the fire.  
+~
+E
+room~
+$n reaches down near the fire and grabs a log that is sticking out of it.
+~
+E
+char~
+You reach down near the fire and grab the log that is sticking out of the
+fire.  
+~
+!
+0 0 0
+A
+~
+~
+if( !rflag( status0, room ) ) {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  }
+else
+  continue;
+~
+E
+room~
+$n attemps to leave the room but is unable to because of the smoke.
+~
+E
+char~
+You attempt to leave the room but the smoke has made it far too hard for
+you to find your way.  
+~
+!
+3 2 4
+872 17 1509949445 -2 0
+-1
+S
+
+#12552
+Meditation Mat~
+A large, dark brown mat fills the entire room.  Multiple meditating monks
+rest here searching for inner peace.  From the north you feel a great
+goodness.  
+~
+[Orb] This dude used to be a 'meditating monk' now he's a neophyte.
+[Kriptik] @CMonk@n, isnt colored..
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12504 10 10 5
+D2
+~
+~
+0 -1 12553 10 10 5
+558 9 1509949540 3 0
+-1
+S
+
+#12553
+Main Hallway~
+This hallway has nicely, but modestly, finished white oak walls.  The
+light of this room comes from an indeterminant light source, indirectly
+coming from above.  There are four exits from this room, south is the
+hallway, north is a meditation mat, and east and west are doors.
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12552 10 10 5
+D1
+~
+~
+0 -1 12566 10 10 5
+D2
+~
+~
+0 -1 12554 10 10 5
+D3
+door~
+door~
+407 3195 12564 10 10 5
+E
+west door~
+To the west stands a massive door with a giant lightning bolt rune on it. 
+A large lock is set into the door to firmly hold it in place.  The lock
+which bars the western door is made of bone.  The bone lock is
+intricately carved and polished.  Engraved upon its surface, just below
+the keyhole, is a stylized 'E'.  The lock is so intricate and impressive,
+only an experienced locksmith could have fashioned it.
+~
+-1
+S
+
+#12554
+Main Hallway~
+This hallway has nicely, but modestly, finished white oak walls.  The
+light of this room comes form an indeterminant light source, indirectly
+coming from above.  There are five exits from this room, north and south
+are in a hallway, and a door to the west.  There is a set of stone
+stairs that lead down below the floor.  A ladder also leads up to a
+watchtower.
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12553 10 10 5
+D2
+~
+~
+0 -1 12555 10 10 5
+D3
+door~
+door~
+131 -1 12561 10 10 5
+D4
+~
+~
+0 -1 12571 10 10 5
+D5
+~
+~
+0 -1 12597 10 10 5
+-1
+S
+
+#12555
+Front Hallway~
+Light filters through the large stained glass window over the arched
+oaken doors, splashing across the floor in multicolored array.  The faint
+murmur of quiet voices and rustling robes echoes down the northern
+hallway.  To the west you see a dimly lit room with a broad counter, and
+from the east comes the warm smell of fresh bread and roasting meats.
+~
+Progressing. --Caer
+~
+335032333 1 6 0
+D0
+~
+~
+0 -1 12554 10 10 5
+D1
+~
+~
+0 -1 12559 10 10 5
+D2
+set of dark-stained oaken doors~
+set dark-stained oaken doors double~
+131 -1 12558 10 10 5
+D3
+~
+~
+0 -1 12556 10 10 5
+497 137 1509949540 3 0
+-1
+S
+
+#12556
+A Small Shop~
+This is a small shop that contains various odds and ends that the monks
+produce.  Hanging from the ceiling just a little above your head is a
+small pull chain hanging from a bell.
+~
+[Caer] action trigger: ring pull    target: bell pull chain
+
+[Caer] Monk storekeeper?  Let's be daring and make it appear he's a laymen leathersmith who lives nearby, since this isn't even *in* the monastery yet.
+[Caer] Offer more monk-friendly gear, as well.  Perhaps a runed necklace of + .somethinglittle mana or such.
+~
+301469703 1 6 0
+D1
+~
+~
+0 -1 12555 10 10 5
+E
+chain~
+This chain hangs from a small bell.  Perhaps if you pulled on it, someone would come to help.
+~
+A
+pull~
+chain~
+act_tochar( #pull, ch );
+act_notchar( #r_pull, ch );
+if( mob_in_room( 495, find_room( 12556 ) ) ) {
+  act_room( #here, ch );
+  end;
+  }
+else {
+  mob = mob_in_room( 495, find_room( 12567 ) );
+  wait( 3 );
+  transfer( mob, room );
+  if( mob_in_room( 495, find_room( 12556 ) ) )
+    act_room( #arrive, ch );
+  else
+    act_room( #nostore, ch );
+  }
+~
+E
+r_pull~
+$n pulls on the pull chain, making a dinging noise.
+~
+E
+here~
+The monk says, "Now stop that.  That is annoying."
+~
+E
+arrive~
+The monk storetender arrives to help you with your business.
+~
+E
+pull~
+You hear a slight dinging noise.
+~
+E
+nostore~
+The shopkeeper is unable to help you at this time.
+~
+!
+0 0 0
+A
+~
+~
+if( rand_player( room ) )
+  end;
+mob = mob_in_room( 495, room );
+if( mob )
+  transfer( mob, find_room( 12567 ) );
+~
+!
+4 1000 0
+-1
+S
+
+#12557
+A Small Shop~
+Under Construction.
+~
+~
+301469837 1 6 0
+D1
+~
+~
+0 -1 12556 10 10 5
+-1
+S
+
+#12558
+Before a Great Monastery~
+Vines twine their delicate way up the pale limestone face of this
+impressive building.  Here for centuries, the walls have mellowed in
+color from the effects of sun and rain.  A great stained-glass window,
+fashioned in rose-shaped panorama of colors, is set above the great oaken
+door.  In the center of the window, surrounded by bold sky-blue glass, is
+the single, regal image of a wide oak spreading its leafy limbs over a
+variety of animals.
+~
+no_mob
+Done  --Caer
+[Caer] perhaps an 'up' redit to describe buttresses, arches
+[Orb] Purty.
+~
+301465608 5 6 0
+D0
+set of dark-stained oaken doors~
+set dark-stained oaken doors double~
+131 -1 12555 10 10 5
+D1
+~
+~
+0 -1 12613 10 10 5
+D2
+~
+~
+0 -1 12578 10 10 5
+D3
+~
+~
+0 -1 12614 10 10 5
+E
+vines pale limestone face~
+Clumps of climbing roses and slender tendrils of ivies pick their
+green-fingered way up the cool stone walls, bearding the entranceway of
+the monastery with leaves and greenery.
+~
+E
+building walls~
+Once a rich, honeyed tan, the limestone walls of this centuries-old
+building have faded to a pale dun.  Sun and rain have etched their marks
+upon the smooth, cool walls, darkening the seams between the blocks and
+wearing away at the sharpness of the corners.
+~
+E
+stained-glass window oak limbs animals~
+Styled in a series of circles, the panes of glass set within the window
+are brightly-hued and thick.  Lead threads can be seen between each pane,
+their dark metallic shine contrasting with the rainbow of colored glass. 
+The large circle of glass in the center reflects with the sharp azure of
+a bright summer sky; within it is depicted a great white oak tree, limbs
+stretched protectively over lambs, children, lions and various birds.
+~
+E
+dark-stained oaken doors set n north~
+The doors soar up, meeting at the apex of a wide limestone archway set
+just under the stained-glass window.  Shining with the glossy darkness of
+oil, the doors have been varnished with a smooth finish, enhancing the
+grain of the lovely wood.
+~
+A
+n north~
+~
+if( !is_open( room, north ) ) {
+  act_tochar( #bonk, ch );
+  end;
+  } ;
+else
+  act_tochar( #char, ch );
+act_notchar( #charleave, ch );
+transfer( ch, find_room( 12555 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+char~
+You pass through the impressive double doors of the White Oak Monastary.
+~
+E
+bonk~
+Perhaps you should open the double doors before attempting to walk
+through them.
+
+~
+E
+charleave~
+$n passes through the dark-stained oaken doors to the north.
+~
+E
+arrive~
+$n enters from the south.
+~
+!
+0 0 0
+-1
+S
+
+#12559
+Kitchen~
+As you step into this room from the front hallway, you can instantly
+tell that it is a kitchen.  The smells of baked goods and slow cooked
+meats fill the area.  A large stove and fireplace fill the east wall and
+many cupboards line the southern wall.  A small door lead to the north,
+much like a servant entrance to a dining room.  
+~
+[Caer] Change paprika quest -- either delete it or overhaul it to have them sent to Vaasa for vineyard materials or *something*.
+[Drag'ros] When looking at spices "Ther" should be "There"
+[Nezzim] "door lead" -> "door leads"
+~
+301469703 1 6 0
+D0
+door~
+door~
+0 -1 12560 10 10 5
+D3
+~
+~
+0 -1 12555 10 10 5
+D5
+~
+~
+0 -1 12568 10 10 5
+E
+cupboards~
+These cupboards are made of a fine white oak, and contain various small
+ingredients.  A few spices and some flour are easily found, as well as a
+small bag of sugar.  
+~
+E
+spices~
+Ther is salt and pepper, some thyme and a little basil.  There also is an
+unmarked jar.  
+~
+E
+jar~
+This small unmarked jar contains a fine reddish powder.
+~
+A
+get 2 take~
+jar~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  obj = oload( 430 );
+  if( has_obj( 430, ch ) ) {
+    send_to_char( #none, ch );
+    act_notchar( #nomore, ch );
+    end;
+    }
+  obj_to_char( obj, ch );
+  send_to_char( #get, ch );
+  act_notchar( #got, ch );
+  }
+else
+  send_to_char( #none, ch );
+~
+E
+nomore~
+$n can't find anymore paprika.
+~
+E
+none~
+There is no more of that in there.
+~
+E
+got~
+$n gets a jar of paprika.
+~
+E
+get~
+You get a jar of paprika.
+~
+!
+0 0 0
+8 17 1509949540 -2 0
+506 9 1509949540 3 0
+35 17 1509949540 -1 0
+236 17 1509949490 -1 0
+172 17 1509949465 -1 0
+743 17 1509949490 -1 0
+-1
+S
+
+#12560
+Dining Room~
+This room is made from majestic white oak.  The walls are lightly
+accented with a preservative to keep the oak looking fresh.  There is a
+massive oak table in the center of the room, cabable of holding many many
+people.  A monk sits in one of the chairs enjoying a minor meal.  
+~
+[Orb] Updated this mob's pathetically stupid attacks and made the
+tattered robes a tad better.
+[Fyli] cabable should be capable
+[Silas] capable/ cabable..  In room descr
+~
+301465605 1 6 0
+D2
+door~
+door~
+0 -1 12559 10 10 5
+A
+sit~
+table~
+send_to_char( #sit, ch );
+act_notchar( #h_sit, ch );
+~
+E
+h_sit~
+$n takes a seat at the large table.
+~
+E
+sit~
+You take a seat at the large table.
+~
+!
+0 0 0
+539 9 1509949540 3 0
+-1
+S
+
+#12561
+Guest Quarters~
+A rather comfortable guest room, where there are two beds and a large
+white oak pantry.  The floor is a soft, brown dirt which is nice on your
+feet, when your shoes are off.  The only exit is the door back to the
+hallway.  
+~
+~
+301465605 1 6 0
+D1
+door~
+door~
+131 -1 12554 10 10 5
+432 17 1509949540 -2 0
+-1
+S
+
+#12562
+Monk Sleeping Quarters~
+Under Construction.
+~
+~
+301465741 1 6 0
+D3
+~
+~
+0 -1 12552 10 10 5
+-1
+S
+
+#12563
+Guest Quarters~
+Under Construction.
+~
+~
+301465741 1 6 0
+D1
+~
+~
+0 -1 12552 10 10 5
+-1
+S
+
+#12564
+Guest Quarters~
+This rather comfortable room contains two beds made of a natural white
+oak.  The pantry and walls are also of a white oak.  The floor is a soft,
+brown dirt which is often a relief after much travel in hard boots. 
+~
+Earthril resets here.
+~
+301465605 1 6 0
+D1
+door~
+door~
+407 3195 12553 10 10 5
+A
+~
+~
+mob = mob_in_room( 502, find_room( 12564 ) );
+if( is_fighting( ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  junk_mob( mob );
+  }
+continue;
+~
+E
+room~
+As $n flees, strange ripples appear in the air.
+~
+E
+char~
+As you flee, you see strange ripples in the air.
+~
+!
+3 -1 15
+A
+~
+~
+mob = mob_in_room( 538, find_room( 12564 ) );
+if( is_fighting( ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  junk_mob( mob );
+  }
+continue;
+~
+E
+room~
+A brilliant flash of light floods the room as $n flees!
+~
+E
+char~
+A brilliant flash floods the room as you flee!
+~
+!
+3 -1 15
+432 17 1509949520 -2 0
+432 16 1509949460 -2 0
+538 9 1509949540 3 0
+-1
+S
+
+#12565
+The Altar of the White Oak Order~
+Under Construction.
+~
+~
+301465741 1 6 0
+D1
+~
+~
+0 -1 12553 10 10 5
+-1
+S
+
+#12566
+Monk Sleeping Quarters~
+Very sparse furniture adorn this room as monks must sleep on the floor. 
+The white oak from the rest of the monastary is absent here as dirt walls
+line the room.  There are a few sleeping mats here, and one seems to be
+rather lumpy.  
+~
+[Seltha] There's a lumpy mat but no way to search the lump.
+*serpent 80%, knuckles 20% - danger added, no more freebies
+~
+301465605 1 6 0
+D3
+~
+~
+0 -1 12553 10 10 5
+E
+mat~
+A large eight foot long mat and about 4 feet wide.  This mat looks rather
+heavy and quite lumpy.  
+~
+A
+lift~
+mat~
+if( mob_in_room( 2224, room ) ) {
+  act_tochar( #end, ch );
+  end;
+  }
+i = random( 1, 5 );
+if( find_stat( ch, str ) > 14 ) {
+  if( rflag( reset0, room ) ) {
+    if( i == 1 ) {
+      remove_rflag( reset0, room );
+      act_notchar( #finds, ch );
+      send_to_char( #find, ch );
+      obj_to_char( oload( 139 ), ch );
+      }
+    else {
+      act_tochar( #jump, ch );
+      act_notchar( #rjump, ch );
+      mload( 2224, room );
+      remove_rflag( reset0, room );
+      }
+    }
+  else
+    send_to_char( #none, ch );
+  }
+else {
+  send_to_char( #cant, ch );
+  act_notchar( #isnt, ch );
+  }
+~
+E
+none~
+You find nothing.
+~
+E
+isnt~
+$n isnt strong enough to lift the mat.
+~
+E
+cant~
+You aren't strong enough to lift the mat.
+~
+E
+finds~
+$n finds a pair of brass knuckles.
+~
+E
+find~
+You find a pair of brass knuckles.
+~
+E
+jump~
+A black serpent, lying in wait beneath the meditation mat, strikes for
+your heart like an arrow!
+~
+E
+rjump~
+As $n moves the mat, a black serpent strikes out at $m from beneath it,
+flying towards $m like an arrow!
+~
+E
+end~
+A black serpent with arrow-like fangs rests atop the mat.  It wouldn't be
+a good idea to disturb it just now.
+~
+!
+0 0 0
+-1
+S
+
+#12567
+A Small Shop~
+This is just where paul hangs out waiting for people to pull the chain in
+his shop.
+~
+need to add the runic bracer custom
+~
+301469831 1 6 0
+495 9 1509949540 3 0
+2002 17 1509949450 -1 0
+2022 17 1509949490 -1 0
+2042 17 1509949490 -1 0
+2081 17 1509949490 -1 0
+2102 17 1509949490 -1 0
+2125 17 1509949490 -1 0
+2181 17 1509949490 -1 0
+488 17 1509949540 -1 0
+2001 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2041 17 1509949540 -1 0
+2080 17 1509949540 -1 0
+-1
+S
+
+#12568
+Bottom Of Stairs~
+As you step down the stairs, a cold shiver runs through your body.  It is
+very dark and damp down here, it appears to be the cellar.  The floor is
+a soft dirt and the walls are a cold stone.  You get the soft scent of
+must and an aroma of a fine brew.  Light hardly seems to penetrate the
+darkness, so you must proceed carefully.  A sconce is on the wall here
+with a torch.  It seems that the monks also need to keep a light handy.  
+The last step on the stairs makes a funny sound when you step on it.
+~
+[Lansharra] i came in here and the step was already opened.  only it
+hadn't been and everyone else reset right.  so i closed the step and
+opened it again, and got a small key *boggle* 
+~
+301465612 1 5 0
+D0
+~
+~
+0 -1 12569 10 10 5
+D1
+~
+~
+0 -1 12575 10 10 5
+D3
+~
+~
+0 -1 12574 10 10 5
+D4
+~
+~
+0 -1 12559 10 10 5
+E
+sconce torch~
+This crudely fashioned sconce holds a torch.  The torch can be easily
+removed to carry about.  
+~
+E
+step~
+You notice that this step has hinges on the backside of it.  You think it
+might be able to be opened.  
+~
+A
+get take remove~
+torch~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #get, ch );
+  act_notchar( #gets, ch );
+  obj_to_char( oload( 26 ), ch );
+end;
+  }
+send_to_char( #none, ch );
+act_notchar( #nones, ch );
+~
+E
+nones~
+$n searches the sconce for more torches.
+~
+E
+none~
+The torch has already been taken.
+~
+E
+gets~
+$n gets the torch from the wall.
+~
+E
+get~
+You get a torch.
+~
+!
+0 0 0
+A
+open~
+step~
+if( !rflag( reset1, room ) ) {
+  remove_rflag( reset0, room );
+  act_notchar( #keys, ch );
+  send_to_char( #key, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  remove_rflag( reset1, room );
+  send_to_char( #open, ch );
+  act_notchar( #opens, ch );
+  obj_to_room( oload( 477 ), room );
+  end;
+  }
+send_to_char( #close, ch );
+act_notchar( #closed, ch );
+~
+E
+keys~
+$n tries to look for the key, but it has already been taken.
+~
+E
+key~
+The key has already been taken.
+~
+E
+closed~
+$n tries to open the open step.
+~
+E
+close~
+The step is already open.
+~
+E
+opens~
+$n opens the step, revealing a small key.
+~
+E
+open~
+You open the step, revealing a small key.
+~
+!
+0 0 0
+A
+close~
+step~
+if( !rflag( reset0, room ) ) {
+set_rflag( reset0, room );
+send_to_char( #close, ch );
+act_notchar( #closes, ch );
+end;
+}
+send_to_char( #open, ch );
+act_notchar( #opens, ch );
+~
+E
+opens~
+$n tries to close the closed step.
+~
+E
+open~
+The step is already closed.
+~
+E
+closes~
+$n closes the step.
+~
+E
+close~
+You close the step.
+~
+!
+0 0 0
+-1
+S
+
+#12569
+Cellar~
+While proceeding northward, you pass by many racks to both sides.  A very
+powerful aroma eminates from these racks.  Above you is a bit of mold
+growing on the ceiling.  All around you the air moves slowly and in a
+circular pattern.  Ahead of you is an open area, too far for a light
+source to find its end.  
+~
+~
+301465604 1 6 0
+D0
+~
+~
+0 -1 12597 10 10 5
+D1
+door~
+door~
+0 -1 12573 10 10 5
+D2
+~
+~
+0 -1 12568 10 10 5
+D3
+door~
+door~
+0 -1 12572 10 10 5
+E
+mold~
+This mold looks like a common variety mold.  It clings to the ceiling and
+gives off a faint odor.  
+~
+818 9 1509949540 3 0
+-1
+S
+
+#12571
+Watchtower~
+Completely uncovered, and open to the rest of the world, this watchtower
+has a vast view of the realms.  Far off to the south can be seen a city,
+possibly Medienne.  To the south-west, can be seen Chiiron.  A large
+mounted bell is here, perhaps to announce visitors.  To ring the bell, a
+rope must be pulled.
+~
+[Fyli] Uhm, unless this is *really high*, I doubt Chiiron can possibly be seen from here.
+~
+301465601 0 6 0
+D5
+~
+~
+0 -1 12554 10 10 5
+E
+rope~
+This rope is used for sounding the bell.
+~
+E
+bell~
+This bell is made of some foreign metal.  There is a pull rope hanging
+below it.  
+~
+A
+pull 2 tug~
+rope~
+send_to_char( #pull, ch );
+wait( 1 );
+send_to_area( #bell, room );
+~
+E
+space~
+~
+E
+pull~
+You pull on the rope producing a resounding gong.
+~
+E
+bell~
+A large resounding gong sounds from the massive bell.
+~
+!
+0 0 0
+-1
+S
+
+#12572
+Racks Of Mead~
+These huge racks contain many kegs of varying sizes.  The racks stretch
+from the floor to about a foot or so from the ceiling.  You can smell the
+wonderful flavor of this fine brew, and you take a deep breath.  When you
+inhale deeply, you are disturbed by the faint scent of the mold and
+must.  
+~
+no mob
+~
+301465612 0 6 0
+D1
+door~
+door~
+0 -1 12569 10 10 5
+D3
+~
+~
+0 -1 12588 10 10 5
+E
+rack~
+This large oak rack contains many kegs of mead.  You can tell that it is
+made well, because it hardly bends under the weight of the kegs.  
+~
+-1
+S
+
+#12573
+Racks Of Mead~
+These huge racks contain many kegs of varying sizes.  The racks stretch
+from the floor to about a foot or so from the ceiling.  You can smell the
+wonderful flavor of this fine brew, and you take a deep breath.  When you
+inhale deeply, you are disturbed by the faint scent of mold and must. 
+One of these massive kegs has a tap in it, and looks as if it has been
+recently used.  
+~
+~
+301465604 1 6 0
+D1
+~
+~
+0 -1 12594 10 10 5
+D3
+door~
+door~
+0 -1 12569 10 10 5
+E
+1 west~
+door~
+E
+rack~
+This is a very sturdy oak rack.  It holds many kegs of mead and barely
+bends under the massive weight.  
+~
+480 17 1509949540 -2 0
+-1
+S
+
+#12574
+Cellar~
+The scent of must is stronger here, and you can catch a faint whiff of
+mold.  You are still walking on a soft dirt floor and the walls are still
+a cold stone.
+~
+no mob
+~
+301465612 1 6 0
+D1
+~
+~
+0 -1 12568 10 10 5
+D3
+~
+~
+0 -1 12589 10 10 5
+E
+hoe~
+A fairly long wooden shaft with a bent blade on the end.  It is meant for
+tilling earth. 
+~
+A
+get take~
+hoe~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #get, ch );
+  act_notchar( #gets, ch );
+  obj_to_char( oload( 475 ), ch );
+  end;
+  }
+send_to_char( #hoe, ch );
+act_notchar( #hoes, ch );
+~
+E
+hoes~
+$n searches the ground for the hoe which has been taken already.
+~
+E
+hoe~
+The hoe has already been taken.
+~
+E
+gets~
+$n takes the hoe.
+~
+E
+get~
+You take the hoe.
+~
+!
+0 0 0
+-1
+S
+
+#12575
+Cellar~
+As you proceed to the east of the stairs, you see a few sacks of grain
+off to your left.  You think you hear a slight squeaking noise, but
+you can't find the source of it.  The air is a bit musty and the smell of
+a brew is stronger here.  You feel warm air flowing in from the east.  
+~
+~
+301465604 1 6 0
+D1
+~
+~
+0 -1 12592 10 10 5
+D3
+~
+~
+0 -1 12568 10 10 5
+-1
+S
+
+#12578
+Mountain Path~
+This area has been completely cleaned from debris.  The road to the north
+goes to the front of the monastary.  The road east leads back around the
+path.  There is a small stone well here with a bucket attached to a rope.
+~
+[Nvir] says empty bucket has been filled
+[Arlin] Lowering the rope in from of White Oak Monastery: "into" is repeated...arlin
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 12558 10 10 5
+D1
+~
+~
+0 -1 12579 10 10 5
+D3
+~
+~
+0 -1 12615 10 10 5
+E
+rope~
+A simple length of run-of-the-mill hemp rope.
+~
+E
+well~
+The well is small and simple, as fits the needs of the efficient monks. 
+A collection of rounded stones protects the well from wandering
+creatures, and a long rope is attached to a shoddy-looking bucket.
+~
+E
+bucket~
+A shoddy-looking collection of wood and nails, this bucket serves only
+its purpose, that of carrying water up from the well.
+~
+A
+lower~
+bucket rope~
+obj = obj_in_room( 2505, room );
+if( obj_in_room( 2505, room ) ) {
+  act_tochar( #slowly, ch );
+  act_notchar( #rslowly, ch );
+  junk_obj( obj );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+already~
+But it's already been lowered...
+~
+E
+rslowly~
+$n slowly lowers the bucket into the well.
+~
+E
+slowly~
+You slowly lower the empty bucket into into the depths of the well,
+hearing a slight splash as it hits the water.
+~
+!
+0 0 0
+A
+raise lift~
+bucket rope~
+if( obj_in_room( 2505, room ) )
+  act_tochar( #but, ch );
+else {
+  act_tochar( #raise, ch );
+  act_notchar( #rraise, ch );
+obj = oload( 2505 );
+  obj_to_room( obj, room );
+  }
+~
+E
+but~
+But it's already been raised...
+~
+E
+rraise~
+$n raises the bucket, now filled, back to the top of the well.
+~
+E
+raise~
+You raise the bucket, brimming with water, back to the top of the well.
+~
+!
+0 0 0
+A
+fill~
+bucket~
+if( obj_in_room( 2505, room ) ) {
+  act_tochar( #space, ch );
+  act_notchar( #space, ch );
+  acode( room, 1 );
+  act_tochar( #space, ch );
+  act_notchar( #space, ch );
+  acode( room, 2 );
+  }
+else
+  act_tochar( #filled, ch );
+~
+E
+filled~
+You do not see that container.
+~
+E
+space~
+~
+!
+0 0 0
+A
+blah~
+bucket water well~
+if( !rflag( status0, room ) ) {
+  act_tochar( #bottom, ch );
+  end;
+  }
+if( rflag( status1, room ) )
+  act_tochar( #empty, ch );
+else {
+  act_tochar( #quench, ch );
+  set_rflag( status1, room );
+  }
+~
+E
+quench~
+You take a long draught from the water in the bucket.  The liquid is icy
+cold, and very refreshing.
+~
+E
+empty~
+But the bucket is empty...
+~
+E
+bottom~
+But the bucket is at the bottom of the well...
+~
+!
+0 0 0
+A
+wish~
+~
+act_tochar( #this, ch );
+~
+E
+this~
+You quietly wish for your heart's desire, looking solemnly into the well
+as if it will magically grant that wish.  To your surprise, you see the
+wall of the well is lined with a set of ladder rungs.  Evaluating the
+size of the well, you think you could slip down into it and see what is
+down there.
+~
+!
+0 0 0
+A
+climb sink descend slip enter~
+well water~
+act_tochar( #closed, ch );
+end;
+if( players_area( find_room( 37501 ) ) > 1 ) {
+  act_tochar( #full, ch );
+  end;
+  }
+act_tochar( #down, ch );
+act_notchar( #rdown, ch );
+transfer( ch, find_room( 37500 ) );
+~
+E
+closed~
+The well is closed.
+~
+E
+full~
+The well already has a player in it and you think it best not to disturb
+him.
+~
+E
+rdown~
+$n slips over the lip of the well and climbs down to the bottom.
+~
+E
+down~
+You slip over the lip of the well and climb down to the bottom.  
+~
+!
+0 0 0
+-1
+S
+
+#12579
+Mountain Path~
+Winding in and out of gullies as it slowly progresses up and down the
+mountain the road is quite flat and well made. Tall pine trees cover the
+slopes and the mountains all around look glorious with their bright white
+snow capped tops.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 12613 10 10 5
+D2
+~
+~
+0 -1 12580 10 10 5
+D3
+~
+~
+0 -1 12578 10 10 5
+-1
+S
+
+#12580
+Mountain Path~
+The road slightly curves here to avoid the massive boulder that has
+blocked the path for many ages.  The trees get a little sparse here and
+you think that, should anyone come along, there would be no place to
+hide.  
+~
+~
+301465608 5 6 0
+D0
+~
+~
+0 -1 12579 10 10 5
+D2
+~
+~
+0 -1 12581 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#12581
+Mountain Path~
+The road slightly curves here to avoid the massive boulder that has
+blocked the path for many ages.  The trees get a little sparse here and
+you think that, should anyone come along, there would be no place to
+hide.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 12580 10 10 5
+D3
+~
+~
+0 -1 12582 10 10 5
+-1
+S
+
+#12582
+Mountain Path~
+There is a mighty boulder here, fallen from the mountainside many ages
+ago.  Since then, it has had many writings etched into it, most notable
+are some runes that look somewhat recent.  
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 12581 10 10 5
+D2
+~
+~
+0 -1 12583 10 10 5
+E
+runes writings~
+These runes have a faint magical aura about them.  However, you cannot
+decipher them, so they mean nothing to you.  
+~
+-1
+S
+
+#12583
+Mountain Path~
+Movement is somewhat tiresome here, as you plod along further into the
+mountains.  The ground is rough, with boulders and trees on all sides.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 12582 10 10 5
+D2
+~
+~
+0 -1 12584 10 10 5
+D3
+~
+~
+0 -1 12612 10 10 5
+-1
+S
+
+#12584
+Mountain Path~
+This path quickly rises from the road below.  It is not very well
+maintained, and in a few places you have to walk around fallen trees and
+debris.
+~
+r/w
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 12583 10 10 5
+D1
+~
+~
+0 -1 28067 10 10 5
+-1
+S
+
+#12585
+Above The Cliff~
+Freezing and frigid, this ledge is the small home to a very large
+creature.  There are large footprints all through the snow and multiple
+carcasses of humanoids and animals.  
+~
+[Mange] I removed the wait time as it was trapping players.
+[Mange] removed code: wait( 2 );
+[Draynath] no messages of someone climbing up
+~
+301465600 5 6 0
+E
+cliff~
+You think that you can climb down this cliff.
+~
+A
+climb~
+down cliff~
+send_to_char( #climb, ch );
+transfer( ch, find_room( 26526 ) );
+act_notchar( #climbs, ch );
+~
+E
+climbs~
+$n climbs down the cliff.
+~
+E
+climb~
+You climb down the cliff.
+~
+!
+0 0 0
+581 9 1509949540 3 0
+-1
+S
+
+#12586
+Path to the Endless Domains~
+This is the entrance to some of the most hideous and insidious creatures
+known to exist.  You stand in a marble room veined in black marble.  In
+the western wall there is an incredibly large, ebony black portal.  Ever
+present is the great hero known through legend alone as Orclerth the
+Brave.  He stands ever watchful of the entrance to the Endless Domains of
+demons and erscothe.  If any should enter, he calls upon his holy powers
+to bash them back into the dreaded abyss from which they came.  
+~
+this place has no exits?
+description of a mob shouldn't go in a rdesc
+~
+301465605 1 9 0
+D3
+~
+~
+0 -1 12587 10 10 5
+583 9 1509949540 3 0
+-1
+S
+
+#12587
+The Endless Domains~
+The Endless domain goes on forever in every directio but one.  To the
+east is the entrance , or exit, from wherever you stand, to he endless
+domains.  Demons and erscothe, or greater demons, wander about aimlessly
+and agressively, harming chaoticly any creature or demon that shall cross
+their path.  
+~
+This axe is way out of proportion.  Maybe if Mordic-Helm had it?
+~
+301465605 1 9 0
+D1
+~
+~
+0 -1 12586 10 10 5
+585 9 1509949540 3 0
+3500 9 1509949540 3 0
+3501 9 1509949540 3 0
+165 9 1509949540 3 0
+174 9 1509949540 3 0
+276 9 1509949540 3 0
+593 9 1509949540 3 0
+-1
+S
+
+#12588
+Garden Section~
+A few plants grow here, with signs labeling which are which.  Some faint
+scents of herbs can be made out, but a more powerful odor of mold comes
+from the east.  A small patch of fungi is spread across a row here, and
+it looks like it is doing well.  
+~
+~
+301465604 2 9 0
+D1
+~
+~
+0 -1 12572 10 10 5
+D2
+~
+~
+0 -1 12589 10 10 5
+D3
+~
+~
+0 -1 12591 10 10 5
+E
+sign~
+These signs show that many different varieties of plantlife and herbs
+have been planted here.  Only the type that survive without light are
+thriving here.  
+~
+E
+fungi patch small~
+A small patch of fungi that is thriving in the dirt.  It has many short
+stalks and various odd-shaped brims.  
+~
+-1
+S
+
+#12589
+Garden Section~
+This is a well maintained garden used by the monks to produce herbs and 
+fungi.  The garden is set up into well aligned rows that travel north and
+a few signs denote the various types.  The sunlight is poor here and the 
+herbs aren't doing well, although the fungi are thriving.  The garden
+stretches away north and west.
+~
+~
+301465604 2 9 0
+D0
+~
+~
+0 -1 12588 10 10 5
+D1
+~
+~
+0 -1 12574 10 10 5
+D3
+~
+~
+0 -1 12590 10 10 5
+E
+sign~
+These signs depict the variety of the rows of plants.  Some are fungi,
+while others are herbs.  
+~
+-1
+S
+
+#12590
+Garden Section~
+The rows are not as well kept here as in the beginning of the garden. 
+You also notice that there aren't any signs here telling you which plant
+is which.  A few weeds grow inbetween other plants and the dirt hasn't
+been recently tilled.  Further west the weeds have grown much higher, and
+the area is a complete mess.  
+~
+~
+301465604 2 9 0
+D0
+~
+~
+0 -1 12591 10 10 5
+D1
+~
+~
+0 -1 12589 10 10 5
+D3
+~
+~
+0 -1 12595 10 10 5
+-1
+S
+
+#12591
+Garden Section~
+The rows are not as well kept here as in the beginning of the garden. 
+You also notice that there aren't any signs here telling you which plant
+is which.  A few weeds grow in between other plants and the dirt hasn't
+been recently tilled.  Further west, the weeds grow much higher, and the
+area doesn't seem to have been cared for recently.  
+~
+~
+301465604 2 9 0
+D1
+~
+~
+0 -1 12588 10 10 5
+D2
+~
+~
+0 -1 12590 10 10 5
+D3
+~
+~
+0 -1 12611 10 10 5
+-1
+S
+
+#12592
+Brewing Room~
+The temperature in this room is almost unbearable.  The brewing fires are
+almost always going, keeping the brewing process in action.  This helps
+the monks trade their fine mead to more people and more cities.  A large
+cauldron has been set atop a fire, keeping it rather fresh.  A large
+bucket has a hole in the bottom that empties into a tray that runs north,
+letting the mead travel onward to be put into kegs.  
+~
+~
+301465604 10 9 0
+D0
+~
+~
+0 -1 12594 10 10 5
+D1
+~
+~
+0 -1 12593 10 10 5
+D3
+~
+~
+0 -1 12575 10 10 5
+818 9 1509949540 3 0
+-1
+S
+
+#12593
+Wood Storage~
+This rather pleasant smelling room is where the monks keep the wood
+stored for their brewing fires.  A few stacks of different types of wood
+are here, neatly stacked.  The heat from the brewing room keeps this room
+a pleasant temperature whether it is summer or winter.  
+~
+~
+301465604 1 9 0
+D3
+~
+~
+0 -1 12592 10 10 5
+137 17 1509949465 -2 0
+136 17 1509949465 -2 0
+134 17 1509949490 -2 0
+-1
+S
+
+#12594
+Keg Filling Room~
+The tray empties here into a series of kegs.  There is a small lever that
+lets you temporarily halt the pouring of mead to switch barrels.  After
+the kegs are filled, they are sealed and taken off to the west to be
+stored for transport or use.  
+~
+~
+301465604 1 9 0
+D2
+~
+~
+0 -1 12592 10 10 5
+D3
+~
+~
+0 -1 12573 10 10 5
+A
+pull~
+lever~
+send_to_char( #pull, ch );
+act_notchar( #pulss, ch );
+~
+E
+pulss~
+$n pulls on the lever with no apparent effect.
+~
+E
+pull~
+You pull the lever, but nothing is running at the moment.
+~
+!
+0 0 0
+-1
+S
+
+#12595
+In The Weeds~
+Massive fungal weeds rise up here, blocking most ways around.  A few bugs
+scurry away from you as you walk through the weeds.  There is no
+discernable exit from these weeds, except by the way you made when coming
+in.  You can just barely make out the wall to the west.  Many nasty vines
+and creeping plants have made their way up the wall.  A slight shine can
+be made out when you shift your vision around.  
+~
+[Lansharra] discernible
+~
+301465604 2 9 0
+D0
+~
+~
+0 -1 12611 10 10 5
+D1
+~
+~
+0 -1 12590 10 10 5
+D3
+door~
+door~
+399 477 12596 10 10 5
+E
+shine wall~
+You can barely make out a door, covered with vines, on the west wall.
+~
+A
+clear move ~
+vines~
+if( is_open( room, west ) ) {
+  send_to_char( #moved, ch );
+  act_notchar( #moves, ch );
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  send_to_char( #clear, ch );
+  act_notchar( #clears, ch );
+  remove_rflag( reset1, room );
+  }
+~
+E
+moves~
+$n tries to move the vines that are already out of the way.
+~
+E
+moved~
+The vines are already cleared.
+~
+E
+clears~
+$n clears the vines, revealing the hidden door.
+~
+E
+clear~
+You clear the vines away, releasing the door from its clutches.
+~
+!
+0 0 0
+A
+unlock un unl unlo unloc~
+door west w we wes~
+if( rflag( reset1, room ) ) {
+send_to_char( #vine, ch );
+act_notchar( #vines, ch );
+end;
+}
+if( has_obj( 477, ch ) ) {
+send_to_char( #open, ch );
+act_notchar( #opens, ch );
+open( room, west );
+end;
+}
+send_to_char( #deny, ch );
+act_notchar( #denies, ch );
+~
+E
+denies~
+$n doesn't have the key to unlock the door.
+~
+E
+deny~
+You don't have the key to unlock the door.
+~
+E
+opens~
+$n unlocks and opens the door.
+~
+E
+open~
+You unlock and open the door.
+~
+E
+vines~
+$n tries to get to the door, but the vines are in the way.
+~
+E
+vine~
+The vines are in the way.
+~
+!
+0 0 0
+-1
+S
+
+#12596
+Sealed And Forgotten Room~
+This room has long been forgotten.  The walls are in a massive state of
+disrepair, and the door looks well battered.  There are a few fungal
+plants growing on the rocks and a decaying log.  A powerful stench
+lingers in the air here.  Strange vines cover the walls here, their
+thorns dark and brown from a lack of ample sunlight.
+~
+[Dovea] Ok, I found the KEY for here (in the step) but there is nothing
+*IN* here.  How about some extra descriptions so we know what we're
+trying to do here?
+[Orb] Does this room have a purpose?
+~
+301465604 2 9 0
+D1
+door~
+door~
+399 -1 12595 10 10 5
+A
+2 unlock~
+1 east 3 door~
+if( has_obj( 477, ch ) ) {
+  send_to_char( #open, ch );
+  act_notchar( #opens, ch );
+  open( room, east );
+  end;
+  }
+send_to_char( #not, ch );
+act_notchar( #nots, ch );
+~
+E
+nots~
+$n tries the door, but doesnt have the key.
+~
+E
+not~
+You do not have the key to unlock the door.
+~
+E
+opens~
+$n unlocks and opens the eastern door.
+~
+E
+open~
+You unlock and open the eastern door.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset0, room ) ) { 
+  send_to_room( #mob, room );
+  mload( 563, room );
+  remove_rflag( reset0, room );
+  }
+~
+E
+mob~
+@bSuddenly, some vines start to move toward you!
+~
+!
+0 -1 2
+-1
+S
+
+#12597
+Cellar~
+The stone stairs here seem well used, and they are very sturdy.  This is
+a well worn path, and you hear the sound of running water from the
+north.  There is a torch in a sconce to the north, and you can make out a
+few doors around it.  
+~
+~
+301465612 1 5 0
+D0
+~
+~
+0 -1 12598 10 10 5
+D2
+~
+~
+0 -1 12569 10 10 5
+D4
+~
+~
+0 -1 12554 10 10 5
+-1
+S
+
+#12598
+Cellar~
+A torch lights this room, making the doors readily visible.  The sound of
+water can be heard through the western door, and no sounds can be heard
+through the eastern.  The path proceeds northward, leading off into the
+darkness.
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 12604 10 10 5
+D1
+door~
+door~
+131 -1 12600 10 10 5
+D2
+~
+~
+0 -1 12597 10 10 5
+D3
+door~
+door~
+131 -1 12599 10 10 5
+818 9 1509949540 3 0
+-1
+S
+
+#12599
+Steaming Room~
+The temperature of this room is well above that of the others.  There a
+multiple fires in this area, warming it considerably.  Off to the north
+is a place where you can rest and let the steam soothe you.  To the west
+is a shallow pool.
+~
+~
+301465613 1 9 0
+D0
+~
+~
+0 -1 12601 10 10 5
+D1
+door~
+door~
+131 -1 12598 10 10 5
+D3
+~
+~
+0 -1 12602 10 10 5
+-1
+S
+
+#12600
+Storage~
+This room contains the stores of the monastary.  A few meditation mats
+are in one corner, and a old chair rest in the other.  A large chest
+sits in the middle of the far wall, covered in dust.  
+~
+[Stile] ...the stores of the _monastary_.
+~
+301465605 1 9 0
+D3
+door~
+door~
+131 -1 12598 10 10 5
+E
+chest~
+This large chest is covered in dust.  It has a rather crude lock and
+hinge system.  This chest is too heavy to move.  
+~
+482 49 1509949540 -2 0
+139 81 1593835540 -2 0
+447 81 1509949480 -2 0
+447 81 1509949460 -2 0
+2121 81 1509949480 -2 0
+-1
+S
+
+#12601
+Steaming Room~
+You can sit on the floor here and rest in the steam.  There is a table to
+the southwest that has a few towels on it that could be used to soften
+the already soft dirt floor.  A fire is burning to the side here, and has
+a small cauldron positioned above it, where the steam forms.  
+~
+Make water burn?
+~
+301465605 1 9 0
+D2
+~
+~
+0 -1 12599 10 10 5
+D3
+~
+~
+0 -1 12603 10 10 5
+E
+cauldron~
+This cauldron needs to be constantly filled to avoid the water boiling
+away.  The monks have recently filled the cauldron.  
+~
+-1
+S
+
+#12602
+Steaming Room~
+There is a shallow pool in the center of this area of the steaming room. 
+The temperature of the pool is luke warm and very comfortable to the
+touch.  There is a table off to one side where you can pick up a towel to
+dry off with.  
+~
+[Orb] Added a lizardman-wearable version of white dragonscale gauntlets,
+and buffed this mob up 
+[Liana] Hzzth's desc says, "capapbilities".
+~
+301465605 1 9 0
+D0
+~
+~
+0 -1 12603 10 10 5
+D1
+~
+~
+0 -1 12599 10 10 5
+E
+table~
+This table still holds a few towels.  It is made of a fine oak and seems
+to be water resistant.  
+~
+E
+pool~
+This is a comfortable pool where you can take the time to relax and
+soothe aching muscles.  
+~
+A
+get take~
+towel~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #get, ch );
+  act_notchar( #gets, ch );
+  obj_to_char( oload( 481 ), ch );
+  end;
+  }
+else {
+  send_to_char( #self, ch );
+  act_notchar( #selfi, ch );
+  }
+~
+E
+selfi~
+$n reaches for a towel, but decides that there are too few.
+~
+E
+self~
+You don't want to leave so few towels left.
+~
+E
+gets~
+$n gets a towel.
+~
+E
+get~
+You get a towel.
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 559, find_room( 12602 ) );
+if( is_fighting( ch ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  junk_mob( mob );
+  }
+continue;
+~
+E
+room~
+As $n flees, Hzzth dives into the water!
+~
+E
+char~
+As you flee, Hzzth dives into the pool of steaming water!
+~
+!
+3 -1 63
+A
+dive~
+~
+send_to_char( #dive, ch );
+~
+E
+dive~
+You look at the steaming water and decide not to burn yourself.
+~
+!
+0 0 0
+559 9 1509949540 3 0
+-1
+S
+
+#12603
+Steaming Room~
+A wonderfully made waterfall comes down from the western wall.  It must
+come from an underground spring, because you cannot see any tubes or
+human made waterways.  The water slowly runs downhill to the south to
+form a shallow pool.  Off to the east are a few places to rest and let
+the steam soothe you.  
+~
+~
+301465605 1 9 0
+D1
+~
+~
+0 -1 12601 10 10 5
+D2
+~
+~
+0 -1 12602 10 10 5
+-1
+S
+
+#12604
+Broken Down Corridor~
+This corridor has long been unused.  The walls are crumbling and the
+floor is uneven.  The air temperature gradually falls, as the air to the
+north seems much cooler than the air to the south.
+~
+~
+301465604 1 9 0
+D0
+~
+~
+0 -1 12605 10 10 5
+D2
+~
+~
+0 -1 12598 10 10 5
+872 17 1509949450 -2 0
+-1
+S
+
+#12605
+Broken Down Corridor~
+Cobwebs are abundant here with many molds and much rubble.  The air is
+very cool and damp.  The passage leads south and east, both directions
+are strewn with rubble, making movement more difficult.
+~
+[Kriptik] @cmonk@n , no color.
+~
+301465604 4 9 0
+D1
+~
+~
+0 -1 12606 10 10 5
+D2
+~
+~
+0 -1 12604 10 10 5
+-1
+S
+
+#12606
+Broken Down Corridor~
+You are pushing spiderwebs out of your way as you try to go on.  The
+floor is almost completely disheveled, and you walk much more slowly
+here.  The air is stagnant and cold, sending chills ocassionally through
+you.  
+~
+~
+301465604 1 9 0
+D1
+~
+~
+0 -1 12607 10 10 5
+D3
+~
+~
+0 -1 12605 10 10 5
+-1
+S
+
+#12607
+Edge Of The Pit~
+This area is filled with many spiderwebs and you have to push them out of
+your eyes.  No matter how many times you clear them, there is always
+more.  The air is almost freezing here and the dampness chills you.  The
+path ends in this room and you can tell that there is an enormous pit to
+the north.  
+~
+no
+~
+301465612 1 9 0
+D0
+~
+~
+0 -1 12608 10 10 5
+D3
+~
+~
+0 -1 12606 10 10 5
+A
+~
+~
+if( find_stat( ch, level ) < 14 )
+  act_tochar( #danger, ch );
+continue;
+~
+E
+danger~
+You sense a danger beyond your means to the north.
+~
+!
+1 -1 8
+-1
+S
+
+#12608
+Top Of The Pit~
+This is above the pit and you could very easily fall.  The walls are
+rough and jagged, making an ascent possible, but dangerous.  You would be
+glad to go south and get away from this massive pit.  
+~
+~
+301465604 1 9 0
+D2
+~
+~
+0 -1 12607 10 10 5
+D5
+~
+~
+0 -1 12609 10 10 5
+A
+~
+~
+wait( 1 );
+send_to_char( #fall, ch );
+wait( 2 );
+send_to_char( #falling, ch );
+transfer( ch, find_room( 12610 ) );
+wait( 1 );
+send_to_char( #falls, ch );
+inflict( ch, mob, 5d5+5, "the fall" );
+~
+E
+falling~
+You slip over the edge and plunge downward!
+~
+E
+falls~
+The fall hurts you considerably.
+~
+E
+fall~
+You are starting to lose your balance and fall, so if you don't want to
+fall headfirst into this gaping pit you had better return to the south,
+now!
+~
+!
+1 0 1
+-1
+S
+
+#12609
+The Pit~
+The pit is really deep and the walls are jagged.  You notice that frost
+has accumulated on the tops of jutting rocks.  You would be most pleased
+to leave this area soon, becuase the air is beginning to freeze you
+over.  
+~
+~
+301465604 1 9 0
+D4
+~
+~
+0 -1 12608 10 10 5
+D5
+~
+~
+0 -1 12610 10 10 5
+-1
+S
+
+#12610
+Bottom Of The Pit~
+You survey the surrounding pit and notice that many a person has met
+their fate here.  From what you can tell, they were mostly robed monks
+who wandered from the path.  The only obvious exit is above you, the way
+you came in.  Hopefully you won't needlessly wander into a pit again.  
+~
+[Terek] Please someone redo this place
+~
+301465604 1 9 0
+D4
+~
+~
+0 -1 12609 10 10 5
+537 9 1509949540 3 0
+590 9 1509949505 3 0
+-1
+S
+
+#12611
+In The Weeds~
+Massive fungal weeds rise up here, blocking most ways around.  A few bugs
+scurry away from you as you walk through the weeds.  There is no
+discernable exit from these weeds, except by the way you came in.  
+~
+[Lansharra] discernible
+~
+301465604 2 9 0
+D1
+~
+~
+0 -1 12591 10 10 5
+D2
+~
+~
+0 -1 12595 10 10 5
+-1
+S
+
+#12612
+Mountains~
+The ground here is rough, and slopes upward to the north.  To the west, a
+giant rock wall towers over you, too steep to climb.  South of here a
+road climbs its way into the mountains to the west.  In the distance,
+trees dot the steep mountain slopes all around your position.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 12583 10 10 5
+D3
+~
+~
+0 -1 51036 10 10 5
+-1
+S
+
+#12613
+Before a Great Monastary~
+You stand near an ancient stone building, covered with creepers and vines. 
+It is extremely large, and suggests a permanence which belies its slighly
+decayed condition, even more so than the immutable facades of the nearby
+Cairn Mountains.
+~
+[Borodin] in desc it is slightly not slighly
+~
+301465608 5 9 0
+D2
+~
+~
+0 -1 12579 10 10 5
+D3
+~
+~
+0 -1 12558 10 10 5
+-1
+S
+
+#12614
+Before a Great Monastary~
+A great building stands off to your north, its frame covered with vines
+and thick bushes.  It has clearly stood here for a long time, unaffected
+by war, famine and the rise and fall of nearby kindgoms.
+~
+~
+301465608 5 9 0
+D1
+~
+~
+0 -1 12558 10 10 5
+D2
+~
+~
+0 -1 12615 10 10 5
+-1
+S
+
+#12615
+Mountain Clearing~
+You stand in an open, surprisngly flat area in the Cairn Mountains.  To
+the north, a great building covered in ancient vines stands, while east
+of you is a small well.  In the distance, the great Cairn Mountains loom,
+obscuring much of the horizon.
+~
+~
+301465608 5 9 0
+D0
+~
+~
+0 -1 12614 10 10 5
+D1
+~
+~
+0 -1 12578 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#0
+

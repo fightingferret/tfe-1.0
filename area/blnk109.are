@@ -1,0 +1,893 @@
+#AREA
+The Dragon Hatchery~
+Sign~
+the dragon hatchery~
+
+30 0
+0
+#ROOMS
+
+#58500
+Entrance to the Canopy~
+You find yourself looking around a vast clearing, totally encased by the
+forest.  Dense foliage weaves itself into a mesh of life, obstructing all
+outside hinderances.  Not even the brightness of the sun can break
+through the tree line.  Rocks of mass size hinder your movement deeper
+into the clearing.  A wall of trees and shrubs lay to the west stopping
+your progress out of the canopy.  The clearing is vast and most of it is
+lush and green.  Smoke rises from the far east of the clearing and makes
+its way to the center of the canopy to the only hole in the tree line.
+~
+[Lansharra] galbrosh's dialogue: tree whose...beginning...hatchery: Every...east are...of their own...
+~
+301465609 3 9 0
+D3
+small bush~
+push plant shrub small~
+171 -1 1022 10 10 5
+E
+rock egg~
+The rocks are perfectly oval shaped.  They are all very large perhaps
+bigger than an ogre.  One smaller rock sits in the far east of the alcove.
+~
+E
+trees~
+The wall of trees is enormous.  It looks like you might be able to move
+a small shrub to the south.
+~
+E
+shrub~
+The shrub is small and looks as if it might move easily.
+~
+E
+fire campfire~
+The small fire lights this end of the clearing well.  Large amounts of 
+smoke pour from it, causing a light haze to cover this end of the canapy.
+~
+A
+climb~
+egg rock~
+if( can_fly( ch ) ) {
+  act_tochar( #flies, ch );
+  act_notchar( #rflies, ch );
+  transfer( ch, find_room( 58502 ) );
+  act_notchar( #arr, ch );
+  end;
+  }
+if( is_mounted( ch ) ) {
+  act_tochar( #not_mounted, ch );
+  end;
+  }
+if( find_skill( ch, climb ) < 1 ) {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  end;
+  }
+else {
+  act_tochar( #egg, ch );
+  act_notchar( #regg, ch );
+  transfer( ch, find_room( 58502 ) );
+  act_notchar( #renter, ch );
+  }
+~
+E
+egg~
+You jump up and climb over the egg to the east.
+~
+E
+regg~
+$n jumps up and climbs the egg to the east.
+~
+E
+fail~
+You slip off the smooth surface of the egg.
+~
+E
+rfail~
+$n jumps up and slips off the smooth surface of the egg.
+~
+E
+renter~
+$n jumps down from the egg on the west.
+~
+E
+flies~
+You nimbly fly over the egg obstructing your way.
+~
+E
+rflies~
+$n flies over the egg and out of sight.
+~
+E
+arr~
+$n comes flying in over the great egg to the west.
+~
+E
+not_mounted~
+You'll have to dismount before you can do that.
+~
+!
+0 0 0
+A
+move open~
+bush shrub plant~
+if( !is_open( room, west ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, west );
+  send_to_room( #shrub, find_room( 1022 ) );
+  }
+else
+  act_tochar( #isopen, ch );
+~
+E
+move~
+You move the small shrub to the west revealing a opening in the foliage.
+~
+E
+rmove~
+$n moves a small shrub to the west revealing an opening in the foliage.
+~
+E
+shrub~
+Someone moves the small thrub to the east revealing an opening.
+~
+E
+isopen~
+The shrub has been moved already.
+~
+!
+0 0 0
+1647 9 1509949540 3 0
+1356 17 1509949540 -2 0
+-1
+S
+
+#58501
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#58502
+Southern Edge of the Canopy - Small Trail~
+Eggs ranging in size from that of an average human to much larger than
+any ogre lie scattered on the side of the trail.  The aimless placement
+of the eggs creates a complex maze throughout the clearing.  Billowing
+smoke darkens the sky far above the trail to the east.  South of you
+massive eggs shelter the trail from view.  The trail seems to continue to
+the north.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 58503 10 10 5
+D1
+~
+~
+0 -1 58505 10 10 5
+D2
+~
+~
+0 -1 58504 10 10 5
+E
+egg~
+Massive eggs line the trail here, a small egg to the west looks like you
+may be able to climb it.
+~
+A
+climb~
+egg~
+if( can_fly( ch ) ) {
+  act_tochar( #flies, ch );
+  act_notchar( #rflies, ch );
+  transfer( ch, find_room( 58500 ) );
+  act_notchar( #arr, ch );
+  end;
+  }
+if( is_mounted( ch )  ) {
+  act_tochar( #not_mounted, ch );
+  end;
+  }
+act_tochar( #egg, ch );
+act_notchar( #regg, ch );
+transfer( ch, find_room( 58500 ) );
+act_notchar( #renter, ch );
+~
+E
+egg~
+You jump up and climb over the egg to the west.
+~
+E
+regg~
+$n jumps up and climbs over the egg to the west.
+~
+E
+renter~
+$n jumps down from the egg to the east.
+~
+E
+flies~
+You nimbly fly over the egg obstructing your way.
+~
+E
+rflies~
+$n flies up and over the large egg to the west.
+~
+E
+arr~
+$n comes flying over the rim of the great egg to the east.
+~
+E
+not_mounted~
+You'll have to dismount to do that.
+~
+!
+0 0 0
+A
+~
+~
+send_to_area( #screech, room );
+~
+E
+screech~
+The echo of a loud screech pierces through the clearing.
+~
+!
+2 50 0
+-1
+S
+
+#58503
+Path Through the Canopy~
+The path through the canopy continues here, large eggs block your view to
+the east and west.  Under your feet the grass is charred and limp.  Many
+of the eggs here are covered with burn marks leaving scars on the shells. 
+A large clearing lies far to the north and the trail continues to the
+south.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 58507 10 10 5
+D2
+~
+~
+0 -1 58502 10 10 5
+E
+grass~
+The grass here is very charred as if a large flame had briefly touched it. 
+The ground is hard and dry and looks as if the trail here is used often.
+~
+1645 9 1509949540 3 0
+-1
+S
+
+#58504
+Alcove of Eggs~
+The eggs in this area are very immense; a shelter has been created at
+this end of the canopy by the eggs and the broken pieces of shells
+scattered about.  Looking towards your feet you see that the trail has
+come to an end, fading off into bare ground.  A sweet odor found faintly
+in the rest of the region is much stronger here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 58502 10 10 5
+E
+steam~
+The steam coming from the egg twists and turns in the air making almost
+mystic patterns.
+~
+A
+open break shatter bust~
+egg~
+if( mob_in_room( 1645, room ) ) {
+  act_tochar( #ropen, ch );
+  end;
+  }
+if( obj_in_room( 2346, room ) )
+  if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_room( #open, room );
+  mload( 1645, room );
+  junk_obj( obj_in_room( 2346, room ) );
+  obj_to_room( oload( 2347 ), room );
+  end;
+  }
+act_tochar( #ropen, ch );
+~
+E
+open~
+@GThe egg splits open and a small green dragon emerges from the shell!@n
+~
+E
+ropen~
+@WThe egg has been opened already.@n
+~
+!
+0 0 0
+A
+sniff smell~
+~
+act_tochar( #smell, ch );
+~
+E
+smell~
+@RThe sweet smell and smoke lingering in this room, give off an incense
+like aroma.  It smells as if pine and cinnamon are burning in the room. 
+@n 
+~
+!
+0 0 0
+2346 17 1509949540 -2 0
+-1
+S
+
+#58505
+West of the Giant Eggs~
+A group of colossal eggs to the east throws a shadow here.  Your feet
+become shrouded with a thin layer of smoke that has settled just a few
+inches off the ground.  The smoke and the pleasant odor found in the
+clearing create the feeling of a fragrant incense being burned.  Heat
+rises from the ground making the room very warm.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 58506 10 10 5
+D3
+~
+~
+0 -1 58502 10 10 5
+E
+east egg enormous~
+Looking to the east you see an enormous egg.  It is much larger than
+anything else under the canopy.  It looks as though the egg has smoke
+coming from inside it.
+~
+1646 9 1509949540 3 0
+757 17 1509949540 -2 0
+-1
+S
+
+#58506
+In the Shadow of a Giant Egg~
+You stand amidst the shadows of the giant eggs.  They are by far the
+largest features in the clearing, reaching almost to the canopy.  On the
+side of one egg you see a large imperfection, a great amount of smoke
+pours from it.  Smoke clouds the air, blocking your vision and making it
+hard to breate.  The eggs block you from any further progress east.
+~
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 58505 10 10 5
+E
+egg giant~
+The egg is huge.  It takes up more space then anything else in the
+clearing.  On the side of the egg you see large amounts of smoke coming
+out of a flaw in the shell.
+~
+E
+crack imperfection flaw smoke~
+The side of the egg is cracked deeply; large amounts of smoke pour from
+it.  Looking in the crack you see small amounts of crystal lining the
+inside of the shell.
+~
+A
+open break shatter crack~
+egg~
+if( mob_in_room( 1649, room ) ) {
+  act_tochar( #ropen, ch );
+  remove_rflag( reset0, room );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_room( #split, room );
+  wait( 1 );
+  send_to_room( #open, room );
+  mload( 1649, room );
+  end;
+  }
+else
+  act_tochar( #ropen, ch );
+~
+E
+split~
+@RThe egg begins to split open.@n
+~
+E
+open~
+@CThe egg cracks allowing a crystalline dragon to emerge.@n
+~
+E
+ropen~
+@CThe egg is already open.@n
+~
+!
+0 0 0
+-1
+S
+
+#58507
+Center of the Canopy~
+The intertwining limbs and branches seem to halt above you, creating a
+hole large enough for any creature to enter or exit by flight.  The
+plumes of smoke from around the clearing funnel themselves to this area
+and escape via the hole in the canopy.  The trail splits here allowing
+access from any direction.  Darkness and smoke loom to the west, as the
+foliage thickens creating a tunnel.  The north and eastern sides of the
+clearing are lined with eggs.  Under your feet traces of ash cover the
+ground like a fine powder.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 58510 10 10 5
+D1
+~
+~
+0 -1 58511 10 10 5
+D2
+~
+~
+0 -1 58503 10 10 5
+D3
+~
+~
+0 -1 58508 10 10 5
+E
+ash ground~
+The ground is covered with a think layer of ash.  It is very white and
+gives the appearance of snow.
+~
+A
+~
+west~
+if( size( ch ) == 3 )
+act_tochar( #gnome, ch );
+if( size( ch ) == 4 )
+act_tochar( #human, ch );
+if( size( ch ) == 5 )
+act_tochar( #ogre, ch );
+act_notchar( #trudge, ch );
+continue;
+~
+E
+gnome~
+@WYou trudge into the waste deep ash.@n
+~
+E
+human~
+@WYou trudge into the knee deep ash.@n
+~
+E
+ogre~
+@WYou trudge into the ankle deep ash.@n
+~
+E
+trudge~
+@W$n trudges off west into the ash.@n
+~
+!
+3 0 8
+419 17 1509949540 -2 0
+-1
+S
+
+#58508
+Bend in the Trail~
+The ash is very deep as you stand in a natural tunnel.  To the east the
+canopy opens up, to the west smoke and darkness loom.  No foliage can be
+found on the ground in this end of the clearing; ash and soot have long
+ago killed them off.  Massive amounts of smoke pour from the west,
+causing it to be very hard to breathe.  The sweet odor found in the
+clearing is very strong here.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 58507 10 10 5
+D3
+door of thorns and branches~
+door thorns branches west w ~
+171 -1 58509 4 10 7
+E
+ash ground down~
+The ash is very deep here and it is still warm.  You would guess that it
+is almost a foot deep and it looks as if it continues getting deeper to
+the west.
+~
+A
+~
+~
+act_tochar( #trudge, ch );
+act_notchar( #rtrudge, ch );
+continue;
+~
+E
+trudge~
+@WYou head east out of the ash.@n
+~
+E
+rtrudge~
+@W$n heads east out of the ash.@n
+~
+!
+3 0 2
+A
+~
+~
+act_tochar( #deeper, ch );
+act_notchar( #rdeeper, ch );
+continue;
+~
+E
+deeper~
+@WYou head deeper into the ash.@n
+~
+E
+rdeeper~
+@W$n heads west deeper into the ash.@n
+~
+!
+3 0 8
+A
+search look~
+west door w smoke~
+if( is_open( room, west ) ) {
+act_tochar( #isopen, ch );
+end;
+}
+else {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+}
+~
+E
+isopen~
+The door of thorns and branches is open.
+     
+~
+E
+open~
+You clear the smoke to the west and find a door.
+~
+E
+ropen~
+$n clears away the smoke to the west and finds a door.
+~
+!
+0 0 0
+1646 9 1509949540 3 0
+-1
+S
+
+#58509
+The Hatchery~
+You are standing in a dark alcove at the far end of the clearing.  No
+light can be seen save the strange glow coming from a rock to the north. 
+Rows of small eggs lie here as if they were placed in a pattern.  The
+room is very warm and the odor found throughout the clearing is so strong
+it causes you to cough and struggle for air.  A giant door of thorns and
+branches stands to the east.
+~
+~
+301465601 3 8 0
+D1
+door of thorns and branches~
+door thorn branches~
+171 -1 58508 4 10 7
+E
+eggs pattern~
+The eggs here are much smaller then else where in the clearing.  They
+have been laid in a pattern, a map of the clearing showing where each egg
+will be placed once it has matured.
+~
+E
+rock glow north~
+The glow seems to be coming from behind the large rock to the north. 
+Shadows seem to dance around the hatchery as if someone or something is
+behind the rock.
+~
+A
+~
+~
+act_tochar( #leave, ch );
+act_notchar( #rleave, ch );
+continue;
+~
+E
+leave~
+@WYou make your way east through the ash.@n
+~
+E
+rleave~
+@W$n makes $s way east through the ash.@n
+~
+!
+3 0 2
+A
+~
+~
+if( rflag( reset1, room ) ) {
+remove_rflag( reset1, room );
+send_to_room( #enter, room );
+wait( 2 );
+send_to_room( #movement, room );
+}
+~
+E
+enter~
+@WSomeone yells: Stay away from me eggs.@n
+~
+E
+movement~
+@YYou see something moving behind the rock.@n
+~
+!
+1 0 2
+A
+push open move touch break~
+egg~
+if( !mob_in_room( 1652, room ) )
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_room( #door, room );
+  close( room, east );
+  lock( room, east );
+  act_tochar( #reach, ch );
+  act_notchar( #rreach, ch );
+  wait( 1 );
+  act_tochar( #block, ch );
+  act_notchar( #rblock, ch );
+  wait( 2 );
+  send_to_room( #scream, room );
+  wait( 1 );
+  send_to_room( #warned, room );
+  wait( 1 );
+  send_to_room( #keeper, room );
+  unlock( room, east );
+  mload( 1652, room );
+  open( room, east );
+  send_to_room( #open, room );
+  }
+else 
+  act_tochar( #gone, ch );
+send_to_room( #door, room );
+~
+E
+scream~
+@RA high pitched scream comes from behind the eggs and echos throughout the alcove.@n
+~
+E
+warned~
+@WSomeone yells: I told you not to touch me eggs.  You must pay, none
+must hurt me eggs.  The mother's eggs must not be harmed.  She trust'd
+thems to me.@n 
+~
+E
+keeper~
+@BA small winged man jumps out from behind the rock, and leaps to attack.@n
+~
+E
+gone~
+@WNothing seems to happen.@n
+~
+E
+reach~
+You reach toward the nearest egg.
+~
+E
+rreach~
+$n reaches toward the nearest egg.
+~
+E
+block~
+@YA surge of energy knocks your hand away from the egg.@n
+~
+E
+rblock~
+@Y$n's hand is knocked away from the egg.@n
+~
+E
+door~
+The door to the east swings shut.
+~
+E
+open~
+The door to the east swings open.
+~
+!
+0 0 0
+A
+sniff smell~
+~
+act_tochar( #smell, ch );
+~
+E
+smell~
+@RThe odor here is pungent.  The air is thick with the smell of heat and
+a sweet cinnamon-like fragrence. The eggs are the source of the scent.
+A broken egg on the far side of the lair seems to add more then its
+share to the smell.  @n 
+~
+!
+0 0 0
+A
+take get~
+dragon shaped crystal~
+if( obj_in_room( 2342, room ) ) {     
+    junk_obj( obj_in_room( 2342, room ) );
+    act_tochar( #get, ch );
+    act_notchar( #rget, ch );
+    send_to_room( #roar, room );
+    wait( 2 );
+    send_to_room( #arrive, room );
+    wait( 1 );
+    send_to_room( #here, room );
+    mload( 1673, find_room( 58507 ) );
+    remove_rflag( reset2, room );
+    }
+  else
+    continue;
+~
+E
+roar~
+@WA distant roar rumbles through the canopy.@n
+~
+E
+arrive~
+@WA huge gust of wind blows in from the east, not even the deepest
+foliage can stop the wicked blow.@n 
+~
+E
+here~
+@RA deafening roar bellows from the east.@n
+~
+E
+get~
+The crystal crumbles to dust.
+~
+E
+rget~
+$n gets a dragon shaped crystal.
+The crystal turns to dust.
+~
+!
+0 0 0
+-1
+S
+
+#58510
+Northern Edge of the Canopy~
+The northern end of the canopy is bitterly cold.  Fragments of ice line
+the path causing it to be quite slippery.  The frozen ground is covered
+with icy smooth eggs, scattered aimlessly through the area.  In front of
+you looms a large opaque egg, a ghostly blue tint is all that keeps you
+from seeing its content.  To the south you can see the center of the
+canopy.
+~
+~
+301465608 3 9 0
+D2
+~
+~
+0 -1 58507 10 10 5
+E
+ice fragments~
+Small, sharp pieces of ice line the ground here.  They seem to be the same
+color as the eggs in this area.
+~
+E
+egg blue~
+The eggs are almost transparent in color with a slight blue tint to them. 
+~
+A
+touch get break move push pull take bust open~
+egg~
+act_tochar( #reach, ch );
+act_notchar( #rreach, ch );
+i = 10d4;
+inflict( ch, mob, i, "the sting of a frozen egg" );
+dam_message( ch, i, "the frozen eggs shell" );
+~
+E
+reach~
+@BYou reach out and touch the egg.@n
+~
+E
+rreach~
+@B$n reaches out and touches the egg.@n
+~
+E
+rhurt~
+@BThe frozen egg blisters $n's hand@n
+~
+E
+touch~
+@BThe eggs frozen shell stings you.@n
+~
+!
+0 0 0
+1643 9 1509949540 3 0
+-1
+S
+
+#58511
+Eastern Edge of the Canopy~
+The area here is covered in recently burned trees, large scars covering
+their bark.  The massive eggs found commonly under the canopy are few and
+far between here.  Sand-covered ground radiates heat under your feet,
+creating steam whereever you step.  Large bird-like tracks cover the sand
+here.
+~
+~
+301465608 3 9 0
+D3
+~
+~
+0 -1 58507 10 10 5
+E
+foot step sand~
+The sand here is very hot, to the point of almost burning your feet. 
+Large amounts of steam appear wherever you step.
+~
+E
+tracks bird prints~
+The bird that left these tracks must be very large.  The prints in the
+sand are at least three rods in length, and as wide as they are long.
+~
+1644 9 1509949540 3 0
+-1
+S
+
+#58512
+Entrance to the Canopy~
+This room used to test acodes/mpcodes to the west
+~
+~
+301465609 3 9 0
+-1
+S
+
+#58513
+Test Room~
+This room to test mpcodes to the east
+~
+~
+301465609 3 9 0
+-1
+S
+
+#58514
+Test Room~
+Under Construction.
+~
+~
+301465609 3 9 0
+-1
+S
+
+#0
+

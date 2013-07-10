@@ -1,0 +1,3896 @@
+#AREA
+Zarander's Tower~
+Karn Merior~
+tower of zarander~
+
+17 0
+0
+#ROOMS
+
+#27500
+Outside Tower~
+You find yourself at the top of a long, winding path through the
+mountains.  A tall tower made of giant grey stones stands to your east. 
+Approximately halfway up, the tower narrows and a balcony appears to
+circle the tower.  A large, solid-looking oak door has been built into
+the eastern side of the tower.  There is no coat of arms or any other
+indication of who might reside within the structure.
+~
+~
+335020040 1 6 0
+D0
+~
+~
+0 -1 27567 10 10 5
+D1
+oak door~
+'oak door' door~
+391 -1 27501 10 10 5
+D2
+~
+~
+0 -1 33019 10 10 5
+E
+1 east~
+The oak door is quite weather beaten, and a bit scorched.~
+E
+oak door~
+A massive wooden door fills much of the first floor of the tower.  It is
+quite plain, but has a small brass knocker about four feet off the ground.
+~
+E
+knocker~
+A small brass knocker is centered in the large wooden door.
+~
+A
+knock~
+three times~
+if( !is_open( room, east ) ) {
+send_to_char( #to_char, ch );
+wait(2);
+send_to_char( #open, ch );
+open( room, east );
+}
+else
+act_tochar( #nope, ch );
+~
+E
+to_char~
+You knock quietly three times.
+~
+E
+open~
+The door mysteriously swings open.
+~
+E
+nope~
+The door is already open.
+~
+!
+0 0 0
+A
+open~
+oak wooden door east~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The door is locked, and you do not have the key.
+~
+!
+0 0 0
+A
+knock~
+oak wooden door east knocker~
+act_tochar( #noise, ch );
+wait( 2 );
+act_tochar( #nope, ch );
+~
+E
+noise~
+You knock on the door a single time, and hear faint noises inside the
+tower grow closer.
+~
+E
+nope~
+The noises recede, then vanish.
+~
+!
+0 0 0
+A
+knock~
+two twice~
+act_tochar( #noise, ch );
+wait( 2 );
+act_tochar( #nope, ch );
+~
+E
+noise~
+Noises inside the tower get quite loud, then hesitate as if waiting for
+something.
+~
+E
+nope~
+The noises dwindle, and then cease.
+~
+!
+0 0 0
+-1
+S
+
+#27501
+Foyer~
+Grey slate floor tiles cover the floor and extend down the length of
+this corridor.  To the west stands a solid oak door, and there are two
+doors leading off to the north and to the south.  Just inside the door is
+a rack for outer clothing.  Below this is some sort of strange brush-like
+device for wiping the mud off your boots.
+~
+[Selvast] The zap devastates you! Should be electrical damage...
+~
+335020036 0 6 0
+D0
+wooden door~
+'wooden door'~
+131 -1 27502 10 10 5
+D1
+~
+~
+0 -1 27504 10 10 5
+D2
+wooden door~
+'wooden door'~
+131 -1 27503 10 10 5
+D3
+oak door~
+'oak door' door~
+391 -1 27500 10 10 5
+E
+pockets~
+There feels like there might be a key in the pocket.  
+~
+E
+brush-like device~
+This strange device has a number of upside down brushes that seem to be
+on rollers.  It looks like you could wipe your shoes or boots on it.  
+~
+E
+white coat~
+This white coat has a blood-red stain on the left-hand side of it.  In
+fact, closer examination shows that it is definitely blood.  There are
+several large pockets sewn into the coat.
+~
+E
+rack~
+A number of different sized cloaks and jackets hang on the rack.  A white
+coat with a big red stain catches your eye.  
+~
+A
+wipe~
+feet shoes boots~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+$n wipes $s feet on the brush-like device.
+~
+E
+to_char~
+You wipe the trail mud off of your shoes.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  i = dice( 2, 20 );
+  dam_message( ch, i, "The zap" );
+  inflict( ch, mob, i, "force field" );
+  }
+~
+E
+to_room~
+An invisible force field zaps $n has $e goes through the entrance.
+ 
+~
+E
+to_char~
+An invisible force field zaps you with a bolt of energy as you pass
+through the entrance.
+ 
+~
+!
+1 1 8
+A
+get take~
+key~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  obj_to_char( oload( 165 ),ch );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  }
+else
+  send_to_char( #to_char_nothing, ch );
+~
+E
+to_room~
+$n reaches into the pocket of the coat and extracts a key.
+~
+E
+to_char_nothing~
+You reach into the pocket of the coat but don't find anything there at
+the moment.  
+~
+E
+to_char~
+You reach into the pocket of the coat and withdraw a key.
+~
+!
+0 0 0
+A
+open pick unlock~
+oak door 1 west~
+unlock( room, west );
+continue;
+~
+!
+8 0 8
+-1
+S
+
+#27502
+Bedroom~
+A large bed takes up most of the floor space of this tiny bedroom,
+although a small wardrobe and chest have been stuffed against the eastern
+wall.  On a small table are a large bowl and jug.  The room is very
+messy, and sheets and bedding are spread all around the room, most of
+which are cut and ripped.  Hanging in the air is the smell of death and
+decay.
+~
+[Fenlyn] why is this chest not have a key set?
+~
+335020044 0 6 0
+D2
+wooden door~
+'wooden door'~
+131 -1 27501 10 10 5
+E
+wardrobe~
+The pegs in this wardrobe are empty.  The floor of this closet is also
+bare, though it is covered with dust.
+~
+E
+beds~
+The bed, although wide, is abnormally short, and is devoid of sheets or
+blankets.  Those items have been shredded and scattered about the room.
+~
+E
+table~
+A small mahagony table has been crammed into the northeast corner of the
+room.  On it sit a large, flowered porcelain bowl and a red ceramic jug.
+~
+E
+bowl~
+A large white porcelain bowl, the size of those used to wash your hands
+and face with, sits on the table.  Small blue flowers with dark green
+leaves have been painted around the rim of the bowl.
+~
+E
+jug~
+A large jug made of red clay rests on the table.  It has a small chip
+near the base of the handle, but otherwise is in excellent condition.
+~
+250 9 1509949520 3 0
+167 49 1509949540 -2 0
+910 81 1509949460 -2 0
+-1
+S
+
+#27503
+Bedroom~
+This bedroom has one bed, a chest of drawers and a wardrobe.  The bedding
+and clothing have been spread around the room quite a bit and have many
+cuts and rips.  In order for the room to be such a mess, someone must
+have gone to quite a lot of effort.  The smell of something dead hangs
+about the room.
+~
+~
+335020044 0 6 0
+D0
+door~
+door~
+131 -1 27501 10 10 5
+E
+closet~
+A mahagony wardrobe stands open, displaying a pile of jumbled clothing on
+its floor.
+~
+E
+chest drawers~
+A short chest of drawers stands in the corner of the room.  All three of
+the oak drawers have been pulled from the chest, and lie on the floor of
+the room.  All of the oak drawers are empty.
+~
+A
+search examine~
+wardrobe~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  obj_to_char( oload( 12 ),ch );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  }
+else
+  send_to_char( #to_char_nothing, ch );
+~
+E
+to_room~
+You see $n search through the wardrobe, frown, and then stand up.
+~
+E
+to_char~
+You rummage through the clothes in the wardrobe and find a small coin.
+~
+E
+to_char_nothing~
+You rummage through the wardrobe and find nothing but dirty clothes.
+~
+!
+0 0 0
+A
+look search examine~
+bed chest~
+act_tochar( #nothing, ch );
+~
+E
+nothing~
+You search carefully, but can find nothing of interest.
+~
+!
+0 0 0
+250 9 1509949450 3 0
+1384 17 1509949540 -2 0
+-1
+S
+
+#27504
+Corridor~
+The corridor continues west to the main door and east to a flight of
+stairs from here.  Though there are brackets for lamps on the walls, it
+does not look like anyone has bothered with them in a long time, and the
+lamps themselves are no longer here.  The corridor itself is of simple
+plain, grey stone and lacks any form of adornment.  There is a doorway to
+the south.  
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27505 10 10 5
+D2
+~
+~
+0 -1 27510 10 10 5
+D3
+~
+~
+0 -1 27501 10 10 5
+E
+bracket lamp~
+Golden brackets line the corridor, spaced evenly apart.  If a lamp were
+to be hung on them, they would light the hallway with brilliant light.
+~
+A
+hang~
+lamp lantern torch~
+send_to_char( #nofit, ch );
+act_notchar( #notfit, ch );
+~
+E
+nofit~
+You try to hang your light from the bracket, but find it just won't fit. 
+They just don't make things like they used to.
+~
+E
+notfit~
+You see $n try to hand $s light from the bracket, and then stop,
+muttering quietly.
+~
+!
+0 0 0
+303 9 1509949480 3 0
+-1
+S
+
+#27505
+Corridor~
+Plain grey stone walls line the east-west corridor.  Two doors lead off
+to the north and south.  There are some lamp brackets on the walls, but
+no lamps.  Further along to the east, you can see stairs leading up and
+down, and further to the west, the corridor ends in a large oak door.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27507 10 10 5
+D1
+~
+~
+0 -1 27506 10 10 5
+D2
+~
+~
+0 -1 27511 10 10 5
+D3
+~
+~
+0 -1 27504 10 10 5
+E
+brackets lamps~
+Golden brackets line the corridor, spaced evenly apart.  If a lamp were
+to be hung on them, they would light the hallway with brilliant light.
+~
+-1
+S
+
+#27506
+Stairwell~
+Stone stairs lead up and down from this point.  A simple wooden railing
+provides support for those who are not too nimble when navigating steep
+stairs.  There is a plain wooden door to the south of here.
+~
+[Szen] if the butlers arms come off......how can he still have claws to attack with?
+~
+335020036 0 6 0
+D2
+wooden door~
+"wooden door"~
+131 -1 27512 10 10 5
+D3
+~
+~
+0 -1 27505 10 10 5
+D4
+~
+~
+0 -1 27525 10 10 5
+D5
+~
+~
+0 -1 27513 10 10 5
+E
+wooden railing~
+A narrow pine railing has been nailed to the wall about three feet above
+the stairs.  It looks just sturdy enough to hold a human's weight if they
+needed support when climbing the stairs.
+~
+E
+1 s 3 wooden door~
+A plain oak door separates the corridor from the room to the south.
+~
+303 9 1509949480 3 0
+-1
+S
+
+#27507
+Kitchen~
+This kitchen is impeccably neat and tidy; every utensil is in its place,
+and all perfectly lined up and ready for their owner to simply walk in
+and start cooking.  A huge fireplace covers the north wall, and benches
+and cupboards cover every available spare wall.  Oak doors, now torn off
+their hinges, lead to the east and west.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27509 10 10 5
+D2
+~
+~
+0 -1 27505 10 10 5
+D3
+~
+~
+0 -1 27508 10 10 5
+E
+fireplace~
+A large brick fireplace dominates the northern wall of this room.  A
+large rotisserie spit hangs over the fireplace, but is empty and clean. 
+Several wooden benches surround the fireplace, making a neat semi-circle.
+~
+E
+cupboards benches~
+Cupboards, made from the same type of oak tree as the benches, line all
+space on the walls of this room.  Their doors are closed, and there is no
+sign of vandalism.  The benches are neatly placed under the cupboards and
+placed around the fireplace in a semi-circle.
+~
+A
+open search~
+cupboards~
+send_to_char( #boring, ch );
+act_notchar( #nothing, ch );
+~
+E
+boring~
+You carefully open each cupboard, and find neatly stacked plates, pots,
+pans, and utensils.
+~
+E
+nothing~
+You see $n open all of the cupboards, and study the plates, pots, pans,
+and utensils that are neatly stacked inside.
+~
+!
+0 0 0
+A
+get take~
+plates pots pans utensils~
+send_to_char( #nope, ch );
+act_notchar( #empty, ch );
+~
+E
+nope~
+You try to take something from the cupboard, but it just won't budge. 
+You can see no earthly reason for this, but just can't remove anything
+from the cupboard.
+~
+E
+empty~
+You see $n try to remove various items from the cupboard, but $e appears
+to be unable to take anything.
+~
+!
+0 0 0
+288 9 1509949540 3 0
+357 17 1509949540 -2 0
+-1
+S
+
+#27508
+Larder~
+This small room is lined with shelves from floor to roof in a U shape
+that opens out into the kitchen.  The shelves were obviously once filled
+with food-stuffs, but something has gnawed away at the containers and
+eaten virtually all of the food that once was here.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27507 10 10 5
+E
+body~
+This poor soul's head was simply twisted off the top of her neck. 
+Looking more closely at the body, you see that it is of a buxom, human
+woman dressed in an apron.  Clutched tightly in one hand is a meat
+cleaver.  
+~
+E
+shelf shelves containers~
+Long white shelves line all three walls from floor to ceiling.  Several
+wooden containers similar to those used to store sugar, flour, and other
+cooking staples lie open, and empty.  Several maple bowls lie on their
+sides, containing only a few mouse droppings.
+~
+1385 17 1509949540 -2 0
+-1
+S
+
+#27509
+Storeroom~
+This room combines a scullery with a general storeoom.  Against the north
+wall is a large oak wash tub, with a pump close by.  A small pile of
+powdered white flakes lie on the floor close to the tub.  The south wall
+of the room is lined with white-washed cupboards, which do not appear to
+be entirely empty.
+~
+~
+335020036 0 6 0
+D3
+~
+~
+0 -1 27507 10 10 5
+E
+tub~
+The tub is set at about waist high in level and has a pipe leading out of
+the bottom and through the north wall.  Beside it is a hand pump for
+pumping water into the tub.
+~
+E
+cupboards~
+The cupboards have been ransacked of anything useful.  There are simply
+broken plates and bent pots and pans on the shelves.  
+~
+E
+pump~
+The pump is an old cast iron one, but it is broken.  If you want water,
+you will have to look elsewhere.  
+~
+E
+white flakes~
+Upon closer examination, the white flakes appear to be made of some kind
+of lye soap.
+~
+A
+push pull turn~
+pump~
+send_to_char( #broke, ch );
+act_notchar( #broken, ch );
+~
+E
+broke~
+You try to make the pump work, but it is truly broken.
+~
+E
+broken~
+You see $n fiddle with the pump, throw their hands in the air, and move
+away from it.
+~
+!
+0 0 0
+-1
+S
+
+#27510
+Bedroom~
+This was once a bedroom, but now all the furniture lies broken and
+scattered around the room.  Even the door to this room lies on the floor,
+broken off its hinges.  A number of bones lie scattered around the floor,
+half gnawed on.  In one corner of the room, a nest of sorts has been made
+out of old blankets and bedding.  
+~
+[Szen] Bedroom without a door?  What kind of freak used to sleep here? *baffle*
+[Lansharra] a silver is a valuable coin piece to find in this area?
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27504 10 10 5
+E
+furniture~
+Wooden pieces of oak of what appear to be chairs and a door lie scattered
+about on the floor.  Large fragments of maple once formed a chest of some
+type, but not longer stand together.
+~
+E
+bones~
+Several bones of approximately the size of a terrier, or other small dog,
+lie on the floor.  They show definite signs of being gnawed on by an
+animal with small, sharp teeth.
+~
+E
+nest~
+Several articles of clothing and at portions of at least two blankets lie
+in one corner of the room.  A depression has been formed in the middle of
+the pile, much like that of a nest dug by a dog before settling down to
+sleep.
+~
+A
+search~
+nest~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( random( 1, 10 ) == 1 ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    obj_to_char( oload( 14 ), ch );
+    end;
+    }
+  }
+send_to_char( #false_char, ch );
+act_notchar( #false_room, ch );
+~
+E
+true_char~
+You search through the clothes and blankets and find a valuable coin.
+~
+E
+true_room~
+You see $n search through the nest of clothing, and stand up smiling.
+~
+E
+false_char~
+You search through the pile of clothing, and come up empty-handed.
+~
+E
+false_room~
+You see $n root through the pile of clothing, and come up empty-handed.
+~
+!
+0 0 0
+343 9 1509949470 3 0
+1028 8 1509949540 3 0
+-1
+S
+
+#27511
+Small Bedroom~
+This small room was once used as a bedroom.  There is a single, narrow
+bed in here, but it is now broken, and the bedding is soiled and spread
+around the room.  From the looks of some of the remains of clothing in
+the room, you would say it had once belonged to the serving maids.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27505 10 10 5
+E
+bed bedding~
+The frame of a narrow bed has been shattered, and lies flat on the floor. 
+A thin straw mattress lies on top of the splintered frame.  Torn and
+dirty sheets and a blanket lie scattered about the room.
+~
+E
+clothes clothing~
+A large pile of womans clothing lies strewn about the room.  The quality
+of the material is quite poor, and shows signs of being patched and
+mended.
+~
+1028 9 1509949540 3 0
+-1
+S
+
+#27512
+Small Bedroom~
+This simple room has an unassuming bed, chest and table.  Though the room
+must belong to someone, there is nothing in the way of personal
+possessions.  The room is quite neat and tidy, though rather dusty, and
+there is the unpleasant smell of something dead in the room.  
+~
+~
+335020036 0 6 0
+D0
+door~
+door~
+131 -1 27506 10 10 5
+E
+bed~
+The bed has been neatly made, and even has one corner turned down as
+though its owner is getting ready for bed.  
+~
+E
+chest table~
+A plain oak chest lies against the eastern wall of this room.  Facing it
+are a small matching table and chair.  The table is bare, and the chair
+neatly pushed in.
+~
+304 9 1509949470 3 0
+1756 49 1509949540 -2 0
+14 81 1509949540 -2 0
+14 81 1509949490 -2 0
+14 81 1509949490 -2 0
+16 81 1509949445 -2 0
+-1
+S
+
+#27513
+Basement, Stairwell~
+A flight of stairs leads up out of the basement here, a simple wooden
+rail protecting one side.  The musty smells of stale horse dung and moldy
+hay fill your nostrils (or other sensory equipment), but there is an
+underlying smell of death and something vaguely chemical.  There is a
+horse stall lining the southern wall here.  Off to the west, you can see
+one door on the far side of this room, as well as one on the northern
+most wall.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27515 10 10 5
+D2
+~
+~
+0 -1 27514 10 10 5
+D3
+~
+~
+0 -1 27517 10 10 5
+D4
+~
+~
+0 -1 27506 10 10 5
+E
+horse stalls~
+You can see old hay and dried dung on the floor of the stall to your
+south.  A simple wooden gate once separated this staff from the rest of
+the basement, but now hangs off its hinges.  The doors block a view of
+the rest of the stall.
+~
+-1
+S
+
+#27514
+Basement, Horse Stall~
+This part of the basement has been made into a horse stall.  There is a
+low wall which separates this stall from the one next door to the west. 
+In the back of the stall are two waist-high troughs.  It doesn't look
+like the stall has been cleaned out for many years, as the hay and dung
+on the floor has dried and hardened on the floor.  A simple wooden gate
+once enclosed the stall but this now lies broken to one side.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27513 10 10 5
+E
+hay dung~
+About a foot of hay mixed with dung lines the bottom of the stall.  The
+smell is quite strong, surprising since the matter is so dessicated.
+~
+E
+trough~
+Two troughs line the southern wall of the stall.  One contains just a bit
+of very dry oats, and the other is quite empty.  An empty bucket rests in
+the empty trough, must like those used to carry water.
+~
+E
+bucket~
+A medium-size wooden bucket rests in a trough.  Although it is empty now,
+a dried ring around the inside indicates that it has been used to carry
+liquids.
+~
+340 137 1509949470 3 0
+-1
+S
+
+#27515
+Basement~
+A large door takes up most of the north wall, which must lead outside,
+since there is quite a draft coming in from underneath it.  There is some
+riding tack hanging from hooks along the east wall.  There are some
+scratches on the base of the door.
+~
+~
+335020036 0 6 0
+D0
+large door~
+'large door' door~
+391 -1 27563 10 10 5
+D2
+~
+~
+0 -1 27513 10 10 5
+D3
+~
+~
+0 -1 27516 10 10 5
+E
+scratches base of door~
+The wood at the base of the door has been scratched quite badly on the
+side that normally swings open, as though a dog (or something) has been
+trying to get out.  
+~
+E
+riding tack~
+Several halters and harnesses that would fit a horse hang from rusty
+metal hooks.  A finely crafted saddle rests on a saddle horse.
+~
+E
+saddle~
+A finely made leather saddle rests on a rickety saddlehorse.  Although it
+shows signs of heavy use, you can still see the fine craftsmanship that
+created it.
+~
+A
+open unlock pick~
+~
+if( !is_open( room, north ) ) { 
+  open( room, north );
+  send_to_char( #opening, ch );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+already~
+It's open already!
+~
+E
+opening~
+Ok.
+~
+!
+8 0 0
+-1
+S
+
+#27516
+Basement, Feed Store~
+This was once an area to store bags of horse feed, barley, oats and some
+hay.  But something has been gnawing away at the bags, as there is a tidy
+little hole in the bottom of each (now) empty bag.  To your east you can
+see an area of the basement used for storing tack.  An open area to the
+south leads to what appears to be an empty horse stall.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27515 10 10 5
+D2
+~
+~
+0 -1 27517 10 10 5
+E
+bags~
+Old canvas bags neatly labeled with barley and oats lie on the floor. 
+Several other bags lie on the floor, but something has chewed holes in
+their labels.
+~
+A
+search~
+bags~
+send_to_char( #empty, ch );
+act_notchar( #nothing, ch );
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( !mob_in_room( 6, room ) ) {
+    act_tochar( #rats, ch );
+    act_notchar( #nrats, ch );
+    mload( 6, room );
+    if( random( 1, 5 ) > 3 )
+      mload( 6, room );
+    if( random( 1, 4 ) > 2 )
+      mload( 6, room );
+    }
+  }
+~
+E
+empty~
+You search through the bags, but find only rotten grain.
+~
+E
+nothing~
+You see $n search through the rotting bags, then stand up slowly.
+~
+E
+rats~
+In searching through the bags, you have disturbed some rats.
+~
+E
+nrats~
+In searching through the bags, $n has disturbed some rats.
+~
+!
+0 0 0
+-1
+S
+
+#27517
+Basement~
+Creeping out from under the door to the west is a bluish mist which
+dissipates quickly once it reaches the warmish air of this basement.  To
+the south is an empty horse stall, and to the north, a pile of empty and
+scattered bags.  
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27516 10 10 5
+D1
+~
+~
+0 -1 27513 10 10 5
+D2
+~
+~
+0 -1 27518 10 10 5
+D3
+wooden door~
+'wooden door' door~
+391 165 27519 10 10 5
+E
+blue mist~
+A faint blue mist peeks out from under the door.  It dissipates too
+quickly for you to be able to ascertain if it has any odor.
+~
+-1
+S
+
+#27518
+Basement, Horse Stall~
+A low wall separates this horse stall from the one next door to the
+east.  At the back of this stall are two troughs, one of which has a
+little bit of moldy barley still left in it.  Otherwise, the stall is
+clean and tidy with the wooden gate that covers the front of the stall
+neatly pinned back against the wall.  
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27517 10 10 5
+E
+trough~
+Two troughs line the southern wall of the makeshift stall.  One trough
+still holds a bit of moldy barley, but the other is completely empty.
+~
+340 137 1509949540 3 0
+-1
+S
+
+#27519
+Monster Laboratory~
+Strange, magical energy arcs across tall, strangely shaped metal poles. 
+This is a large room, and to the north you can see two large tables, both
+of which are covered with a number of body parts.  The air here is damp
+and musty.  A bluish mist covers the floor at about ankle height.  There
+is a door to the east of here.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27520 10 10 5
+D1
+wooden door~
+'wooden door' door~
+391 165 27517 10 10 5
+D2
+~
+~
+0 -1 27524 10 10 5
+D3
+~
+~
+0 -1 27522 10 10 5
+E
+tables~
+A bit to the north stand two large wooden tables.  One table appears to
+have on it the lower half of a humanoid body.  The other table seems to
+have more body parts.
+~
+E
+blue mist~
+A fine blue mist comes up to your ankles.  It feels cool and dry, and
+has no odor.
+~
+E
+metal poles~
+One pole stands to your north, and one to your south, separated by about
+two armspans.  The poles are both made of the same dark metal, and have
+red pentagrams drawn around their bases.  Bright flashes of blue light
+periodically run from one pole, hesitate, and return to their source.
+~
+A
+~
+~
+if( rflag( status0, room ) ) {
+  remove_rflag( status0, room );
+  close( room, east );
+  send_to_room( #closed_now, room );
+  }
+else {
+  set_rflag( status0, room );
+  send_to_room( #to_all, room );
+  open( room, east );
+  }
+~
+E
+closed_now~
+You hear the door slowly close shut.
+~
+E
+to_all~
+You hear the groan of some timbers and the door swings open.
+~
+!
+2 50 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+wait( 1 );
+close( room, east );
+act_tochar( #to_all, ch );
+remove_rflag( status0, room );
+send_to_room( #close2, find_room( 27517 ) );
+~
+E
+close2~
+The door closes in front of you.
+~
+E
+to_all~
+You hear the door slowly close shut.
+~
+!
+1 3 2
+A
+~
+~
+mob = mob_in_room( 249, room );
+if( mob ) {
+  send_to_room( #loiter, room );
+  end;
+  }
+continue;
+~
+E
+loiter~
+@YThe golem loiters near the door, blocking it momentarily.@n
+~
+!
+3 0 2
+-1
+S
+
+#27520
+Monster Laboratory~
+In the northeast corner of this large laboratory is a oversized work table. 
+On the table is the bottom half of a humanoid of some vague description. 
+You can see where it has been stitched together, because you can see the
+thread connecting the feet to the shins and the shins to the thighs. 
+Beside this table is a smaller table with what must be the rest of the
+humanoid.  The torso, head and one arm are submerged in a vat of green
+slime.  A small desk is against the north wall with a number of papers on
+top of it.  
+~
+~
+335020036 0 6 0
+D2
+~
+~
+0 -1 27519 10 10 5
+D3
+~
+~
+0 -1 27521 10 10 5
+E
+work table~
+This work table is about twelve feet long and quite wide as well.  It is
+very sturdy, though a bit mucky from all the body parts that have been on
+it.  
+~
+E
+vat green slime~
+The slime is a very bright color of green.  You could have sworn it just
+moved, swirling about something inside of it.
+~
+E
+desk~
+Walking over to the desk, you can see quite a number of papers on top of
+it, but someone or something has spilled blood all over the desk, and you
+are unable to make out any details.
+~
+A
+search examine~
+desk~
+act_tochar( #empty, ch );
+act_notchar( #nothing, ch );
+~
+E
+empty~
+You search the desk carefully, but find nothing of interest.
+~
+E
+nothing~
+You see $n open the desk draws, but never pick anything up.
+~
+!
+0 0 0
+249 9 1509949540 3 0
+-1
+S
+
+#27521
+Monster Laboratory~
+There is a large work table in the middle of this northwest corner of
+the room, but it is completely bare of anything other than a few
+bloodstains.  The bluish mist gets quite thick here and seems to fall out
+of a pipe in the wall.  
+~
+blue chalk here
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27520 10 10 5
+D2
+~
+~
+0 -1 27522 10 10 5
+E
+pipe~
+About half of a foot of pipe sticks out of the west wall at about knee
+height and pours blue mist into the room.  
+~
+E
+mist~
+Light blue mist swirls as it exits the pipe.  The mist itself has no
+odor, but feels cool and dry.
+~
+A
+search examine~
+pipe~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+    send_to_char( #drop, ch );
+    act_notchar( #fell, ch );
+    obj_to_room( oload( 205 ), room );
+    }
+else {
+  send_to_char( #nothing, ch );
+  act_notchar( #nofall, ch );
+  }
+~
+E
+drop~
+You seem to have jarred something loose while examining the pipe.
+~
+E
+fell~
+In examining the pipe, $n seems to have jarred something loose.
+~
+E
+nothing~
+You carefully check out the pipe, but can find nothing unusual.
+~
+E
+nofall~
+You see $n examine the pipe, then stand up, frowning.
+~
+!
+0 0 0
+-1
+S
+
+#27522
+Monster Laboratory~
+There is a bathtub sized vat of green slime here.  A table with some
+buckets of chemicals and bottles of multi-colored liquids stands beside
+the vat.  The bluish mist on the floor leaves a two foot circle of space
+around the vat, as if it were avoiding touching it.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27521 10 10 5
+D1
+~
+~
+0 -1 27519 10 10 5
+D2
+~
+~
+0 -1 27523 10 10 5
+E
+vat slime~
+A rusty metal vat large enough to hold a human rests on the floor. 
+Although the vat is not moving, you can see the green slime inside of it
+sloshing back and forth, making little waves that splash over the side of
+the vat and onto the floor.
+~
+E
+table buckets bottles~
+A small table, with many dark stains on its surface, stands near the vat. 
+On it rest several buckets and bottles, filled with liquids of various
+colors.  Several of the containers hold familiar-smelling chemicals.
+~
+-1
+S
+
+#27523
+Monster Laboratory~
+The southwest corner of the room contains shelves evenly spaced apart. 
+Each row contains neatly labeled bottles, each full of liquid and
+something floating inside.  On the floor just below the specimens is a
+dark red stain, much the color of dried blood.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27522 10 10 5
+D1
+~
+~
+0 -1 27524 10 10 5
+E
+bottles~
+Although the bottles are of different sizes and colors of glass, they all
+have two things in common: each contains a clear liquid and each contains
+something solid suspended in the liquid.  Those items that you can
+identify closely resemble inner organs from approximately human-sized
+animals.
+~
+E
+floor~
+A large, circular splotch of dark red has stained the pine flooring. 
+Several matching drops radiate from the larger mass, forming an irregular
+pattern.
+~
+249 9 1509949540 3 0
+-1
+S
+
+#27524
+Monster Laboratory~
+This portion of the room contains several large oak cabinets with doors
+hanging off their hinges.  Inside each cabinet are bodies of different
+humanoid figures, neatly lined up.  Looking at the bodies, you notice
+several things about them that are quite unusual.
+~
+[Merior] no-mob so golems throw you here
+~
+335020044 0 6 0
+D0
+~
+~
+0 -1 27519 10 10 5
+D3
+~
+~
+0 -1 27523 10 10 5
+E
+cabinet~
+As you examine the cabinets, you notice that each one contains bodies of
+a different race.  And upon further study, you realize that each one is
+missing at least one body part.
+~
+E
+body bodies~
+About a dozen bodies of humanoid creatures, including those of vyans,
+orcs, and dwarves, line the cabinet.  Each body is missing at least one
+body part, but otherwise seems to be in excellent condition.
+~
+A
+take get~
+body~
+act_tochar( #notake, ch );
+act_notchar( #noget, ch );
+~
+E
+notake~
+You try to take one of the bodies, but some force seems to have created
+an invisible barrier.
+~
+E
+noget~
+You see $n reach for the bodies, but suddenly pull back, empty-handed.
+~
+!
+0 0 0
+-1
+S
+
+#27525
+Stairwell, Second Floor~
+There are a set of stairs leading down here and a open wooden door to the
+north.  But what really dominates the area is a huge solid looking copper
+door to the south.  The corridor continues to the west, and a large
+tapestry covers the eastern wall.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27534 10 10 5
+D2
+copper door~
+'copper door' door~
+391 160 27526 10 10 5
+D3
+~
+~
+0 -1 27530 10 10 5
+D5
+~
+~
+0 -1 27506 10 10 5
+E
+tapestry~
+The tapestry, at first glance, shows a man standing over someone on a
+bed, resting.  Upon closer examination, however, you can see that the
+second person is not sleeping on a bed, but rather laying on an large
+wooden table, with his head not quite attached to the rest of his body.
+~
+E
+1 south copper ~
+A large solid-looking copper door closes off the room to the south.
+~
+A
+open~
+1 south~
+if( is_open( room, south ) )
+  send_to_char( #already_open, ch );
+else {
+  if( find_stat( ch, str ) > 15 ) {
+    send_to_char( #to_char, ch );
+    act_notchar( #to_room, ch );
+    open( room, south );
+    }
+  else {
+    send_to_char( #char_fail, ch );
+    act_notchar( #room_fail, ch );
+    }
+  }
+~
+E
+already_open~
+You try to open the door, but since it is already open - you find this a
+little difficult.  
+~
+E
+room_fail~
+$n pits $s puny muscles against the mighty copper door and is sadly
+lacking in the strength to open it.  
+~
+E
+char_fail~
+You struggle to open the south door and find you are not strong enough to
+do so.  
+~
+E
+to_room~
+$n struggles and strains against the south door, finally managing to get
+it open.  
+~
+E
+to_char~
+With a mighty heave, you manage to open the south door.
+~
+!
+0 0 0
+-1
+S
+
+#27526
+Corridor~
+You are standing in the eastern end of a long corridor which must run the
+length of the tower.  Down the length of the corridor are a number of
+metal grills, and you can just glimpse them all: bronze, brass, and iron
+in that order, with the bronze immediately to your west.  The walls to
+your north and south are made of wood paneling.
+~
+key hidden in panel
+~
+335020036 0 6 0
+D0
+copper door~
+'copper door'~
+391 160 27525 10 10 5
+D3
+bronze grill~
+'bronze grill'~
+407 161 27527 10 10 5
+E
+wall wood paneling~
+Wide vertical panels of alternating teak and rosewood line the north and
+south walls.
+~
+E
+bronze grill~
+The bronze grill has a small bronze key hole at the very bottom of the
+barrier, almost touching the floor.
+~
+E
+rosewood~
+A central rosewood panel looks like it is not quite flush with the others.
+~
+E
+brass iron~
+Peering through the bronze grill, you can see a brass grill to the west,
+and an iron grill even further west.
+~
+A
+open~
+1 north~
+if( !is_open( room, north ) ) {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  open( room, north );
+  }
+else
+  send_to_char( #isopen, ch );
+~
+E
+to_room~
+$n opens the copper door to the north easily.
+~
+E
+to_char~
+You open the copper door to the north quite easily.
+~
+E
+isopen~
+The door is already open.
+~
+!
+0 0 0
+A
+move open~
+rosewood panel~
+if( rflag( reset0, room ) ) {
+send_to_char( #key, ch );
+obj_to_room( oload( 161 ), room );
+remove_rflag( reset0, room );
+}
+else
+act_tochar( #empty, ch );
+~
+E
+key~
+As you open the panel, a small bronze key drops on the floor.
+~
+E
+empty~
+The panel appears empty.
+~
+!
+0 0 0
+-1
+S
+
+#27527
+Corridor~
+From here you can see west through a brass grill into another empty room
+and further down the corridor to the end.  To the east, the corridor ends
+just beyond the bronze grill.  Both the north and south walls are made of
+dark wood.  Centered on the north wall is the picture of a dark
+cavern.
+~
+picture describes site of brass key
+~
+335020036 0 6 0
+D1
+bronze grill~
+'bronze grill'~
+407 161 27526 10 10 5
+D3
+brass grill~
+'brass grill'~
+407 162 27528 10 10 5
+E
+1 north picture cavern~
+The picture is one of a dark, cavern setting.  A long bier of stone rests
+in the center of the cavern, and upon it lies a body.  All around the
+bier dance the images of ever-watchful puppies and hounds.
+~
+E
+wall wood~
+Dark mahagony panels line the north and south walls.  A large picture has
+been hung in the center of the north wall.
+~
+-1
+S
+
+#27528
+Corridor~
+Now that you have entered this room you can see that the ceiling is
+covered in a spider's web.  The entire ceiling glows white with the silky
+thread of webs.  A brass grill blocks the corridor to the east, and an
+iron one to the west.
+~
+~
+335020036 0 6 0
+D1
+brass grill~
+'brass grill'~
+407 162 27527 10 10 5
+D3
+iron grill~
+'iron grill'~
+407 163 27529 10 10 5
+E
+ceiling web~
+The ceiling in this area of the house glows a bright, almost iridescent
+white.
+~
+293 9 1509949540 3 0
+163 17 1509949540 -1 0
+-1
+S
+
+#27529
+Corridor~
+Now that you have entered this room you are able to see the cunningly
+concealed stairs against the west wall, leading up.  To the east extends
+the rest of this long corridor and the metal grills that are spread out
+along its length.  
+~
+~
+335020044 0 6 0
+D1
+iron grill~
+'iron grill'~
+407 163 27528 10 10 5
+D4
+~
+~
+0 -1 27537 10 10 5
+-1
+S
+
+#27530
+Corridor~
+The corridor ends at a door to the west.  There is a open door to the
+north, and the corridor continues to the east.  The corridor is fairly
+spartan, with little in the way of decoration; just the occasional
+bracket on the wall for lamps to be affixed.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27531 10 10 5
+D1
+~
+~
+0 -1 27525 10 10 5
+D3
+~
+~
+0 -1 27533 10 10 5
+-1
+S
+
+#27531
+Dining Room, West End~
+This is the western end of a large dining room.  Against the north wall
+is a large fireplace.  In the middle of the room, you can see a pile of
+wood which must have been the dining table.  At the far eastern end of
+the room, a number of candles provide flickering light.  This was once a
+very nice room with nice wall hangings covering the stone walls, but now
+everything is broken or ripped.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27534 10 10 5
+D2
+~
+~
+0 -1 27530 10 10 5
+E
+wall hangings~
+Shredded tapestries hang from wooden poles close to the ceiling.  They
+are far too torn to determine what once was pictured on them.
+~
+E
+fireplace~
+A large brick fireplace takes almost the entire northern wall of this
+large room.  A thick pile of ashes lie on the bottom of the fireplace,
+and the grate holds a few partially-burned logs.
+~
+-1
+S
+
+#27532
+Library~
+This is the tower's library.  There are two areas here, this room and one
+further to the west.  Both are lined with bookshelves full of books from
+the floor to the ceiling.  You won't have any problems finding some
+information here, it's just a question of finding the information that
+you require.  There is a desk here with a sign on it.
+~
+~
+335020036 0 6 0
+D2
+door~
+door~
+131 -1 27533 10 10 5
+D3
+~
+~
+0 -1 27535 10 10 5
+E
+sign~
+LIBRARIAN
+~
+E
+books~
+There are so many books here you really need someone who knows the
+library to help you.  
+~
+E
+desk~
+A solid-looking mahagony desk is bare except for a small sign.
+~
+A
+get take read~
+b books~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+i = 3d10+10;
+dam_message( ch, i, "A bolt of energy from the bookshelf" );
+inflict( ch, mob, i, "bolt of energy" );
+mob = mob_in_room( 290, room );
+if( mob ) {
+  wait( 2 );
+  tell( mob, ch, #to_all );
+  }
+~
+E
+to_all~
+If you would like to read a book, you must request what you wish to
+read.
+~
+E
+to_room~
+$n reaches out to take a book, but is zapped by a bolt of green magical
+energy.  
+~
+E
+to_char~
+You reach out to take a book off a shelf, and are zapped by a bolt of
+green magical energy from the book.  
+~
+!
+0 0 0
+290 9 1509949540 3 0
+-1
+S
+
+#27533
+Lounge~
+This lounge area has been totally wrecked.  What was once a nice pair of
+chairs and couch facing the fireplace on the south wall are now ripped
+and broken shreds of their former selves.  A drink cabinet in one corner
+now lies tipped over, and its contents are scattered all over the room. 
+Hanging in the room must have been a number of paintings as well, because
+you can see the ripped picture frames scattered around the room, as well
+as the hooks where the paintings have once hung.  The only item still
+standing amidst the devastation is a small table.
+~
+~
+335020036 0 6 0
+D0
+door~
+door~
+131 -1 27532 10 10 5
+D1
+~
+~
+0 -1 27530 10 10 5
+D3
+~
+~
+0 -1 27536 10 10 5
+E
+small table~
+Beside one of the chairs is a small table that looks like it might have
+had something on it.  
+~
+E
+chairs couch~
+Two broken chairs lie near the fireplace.  Shreds of their blue and gold
+coverings hang from their frames, hinting at their former splendor.  A
+couch covered with red and orange flowered cloth, is in only slightly
+better shape, and might be able to hold your weight.
+~
+E
+walls hooks picture~
+On the walls are several hooks designed to hold pictures.  The pictures
+no longer hang from these hooks, however, and their broken frames are
+scattered about the area.
+~
+289 9 1509949540 3 0
+-1
+S
+
+#27534
+Dining Room, East End~
+The remains of what is still recognizable as a large table lies broken in
+middle of the room.  In fact, almost all of the furniture is broken and
+scattered.  Against the east wall of this room, someone has set up a
+shrine on a table.  A large fireplace dominates the northern wall.
+~
+green chalk here
+~
+335021060 0 6 0
+D2
+~
+~
+0 -1 27525 10 10 5
+D3
+~
+~
+0 -1 27531 10 10 5
+E
+idol demon~
+The marble idol is about fifteen inches high and made from a black marble
+with white flecks in it.  It is of a two-headed, female demon, and is
+expertly crafted.  
+
+~
+E
+skulls~
+The two goat skulls sit on either side of the marble idol.  They have
+been lovingly polished.  
+~
+E
+candles~
+The candles are a blood-red color and flicker ominously.
+~
+E
+shrine table~
+Several candles and two goat skulls surround the marble idol of a
+two-headed demon.
+~
+E
+fireplace~
+A large brick fireplace takes almost the entire northern wall of this
+large room.  A thick pile of ashes lie on the bottom of the fireplace,
+and the grate holds a few partially-burned logs.
+~
+A
+get take~
+demon idol~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+i = dice( 3, 10 );
+dam_message( ch, i, "The idol" );
+inflict( ch, mob, i, "the Demonic Idol" );
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #chalk, ch );
+  act_notchar( #drop, ch );
+  obj_to_room( oload( 1336 ), room );
+  }
+~
+E
+to_room~
+$n reaches out to take the Demonic Idol, but it suddenly animates and
+snaps at $s hand.  
+~
+E
+to_char~
+You reach out to take the Demonic Idol, but it suddenly animates and
+snaps at your hand as you try to grab it.  
+~
+E
+chalk~
+Moving the demon has dislodged a bit of green chalk.
+~
+E
+drop~
+$n's moving the demon has dislodged a piece of green chalk.
+~
+!
+0 0 0
+-1
+S
+
+#27535
+Library~
+This is the western part of the tower's library.  Books line shelves here
+from floor to ceiling.  You can see the shelves extend further to the
+east.  There are so many books here, you really need someone to help you
+look through them to find out anything.  
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27532 10 10 5
+D2
+~
+~
+0 -1 27536 10 10 5
+E
+books~
+There are so many books here you really need someone who knows the
+library to help you.  
+~
+A
+get take read~
+b books~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+dam_message( ch, 3d10+10, "the bolt of energy" );
+inflict( ch, mob, 3d10+10, "bolt of energy" );
+~
+E
+to_char~
+You reach for a book and are zapped by a bolt of magical energy from the
+book.
+~
+E
+to_room~
+You see $n reach for a book and get zapped by a bolt of magical energy
+from the book.
+~
+!
+0 0 0
+-1
+S
+
+#27536
+Study~
+A large window casts light over a large desk set against the west wall. 
+The desk is covered in papers and notes, though someone has knocked a
+bottle of ink over the desk and stained most of the paper.  Also in the
+room is another area for the preparation of new paper.  A series of tubs,
+materials and other equipment line the north wall.
+~
+parchment gives demon hint
+[Lansharra] have i already said how strange it is that the library has a closed door to the east and an open wall here? :P
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27535 10 10 5
+D1
+~
+~
+0 -1 27533 10 10 5
+E
+papers~
+Most of the papers are soaked with ink and appear to be indecipherable. 
+The papers which were spared from the spilled ink have a strange series
+of symbols which you don't recognise.  However, you are able to make out
+the diagram of a sword and the following words, "...order metal from
+Randir the weaponsmith." 
+~
+E
+desk~
+The desk is made of high quality wood, though you wonder how it got in
+the room as it is much larger than either of the two doors that lead into
+this room.  It is covered with papers and has a number of drawers.
+~
+E
+tubs materials equipment~
+Along the north wall are a number of tubs and other equipment.  They seem
+to be used for making paper.  There are some bags of wood shavings and
+some thin wire mesh screens.  All of the equipment is laid out neatly and
+looks relatively new.  
+~
+E
+drawers~
+You inspect the drawers carefully, but can find no evidence of traps. 
+They look like pretty normal drawers that open.
+~
+A
+open~
+drawers~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  obj_to_room( oload( 198 ), room );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  }
+else
+  send_to_char( #find_nothing, ch );
+~
+E
+find_nothing~
+Looking in the drawer, you find nothing there.
+~
+E
+to_char~
+You find a piece of scorched parchment stuck in the very back of the
+drawer.
+~
+E
+to_room~
+You see $n open a desk drawer, and find a piece of scorched parchment.
+~
+!
+0 0 0
+-1
+S
+
+#27537
+Balcony~
+You stand on an iron balcony that appears to circle the tower.  You have
+a splendid view of the snow-capped mountains all around this area and
+down into the forested valleys.  To the immediate north is a large iron
+door, and there are stone steps leading down from here.  On the floor
+near your feet are two parallel grooves that run around the tower and out
+of sight.
+~
+~
+335020032 1 6 0
+D0
+iron door~
+'iron door'~
+391 -1 27546 10 10 5
+D1
+~
+~
+0 -1 27538 10 10 5
+D5
+~
+~
+0 -1 27529 10 10 5
+E
+1 north 3 iron door~
+A large iron door bars your passage to the north.
+~
+E
+balcony~
+A wide balcony runs around the tower as far as you can see.  Metal rails
+painted black prevent you from inadvertently falling.
+~
+E
+grooves~
+The two grooves are about as far apart as a man could comfortably stand
+with his feet apart, and are lined with a single metal rail along one
+side of them.  They are definitely artificial.  
+~
+E
+1 down~
+The land below you is quite rocky, and you can see the peaks of nearby
+mountains.
+~
+-1
+S
+
+#27538
+Balcony~
+You find yourself in the middle of the southern side of the balcony
+around the tower.  Jutting out from the tower wall is the outside of a
+chimney which must be on the other side of the wall.  Continuing in a
+very regular pair of lines are two parallel grooves in the floor of the
+balcony.
+~
+~
+335020032 1 6 0
+D1
+~
+~
+0 -1 27539 10 10 5
+D3
+~
+~
+0 -1 27537 10 10 5
+E
+grooves~
+The two grooves are about as far apart as a man could comfortably stand
+with his feet apart, and are lined with a single metal rail along one
+side of them.  They are definitely artificial.  
+~
+E
+1 down~
+The land below you is quite rocky, and you can see the peaks of nearby
+mountains.
+~
+E
+chimney~
+A red brick chimney protrudes from the northern wall of the tower.
+~
+125 9 1509949540 3 0
+-1
+S
+
+#27539
+Balcony~
+The balcony continues further to the east before going around the tower
+and to the north.  All around are the snow capped mountains and down
+below the forested valleys.  Two parallel grooves are carved into the
+floor of the balcony.
+~
+~
+335020032 1 6 0
+D1
+~
+~
+0 -1 27540 10 10 5
+D3
+~
+~
+0 -1 27538 10 10 5
+E
+grooves~
+The two grooves are about as far apart as a man could comfortably stand
+with his feet apart, and are lined with a single metal rail along one
+side of them.  They are definitely artificial.  
+~
+E
+1 down~
+The land below you is quite rocky, and you can see the peaks of nearby
+mountains.
+~
+-1
+S
+
+#27540
+Balcony~
+This is the south-east corner of the balcony, from here the balcony
+continues north and west.  This corner has a particulary good view of the
+snow-capped mountains and the thickly forested valleys.  Two parallel
+grooves seem to be carved into the floor of the balcony.
+~
+~
+335020032 1 6 0
+D0
+~
+~
+0 -1 27541 10 10 5
+D3
+~
+~
+0 -1 27539 10 10 5
+E
+grooves~
+The two grooves are about as far apart as a man could comfortably stand
+with his feet apart, and are lined with a single metal rail along one
+side of them.  They are definitely artificial.  
+~
+E
+1 down~
+The land below you is quite rocky, and you can see the peaks of nearby
+mountains.
+~
+-1
+S
+
+#27541
+Balcony~
+The balcony continues to the north and south here, encircling the eastern
+side of the tower.  To the north, a large hole opens the side of the
+tower to the elements.  The stonework nearby is marred by huge black
+scorch marks.  Two parallel grooves are carved into the floor of the
+balcony.
+~
+~
+335020032 1 6 0
+D0
+~
+~
+0 -1 27542 10 10 5
+D2
+~
+~
+0 -1 27540 10 10 5
+E
+grooves~
+The two grooves are about as far apart as a man could comfortably stand
+with his feet apart, and are lined with a single metal rail along one
+side of them.  They are definitely artificial.  
+~
+E
+hole~
+A gaping hole in the northeastern portion of the tower lies seemingly
+open to the elements.  Upon closer examination, the hole appears to be
+covered by a thin blue haze.
+~
+E
+stonework~
+The light gray of the stone has many black burn marks radiating out from
+the hole in the tower.
+~
+E
+1 down~
+The land below you is quite rocky, and you can see the peaks of nearby
+mountains.
+~
+-1
+S
+
+#27542
+Balcony~
+A large hole has been blasted in the eastern wall of the tower.  Blocks
+of stone and mortar lie littered around the balcony.  The explosion was
+so great that it has even destroyed the balcony wall here as well.  The
+chunks of blackened stone makes it difficult to move freely here, and it
+would be easy to fall over the edge and drop quite some distance.  The
+only item of order amongst all this disorder are the two parallel grooves
+carved into the floor of the balcony that still cross the area leading
+from north down to the southern end of the balcony, passing all the
+fallen, blackened masonry.
+~
+~
+335020032 1 6 0
+D2
+~
+~
+0 -1 27541 10 10 5
+D3
+~
+~
+0 -1 27543 10 10 5
+E
+grooves~
+The two grooves are about as far apart as a man could comfortably stand
+with his feet apart, and are lined with a single metal rail along one
+side of them.  They are definitely artificial.  
+~
+E
+hole~
+The gaping hole opens up to the west, revealing a completely ruined room. 
+It is impossible to determine any details within the room, for a blue
+haze covering the hole obscures your view.
+~
+E
+balcony wall~
+A narrow strip of balcony encircles the tower, having lost much of its
+substance because of an explosion.  The railing must also have been
+destroyed by the blast, and it would be easy to fall far to the ground. 
+~
+A
+~
+~
+rand_player( room );
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+$n nearly stumbles and falls over the edge of the balcony.
+~
+E
+to_char~
+Whoops!  You nearly stumble and fall while moving around this area. 
+There is no railing here, and the fall would surely kill you.
+~
+!
+2 200 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You pass through the blue haze into the tower.
+~
+E
+to_room~
+You see $n pass through the blue haze to the west and disappear into the
+tower.
+~
+!
+3 0 8
+125 9 1509949540 3 0
+-1
+S
+
+#27543
+Blasted Room~
+The contents of this portion of the tower are no longer recognizable.  It
+is unlikely that the balcony that runs to the east once extended here,
+however, for this appears to once have been an interior room.  The room
+now is bare and scorched, and its contents were either consumed or
+expelled by a blast.  A blue haze to your east blocks your view of the
+outside, and has prevented the elements from entering the hole.
+~
+~
+335020044 0 6 0
+D1
+~
+~
+0 -1 27542 10 10 5
+D3
+~
+~
+0 -1 27544 10 10 5
+E
+blue haze~
+To your east, a thick blue haze covers the destroyed wall, keeping out
+all view of the outside world.  A fine stream of blue mist appears to
+come from your west, and spread out to form the elemental curtain.
+~
+A
+~
+~
+continue;
+~
+E
+to_room~
+You see $n pass through the blue haze and disappear to the east.
+~
+E
+to_char~
+You head through the blue haze and travel east.
+~
+!
+3 0 2
+-1
+S
+
+#27544
+Laboratory~
+Peering through to the east you can see that the far wall of the tower
+has been blown out and is covered by a thick blue mist.  To the west you
+can see a large pentagram on the floor.  This portion of the tower
+contains an almost intact giant cauldron, filled with a burbling liquid. 
+From the cauldron flows a fine blue mist, which seems to split and head
+partially to the east and partially to the west.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27543 10 10 5
+D2
+~
+~
+0 -1 27547 10 10 5
+D3
+~
+~
+0 -1 27545 10 10 5
+E
+cauldron~
+A large black cauldron stands towards the center of the room.  Its
+surface is scorched a bit, and there is a large chip around its rim, but
+it has otherwise been unaffected by the explosion in this area.  Inside
+the cauldron, a dark, boiling liquid quietly bubbles.  There is no
+apparent source of heat nearby, so something within it must be causing
+the reaction.
+~
+E
+blue mist~
+A thick blue mist rises from the liquid in the cauldron, splitting in
+half just a few inches about the pot.  Half of the cool, dry mist travels
+east towards the curtain it forms, and the rest moves towards the pipe in
+the northwest corner of the room.
+~
+A
+search examine push move fill~
+cauldron pot~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( !mob_in_room( 1023, room ) ) {
+    send_to_char( #demon, ch );
+    act_notchar( #mdemon, ch );
+    mload( 1023, room );
+    }
+  else
+    continue;
+  }
+else {
+  send_to_char( #nothing, ch );
+  act_notchar( #to_room, ch );
+  }
+~
+E
+demon~
+From within the blue mists of the cauldron, a monster begins to form.
+~
+E
+mdemon~
+As $n touches the cauldron, a strange creature begins to form.
+~
+E
+nothing~
+You touch the cauldron, but nothing happens.
+~
+E
+to_room~
+You see $n touch the cauldron, but nothing happens.
+~
+!
+0 0 0
+-1
+S
+
+#27545
+Laboratory~
+A large pentagram inscribed within a two ringed circle dominates this
+northwestern corner of the laboratory.  Within the two rings set at
+twelve equidistant points are a series of magical symbols.  The rest of
+the area is bare and clear of all broken equipment and broken glass,
+though there is an odd scorch mark on the walls.  A large pipe runs from
+the floor in the northwest corner of the room, and fans out into a much
+wider shape about half way up the wall.
+~
+if you stand inside with the scorched scroll you get a book that
+zarander's assistant wants for quest 
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27544 10 10 5
+D2
+~
+~
+0 -1 27546 10 10 5
+E
+magical symbols~
+Strange symbols drawn in colored chalk are drawn about the circle.  Some
+of them are recognizable as those used on items sold in magic shoppes,
+others seem just a bit different somehow.
+~
+E
+scorch mark walls~
+A large, jagged scorch mark mars the west wall of the room.  It starts
+near the floor and radiates up and out, forming a 'black V' on the wall.
+~
+E
+pipe~
+A pipe runs from the floor about half way up to the ceiling along the
+northwest corner of the room.  Most of the pipe is uniform in width, but
+it flares out at the very top.  A thin stream of blue mist enters the
+pipe.
+~
+E
+blue mist~
+A thin stream of blue mist travels from east to west through this portion
+of the room, ending as it enters the pipe.  The mist is cool and dry, and
+odorless.
+~
+A
+stand~
+inside pentagram circle~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+set_rflag( status0, room );
+remove_rflag( status1, room );
+~
+E
+to_room~
+$n stands inside the pentagram....
+~
+E
+to_char~
+You stand inside the pentagram....
+~
+!
+0 0 0
+A
+stand~
+outside pentagram circle~
+send_to_char( #to_char, ch );
+act_notchar( #to_char, ch );
+set_rflag( status1, room );
+remove_rflag( status0, room );
+~
+E
+to_room~
+$n stands outside of the pentagram....
+~
+E
+to_char~
+You stand outside of the pentagram....
+~
+!
+0 0 0
+A
+recite~
+scorched scroll summon~
+if( rflag( status0, room ) ) {
+  obj = has_obj( 1365, ch );
+  if( obj ) {
+    junk_obj( obj, 1 );
+    act_tochar( #gone, ch );
+    act_notchar( #ngone, ch );
+    obj_to_char( oload( 1346 ), ch );
+    }
+  else {
+    wait( 1 );
+    act_tochar( #nothing, ch );
+    }
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+gone~
+The scroll you recited suddenly catches on fire and disintegrates.  A
+small book appears in your hands.
+~
+E
+ngone~
+The scroll $n was holding suddenly bursts into flame and is gone.  A
+small book appears in $n's hands.
+~
+E
+nothing~
+You stand inside the pentagram, but nothing happens.
+~
+!
+0 0 0
+-1
+S
+
+#27546
+Laboratory~
+Broken equipment, glass jars, test tubes, beakers and so on litter this
+area.  This was obviously part of a laboratory, but a violent event has
+taken place here, leaving all the remaining items scattered and broken
+around the room.  The few tables that are left standing are clear of any
+equipment.
+~
+[Starshine] how is the iron door opened? why's acode 1 here?
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27545 10 10 5
+D1
+~
+~
+0 -1 27547 10 10 5
+D2
+iron door~
+'iron door' door~
+391 -1 27537 10 10 5
+E
+equipment jars tubes beaker~
+The floor is littered with bits of broken glass.  Large enough fragments
+exist to be able to identify some of them as items generally found in
+laboratories.
+~
+A
+~
+~
+if( rflag( reset1, room ) ) {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  inflict( ch, mob, 1d1+39, "lightning bolt" );
+  }
+~
+E
+to_room~
+$n passes through the iron doorway and is shocked by a bolt of energy.
+~
+E
+to_char~
+As you pass through the force field you are shocked by a bolt of energy.
+~
+!
+1 0 4
+-1
+S
+
+#27547
+Laboratory~
+There are turned over tables and equipment scattered all over this corner
+of the room.  Very little is not broken, and now a fortune in equipment
+has been reduced to broken glass and bits and pieces of destroyed matter. 
+A small fireplace lines the south wall of the room.  To the east, a
+battered wooden door hangs from a chipped frame.
+~
+*quick fix added to door - delete when trig works
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27544 10 10 5
+D1
+battered wooden door~
+'battered wooden door'~
+131 -1 27548 10 10 5
+D3
+~
+~
+0 -1 27546 10 10 5
+E
+door~
+A battered wooden door shows definite signs of hard use.  Large scratches
+run up and down its surface, exposing its original color.
+~
+E
+equipment~
+Broken glass lies scattered about on the scorched floor.  Several wands
+and burned tomes have been thrown into the corners of the room.
+~
+E
+fireplace~
+A small fireplace has been built into the southern wall.  It has only a
+thin coat of ashes in its grate, and shows little sign of of heavy use.
+~
+A
+examine search poke touch~
+fireplace ashes~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( !mob_in_room( 1018, room ) ) {
+    send_to_char( #demon, ch );
+    act_notchar( #mdemon, ch );
+    mload( 1018, room );
+    }
+  else
+    continue;
+  }
+else {
+  send_to_char( #nothing, ch );
+  act_notchar( #to_room, ch );
+  }
+~
+E
+demon~
+As you poke around in the ashes, you awaken the sleeping fire daemon.
+~
+E
+mdemon~
+As $n pokes around in the ashes, a fire daemon awakes.
+~
+E
+nothing~
+You poke around in the ashes, and the dust tickles your nose.
+~
+E
+to_room~
+You see $n poke around in the ashes, and stir them up.
+~
+!
+0 0 0
+A
+1 open~
+door 1 east~
+unlock( room, east );
+continue;
+~
+!
+0 0 0
+-1
+S
+
+#27548
+Stairwell~
+A flight of stairs lead up to an iron trapdoor.  Several stone-relief
+carvings cover the north wall.  A large blue knob has been placed on the
+north wall at about waist height.  An oak door separates the stairwell
+from the rest of the rooms on this floor of the tower.
+~
+*disabled/commented out until randmo is fixed/
+~
+335020036 0 6 0
+D3
+oak door~
+door~
+131 -1 27547 10 10 5
+D4
+trapdoor~
+trapdoor~
+391 -1 27549 10 10 5
+E
+elves~
+The elves are shooting down at the dwarves instead of engaging them in
+hand to hand combat.  A number of them are escaping away through the
+tree-tops and leaving their comrades behind.
+~
+E
+runes~
+The runes of course are very familiar to any dwarf and too difficult to
+explain to any non-dwarf.  
+~
+E
+axe~
+This is a traditional dwarf two-handed battle axe.  It is quite large,
+especially when you consider the size of it in comparison to its
+wielder.  There are many runes carved into the surface of its blades.
+~
+E
+metal chain~
+This is the metal chain that holds the star shaped medallion around its
+owner's neck.  
+~
+E
+medallion~
+This medallion has six points to it and is hung around its owner's neck
+by a metal chain.  
+~
+E
+one-eyed dwarf~
+This large dwarf is dressed in full plate mail armour and his axe has
+many runes carved into it, and many notches on its shaft.  He has a star
+shaped medallion around his neck and a black eye-patch over one eye.
+~
+E
+stone relief carvings north wall~
+These carvings on the north wall show a battle sequence between dwarves
+and elves.  The dwarvern warriors seem to be successfully assaulting an
+elven tree fort.  The tree fort relief stretches all the way from the
+ground floor to the roof of the second level.  There are dwarves
+attempting to scale the tree and some are trying to cut the tree with
+axes.  The elves are replying by shooting arrows and dropping rocks down
+on the brave dwarves.  One dwarf hero catches your eye.  He is a one-eyed
+dwarf with a massive battle-axe.  He stands apart from the battle with
+his axe resting on his shoulder, just watching the battle.
+~
+E
+blue knob button~
+This blue button is about a hand's width in diameter and made from a
+shiny blue metal.  Looking very carefully at it you notice little sparks
+coming from the edges.  Written on the button are the words 'Push Me' in
+large black print.
+~
+A
+~
+~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+close( room, up );
+close( room, west );
+lock( room, west );
+set_rflag( reset0, room );
+set_rflag( reset1, room );
+send_to_char( #to_all, ch );
+wait( 3 );
+act_tochar( #three, ch );
+wait( 3 );
+act_tochar( #two, ch );
+wait( 3 );
+act_tochar( #one, ch );
+wait( 1 );
+act_tochar( #zero, ch );
+wait( 1 );
+open( room, up );
+unlock( room, west );
+open( room, up );
+open( room, west );
+act_tochar( #open, ch );
+~
+E
+to_all~
+A disembodied voice says, "Four."
+~
+E
+to_room~
+$n enters the stairwell and the door swings shut behind $m.
+~
+E
+to_char~
+As you enter the room the door swings shut behind you.
+~
+E
+three~
+A disembodied voice says, "Three!"
+~
+E
+two~
+A disembodied voice says, "Two!"
+~
+E
+one~
+A disembodied voice says, "One!"
+~
+E
+zero~
+A disembodied voice says, "ZERO!"
+~
+E
+open~
+Both the west and upward door fall open.
+~
+!
+1 -1 24
+A
+~
+~
+if( is_open( room, west ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_room( #three, room );
+    }
+  else {
+    remove_rflag( reset0, room );
+    send_to_room( #one, room );
+    }
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  set_rflag( reset0, room );
+  send_to_room( #two, room );
+  }
+else {
+  send_to_room( #zero, room );
+  open( room, up );
+  open( room, west );
+  unlock( room, west );
+  }
+~
+E
+zero~
+A disembodied voice cries, "ZERO!!"
+  
+Both doors quietly swing open.
+~
+E
+one~
+A disembodied voice says, "ONE!"
+~
+E
+two~
+A disembodied voice says, "Two!"
+~
+E
+three~
+A disembodied voice says, "Three!"
+~
+!
+4 1000 0
+A
+p push press ~
+blue knob button~
+send_to_char( #to_char, ch );
+drain_exp( ch, 10 );
+act_notchar( #to_room, ch );
+act_room( #to_all, ch );
+set_rflag( reset1, room );
+set_rflag( reset0, room );
+close( room, west );
+close( room, up );
+~
+E
+to_all~
+A disembodied voice says 'Four...'
+~
+E
+to_room~
+$n pushes the blue button.
+~
+E
+to_char~
+You push the blue button, but feel a small amount of life-force drain out
+of you as you do so.
+~
+!
+0 0 0
+-1
+S
+
+#27549
+Stairwell~
+A simple set of stone stairs leads up and down from this point.  The ones
+leading up end at an iron trapdoor.  Two wooden doors also provide
+exits, one to the north and one to the west.  Otherwise, the area is bare
+and empty.  
+      
+~
+~
+335020036 0 6 0
+D0
+wooden door~
+'wooden door'~
+131 -1 27554 10 10 5
+D3
+wooden door~
+'wooden door'~
+131 -1 27550 10 10 5
+D4
+~
+~
+0 -1 27555 10 10 5
+D5
+trapdoor~
+trapdoor~
+391 -1 27548 10 10 5
+A
+o open~
+d down~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+open( room, down );
+~
+E
+to_room~
+$n opens the door.
+~
+E
+to_char~
+Ok.
+~
+!
+0 0 0
+A
+pick open unlock~
+~
+unlock( room, down );
+continue;
+~
+!
+8 0 0
+-1
+S
+
+#27550
+Private Floor - By the Bookshelf~
+A large bookshelf filled with books and scrolls fills the entire
+southern wall.  A small table and single chair stand alone in the center
+of the area.  To the north is a fireplace and several chairs.  A wooden
+door blocks off further progress to the east; to the west is an open
+space with a most unusual drawing on the floor.
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27552 10 10 5
+D1
+wooden door~
+'wooden door' door~
+131 -1 27549 10 10 5
+D3
+~
+~
+0 -1 27551 10 10 5
+E
+drawing~
+The drawing is too smudged to identify from here.
+~
+E
+table chair~
+A straight-backed wooden chair stands by a small, rickety wooden table. 
+The table is piled high with open books and several empty glasses.
+~
+E
+bookshelf~
+A large mahagony bookshelf is stuffed with books of all shapes and sizes.
+~
+E
+scroll~
+You see several scrolls lying flat on the bookshelves.  You cannot read
+the strange tongue in which they are written, but can see pictures of
+large daemons on their pages.
+~
+A
+get take move~
+book~
+if( !obj_in_room( 204, room ) ) {
+  if( random( 1, 10 ) > 8 ) {
+    obj_to_room( oload( 204 ), room );
+    act_tochar( #drop, ch );
+    act_notchar( #rdrop, ch );
+    }
+  else
+    send_to_char( #nothing, ch );
+  }
+else
+  send_to_char( #nothing, ch );
+~
+E
+drop~
+As you try to get one of the books, a stick of yellow chalk drops to the
+floor.
+~
+E
+nothing~
+As you reach to get a book, you feel an invisible barrier preventing you
+from touching them.
+~
+E
+rdrop~
+As $n tries to get one of the books, a stick of yellow chalk drops to the
+floor.
+~
+!
+0 0 0
+-1
+S
+
+#27551
+Private Floor - Western Nook~
+The floor here is bare of all carpeting, and the plain pine planks show
+signs of wear and tear.  Smudged chalk designs decorate the floor, but
+their original design has been blurred.  This small western nook is empty
+of all furnishings, though a table and chair as well as a massive
+bookcase stand only a little bit to the east.
+~
+correct order gets you a scorched scroll
+incorrect order gets you daemons
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27550 10 10 5
+E
+floor~
+The plain pine floor has several layers of smudged chalk drawings
+inscribed upon it.  You scan see vague outlines made with at least three
+different colors of chalk: green, yellow, and blue.
+~
+A
+draw~
+yellow~
+if( obj_in_room( 1340, room ) ) 
+  send_to_char( #there, ch );
+else {
+  if( has_obj( 204, ch ) ) {
+    obj_to_room( oload( 1340 ), room );
+    send_to_char( #drawn, ch );
+    act_notchar( #odrawn, ch );
+    }
+  else
+    send_to_char( #nochalk, ch );
+  }
+~
+E
+there~
+There is already a yellow pentagram in the room.
+~
+E
+nochalk~
+You don't have any chalk with which to draw the pentagram.
+~
+E
+drawn~
+You crookedly draw a yellow pentragram on the floor.
+~
+E
+odrawn~
+$n draws a crooked yellow pentagram on the floor.
+~
+!
+0 0 0
+A
+draw~
+green~
+if( obj_in_room( 1341, room ) ) 
+  send_to_char( #there, ch );
+else {
+  if( !obj_in_room( 1340, room ) ) {
+    if( has_obj( 1336, ch ) ) {
+      if( rflag( reset0, room ) ) {
+        remove_rflag( reset0, room );
+        send_to_char( #oops, ch );
+        act_notchar( #othoops, ch );
+        mload( 94, room );
+        }
+      else send_to_char( #noth, ch );
+        }
+    else send_to_char( #nochalk, ch );
+      }
+  else
+    if( has_obj( 1336, ch ) ) {
+    obj_to_room( oload( 1341 ), room );
+    send_to_char( #drawn, ch );
+    act_notchar( #odrawn, ch );
+    }
+  else
+    send_to_char( #nochalk, ch );
+  }
+~
+E
+there~
+There is already a green pentagram on the floor.
+~
+E
+oops~
+The room begins to shake, and a small daemon appears in the center of the
+room.
+~
+E
+drawn~
+You neatly inscribe a green pentagram on the floor.
+~
+E
+nochalk~
+You do not have any green chalk with which to draw a pentagram.
+~
+E
+noth~
+You make the motions for drawing a pentagram but make no marks.
+~
+E
+othoops~
+$n tries begins to draw a pentagram with the green chalk.
+$e leaps back as the room begins to shake.
+A small daemon appears, snarling!
+~
+E
+odrawn~
+$n neatly inscribes a green pentagram upon the floor.
+~
+!
+0 0 0
+A
+draw~
+blue~
+if( obj_in_room( 1342, room ) )
+  send_to_char( #there, ch );
+else {
+  if( !obj_in_room( 1341, room ) ) {
+    if( has_obj( 205, ch ) ) {
+      if( rflag( reset1, room ) ) {
+        remove_rflag( reset1, room );
+        act_notchar( #othoops, ch );
+        mload( 47, room );
+        }
+      else send_to_char( #nothing, ch );
+        }
+    else send_to_char( #nochalk, ch );
+      }
+  else
+    if( has_obj( 205, ch ) ) {
+    obj_to_room( oload( 1342 ), room );
+    send_to_char( #drawn, ch );
+    act_notchar( #odrawn, ch );
+    send_to_char( #scroll, ch );
+    obj_to_room( oload( 1365 ), room );
+    }
+  else
+    send_to_char( #nochalk, ch );
+  }
+~
+E
+there~
+There is already a blue pentagram drawn on the floor.
+~
+E
+oops~
+The room begins to shake, and smoke appears in the center of the area
+where you tried to draw the pentagram.  A large daemon emerges from the
+smoke.
+~
+E
+drawn~
+You try to inscribe a blue pentagram on the floor, but seem to have some
+trouble.  Several erasures later, you have created a slightly blurred
+version of one.
+~
+E
+nochalk~
+You do not have any blue chalk with which to draw a pentagram.
+~
+E
+scroll~
+A scorched scroll drops to the floor.
+~
+E
+nothing~
+You make the motions to draw the pentagram, but draw nothing.
+~
+E
+othoops~
+$n attempts moves to draw a pentagram, blue chalk in hand, when the rooms
+begins to shake, smoke appearing where $e tried to draw the pentagram.
+A large daemon walks menacingly out of the smoke!
+~
+E
+odrawn~
+$n makes several attempts to draw a pentagram.
+After a few false starts, $e finally manages to complete a
+blurred-looking one.
+~
+!
+0 0 0
+A
+draw~
+~
+send_to_char( #what, ch );
+~
+E
+what~
+You need to be more specific about what you wish to draw.
+~
+!
+0 0 0
+-1
+S
+
+#27552
+Private Floor - By the Fireplace~
+A small fireplace in the northern wall is the center of focus in this
+area of the tower.  Several large, comfortable arm chairs have been
+placed in a semicircle facing the fireplace.  You can see a bed to your
+west, and a carpeted area to your east.  A large bookshelf dominates the
+wall well to your south.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27554 10 10 5
+D2
+~
+~
+0 -1 27550 10 10 5
+D3
+~
+~
+0 -1 27553 10 10 5
+E
+arm chairs~
+Three large arm chairs face the fireplace.  One is yellow, one green, and
+the third is blue.  All are well-stuffed and look quite soft and
+comfortable.
+~
+E
+fireplace~
+A small fireplace outlined with black tiles has been built into the north
+wall.  A fire has been laid in the grate in preparation for quick
+lighting.
+~
+A
+sit~
+chair~
+send_to_char( #sat, ch );
+interpret( ch, "sleep" );
+send_to_room( #hesat, room );
+~
+E
+hesat~
+You see $n sit down in one of the chairs and drift off to sleep.
+~
+E
+sat~
+You sit down in the soft chair and begin to doze off.  
+~
+!
+0 0 0
+97 9 1509949540 3 0
+-1
+S
+
+#27553
+Private Floor - Sleeping Area~
+The northwest corner of this floor is dominated by a large bed.  The
+walls are painted black here, with no pictures to alleviate the darkness. 
+Small windows set high on the two walls allow just a little bit of light
+in what would be a dark and depressing area.
+~
+~
+335020036 0 6 0
+D1
+~
+~
+0 -1 27552 10 10 5
+E
+bed~
+A large bed, covered with black sheets and a black blanket stands in the
+northwest corner of the room.  Its coverings are in disarray, and are
+covered with a thin film of dust.
+~
+A
+search move~
+bed blanket sheet~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( !mob_in_room( 1015, room ) ) {
+    send_to_char( #dust, ch );
+    act_notchar( #mdust, ch );
+    mload( 1015, room );
+    }
+  else
+    continue;
+  }
+else {
+  send_to_char( #nothing, ch );
+  act_notchar( #to_room, ch );
+  }
+~
+E
+dust~
+You disturb the dust under the bed, and a monster begins to form before
+your eyes.
+~
+E
+mdust~
+As $n disturbs the bed, a monster begins to form from the flying dust.
+~
+E
+nothing~
+You look under the bed and get dust up your nose.
+~
+E
+to_room~
+You see $n look under the bed, and send dust flying through the air.
+~
+!
+0 0 0
+1384 17 1509949540 -2 0
+-1
+S
+
+#27554
+Private Floor - Northeast Corner~
+This entire floor of the tower appears to have been used as someone's
+private living area.  High windows to the north and east are covered with
+dark blue curtains.  A dark green carpet depicting dragons in flight
+covers the floor here in the northeast corner of the tower.
+~
+~
+335020036 0 6 0
+D2
+wooden door~
+'wooden door'~
+131 -1 27549 10 10 5
+D3
+~
+~
+0 -1 27552 10 10 5
+E
+carpet~
+The carpet, of forest green, shows several large rainbow colored dragons
+flying over tall mountains much like the Dragonspires.  The dragons are
+spitting fire, but their targets cannot be seen.
+~
+A
+touch move~
+carpet dragon~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( !mob_in_room( 1017, room ) ) {
+    send_to_room( #dragon, room );
+    mload( 1017, room );
+    }
+  else
+    send_to_char( #nothing, ch );
+  }
+else
+  send_to_char( #nothing, ch );
+~
+E
+dragon~
+A rainbow-colored dragon suddenly emerges from the carpet.
+~
+E
+nothing~
+You move the carpet, but nothing happens.
+~
+!
+0 0 0
+-1
+S
+
+#27555
+Rooftop~
+From up here, you have a magnificent view of the snow-topped mountains all
+around this area.  The tower on which you stand gives a commanding view
+from the top of the rock spire on which it stands.
+~
+to the reviewer: i left the rdescs up here pretty much untouched since
+i'm not quite sure what can be seen from here...
+~
+335020032 1 6 0
+D0
+~
+~
+0 -1 27556 10 10 5
+D3
+~
+~
+0 -1 27560 10 10 5
+D5
+~
+~
+0 -1 27549 10 10 5
+1016 9 1509949540 3 0
+-1
+S
+
+#27556
+Rooftop~
+The wind whips across this exposed rooftop, which only has a waist high
+wall running around the perimeter for cover.  Blowing off the snow topped
+mountains, it is bitterly cold up here.  Peering over the edge of the
+tower, you can see the balcony below on the east side.  Below that, a
+cliff face drops another two hundred feet or so before finding the tree
+line.  The plain grey stoned rooftop is devoid of anything else
+interesting.  
+~
+possibly rappell to balcony below? :)
+after mountain climbing is a skill ;)
+~
+335020032 1 6 0
+D2
+~
+~
+0 -1 27555 10 10 5
+D3
+~
+~
+0 -1 27557 10 10 5
+1016 9 1509949540 3 0
+-1
+S
+
+#27557
+Rooftop~
+Looking north, even though you are quite high here, you still cannot see
+as far as the northern sea.  Unfortunately, the way is blocked by yet
+another range of snow capped mountains.  All around, these mountains
+rise majestically over this spire of rock and the tower which stands
+on it.  The snowy mountains put a chill in the air which whips across
+this exposed place, making it bitterly cold.  The rooftop itself is of
+plain grey stone and a low wall protects you from the edge.  
+~
+[Lansharra] isn't snowcapped one word?
+~
+335020032 1 6 0
+D1
+~
+~
+0 -1 27556 10 10 5
+D2
+~
+~
+0 -1 27560 10 10 5
+D3
+~
+~
+0 -1 27558 10 10 5
+-1
+S
+
+#27558
+Rooftop~
+Looking north and west from here, you can peer over the edge at the track
+that climbs out of the forest below and to the base of the tower.  Away
+to the west is a forested river valley that flows between two mountain
+ranges.  Mount Khedrick looms over the area to the south, and further to
+the north, you can see another range of mountains.  
+~
+~
+335020032 1 6 0
+D1
+~
+~
+0 -1 27557 10 10 5
+D2
+~
+~
+0 -1 27559 10 10 5
+1016 9 1509949540 3 0
+-1
+S
+
+#27559
+Rooftop~
+From this western edge of the tower, you can peer over the edge at the
+track, which leads up to the base of the tower from the forest below. 
+Further to the west, you can see a forested valley following a wide flat
+mountain river as it flows westward.  Protecting you from falling over
+the edge is a low wall which runs all around the perimeter of the tower. 
+The rooftop is flat, of plain grey stone and otherwise very dull in
+comparison with the magnificent view up here.  
+~
+~
+335020032 1 6 0
+D0
+~
+~
+0 -1 27558 10 10 5
+D1
+~
+~
+0 -1 27560 10 10 5
+1016 9 1509949540 3 0
+-1
+S
+
+#27560
+Rooftop~
+From this southern side of the rooftop you can see the Cairn Mountains
+and its taller mate Mount Khedrick to the west of it.  Nestling between
+the two is Dwarf Pass.  The wind whips off the snow-covered slopes and is
+bitterly cold as it reaches this exposed tower on its spire of rock.  The
+rooftop itself is flat and you are protected by a low wall which runs
+around the perimeter of the tower.
+~
+~
+335020032 1 6 0
+D0
+~
+~
+0 -1 27557 10 10 5
+D1
+~
+~
+0 -1 27555 10 10 5
+D3
+~
+~
+0 -1 27559 10 10 5
+-1
+S
+
+#27561
+Somewhere On The Great Abyss~
+You stand on a infinitely large and flat black plain.  No matter how far
+you travel in any direction, you will *always* be here, since even half
+of infinity is still only a small step from zero.  
+~
+~
+335020036 0 6 0
+D0
+~
+~
+0 -1 27561 10 10 5
+D1
+~
+~
+0 -1 27561 10 10 5
+D2
+~
+~
+0 -1 27561 10 10 5
+D3
+~
+~
+0 -1 27561 10 10 5
+A
+~
+~
+if( !mob_in_room( 3500, room ) ) {
+  act_room( #all, ch );
+  wait( 2 );
+  mload( 3500 );
+  }
+~
+E
+all~
+A Vrock comes climbing over the rocky terrain.  Upon seeing you, it
+skreeches and rushes toward you.
+~
+!
+2 20 0
+A
+~
+~
+if( !mob_in_room( 3501, room ) ) {
+  act_room( #all, ch );
+  wait( 1 );
+  act_room( #all2, ch );
+  wait( 1 );
+  act_room( #all3, ch );
+  wait( 2 );
+  mload( 3501 );
+  }
+~
+E
+all3~
+The figure croaks and comes toward you at a quick pace!
+~
+E
+all2~
+After a minute, it stops, raises it's head and seems to sniff the air.
+~
+E
+all~
+A dark figure, hunched over and moving in a strange hopping-gait can be
+seen moving across the dark terrain.  
+~
+!
+2 15 0
+A
+~
+~
+if( !mob_in_room( 14, room ) ) {
+  act_room( #all, ch );
+  wait( 3 );
+  mload( 14 );
+  }
+~
+E
+all~
+A huge figure comes stalking across the dark terrain, right toward you.
+Prepare, for a Nafleshnee comes...
+~
+!
+2 10 0
+A
+~
+~
+act_room( #all, ch );
+wait( 1 );
+act_room( #all2, ch );
+wait( 2 );
+act_room( #all3, ch );
+wait( 4 );
+act_room( #all5, ch );
+wait( 2 );
+act_room( #leave, ch );
+transfer_all( room, find_room( 140 ) );
+~
+E
+leave~
+You enter the stone.
+~
+E
+all5~
+You follow the mighty Paladin as she leads you across the barren plains. 
+You see demons in the distance, but they avoid you, and give no trouble. 
+
+After a timeless trek, you come to a great jagged stone, a rugged dark
+finger pointed toward the featureless sky.  She instructs you to enter,
+and wishes you the god's grace.  
+
+You thank her with all your might, and she just smiles and steps back.
+~
+E
+all3~
+The figure, resplendent in shining silver armor, wearing a mighty shield
+bearing the mark of the Silver Dragon, and wielding a glittering bastard
+sword, reveals herself to be the most powerful looking woman you have
+ever seen.  
+
+She seems surprised to see you, and introduces herself as Sherindryl of
+Solentact.  You explain how you got to this abyss, and she offers to help
+you out.  
+~
+E
+all2~
+The figure coalesces into the shape of a man, armored in bright silver
+armor.  He is making his way toward you.
+~
+E
+all~
+A bright speck moves on the horizon.
+~
+!
+2 20 0
+-1
+S
+
+#27562
+One Room Cottage~
+There is only one room to the cottage and it is a complete mess, there
+are herbs, pots, brooms, teapots, rugs, and all sorts of other junk that
+piles up on chairs and tables.  The room is very cluttered and you have
+problems finding somewhere to stand.  But its owner seems to know where
+everything is (eventually) as she moves around the room.  
+~
+Attention Immortal - Please leave this room as a sanctuary.  The witch is
+a trainer, and also a large mob placed in the middle of nowhere which
+should not be an xp target.
+Kiian.
+SANC
+~
+335020047 0 5 0
+D0
+~
+~
+0 -1 33016 10 10 5
+A
+~
+~
+if( cflag( 26, ch ) ) {
+  send_to_char( #nope, ch );
+  end;
+  }
+mob = mob_in_room( 252, room );
+if( cflag( 8, ch ) ) {
+  if( cflag( 9, ch ) ) {
+    if( cflag( 10, ch ) ) {
+      tell( mob, ch, #all );
+      act_tochar( #ch, ch );
+      obj_to_char( oload( 525 ), ch );
+      set_cflag( 26, ch );
+      }
+    else
+      tell( mob, ch, #toe );
+    }
+  else
+    tell( mob, ch, #rat );
+  }
+else
+  tell( mob, ch, #ear );
+~
+E
+nope~
+The witch refuses to return your offer, having given you the ring already.
+~
+E
+ear~
+You still must bring me the ear of a rabbit.
+~
+E
+rat~
+You still must bring me the intestines of a giant sewer rat.
+~
+E
+toe~
+You still must bring me the toe of a deer.
+~
+E
+ch~
+The witch gives you a red glass ring.
+~
+E
+all~
+Bah!  I never figured you'd care enough to go through all this trouble. 
+I suppose you can have the damn ring then.
+~
+!
+0 0 0
+A
+1 order 1 kill 1 attack 1 bash 1 kick 1 punch 1 cast~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You find yourself strangely unable to perform that action in the presence
+of the wrinkled old witch.
+~
+!
+0 0 0
+252 9 1509949540 3 0
+1017 17 1509949470 -1 0
+280 17 1509949540 -1 0
+284 17 1509949530 -1 0
+253 9 1509949540 3 0
+37 17 1509949490 -1 0
+-1
+S
+
+#27563
+Path around Tower Base~
+A narrow path has been carved out of the hillside to provide a path in
+which to lead horses safely around the base of the tower, so that they
+are not spooked by the two hundred foot drop to the forest below.  The
+path snakes around the northern side of the tower.
+~
+~
+335020032 5 6 0
+D2
+large door~
+'large door'~
+391 -1 27515 10 10 5
+D3
+~
+~
+0 -1 27564 10 10 5
+343 137 1509949540 3 0
+-1
+S
+
+#27564
+Path around Tower Base~
+A narrow path runs along the base of the hillside.  To the east is a
+large door that leads into the tower, or you can travel west along this
+narrow path.  Directly to the north is a steep drop down into the forest.
+~
+~
+335020032 5 9 0
+D1
+~
+~
+0 -1 27563 10 10 5
+D3
+~
+~
+0 -1 27565 10 10 5
+-1
+S
+
+#27565
+Path around Tower Base~
+A very, very narrow path clings tightly to the stone of the tower.  You
+can either follow it east along the tower, or try to climb the mound of
+rock to the west.  To the north is nothing but air: the ground below must
+be at least two hundred feet beneath your feet.  The sturdy bulk of the
+tower presses against your back.
+~
+~
+335020032 5 9 0
+D1
+~
+~
+0 -1 27564 10 10 5
+D4
+~
+~
+0 -1 27566 10 10 5
+A
+~
+~
+send_to_char( #up, ch );
+continue;
+~
+E
+up~
+You scramble up the rocky slope.
+~
+!
+3 0 16
+-1
+S
+
+#27566
+Path around Tower Base~
+To your south stands the bulk of a large stone tower.  Directly north is
+nothing but air: hundreds of feet below you are the treetops of the
+forest.  To the east is also nothing, but you can see a possible route
+down to a low path that runs east along the tower.  West is the only
+direction in which you can easily travel, and that appears to take you
+into a light forest.
+~
+~
+335020032 5 9 0
+D3
+~
+~
+0 -1 27568 10 10 5
+D5
+~
+~
+0 -1 27565 10 10 5
+A
+~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You scramble down the rocks to a narrow path.
+~
+!
+3 0 32
+-1
+S
+
+#27567
+Outside Tower~
+A narrow path through the forest leads south towards the door of the
+tower, or north leading to what appears to be absolutely nothing.  To the
+east all you can see is the hard, cold stone of the tower itself.  To the
+west, the ground drops off sharply, and you can see the valley far below. 
+There appears to be no safe route in that direction.
+~
+~
+335020040 1 9 0
+D0
+~
+~
+0 -1 27568 10 10 5
+D2
+~
+~
+0 -1 27500 10 10 5
+-1
+S
+
+#27568
+Outside Tower~
+Under your feet is a very narrow, rocky path which seems almost to cling
+to the side of the massive tower.  To the north is a narrow trail around
+the side of a cliff, but you cannot go west without falling off the cliff
+and to your death.  The narrow band of ground leads east and south,
+hugging the base of the tower.
+~
+[Terek] Make that about 5-6 rooms north, north-east, than up about 5-6
+rooms 
+[Terek] Since its frozen up there it has to be up ontop
+~
+335020040 1 9 0
+D0
+~
+~
+0 -1 66079 10 10 5
+D1
+~
+~
+0 -1 27566 10 10 5
+D2
+~
+~
+0 -1 27567 10 10 5
+-1
+S
+
+#0
+

@@ -1,0 +1,1043 @@
+#AREA
+Smuggler's Grotto~
+Terek~
+~
+
+10 0
+3
+#ROOMS
+
+#74750
+Before a Dark Cave Opening~
+Opening up into the cliff face to the west is a massive dark cave opening
+filled with waist-high water.  The opening is large enough to allow a
+ship to enter with ease but the shallow water would prevent it from
+getting very far into it.  From within the depths of the cave you can
+hear the faint sound of clanging metal mixed with the ever-present
+crashing waves.  To the east the water becomes deeper as it heads out
+into the vast expanse of the Sea of Stars. 
+~
+~
+301465601 6 5 0
+D1
+~
+~
+0 -1 22017 10 10 5
+D3
+~
+~
+0 -1 74751 10 10 5
+-1
+S
+
+#74751
+Through an Water-Filled Dark Cave~
+The clear blue water slowly laps gently against the rocky walls of the
+cave.  Despite the amount of the light that enters from the opening to
+the east the cave remains incredibly dark, making it hard to see more
+than five feet in front of you.  Floating along the surface of the water
+are several rickety planks of wood but where they could have come from is
+unknown to know.  The cave continues to stretch to the west into the vast
+darkness while to the east it heads back out into the open air.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 74750 10 10 5
+D3
+~
+~
+0 -1 74752 10 10 5
+-1
+S
+
+#74752
+Through an Water-Filled Dark Cave~
+The soft, sandy bottom of the cave has dipped down considerably here,
+making it hard to keep you head above water.  All about you signs of the
+cave being inhabitated appear as you notice large crates resting along
+shelves within the rock and torch sconces bolted to the walls.  As you
+proceed through the water you can feel your feet scrape against large
+objects but the darkness prevents you from seeing what they actually are. 
+To the west the cave continues its course into the darkness.  Off to the
+east you can see the exit of the cave, leading back out to the Sea of
+Stars.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 74751 10 10 5
+D3
+~
+~
+0 -1 74753 10 10 5
+-1
+S
+
+#74753
+Dead End in the Water-Filled Cave~
+The cave comes to abrupt halt here, blocked to the west by a massive
+rockslide which occured some time ago.  Along the nothern edge of the
+wall is a small sandbar which offers you place to rest which is not quite
+as damp.  Lying scattered about the sandbar are several large casks,
+crates and barrels which have something printed across their surfaces. 
+Resting next to one of the crates is an odd-looking red rock the size of
+an ogre.  To the east the cave continues its trek out towards the Sea of
+Stars.
+~
+north is 74754
+~
+301465601 13 9 0
+D0
+~
+~
+235 -1 74754 10 10 5
+D1
+~
+~
+0 -1 74752 10 10 5
+E
+casks crates barrels~
+These crates, barrels and casks appear to have been placed here recently
+as their surfaces are not covered with dust, grime or any other
+indicition that they have been here for some time.  Painted across the
+surface of each container are the word's @W"Medienne Trading Post"@n.
+~
+E
+red rock odd-looking~
+This incredibly large rock is a deep blood-red color with tinges of black
+streaked across its surface.  Around the base of the rock the sand has
+been smoothed out in a line, as if someone had moved the rock away from
+its current resting spot and than back.
+~
+A
+push move~
+red rock odd-looking~
+if( is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( !is_open( room, north ) ) {
+  act_tochar( #push, ch );
+  act_notchar( #push1, ch );
+  Wait( 2 );
+  Act_room( #swing, ch );
+  open( room, north );
+  }
+~
+E
+open~
+The rock has already been moved.
+~
+E
+push~
+@WYou heave at the rock and with relative ease move it away a few feet
+and suddenly you hear a@n @Y*CLICK*.@n 
+~
+E
+push1~
+@W$n heaves at the rock and with relative ease moves it away a few feet
+and suddenly you hear a@n @Y*CLICK*.@n 
+~
+E
+swing~
+@WMoments later the sound of stone grinding echoes down the cave and a
+hidden door in the northern rockface slowly slides open.
+~
+!
+0 0 0
+-1
+S
+
+#74754
+Before a Dark Pit in the Sand~
+Directly in the center of the room is a large pit at least eight feet
+wide.  From within the depths of the pit you can hear the sound of metal
+clanging against stone.  Drilled into the ceiling directly above the pit
+are several large winches with a long rope run through them which
+descends into the depths of the pit.  Hammered into the walls are several
+torch sconces; each containing a torch which burns brightly, illuminating
+the cave.  The soft, white sand beneath your feet is covered in boot
+prints.  Bolted onto the eastern wall is a large steel @Wlever@n.
+~
+south is 74753
+~
+301465601 3 9 0
+D2
+~
+~
+235 -1 74753 10 10 5
+D5
+~
+~
+235 -1 74755 10 10 5
+-1
+S
+
+#74755
+Bottom of a Large Dark Pit~
+Smooth sandstone walls rise up in every direction around you; each with a
+brightly burning torch stuck into its surface.  Despite the light given
+off by the torches the pit is still incredibly dark, making it hard to
+see much around you.  Set into the center of the floor here are a set of
+massive trapdoors at least seven feet across in width.  Dangling down
+from above is a thick rope which heads up towards the top of the pit.
+~
+~
+301465601 3 9 0
+D4
+~
+~
+235 -1 74754 10 10 5
+D5
+massive iron trapdoors~
+massive iron trapdoors~
+131 -1 74756 10 10 5
+-1
+S
+
+#74756
+Before a Large Mithril Door~
+Set into the northern wall of this cavern is a large mithril door.  Set
+into the wall on each side of the door are small torches which burn with
+an unnatural blue flame.  Lying in a heap against the southern wall are
+several humanoid bones; each covered with dried seaweed and a thick layer
+of sand.  Resting atop the pile of bones is a lone human skull with a
+dagger implanted through its center.  Directly above you are a pair of
+massive iron trapdoors covered in large flakes of red rust.
+~
+~
+301465601 3 9 0
+D0
+large mithril door~
+large mithril door~
+195 -1 74757 10 10 5
+D4
+massive iron trapdoors~
+massive iron trapdoors~
+131 -1 74755 10 10 5
+-1
+S
+
+#74757
+A Wide Tunnel Carved Through Sandstone~
+Torches line the walls of the sandstone tunnel, shedding just barely
+enough light to see a few feet down it.  The floor shows signs of heavy
+usage; the hard sand has well-worn ruts from many feet walking across it
+over time.  The ever-present sound of metal clanging against stone echoes
+down the expanses of the tunnel but the direction it emanates from is
+impossible to tell.  A large mithril door has been set into the southern
+wall of the tunnel while to the north it continues through the caves.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74758 10 10 5
+D2
+large mithril door~
+large mithril door~
+195 -1 74756 10 10 5
+-1
+S
+
+#74758
+A Wide Tunnel Carved Through Sandstone~
+Large chunks of the walls have broken free here, threatening to cave in
+upon itself.  A few small wooden support beams have been placed along the
+edges of the tunnel but most of them have buckeled under the massive
+weight of the ceiling and now stand at awkward angles.  Lying scattered
+in heaps about the floor are bits of dried seaweed of several varieties
+and colors.  The tunnel continues through the caves to the north and
+south from here.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74759 10 10 5
+D2
+~
+~
+0 -1 74757 10 10 5
+-1
+S
+
+#74759
+Intersection of Tunnels~
+Four tunnels intersect each other at this point in the caves, heading out
+in every direction.  The floor is littered with bits and pieces of
+splintered wood.  From somewhere deep within one of the tunnels the scent
+of cooked beef wafts.  Heavy footsteps thumping againts the hard
+sandstone floor can be clearly heard echoing down from all the tunnels
+yet you see no one in sight.  A small vent shaft covered with a steel
+grate has been cut into the ceiling above from which the smell of salty
+sea air occasionally wafts.
+~
+[Terek] Pirates are constantly expanding tunnels therefore always sound
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74772 10 10 5
+D1
+~
+~
+0 -1 74771 10 10 5
+D2
+~
+~
+0 -1 74758 10 10 5
+D3
+~
+~
+0 -1 74760 10 10 5
+-1
+S
+
+#74760
+Cold Sandstone Tunnel~
+A bone-chilling cold fills this wide tunnel causing you to shiver due to
+your exposure to it.  Every few feet along the wall torches have been
+placed which burn with a blue flame that partially illuminates the tunnel. 
+The ground shows signs of heavy usage; ruts made by many feet walking
+across the floor and what also appear to be wagon ruts are clearly
+visible.  To the east a large room where several other tunnels intersect
+can be faintly seen.  To the west the tunnel continues its course through
+the caves.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74759 10 10 5
+D3
+~
+~
+0 -1 74761 10 10 5
+-1
+S
+
+#74761
+Cold Sandstone Tunnel~
+Stacked up against the western wall of the tunnel here are several small
+crates, each with something written across them with black ink.  Lying
+scattered about the floor are bits and pieces of tattered cloth which is
+covered in dried blood.  Buried partially beneath the hard sandstone
+floor is a human skull; split neatly in two by a sword slice.  The tunnel
+branches off to the north and south from here while also continuing to
+the east, throughout the vast expanse of the caves.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74762 10 10 5
+D1
+~
+~
+0 -1 74760 10 10 5
+D2
+~
+~
+0 -1 74764 10 10 5
+-1
+S
+
+#74762
+Cold Sandstone Tunnel~
+Rusty shovels, pick-axes and wheelbarrows litter the floor of this tunnel. 
+Small crates rest stacked up against the eastern wall filled with shiny
+iron cutlasses.  Two small vent shafts have been cut into the eastern
+wall which curve upwards from which small beams of light enter.  Set into
+the western wall is a large iron door covered in scratches and dents. 
+Hammered alongside the door is a single torch covered in cobwebs and a
+thick layer of dust.  To the south the tunnel continues throughout the
+caves.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 74761 10 10 5
+D3
+~
+~
+0 -1 74763 10 10 5
+-1
+S
+
+#74763
+Large Storage Cavern~
+Several crates packed with food fill this large, extremely cold cavern. 
+Within each of the open crates you can see every type of food ranging
+from salted pork to hardtacks.  A few barrels rest along the northern
+wall labeled 'Ale' with blank ink.  Suspended from the ceiling are
+several large racks of beef covered with a clear glaze to help preserve
+them.  In the center of the room are a few barrels of filled with clear
+water within which you can see several large sea bass swimming in circles. 
+To the east a large iron door has been set into the sandstone wall.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74762 10 10 5
+-1
+S
+
+#74764
+Cold Sandstone Tunnel~
+The tunnel comes to end here with the only visible exits being to the
+north and through a massive iron-banded steel door set into the western
+wall.  Lying propped up in the southeast corner of the tunnel are the
+skeletal remains of a humanoid; his tunic bearing the mark of the Chiiron
+guards still clinging to his bones.  The southern wall is riddled with
+large holes from where the sandstone was broken free from an apparant
+expansion attempt made by the inhabitants.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74761 10 10 5
+D3
+~
+~
+0 -1 74765 10 10 5
+-1
+S
+
+#74765
+Large Storage Cavern~
+Hundreds of crates have been stacked up against the walls of this large
+cavern.  Each of the crates bears the seals from Chiiron, Medienne and a
+few even from Narak.  Piled up against the southern wall are several
+dozen barrels filled with what smells like lamp oil.  Against the western
+wall are large bolts of fine silk of various colors.  A massive
+iron-banded steel door has been set into the rocky wall to the east,
+marking the only exit out of the cavern.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74764 10 10 5
+-1
+S
+
+#74766
+Worn Tunnel Through the Sandstone~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74767 10 10 5
+D2
+~
+~
+0 -1 74769 10 10 5
+D3
+~
+~
+0 -1 74771 10 10 5
+-1
+S
+
+#74767
+Worn Tunnel Through the Sandstone~
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74768 10 10 5
+D2
+~
+~
+0 -1 74766 10 10 5
+-1
+S
+
+#74768
+Weapons Storage Room~
+Wooden weapon racks, each containing scores of daggers, longswords, pikes
+and cutlasses, line the walls of this small chamber.  Several flatbed
+crates have been stacked in the center of the room; one of them has been
+broken open revealing large ballista missiles.  In the southeast corner
+of the room are two small ship catapaults which have been converted for
+land use.  Scattered about the floor are several quivers filled with
+obsidian-tipped arrows.  Set into the western wall is a large mithril
+door with a heavy crossbeam propped up against the wall next to it.
+~
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 74767 10 10 5
+-1
+S
+
+#74769
+Worn Tunnel Through the Sandstone~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74766 10 10 5
+D1
+~
+~
+0 -1 74770 10 10 5
+-1
+S
+
+#74770
+Large Storage Cavern~
+Under Construction.
+~
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 74769 10 10 5
+-1
+S
+
+#74771
+Worn Tunnel Through the Sandstone~
+Under Construction.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74766 10 10 5
+D3
+~
+~
+0 -1 74759 10 10 5
+-1
+S
+
+#74772
+Unstable Passageway~
+The walls of the tunnel are extremely rough here; sharp pieces of
+sandstone jut out like a sword.  Torches have been placed along the walls
+every few feet, burning with an unnatural blue glow which illuminates the
+tunnel brightly.  The torches shed no heat whatsoever making the tunnel
+extremely cold, almost unbearable.  The tunnel continues to the north and
+south from here as it continues its course through the caves.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74773 10 10 5
+D2
+~
+~
+0 -1 74759 10 10 5
+-1
+S
+
+#74773
+Unstable Passageway~
+Wooden support beams line the edges of the tunnel here trying vainly to
+keep the ceiling from caving in.  A few of the beams have had steel bands
+bolted around them to help reinforce them while others have become
+splintered and cracked due to the extremely pressure exerted on them. 
+Embedded in the western wall are the fossilized remains of several fish;
+some you recognize while others are completely unknown to you.  The
+tunnel continues to the north and south from here as it works its way
+through the caverns.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74774 10 10 5
+D2
+~
+~
+0 -1 74772 10 10 5
+-1
+S
+
+#74774
+Unstable Passageway~
+Set into the western and eastern walls are beautiful coral archways
+embedded with rubies and emeralds.  Held within the arches are polished
+steel doors with the image of a swashbuckler standing atop a mound of
+gold painted across them.  Resting on each side of the archways are
+golden braziers forged in the shap of mighty war galleons.  From within
+cracks along the edges of the doors an occasional wave of heat flows
+forth, warming the cold tunnel.  The tunnel continues to the north and
+south from this point, continuing its trek through the caves.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74781 10 10 5
+D1
+~
+~
+0 -1 74778 10 10 5
+D2
+~
+~
+0 -1 74773 10 10 5
+D3
+~
+~
+0 -1 74775 10 10 5
+-1
+S
+
+#74775
+Swashbuckler's Bunkhouse~
+Under Construction.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74777 10 10 5
+D1
+~
+~
+0 -1 74774 10 10 5
+D2
+~
+~
+0 -1 74776 10 10 5
+-1
+S
+
+#74776
+Swashbuckler's Bunkhouse~
+Under Construction.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74775 10 10 5
+-1
+S
+
+#74777
+Swashbuckler's Bunkhouse~
+Under Construction.
+~
+~
+301465609 3 9 0
+D2
+~
+~
+0 -1 74775 10 10 5
+-1
+S
+
+#74778
+Swashbuckler's Bunkhouse~
+Several bunkbeds have been lined up in rows against the eastern wall of
+the room.  At the foot of each bunk are large maple chests each securely
+fastened with an iron lock.  Large torches hang on each side of the door
+to the west; each burning brightly, illuminating the entire bunkhouse.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74779 10 10 5
+D2
+~
+~
+0 -1 74780 10 10 5
+D3
+~
+~
+0 -1 74774 10 10 5
+-1
+S
+
+#74779
+Swashbuckler's Bunkhouse~
+Under Construction.
+~
+~
+301465609 3 9 0
+D2
+~
+~
+0 -1 74778 10 10 5
+-1
+S
+
+#74780
+Swashbuckler's Bunkhouse~
+Under Construction.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74778 10 10 5
+-1
+S
+
+#74781
+Unstable Passageway~
+The passage narrows considerably here due to the walls having caved-in. 
+Peeking out from beneath the rubble are two decaying corpses of humans;
+each still grasping an iron cutlass in their hand.  A large, cube-shaped
+hole has been cut out of the western wall from within which you can hear
+the sound of rushing water.  Large cracks run down the length of the
+ceiling and every few moments bits of sand break free and shower to the
+ground.  To the north and south the passage continues through the grotto.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74782 10 10 5
+D2
+~
+~
+0 -1 74774 10 10 5
+-1
+S
+
+#74782
+Unstable Passageway~
+The constant sound of water dripping echoes down the rough sandstone
+tunnel.  Parts of the floor's sandstone has broken free, leaving large
+gaping holes which lead into darkness.  A single torch hangs from the
+northern wall, providing just enough light to see ones hand in front of
+their face.  A large, wide crack runs down the length of the western wall
+from within which you can see the hint of something metallic gleaming. 
+To the east and south the passage continues through the depths of the
+caves.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74783 10 10 5
+D2
+~
+~
+0 -1 74781 10 10 5
+-1
+S
+
+#74783
+Unstable Passageway~
+Large piles of stone rubble litter the floor along this stretch of the
+passage; broken free from the walls and ceiling.  Peeking out beneath the
+piles of debris are several leg bones of humanoid origin.  The ceiling
+and walls are missing large chunks of sandstone, leaving gaping holes
+which compromise the stability of the entire passage.  A few rickety
+wooden support beams have been place against the walls to try and prevent
+any further cave in.  The passage continues deeper into the caves to the
+east and west from here.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74784 10 10 5
+D3
+~
+~
+0 -1 74782 10 10 5
+-1
+S
+
+#74784
+Unstable Passageway~
+The floor is littered with rusty pick-axes and shovels as well as a few
+broken crates.  The southern wall is covered in several dozen large
+cracks from which a constant trickle of flows forth.  Thick vines and
+roots protrude from the ceiling and run down the length of the northern
+wall where they come to a halt just above the floor.  To the west the
+passageway narrows, leaving just enough room for an ogre-sized man to
+pass.  To the east the passage widens and heads into a brightly-lit
+chamber.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74785 10 10 5
+D3
+~
+~
+0 -1 74783 10 10 5
+-1
+S
+
+#74785
+Intersection of Tunnels~
+Several torches and iron braziers fill this large chamber; each shedding
+an immense amount of light, illuminating the chamber brightly.  Hanging
+from the eastern wall is a large tapestry depicting a fleet of war
+galleons locked in battle upon a calm blue sea.  Set into the southern
+wall is a large steel door covered in flakes of red-brown rust.  To the
+west a narrow tunnel cut through the sandstone heads into darkness.  To
+the north a wide, dimly-lit tunnel leads to another section of the
+caverns.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74788 10 10 5
+D2
+~
+~
+0 -1 74786 10 10 5
+D3
+~
+~
+0 -1 74784 10 10 5
+-1
+S
+
+#74786
+A Lavishly-Decorated Mess Hall~
+Several long tables, each covered with dirty mugs and plates, fill this
+large room.  Built into the southern wall of the room is a large
+fireplace which burns brightly, shedding an enormous amount of heat into
+the room making it more comfortable than the others.  Hanging from the
+western wall are several flags but most noticable is a rather large one
+depicting a silver ship built into the shape of a hawk.  To the east lies
+a small room from within which you can smell cooked beef.  A large steel
+door has been set into the northern wall, leading out of the mess hall.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74785 10 10 5
+D1
+~
+~
+0 -1 74787 10 10 5
+-1
+S
+
+#74787
+Soot-Covered Cooking Area~
+A thick layer of black soot covers every inch of the walls in this
+chamber.  Scattered about the room are large iron cauldrons which bubble
+violently and occasionaly spew their hot liquids across the floor.  Set
+against the southern wall is a long wooden table covered in old and new
+blood stains.  Stacked up against the eastern wall are several barrels,
+large wooden crates, and some small burlap bags.  Cut into the ceiling
+are several shafts which lead up into darkness.  To the west an opening
+in the wall leads into the mess hall.
+~
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 74786 10 10 5
+-1
+S
+
+#74788
+Quiet Tunnel~
+Silence fills the air along this stretch of tunnel and not even the sound
+of your own footsteps tapping against the hard sandstone can be heard.  A
+single, three-legged iron brazier has been set against the western wall;
+burning with dull yellow flames which barely illuminate the tunnel.  A
+few wooden support beams, each riddled with cracks from stress, line the
+northern wall.  To the east the tunnel continues into darkness as it
+advances deeper into the caverns.  To the south stands a brightly-lit
+chamber within which you can see the glint of something metallic.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74789 10 10 5
+D2
+~
+~
+0 -1 74785 10 10 5
+-1
+S
+
+#74789
+Quiet Tunnel~
+The ceiling drops dangerously low at this point along the tunnel, leaving
+just enough room for an ogre-sized creature to enter with his head ducked
+low.  Lining each side of the walls are several support beams which rest
+at odd angles.  Small mounds of rubble litter the floor making it
+difficult to proceed in either direction.  Lying beside the piles of
+rubble are a few broken lanterns; their oil spilled out across the floor. 
+To the east you can just barely make out a dimly-lit chamber in which a
+large mithril door stands.  To the west the tunnel continues its course
+through the caves.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74790 10 10 5
+D3
+~
+~
+0 -1 74788 10 10 5
+-1
+S
+
+#74790
+Before a Sturdy Mithril Door~
+Set into the eastern wall of this chamber is a large mithril door covered
+in several dents and scratches.  Resting beside the door are small iron
+braziers burning with red-orange flames which illuminate the chamber
+brightly.  Several grooves have been etched into the hard floor from
+years of many feet treading across the same spot.  In the center of the
+room a single wooden support beam wrapped in steel bands has been erected. 
+To the west a dimly-lit tunnel heads away from the chamber, back towards
+the heart of the caverns.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74791 10 10 5
+D3
+~
+~
+0 -1 74789 10 10 5
+-1
+S
+
+#74791
+Before a Ruby and Diamond Encrusted Door~
+Set into the eastern wall of this small chamber is a magnificent ruby and
+diamond encrusted door.  Hanging upon each side of the door are torches
+set into gold sconces.  Resting above the eastern door is a large,
+scratched silver plate with the words @W'Emperor's Prize'@n written
+across it in bold black letters.  To the north and south small alcoves
+have been cut into the hard sandstone.  Set into the western wall is a
+large mithril door covered in large dents as well as several long
+scratches.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74792 10 10 5
+D1
+~
+~
+0 -1 74794 10 10 5
+D2
+~
+~
+0 -1 74793 10 10 5
+D3
+~
+~
+0 -1 74790 10 10 5
+-1
+S
+
+#74792
+Dark and Wet Guard Chamber~
+Under Construction.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 74791 10 10 5
+-1
+S
+
+#74793
+Dark and Wet Guard Chamber~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74791 10 10 5
+-1
+S
+
+#74794
+Captain's Quarters~
+This large room has been cut into the sandstone forming a perfect square
+and the walls have been carefully smoothed down.  Chiseled into the
+eastern wall is a gigantic fireplace set with polished white stones.  The
+mantle is made up of a single plank of polished maple which has its edges
+carved to resemble tiny warships.  Placed against the southern wall is a
+giant four-posted bed covered with fine velvet blankets and duck feather
+pillows.  Hanging from the northern walls are several tapestries; most
+depicting an array of warships and one depicting a regal-looking man
+posing in front of a silver ship shaped like a hawk.  Set into the
+western wall is a large ruby and diamond encrusted door.
+~
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 74791 10 10 5
+2163 9 1509949540 3 0
+-1
+S
+
+#0
+

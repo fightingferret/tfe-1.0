@@ -1,0 +1,2383 @@
+#AREA
+Mangits~
+Kreel~
+~
+
+0 0
+4
+#ROOMS
+
+#49000
+Narrow Path~
+This narrow corridor winds through the sandstone.  Tall and narrow, the
+tunnel is like a chimney, reaching high above to open up at the surface
+of the Narak Desert.  A soft breeze carries sands from above.  To the
+west is a large slab of sandstone.  The corridor heads east.
+~
+[Phule] w is 48531
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 49001 10 10 5
+D3
+slab of sandstone~
+~
+171 -1 48531 10 10 5
+E
+slat sandstone~
+A large slat of sandstone covers the outside of a narrow crevice heading
+west.
+~
+A
+move lift open~
+stone slab sandstone slat~
+if( is_open( room, west ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  send_to_char( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, west );
+  send_to_room( "A panel of rock to the east swings open.", find_room( 48531 ) );
+  }
+~
+E
+already~
+The sandstone slab has already been moved aside, revealing a hole in the
+west wall.
+~
+E
+move~
+You pull aside the slab of sandstone, revealing an opening to the west.
+~
+E
+rmove~
+$n pulls aside a heavy slab of sandstone, revealing a large opening in
+the west wall.
+~
+!
+0 0 0
+-1
+S
+
+#49001
+Narrow Path~
+This narrow sandstone tunnel heads south and west.  Sharp limestone jut
+from the walls; dust and pebbles litter the sandy floor.  In many places,
+chisel marks and scratches mark the wall.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 49002 10 10 5
+D3
+~
+~
+0 -1 49000 10 10 5
+E
+marks chisel scratches~
+In several places, the stone looks to have been chiselled away to broaden
+the path.
+~
+-1
+S
+
+#49002
+Bend in Narrow Path~
+So narrow that anyone passing through here must move single-file, and
+turned sideways at that, this caverns turns north and east. 
+Bleached-white bones lie half-buried in the sand.  The shriek of a
+buzzard echoes far overhead, answered by more shrieks.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 49001 10 10 5
+D1
+~
+~
+0 -1 49003 10 10 5
+A
+listen~
+~
+send_to_char( #birds, ch );
+~
+E
+birds~
+You hear the high-pitched cry of a hungry buzzard.  At first there seems
+to be only one of the birds, then you hear multiple shrieks from all
+directions.
+~
+!
+0 0 0
+-1
+S
+
+#49003
+Narrow Path~
+The stone here is smooth, though chisel marks show in places.  Several
+crude pictograms have been chipped into the wall just four feet above the
+floor.  Dozens of footprints mark the sand, some heading east, but most
+heading west.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 49004 10 10 5
+D3
+~
+~
+0 -1 49002 10 10 5
+E
+pictograms pictures carvings~
+These pictograms don't seem to represent much - just vaguely humanoid
+stick figures and other, unrecoginizeble shapes.  The carvings are done
+crudely in an almost childish hand.
+~
+E
+footprints~
+These footprints are slightly larger than a goblin's.  They head both
+east and west.
+~
+-1
+S
+
+#49004
+Narrow Path~
+Crude pictures, done in an almost childish hand, have been chipped into
+the sandstone.  Parts of the walls have broken away, however, leaving
+gaping holes in many of the pictures.  This entire canyon seems unstable,
+rocks bouncing down the walls, knocking loose pebbles and powdery tufts
+of sand.  The corridor heads straight to the west and toward and bend to
+the east.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 49005 10 10 5
+D3
+~
+~
+0 -1 49003 10 10 5
+E
+pictures carvings~
+These pictures seem to represent people of some sort, though they might
+also represent mountains or cattle or raindrops...
+~
+-1
+S
+
+#49005
+Narrow Path~
+The walls here are smooth, almost polished.  Large, yet crude, markings
+have been carved into places on the wall.  They are totally
+undecipherable.  Footprints stand out clearly on the sandy floor.  Most
+of the footprints head northward.  This narrow corridor heads north and
+west.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 49006 10 10 5
+D3
+~
+~
+0 -1 49004 10 10 5
+E
+markings~
+These markings seem to be runic letters of some sort, but what they
+language they represent is unknown.
+~
+-1
+S
+
+#49006
+Sandstone Facade~
+This chamber, hewn from the surrounding sandstone, is roughly square.  It
+reaches far above, opening up into the Narak Desert.  To the south is a
+rough, narrow canyon that leads back into the stone.  But to the north is
+an ornate sandstone facade.  A massive stone door stands in the facade,
+flanked by spiraling sandstone pillars.
+~
+~
+301465600 10 9 0
+D0
+massive stone door~
+~
+391 1381 49007 10 10 5
+D2
+~
+~
+0 -1 49005 10 10 5
+E
+facade pillars door~
+This building facade has been hewn from the very rock.  Its pillars and
+doorway all seem to be carved from the same piece of rock.  The door is
+heavy and fitted with a massive keyhole.
+~
+E
+keyhole~
+You look in the keyhole, but cannot see anything.
+~
+A
+open unlock~
+n north door stone~
+if( !mob_in_room( 1194, room ) )
+  continue;
+else {
+  send_to_char( #stat, ch );
+  act_notchar( #rstat, ch );
+  mob = mob_in_room( 1194, room );
+  attack( mob, ch, 1d8, "stone scimitar" );
+  }
+~
+E
+stat~
+The headless statue suddenly comes alive, raising its sword!
+~
+E
+rstat~
+As $n tries the stone door to the north, the headless stone statue comes
+alive, raising its sword!
+~
+!
+0 0 0
+1194 9 1509949540 3 0
+1194 9 1509949540 3 0
+1381 17 1509949540 -1 0
+-1
+S
+
+#49007
+Dim Foyer - At the Large Sign~
+In the center of this dim foyer is a stairwell, which spirals downward to
+a well-lit hallway.  The walls are sandstone, scratched and aged. 
+Several old, iron sconces, flecked with rust, hang on the east and west
+walls.  To the south is a massive stone door.  On the north wall is an
+enormous sign.
+~
+~
+301465613 0 5 0
+D2
+~
+~
+391 1381 49006 10 10 5
+D5
+~
+~
+0 -1 49008 10 10 5
+E
+sign~
+Mangar's Violence Academy
+         Home of Mangar's Rampant Destruction Team
+            All trespassers will be...DESTRUCTED.
+~
+-1
+S
+
+#49008
+Long, Decorated Hall~
+This room is covered with decoration - from long, opulent tapestries to
+several small paintings of ugly, goblin-like faces.  Old, dented shields,
+crossed with nicked and battered swords, hang on the walls.  Low glass
+cases filled with ornaments and trophies of all sort line both walls. 
+The hallway heads north into a larger room.  A spiral staircase leads
+up.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49009 10 10 5
+D4
+~
+~
+0 -1 49007 10 10 5
+E
+tapestries~
+These tapestries, at one time, would have been beautiful depictions of
+epic battle scenes.  However, someone has painted black mustaches on
+nearly every face in the tapestries, even the women.
+~
+E
+paintings~
+These paintings show the faces of ugly, green-skinned little creatures
+with yellow tusks.  The paintings are labeled with names that look
+utterly unpronouncable.
+~
+E
+swords shields weapons~
+Old, battered shields and battle-worn swords are mounted firmly on the
+stone walls, held in place by heavy iron bands.
+~
+E
+cases~
+The glass cases are filled with various trophies.
+~
+E
+trophies~
+Some of the trophies in the case are:
+    1st-Place - Intramural Swordfighting
+    1st-Place - Rape and Pillage
+    Runner up - The Great Castle Seige of 984
+~
+A
+get take~
+weapons shields swords~
+send_to_char( #no, ch );
+~
+E
+no~
+The shields and weapons are too firmly mounted on the walls to be taken.
+~
+!
+0 0 0
+1191 9 1509949540 3 0
+1191 9 1509949540 3 0
+-1
+S
+
+#49009
+Reception Area~
+This is the Rampant Destruction Team's reception area.  On the west wall
+is a massive wooden desk, stacked with leaning piles of paperwork.  Large
+wooden cabinets, also stacked with paperwork, entirely cover the east
+wall.  Paintings of various ugly little green faces line the west wall. 
+To the north is a broad arch leading into another room; to the south is a
+hallway.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49010 10 10 5
+D1
+cabinet~
+~
+171 -1 49013 10 10 5
+D2
+~
+~
+0 -1 49008 10 10 5
+E
+desk~
+The desk is covered with piles of paperwork.
+~
+E
+paintings~
+These paintings show the grim, stolid faces of many ugly green creatures.
+~
+E
+cabinets~
+Heavy wooden cabinets, stacked with papers, line the east wall.  One of
+them seems to be pulled away a little.
+~
+A
+move pull~
+cabinet~
+if( is_open( room, east ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  send_to_char( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, east );
+  }
+~
+E
+already~
+The cabinet has already been pulled away, revealing a narrow hallway to
+the east.
+~
+E
+move~
+You pull the heavy cabinet away from the wall, revealing a narrow hallway
+heading east.
+~
+E
+rmove~
+$n pulls a cabinet away from the wall, revealing a narrow hallway heading
+east.
+~
+!
+0 0 0
+1192 137 1509949540 3 0
+-1
+S
+
+#49010
+Cloak Room~
+Dozens of wooden pegs protrude from the walls of this small antechamber. 
+Lining the walls at the floor are long wooden racks, ostensibly intended
+to hold boots.  On the north and east walls are heavy wooden doors; on
+the south wall is a broad arch.
+~
+~
+301465605 0 5 0
+D0
+heavy wooden door~
+~
+131 -1 49016 10 10 5
+D1
+heavy wooden door~
+~
+131 -1 49011 10 10 5
+D2
+~
+~
+0 -1 49009 10 10 5
+E
+pegs~
+These cloak-pegs are set into the wall four feet above the floor.  Many
+of them are broken.
+~
+E
+racks~
+These boot-racks are old, cracked in most places, and covered with sand
+and mud.
+~
+-1
+S
+
+#49011
+Conditioning Room~
+Strange stone-and-metal implements lie scattered around this large room. 
+Many of them are long metal poles fitted at both ends with stone discs of
+varying sizes.  Several benches lie around, some attached to complex
+systems of weights and pulleys.  On the west wall is a large wooden door. 
+On the east wall is a smaller door, with little wips of steam rolling
+from underneath.
+~
+~
+301465605 0 5 0
+D1
+small door~
+~
+131 -1 49012 10 10 5
+D3
+heavy wooden door~
+~
+131 -1 49010 10 10 5
+E
+poles implements~
+These poles are about three feet long and are fitted at both ends with
+stone weights.
+~
+E
+benches weights pulleys~
+These benches are set up with a counter-weighted pulley system.  A metal
+wire, attached at one end with a wooden handle, runs over the pulley and
+down to a block of weights.
+~
+E
+steam~
+Little wips of steam roll from underneath the door to the east.
+~
+A
+lift use~
+weights machines~
+if( cflag( 39, ch ) ) {
+send_to_char( #already, ch );
+end;
+}
+if( find_stat( ch, str ) > random( 15, 21 ) ) {
+  send_to_char( #lift, ch );
+  act_notchar( #rlift, ch );
+  if( mob_in_room( 1195, room ) ) {
+    send_to_char( #give, ch );
+    act_notchar( #rgive, ch );
+    obj_to_char( oload( 1389 ), ch );
+    }
+  }
+else {
+  send_to_char( #no, ch );
+  act_notchar( #rno, ch );
+  }
+set_cflag( 39, ch );
+~
+E
+lift~
+You lift the weights.  You pump up on the the machines.  You step away
+feeling your muscles.  Gods, you feel sore!
+~
+E
+rlift~
+$n lifts the weights, pumps up on the machines, and steps away flexing $s
+bulging muscles.
+~
+E
+give~
+The mangit weight trainer lifts an eye at you, nodding with approval.  He
+pounds your shoulders.  "Good work!  You've earned one of these!" He
+hands you a broad leather belt.
+~
+E
+rgive~
+The mangit weight trainer lifts an eye at $n, nodding with approval.  He
+pounds on $n's shoulders.  "Good work!  You've earned one of these!" He
+hands $n a broad leather belt.
+~
+E
+no~
+You struggle, heave, and grunt, but can't lift the heavy stone weights.
+~
+E
+rno~
+$n struggles, heaves and grunts, but can't lift the heavy stone weights.
+~
+E
+already~
+You can gain nothing further by lifting the weights again.
+~
+!
+0 0 0
+1195 169 1509949540 3 0
+1196 201 1509949540 3 0
+1196 201 1509949540 3 0
+-1
+S
+
+#49012
+Steam-Filled Room~
+Steam fills this stone room.  Red-hot coals smolder in a massive stone
+pit in the floor.  Next to the pit are a bucket of water and ladle. 
+Wooden benches line the walls.  Barely visible through the cloud of
+steam, doors stand out on the north and west walls.
+~
+~
+301465605 0 5 0
+D0
+wooden door~
+~
+131 -1 49021 10 10 5
+D3
+small door~
+~
+131 -1 49011 10 10 5
+E
+pit coals~
+This pit is deep and wide, filled with smoldering, red-hot coals.
+~
+E
+bucket ladle~
+A bucket and ladle have been attached to the side of the stone pit.
+~
+A
+~
+~
+if( mob_in_room( 1197, room ) ) {
+  wait( 1 );
+  act_tochar( #ladel, ch );
+  }
+~
+E
+ladel~
+@CA snivelling little mangit ladels water into a pit of coals in the
+center of the room, producing clouds of steam.@n
+~
+!
+1 0 9
+1197 9 1509949540 3 0
+1196 9 1509949540 2 0
+1196 9 1509949540 2 0
+-1
+S
+
+#49013
+Short Hallway~
+This short, simple hallway leads east and west, and seems to have not
+been used for a long time.  Dust coats the floor and hangs in thick
+cobwebs that consume the ceiling and walls.  To the east is a plain
+wooden door.  To the west is hole in the wall, covered by what looks to
+be the back of a wooden cabinet.
+~
+~
+301465605 0 5 0
+D1
+plain wooden door~
+~
+131 -1 49014 10 10 5
+D3
+cabinet~
+~
+171 -1 49009 10 10 5
+E
+hole west cabinet~
+To the west is a hole in the wall, which seems to lead west, except is
+blocked by the back of a wooden cabinet.
+~
+A
+move push pull~
+back cabinet~
+if( is_open( room, west ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  send_to_char( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, west );
+  }
+~
+E
+already~
+The cabinet has already been pushed aside, opening the hole to the west.
+~
+E
+move~
+You push aside the cabinet, clearing an opening to the west.
+~
+E
+rmove~
+$n pushes aside the cabinet, clearing an opening to the west.
+~
+!
+0 0 0
+-1
+S
+
+#49014
+Small, Dusty Room~
+The dust is so thick in this room it causes tears.  The room is roughly
+cubical, and is completely empty.  On the west wall is a simple door,
+while on the south wall is a rather large door, fixed with a sign.
+~
+~
+301465605 0 5 0
+D2
+large wooden door~
+~
+131 -1 49015 10 10 5
+D3
+plain wooden door~
+~
+131 -1 49013 10 10 5
+E
+door~
+The door is heavy, but looks unlocked.  It is fixed witha sign.
+~
+E
+sign~
+Storage Room - Keep Out
+~
+-1
+S
+
+#49015
+Storage Room~
+Roughly 15x15, this small room is filled with old, warped wooden shelves. 
+The walls are entirely covered with mindless, unintelligible scribbling. 
+The floor, however, is exceptionally clean, giving the faintest scent of
+pine.  On the north wall is a large door.
+~
+~
+301465605 0 5 0
+D0
+large wooden door~
+~
+131 -1 49014 10 10 5
+E
+shelves~
+These shelves are old and warped beyond any usefulness.  They area also
+utterly bare.
+~
+E
+scribblings scribbles~
+These scribbles are written in a shaky, uncertain hand, and don't seem to
+represent much of anything.
+~
+A
+smell~
+~
+send_to_char( #pine, ch );
+~
+E
+pine~
+The scent of pine fills your nostrils.  You look at the beautifully
+polished floor and think, "I can see my face in it!" 
+~
+!
+0 0 0
+1193 137 1509949540 3 0
+-1
+S
+
+#49016
+South in a Long Hallway~
+This long, broad hallway heads north and south.  The walls are hung with
+old shields and battle-worn swords.  There are also several long, thin
+strips of cloth emblazoned with various slogans.  The floor is smooth and
+well-crafted of interlocking granite bricks.  On the south wall is a
+large, heavy door.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49017 10 10 5
+D2
+heavy wooden door~
+~
+131 -1 49010 10 10 5
+E
+shields swords~
+The walls are decorated with the aged implements of war, rusty, battered
+and useless.
+~
+E
+strips cloth~
+These decorative cloth strips hang along the walls, sporting various
+slogans.
+~
+E
+slogans~
+"Seek the path.  Kill everyone who is already on it, then claim it for
+your own." 
+  
+"Peace is the worst insult you can ever receive."
+ 
+"Guard well the children.  Little nippers are tougher than they look."
+  
+"Spare the women...until the men, children and cattle have been taken
+care of." 
+~
+A
+get take~
+weapons swords shields~
+send_to_char( #no, ch );
+~
+E
+no~
+The old shields and weapons are mounted firmly to the wall, and are
+impossible to take.
+~
+!
+0 0 0
+1198 9 1509949540 3 0
+1198 9 1509949540 3 0
+-1
+S
+
+#49017
+North In a Long Hall~
+Opulent paintings and ornate tapestries hang on the walls alongside
+various implements of war.  This hallway is long and broad, heading
+southward.  Large torches glow in sconces mounted in the stone walls.  To
+the north is a massive arch, and to the east is a heavy-looking oak door.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49023 10 10 5
+D1
+heavy oak door~
+~
+131 -1 49018 10 10 5
+D2
+~
+~
+0 -1 49016 10 10 5
+E
+paintings tapestries~
+The artwork here has been vandalized by crude pictures and various
+offensive words.
+~
+E
+weapons~
+Weapons, eaten with rust and age, are solidly mounted with bands of iron
+on the stone walls.
+~
+E
+torches~
+These torches are large and are burning brightly, so they must have been
+replaced recently.
+~
+A
+get take~
+implements shields weapons~
+send_to_char( #no, ch );
+~
+E
+no~
+The implements of war - shields and weapons - are too old to be of use,
+and are too firmly mounted to the wall in any case.
+~
+!
+0 0 0
+1191 9 1509949540 3 0
+-1
+S
+
+#49018
+Training Room~
+This room reeks of blood and wet dog hair.  The floor is cluttered with
+straw, gnawed bones, thick pieces of leather, and mangled man-sized cloth
+dolls.  On the east and west walls are heavy oak doors.  On the south
+wall is a very large door, fitted with a sign and a huge iron lock.
+~
+~
+301465605 0 5 0
+D1
+heavy oak door~
+~
+391 1483 49020 6 10 5
+D2
+massive door~
+~
+407 1506 49019 10 10 5
+D3
+heavy oak door~
+~
+131 -1 49017 10 10 5
+E
+dolls~
+These dolls are made of cloth.  Their stuffing - thin canvas strips - is
+tossed about the room.  The dolls have been mangled almost beyong
+recognition.
+~
+E
+sign~
+Unless You Want To Die A Very Horrible, Bloody Death - Keep Out.
+~
+1200 169 1509949540 3 0
+1220 201 1509949540 3 0
+1220 201 1509949540 3 0
+-1
+S
+
+#49019
+Mouth of a Gaping Pit~
+All around the walls are large signs with big, bold writing.  The walls
+are gouged with long, deep slashes and scorch marks.  On the floor is a
+dark, gaping pit.  A rancid stench drifts upward from the pit - a
+eye-stinging amaglam of blood, sweat and urine.  A heavy door leads
+northward.
+~
+~
+301465605 0 5 0
+D0
+massive door~
+~
+407 1506 49018 10 10 5
+D5
+~
+~
+0 -1 49061 10 10 5
+E
+signs~
+They read:
+    - Keep out.
+    - Go away.
+    - We mean it.
+    - This is some mean stuff.
+~
+E
+slashes gouges scorch marks~
+The walls are deeply scarred with long scratches that have torn away
+entire chunks of stone.  In some places the stone is scorched.
+~
+E
+pit~
+The pit looks hastily constructed - hacked out of the sandy floor without
+much regard to its appearance.  The walls seem rough enough that the pit
+could be climbed without much trouble.
+~
+-1
+S
+
+#49020
+Kennel~
+Large wooden boxes with steel-barred doors are stacked from floor to
+ceiling.  The room stinks of dogs, the floor is littered with straw and
+bits of food.  On the south wall is a large, commanding sign.  On the
+west wall is an oak door.
+~
+~
+301465605 0 5 0
+D3
+heavy oak door~
+~
+391 1483 49018 10 10 5
+E
+boxes~
+These boxes seem built to hold rather fierce animals.  They are
+constructed of heavy oak, banded with metal, and their doors are made of
+heavy iron bars.
+~
+E
+sign~
+Whatever you do...DON'T TAUNT THE DOGS!
+~
+A
+taunt~
+dogs animals~
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 1201, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #dog, ch );
+    act_notchar( #rdog, ch );
+    mob_in_room( mload( 1201, room ), room );
+    mob = mob_in_room( 1201, room );
+    victim = ch;
+    attack( mob, ch, 3d5, "savage bite" );
+    }
+  else 
+    continue;
+  }
+else {
+  send_to_char( #taunt, ch );
+  act_notchar( #rtaunt, ch );
+  }
+~
+E
+dog~
+You ruthlessly taunt the trapped dogs.  One of them, the size of a small
+horse, bangs and thrashes around the inside of his cage until the door
+flings open.
+~
+E
+rdog~
+$n ruthlessly taunts the trapped dogs.  One of them, the size of a small
+horse, bangs and thrashes around the inside of his cage until the door
+flings open.
+~
+E
+taunt~
+You ruthlessly taunt the dogs.  They rattle around the insides of their
+cages and bark wildly.
+~
+E
+rtaunt~
+$n rutheless taunts the dogs.  They rattle around the insides of their
+cages and bark wildly.
+~
+!
+0 0 0
+-1
+S
+
+#49021
+Bath Room~
+Pegs line the walls here, and set into the floor is a long, rectangular
+basin filled with water.  Steam rises in soft tendrils from the water's
+surface.  This entire room is warm.  On the south wall is a stout wooden
+door.
+~
+~
+301465605 0 5 0
+D2
+wooden door~
+~
+131 -1 49012 10 10 5
+E
+basin~
+Steam rolls upward from the surface of the water that fills this long,
+deep basin.  The water looks a little unclean; a thin layer of scum
+gathers at the basin's edges.
+~
+1196 9 1509949540 2 0
+-1
+S
+
+#49022
+A Cavernous Hall~
+Arches and pillars run along on both the east and west sides, giving this
+room the vague impression of being a hallway.  Broad and carved of
+sandstone, the hall heads north.  Arches to the east and west lead to
+similar halls.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49026 10 10 5
+D1
+~
+~
+0 -1 49024 10 10 5
+D3
+~
+~
+0 -1 49023 10 10 5
+-1
+S
+
+#49023
+A Cavernous Hall~
+This enormous hall heads to the north and south.  The construction is
+open and breezy - having no walls to the east, but large sandstone
+pillars and broad arches.  The system of arches and pillars continues to
+the east, giving the impression that this is one titanic room.  To the
+south is another arch, leading into a long hallway.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49028 10 10 5
+D1
+~
+~
+0 -1 49022 10 10 5
+D2
+~
+~
+0 -1 49017 10 10 5
+1203 9 1509949540 3 0
+-1
+S
+
+#49024
+A Cavernous Hall~
+This is the southeast corner of a network of three parallel hallways,
+separated only by broad arches.  The hall is well-lighted by massive
+stone chandeliers that hang high above.  Several large pictures adorn the
+east wall - pictures of ugly little creatures with gray-green faces and
+tusked mouths.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49027 10 10 5
+D3
+~
+~
+0 -1 49022 10 10 5
+1203 9 1509949540 3 0
+1203 9 1509949540 3 0
+-1
+S
+
+#49025
+Narrow Path~
+Under Construction.
+~
+~
+301465605 0 5 0
+-1
+S
+
+#49026
+A Cavernous Hall~
+This is the northermost part of a long, cavernous hallway.  To the east
+and west are arches leading into other halls, and to the north a broad,
+open door leads to a well-lit dining room.  On the north wall above the
+door is a small shield crossed by two enormous wooden spoons.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 49029 10 10 5
+D1
+~
+~
+0 -1 49027 10 10 5
+D2
+~
+~
+0 -1 49022 10 10 5
+D3
+~
+~
+0 -1 49028 10 10 5
+E
+spoons shield~
+To large wooden spoons have been laid across a round wooden shield then
+mounted on the wall above the door to the north.
+~
+A
+get take~
+shield spoons~
+send_to_char( #no, ch );
+~
+E
+no~
+The shield and spoons are too firmly mounted to the wall to be taken.
+~
+!
+0 0 0
+1203 9 1509949540 3 0
+-1
+S
+
+#49027
+A Cavernous Hall~
+This is the northeast corner of a extensive network of pillars and arches. 
+Although the network is constructed in the form of three parallel
+hallways running north and south, its open, arched walls give the
+impression of this being a single, enormous room.  This part of the hall
+leads southward, and to the west stands an arch leading into another hall.
+~
+~
+301465605 0 5 0
+D2
+~
+~
+0 -1 49024 10 10 5
+D3
+~
+~
+0 -1 49026 10 10 5
+-1
+S
+
+#49028
+A Cavernous Hall~
+This system of halls and arches heads south and east.  The walls are
+carved of heavy sandstone and hung with a variety of banners, pictures
+and weapons.  To the north is a simple wooden door.  To the west is a
+large door, marked with a rectangular sign.
+~
+~
+301465605 0 5 0
+D0
+simple wooden door~
+~
+131 -1 49031 10 10 5
+D1
+~
+~
+0 -1 49026 10 10 5
+D2
+~
+~
+0 -1 49023 10 10 5
+D3
+large door~
+~
+391 1526 49035 7 10 5
+E
+banners pictures weapons~
+All the decorations here look as if they were, at one time, very fancy,
+but have been vandalized and battered.
+~
+E
+sign~
+To the Hall of Learning
+~
+1206 9 1509949540 3 0
+1206 9 1509949540 3 0
+1526 17 1509949540 -1 0
+-1
+S
+
+#49029
+West in Mangar's Dining Room~
+A long wooden table heads east and west through this dining room. 
+Several simple chairs surround them table, some of them overturned and
+all of them splattered with food.  The table is bare, showing many knife
+marks, crude graffitti, and gravy stains.  To the west and south are open
+doorways.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 49030 10 10 5
+D2
+~
+~
+0 -1 49026 10 10 5
+D3
+~
+~
+0 -1 49031 10 10 5
+E
+marks graffitti~
+"Snubg wuz hear"
+~
+-1
+S
+
+#49030
+East in Mangar's Dining Room~
+A low, dirty table, marked with scratches and stains, heads east and west
+through this long dining room.  Dozens of small chairs, most of them
+broken and gravy-stained, surround the table.  At the eastern end of the
+table is a high-backed chair, larger than the others.  That chair is in
+perfect condition - its satin seat and back shimmering.
+~
+~
+301465605 0 5 0
+D3
+~
+~
+0 -1 49029 10 10 5
+E
+chair~
+This chair is in perfect condition and sits ponderously at the end of the
+table.  Given its pristine condition and opulent construction, it looks
+out of place.
+~
+-1
+S
+
+#49031
+Mangar's Kitchen~
+Piles of food, overturned cauldrons, dirty utensils, and rotting animal
+carcasses litter the floor and tables of this large, messy kitchen.  In
+two massive fireplaces hang enormous iron kettles, their undersides
+blackened with flame.  An acrid, sour stench rises from the kettles.  To
+the north is wooden door, its metal hinges oddly touched with frost.  To
+the east is an open doorway leading to a dining room.
+~
+~
+301465605 0 5 0
+D0
+cold wooden door~
+~
+131 -1 49032 10 10 5
+D1
+~
+~
+0 -1 49029 10 10 5
+D2
+simple wooden door~
+~
+131 -1 49028 10 10 5
+E
+kettles~
+A slimy pale-green stew simmers in the large, blackened kettles.  The
+stench would gag a camel.
+~
+E
+hinges~
+The metal hinges of the door on the north wall are touched with a light
+layer of frost, as is the area under the door.
+~
+E
+cauldrons utensils carcasses~
+The kitchen is littered with a variety of battered cooking implements, as
+well as stinking carcasses ready to be dressed for dinner.
+~
+1204 9 1509949540 3 0
+-1
+S
+
+#49032
+The Cold-Storage Room~
+This room is incredibly cold, stacked with huge blocks of ice.  Carcasses
+of every imaginable animal hang from the ceiling on iron meathooks.  The
+icy floor is splotchy with deep red stains where the blood of the
+slaughtered animals drips slowly to congeal in a puddle of frost on the
+floor.  The room heads east, where there are more carcasses.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 49033 10 10 5
+D2
+cold wooden door~
+~
+131 -1 49031 10 10 5
+E
+ice blocks~
+The cold in this room comes from dozens of enormous blocks of ice,
+stacked from floor to ceiling.
+~
+E
+carcasses animals~
+Animals of all sorts - from rabbits to vultures, hang gutted on bloody
+iron meathooks.
+~
+-1
+S
+
+#49033
+The Cold-Storage Room~
+The animals that hang here must be freshly slaughtered, steam still
+rising from the gaping wounds in their flesh.  Frost covers the walls and
+floor, mingled with a thin pool of water as the enormous blocks of ice
+that fill this room slowly melt.  In the center of the room is a low
+preparation table, covered with blood and stacked with bloody innards.
+~
+~
+301465605 0 5 0
+D3
+~
+~
+0 -1 49032 10 10 5
+E
+table~
+This table is piled with carnage.  Organs and innards, steaming in the
+cold air, lie in pools of blood.
+~
+1205 9 1509949540 3 0
+-1
+S
+
+#49035
+Stairwell~
+A flight of massive stone stairs winds upwards.  Torches lines the walls,
+rising in a spiral with the staircase.  This room is simple and
+undecorated, the floor is of the plainest stone and is somewhat dirty. 
+To the east is a large door.
+~
+~
+301465605 0 5 0
+D1
+large door~
+~
+391 -1 49028 10 10 5
+D4
+~
+~
+0 -1 49036 10 10 5
+-1
+S
+
+#49036
+Stairwell~
+This simple, cylidrical room is dominated by a spiraling stairwell, which
+leads downward.  The walls are rough and unadorned, the ceiling low.  On
+the east wall is a massive iron door, marked with a bronze placard.
+~
+~
+301465605 0 5 0
+D1
+massive iron door~
+~
+131 -1 49037 10 10 5
+D5
+~
+~
+0 -1 49035 10 10 5
+E
+placard~
+The Hall of Learning - Students and Instructors Only!
+~
+1206 137 1509949540 3 0
+-1
+S
+
+#49037
+The Hall of Learning~
+A heavy red carpet covers the floor of this long hallway.  Swords,
+sconces and scorch marks dot the walls from floor to ceiling.  To the
+west is a heavy iron door; and to the north and south are heavy wooden
+doors, both fitted with signs.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49038 10 10 5
+D1
+~
+~
+0 -1 49040 10 10 5
+D2
+heavy door~
+~
+131 -1 49039 10 10 5
+D3
+massive iron door~
+~
+131 -1 49036 10 10 5
+E
+north south signs~
+The sign on the north door reads: Initimidating Looks
+The sign on the south door reads: Terrifying Battle-Cries
+~
+E
+swords~
+These swords are decorative rather than useful - their blades bent,
+chipped and rusted.
+~
+E
+sconces~
+Several torches burn in sconces all through this hallway.
+~
+E
+scorch marks~
+The walls are burned in several places, though the scorch marks have been
+mostly wiped away.
+~
+-1
+S
+
+#49038
+Intimidating Looks Room~
+Simple in construction, this room has stone walls and a stone floor,
+mostly covered with a firm cloth mat.  The room is otherwise empty and
+undecorated, except for a large sign on the north wall.  A wooden door
+leads south.
+~
+~
+301465605 0 5 0
+D2
+heavy door~
+~
+131 -1 49037 10 10 5
+E
+sign~
+This sign shows a face in a variety of intimidating looks.
+~
+1207 41 1509949540 3 0
+1203 73 1509949540 3 0
+1203 73 1509949540 3 0
+-1
+S
+
+#49039
+Terrifying Battlecry Room~
+The walls of this room are covered with thick mats, as if someone had
+tried to make the room soundproof.  The floor covered with a similar mat,
+as is the back of the door to the north.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49037 10 10 5
+E
+mats~
+These heavy mats are made of several layers of heavy canvas and seem to
+be soundproofing.
+~
+1208 169 1509949540 3 0
+1203 73 1509949540 3 0
+1203 73 1509949540 3 0
+-1
+S
+
+#49040
+The Hall of Learning~
+This wide, red-carpeted hall heads east and west.  All along the north
+and south walls are wooden doors fitted with brass plates.  This hall
+has a heavy, dignified air and seems dim despite the many torches that
+burn in iron sconces on the wall.  To hall stretches far to the east, but
+a short way to the west is an iron door.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49041 10 10 5
+D1
+~
+~
+0 -1 49043 10 10 5
+D2
+heavy door~
+~
+131 -1 49042 10 10 5
+D3
+~
+~
+0 -1 49037 10 10 5
+E
+signs plates doors north south~
+The sign on the north door reads: Brutality
+The sign on the south door reads: Desensitizing
+~
+-1
+S
+
+#49041
+Brutality Room~
+Dried blood splatters the rough stone walls, floor, furniture, and the
+large sign, which shows diagrams of the average humanoid's vital areas. 
+Several small wooden chairs are centered around a large table, atop of
+which is a man-sized cloth dummy, marked with Xs at its pressure points. 
+Similar cloth dolls are stood upright between wooden poles around the
+room.  To the south is a wooden door.
+~
+~
+301465605 0 5 0
+D2
+heavy door~
+~
+131 -1 49040 10 10 5
+E
+dolls~
+Stuffing hangs from wicked from the wicked tears that cover nearly every
+portion of these cloth dolls.  Someone has been extradordinarily rough
+with these dolls, having beaten them into lumpy, amorphous masses of
+cloth.
+~
+1209 1065 1509949540 3 0
+1203 73 1509949540 3 0
+1203 73 1509949540 3 0
+-1
+S
+
+#49042
+Densitizing Room~
+Straw, blood and discarded animal corpses litter the floor.  The room
+reeks of blood and decay.  Several blood-splattered small wooden chairs
+are here, turned toward a large wooden table stacked with the mangled
+bodies of furry animals.  On the south wall is a large sign.  On
+the north wall is a wooden door.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49040 10 10 5
+E
+corpses~
+Mangled beyond identification, the corpses of several small, furry
+creatures litter the the massive table at the head of this room.
+~
+E
+sign~
+The sign reads:
+"If it's moving, you ain't done."
+~
+A
+~
+~
+if( !mob_in_room( 1209, room ) )
+end;
+else
+act_tochar( #pound, ch );
+~
+E
+pound~
+@GA leather-clad professor stands here, pounding the limp body of a
+kitten against the side of a table.  He looks at his students.  "Ya gotta
+be mean!  Ya gotta be mean!"@n 
+~
+!
+1 0 1
+1209 169 1509949540 3 0
+1203 73 1509949540 3 0
+1203 73 1509949540 3 0
+-1
+S
+
+#49043
+The Hall of Learning~
+The long, carpeted hall extends to the east and west.  On both the north
+and south walls stand heavy oaken doors, emblazoned with bronze placards. 
+The walls seem particularly damaged here, scratched and chipped and
+burned in places.  On the north wall is a painting of an ugly little
+creature with an eyepatch.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49045 10 10 5
+D1
+~
+~
+0 -1 49044 10 10 5
+D2
+heavy door~
+~
+131 -1 49046 10 10 5
+D3
+~
+~
+0 -1 49040 10 10 5
+E
+signs placards north south door~
+The sign on the north door reads: Kung-Fu
+The sign on the south door reads: Blunt Objects
+~
+E
+walls scratches chips burns~
+This hall has seen some violence, its walls chipped, scratched and
+scorched.
+~
+E
+painting creature~
+The painting shows a small, ugly creature with an eyepatch.  Scars line
+his face like a miniature mountain range.  Thick, yellow tusks protrude
+from the corners of his mouth.  The painting is labeled with a brass
+plate, reading "Our Beloved Founder".
+~
+-1
+S
+
+#49044
+The Hall of Learning~
+This part of the hall is ornate and opulently decorated.  Long silk
+streamers, embroidered with elegant, twisting runes, hang on the walls. 
+Torches burn in intricately wrapped brass sconces.  The hallway continues
+to the east and west.  To the north is heavy oaken door, inlaid with
+brass.  The door to the south is surrounded by an inordinate amount of
+scorch marks.
+~
+~
+301465605 0 5 0
+D0
+ornate door~
+~
+131 -1 49047 10 10 5
+D1
+~
+~
+0 -1 49049 10 10 5
+D2
+scorched door~
+~
+131 -1 49048 10 10 5
+D3
+~
+~
+0 -1 49043 10 10 5
+E
+north south signs placards doors~
+The sign on the north door reads: Sword Training
+The sign on the south door reads: Alchemy
+~
+E
+streamers~
+Elegant silk streamers hang from the walls.  The streamers might have
+been nice at one time, but their edges are now frayed and burned.
+~
+E
+runes~
+The runes seem to be little more than embroidered scribbling.
+~
+E
+torches sconces~
+Brass sconces, hung high on the walls, hold heavy torches that shed soft,
+dusky light on this hall.
+~
+-1
+S
+
+#49045
+Martial Arts Room~
+This room is quite orderly, the many bamboo racks and wooden practice
+dummies nicely kept and set against the wall.  The floor is covered with
+a cloth mat.  Though it seems as if someone has made the attempt to clean
+up the blood that stains this mat, several dark patches remain.  To the
+south is a wooden door.
+~
+~
+301465605 0 5 0
+D2
+heavy door~
+~
+131 -1 49043 10 10 5
+E
+racks dummies bamboo~
+These training tools, though obviously well-used, are kept neatly against
+the walls in orderly rows.  They do seem old, however, and battered
+almost beyond usefulness.
+~
+E
+stains patches~
+Yup.  Looks like blood.
+~
+1210 41 1509949540 3 0
+1203 73 1509949540 3 0
+1203 73 1509949540 3 0
+-1
+S
+
+#49046
+Blunt Objects Training~
+Blunt weapons of all sorts - clubs, staves, hammers, spoons - have been
+mounted, sealed with bronze and fitted on the stone walls.  A fair amount
+of carnarge in the form of blood and teeth litter the floor, the teeth
+crunching underfoot.  On the south wall, a large banner reads, "Get your
+point across - be blunt." 
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49043 10 10 5
+E
+clubs staves hammers spoons weapons~
+These weapons have been bronzed and mounted on the walls, sealed with
+bands of iron.
+~
+E
+blood teeth~
+The floor shimmers with a fresh coat of blood.  Teeth and tufts of hair
+have been trampled into the layer of blood.
+~
+1211 41 1509949540 3 0
+1203 73 1509949540 3 0
+1203 73 1509949540 3 0
+-1
+S
+
+#49047
+Sword Training Room~
+Wooden sword-stands line the floor.  The walls are pasted with charts
+displaying fencing stances and various types of swords.  The matted floor
+is speckled with blood, as are parts of the walls.  To the south is an
+ornate wooden door.
+~
+~
+301465605 0 5 0
+D2
+ornate door~
+~
+131 -1 49044 10 10 5
+E
+sword-stands stands~
+These sword-stands are made of heavy oak and are bolted to the floor.
+~
+1212 41 1509949540 3 0
+1203 73 1509949540 3 0
+665 17 1509949540 16 0
+1203 73 1509949540 3 0
+665 17 1509949540 16 0
+-1
+S
+
+#49048
+Cluttered Laboratory~
+Low stone tables fill this small room.  Beakers, flasks, and an
+assortment of colored liquids clutter the desks.  An acidic smell fills
+the room, accompanied by a funny green smoke that hangs in the air.  To
+the north and south are heavy wooden doors.
+~
+student will have key to south room
+~
+301465605 0 5 0
+D0
+scorched door~
+~
+131 -1 49044 10 10 5
+D2
+heavy wooden door~
+~
+391 1530 49055 9 10 5
+E
+tables~
+These tables are heavy in construction - stone banded at the edged with
+thick iron.  They seem to be made to take severe damage.
+~
+E
+beakers flasks liquids~
+Burned on their bottoms, oily on their insides, these beakers and flasks
+are suffering from neglect.  The colored liquids in some of them are
+smoking and bubbling, and in some cases warping the glass in which they
+are contained.
+~
+1203 9 1509949540 3 0
+1203 9 1509949540 3 0
+1203 9 1509949540 3 0
+1530 17 1509949540 -1 0
+-1
+S
+
+#49049
+East in the Hall of Learning~
+This long hall stretches far to the west, though just a short way to the
+east the hall ends.  The walls are carved with large, goblin-like faces,
+which look in the hall with cold, slitted eyes.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 49052 10 10 5
+D3
+~
+~
+0 -1 49044 10 10 5
+E
+faces~
+These faces none-too-friendly, yet are oddly serene as they stare into
+the hall with they narrow eyes.
+~
+-1
+S
+
+#49050
+Graduate Student Barrack~
+The beds here are large, even somewhat ornate.  They are carved of wood
+and and inlaid with brass runes of varying shapes and sizes.  On the west
+wall are three wash basins - filled, polished and wiped dry around the
+edges.  To the east the barrack continues, and on the north wall is a
+massive wooden door fitted with a sign.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49058 10 10 5
+D1
+~
+~
+0 -1 49053 10 10 5
+E
+basins~
+Simple wooden basins, these hold the water with which the Mangit graduate
+students wash their slimy green faces.
+~
+E
+sign door~
+The sign reads:
+- If this ain't important, start praying -
+~
+1215 9 1509949540 3 0
+-1
+S
+
+#49051
+Student's Quarters~
+The student's quarters of Mangar's Rampant Destruction Team is a sorry
+affair of stained walls, unmade bunkbeds, and discared laundry.  Various
+books, bent and dog-eared, litter the floor.  On the west wall is a
+wash-basin, which looks as if it hasn't held water for fifty years.  The
+quarters head to the east.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 49054 10 10 5
+E
+books~
+Some of the books are:
+  - A Treatise on Applied Violence
+  - 101 Ways to Start a Fight
+  - The Dummie's Guide to Rape and Pillage
+ 
+Oddly enough, there aren't as many of these books as there are Cliff's
+Notes versions of them.
+~
+E
+wash-basin basin~
+This wash basin is old and warped and moldy and looks totally incapable
+of holding liquids.
+~
+1203 9 1509949540 3 0
+1203 9 1509949540 3 0
+-1
+S
+
+#49052
+End of the Hall of Learning~
+Two large wooden doors stand on the north and south walls.  This is the
+east end of the Hall of Learning.  The hall stretches far to the west,
+lined with torches, the floor covered with thick red carpet.  On the east
+wall is a large engraving of an enormous warhammer.
+~
+~
+301465605 0 5 0
+D0
+heavy door~
+~
+131 -1 49053 10 10 5
+D2
+heavy door~
+~
+131 -1 49054 10 10 5
+D3
+~
+~
+0 -1 49049 10 10 5
+E
+engraving warhammer hammer~
+The hammer is a large, two-handed weapon, surrounded by jagged bolts.
+~
+-1
+S
+
+#49053
+Graduate Student Barrack~
+These barracks are orderly and well-organized - the beds made, the floors
+mopped, the walls polished to a high shine.  Except for the beds,
+however, this room is empty.  It would seem as though graduate students
+don't own much.  On the south wall is a heavy door, and to the west the
+barrack continues.
+~
+~
+301465605 0 5 0
+D2
+heavy door~
+~
+131 -1 49052 10 10 5
+D3
+~
+~
+0 -1 49050 10 10 5
+1215 9 1509949540 3 0
+1215 9 1509949540 3 0
+-1
+S
+
+#49054
+Student's Quarters~
+This long room, which stretches to the west, is filled with bunked wooden
+beds.  The room smells of sweat and old laundry and is littered with
+discarded clothing, torn sheets and, in some places, yellow teeth.  To
+the north is a large wooden door, and to the south is an imposed,
+brass-banded door labeled "Knock Before Entering." 
+~
+~
+301465605 0 5 0
+D0
+large wooden door~
+~
+131 -1 49052 10 10 5
+D2
+heavy door~
+~
+391 -1 49056 10 10 5
+D3
+~
+~
+0 -1 49051 10 10 5
+A
+knock~
+door~
+if( mob_in_room( 1214, find_room( 49056 ) ) ) {
+  send_to_char( #knock, ch );
+  act_notchar( #rnock, ch );
+  unlock( room, south );
+  end;
+  }
+else {
+  send_to_char( #nope, ch );
+  act_notchar( #rno, ch );
+  }
+~
+E
+knock~
+You bang on the door to the south.  After a moment, lock clicks.
+~
+E
+rnock~
+$n bangs on the door to the south.  After a moment, the lock clicks.
+~
+E
+nope~
+You bang on the door to the south.
+~
+E
+rno~
+You bang on the door to the south.
+~
+!
+0 0 0
+1203 9 1509949540 3 0
+1203 9 1509949540 3 0
+1203 9 1509949540 3 0
+-1
+S
+
+#49055
+The Alchemist's Laboratory~
+Liquids of all kinds bubble in glass beakers on the tables and many
+shelves of this laboratory.  The walls are pock-marked and burned; in
+some places the scars are so deep they have eaten through almost to the
+next room.  To the north is a massive wooden door, reinforced with bands
+of steel and with heavy hinges.
+~
+~
+301465605 0 5 0
+D0
+reinforced door~
+~
+391 1530 49048 10 10 5
+E
+liquids~
+These liquids look bad and smell worse.
+~
+1213 9 1509949540 3 0
+-1
+S
+
+#49056
+Sergeant Slogmer's Office~
+This tidy, Spartan office holds only a simple desk, a small wooden
+cabinet, and an axe stand.  The walls and floor are clean, as is the
+surface of the desk, upon which is a rectangular wooden placard.  On the
+north wall is a heavy oaken door, banded with polished brass.
+~
+~
+301465605 0 5 0
+D0
+office door~
+~
+391 -1 49054 10 10 5
+E
+placard~
+Sgt. R.P.C. Slogmer
+~
+E
+sword-stand stand~
+This simple sword-stand is made of maple, with two upturned claws to hold
+the blade and handle of a sword.
+~
+E
+door~
+The heavy oak door is fitted with a large, sliding bolt.
+~
+A
+unlock move slide~
+bolt door n north~
+if( is_locked( room, north ) ) {
+  send_to_char( #open, ch );
+  act_notchar( #ropen, ch );
+  unlock( room, north );
+  }
+else 
+  send_to_char( #already, ch );
+~
+E
+open~
+You slide open the heavy bolt, unlocking the door to the north.
+~
+E
+ropen~
+$n unlocks the door to the north.
+~
+E
+already~
+The door is already unlocked.
+~
+!
+0 0 0
+1214 9 1509949540 3 0
+-1
+S
+
+#49057
+Narrow Path~
+Under Construction.
+~
+~
+301465605 0 5 0
+-1
+S
+
+#49058
+Gilded Hall~
+This bright, torch-lit hall is decorated with gilded weaponry - gold
+covered daggers, swords, spears mounted solidly against the wall. 
+Braided silken cords hang against the walls alonside large paintings, all
+of them showing the same face.  To the south is a massive wooden door,
+and to the north the hallways ends in a huge leather-covered door,
+riveted with horizontal bands of brass.
+~
+~
+301465605 0 5 0
+D0
+leather-bound door~
+~
+391 1550 49059 7 10 5
+D2
+heavy door~
+~
+131 -1 49050 10 10 5
+E
+weapons weaponry daggers swords spears~
+These shimmering, gilded weapons are mounted on the stone walls, and
+appear to have been chosen for their decorative qualities.
+~
+E
+cords~
+These cords hang evenly along the walls.  Their silk is old, worn and
+tattered.
+~
+E
+paintings face~
+These paintings show again and again a small, ugly green face with an
+eyepatch and thick yellow tusks.  Behind the figure's head is a golden
+halo.
+~
+E
+door~
+This massive, impressive door look to be made of wood, but is covered
+with thick, glossy leather, which has been riveted in place.
+~
+1216 9 1509949540 3 0
+-1
+S
+
+#49059
+Mangar's Office~
+This room is enormous, fully 30x30 with a high, valuted ceiling hewn from
+the very sandstone.  All along the walls stand bookshelves, cabinets, and
+weapon racks.  On the north wall is an enormous map of the world, colored
+Xs and movement lines etched in strategic locations.  Carved into the
+east wall is an engraving of a massive warhammer.  A heavy, mahogany desk
+dominates the center of the room, and behind the desk is an ornate,
+high-backed leather chair.
+~
+~
+301465605 0 5 0
+D2
+heavy door~
+~
+391 1550 49058 7 10 5
+D3
+bookshelf~
+~
+171 -1 49060 10 10 5
+E
+cabinets racks~
+The cabinest and weapon racks are old and heavy, and mostly look unused.
+~
+E
+bookshelves shelves shelf~
+A massive bookshelf stands on the west wall.  Most of the books are
+covered with dust, except one, which reads, "The Art of Global Conquest."
+~
+E
+map~
+This is a map of the entire world.  Its lines and Xs seem to suggest
+troop movement and locations.
+~
+E
+engraving warhammer hammer~
+This massive hammer is surrounded by jagged lines, suggesting lightning
+or thunder.
+~
+E
+desk chair~
+A massive mahongany desk, stacked with paperwork, dominates the center of
+this room.  Behind the desk is a large, leather chair with deep
+impressions worn in its seat.  Atop the desk is a large, open diary.
+~
+E
+diary~
+The most recent entry reads...
+"Is there any more reason for a man to be proud?  More and more goblins
+come to us by the day, the alchemist is turning out mangits with
+incredible speed.  The students progress nicely - they are stupid, but
+they know how to handle a sword.  I am proud of them.  Soon, so soon the
+day will come when my army and I shall step through the gate and drop
+upon the unsuspecting townsmen.  Our marching will be as thunder through
+the realms.  Not bad for the kid who flunked out of mercenary school."
+~
+A
+move get pull take~
+book~
+if( is_open( room, west ) ) {
+  send_to_char( #already, ch );
+  act_notchar( #ral, ch );
+  end;
+  }
+else {
+  send_to_char( #click, ch );
+  act_notchar( #rclick, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+already~
+You pull on the book but nothing happens.
+~
+E
+ral~
+$n pulls at a book on the bookshelf to the west, but nothing happens.
+~
+E
+click~
+You pull on the book.  From behind the wall comes a loud, metallic click.
+~
+E
+rclick~
+$n pulls at a book on the bookshelf.  From behind the west wall comes a
+metallic click.
+~
+!
+0 0 0
+A
+pull move open~
+shelf bookshelf~
+if( is_open( room, west ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+if( rflag( reset0, room ) ) {
+    send_to_char( #no, ch );
+    act_notchar( #rno, ch );
+    end;
+    }
+  send_to_char( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, west );
+  }
+~
+E
+already~
+The bookshelf has already been pulled away, revealing an opening in the
+west wall.
+~
+E
+open~
+You pull at the bookshelf, which moves easily.  You have opened a room to
+the west.
+~
+E
+ropen~
+$n pulls the bookshelf away from the west wall, opening a secret room.
+~
+E
+no~
+You tug at the bookshelf, but can't make it budge.
+~
+E
+rno~
+$n tugs at the bookshelf on the west wall, but can't make it budge.
+~
+!
+0 0 0
+1217 9 1509949540 3 0
+-1
+S
+
+#49060
+The Shimmering Gate~
+A huge, shimmering disc of light dominates this small room.  Thousands of
+colors bend and writhe inside the surface of the disc, which gives off a
+low hum.  The disc stands upright, as if it were a hole in the air. 
+Around the walls are shelves and heavy, iron-banded strongboxes.  On the
+east wall is what looks to be the back of a secret door.
+~
+gate to chiiron
+small treasure in boxes
+~
+301465605 0 5 0
+D1
+secret door~
+~
+171 -1 49059 10 10 5
+E
+disc~
+The disc is like a hole in the air, having almost no physical depth.  It
+floats upright, shimmers with thousands of colors, and gives off a small
+hum.  Deep, deep in the light are vague, moving shapes, little more than
+patches of gray.
+~
+E
+strongboxes boxes~
+These large, heavy strongboxes lie along the walls and are covered with a
+layer of dust.
+~
+E
+back secret door~
+To the east is a slab of wood, which seems to be the backside of a secret
+door inside the next room.  It looks as if it can be pushed open.
+~
+A
+push open move~
+secret door shelf~
+if( is_open( room, east ) ) {
+send_to_char( #already, ch );
+end;
+}
+else {
+send_to_char( #open, ch );
+act_notchar( #ropen, ch );
+open( room, east );
+}
+~
+E
+already~
+The door has already been opened, revealing a room to the east.
+~
+E
+open~
+You push on the door, revealing a room to the east.
+~
+E
+ropen~
+$n pushes on the wooden door, opening a room to the east.
+~
+!
+0 0 0
+A
+enter~
+disc gate light~
+send_to_char( #go, ch );
+act_notchar( #rgo, ch );
+wait( 1 );
+transfer( ch, find_room( 903 ) );
+loop( followers ) {
+  transfer( rch, find_room( 903 ) );
+  }
+~
+E
+go~
+You step into the light, then feel yourself racing through the fabric of
+space.
+~
+E
+rgo~
+$n steps into the disc of light then disappears.
+~
+!
+0 0 0
+1546 49 1509949540 -2 0
+3017 81 1509949480 -2 0
+1013 81 1509949450 -2 0
+16 81 1509949460 -2 0
+858 81 1509949465 -2 0
+2 81 1509949530 -2 0
+2 81 1509949500 -2 0
+2 81 1509949450 -2 0
+2 81 1509949450 -2 0
+14 81 1509949540 -2 0
+14 81 1509949530 -2 0
+14 81 1509949520 -2 0
+14 81 1509949490 -2 0
+-1
+S
+
+#49061
+Floor of a Pit~
+This pit seems hastily dug - the walls are of crumbly sand, the floor is
+uneven and littered with rocks.  The pit reeks of bodily odor, and the
+floor is soggy with various putrid liquids.  A green, fetid miasma chokes
+the air, floating to the room above.  An incredibly heavy iron chain has
+been riveted into the wall.  The chain is just long enough to reach from
+one side of the pit to the other.
+~
+~
+301465605 0 9 0
+D4
+~
+~
+0 -1 49019 10 10 5
+1202 9 1509949540 3 0
+-1
+S
+
+#0
+

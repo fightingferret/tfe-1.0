@@ -1,0 +1,615 @@
+#AREA
+Arena~
+Nightshade Ashkai Gramp~
+~
+
+0 0
+0
+#ROOMS
+
+#34000
+Gateway~
+You are in a room full of swirling mist and fog.  Orientation is hard
+here your sense of direction takes awhile to adjust to your new
+surroundings.  You curse the portal that brought you here with no
+apparent way to return.
+~
+~
+100139011 3 5 0
+D0
+~
+~
+0 -1 34001 10 10 5
+-1
+S
+
+#34001
+Forest of Mist~
+The forest narrows here, and the mist has cleared up somewhat.  To either
+side of you is a row of perfectly straight torch holders, providing
+light.  They lead ahead to a huge, looming stone gate that spans the
+width of this path through the dense forest.  
+~
+~
+100139011 3 6 0
+D0
+~
+~
+0 -1 34002 10 10 5
+D2
+~
+~
+0 -1 34000 10 10 5
+-1
+S
+
+#34002
+Arena Gate~
+You are standing before a huge, intricately carved marble gate.  You
+guess that its flawless design must be from some ancient culture, for you
+have never seen its likes before.  In the very center is a massive oak
+gate, shut and bolted.  To one side is a tiny, insignificant-looking
+booth several meters above the ground.  In it sits a wizened old shape,
+scribbling something.  Across from the booth you see a shimmering red
+gate in the wall.
+~
+what about an arrival message in the dest room?
+~
+100139011 3 6 0
+D0
+gate~
+gate~
+407 386 34003 10 10 5
+D2
+~
+~
+0 -1 34001 10 10 5
+E
+gate door~
+The gate is made of firm oak and securely closed, by what means you
+cannot tell.  In the center, where the two doors meet, is a large symbol
+of two swords clashed together.  
+~
+E
+Red Gate~
+This is a shimmering red gate very similar to the one that brought you here.
+~
+A
+enter~
+gate~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 34750 ) );
+act_notchar( #return, ch );
+~
+E
+return~
+With a flash of light $n steps from a strange red gate that dissapears as
+soon as he is through.
+~
+E
+room~
+$n enters the astral gate, disappearing from sight.
+~
+E
+char~
+You enter the shimmering red gate and are returned to the altar.
+~
+!
+0 0 0
+466 9 1509949540 3 0
+-1
+S
+
+#34003
+Arena North Of Gate~
+You are standing in the southernmost area of a grand colliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unusually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.
+
+A curious pull chain and sign hang beside the gate.
+~
+~
+100139025 3 6 0
+D0
+~
+~
+4 -1 34006 10 10 5
+D1
+~
+~
+0 -1 34005 10 10 5
+D2
+gate~
+gate~
+407 -1 34002 10 10 5
+D3
+~
+~
+0 -1 34004 10 10 5
+E
+sign~
+"The last creature standing may open the gate, else the chain shall not work"
+~
+E
+pull chain~
+The chain hangs from the wall.
+~
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 15
+A
+pull~
+chain~
+if( players_area( room ) == 1 ) {
+  act_tochar( #congrats, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+Hmm...maybe you're not the last one standing like the sign says.
+~
+E
+congrats~
+Congratulating you on a job well done, the gatekeeper opens the gate.
+~
+!
+0 0 0
+-1
+S
+
+#34004
+Arena~
+You are standing in the southwesternmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unsually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  
+~
+~
+100139025 3 6 0
+D0
+~
+~
+0 -1 34007 10 10 5
+D1
+~
+~
+0 -1 34003 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 3
+-1
+S
+
+#34005
+Arena~
+You are standing in the southeasternmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unusually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  
+~
+~
+100139025 3 6 0
+D0
+~
+~
+0 -1 34008 10 10 5
+D3
+~
+~
+0 -1 34003 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 9
+-1
+S
+
+#34006
+Arena~
+You are standing in the central area of a grand coliseum full of
+enormous, beautifully carved marble pillars that reach high into the sky. 
+The floor is unusually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  One pillar quite shorter
+than the others seems to have a hole in the top as if something could be
+stuck in it.
+~
+~
+100139025 3 6 0
+D0
+~
+~
+0 -1 34009 10 10 5
+D1
+~
+~
+0 -1 34008 10 10 5
+D2
+~
+~
+4 -1 34003 10 10 5
+D3
+~
+~
+0 -1 34007 10 10 5
+E
+pillar~
+This white marble pillar looks as if it has been protected throughout the
+ages from both weather and battle.  Looking closely at it you seem to see
+an image of a runed sceptre forming in the hole at the top.  The image
+shimmers and quakes as it tries to become a reality.
+~
+A
+~
+~
+if( !rflag( reset0, room ) ) 
+  acode( find_room( 34006 ), 3 );
+if( rflag( reset0, room ) ) 
+  acode( find_room( 34006 ), 2 );
+if( players_area( find_room( 34006 ) ) == 1 )
+  acode( find_room( 34006 ), 3 );
+continue;
+~
+!
+1 -1 15
+A
+~
+~
+if( players_area( find_room( 34006 ) ) > 1 ) {
+  remove_rflag( reset0, room );
+  close( find_room( 34004 ), south );
+  lock( find_room( 34006 ), south );
+  }
+~
+!
+0 -1 0
+A
+~
+~
+if( players_area( find_room( 34006 ) ) > 1 )
+  end;
+if( players_area( find_room( 34006 ) ) == 1 ) {
+  unlock( find_room( 34003 ), south );
+  acode( find_room( 34006 ), 4 );
+  };
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset0, find_room( 34006 ) ) )
+  end;
+if( !obj_in_room( 537, find_room( 34006 ) ) ) 
+  end;
+if( rflag( reset2, find_room( 34006 ) ) ) {
+  send_to_area( "Victory is yours!! You may claim your prize!!", room );
+  remove_rflag( reset2, find_room( 34006 ) );
+  };
+~
+!
+0 0 0
+A
+~
+~
+if( !obj_in_room( 537, find_room( 34006 ) ) ) 
+obj_to_room( oload( 537 ), find_room( 34006 ) );
+~
+!
+6 0 0
+A
+get~
+runed sceptre gods all~
+act_tochar( #get, ch );
+wait( 2 );
+if( rflag( reset2, room ) )
+  act_tochar( #noget1, ch );
+else {
+  if( players_area( room ) == 1 ) {
+    act_tochar( #get1, ch );
+junk_obj( obj_in_room( 537, room ) );
+obj_to_char( oload( 537 ), ch );
+    set_rflag( reset2, room );
+    end;
+    }
+  send_to_char( #sorry, ch );
+  }
+~
+E
+sorry~
+You are unable to get the sceptre, perhaps there is still somebody in the
+arena.
+~
+E
+get1~
+With an amazingly light tug the sceptre comes free of its resting place
+upon the pillar, showing that the gods do truly favor you!
+~
+E
+get~
+You reach up and grasp the sceptre and attempt to pull it out of its
+resting place.
+~
+E
+noget1~
+But no matter how hard you pull on the sceptre it will not come free of
+the pillar.  I guess you don't have the favor of the gods yet.
+~
+!
+0 0 0
+A
+create~
+sceptre~
+if( find_stat( ch, level ) >= 92 ) {
+  if( obj_in_room( 537, find_room( 34006 ) ) ) 
+    continue;
+  obj_to_room( oload( 537 ), find_room( 34006 ) );  
+  }
+~
+!
+0 0 0
+536 17 1509949540 -2 0
+-1
+S
+
+#34007
+Arena~
+You are standing in the westernmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unsually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.
+~
+[Aislinn] competitors;
+~
+100139025 3 6 0
+D0
+~
+~
+0 -1 34010 10 10 5
+D1
+~
+~
+0 -1 34006 10 10 5
+D2
+~
+~
+0 -1 34004 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 7
+-1
+S
+
+#34008
+Arena~
+You are standing in the easternmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unsually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  
+~
+~
+100139025 3 6 0
+D0
+~
+~
+0 -1 34011 10 10 5
+D2
+~
+~
+0 -1 34005 10 10 5
+D3
+~
+~
+0 -1 34006 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 13
+-1
+S
+
+#34009
+Arena~
+You are standing in the northernmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unusually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  
+~
+[Arathorn] look gate returns: 'there is nothing of interest in that direction' odd.
+[Aislinn] competitors;
+~
+100139025 3 6 0
+D0
+gate~
+gate~
+22 -1 34012 10 10 5
+D1
+~
+~
+0 -1 34011 10 10 5
+D2
+~
+~
+0 -1 34006 10 10 5
+D3
+~
+~
+0 -1 34010 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 15
+-1
+S
+
+#34010
+Arena~
+You are standing in the northwesternmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unsually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  
+~
+[Aislinn] competitors;
+~
+100139025 3 6 0
+D1
+~
+~
+0 -1 34009 10 10 5
+D2
+~
+~
+0 -1 34007 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 6
+-1
+S
+
+#34011
+Arena~
+You are standing in the northeasternmost area of a grand coliseum full of
+enourmous, beautifully carved marble pillars that reach high into the
+sky.  The floor is unsually clean of blood stains or bones from past
+competitors; obviously someone or something has kept it in excellent
+condition.  The slightest sound here can be heard a dozen times over,
+echoing back to you in a reverberating wail.  
+~
+~
+100139025 3 6 0
+D2
+~
+~
+0 -1 34008 10 10 5
+D3
+~
+~
+0 -1 34009 10 10 5
+A
+~
+~
+acode( find_room( 34006 ), 1 );
+~
+!
+1 -1 12
+-1
+S
+
+#34012
+Arena~
+Under Construction.
+~
+~
+100139025 3 9 0
+D0
+~
+~
+0 -1 34013 10 10 5
+D1
+There is a small hole in the East wall.~
+There is a small hole in the East wall.~
+3 -1 34015 10 10 5
+D2
+~
+~
+22 -1 34009 10 10 5
+D3
+~
+~
+0 -1 34014 10 10 5
+A
+~
+~
+send_to_room( "there is a small opening in the east wall.", room );
+~
+!
+1 -1 15
+-1
+S
+
+#34013
+Arena~
+Under Construction.
+~
+~
+100139025 3 9 0
+D2
+~
+~
+0 -1 34012 10 10 5
+-1
+S
+
+#34014
+Arena~
+Under Construction.
+~
+~
+100139025 3 9 0
+D1
+~
+~
+0 -1 34012 10 10 5
+-1
+S
+
+#34015
+Arena~
+Under Construction.
+~
+~
+100139025 3 9 0
+D3
+~
+~
+3 -1 34012 10 10 5
+-1
+S
+
+#0
+

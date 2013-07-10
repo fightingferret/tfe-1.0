@@ -1,0 +1,8827 @@
+#AREA
+Castle Lag II~
+Dragos~
+~
+
+0 0
+0
+#ROOMS
+
+#3500
+Entrance to the Abandoned Mine~
+Before you stands the entrance to an old abandoned mine.  It is very dark
+inside so you can only see a few feet into the tunnel.  A cold wind blows
+out from the tunnel sending shivers up your spine.  To the south, stone
+blocks stand piled against a large stone wall.  Looking more carefully,
+you can see the small seam of a door behind the stones.
+~
+~
+335020044 2 6 0
+D0
+~
+~
+0 0 3501 10 10 5
+D4
+~
+~
+423 -1 9165 10 10 5
+E
+3 stone 4 blocks~
+These large chunks of granite are piled over what appears to be a door.
+~
+A
+move push~
+3 stones block blocks~
+if( !is_open( room, up ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, up );
+  }
+else
+  send_to_char( #open, ch );
+~
+E
+open~
+The stones are already moved and the passage is already open.
+~
+E
+room~
+$n moves one of the stones and reveals a hidden passage.
+~
+E
+char~
+You move one of the stones and reveal a hidden shaft leading up.
+~
+!
+0 0 0
+-1
+S
+
+#3501
+The Abandoned Mine~
+The tunnel is fairly large here.  Huge wooden beams line the ceiling and
+walls to prevent cave-ins.  However, the beams look old.  Off in the
+distance, you can hear the rocks shift ever so slightly.  Looking north
+and south, you see only darkness.
+~
+~
+335020044 2 6 0
+D0
+~
+~
+0 0 3502 10 10 5
+D2
+~
+~
+0 0 3500 10 10 5
+E
+mold~
+It's white with blue dots.  It seems to be made of little hairs.
+~
+E
+4 wooden 4 beams~
+The beams supporting the celing are old and rotting.  The mold on the
+wood gives the tunnels a musky odor.
+~
+-1
+S
+
+#3502
+The Abandoned Mine~
+As you make your way, you notice the large amounts of rock that lie
+crumbled on the floor.  Obviously there was a large excavation here at
+one time.  What could they have been digging for?  Jagged rocks stick out
+occasionally from the walls in the tunnel which continues to the north
+and south.  A cold wind continues to blow from deep within the mine.  A
+smaller tunnel leads off to the east.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 0 3503 10 10 5
+D1
+~
+~
+0 -1 3508 10 10 5
+D2
+~
+~
+0 0 3501 10 10 5
+E
+3 jagged 4 rocks~
+Huge stones have been half-excavated from the walls, leaving indentations
+where the favored rocks or ore have been removed.
+~
+-1
+S
+
+#3503
+The Abandoned Mine~
+You continue your way through the mine.  Rugged holes lie in the walls
+where someone, or something used to excavate.  The tunnel ceiling lies a
+few feet above your head.  Darkness extends into the far reaches of the
+tunnel to the north and south.  This mine must have been built long ago.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 0 3504 10 10 5
+D2
+~
+~
+0 0 3502 10 10 5
+E
+4 rugged 3 holes~
+Some kind of mineral has been ripped out of the rock here.  This was
+obviously a popular spot for digging.
+~
+-1
+S
+
+#3504
+A Four-Way Intersection~
+You have reached an intersection in the mine.  Deep grooves are on the 
+ground in front of you as if someone, possibly miners, have worn out the
+ground carrying supplies and rock to and from whatever destination they
+may have found deep within the earth.  Tilting your head, you can pick up
+the sound of digging somewhere within the reaches of these tunnels.  The
+tunnels branch off in each of the cardinal directions.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 0 3505 10 10 5
+D1
+~
+~
+0 -1 3514 10 10 5
+D2
+~
+~
+0 0 3503 10 10 5
+D3
+~
+~
+0 -1 3533 10 10 5
+E
+4 grooves~
+The stone floor has been cut into by a train of heavy objects.
+~
+-1
+S
+
+#3505
+The Abandoned Mine~
+For some inexplicable reason, the tunnel appears to have collapsed here. 
+Huge rocks have fallen to the west, preventing any further passage in
+that direction.  Perhaps you should find a different way through the
+abandoned mine.
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 0 3504 10 10 5
+D3
+"collapsed wall"~
+"collapsed wall"~
+227 -1 3506 10 10 5
+E
+1 north rock rocks passage~
+The boulders and rocks look too heavy and too many to even bother with. 
+Your best bet is to return to the south.
+~
+A
+clear move push~
+passage n no nor north rock rocks boulder boulders tunnel w we west~
+if( !is_open( room, west ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, west );
+  }
+else {
+  send_to_char( #open, ch );
+  act_notchar( #also, ch );
+  }
+~
+E
+also~
+As $n goes to clear the rocks, $e finds a crevice to the west.
+~
+E
+open~
+Attempting to clear the rocks, you find a crevice to the west.
+~
+E
+room~
+$n begins to clear away the rocks and boulders from the tunnel passage to
+the west.  Suddenly, a small crevice appears between the rocks.
+~
+E
+char~
+You begin to clear away the rocks and boulders from the tunnel passage to
+the west.  Suddenly, a small crevice appears between the rocks.
+~
+!
+0 0 0
+-1
+S
+
+#3506
+A Small Crevice~
+A cool breeze blows through the crevice as you struggle onward.  It is so
+small in here that you aren't even sure that you can turn around.  To the
+east, it appears the whole wall has collapsed.  Large rocks and boulders
+block any further passage to the east, but the crevice is clear to the
+north.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 0 3507 10 10 5
+D1
+"collapsed wall"~
+"collapsed wall"~
+227 -1 3505 10 10 5
+E
+1 north~
+The Mine continues
+~
+A
+move push clear~
+passage rock rocks boulder boulders tunnel opening crevice e ea eas east~
+if( !is_open( room, east ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  open( room, east );
+  } 
+else {
+  send_to_char( #open, ch );
+  act_notchar( #also, ch );
+  }
+~
+E
+also~
+As $n goes to clear the rocks, $e finds an opening to the east.
+~
+E
+open~
+Attempting to clear the rocks, you find an opening to the east.
+~
+E
+room~
+$n begins to clear away the rocks and boulders from the tunnel passage to
+the east.  Suddenly, a small opening appears between the rocks.
+~
+E
+char~
+You begin to clear away the rocks and boulders from the tunnel passage to
+the east.  Suddenly, a small opening appears between the rocks.
+~
+!
+0 0 0
+-1
+S
+
+#3507
+A Small Crevice~
+You can begin to feel the weight of the earth as you crawl through this
+tiny crevice.  It feels like the walls are constricting around you.  You
+may want to hurry through to the east or south as quickly as possible.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3599 10 10 5
+D2
+~
+~
+0 0 3506 10 10 5
+E
+1 south~
+The Mine continues
+~
+-1
+S
+
+#3508
+A Small Tunnel~
+A roughly hewn tunnel extends away to the east, which appears just big
+enough for one person at a time.  The walls in this smaller tunnel seem
+quite different from the rest of the abandoned mine.  Perhaps this tunnel
+was added on at a later time for a different purpose.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3509 10 10 5
+D3
+~
+~
+0 -1 3502 10 10 5
+E
+4 walls~
+The wood beams here are still intact and trustworthy.  The stone walls
+seems to be more recently exposed to air.
+~
+-1
+S
+
+#3509
+A Small Tunnel~
+Empty torch sockets line this small tunnel which travels from east to
+west.  Cramped and dark, you stand pressed between stone walls on either
+side.  A small bead of sweat forms on your brow.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3510 10 10 5
+D3
+~
+~
+0 -1 3508 10 10 5
+E
+3 torch 4 sockets 4 scones~
+These sockets are surprisingly free from dust.  They are staggered at
+three foot lengths.
+~
+-1
+S
+
+#3510
+A Small Tunnel~
+To the east, a small door marks the end of the tunnel.  Aside from the
+rough texture of wood, the door has no other distinguishing features.  To
+the west, a smaller tunnel disappears into the darkness.  Perhaps you
+should decide what to do very soon.
+~
+~
+335020040 0 5 0
+D1
+"small wooden door"~
+"small wooden door"~
+131 -1 3511 10 10 5
+D3
+~
+~
+0 -1 3509 10 10 5
+E
+door~
+The type of wood used for this door cannot be determined.  The door is
+featureless, save for a tiny brass handle.
+~
+-1
+S
+
+#3511
+Storage Room~
+This room is definitely larger than the tunnel used to get here.  Looking
+around, you see a small stockpile of survival equipment ranging from iron
+rations to water and torches.  Peering around, you find a short note
+scrawled on the wall.  The only exit is back the way you came.
+~
+~
+335020040 0 5 0
+D3
+"small wooden door"~
+"small wooden door"~
+131 -1 3510 10 10 5
+E
+note wall short~
+"If you are reading this, it is too late to turn back now.  You will find
+the map for the escape route through this old abandoned mine at the
+bottom of this note.  Be sure to grab enough supplies before continuing
+through the maze of tunnels.  Fear not, for there are others waiting for
+you at the end who will help you start a new life.  One day, we shall
+return to fight the fairies and reclaim our..." 
+  
+The rest of the note along with any map is missing.
+~
+E
+iron rations~
+Most of the iron rations appear to be empty.
+~
+E
+water 9 waterskins~
+Most of the waterskins appear to be empty.
+~
+E
+equipment stockpile pile~
+Looking through the various piles of equipment, you see dozens of iron
+rations, waterskins and torches.
+~
+E
+5 torches~
+Most of the torches appear to be unuseable.
+~
+A
+get take steal grab remove~
+iron ration rations~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( random( 1, 10 ) < 7 ) {
+    obj_to_char( oload( 4 ), ch );
+    obj_to_char( oload( 4 ), ch );
+    obj_to_char( oload( 4 ), ch );
+    obj_to_char( oload( 4 ), ch );
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    }
+  else {
+    send_to_char( #not, ch );
+    act_notchar( #nope, ch );
+    }
+  }
+else {
+  send_to_char( #not, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+nope~
+$n searches through the iron rations and comes up with nothing.
+~
+E
+not~
+Searching for food, you find nothing that is edible.
+~
+E
+room~
+$n searches through the iron rations and finds four with food in them.
+~
+E
+char~
+You search through the iron rations and find four with food in them.
+~
+!
+0 0 0
+A
+get take steal grab remove~
+water waterskin cup~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 0, 1 ) == 1 ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    obj_to_char( oload( 55 ), ch );
+    obj_to_char( oload( 55 ), ch );
+    }
+  else {
+    send_to_char( #not, ch );
+    act_notchar( #nope, ch );
+    }
+  }
+else {
+  send_to_char( #not, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+nope~
+$n searches through the waterskins and comes up empty.
+~
+E
+not~
+Searching for water, you don't find any waterskins with water in it.
+~
+E
+room~
+$n searches through the waterskins and finds two with water in it.
+~
+E
+char~
+Searching for water, you find only two waterskins with water in it.
+~
+!
+0 0 0
+A
+get take steal~
+light torch torches~
+if( rflag( status0, room ) ) {
+  remove_rflag( status0, room );
+  if( random( 1, 10 ) < 8 ) {
+    obj_to_char( oload( 26 ), ch );
+    obj_to_char( oload( 26 ), ch );
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    }
+  else {
+    send_to_char( #not, ch );
+    act_notchar( #nope, ch );
+    }
+  }
+else {
+  send_to_char( #not, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+nope~
+$n searches through the torches and fails to find any that are usable.
+~
+E
+not~
+Searching for torches, you cannot find any that are usable.
+~
+E
+room~
+$n searches through the torches and finds only two that are usable.
+~
+E
+char~
+Searching for torches, you find only two that are usable.
+~
+!
+0 0 0
+-1
+S
+
+#3512
+A Large Cavern~
+An unfinished tunnel sits here in a state of disrepair.  Tools and pieces
+of rock lie scattered about the floor as if they workers left in a hurry. 
+Small cracks and divots line the wall.  Several stone blocks lie on the
+ground surrounded by several pools of blood.  The stench in this inlet is
+almost overwhelming.  The only exit is back the way you came.
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3513 10 10 5
+E
+4 tools~
+The tools are ancient and appear ready to crumble.
+~
+E
+5 pieces rock~
+The pieces of rock appear to have been chipped away from the face of the
+wall.  They obviously have no value whatsoever.
+~
+E
+5 cracks 5 divots~
+The cracks and divots appear to be where somebody had started to dig, but
+had left unfinished.  It would appear that whomever dug this tunnel was
+looking for something specific.
+~
+E
+stone 5 blocks~
+The blocks appear to be miniature replicas of the larger stone blocks
+which make up the castle.  Perhaps these were samplings of the rock
+tunnel at one time.
+~
+E
+4 pools blood~
+You don't want to even fathom what may have caused this grissly sight. 
+You wonder if maybe one of the stone blocks may have fallen on somebody
+or something.
+~
+A
+move push lift~
+stone block blocks~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n attempts to move one of the stone blocks, but is unsuccessful.
+~
+E
+char~
+The stone block is too heavy for you to lift or move.
+~
+!
+0 0 0
+2512 9 1509949540 3 0
+-1
+S
+
+#3513
+The Abandoned Mine~
+Cold and dreary, the rock tunnel bends to the east and south.  Much
+smaller than the main tunnel you were in, this tunnel seems quite
+rudimentary.  A horrid stench eminates from the east.  The mail tunnel
+to the abandoned mine lies to the south.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3512 10 10 5
+D2
+~
+~
+0 -1 3514 10 10 5
+-1
+S
+
+#3514
+The Abandoned Mine~
+Hollow and dank, the abandoned mine stretches far to the east and west
+through the darkness.  As you skirt over the pieces of rocks and shards
+which litter the ground, you clearly hear strange sounds coming from deep
+within the mine to the east.  A smaller tunnel branches to the north.
+~
+~
+335020040 2 6 0
+D0
+~
+~
+0 -1 3513 10 10 5
+D1
+~
+~
+0 -1 3515 10 10 5
+D3
+~
+~
+0 -1 3504 10 10 5
+E
+4 rock 5 shards~
+The pieces of rocks and shards appear to have been left here by whomever
+chiseled the hole into the north wall.
+~
+-1
+S
+
+#3515
+The Abandoned Mine~
+Echoing off the walls, you can distinctly hear the sound of picking
+somewhere to the east.  Jagged rocks lay scattered about the floor. 
+Whoever was picking here didn't appear to have found much.  The mine
+tunnel continues to the east and west.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3516 10 10 5
+D3
+~
+~
+0 -1 3514 10 10 5
+E
+jagged rock rocks floor~
+From the appearances of the pieces of rock which litter the ground, they
+seem to have been made quite recently.
+~
+E
+4 rocks~
+The rocks have been carelessly left scattered about the floor.
+~
+-1
+S
+
+#3516
+The Abandoned Mine~
+Large nicks and dinks lie in the wall where a miner must have been
+chipping away at for a long time.  Chunks of rock are scattered about the
+floor.  A small light and chipping sounds are coming from the north where
+a large hole has been carved in the stone wall.  The abandoned mine
+extends to the east and west.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3517 10 10 5
+D1
+~
+~
+0 -1 3518 10 10 5
+D3
+~
+~
+0 -1 3515 10 10 5
+E
+4 nicks 4 dinks~
+The north wall is filled with various markings which appear to have been
+made from a hand held pick.
+~
+E
+5 chunks rock~
+Chunks of rock of all sizes and shapes lie scattered about the floor,
+rolling to the east and west, as well.
+~
+E
+hole~
+Light streams from the hole which appears to have been roughly carved
+into the north wall.
+~
+-1
+S
+
+#3517
+Hole in Wall~
+This little hole was cut away from the rocks in the mine.  Apparently,
+the ghost miner has been chipping away at the north wall this for quite a
+long time.  Judging from the size of this hole, you would estimate a few
+hundred years.  The only exit is back where you came from.
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3516 10 10 5
+7 9 1509949540 3 0
+-1
+S
+
+#3518
+The Abandoned Mine~
+Off to the west, the sound of picking echoes off the walls towards you. 
+This section of the mine which you are traveling through appears to have
+been heavily traveled in the past.  The floor has been smoothed by many
+workers carrying rock and rubble this way and that.  The tunnel continues
+to the east and west.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3519 10 10 5
+D3
+~
+~
+0 -1 3516 10 10 5
+-1
+S
+
+#3519
+The Abandoned Mine~
+Walking along the tunnels, you wonder how far these mines could actually
+stretch.  Peering to the west, you cannot see through the dirt and
+darkness which encroaches upon you.  To the east, you can just pick up
+what appears to be a turn in this endless tunnel.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3520 10 10 5
+D3
+~
+~
+0 -1 3518 10 10 5
+-1
+S
+
+#3520
+The Abandoned Mine~
+The abandoned mine seems to crawl through the earth like a giant maze. 
+The tunnel you are traversing extends to the north and west.  An
+undeterminable sound echoes from deep within the belly of the mine.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3521 10 10 5
+D3
+~
+~
+0 -1 3519 10 10 5
+-1
+S
+
+#3521
+The Abandoned Mine~
+The size of the tunnel is definitely larger to the north than the south. 
+Hoping you are keeping your bearings straight, you would swear that the
+exit you came from was to the south.  Of course, you realize you should
+have left a trail of bread crumbs, but you guess it is too late now.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3522 10 10 5
+D2
+~
+~
+0 -1 3520 10 10 5
+-1
+S
+
+#3522
+The Abandoned Mine~
+A slight whistling sound reverberates from somewhere to the north.  The
+tunnel walls have absorbed what little light you may carry, but you
+believe you can see something to the north.  Of course, if you were
+smart, you would head south where it appears safer.  But then again, who
+can tell in a mine where every tunnel seems the same.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3523 10 10 5
+D2
+~
+~
+0 -1 3521 10 10 5
+E
+1 north~
+Squinting your eyes, you can make out a black hole at the end of the
+tunnel.  The hole appears to be a mine shaft.
+~
+-1
+S
+
+#3523
+A Mine Shaft~
+Before you stands a massive hole in the ground.  When you look down into
+the hole, you see a ladder disappearing down into the darkness.  It
+appears to be an old mine shaft that leads down to other levels of the
+mine.  All of a sudden, you begin to hear moans coming from the shaft, or
+is that a low pitched whistle?  You hope that is just the wind.
+~
+~
+335020044 2 6 0
+D2
+~
+~
+0 -1 3522 10 10 5
+D5
+~
+~
+0 -1 3525 10 10 5
+E
+hole mine shaft~
+This mine shaft has long since been abandoned as is evident by its state
+of disrepair.  Although the elavator itself doesn't appear to be
+functioning, at least there is a ladder.
+~
+A
+~
+~
+if( players_room( find_room( 3525 ) ) ) {
+  wait( 1 );
+  send_to_char( #char, ch );
+  }
+else
+  continue;
+~
+E
+char~
+You start down the ladder through the shaft, but climb back up after
+finding somebody else on the ladder already.
+~
+!
+3 5 32
+-1
+S
+
+#3525
+A Mine Shaft~
+You are standing on the second level of the abandoned mine.  Around you,
+the broken remnants of a smashed elevator and pulley system lie scattered
+about the area.  To the west, a wide tunnel disappears into extreme
+darkness.  To the east, a small wooden door stands embedded inside the
+face of the rock wall.  Above you, a wooden ladder rises into an old
+elevator shaft from which emanates a small whistling noise.
+~
+~
+335020044 0 5 0
+D1
+"small wooden door"~
+"small wooden door"~
+391 566 3526 10 10 5
+D3
+tunnel~
+tunnel~
+226 -1 3564 10 10 5
+D4
+~
+~
+0 -1 3523 10 10 5
+E
+4 remnants 4 elevator 4 pulley system~
+The dankness of the tunnels must have ruined the ancient pulley system
+which now lies strewn across the floor of the mine shaft.
+~
+E
+door~
+The door seems to be well-used, despite the condition of the rest of the
+abandoned mine.
+~
+E
+ladder shaft hole~
+Although the mine shaft's pulley system doesn't work, somebody has taken
+the time to erect a ladder which extends up into the darkness.
+~
+A
+~
+~
+if( players_room( find_room( 3523 ) ) ) {
+  wait( 1 );
+  send_to_char( #char, ch );
+  }
+else
+  continue;
+~
+E
+char~
+You start up the ladder through the shaft, but climb back down after
+finding somebody else on the ladder already.
+~
+!
+3 4 16
+-1
+S
+
+#3526
+Escape Tunnel~
+A rough hallway has been constructed here which leads away to the north. 
+A small wooden door lies embedded in the west wall.  In the east wall, a
+note flutters beneath a nail which holds it in place.
+~
+~
+335020040 2 6 0
+D0
+~
+~
+0 -1 3527 10 10 5
+D3
+"small wooden door"~
+"small wooden door"~
+391 566 3525 10 10 5
+E
+note~
+"Thank God you have found the escape tunnel.  From here, go to the end
+and you will find yourself in more familiar territory.  Congratulations!"
+~
+E
+door~
+The wooden door to the west appears to be in good condition and well-used
+which is somewhat surprising.
+~
+-1
+S
+
+#3527
+Escape Tunnel~
+The hall curves to the south and east here.  Peering to the east, you
+see only darkness.  Judging by the shipshod shape of the walls and floor,
+this hallway must have been built for something other than excavation. 
+Wooden supports line the walls and ceilings at varying intervals.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3528 10 10 5
+D2
+~
+~
+0 -1 3526 10 10 5
+E
+4 wooden 4 supports~
+This tunnel appears to have been made as an afterthought, and
+unfortunately, whoever carved it had to put up wooden beams to support
+the ceiling so that it wouldn't collapse.
+~
+-1
+S
+
+#3528
+Escape Tunnel~
+The hall here which extends to the west and ascends stairs to the east. 
+To the east, you can taste the sweet smell of freedom, or at least, you
+hope so.  To the west, your mind cringes at the thought of what you have
+seen and discovered within the abandoned mine.
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3527 10 10 5
+D4
+~
+~
+0 -1 3530 10 10 5
+-1
+S
+
+#3530
+Escape Tunnel~
+As you climb the stairs, you catch sight of a light coming from above you. 
+Below, the darkness seems to encroach upon you.  All around you, the rock
+trembles as it bears down on the wooden beams which support the ceiling.
+~
+~
+335020036 2 6 0
+D4
+~
+~
+0 -1 3531 10 10 5
+D5
+~
+~
+0 -1 3528 10 10 5
+E
+light~
+The light appears to be coming from a hole in the ceiling.
+~
+566 17 1509949465 -2 0
+-1
+S
+
+#3531
+Escape Tunnel~
+You stand at the top of a long flight of stairs, and at the bottom of
+some sort of shaft, a light filtering down through the passage.  The rest
+of the escape tunnel extends away to the west.  A small ladder disappears
+through the passage above you.  You sense an unpleasant odor from above.
+~
+~
+335020036 2 6 0
+D4
+~
+~
+0 -1 3532 10 10 5
+D5
+~
+~
+0 -1 3530 10 10 5
+E
+light~
+Above you, you can see torches flickering softly.
+~
+E
+passage~
+A small passage appears to have been dug out, and a ladder placed within.
+~
+E
+ladder~
+The ladder appears to have been used quite often in the recent past.
+~
+A
+smell~
+~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n wrinkles $s nose as $e sniffs the air.
+~
+E
+char~
+You wrinkle your nose at the smell of what appears to be somebody's trash.
+~
+!
+0 0 0
+-1
+S
+
+#3532
+Escape Tunnel~
+You make your way through the passage which continues up and down.  This
+appears to have been an old mine entrance that has caved in along time
+ago.  foul stench hits your nose as you try to look for a way out.
+~
+~
+335020036 2 6 0
+D4
+~
+~
+0 -1 3800 10 10 5
+D5
+~
+~
+0 -1 3531 10 10 5
+-1
+S
+
+#3533
+The Abandoned Mine~
+The tunnels to the abandoned mines seem to stretch forever between these
+rough hewn walls.  Dark rock surrounds you on all sides as you wall along
+a tunnel which continues to the east and west.  To the east, you can just
+make out an intersection in this maze of tunnels.
+~
+[Fyli] wall should be walk.
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3504 10 10 5
+D3
+~
+~
+0 -1 3534 10 10 5
+-1
+S
+
+#3534
+The Abandoned Mine~
+You can barely see the ceiling overhead as you walk along the tunnel. 
+However, listening to your footsteps echo off of it, you can tell that
+the ceiling must be very high along this tunnel.  The abandoned mine
+extends to the east and west, disappearing into complete darkness.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3533 10 10 5
+D3
+~
+~
+0 -1 3535 10 10 5
+-1
+S
+
+#3535
+The Abandoned Mine~
+Walking through the dark and abandoned tunnels of the mine which bends to
+the north and east from here, you now take note of the architecture.  The
+floors, walls and ceilings appear to have been carved rather hastily. 
+Squared in some places, rough and jagged in others, either the miners did
+a shipshod job, or the tunnels were made for various reasons.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3536 10 10 5
+D1
+~
+~
+0 -1 3534 10 10 5
+E
+4 architecture~
+The tunnel appears to have been made using large machinery which cut out
+huge chunks of rock.
+~
+-1
+S
+
+#3536
+The Abandoned Mine~
+Your footsteps send echoes careening through the deep and hollow tunnels
+which continue to the north and south.  It is just then that you realize
+how easy it would be to get ambushed in these dark halls.  Your rational
+side urges you to flee back to the relative safety of the cast which you
+believe lies somewhere to the south.
+~
+[Fyli] cast should be castle.
+[Arathorn] room desc: .. relative safety of the cast..-catsle maybe?
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3537 10 10 5
+D2
+~
+~
+0 -1 3535 10 10 5
+-1
+S
+
+#3537
+The Abandoned Mine~
+You have reached a T-intersection here in the abandoned mines.  Shivers
+run up your spine as you continue pushing deeper into the darkness.  The
+abandoned mine continues to the north and south.  To the east, a small
+inlay stands shrouded in darkness.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3539 10 10 5
+D1
+~
+~
+0 -1 3538 10 10 5
+D2
+~
+~
+0 -1 3536 10 10 5
+E
+east inlay~
+It is too dark to see what lies to the east.
+~
+-1
+S
+
+#3538
+A Dead End~
+The darkness in this dead end is almost unnatural.  Despite what little
+light you use, you can barely see three feet in front of you.  The
+darkness seems to float down around you.  The only exit is back the way
+you came.
+~
+~
+335020040 2 6 0
+D3
+~
+~
+0 -1 3537 10 10 5
+471 9 1509949540 3 0
+-1
+S
+
+#3539
+The Abandoned Mine~
+Coming to a bend in the tunnels, you become more aware of the dangers
+which this old abandoned mine can reveal at any moment.  The darkness
+which surrounds you seems to take ahold of your thoughts, shrouding your
+judgement.  The tunnel curves to the south and west.
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3537 10 10 5
+D3
+~
+~
+0 -1 3540 10 10 5
+-1
+S
+
+#3540
+The Abandoned Mine~
+The tunnel curves to the south and east here.  No sounds seem to be able
+to penetrate this corner of the abandoned mine.  Although the ceiling
+hangs far above you, the black rock seems to absorb all sound and light.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3539 10 10 5
+D2
+~
+~
+0 -1 3541 10 10 5
+-1
+S
+
+#3541
+The Abandoned Mine~
+Your journey through the abandoned mines feels like it is never going to
+end.  The tunnel seems to continue on forever to the north and south. 
+Although the size and stability of the tunnels aren't a threat, you can't
+help but feel worried that you may be wandering into a trap.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3540 10 10 5
+D2
+~
+~
+0 -1 3542 10 10 5
+-1
+S
+
+#3542
+The Abandoned Mine~
+The rock walls seem to be leaning ever closer to you as you travel
+between them along the rough hewn floor.  The tunnel appears to continue
+endlessly to the north and south.  Yet, in this dark maze, who can tell
+where walls begin and end.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3541 10 10 5
+D2
+~
+~
+0 -1 3543 10 10 5
+-1
+S
+
+#3543
+The Abandoned Mine~
+Once again, you find yourself at a bend in the tunnel in this abandoned
+mine.  As the tunnel stretches away to the north and west, you are unable
+to determine their destinations due to the dark, enclosing walls. 
+Perhaps you should not have wandered this far alone.
+~
+[Fyli] desc is erroneous if you are in group .:p
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3542 10 10 5
+D3
+~
+~
+0 -1 3544 10 10 5
+-1
+S
+
+#3544
+The Abandoned Mine~
+Gazing down the dark hallways which extend to the east and west, you are
+unable to make head or tails of which way would be the proper way to go. 
+Each tunnel seems to be very similar to the last one.  To the east, the
+tunnel's dark, chiseled walls, high ceilings and rough floors appear to
+be exact replicas of those in the tunnel leading away to the west.
+~
+~
+335020044 2 6 0
+D1
+~
+~
+0 -1 3543 10 10 5
+D3
+~
+~
+0 -1 3545 10 10 5
+-1
+S
+
+#3545
+The Abandoned Mine~
+Standing within this dank and dismal tunnel with its rough walls and
+floors and its high ceilings, you can feel your sanity seeping away. 
+Luckily, you can catch a glimpse of light brown wood to the west. 
+However, the darkness to the east seems to pull at you with strong
+indignation.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3544 10 10 5
+D3
+~
+~
+0 -1 3546 10 10 5
+2512 9 1509949540 3 0
+-1
+S
+
+#3546
+The Abandoned Mine~
+The tunnel has narrowed here slightly at the bend.  Wooden constructs
+hold the walls in place, but it is obvious that they could give at any
+moment.  A layer of dust and dirt covers the floor where the weakening
+ceiling must have trembled under the weight of the earth.  The tunnel
+curves to the north and east.
+~
+wooden contstructs
+~
+335020044 2 6 0
+D0
+~
+~
+0 -1 3547 10 10 5
+D1
+~
+~
+0 -1 3545 10 10 5
+E
+wooden constructs~
+You peer up at wooden beams which strain under tremendous pressure.
+~
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+A shower of black dust and dirt falls down around you.
+~
+!
+2 750 0
+78 17 1509949540 -2 0
+-1
+S
+
+#3547
+The Abandoned Mine~
+As you walk along the tunnel in this old, abandoned mine, you can feel
+the ground shiver beneath you ever so slightly.  Peering into the
+darkness, you cannot see where the tunnel ends or begins.  In fact, due
+to the darkness of the dirt and rock walls around you, you can barely see
+ten feet in front of you.  However, you can tell the tunnel continues to
+the north and south.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3548 10 10 5
+D2
+~
+~
+0 -1 3546 10 10 5
+-1
+S
+
+#3548
+The Abandoned Mine~
+Standing still in this dark and deserted tunnel, you can hear a low
+pitched rumbling coming from somewhere to the north.  Although too dark
+to tell what lies in that direction, you're not sure you would want to if
+you could.  The tunnel continues to the south from here, and drops down
+several feet via wooden steps to the north.
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3547 10 10 5
+D5
+~
+~
+0 -1 3549 10 10 5
+-1
+S
+
+#3549
+The Abandoned Mine~
+You are walking along a tunnel which appears to have no end.  The dark,
+chiseled walls give no clue as to which direction you might find an exit
+out of this god forsaken place.  To the north, you can hear muffled
+sounds echoing through the tunnels.  To the south, wooden steps ascend a
+small rise in the tunnel.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3550 10 10 5
+D4
+~
+~
+0 -1 3548 10 10 5
+A
+~
+~
+send_to_room( #room, room );
+i = 3d3+1;
+dam_message( ch, i, "the shower of rock and debris" );
+inflict( ch, mob, i, "the shower of rock and debris" );
+~
+E
+room~
+The ground shakes momentarily, causing a shower of rocks and debris.
+~
+!
+2 750 0
+-1
+S
+
+#3550
+The Abandoned Mine~
+The abandoned mines seem to clearly be living up to their name.  Aside
+from an occasional rat or such, you have not seen a live human being in
+here.  In fact, from the layer of dust on the ground, you would surmise
+that nobody has been back here in ages.  You feel a slight tremble
+beneath you.  The tunnel continues to the north and south.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3551 10 10 5
+D2
+~
+~
+0 -1 3549 10 10 5
+-1
+S
+
+#3551
+The Abandoned Mine~
+This intersection has wooden and metal beams lying all over the ground. 
+A large wooden platform rests against the north wall, leaning somewhat. 
+Apparently, whomever was working in this area left their work undone. 
+Either that, or you are standing in a storage area for extra supplies. 
+Tunnels extend to the south, east and west.
+~
+~
+335024132 2 6 0
+D1
+~
+~
+0 -1 3580 10 10 5
+D2
+~
+~
+0 -1 3550 10 10 5
+D3
+~
+~
+0 -1 3552 10 10 5
+E
+4 beams~
+You look closer at the beams which lie in various piles against the north
+wall.  The dankness of the hall seems to be getting their toll on the
+wooden and metal beams.  Decay and rust abound in this room.
+~
+E
+platform~
+The platform appears to be balanced precariously against the north wall. 
+It wavers back and forth.
+~
+A
+lift move search examine~
+metal beam beams~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_char( oload( 566 ), ch );
+  }
+else {
+  send_to_char( #none, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+nope~
+$n lifts a metal beam with extreme ease, but finds nothing beneath it.
+~
+E
+none~
+Surprisingly, the metal beam lifts rather easily, but you find nothing
+underneath it.
+~
+E
+room~
+$n lifts a metal beam with extreme ease and finds a wooden peg beneath.
+~
+E
+char~
+Surprisingly, the metal beam lifts rather easily.  Underneath, you find a
+wooden peg.
+~
+!
+0 0 0
+79 17 1509949465 -2 0
+-1
+S
+
+#3552
+The Abandoned Mine~
+Walking through the tunnel which continues to the east and west, you are
+surprised at the cleanliness of this tunnel.  Usually, you see the rock
+tunnels filled with bits and pieces of rock and debris, but here, the
+tunnels are immaculately clean.  To the east, you can see some beams and
+a platform sitting at an intersection.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3551 10 10 5
+D3
+~
+~
+0 -1 3553 10 10 5
+-1
+S
+
+#3553
+The Abandoned Mine~
+The rock walls seem to encroach about you here.  You sense something is
+very odd about this tunnel, although the rough hewn floors, walls and
+ceiling appear to be the same dark and dank stone as everywhere else. 
+The tunnel makes a turn here, extending to the south and east.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3552 10 10 5
+D2
+~
+~
+0 -1 3554 10 10 5
+-1
+S
+
+#3554
+The Abandoned Mine~
+Once again, the tunnel begins to wind like a snake through the abandoned
+mine.  Turning to the north and west here, it makes its way through the
+dark rock.  You are still amazed at how clean the ground is beneath you.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3553 10 10 5
+D3
+~
+~
+0 -1 3555 10 10 5
+-1
+S
+
+#3555
+The Abandoned Mine~
+The rock tunnel curves once again beneath the rock earth.  To the north,
+the tunnel appears to continue for some time through the darkness.  To
+the east, you can see another bend.  You begin to doubt your ability to
+keep your bearings straight underneath all of this rock.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3556 10 10 5
+D1
+~
+~
+0 -1 3554 10 10 5
+-1
+S
+
+#3556
+The Abandoned Mine~
+Walking along this dark tunnel, you notice that the walls are a bit
+further apart here than before.  In fact, the walls no longer have that
+familiar groove made by mining picks and other machinery.  Instead, the
+grooves are narrower and more fine, as if made by someone or something
+else entirely.  The tunnel continues to the north and south.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3557 10 10 5
+D2
+~
+~
+0 -1 3555 10 10 5
+-1
+S
+
+#3557
+The Abandoned Mine~
+You are standing at another curve in the rock tunnel.  From here, the
+dark walls extend to the east and south.  Tilting your head, you can
+swear that you hear a chipping sound from somewhere to the east.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3558 10 10 5
+D2
+~
+~
+0 -1 3556 10 10 5
+-1
+S
+
+#3558
+The Abandoned Mine~
+Standing at yet another bend in this winding maze, you can distinctly
+hear the sound of chipping coming from the north.  Feeling the walls, you
+can feel the dankness which is prominent in areas such as this.  The
+tunnel extends to the north and west from here.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3559 10 10 5
+D3
+~
+~
+0 -1 3557 10 10 5
+-1
+S
+
+#3559
+The Abandoned Mine~
+Your first instinct tells you that the excavations done by the miners
+long ago ended right here.  However, to the north, the sound of chipping
+escapes from a large hole set into the wall, and to the west, a freshly
+dug tunnel disappears into complete and utter darkness.  Pieces of rock
+lie scattered about the entrance to the hole.  To the south, the main
+tunnel extends away through between rock walls.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3560 10 10 5
+D2
+~
+~
+0 -1 3558 10 10 5
+D3
+~
+~
+0 -1 3561 10 10 5
+E
+hole~
+The hole appears to have been carved into the north wall by a small tool. 
+Light streams from the entrance.
+~
+E
+1 west~
+You can definitely tell that the tunnel to the west is extremely
+different than the tunnel you stand in currently.  The walls don't appear
+to have been carved by any human tool.
+~
+-1
+S
+
+#3560
+The Abandoned Mine~
+A large hole has been chiseled into the rock wall here.  Judging from the
+size of the hole marks, the miner must have been chipping away here for
+eons.  A small pile of rocks and debris litter the ground at your feet. 
+The only exit is back into the tunnel to the south.
+~
+~
+335020044 2 6 0
+D2
+~
+~
+0 -1 3559 10 10 5
+E
+size~
+The markings on the wall appear to have been made with a hand held pick.
+~
+E
+pile 4 rocks debris~
+The bits and pieces of rock have been carelessly left scattered about the
+floor of the hole.
+~
+7 9 1509949540 3 0
+-1
+S
+
+#3561
+A Small Tunnel~
+Although the walls are made up of rock, they don't appear to have dug out
+by any conventional method.  In fact, upon closer inspection, you would
+swear that the rock has been eaten through.  Despite the darkness, you
+can sense that the tunnel continues to the east and west.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3559 10 10 5
+D3
+~
+~
+0 -1 3562 10 10 5
+-1
+S
+
+#3562
+A Small Tunnel~
+This tunnel is so small that you almost have to lean over to move.  A
+strange growling sound is coming from a hole in the ground.  Something
+tells you that this place isn't safe and that you should leave.  The
+tunnel extends to the east from here.
+~
+~
+335020040 2 6 0
+D1
+~
+~
+0 -1 3561 10 10 5
+D5
+~
+~
+0 -1 3563 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+continue;
+~
+E
+char~
+You crawl into a hole in the ground.
+~
+!
+3 5 32
+-1
+S
+
+#3563
+An Earth Monster's Cave~
+You have just crawled into a huge hole which has been dug out rather
+crudely.  Remains of some type of animal are all over the ground.  In the
+corner, a pile of rocks makes a small sleeping pallet.  Despite the
+darkness, you can see streaks of dried blood lining the rock walls.  The
+only exit appears to be up through the hole in which you came.
+~
+~
+335020032 2 6 0
+D4
+~
+~
+0 -1 3562 10 10 5
+E
+remains~
+The remains appear to be of a small rat.
+~
+E
+blood walls~
+From the looks of the blood, the rat must have stumbled into this lair
+quite by accident.  Judging from the number of chewed rocks, the earth
+monster doesn't appear to be the type to hunt for food.
+~
+E
+pile rocks~
+Several hundred rocks of all sizes and shapes lie piled in the corner to
+make a crude sleeping pallet.
+~
+A
+~
+~
+send_to_char( #char, ch );
+continue;
+~
+E
+char~
+You clamber up through the hole in which you had entered.
+~
+!
+3 -1 16
+3 9 1509949540 3 0
+-1
+S
+
+#3564
+The Abandoned Mine~
+~
+Maya, start here and work your way west, some rooms have been started and
+such...feel free to alter them - D 
+Just try and make sure that each room has at least four lines of
+description and that the last line doesn't have less then four words on
+it - D 
+otherwise, go with the theme that was already started here and feel free
+to add mobs, actions and such (i'll show you how) - D 
+~
+335020036 2 6 0
+D1
+~
+~
+226 -1 3525 10 10 5
+D5
+~
+~
+0 -1 3804 10 10 5
+E
+tunnel~
+The ceiling of the tunnel wavers just out of sight.
+~
+-1
+S
+
+#3565
+The Abandoned Mine~
+The gloom continues to deepen to the west and lighten to the east.  The
+walls of the tunnel still bear the scars of the pickaxes which hollowed
+out the tunnel long ago.  You notice pieces of rusted metal attached to
+the wall at approximately head height that must once have been sconces
+which held torches for the mine workers.
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3566 10 10 5
+D4
+~
+~
+0 -1 3804 10 10 5
+E
+tunnel~
+The ceiling of the tunnel seems to be a little lower here.
+~
+E
+scars~
+The scars along the wall, while still visible, are old and worn away with the many years since they were made.
+~
+-1
+S
+
+#3566
+The Abandoned Mine~
+The gloom in the tunnel feels thick all around you.  As your eyes slowly
+adjust to the darkness, you notice a faint glow coming from the ceiling
+to the left.  Lying on the ground beneath the glow you notice an old
+ladder left here from long ago.
+~
+can we make them climb the ladder and find some glowing moss to use?
+Tarlyn
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3565 10 10 5
+D3
+~
+~
+0 -1 3567 10 10 5
+E
+tunnel~
+The ceiling of the tunnel seems to be even lower here. As you look at it
+closely it seems to be phosphorescent and glowing a bit,makeing it a
+little brighter.
+~
+E
+ladder~
+An old wooden ladder with round rungs is lying here.  It is about 6 feet
+in height and appears to be fairly sturdy.
+~
+-1
+S
+
+#3567
+The Abandoned Mine~
+As you walk down the tunnel you notice numerous rocks and stones strewn
+about the floor.  To the west are several boulders seemingling blocking
+further progress in that direction.  There is a foul smell of ammonia
+here.  You hear a faint rustling from above.
+~
+just making that as an example...usually you just do it on "unique" words
+to room desc 
+for example, in this room, you need an redit on "crack"
+and possibly "rocks/boulders" - D
+later, possibly a random aedit for fainting because of ammonia or
+whatever - D 
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3566 10 10 5
+D3
+~
+~
+81 -1 3568 10 10 5
+E
+tunnel 1 up ceiling~
+The ceiling seems to have numerous small winged creatures hanging above you here.
+~
+E
+crack~
+The crack seems large enough for most all type of people to get though , tho it may be a tight squeeze.
+~
+A
+~
+~
+if( random( 1, 3 ) < 3 ) {
+  act_notchar( #rfaint, ch );
+  act_tochar( #faint, ch );
+  interpret( ch, "sit" );
+  }
+else {
+  act_notchar( #rpass, ch );
+  act_tochar( #pass, ch );
+  interpret( ch, "sleep" );
+  }
+~
+E
+pass~
+Overcome by the ammonia, you pass out and fall to the floor.
+~
+E
+rpass~
+$n, overcome by the ammonia, falls to the floor.
+~
+E
+faint~
+The ammonia fumes fill your nostrils and you find tha urge to sit down.
+~
+E
+rfaint~
+$n faints from inhaling the ammonia in the air.
+~
+!
+2 1000 0
+A
+smell sniff inhale breathe~
+ammonia air gas~
+act_tochar( #breath, ch );
+act_notchar( #rbreath, ch );
+acode( room, 1 );
+~
+E
+rbreath~
+$n inhales the ammonia gas.
+  
+~
+E
+breath~
+You inhale the noxious fumes of the ammonia gas.
+  
+~
+!
+0 0 0
+A
+enter~
+3 crack~
+act_notchar(#to_room,ch );
+transfer( ch, find_room(3568 ) );
+act_notchar(#arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave,rch );
+  transfer( rch, find_room(3568 ) );
+  act_notchar( #f_arr,rch );
+  }
+~
+E
+f_arr~
+$n squeezes in behind.
+~
+E
+f_leave~
+$n is also gone.
+~
+E
+arr~
+$n writhes through the tight crack.
+~
+E
+to_room~
+Looking around a bit, you see $n is suddenly gone.
+~
+!
+0 0 0
+-1
+S
+
+#3568
+A Large Cavern~
+Whoa!  Look at the size of this place!  This cavern is huge...  and it
+looks like it was naturally made.  You hear the sound of running water
+and it isn't that far off.  You see a small stalagmite forming on the
+floor of the cavern to the west.
+~
+don't forget to mention the crack to the east
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3569 10 10 5
+D1
+~
+~
+81 -1 3567 10 10 5
+D2
+~
+~
+0 -1 3570 10 10 5
+D3
+~
+~
+0 -1 3571 10 10 5
+-1
+S
+
+#3569
+A Large Cavern~
+The cavern walls seem to shimmer and sparkle, reflecting an unknown
+source of light.  Your eyes are drawn upwards to the giant stalagtites
+hanging all around you.  The air seems to chill a bit as you enter
+further into the cavern.  There is the sound of rushing water off
+to the west.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3574 10 10 5
+D2
+~
+~
+0 -1 3568 10 10 5
+D3
+~
+~
+0 -1 3572 10 10 5
+-1
+S
+
+#3570
+A Large Cavern~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3568 10 10 5
+D3
+~
+~
+0 -1 3573 10 10 5
+-1
+S
+
+#3571
+A Large Cavern~
+The size of this cavern amazes you.  Huge chunks of rock jut up from the
+cavern floor.  You look up to see how high the ceiling is, but you can
+only see darkness.  There is no telling what may be up there.  What
+appears to be an underground river flows to the west.
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 3572 10 10 5
+D1
+~
+~
+0 -1 3568 10 10 5
+D2
+~
+~
+0 -1 3573 10 10 5
+D3
+~
+~
+0 -1 3576 10 10 5
+-1
+S
+
+#3572
+A Large Cavern~
+You are startled as you enter here and find a thunderous sound comeing
+from a giant waterfall.  Now you realize where the sound of the water has
+been eminateing from.  The height of the ceiling here almost prevents you
+from seeing the top of the falls, but you can just barely make it out.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3575 10 10 5
+D1
+~
+~
+0 -1 3569 10 10 5
+D2
+~
+~
+0 -1 3571 10 10 5
+D3
+~
+~
+0 -1 3577 10 10 5
+-1
+S
+
+#3573
+A Large Cavern~
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 3571 10 10 5
+D1
+~
+~
+0 -1 3570 10 10 5
+D3
+~
+~
+0 -1 3579 10 10 5
+-1
+S
+
+#3574
+A Large Cavern~
+As you enter this part of the cavern you are hit with an evil wind that
+pierces you so strong its mauls you.  It's so cold and powerful it
+almost knocks you down.  You begin to wonder if this is a safe place to
+be.
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3569 10 10 5
+D3
+~
+~
+0 -1 3575 10 10 5
+-1
+S
+
+#3575
+A Large Cavern~
+There is a rushing sound of water to the south.  The sound is so loud you
+almost didnt notice the crunching noise under your foot.  You can see all
+sorts of quartz and other semi-precious stones embedded in the cavern
+walls here.
+~
+can i let them find they dislodged something when they stepped here? -Tarlyn
+perhaps a piece of quartz to make a ring. they will d still need to fing the other piece to make the setting with *grin*
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3574 10 10 5
+D2
+~
+~
+0 -1 3572 10 10 5
+D3
+~
+~
+0 -1 3578 10 10 5
+-1
+S
+
+#3576
+A Large Cavern~
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 3577 10 10 5
+D1
+~
+~
+0 -1 3571 10 10 5
+D2
+~
+~
+0 -1 3579 10 10 5
+-1
+S
+
+#3577
+A Large Cavern~
+~
+set all terrains in here to cave and size to dino (for cavern) - D
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3578 10 10 5
+D1
+~
+~
+0 -1 3572 10 10 5
+D2
+~
+~
+0 -1 3576 10 10 5
+-1
+S
+
+#3578
+A Large Cavern~
+~
+~
+335020036 6 6 0
+D1
+~
+~
+0 -1 3575 10 10 5
+D2
+~
+~
+0 -1 3577 10 10 5
+-1
+S
+
+#3579
+A Large Cavern~
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 3576 10 10 5
+D1
+~
+~
+0 -1 3573 10 10 5
+-1
+S
+
+#3580
+The Abandoned Mine~
+The tunnel you are walking through seems to wind through the rock walls
+like a large snake.  To the west, you can see several beams and a
+platform within an intersection.  To the south, the tunnel continues
+winding beneath the heavy earth.
+~
+~
+335020044 2 6 0
+D2
+~
+~
+0 -1 3581 10 10 5
+D3
+~
+~
+0 -1 3551 10 10 5
+E
+4 beams platform~
+Although you cannot see them clearly, several beams and a large wooden
+platform lie against the north wall to your west.
+~
+-1
+S
+
+#3581
+The Abandoned Mine~
+Once again, the rock tunnel winds its way through the abandoned mine. 
+Bending to the north and east, you sense that the miners must have been
+searching through the earthstone for the perfect kind of rock to mine.
+Loose rock and debris line the floor, left behind absentmindedly.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3580 10 10 5
+D1
+~
+~
+0 -1 3582 10 10 5
+E
+rock debris~
+You look closely at the small chunks of rock which must have been chipped
+away from the tunnel wall, but you see nothing special about them.
+~
+-1
+S
+
+#3582
+The Abandoned Mine~
+The tunnel bends to the north and west at this point.  All around you,
+you can feel the earth shift ever so slightly.  A shower of dust floats
+to the ground occasionally.  You cannot hear, feel or sense anything
+unusual coming from either direction.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3583 10 10 5
+D3
+~
+~
+0 -1 3581 10 10 5
+-1
+S
+
+#3583
+The Abandoned Mine~
+Surprisingly, the tunnel continues straight momentarily.  However,
+peering to the north and south, you can see it bend once again through
+the mined rock.  Feeling along the walls, you can feel where miners had
+chipped away at the rock walls long ago.
+~
+~
+335020044 2 6 0
+D0
+~
+~
+0 -1 3584 10 10 5
+D2
+~
+~
+0 -1 3582 10 10 5
+-1
+S
+
+#3584
+The Abandoned Mine~
+The tunnel continues to wind its way between the rock walls.  Curving to
+the south and west again, it disappears into the darkness which seems to
+pervade this whole area.  The dark walls seem to absorb your footsteps as
+you meander through this infernal maze of rock and tunnels.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3585 10 10 5
+D2
+~
+~
+0 -1 3583 10 10 5
+694 17 1509949540 -2 0
+2524 9 1509949540 3 0
+2524 9 1509949540 3 0
+-1
+S
+
+#3585
+The Abandoned Mine~
+Alas, you realize that the miners were able to actually dig in a straight
+line.  Standing still, you peer down the east and west tunnels, making a
+mental map so as to not get lost deep within the earth.  You realize that
+if you were to become trapped down here, nobody would here you shout.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3586 10 10 5
+D3
+~
+~
+0 -1 3584 10 10 5
+-1
+S
+
+#3586
+The Abandoned Mine~
+Exasperated, you come to yet another bend in the rock tunnel of this
+abandoned mine.  Curving around to the south and west, the rock walls
+lead you through the earth in a desperate search for a possible exit.  At
+least, that is what you would hope would happen, although you know it is
+futile to think so.
+~
+~
+335020044 2 6 0
+D2
+~
+~
+0 -1 3587 10 10 5
+D3
+~
+~
+0 -1 3585 10 10 5
+-1
+S
+
+#3587
+The Abandoned Mine~
+Once again, the tunnel winds its way through the rock walls which have
+been chiseled haphazardly into the rock face.  To the north, the tunnel
+appears to come to yet another bend, while to the east, it continues
+through the dank, dark earth.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3586 10 10 5
+D1
+~
+~
+0 -1 3588 10 10 5
+-1
+S
+
+#3588
+The Abandoned Mine~
+This section of the rock tunnel you are walking through appears to be
+traveling straight, at least momentarily.  Continuing to the east and
+west, it stretches endlessly beneath the heavy rock.  You can still see
+bits and pieces of rock lying about.
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3589 10 10 5
+D3
+~
+~
+0 -1 3587 10 10 5
+2512 9 1509949540 3 0
+-1
+S
+
+#3589
+The Abandoned Mine~
+You are walking through a tunnel which bends once again to the north and
+west.  All around you, the dark walls seem to be closing in upon you. 
+Cocking your ear to the north, you can hear a heavy wind bellow forth.
+Perhaps you may want to turn around while you still can.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3590 10 10 5
+D3
+~
+~
+0 -1 3588 10 10 5
+-1
+S
+
+#3590
+The Abandoned Mine~
+The tunnels deep within this abandoned mine curve once more to the east
+and south.  All around you, dust clings to the walls and ceiling, making
+your journey somewhat unpleasant.  Of course, being trapped between rock
+walls deep within the earth doesn't help much either.
+~
+~
+335020044 2 6 0
+D1
+~
+~
+0 -1 3591 10 10 5
+D2
+~
+~
+0 -1 3589 10 10 5
+A
+~
+~
+if( random( 1, 10 ) < 5 )
+  send_to_room( #room, room );
+~
+E
+room~
+You begin to choke on the dust.
+~
+!
+1 -1 6
+-1
+S
+
+#3591
+A Large Cavern~
+The tunnel immediately curves to the south and west from here.  Once
+again, you are reminded of a great big snake winding its way through the
+earth.  To the south, you can tell that the tunnel ends at the mouth of a
+large cavern.  To the west, it extends through rock walls which are dark
+and hollow, although you can't even hear your footsteps echoing.
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3594 10 10 5
+D3
+~
+~
+0 -1 3590 10 10 5
+-1
+S
+
+#3592
+A Large Cavern~
+The walls in this lair are completely black.  In fact, it seems that the
+walls themselves seem to be absorbing any and all light.  From above, you
+can hear a low whistling sound of wind coming through a possible hole in
+the ceiling far above.  Unfortunately, it is too dark to make out any
+features in this room.  Worse yet, you can feel something hovering over
+you in the darkness, breathing heavily.
+~
+also, placing big sentinel mobs and allowing players to sleep in the next room and tank them is problematic - an intelligent dragon would have a way of defending itself, and wouldn't be open to such a simplistic avenue of attaack.
+~
+335020036 2 6 0
+D2
+~
+~
+64 -1 3593 10 10 5
+A
+~
+~
+if( mob_in_room( 222, find_room( 333 ) ) )
+send_to_room( #room, room );
+~
+E
+room~
+A strand of acid spit drips from the Black Dragon's mouth.  Smoke
+emanates from the spot burned by the acidic liquid.
+~
+!
+2 0 0
+68 9 1509949450 3 0
+-1
+S
+
+#3593
+A Large Cavern~
+This section of the cavern is slightly different than the rest.  Although
+the normal machinery lies here, you can see a large entrance in the north
+wall.  Along the ground and walls, you can see several large claw marks
+leading to the north.  Black soot covers the walls and the area around
+the entrance is clear of any debris.  The hair on the back of your neck
+begins to raise.  You may not want to wander into the entrance.
+~
+begins to rise
+~
+335020036 2 6 0
+D0
+'cave entrance'~
+'cave entrance'~
+64 -1 3592 10 10 5
+D2
+~
+~
+0 -1 3596 10 10 5
+D3
+~
+~
+0 -1 3594 10 10 5
+E
+machinery~
+This machinery appears to have been collecting dust since the beginning
+of time.
+~
+E
+marks~
+Peering at the marks, you can definitely tell that whatever creature made
+these is big enough to rip you in half.
+~
+E
+soot~
+Surprisingly, this soot seems somewhat out of place after looking at all
+the dust which clings to floor of this cavern.  The soot appears somewhat
+fresh in comparison.
+~
+A
+~
+~
+if( random( 1, 10 ) < 4 ) 
+  send_to_room( #room, room );
+~
+E
+room~
+A blast of hot air shoots out of the entrance to the north.
+~
+!
+1 -1 13
+246 17 1509949540 -2 0
+-1
+S
+
+#3594
+A Large Cavern~
+You are standing within a relatively large cavern.  Around you, ancient,
+heavy machinery and large blocks of stone litter the ground.  The cavern
+stretches away to the east and south into dangers unknown.  To the north,
+a narrow passage extends through the rock walls.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3591 10 10 5
+D1
+~
+~
+0 -1 3593 10 10 5
+D2
+~
+~
+0 -1 3595 10 10 5
+E
+machinery~
+Much of the machinery appears to have been abandoned long ago.  Rusty and
+in disrepair, the ancient machinery just sits here gathering dust.
+~
+E
+5 blocks stone~
+The blocks of stone appear to be of the same type of stone that holds
+Castle Lag together.  However, these stones have been left here for some
+unknown reason.
+~
+-1
+S
+
+#3595
+A Large Cavern~
+The cavern appears to have been chiseled block by block from this area. 
+A closer examination of the rock walls reveals an extremely strong and
+flawless rock which can be used for building.  The cavern extends to the
+north and east.  To the east, you can make out some machinery.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3594 10 10 5
+D1
+~
+~
+0 -1 3596 10 10 5
+-1
+S
+
+#3596
+A Large Cavern~
+You are standing in a very large cavern which extends to the north and
+west.  Huge, ancient machinery is lying everywhere in here.  This is one
+of the sites where alot of the digging took place.  Despite the darkness
+which envelopes this area, you can make out a small crevice to the south.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3593 10 10 5
+D2
+~
+~
+0 -1 3597 10 10 5
+D3
+~
+~
+0 -1 3595 10 10 5
+-1
+S
+
+#3597
+A Small Crevice~
+You are standing within the lip of a small crevice which is dug into the
+hard rock.  To the north, you can make out a large cavern in the darkness. 
+Unfortunately, the crevice is too dark and too narrow to make out what
+could be lying to the south.  A slight breeze brushes by you in this
+hollowed out crevice which extends to the north and south.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3596 10 10 5
+D2
+~
+~
+0 -1 3598 10 10 5
+-1
+S
+
+#3598
+A Small Crevice~
+Coming around a bend in the small tunnel, you stumble upon a decomposed
+skeleton lying in the corner.  Apparently, whoever it was must have
+either gotten lost or trapped in here or they were escaping from somebody
+or something.  You make a quick check to make sure you still have your
+supplies for survival.  The crevice extends into the darkness to the
+north and ascends to the west.
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3597 10 10 5
+D4
+~
+~
+0 -1 3599 10 10 5
+-1
+S
+
+#3599
+A Small Crevice~
+Despite the coolness of the rocks which crowd around you, you can feel a
+small bead of sweat begin on your forehead.  The tiny crevice extends
+into extreme darkness to the west, and descends to the east.  You can
+feel a slight breeze blowing through the tunnel.
+~
+~
+335020036 2 5 0
+D3
+~
+~
+0 -1 3507 10 10 5
+D5
+~
+~
+0 -1 3598 10 10 5
+-1
+S
+
+#3600
+Trail Around Medienne~
+The dusty and well-travelled path skirts around the towering stone walls
+of Medienne.  Thick brambles and thorn bushes crowd each other and the
+path, growing at the feet of mighty pines along the sides of the path. 
+Looming above the wall to the east, you see white marble pillars rising
+into the sky.
+~
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 3601 10 10 5
+D2
+~
+~
+0 -1 21058 10 10 5
+E
+brambles thorn bushes~
+The bushes crowd the path, growing right to the edge.  They show signs of
+being hacked back to give the path room.
+~
+E
+pillars white~
+Thick marble columns support the roof of a massive building on the other
+side of the wall.
+~
+E
+wall~
+The thick-stone wall is at least fifteen meters tall.
+~
+E
+pines~
+Several large pine trees dominate the smaller ones here.  The thick
+trunks provide purchase for the thorn vines that grow beneath and around
+the pines.
+~
+-1
+S
+
+#3601
+Trail Around Medienne~
+Thick tangles of ivy crawl up the wall to the south, their intertwined
+vines hanging and swaying in the breeze.  The wide path runs east and
+west along the ivy-covered wall, thick briars and thorns growing under
+the canopy of the pines to the north.  Towering above the wall to the
+south are the white marble pillars of an ornate building.
+~
+[Corde] Just for the record: nice job on this.
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 3602 10 10 5
+D3
+~
+~
+0 -1 3600 10 10 5
+E
+ivy~
+Ivy grows from the foot of the wall, climbing up the stone much of its
+height.  The ivy stops about ten meters up the wall, and begins hanging
+back down in thick tangles.
+~
+E
+briars thorns~
+Beneath the thick stand of pines twisted vines and thorny briars wrap
+themselves about the tree-trunks.  The thorny growth is quite thick,
+casting doubt as to whether you could pass through it.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+You hear the faint sounds of chanting coming from the other side of the
+wall.
+~
+!
+2 15 0
+-1
+S
+
+#3602
+Trail Around Medienne~
+The dusty path winds its way around the corner of the massive wall to the
+southwest.  Long vines of ivy climb the wall and hang their leafy fronds
+over the path.  To the east of the trail a small patch of wild flowers
+grow in a plot of grass.  Beyond these flowers a thick hedgerow prevents
+movement into the pine forest beyond.  The path heads south and west.
+~
+~
+301465600 2 7 0
+D2
+~
+~
+0 -1 3603 10 10 5
+D3
+~
+~
+0 -1 3601 10 10 5
+E
+hedgerow~
+Thick leafy bushes grow close-set to one another along the edge of the
+small plot of grass.  They appear to have been trimmed to form a thick
+wall of foliage.
+~
+E
+flowers wild~
+Small flowers grow on rangy little plants.  The flowers are an assortment
+of colors, with small white star-shaped flowers and round yellow flowers
+dominating the small meadow.
+~
+E
+meadow grass plot~
+The small meadow is covered in grass and many different colored wild
+flowers.
+~
+E
+wall massive~
+The tall stone wall climbs about fifteen meters into the sky.  Ivy climbs
+about ten meters up its rough surface.
+~
+E
+vine ivy frond~
+The ivy grows about ten meters up the stone wall.  When it reaches that
+height, it begins to hang down over the trail.
+~
+-1
+S
+
+#3603
+Trail Around Medienne~
+Large thorny shrubs grow to the south of the trail that leads north and
+east.  The tall wall of the city rises to the west, and you can see it in
+the distance to the south also.  Large pine trees and a thick undergrowth
+border the path along its northern edge.
+~
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 3602 10 10 5
+D1
+~
+~
+0 -1 3604 10 10 5
+E
+thorny shrubs~
+The thorny shrubs grow thickly to the south.  Each shrub is about four
+feet in diameter, but they grow close together, and their tangled
+branches intertwine.
+~
+E
+wall~
+The thick, stone wall rises about fifteen meters high, its rough stones
+forming a strong defense against attack.
+~
+E
+pine trees~
+Tall pines border the northern edge of the path.  They appear healthy,
+and their branches sway in the breeze.
+~
+-1
+S
+
+#3604
+Trail Around Medienne~
+The dusty dirt path snakes its way through the overgrown pines, heading
+east and west.  The tall pines lean over the path, sheltering it from the
+wind, but limiting your vision to only a few yards ahead in any direction. 
+Beneath the pines, a thick growth of brambles and thorns prevent movement
+through the trees.
+~
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 3605 10 10 5
+D3
+~
+~
+0 -1 3603 10 10 5
+E
+pines tall overgrown~
+The pine trees grow close to the path, several of them leaning over it at
+odd angles.  The branches of the pines also grow over the path, forming a
+thick canopy of scented boughs.
+~
+E
+brambles thorns~
+The brambles and thorny bushes cluster at the feet of the trees.  Their
+sharp thorns and tangled limbs twist together.
+~
+A
+~
+~
+send_to_room( #noise, room );
+~
+E
+noise~
+Something moves quickly away from the path, but is gone before you can
+see it.
+~
+!
+2 20 0
+-1
+S
+
+#3605
+Forest Trail~
+The dirt path heads east and west through a tunnel of pine trees.  The
+dirt of the path has been trodden by countless travelers, and in several
+areas has been packed into hardpan.  Beneath the close-growing pines,
+thick shrubs and thorny vines grow, making movement impossible.  Though
+you can't see anything, you hear the sounds of small animals moving
+through the underbrush.
+~
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 3606 10 10 5
+D3
+~
+~
+0 -1 3604 10 10 5
+E
+movement animals~
+You never quite see what is moving, but you surmise it to be small birds
+or other small animals.
+~
+E
+hardpan path~
+In several places the dusty path gives way to a more solid earth.  There
+appears to be nothing interesting about it, just different.
+~
+E
+pines shrubs thorny vines~
+A tangle of thorny vines and squat, sturdy shrubs grow beneath the forest
+of pines.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+You see a small bird flitting from one branch to another, the only sound
+the quick beating of its wings.
+~
+!
+2 15 0
+-1
+S
+
+#3606
+Forest Trail~
+Tall pines loom over the trail, their slender branches swaying slowly in
+the breeze.  The trail here is hard-packed dirt, marred only by the ruts
+of passing wagons.  From the thick canopy of trees you hear the sounds of
+birds, and occasionally catch a glimpse of movement.  The path winds
+through the dense trees heading east and west.
+~
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 3607 10 10 5
+D3
+~
+~
+0 -1 3605 10 10 5
+E
+ruts~
+Deep ruts mar the surface of the path.  Many wagons have passed this way,
+and left their mark upon the trail. 
+~
+E
+birds movement sounds canopy~
+Looking into the trees you can spot an occasional bird hopping about or
+flying quickly from one branch to another.
+~
+E
+trees pine~
+The tall pine trees lean over the trail, slowing trying to regain control
+of the forest floor.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+You hear the lilting call of a song-bird float through the trees.
+~
+!
+2 15 0
+-1
+S
+
+#3607
+Forest Trail~
+The dense growth of pine trees creep up towards the dirt of the trail, a
+few roots protruding from the earth, exposed by the erosion of the soil. 
+The air here is still, and the woods are strangely quiet.  Thick hedges
+grow between the pines, making movement possible only along the path,
+which leads west and south.
+~
+~
+301465600 2 7 0
+D0
+hedge~
+hedge bush~
+139 -1 3629 10 10 5
+D2
+~
+~
+0 -1 3608 10 10 5
+D3
+~
+~
+0 -1 3606 10 10 5
+E
+roots~
+Thick roots break the surface of the path.  The gnarled roots have been
+exposed by a combination of erosion and compaction of the soil.
+~
+E
+hedges~
+The hedges are thick leafy plants with small leaves.  They have been
+trimmed away from the trail, but form a tight border along the
+northeastern edge.
+~
+-1
+S
+
+#3608
+Forest Trail~
+The trees to the west thin out quickly, giving way to a grassy meadow
+which rises into a hill.  The dirt trail turns sharply to the east and
+north, while a smaller less used trail leads west into the meadow.  Just
+northeast of the trail, a large vine-covered stone sits heavily on the
+ground.
+~
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 3607 10 10 5
+D1
+~
+~
+0 -1 3609 10 10 5
+D3
+~
+~
+0 -1 3631 10 10 5
+E
+meadow~
+The meadow spreads out quite some distance to the west.  It is covered in
+short grass and spotted with flowers.
+~
+E
+stone vine~
+A large boulder sits underneath a blanket of vines.  It is covered in
+lichen and moss, and has been there for ages by the looks of it.
+~
+A
+climb~
+stone boulder rock~
+act_tochar( #nope, ch );
+~
+E
+nope~
+Looking at the sharp thorns you decide against climbing the boulder.
+~
+!
+0 0 0
+-1
+S
+
+#3609
+Forest Trail~
+The dirt trail curves north and west around the fallen trunk of a large
+tree.  Thorny vines crawl over the log, making it a formidable obstacle. 
+The pines recede a little from the path, making it possible for you to
+see quite far along the path.  However, the thorny bushes and brambles
+still make passage anywhere but along the path impossible.
+~
+[Merior] add word log to trunk extra
+done
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 3630 10 10 5
+D3
+~
+~
+0 -1 3608 10 10 5
+E
+log trunk~
+The large trunk lies on the ground.  Even in this position the tree is
+over fifteen feet high and covered with sharp thorny vines.
+~
+E
+bushes brambles~
+Spiky brambles and thorn bushes grow densely underneath the pines.
+~
+-1
+S
+
+#3610
+Forest Trail~
+Tall pines surround and crowd the trail casting dark shadows that wave
+silently along the ground.  Though the limbs of the trees form a thick
+canopy, occasionally a large open space allows sight of the sky.  Many
+older trees have fallen here, leaning precariously against the trunks of
+other trees, and providing a convenient place for the thick thorn vines
+to grow.  The dusty dirt trail winds east and west between the trees.
+~
+~
+301465600 2 7 0
+D1
+~
+~
+0 -1 3611 10 10 5
+D3
+~
+~
+0 -1 3627 10 10 5
+E
+thorny vines fallen trees~
+The thick, thorny vines grow up and over the fallen trees and crowd those
+trees that still stand.
+~
+E
+canopy~
+The limbs of the pines intertwine to form an almost perfect roof over the
+trail.
+~
+E
+shadows~
+The shadows dance silently across the path, creating eerie shapes that
+move across your vision.
+~
+-1
+S
+
+#3611
+Forest Trail~
+The dirt trail turns to the south and the west, skirting by a large
+pile of stones to the northeast of the trail.  Dark thorny vines crawl
+over the stones, slithering like snakes across the lichen-covered rocks. 
+A few thin pines poke out from between the blocks of stone, growing at
+odd angles until they curve upward towards the sky.
+~
+[Merior] cheater - put all your extras into one
+*halo*
+~
+301465600 2 7 0
+D2
+~
+~
+0 -1 3612 10 10 5
+D3
+~
+~
+0 -1 3610 10 10 5
+E
+pile stones lichen rocks blocks trees pine~
+Large stones carved into blocks sit piled along the northeastern edge of
+the path.  Mottled lichen grows on the stones, lending them a greenish
+tint.  The thick tangle of thorn vines climbs over the stones, wrapping
+itself around them.  A few pine trees jut out from the cracks between the
+blocks, eventually straightening and growing upwards.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+The pines sway gently in the breeze, their branches waving slowly.
+~
+!
+2 15 0
+-1
+S
+
+#3612
+Trail Around Medienne~
+The dusty trail curves through the pine forest, coming up to a thick
+stone wall.  The scarred wall shows signs of attack, black marks and deep
+gouges marring its surface.  As the path curves along the wall, it heads
+north and east.  To the northeast of the trail large pines grow tall and
+a thick tangle of brambles covers the forest floor.
+~
+[Merior] exits implies which way you've been going
+[Merior] this room seems more a random collection of sentences then a
+setting 
+reorganized the whole sentence structure
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 3611 10 10 5
+D1
+~
+~
+0 -1 3805 10 10 5
+E
+wall stone thick~
+The thick-stone wall rises about fifteen meters into the sky.  It is
+marked with deep gouges and black splotches.
+~
+E
+gouges black splotches deep marks~
+The thick gouge marks are several inches deep and are almost randomly set
+about the face of the wall.  The dark black splotches appear to be
+singe-marks, and the stone appears somehwat glassy at these points.
+~
+E
+brambles pines large~
+A thick tangle of brambles grow around the trunks of the large pines. 
+The sharp thorns make you think twice about trying to enter the forest
+here.
+~
+A
+enter~
+forest~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The brambles are too thick, and you give up.
+~
+!
+0 0 0
+-1
+S
+
+#3613
+Trail Around Medienne~
+The wide path meanders north and west through the grass of a large meadow. 
+To the west, in the distance, grey stone walls rise into the sky.  Small
+flowers dot the landscape, adding their scents to the field of grass as
+they wave in the breeze.  To the east the meadow gradually rises becoming
+a hill.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 3808 10 10 5
+D1
+~
+~
+0 -1 3624 10 10 5
+D3
+~
+~
+0 -1 3614 10 10 5
+E
+flowers~
+A variety of wild flowers are sprinkled throughout the large meadow. 
+They sway in the light breeze, and you can smell the scent of pollen in
+the air.
+~
+E
+hill meadow~
+A tall hill rises in the distance to the east.  It is covered in grass,
+and appears to have something at its peak.
+~
+E
+grey stone wall~
+The large wall rises fifteen meters into the air.
+~
+-1
+S
+
+#3614
+Trail Around Medienne~
+The wide dirt trail follows the stone walls of the city, extending far to
+the south and curving towards the east.  To the east the trail heads into
+a grassy meadow that rises towards the east and a hill far in the
+distance.  The city walls are made of large stone blocks, and show the
+scars of many battles.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 3613 10 10 5
+D2
+~
+~
+0 -1 3615 10 10 5
+E
+meadow~
+The grassy meadow extends far to the east, rising into a hill in the
+distance.
+~
+E
+walls stone blocks~
+The wall extends fifteen meters into the sky.  The wall runs as far as
+you can see to the north and south.
+~
+E
+scars~
+Gouges and burn marks from past assaults mar the stone of the wall.
+~
+-1
+S
+
+#3615
+Trail Around Medienne~
+The dirt trail heads north through a small meadow, hugging close by the
+stone wall to the west.  Off to the east of the trail, a thick copse of
+pine trees sits at the edge of the meadow.  To the south the trail widens
+and appears to connect to a major road heading east and west.
+~
+south is 227
+[Merior] of the trail,
+fixed
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 3614 10 10 5
+D2
+~
+~
+0 -1 227 10 10 5
+E
+stone wall~
+A fifteen meter high wall of stone runs north and south along the west
+side of the trail.  Far off to the south you can see a large gate in the
+wall.
+~
+E
+copse pine trees~
+A thick stand of pine trees grows off to the east of the path.  Beneath
+the trees, in the shade grow large thorn bushes.
+~
+E
+thorn bushes~
+The thorn bushes make movement through the pines impossible.
+~
+-1
+S
+
+#3616
+Trail Near Medienne~
+You are walking along a trail along the outskirts of the Medienne City. 
+To the west, you can see an intersection in the trail, beyond which lies
+the gates of the city.  To the east, the trail bends south before a
+rushing river.  Around you, tall grass and bushes border the trail.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 3617 10 10 5
+D3
+~
+~
+0 -1 227 10 10 5
+-1
+S
+
+#3617
+Trail Near Medienne~
+You are standing at a curve in the trail which borders the dense forest
+to the east.  The trail continues south, disappearing over a hill and
+heading towards unknown lands.  To the west, a trail leads back to the
+city of Medienne.  Through the dense brush to the east, the Medienne
+forest teems with life.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 3618 10 10 5
+D3
+~
+~
+0 -1 3616 10 10 5
+-1
+S
+
+#3618
+Trail Near Medienne~
+You are walking along a dirt trail which edges the Medienne forest to the
+east.  To the north, the trail curves to the west, heading towards the
+Medienne City.  To the south, the trail climbs up a hill which marks the
+edge of the Medienne forest.  To the west, tall brush and grass prevent
+any passage towards the city.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 3617 10 10 5
+D2
+~
+~
+0 -1 3619 10 10 5
+-1
+S
+
+#3619
+Trail Near Medienne~
+Standing upon a small hill, you can clearly see the landscape which
+surrounds you.  To the west, a large city stands rooted to the ground. 
+To the east, the Medienne forest beckons you to follow the edge of a
+river flowing in from the east and turning to the south.  A path clambers
+down each side of the hill towards the north and south.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 3618 10 10 5
+D1
+~
+~
+0 -1 550 10 10 5
+D2
+~
+~
+0 -1 3620 10 10 5
+-1
+S
+
+#3620
+Trail Near Medienne~
+You are standing at the end of a rushing river which curves to the south
+abruptly.  The trail to the north rises over a hill, while to the south,
+you can see it ending at a small bridge.  Far to the west, the city of
+Medienne stands stoically on the horizon.  Beyond the river to the east
+and north, the Medienne forest stretches away.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 3619 10 10 5
+D2
+~
+~
+0 -1 3621 10 10 5
+-1
+S
+
+#3621
+Trail Near Medienne~
+You are standing at a bend in the trail.  To the east, a small bridge
+spans the rushing river which continues to flow to the south.  To the
+north, the trail borders the edge of the river.  To the south and west,
+tall grass and impenetrable bushes line the path.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 3620 10 10 5
+D1
+~
+~
+0 -1 228 10 10 5
+-1
+S
+
+#3623
+Hilltop Meadow~
+The grass of the meadow dies off as you approach the leafless tree.  Down
+to the west the meadow slopes, while in the other directions impassable
+brambles and steep cliffs make furthur exploration impossible.  The tall
+leafless tree appears long dead, its barkless trunk covered in wormholes. 
+Off in the distance to the west you see the grand scale of a large town,
+gleaming temples and stately manors sprinkled about as the tiny people
+move about on their business.
+~
+[Xico] THE leafless tree?  (yes, it was described earlier, but still)
+~
+335020032 2 9 0
+D3
+~
+~
+0 -1 3624 10 10 5
+E
+grass~
+The lush grass of the hill begins to turn brown and die as it nears the
+dead tree.
+~
+E
+dead leafless tree~
+The tall, lifeless tree stands solitary on the hill, its skeletal
+branches grasping at the sky like the hands of a supplicant.  The bark
+has long since peeled away, leaving the smooth wood of the tree to bleach
+in the sun.  The trunk is covered with small holes, the work of worms or
+some other pest.
+~
+E
+brambles steep cliffs~
+A severe drop off surrounds the hilltop on three sides.  The steep drop
+leads directly into a patch of brambles and briars.
+~
+E
+town temples manors people~
+From this distance you can only see the rooftops of the buildings, and
+the tiny figures of those moving about along the roads. 
+~
+A
+climb~
+tree~
+act_tochar( #climb, ch );
+~
+E
+climb~
+The tree would not support your weight.
+~
+!
+0 0 0
+A
+climb~
+cliff~
+act_tochar( #cliff, ch );
+~
+E
+cliff~
+Looking down the cliff and at the brambles, you decide that you had best
+not try that.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #slope, ch );
+act_notchar( #rmslope, ch );
+continue;
+~
+E
+slope~
+You begin walking down the slope.
+~
+E
+rmslope~
+$n begins heading down the slope.
+~
+!
+3 0 8
+-1
+S
+
+#3624
+Meadow~
+The field of grass and wild flowers sways gently in the breeze.  To the
+east the meadow rises steeply, leading to the crest of a small hill.  Far
+to the west you see the walls of a large fortress town.  A lone tree sits
+atop the hill to the east, its bare branches reaching up to the sky. 
+Just to the west a dirt trail heads through the meadow.
+~
+~
+335020032 2 9 0
+D1
+~
+~
+0 -1 3623 10 10 5
+D3
+~
+~
+0 -1 3613 10 10 5
+E
+wild flowers~
+A large number of wildflowers grow randomly about the hillside.  They are
+all sorts of colors, ranging from purple and white to red and yellow.
+~
+E
+tree~
+The tree is still quite far away; to see it better, get closer.
+~
+E
+hill meadow~
+The meadow rises sharply to the east, the green grass climbing the
+sloping meadow.
+~
+E
+walls town~
+The grey stone walls of a town rise high into the sky to the far west.
+~
+E
+trail~
+The small dirt trail slices through the meadow heading west.
+~
+A
+~
+~
+send_to_room( #bird, room );
+~
+E
+bird~
+You hear the lilting call of a song-bird float through the air.
+~
+!
+2 10 0
+-1
+S
+
+#3627
+Forest Trail~
+The path here becomes somewhat damp and muddy, showing the footprints of
+those that have traveled before you.  Lush and leafy ferns grow right up
+to the edge of the path, their curled fronds swaying in the breeze.  The
+tall pines are covered with thorny vines which climb the trunks and hang
+from the lower branches.  The trail curves north and east, snaking its
+way through the trees.
+~
+~
+335020036 2 7 0
+D0
+~
+~
+0 -1 3628 10 10 5
+D1
+~
+~
+0 -1 3610 10 10 5
+E
+footprints~
+The muddy ground has captured the prints of those that have passed before
+you.  There are prints of all sizes, both human and animal.
+~
+E
+fern leafy~
+Growing right up to the edge of the path, the ferns appear to thrive in
+this damp area of the forest.
+~
+A
+~
+~
+send_to_room( #sway, room );
+~
+E
+sway~
+The lush ferns sway gently in the breeze.
+~
+!
+2 50 0
+-1
+S
+
+#3628
+Forest Trail~
+The dirt trail winds through the dense pine forest, heading west and
+south.  Deep wagon wheel ruts mar the surface of the road, making foot
+travel difficult.  A thick tangle of brambles encroaches upon the trail,
+crawling up the trunks of the pines and making movement off the trail
+something to avoid.  The occasional bird call shatters the silent forest.
+~
+ankle code
+[Jocelyn] A twisted ankle hits you.
+~
+335020036 2 7 0
+D2
+~
+~
+0 -1 3627 10 10 5
+D3
+~
+~
+0 -1 3630 10 10 5
+E
+wagon wheel ruts~
+The ruts in the dirt road are quite deep here and don't follow one set
+path.  If you aren't careful you might catch an ankle in the deep grooves.
+~
+E
+brambles~
+The thick brambles cover the forest floor and come right up to the edge
+of the trail.
+~
+E
+birds~
+You look for a bird, but cannot see one.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+The call of a hidden bird echoes off the trees.
+~
+!
+2 15 0
+A
+~
+~
+if( !can_fly( ch ) ) {
+  i = 1d50;
+  if( i < 4 ) {
+    i = 1d3;
+    act_tochar( #char, ch );
+    act_notchar( #room, ch );
+    dam_message( ch, i, #twist );
+    inflict( ch, ch, i, "twisted ankle" );
+    modify_move( ch, 30 );
+    }
+  }
+~
+E
+char~
+You catch your foot in the rut and twist it!
+~
+E
+room~
+$n catches $s ankle in one of the deep ruts!
+~
+E
+twist~
+a twisted ankle
+~
+!
+1 0 12
+-1
+S
+
+#3629
+Hidden Shrine~
+A small ring of stones is arranged in this clearing beneath the pines. 
+Within the ring are several mushrooms and a small bowl-shaped depression. 
+A circle of trimmed hedges rings the small clearing, creating a space
+that is at once private and serene.  The branches of the pines form an
+arched canopy above the clearing, further insulating you from the rest of 
+the world.
+~
+Acode here transports all in room to faerie ring by Kha-da.
+[Marek] Acode requires a quest item, a rare plant, and a few common items. 
+Also, acode resets the room, so it can't be used constantly.
+Clues to the items required are only found after casting ID on the tome,
+as well.
+~
+335020038 2 6 0
+D2
+hedge~
+hedge bush~
+139 -1 3607 10 10 5
+E
+ring stones mushrooms depression~
+The careful circle of stones here surrounds a shallow depression in what
+appears to be some sort of ancient circle of power.
+~
+A
+perform~
+ritual~
+if( !has_obj( 2579, ch ) ){
+  act_tochar( #no_book, ch );
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  send_to_char( #start, ch );
+  act_notchar( #ostart, ch );
+  wait( 3 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( !has_obj( 5, ch ) ){
+    act_tochar( #no_cup, ch );
+    end;
+    }
+  act_notchar( #cup1, ch );
+  act_tochar( #cup, ch );
+  wait( 2 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( !has_obj( 79, ch ) ){
+    act_tochar( #no_flint, ch );
+    end;
+    }
+  interpret( ch, "ponder" );
+  wait( 1 );
+  send_to_char( #cut, ch );
+  act_notchar( #ocut, ch );
+  wait( 1 );
+  dam_message( ch, 75d1, "The sacrificial cut" );
+  inflict( ch, mob, 75d1, "ritual self-mutilation" );
+  wait( 3 );
+  if( !char_in_room( ch, room ) )
+    end;
+  send_to_char( #cut2, ch );
+  act_notchar( #ocut2, ch );
+  wait( 3 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( !has_obj( 1674, ch ) ){
+    act_tochar( #no_night, ch );
+    end;
+    }
+  send_to_char( #stir, ch );
+  act_notchar( #ostir, ch );
+  wait( 3 );
+  send_to_char( #stir2, ch );
+  act_notchar( #ostir2, ch );
+  obj = has_obj( 1674, ch );
+  junk_obj( obj, 1 );
+  wait( 4 );
+  if( !char_in_room( ch, room ) )
+    end;
+  send_to_char( #pour, ch );
+  act_notchar( #opour, ch );
+  wait( 2 );
+  if( !char_in_room( ch, room ) )
+    end;
+  send_to_char( #door, ch );
+  act_notchar( #odoor, ch );
+  wait( 2 );
+  loop( all_in_room ) {
+    transfer( rch, find_room( 26554 ) );
+    act_notchar( #odrop-d, rch );
+    }
+  end;
+  }
+act_tochar( #nope, ch );
+~
+E
+start~
+You lay out the ancient tome where you can easily read the instructions.
+~
+E
+ostart~
+$n lays out an ancient tome where $e can easily read the instructions.
+~
+E
+cup~
+Peering at the book's instructions, you ready a bronze cup and take a deep
+breath.
+~
+E
+cup1~
+Peering at the book's instructions, $n readies a bronze cup and takes a
+deep breath.
+~
+E
+cut~
+Bracing yourself, you produce a piece of sharp flint and cut yourself
+deeply along your forearm.
+~
+E
+ocut~
+$n braces $mself, then produces a piece of sharp flint and cuts $mself
+deeply along $s forearm.
+~
+E
+cut2~
+Shaking, you pour your own blood into the heavy cup.
+~
+E
+ocut2~
+Shaking, $n pours $s own blood into the heavy cup.
+~
+E
+stir~
+You stir the blood in the cup with a thin stem of nightshade.
+~
+E
+ostir~
+$n stirs the blood in the cup with a thin stem of nightshade.
+~
+E
+stir2~
+The nightshade quickly dissolves in the blood in a most unnatural way.
+~
+E
+ostir2~
+The nightshade quickly dissolves in the blood in a most unnatural way.
+~
+E
+pour~
+Carefully, you pour out a measure of your blood on each of the stones in
+the circle.
+~
+E
+opour~
+Carefully, $n pours out a measure of $s blood on each of the stones in
+the circle.
+~
+E
+door~
+As you complete the ritual and gather up your things, a mist-shrouded
+doorway opens before you, and you walk towards it, as though in a dream.
+~
+E
+odoor~
+A mist-shrouded doorway opens before you, and you walk towards it as
+though in a dream.
+~
+E
+odrop-d~
+$n steps into the circle through a shimmering doorway.
+~
+E
+nope~
+The circle's magic has already been expended.
+~
+E
+no_book~
+You have no idea how to proceed with a ritual.
+~
+E
+no_cup~
+You have lack some of the ingredients for this ritual.
+~
+E
+no_flint~
+You have lack some of the ingredients for this ritual.
+~
+E
+no_night~
+You have lack some of the ingredients for this ritual.
+~
+!
+0 0 0
+A
+get lift~
+stones~
+act_tochar( #no, ch );
+~
+E
+no~
+The stones are either too heavy or too embedded in the earth to move.
+~
+!
+0 0 0
+A
+get pick~
+mushrooms~
+act_tochar( #no, ch );
+~
+E
+no~
+The tiny mushrooms crumble in your hands as you try to pick them.
+~
+!
+0 0 0
+-1
+S
+
+#3630
+Forest Trail~
+Towering pines lean over the dirt trail that turns to the south and to
+the east here.  Large ferns grow amongst the brambles and thorny vines at
+the foot of the pines.  Through the tangled branches above you can catch
+a glimpse of the sky.  The air smells sweet, perhaps scented by the small
+flowers that grow beneath the brambles.
+~
+~
+335020036 2 7 0
+D1
+~
+~
+0 -1 3628 10 10 5
+D2
+~
+~
+0 -1 3609 10 10 5
+E
+ferns~
+Long, leafy fronds curl out from the main stem of the ferns.  They grow
+amidst the thick tangles of thorns and brambles, paying no heed to the
+sharp plants.
+~
+E
+bramble flowers~
+Tiny pink flowers grow beneath the cover of the other plants.  The
+flowers grow on small tufts of green, and sit atop tiny stalks that move
+with the slightest breeze.
+~
+-1
+S
+
+#3631
+Grassy Knoll~
+Short but lush grass covers the sloping hillside meadow in a carpet of
+green.  A faint trail cuts through the grass heading up the slope towards
+the west, perhaps an old animal track.  To the east and north a thick
+canopy of pine trees grow close together.  The meadow spreads out to the
+south, small wildflowers dotting the hillside.
+~
+~
+335020032 2 9 0
+D1
+~
+~
+0 -1 3608 10 10 5
+D2
+~
+~
+0 -1 3632 10 10 5
+D3
+~
+~
+0 -1 3634 10 10 5
+E
+grass~
+The short grass of the meadow sways gently in the wind.  There appears to
+be nothing special about it; it is just grass.
+~
+E
+trail faint~
+The faint trail winds its way up the hill; it is very faint and appears
+to disappear not too far from you.
+~
+E
+wild flowers~
+Small wild flowers of various colors dot the meadow.  Their fragrance can
+be detected on the breeze, a sweet smell.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+A shadow passes overhead as a bird flies over the meadow.
+~
+!
+2 15 0
+-1
+S
+
+#3632
+Grassy Knoll - Overlooking Deep Chasm~
+The gentle slope of the grassy knoll heads upwards towards the northwest. 
+To the south a large chasm opens up, sharp rocks and bleached bones
+dotting the bottom.  Just beyond the chasm, a high wall rises, a sturdy
+defense against attack.  The meadow continues to the west and north.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 3631 10 10 5
+D3
+~
+~
+0 -1 3633 10 10 5
+E
+chasm rocks~
+Sharp stones and large boulders lay at the bottom of the deep chasm.  The
+bottom is uneven, but at the shortest point the drop is at least twenty
+meters.  You can see bleached bones spread about on the rocks below.
+~
+E
+walls~
+The high wall runs east and west, and is set almost to the very edge of
+the chasm on the other side.
+~
+E
+movement~
+You can't see anything now, but you are sure you saw something.
+~
+E
+meadow slope~
+The meadow slopes up to the northwest, and the crest of the grassy
+knoll.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+You sense movement on the rocks below.
+~
+!
+2 5 0
+A
+climb~
+cliff rocks bones chasm down~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You realize climbing down would end your life quickly, and decide against
+it.
+~
+!
+0 0 0
+-1
+S
+
+#3633
+Grassy Knoll - Overlooking Deep Chasm~
+The soft grass of the knoll grows low to the ground.  Small flowers dot
+the landscape, and a warm breeze rises from the chasm that gapes to the
+south and west.  The knoll slopes upwards to the north, and down to the
+east.  At the bottom of the chasm, rocks and bones show that a fall could
+be deadly.  A thick stone wall rises on the other side of the chasm.
+~
+~
+335020032 2 9 0
+D0
+~
+~
+0 -1 3634 10 10 5
+D1
+~
+~
+0 -1 3632 10 10 5
+E
+stone wall~
+The stone wall rises from the far edge of the chasm, at least fifteen
+meters high.
+~
+E
+chasm rocks bones~
+Sharp stones and large boulders lay at the bottom of the deep chasm.  The
+bottom is uneven, but at the shortest point the drop is at least twenty
+meters.  You can see bleached bones spread about on the rocks below.
+~
+E
+flowers~
+Small, yellow flowers grow close to the ground.
+~
+A
+climb~
+cliff rocks bones chasm down~
+act_tochar( #nope, ch );
+~
+E
+nope~
+Climbing down would certainly mean a quick death.
+~
+!
+0 0 0
+755 9 1509949540 3 0
+-1
+S
+
+#3634
+Grassy Knoll~
+A small cottage appears suddenly as you reach the crest of the grassy
+knoll.  Lush vines of purple wisteria cover the stone walls of the
+cottage, and its small green door appears to be the only entrance.  A
+tarnished brass plaque is mounted near the door.  Looking down to the
+south and east you can see the gently sloping grassy field.
+~
+~
+335020032 2 9 0
+D1
+~
+~
+0 -1 3631 10 10 5
+D2
+~
+~
+0 -1 3633 10 10 5
+D3
+small green door~
+small green door~
+391 62 3635 10 10 5
+E
+wisteria vines~
+Thick, woody vines grow up and over the walls of the cottage.  Violet
+flowers grow in small clusters, hanging from the woody stem.  The vine
+grows all over the outside of the cottage.
+~
+E
+wall cottage~
+The stone walls of the cottage betray nothing about what could be inside.
+~
+E
+plaque brass tarnished~
+A thick layer of tarnish covers the plaque, but the words Dorick Levant
+are still crisp and clear.
+~
+-1
+S
+
+#3635
+Inside the Stone Cottage~
+A disheveled bed rests in one corner, and a large table sits alongside
+the south wall.  A small cupboard is mounted on the wall above the table. 
+Cobwebs cover everything and a thick layer of dust blankets the whole
+cottage.  The inside of the cottage is dark, with not even a crack
+letting in any light.
+~
+[Merior] i like the guy.. but why are folks gonna whack him?
+for experience or the item? could be added to a quest later even
+[Marek] Added small quest here from Brother Thomas.
+~
+335020036 2 5 0
+D1
+small green door~
+small green door~
+391 62 3634 10 10 5
+E
+disheveled bed~
+The bed is covered in dusty and rotting sheets.  Something might be under
+them, as there is a large lump in the bedding.
+~
+A
+consecrate~
+corpse~
+if( mob_in_room( 1825, room ) ) {
+  act_tochar( #yeah_right, ch );
+  end;
+  }
+if( !has_obj( 98, ch ) ){
+  act_tochar( #no_water, ch );
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  send_to_char( #sprinkle, ch );
+  act_notchar( #osprinkle, ch );
+  wait( 2 );
+  act_room( #light, ch );
+  set_cflag( 76, ch );
+  obj = has_obj( 98, ch );
+  junk_obj( obj, 1 );
+  end;
+  }
+act_tochar( #done, ch );
+~
+E
+yeah_right~
+The very active remains of the woodcutter refuse to be sanctified.
+~
+E
+no_water~
+You don't have all the materials needed for a consecration.
+~
+E
+sprinkle~
+You sprinkle holy water over the remains of this lost soul.
+~
+E
+osprinkle~
+$n sprinkles holy water over the remains of the woodcutter.
+~
+E
+done~
+The body has already been consecrated.
+~
+E
+light~
+The small cottage seems to brighten, almost imperceptibly.
+~
+!
+0 0 0
+2572 49 1509949540 -2 0
+1449 81 1509949540 -2 0
+1583 81 1509949540 -2 0
+1674 81 1509949455 -2 0
+2573 17 1509949540 -2 0
+1825 9 1509949540 3 0
+-1
+S
+
+#3636
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3638 10 10 5
+D3
+~
+~
+0 -1 3637 10 10 5
+-1
+S
+
+#3637
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3636 10 10 5
+-1
+S
+
+#3638
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3639 10 10 5
+D2
+~
+~
+0 -1 3636 10 10 5
+-1
+S
+
+#3639
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3640 10 10 5
+D2
+~
+~
+0 -1 3638 10 10 5
+-1
+S
+
+#3640
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3639 10 10 5
+D3
+door~
+door~
+0 -1 3641 10 10 5
+-1
+S
+
+#3641
+No Name~
+~
+~
+335020036 2 6 0
+D1
+door~
+door~
+0 -1 3640 10 10 5
+D3
+~
+~
+0 -1 3642 10 10 5
+-1
+S
+
+#3642
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3641 10 10 5
+D3
+~
+~
+0 -1 3643 10 10 5
+-1
+S
+
+#3643
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3644 10 10 5
+D1
+~
+~
+0 -1 3642 10 10 5
+-1
+S
+
+#3644
+No Name~
+~
+~
+335020044 2 6 0
+D2
+~
+~
+0 -1 3643 10 10 5
+D3
+~
+~
+0 -1 3645 10 10 5
+-1
+S
+
+#3645
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3644 10 10 5
+D2
+~
+~
+0 -1 3646 10 10 5
+D3
+~
+~
+0 -1 3651 10 10 5
+-1
+S
+
+#3646
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3645 10 10 5
+D2
+~
+~
+0 -1 3647 10 10 5
+D3
+~
+~
+0 -1 3652 10 10 5
+-1
+S
+
+#3647
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3646 10 10 5
+D2
+~
+~
+0 -1 3648 10 10 5
+D3
+~
+~
+0 -1 3653 10 10 5
+-1
+S
+
+#3648
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3647 10 10 5
+D3
+~
+~
+0 -1 3654 10 10 5
+-1
+S
+
+#3649
+No Name~
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3650 10 10 5
+-1
+S
+
+#3650
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3649 10 10 5
+D2
+~
+~
+0 -1 3651 10 10 5
+-1
+S
+
+#3651
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3650 10 10 5
+D1
+~
+~
+0 -1 3645 10 10 5
+D2
+~
+~
+0 -1 3652 10 10 5
+-1
+S
+
+#3652
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3651 10 10 5
+D1
+~
+~
+0 -1 3646 10 10 5
+D2
+~
+~
+0 -1 3653 10 10 5
+D3
+~
+~
+0 -1 3655 10 10 5
+-1
+S
+
+#3653
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3652 10 10 5
+D1
+~
+~
+0 -1 3647 10 10 5
+D2
+~
+~
+0 -1 3654 10 10 5
+-1
+S
+
+#3654
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3653 10 10 5
+D1
+~
+~
+0 -1 3648 10 10 5
+-1
+S
+
+#3655
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3652 10 10 5
+D3
+~
+~
+0 -1 3656 10 10 5
+-1
+S
+
+#3656
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3655 10 10 5
+D3
+~
+~
+0 -1 3657 10 10 5
+-1
+S
+
+#3657
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3658 10 10 5
+D1
+~
+~
+0 -1 3656 10 10 5
+-1
+S
+
+#3658
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3659 10 10 5
+D2
+~
+~
+0 -1 3657 10 10 5
+-1
+S
+
+#3659
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3660 10 10 5
+D2
+~
+~
+0 -1 3658 10 10 5
+-1
+S
+
+#3660
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3661 10 10 5
+D2
+~
+~
+0 -1 3659 10 10 5
+44 9 1509949540 3 0
+-1
+S
+
+#3661
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3662 10 10 5
+D2
+~
+~
+0 -1 3660 10 10 5
+-1
+S
+
+#3662
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3663 10 10 5
+D1
+~
+~
+0 -1 3665 10 10 5
+D2
+~
+~
+0 -1 3664 10 10 5
+D3
+~
+~
+0 -1 3661 10 10 5
+-1
+S
+
+#3663
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3666 10 10 5
+D2
+~
+~
+0 -1 3662 10 10 5
+-1
+S
+
+#3664
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3662 10 10 5
+D1
+~
+~
+0 -1 3667 10 10 5
+-1
+S
+
+#3665
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3666 10 10 5
+D2
+~
+~
+0 -1 3667 10 10 5
+D3
+~
+~
+0 -1 3662 10 10 5
+-1
+S
+
+#3666
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3669 10 10 5
+D2
+~
+~
+0 -1 3665 10 10 5
+D3
+~
+~
+0 -1 3663 10 10 5
+-1
+S
+
+#3667
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3665 10 10 5
+D1
+~
+~
+0 -1 3668 10 10 5
+D3
+~
+~
+0 -1 3664 10 10 5
+-1
+S
+
+#3668
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3670 10 10 5
+D1
+~
+~
+0 -1 3682 10 10 5
+D3
+~
+~
+0 -1 3667 10 10 5
+-1
+S
+
+#3669
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3671 10 10 5
+D2
+~
+~
+0 -1 3670 10 10 5
+D3
+~
+~
+0 -1 3666 10 10 5
+-1
+S
+
+#3670
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3669 10 10 5
+D1
+~
+~
+0 -1 3675 10 10 5
+D2
+~
+~
+0 -1 3668 10 10 5
+-1
+S
+
+#3671
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3672 10 10 5
+D3
+~
+~
+0 -1 3669 10 10 5
+-1
+S
+
+#3672
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3673 10 10 5
+D3
+~
+~
+0 -1 3671 10 10 5
+-1
+S
+
+#3673
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3674 10 10 5
+D3
+~
+~
+0 -1 3672 10 10 5
+-1
+S
+
+#3674
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3703 10 10 5
+D2
+~
+~
+0 -1 3678 10 10 5
+D3
+~
+~
+0 -1 3673 10 10 5
+-1
+S
+
+#3675
+No Name~
+~
+~
+335020036 4 6 0
+D1
+~
+~
+0 -1 3676 10 10 5
+D3
+~
+~
+0 -1 3670 10 10 5
+-1
+S
+
+#3676
+No Name~
+~
+~
+335020036 4 6 0
+D1
+~
+~
+0 -1 3677 10 10 5
+D3
+~
+~
+0 -1 3675 10 10 5
+-1
+S
+
+#3677
+No Name~
+~
+~
+335020036 4 6 0
+D1
+~
+~
+0 -1 3678 10 10 5
+D3
+~
+~
+0 -1 3676 10 10 5
+-1
+S
+
+#3678
+No Name~
+~
+~
+335020036 4 6 0
+D0
+~
+~
+0 -1 3674 10 10 5
+D1
+~
+~
+0 -1 3679 10 10 5
+D3
+~
+~
+0 -1 3677 10 10 5
+-1
+S
+
+#3679
+No Name~
+~
+~
+335020036 4 6 0
+D1
+~
+~
+0 -1 3680 10 10 5
+D3
+~
+~
+0 -1 3678 10 10 5
+-1
+S
+
+#3680
+No Name~
+~
+~
+335020036 4 6 0
+D1
+~
+~
+0 -1 3681 10 10 5
+D2
+~
+~
+0 -1 3687 10 10 5
+D3
+~
+~
+0 -1 3679 10 10 5
+-1
+S
+
+#3681
+No Name~
+~
+~
+335020036 4 6 0
+D1
+~
+~
+0 -1 3702 10 10 5
+D3
+~
+~
+0 -1 3680 10 10 5
+-1
+S
+
+#3682
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3683 10 10 5
+D3
+~
+~
+0 -1 3668 10 10 5
+-1
+S
+
+#3683
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3684 10 10 5
+D3
+~
+~
+0 -1 3682 10 10 5
+-1
+S
+
+#3684
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3685 10 10 5
+D3
+~
+~
+0 -1 3683 10 10 5
+-1
+S
+
+#3685
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3686 10 10 5
+D3
+~
+~
+0 -1 3684 10 10 5
+-1
+S
+
+#3686
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3687 10 10 5
+D3
+~
+~
+0 -1 3685 10 10 5
+-1
+S
+
+#3687
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3680 10 10 5
+D1
+~
+~
+0 -1 3688 10 10 5
+D3
+~
+~
+0 -1 3686 10 10 5
+-1
+S
+
+#3688
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3689 10 10 5
+D3
+~
+~
+0 -1 3687 10 10 5
+-1
+S
+
+#3689
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3690 10 10 5
+D2
+~
+~
+0 -1 3691 10 10 5
+D3
+~
+~
+0 -1 3688 10 10 5
+-1
+S
+
+#3690
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3696 10 10 5
+D3
+~
+~
+0 -1 3689 10 10 5
+-1
+S
+
+#3691
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3689 10 10 5
+D2
+~
+~
+0 -1 3692 10 10 5
+-1
+S
+
+#3692
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3691 10 10 5
+D2
+~
+~
+0 -1 3693 10 10 5
+-1
+S
+
+#3693
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3692 10 10 5
+D1
+~
+~
+0 -1 3694 10 10 5
+D3
+~
+~
+0 -1 3695 10 10 5
+-1
+S
+
+#3694
+No Name~
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3693 10 10 5
+-1
+S
+
+#3695
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3693 10 10 5
+-1
+S
+
+#3696
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3697 10 10 5
+D1
+~
+~
+0 -1 3698 10 10 5
+D3
+~
+~
+0 -1 3690 10 10 5
+-1
+S
+
+#3697
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3701 10 10 5
+D1
+~
+~
+0 -1 3699 10 10 5
+D2
+~
+~
+0 -1 3696 10 10 5
+-1
+S
+
+#3698
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3699 10 10 5
+D3
+~
+~
+0 -1 3696 10 10 5
+-1
+S
+
+#3699
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3700 10 10 5
+D2
+~
+~
+0 -1 3698 10 10 5
+D3
+~
+~
+0 -1 3697 10 10 5
+-1
+S
+
+#3700
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3708 10 10 5
+D2
+~
+~
+0 -1 3699 10 10 5
+D3
+~
+~
+0 -1 3701 10 10 5
+-1
+S
+
+#3701
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3700 10 10 5
+D2
+~
+~
+0 -1 3697 10 10 5
+D3
+~
+~
+0 -1 3707 10 10 5
+-1
+S
+
+#3702
+No Name~
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3681 10 10 5
+-1
+S
+
+#3703
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3704 10 10 5
+D3
+~
+~
+0 -1 3674 10 10 5
+-1
+S
+
+#3704
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3705 10 10 5
+D3
+~
+~
+0 -1 3703 10 10 5
+-1
+S
+
+#3705
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3706 10 10 5
+D3
+~
+~
+0 -1 3704 10 10 5
+-1
+S
+
+#3706
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3707 10 10 5
+D3
+~
+~
+0 -1 3705 10 10 5
+-1
+S
+
+#3707
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3701 10 10 5
+D3
+~
+~
+0 -1 3706 10 10 5
+-1
+S
+
+#3708
+No Name~
+~
+~
+335020036 2 6 0
+D3
+~
+~
+0 -1 3700 10 10 5
+-1
+S
+
+#3709
+No Name~
+~
+This is the waterfall that goes down to room 31117 in the swamp
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3710 10 10 5
+-1
+S
+
+#3710
+No Name~
+~
+this is directly under the waterfall bridge in room 1010
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3711 10 10 5
+D2
+~
+~
+0 -1 3709 10 10 5
+-1
+S
+
+#3711
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3712 10 10 5
+D2
+~
+~
+0 -1 3710 10 10 5
+-1
+S
+
+#3712
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3713 10 10 5
+D2
+~
+~
+0 -1 3711 10 10 5
+-1
+S
+
+#3713
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3712 10 10 5
+D3
+~
+~
+0 -1 3714 10 10 5
+-1
+S
+
+#3714
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3715 10 10 5
+D1
+~
+~
+0 -1 3713 10 10 5
+-1
+S
+
+#3715
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3716 10 10 5
+D2
+~
+~
+0 -1 3714 10 10 5
+-1
+S
+
+#3716
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3715 10 10 5
+D3
+~
+~
+0 -1 3717 10 10 5
+-1
+S
+
+#3717
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3716 10 10 5
+D3
+~
+~
+0 -1 3718 10 10 5
+-1
+S
+
+#3718
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3719 10 10 5
+D1
+~
+~
+0 -1 3717 10 10 5
+-1
+S
+
+#3719
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3720 10 10 5
+D2
+~
+~
+0 -1 3718 10 10 5
+-1
+S
+
+#3720
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3721 10 10 5
+D2
+~
+~
+0 -1 3719 10 10 5
+-1
+S
+
+#3721
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3722 10 10 5
+D2
+~
+~
+0 -1 3720 10 10 5
+-1
+S
+
+#3722
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3723 10 10 5
+D2
+~
+~
+0 -1 3721 10 10 5
+-1
+S
+
+#3723
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3724 10 10 5
+D3
+~
+~
+0 -1 3722 10 10 5
+-1
+S
+
+#3724
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3725 10 10 5
+D2
+~
+~
+0 -1 3723 10 10 5
+-1
+S
+
+#3725
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3726 10 10 5
+D3
+~
+~
+0 -1 3724 10 10 5
+-1
+S
+
+#3726
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3727 10 10 5
+D2
+~
+~
+0 -1 3725 10 10 5
+E
+wall~
+none~
+E
+wall turn around~
+none~
+-1
+S
+
+#3727
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3728 10 10 5
+D2
+~
+~
+0 -1 3726 10 10 5
+-1
+S
+
+#3728
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3729 10 10 5
+D2
+~
+~
+0 -1 3727 10 10 5
+-1
+S
+
+#3729
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3728 10 10 5
+D3
+~
+~
+0 -1 3730 10 10 5
+-1
+S
+
+#3730
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3731 10 10 5
+D1
+~
+~
+0 -1 3729 10 10 5
+-1
+S
+
+#3731
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3732 10 10 5
+D2
+~
+~
+0 -1 3730 10 10 5
+-1
+S
+
+#3732
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3731 10 10 5
+D3
+~
+~
+0 -1 3733 10 10 5
+-1
+S
+
+#3733
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3732 10 10 5
+D3
+~
+~
+0 -1 3734 10 10 5
+-1
+S
+
+#3734
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3735 10 10 5
+D1
+~
+~
+0 -1 3733 10 10 5
+-1
+S
+
+#3735
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3736 10 10 5
+D2
+~
+~
+0 -1 3734 10 10 5
+-1
+S
+
+#3736
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3735 10 10 5
+D3
+~
+~
+0 -1 3737 10 10 5
+-1
+S
+
+#3737
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3736 10 10 5
+D3
+~
+~
+0 -1 3738 10 10 5
+-1
+S
+
+#3738
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3737 10 10 5
+D3
+~
+~
+0 -1 3775 10 10 5
+-1
+S
+
+#3739
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3740 10 10 5
+D1
+~
+~
+0 -1 3741 10 10 5
+D3
+~
+~
+0 -1 3742 10 10 5
+-1
+S
+
+#3740
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3769 10 10 5
+D1
+~
+~
+0 -1 3744 10 10 5
+D2
+~
+~
+0 -1 3739 10 10 5
+D3
+~
+~
+0 -1 3743 10 10 5
+-1
+S
+
+#3741
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3744 10 10 5
+D1
+~
+~
+0 -1 3745 10 10 5
+D3
+~
+~
+0 -1 3739 10 10 5
+-1
+S
+
+#3742
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3743 10 10 5
+D1
+~
+~
+0 -1 3739 10 10 5
+D3
+~
+~
+0 -1 3751 10 10 5
+-1
+S
+
+#3743
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3770 10 10 5
+D1
+~
+~
+0 -1 3740 10 10 5
+D2
+~
+~
+0 -1 3742 10 10 5
+D3
+~
+~
+0 -1 3757 10 10 5
+-1
+S
+
+#3744
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3765 10 10 5
+D1
+~
+~
+0 -1 3758 10 10 5
+D2
+~
+~
+0 -1 3741 10 10 5
+D3
+~
+~
+0 -1 3740 10 10 5
+-1
+S
+
+#3745
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3758 10 10 5
+D1
+~
+~
+0 -1 3746 10 10 5
+D3
+~
+~
+0 -1 3741 10 10 5
+-1
+S
+
+#3746
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3747 10 10 5
+D3
+~
+~
+0 -1 3745 10 10 5
+-1
+S
+
+#3747
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3748 10 10 5
+D2
+~
+~
+0 -1 3746 10 10 5
+D3
+~
+~
+0 -1 3758 10 10 5
+-1
+S
+
+#3748
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3749 10 10 5
+D2
+~
+~
+0 -1 3747 10 10 5
+D3
+~
+~
+0 -1 3760 10 10 5
+-1
+S
+
+#3749
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3750 10 10 5
+D2
+~
+~
+0 -1 3748 10 10 5
+D3
+~
+~
+0 -1 3761 10 10 5
+-1
+S
+
+#3750
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3749 10 10 5
+D3
+~
+~
+0 -1 3762 10 10 5
+-1
+S
+
+#3751
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3757 10 10 5
+D1
+~
+~
+0 -1 3742 10 10 5
+D3
+~
+~
+0 -1 3752 10 10 5
+-1
+S
+
+#3752
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3753 10 10 5
+D1
+~
+~
+0 -1 3751 10 10 5
+-1
+S
+
+#3753
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3754 10 10 5
+D1
+~
+~
+0 -1 3757 10 10 5
+D2
+~
+~
+0 -1 3752 10 10 5
+-1
+S
+
+#3754
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3755 10 10 5
+D1
+~
+~
+0 -1 3766 10 10 5
+D2
+~
+~
+0 -1 3753 10 10 5
+-1
+S
+
+#3755
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3756 10 10 5
+D1
+~
+~
+0 -1 3767 10 10 5
+D2
+~
+~
+0 -1 3754 10 10 5
+-1
+S
+
+#3756
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3768 10 10 5
+D2
+~
+~
+0 -1 3755 10 10 5
+-1
+S
+
+#3757
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3766 10 10 5
+D1
+~
+~
+0 -1 3743 10 10 5
+D2
+~
+~
+0 -1 3751 10 10 5
+D3
+~
+~
+0 -1 3753 10 10 5
+-1
+S
+
+#3758
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3760 10 10 5
+D1
+~
+~
+0 -1 3747 10 10 5
+D2
+~
+~
+0 -1 3745 10 10 5
+D3
+~
+~
+0 -1 3744 10 10 5
+-1
+S
+
+#3759
+No Name~
+~
+~
+335020036 6 6 0
+D2
+~
+~
+0 -1 3774 10 10 5
+-1
+S
+
+#3760
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3761 10 10 5
+D1
+~
+~
+0 -1 3748 10 10 5
+D2
+~
+~
+0 -1 3758 10 10 5
+D3
+~
+~
+0 -1 3765 10 10 5
+-1
+S
+
+#3761
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3762 10 10 5
+D1
+~
+~
+0 -1 3749 10 10 5
+D2
+~
+~
+0 -1 3760 10 10 5
+D3
+~
+~
+0 -1 3764 10 10 5
+-1
+S
+
+#3762
+No Name~
+~
+~
+335020036 6 6 0
+D1
+~
+~
+0 -1 3750 10 10 5
+D2
+~
+~
+0 -1 3761 10 10 5
+D3
+~
+~
+0 -1 3763 10 10 5
+-1
+S
+
+#3763
+No Name~
+~
+~
+335020036 6 6 0
+D1
+~
+~
+0 -1 3762 10 10 5
+D2
+~
+~
+0 -1 3764 10 10 5
+D3
+~
+~
+0 -1 3774 10 10 5
+-1
+S
+
+#3764
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3763 10 10 5
+D1
+~
+~
+0 -1 3761 10 10 5
+D2
+~
+~
+0 -1 3765 10 10 5
+D3
+~
+~
+0 -1 3771 10 10 5
+-1
+S
+
+#3765
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3764 10 10 5
+D1
+~
+~
+0 -1 3760 10 10 5
+D2
+~
+~
+0 -1 3744 10 10 5
+D3
+~
+~
+0 -1 3769 10 10 5
+-1
+S
+
+#3766
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3767 10 10 5
+D1
+~
+~
+0 -1 3770 10 10 5
+D2
+~
+~
+0 -1 3757 10 10 5
+D3
+~
+~
+0 -1 3754 10 10 5
+-1
+S
+
+#3767
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3768 10 10 5
+D1
+~
+~
+0 -1 3772 10 10 5
+D2
+~
+~
+0 -1 3766 10 10 5
+D3
+~
+~
+0 -1 3755 10 10 5
+-1
+S
+
+#3768
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3773 10 10 5
+D2
+~
+~
+0 -1 3767 10 10 5
+D3
+~
+~
+0 -1 3756 10 10 5
+-1
+S
+
+#3769
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3771 10 10 5
+D1
+~
+~
+0 -1 3765 10 10 5
+D2
+~
+~
+0 -1 3740 10 10 5
+D3
+~
+~
+0 -1 3770 10 10 5
+-1
+S
+
+#3770
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3772 10 10 5
+D1
+~
+~
+0 -1 3769 10 10 5
+D2
+~
+~
+0 -1 3743 10 10 5
+D3
+~
+~
+0 -1 3766 10 10 5
+-1
+S
+
+#3771
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3774 10 10 5
+D1
+~
+~
+0 -1 3764 10 10 5
+D2
+~
+~
+0 -1 3769 10 10 5
+D3
+~
+~
+0 -1 3772 10 10 5
+-1
+S
+
+#3772
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3773 10 10 5
+D1
+~
+~
+0 -1 3771 10 10 5
+D2
+~
+~
+0 -1 3770 10 10 5
+D3
+~
+~
+0 -1 3767 10 10 5
+-1
+S
+
+#3773
+No Name~
+~
+~
+335020036 6 6 0
+D1
+~
+~
+0 -1 3774 10 10 5
+D2
+~
+~
+0 -1 3772 10 10 5
+D3
+~
+~
+0 -1 3768 10 10 5
+-1
+S
+
+#3774
+No Name~
+~
+~
+335020036 6 6 0
+D0
+~
+~
+0 -1 3759 10 10 5
+D1
+~
+~
+0 -1 3763 10 10 5
+D2
+~
+~
+0 -1 3771 10 10 5
+D3
+~
+~
+0 -1 3773 10 10 5
+-1
+S
+
+#3775
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3738 10 10 5
+D3
+~
+~
+0 -1 3776 10 10 5
+-1
+S
+
+#3776
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3775 10 10 5
+D3
+~
+~
+0 -1 3777 10 10 5
+-1
+S
+
+#3777
+No Name~
+~
+~
+335020036 2 6 0
+D1
+~
+~
+0 -1 3776 10 10 5
+D3
+~
+~
+0 -1 3778 10 10 5
+-1
+S
+
+#3778
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3779 10 10 5
+D1
+~
+~
+0 -1 3777 10 10 5
+-1
+S
+
+#3779
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3778 10 10 5
+D3
+~
+~
+0 -1 3780 10 10 5
+-1
+S
+
+#3780
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3782 10 10 5
+D1
+~
+~
+0 -1 3779 10 10 5
+-1
+S
+
+#3781
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3783 10 10 5
+D1
+~
+~
+0 -1 3782 10 10 5
+-1
+S
+
+#3782
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3780 10 10 5
+D3
+~
+~
+0 -1 3781 10 10 5
+-1
+S
+
+#3783
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3784 10 10 5
+D2
+~
+~
+0 -1 3781 10 10 5
+-1
+S
+
+#3784
+No Name~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3785 10 10 5
+D2
+~
+~
+0 -1 3783 10 10 5
+-1
+S
+
+#3785
+No Name~
+~
+~
+335020036 2 6 0
+D2
+~
+~
+0 -1 3784 10 10 5
+-1
+S
+
+#3786
+Narrow Path~
+You see all type of flowers off the north side of the trail.  The smell
+of all the wildflowers here is so strong, it's hard to discern one kind
+from another.  Off to the east, you see a faint trail that disappears
+into the huge trees which swallow it from sight.
+~
+~
+301465600 2 8 0
+D1
+~
+~
+0 -1 3787 10 10 5
+D3
+~
+~
+0 -1 21033 10 10 5
+E
+flowers~
+You see a rainbow of colors as you gaze upon the wildflowers.  It's as
+though you are looking through a prism.
+~
+-1
+S
+
+#3787
+Narrow Path~
+To the east, you notice a gentle slope in the trail that drops down a bit
+before continuing to the east.  The trees that border this path on the
+north and the south side are huge and almost foreboding.  The trail also
+continues to the west up a gentle slope.
+~
+~
+301465600 2 8 0
+D1
+~
+~
+0 -1 3788 10 10 5
+D3
+~
+~
+0 -1 3786 10 10 5
+-1
+S
+
+#3788
+Narrow Path~
+The trail seems to tunnel into the trees that continue surrounding it on
+the north and south sides here.  You notice that the stones on the ground
+here are all flat and smooth as if this once was an old river bed.  You
+see some old broken shells on the ground here.  To the east and west, the
+trail slopes gently up in either direction.
+~
+~
+301465600 2 8 0
+D1
+~
+~
+0 -1 3789 10 10 5
+D3
+~
+~
+0 -1 3787 10 10 5
+E
+river bed~
+This bed must be as old as time itself and hasn't seen water in its
+bottom for many years.  Shells and stones cover its bottom in a thick
+covering.  It looks safe to cross.
+~
+E
+3 shells~
+Most of the shells appear to be broken and contain jagged edges and
+rather useless.
+~
+E
+3 stones~
+These stones appear to be small, round and smooth as only many, many
+years of water rushing over them could have made them.
+~
+A
+get take steal grab examine~
+3 stones~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n picks up a stone, but then drops it again.
+~
+E
+char~
+Picking up a stone, you realize that it is worthless.
+~
+!
+0 0 0
+A
+get take steal grab examine~
+3 shells~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n picks up a piece of broken shell, and drops it again.
+~
+E
+char~
+Picking up a piece of broken shell, you realize that it is worthless.
+~
+!
+0 0 0
+A
+skip~
+stone~
+send_to_char( #char, ch );
+~
+E
+char~
+Maybe you could have at one time, but there is no longer a river here.
+~
+!
+0 0 0
+-1
+S
+
+#3789
+Narrow Path~
+You try to look up at the sky to get a bearing on your whereabouts, only
+to find a thick canopy of tree limbs high above you.  However, you do
+notice that the trail continues to wind through the forest, curving to
+the south and west, where the ground gently slopes down.  You hear the
+sounds of birds off in the distance.  The sound is somewhat soothing.
+~
+~
+301465600 2 8 0
+D2
+~
+~
+0 -1 3791 10 10 5
+D3
+~
+~
+0 -1 3788 10 10 5
+E
+birds~
+You hear birds way off in the distance, hidden from view by the thick
+brush.
+~
+E
+canopy~
+Thick, lush and green is its almost umbrella like shape.  In fact, it
+appears so thick that rain would find it very hard to make its way to
+you through it.
+~
+-1
+S
+
+#3790
+The Abandoned Mine~
+~
+~
+335020036 2 6 0
+D0
+~
+~
+0 -1 3791 10 10 5
+D2
+~
+~
+0 -1 3789 10 10 5
+-1
+S
+
+#3791
+Narrow Path~
+As you walk along the trail, you notice small animal tracks in the dirt. 
+You try and follow them with your eyes until they fade from view to the
+south into the thick brush.  The trail continues to the north and east
+through the towering trees.
+~
+~
+301465600 2 8 0
+D0
+~
+~
+0 -1 3789 10 10 5
+D1
+~
+~
+0 -1 3792 10 10 5
+E
+animal tracks~
+Looking closer at the tracks, they seem to be made by rabbits.  As you
+look closer, you notice some wolf tracks as well.  It would seem the wolf
+chased the rabbit off to the south.  You wonder to yourself whether it
+caught it or not.
+~
+A
+1 south~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+Thick brush blocks your way south.
+~
+!
+0 0 0
+A
+enter~
+brush~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n gets caught in the brush momentarily, clumsy oaf.
+~
+E
+char~
+The brush is too thick for you to enter.
+~
+!
+0 0 0
+2509 9 1509949540 3 0
+-1
+S
+
+#3792
+Narrow Path~
+To the east, a massive tree has fallen across the path, blocking further
+passage.  You could have sworn you saw an animal scurry into a hole in
+the log, but you aren't quite sure.  The trail extends to the west from
+here, and a makeshift trail skirts the log to the north.  A leaf-covered
+ravine is visible to the south, but is probably too steep to climb down.
+~
+[Nereus] Here's where I stopped, didn't go any further west than this.
+[Nereus] This is the last revised room
+[Calliope] reveiwed
+~
+301465605 2 8 0
+D0
+~
+~
+0 -1 3793 10 10 5
+D3
+~
+~
+0 -1 3791 10 10 5
+E
+nut shells~
+The shells appear to be the empty hulls of acorns.
+~
+E
+log tree~
+You are simply amazed at the size and age of this fallen tree.  It seems
+to have been here a very long time, and become a home to a few of the
+critters that roam around the forest here.  It is scantly covered by a
+light green moss.
+~
+E
+animal~
+As you look, a small squirrel scampers off into the hole here.
+~
+E
+hole~
+About 4 inches in width, this hole seems to be the home of a squirrel. 
+All over the ground beneath the hole are broken nut shells.
+~
+E
+leaf-filled leaf filled ravine 1 south~
+A rocky, leaf-filled ravine runs east to west just south of the trail. 
+It's edges are quite steep, probably too steep to clamber down safely.
+~
+A
+3 climb~
+log tree~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 3795 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 3795 ) );
+  act_notchar( #arr, rch );
+  }
+~
+E
+f_leave~
+You follow $n over the log and find yourself on the trail again.
+~
+E
+arr~
+$n comes clambering over the log.
+~
+E
+room~
+$n climbs over the log and disappears from sight.
+~
+E
+char~
+You clamber over the log and find yourself on the trail again.
+~
+!
+0 0 0
+A
+enter~
+hole~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n kneels down beside the hole, scratching $s head.
+~
+E
+char~
+The hole is too small for you to fit.
+~
+!
+0 0 0
+A
+1 east~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+You attempt to move east, but your progress is blocked by a large fallen
+tree.
+~
+!
+0 0 0
+A
+1 south~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+The steep edge of a ravine prevents any movement to the south.
+~
+!
+0 0 0
+A
+climb clamber jump enter~
+ravine leaf-filled leaf 1 south~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+~
+E
+char~
+After a closer look at the steepness of the slope, you decide it would be
+foolish to attempt to go down into the ravine.
+~
+E
+room~
+$n considers entering the ravine, but appears to change $s mind upon
+closer examination of the slope.
+~
+!
+0 0 0
+-1
+S
+
+#3793
+Narrow Path~
+You come to the end of the fallen tree here.  You surmise that this tree
+must have fallen long ago, because all that remains is a hollowed-out log. 
+The end of the log is covered with scratch marks, and you could swear you
+heard noises from inside.  A rudimentary trail curves away to the south.
+~
+[Nereus] Revised
+[Calliope] reviewed.
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 3794 10 10 5
+D2
+~
+~
+0 -1 3792 10 10 5
+E
+hole~
+Looking into the foot wide hole, you can make out beady little eyes deep
+within the log.  Unfortunately, the hole is too small for you to fit, and
+the animal appears to be too deep for you to reach.
+~
+E
+marks scratch end~
+The scratch marks about the bottom of the log seem to have been made by a
+larger animal, perhaps it was formed by a wolf trying to dig its way into
+the end here trying to get a rabbit that fled.  As you look closer, you
+can make out a small hole just above the ground into it.
+~
+E
+tree log fallen massive~
+The end is charred, leading you to believe it was downed by being struck
+by lightning.  Must have been one fierce storm to take a tree of this
+size down.
+~
+E
+trail path rudimentary~
+The trail here curves around a massive fallen tree to the south.
+~
+A
+listen~
+~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n bends near the hollow entrance, listening intently.
+~
+E
+char~
+Bending near the hollow entrance, you can hear an animal skittering away
+deep within the log.
+~
+!
+0 0 0
+A
+enter~
+hole~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n kneels down beside the hole, scratching $s head.
+~
+E
+char~
+The hole is too small for you to fit.
+~
+!
+0 0 0
+A
+search~
+hole log~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+i = 1d2+1;
+dam_message( ch, i, "A tiny animal's angry bite" );
+inflict( ch, mob, i, "A tiny animal's angry bite" );
+~
+E
+char~
+You reach your arm down into the log, and hear angry chittering as
+something bites your hand!
+~
+E
+room~
+$n reaches into the log and suddenly winces in pain!
+~
+!
+0 0 0
+A
+1 north 1 west~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+The forest thickens, preventing any movement in that direction.
+~
+!
+0 0 0
+-1
+S
+
+#3794
+Narrow Path~
+You can almost catch a glimpse of the sky from here.  However, the canopy
+is still too thick to allow a real view yet.  The trail goes around the
+end of the log to the west and along the length of it to the south.  You
+can still hear the sounds of forest life all around you.  A pile of dead
+trees lies to the north and east, blocking any movement in that direction.
+~
+sky, log
+[Nereus] Both added.
+[Nereus] Revised
+[Calliope] reviewed
+~
+301465600 2 8 0
+D2
+~
+~
+0 -1 3795 10 10 5
+D3
+~
+~
+0 -1 3793 10 10 5
+E
+log~
+Scarred, weatherworn and massive best describes this part of the log. 
+You cannot get over the sheer size of it.
+~
+E
+sky canopy~
+Try as you may, you simply can't get a glimpse of the sky through the
+dense canopy.
+~
+E
+trail~
+The trail swings west to south here, skirting a massive fallen log.
+~
+E
+pile dead trees 1 north 1 east clutter~
+A few trees have fallen into a pile here, creating an obstacle to the
+north and east.
+~
+A
+1 north 1 east~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+A clutter of dead trees blocks progress in that direction.
+~
+!
+0 0 0
+A
+search~
+pile trees clutter~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+~
+E
+char~
+You search through the pile of dead trees, finding nothing of interest.
+~
+E
+room~
+$n searches through the pile of dead trees but finds nothing of interest.
+~
+!
+0 0 0
+A
+climb clamber scale~
+pile trees clutter~
+act_tochar( #char, ch );
+~
+E
+char~
+You attempt to scale the dense clutter of dead trees to the east, but
+soon realize it is impossible and are forced to turn back.
+~
+!
+0 0 0
+358 17 1509949540 -2 0
+-1
+S
+
+#3795
+Narrow Path~
+To the west, a massive tree has fallen across the path, blocking further
+passage.  Mushrooms are growing all along the side of the log here.  You
+see a squirrel scurry off into the thicket to the south of you.  A red
+flowering plant grows to the north along the makeshift path which skirts
+the fallen tree.
+~
+tree/log, plant, path, mushrooms (which look both dirty/ugly and
+poisonous) 
+[Nereus] All added, you now have a 1 in 4 chance of picking an edible mushroom once per reset
+[Nereus] Revised
+~
+301465608 2 8 0
+D0
+~
+~
+0 -1 3794 10 10 5
+D1
+~
+~
+0 -1 3796 10 10 5
+E
+squirrel~
+You see a small gray squirrel.  It has small, dark, twinkling eyes,
+giving it a mischevious image.  After noticing your presence, it scurries
+away from sight.
+~
+E
+log tree fallen 1 west~
+You are simply amazed at the size and age of this fallen tree.  It seems
+to have been here a very long time, and become a home to a few of the
+creatures that roam the forest here.  It is scantly covered by a light
+green moss.  A few whitish-grey mushrooms are growing in the shade near
+the bottom of the log here.
+~
+E
+path makeshift~
+The narrow path continues around the fallen tree to the north and east.
+~
+E
+mushrooms~
+These small mushrooms have a fleshy, whitish-grey cap, and a bright
+white, slimy stalk.  It would be difficult to tell if they were poisonous
+or not by a simple glance.
+~
+A
+3 climb~
+log tree~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 3792 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 3792 ) );
+  act_notchar( #arr, rch );
+  }
+~
+E
+f_leave~
+You follow $n over the log and find yourself on the trail again.
+~
+E
+arr~
+$n comes clambering over the log.
+~
+E
+room~
+$n climbs over the log and disappears from sight.
+~
+E
+char~
+You clamber over the log and find yourself on the trail again.
+~
+!
+0 0 0
+A
+1 south~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+Thick brush blocks your way south.
+~
+!
+0 0 0
+A
+enter~
+brush~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n gets caught in the brush momentarily, clumsy oaf.
+~
+E
+char~
+The brush is too thick for you to enter.
+~
+!
+0 0 0
+A
+get take grab pick search~
+3 mushrooms~
+if( !rflag( reset0, room ) ) {
+   act_tochar( #char, ch );
+   act_notchar( #room, ch );
+   }
+else {
+   remove_rflag( reset0, room );
+   if( random( 0, 3 ) == 2 ) {
+       act_tochar( #chfind, ch );
+       act_notchar( #rmfind, ch );
+       obj_to_char( oload( 885 ), ch );
+   }
+   else {
+       act_tochar( #char, ch );
+       act_notchar( #room, ch );
+   }
+}
+~
+E
+char~
+You search through the mushrooms, but none seem edible.
+~
+E
+room~
+$n searches through the mushrooms, but comes up empty-handed.
+~
+E
+chfind~
+You search through the mushrooms, finding one you believe to be edible.
+~
+E
+rmfind~
+$n searches through the mushrooms, plucking one from the earth.
+~
+!
+0 0 0
+A
+1 west~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+You attempt to move west, but your progress is blocked by a large fallen
+tree.
+~
+!
+0 0 0
+-1
+S
+
+#3796
+Narrow Path~
+You are completely enveloped here by the massive trees of this part of
+the forest.  You try and get a good look to the west, but it's just too
+dense.  It is surprisingly quiet now, but the smell of the forest still
+surrounds you.  You notice a few nuts scattered about the dirt trail.
+~
+[Fenlyn] POD: Random Entrance 67000 --> D
+[Nereus] revised
+[Calliope] reviewed
+~
+301465600 2 8 0
+D1
+~
+~
+0 -1 3797 10 10 5
+D3
+~
+~
+0 -1 3795 10 10 5
+D5
+hole~
+hole~
+34 -1 67000 10 10 5
+E
+1 west~
+Try as you might, it is just too thick to get a good look.
+~
+E
+nuts~
+Looking closer, you can now see that they are acorns.
+~
+E
+trees forest 1 north 1 south~
+Mighty oaks tower around this area of the forest, their canopies
+spreading high above you.
+~
+A
+get take grab~
+3 nuts acorn~
+if( mob_in_room( 2504, find_room( 3796 ) ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  i = 1d2+1;
+   inflict( ch, mob, i, "A gray squirrel's clawing" );
+  dam_message( ch, i, "A gray squirrel's clawing" );
+  }
+else {
+  if( rflag( reset0, room ) ) {
+    send_to_char( #char2, ch );
+    act_notchar( #room2, ch );
+    obj_to_char( oload( 672 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    send_to_char( #char3, ch );
+    act_notchar( #room3, ch );
+    }
+  }
+~
+E
+room3~
+$n searches for an acorn, but is unsuccessful.
+~
+E
+char3~
+Kneeling down, you are unable to find a ripe acorn.
+~
+E
+room2~
+$n finds a ripe acorn in the dirt.
+~
+E
+char2~
+Kneeling down, you find a ripe acorn which has fallen from a tree.
+~
+E
+room~
+As $n reaches for an acorn, the squirrel scratches $m with its claws.
+~
+E
+char~
+As you reach for an acorn, the squirrel scratches you with its claws.
+~
+!
+0 0 0
+A
+smell~
+~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n sticks $s nose in the air, smelling the forest air.
+~
+E
+char~
+Lifting your nose high in the air, you detect the pleasant odors of
+flora and fauna.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, down ) ) {
+  if( find_stat( ch, level ) < 60 ) {
+    act_tochar( #noway, ch );
+    end;
+    }
+  if( players_area( find_room( 67001 ) ) >= 3 ) {
+    if( players_room( find_room( 67000 ) ) >= 1 ) {
+      act_tochar( #closes, ch );
+      act_notchar( #nccloses, ch );
+      close( room, down );
+      end;
+      }
+    }
+  }
+act_tochar( "You step carefully into the hole.", ch );
+continue;
+~
+E
+closes~
+As you start to head down, the exit seems to disappear.
+~
+E
+nccloses~
+As $n starts to head down, the exit seems to disappear.
+~
+E
+noway~
+You are too inexperienced for the challenge that awaits you.
+~
+!
+3 0 32
+A
+1 north 1 south~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+The undergrowth quickly becomes too thick for you to move in that
+direction.
+~
+!
+0 0 0
+A
+climb clamber scale~
+trees~
+acode( find_room( 547 ), 5 );
+~
+!
+0 0 0
+2504 9 1509949540 3 0
+-1
+S
+
+#3797
+Narrow Path~
+This looks like a good place to rest.  You see signs that many a traveler
+has made camp here.  Several average-sized rocks have been placed in a
+circle to make a semi-permanent campfire pit.  There appears to plenty of
+good dry wood strewn about randomly in this area.  The path extends to
+the north and west through the trees.
+~
+[Dovea] can gather sticks but not make the fire... even AFTER you gather the sticks. *boggle*
+Fixed - Florian
+[Nereus] revised
+[Calliope] reviwed.
+~
+301465608 2 8 0
+D0
+~
+~
+0 -1 3798 10 10 5
+D3
+~
+~
+0 -1 3796 10 10 5
+E
+wood kind dry good~
+The wood you see here would make great kindling to get a good fire going
+in the pit.  All shapes and sizes can be found around here from small to
+medium and everything in between.
+~
+E
+rock circle pit~
+Average in size, these rocks are placed in a neatly formed circle.
+~
+E
+path trail~
+The path curves north and west through the trees.
+~
+A
+4 examine search~
+campfire pit~
+if( obj_in_room( 2689 , room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    send_to_char( #char2, ch );
+    act_notchar( #room2, ch );
+    obj_to_char( oload( 246 ), ch );
+    }
+  else {
+    send_to_char( #char3, ch );
+    act_notchar( #room3, ch );
+    }
+  }
+~
+E
+room3~
+$n scrounges through the ashes in the pit, but comes up empty-handed.
+~
+E
+char3~
+Scrounging through the ashes in the pit, you find nothing of interest.
+~
+E
+room2~
+$n searches through the ashes in the pit and finds a charred stick.
+~
+E
+char2~
+Searching through the ashes in the pit, you find a charred stick.
+~
+E
+room~
+$n leans over the fire in the pit, contemplating something.
+~
+E
+char~
+Noticing the fire in the pit, you decide it would be best not to scrounge
+through the ashes.  Perhaps if it were doused with dirt or something.
+~
+!
+0 0 0
+A
+douse~
+fire~
+if( obj_in_room( 2689 , room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+obj = obj_in_room( 2689, room );
+junk_obj( obj );
+  }
+else 
+  send_to_char( #nope, ch );
+~
+E
+nope~
+There isn't a fire in the pit to douse.
+~
+E
+room~
+$n kicks dirt on to the fire, dousing the flames.
+~
+E
+char~
+You kick dirt on to the fire, dousing the flames.
+~
+!
+0 0 0
+A
+1 look~
+campfire pit~
+if( !obj_in_room( 2689 , room ) )
+  send_to_char( #char2, ch );
+else
+  send_to_char( #char, ch );
+~
+E
+char2~
+You notice a pile of ashes in the bottom of the pit.
+~
+E
+char~
+You notice a small fire burning within the pit.
+~
+!
+0 0 0
+A
+1 look~
+3 ashes~
+if( !obj_in_room( 2689, room ) ) {
+  if( rflag( reset1, room ) )
+    send_to_char( #char, ch );
+  else
+    send_to_char( #char3, ch );
+  }
+else
+  send_to_char( #char2, ch );
+~
+E
+char3~
+Several burned sticks and leaves make up the pile of ashes.
+~
+E
+char2~
+You can not see the ashes for the fire.
+~
+E
+char~
+Several charred sticks and burned leaves make up the pile of ashes.
+~
+!
+0 0 0
+A
+get take grab~
+charred stick~
+if( obj_in_room( 2689, room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    send_to_char( #char2, ch );
+    act_notchar( #room2, ch );
+    obj_to_char( oload( 246 ), ch );
+    }
+  else {
+    send_to_char( #char3, ch );
+    act_notchar( #room3, ch );
+    }
+  }
+~
+E
+room3~
+$n scrounges through the ashes in the pit, but comes up empty-handed.
+~
+E
+char3~
+Scrounging through the ashes in the pit, you find nothing of interest.
+~
+E
+room2~
+$n searches through the ashes in the pit and finds a charred stick.
+~
+E
+char2~
+Searching through the ashes in the pit, you find a charred stick.
+~
+E
+room~
+$n leans over the fire in the pit, contemplating something.
+~
+E
+char~
+Noticing the fire in the pit, you decide it would be best not to scrounge
+through the ashes.  Perhaps if it were doused with dirt or something.
+~
+!
+0 0 0
+A
+set make lay start build~
+fire campfire~
+if( !rflag( reset0, room ) ) {
+if( !obj_in_room( 2689, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+obj_to_room( oload( 2689 ), room );
+    }
+  else
+    send_to_char( #char2, ch );
+  }
+else
+  send_to_char( #char3, ch );
+~
+E
+char3~
+You don't have any wood with which to make a fire, maybe you should
+gather some.
+~
+E
+char2~
+There is already a small fire going within the pit.
+~
+E
+room~
+$n arranges the wood in the pit, and starts a small fire going with two
+of the stones.
+~
+E
+char~
+After arranging the wood within the pit, you start a small fire going
+with two of the stones.
+~
+!
+0 0 0
+A
+gather get~
+sticks wood~
+if( obj_in_room( 2689, room ) ) {
+  send_to_char( #char2, ch );
+  end;
+  }
+if( !rflag( reset0, room ) )
+  send_to_char( #char, ch );
+else {
+remove_rflag( reset0, room );
+  send_to_char( #char3, ch );
+  act_notchar( #room, ch );
+  }
+~
+E
+room~
+$n gathers some wood together, placing them in the pit to make a fire.
+~
+E
+char3~
+You gather some wood together and place them in the pit to make a fire.
+~
+E
+char~
+You have already gathered enough wood to make a small fire.
+~
+E
+char2~
+It is senseless to gather wood, there is already a small fire going in
+the pit.
+~
+!
+0 0 0
+A
+1 east 1 south~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+A thick stand of trees blocks movement in that direction.
+~
+!
+0 0 0
+A
+climb clamber scale~
+trees~
+acode( find_room( 547 ), 5 );
+~
+!
+0 0 0
+-1
+S
+
+#3798
+Narrow Path~
+The sky breaks through the top of the trees a bit, allowing you to catch
+a glimpse of it high above.  The thick brush to the sides of the trail
+make it impossible to wander off of.  You hear faint noises all around
+you; small animals in the brush, birds singing, and the wind gently
+blowing through the trees.  The trail curves to the south and east.
+~
+[Nereus] revised
+[Calliope] wander off of.. that sounds a little awkward.. don't like ending a sentence with a preposition.
+[Calliope] extra for sky doesn't match the room desc.
+[Calliope] reviewed
+~
+301465600 2 8 0
+D1
+~
+~
+0 -1 3799 10 10 5
+D2
+~
+~
+0 -1 3797 10 10 5
+E
+sky~
+As always, the sky eludes your gaze, hiding behind the canopy of leaves
+formed by the trees.
+~
+E
+animals birds wind~
+Try as you might, you cannot see anything.
+~
+E
+trees forest~
+The trees here seem small here in comparison with the monstrous trees
+visible to the east.  The trees here are mostly oaks and elms.
+~
+E
+brush brambles undergrowth 1 north 1 west~
+The brush is thick to the north and west, made up of mostly a thick,
+barky clump of vines.
+~
+E
+trail path 1 east 1 south~
+The trail moves from east to south here, avoiding a clump of thick brush
+to the northwest.
+~
+A
+listen~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+You stop and listen, hearing the chirping of birds and the rustle of
+leaves in the wind.  It is a rather peaceful sound.
+~
+!
+0 0 0
+A
+1 north 1 west~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+The brush is far too thick to move in that direction.
+~
+!
+0 0 0
+A
+climb clamber scale~
+trees~
+acode( find_room( 547 ), 5 );
+~
+!
+0 0 0
+-1
+S
+
+#3799
+Narrow Path~
+The trail continues to wind through the massive trees, which seem to
+stretch as far as the eye can see in every direction.  Above you, a thick
+canopy of limbs and leaves make it impossible for you to see the sky. 
+Leaves clutter the ground here forming a colorful blanket over the trail
+which winds to the east and west.
+~
+[Nereus] revised
+[Nereus] Pop-out earthworm's in this room
+[Calliope] extra canopy: Perhaps change its to canopy in the first line. Its seems abit vague
+[Calliope] reviewed
+~
+301465600 2 8 0
+D1
+~
+~
+0 -1 539 10 10 5
+D3
+~
+~
+0 -1 3798 10 10 5
+E
+canopy~
+Thick green leaves and large stretching branches is what makes up its
+composition.  You feel a sense of security from most of the elements as
+you look up at it.
+~
+E
+leaves blanket leaf colorful~
+A kaleidoscope of colors is what makes up the blanket of leaves here. 
+They are thick and soft and would make a great place to lie down to rest
+should the need arise.
+~
+E
+sky~
+It is impossible to see the sky through the thick canopy above.
+~
+E
+1 north 1 south tree massive forest~
+Massive trees tower around you here, primarily oaks and elms.
+~
+E
+1 east 1 west trail path~
+The trail winds through the massive trees here, crossing over a think
+blanket of leaves.
+~
+A
+search get~
+leaf leaves blanket~
+if( !rflag( reset0, room ) ) {
+   act_notchar( #room, ch );
+   act_tochar( #char, ch );
+   }
+else {
+   remove_rflag( reset0, room );
+   if( random( 0, 3 ) == 1 ) {
+       if( !mob_in_room( 2080, room ) ) {
+       act_tochar( #worm1, ch );
+       act_notchar( #worm2, ch );
+       mload( 2080, room );
+       }
+       else {
+       act_tochar( #char, ch );
+       act_notchar( #room, ch );
+       }
+   }
+   else {
+   act_tochar( #char, ch );
+   act_notchar( #room, ch );
+   }
+}
+~
+E
+char~
+You search through the blanket of leaves, but don't find anything of
+interest.
+~
+E
+room~
+$n searches through the blanket of leaves, finding nothing.
+~
+E
+worm1~
+You search through the carpet of leaves, uncovering a large earthworm.
+~
+E
+worm2~
+$n searches through the carpet of leaves, uncovering a large earthworm.
+~
+!
+0 0 0
+A
+1 north 1 south~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+Massive trees block movement in that direction.
+~
+!
+0 0 0
+A
+climb clamber scale~
+trees~
+acode( find_room( 547 ), 5 );
+~
+!
+0 0 0
+-1
+S
+
+#3800
+Escape Tunnel~
+You make your way through the passage which continues north and down a
+shaft to the south.  This appears to have been an old sewer tunnel of
+some sort...  A foul stench hits your nose as you try to look for a way
+out.
+~
+~
+335020037 2 9 0
+D0
+~
+~
+0 -1 3801 10 10 5
+D5
+~
+~
+0 -1 3532 10 10 5
+-1
+S
+
+#3801
+Escape Tunnel~
+You make your way through the passage which continues north and south. 
+This appears to have been an old sewer tunnel of some sort...  A foul
+stench hits your nose as you try to look for a way out.
+~
+~
+335020037 2 9 0
+D0
+~
+~
+0 -1 3802 10 10 5
+D2
+~
+~
+0 -1 3800 10 10 5
+-1
+S
+
+#3802
+Escape Tunnel~
+The passage ends in a blank wall to the north, but continues to the south. 
+This appears to have been an old sewer tunnel of some sort...  A foul
+stench hits your nose as you try to look for a way out.  A small lever is
+set into the western wall.
+~
+[Orb] add lever to rdesc
+~
+335020037 2 9 0
+D0
+secret door~
+~
+431 -1 13523 10 10 5
+D2
+~
+~
+0 -1 3801 10 10 5
+E
+lever~
+It's a lever... you pull it.
+~
+A
+pull~
+lever~
+if( !is_open( room, north ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, north );
+  send_to_room( #open, find_room( 13523 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, north );
+  send_to_room( #close1, find_room( 13523 ) );
+  }
+~
+E
+open~
+A section of the wall slides away, revealing a secret door!
+~
+E
+pull~
+You pull the tiny lever and a section of the north wall slides away!
+~
+E
+rpull~
+$n pulls the tiny lever and a section of the north wall slides away!
+~
+E
+close~
+You pull the lever and the wall slides back into place.
+~
+E
+rclose~
+$n pulls the lever and the wall slides back into place.
+~
+E
+close1~
+The wall slides silently back into place.
+~
+!
+0 0 0
+-1
+S
+
+#3803
+The Abandoned Mine~
+Under Construction.
+~
+~
+335020036 2 9 0
+-1
+S
+
+#3804
+The Abandoned Mine~
+Under Construction.
+~
+~
+335020036 2 9 0
+D4
+~
+~
+0 -1 3564 10 10 5
+D5
+~
+~
+0 -1 3565 10 10 5
+-1
+S
+
+#3805
+Trail Around Medienne~
+Twisting and turning sharply around the pine trees, the path meanders
+beneath the scented boughs of the trees.  Occasional blocks of stone
+litter the ground, peaking out from beneath thorn vines and piles of
+rotting pine needles.  You spot occasional movement beneath the thick
+brambles, most likely squirrels or some other small creatures.  You can
+follow the path west or south.
+~
+[Merior] no needle extra?
+added
+~
+301465600 2 7 0
+D2
+~
+~
+0 -1 3806 10 10 5
+D3
+~
+~
+0 -1 3612 10 10 5
+E
+blocks stone~
+The blocks of stone are several feet in length, and about one foot high. 
+They are obviously not natural, but you are not sure where they came from.
+~
+E
+movement squirrels small creatures~
+When you see movement you look, but whatever caused it is gone by the
+time you focus on the area.
+~
+E
+needles rotting pine~
+The pine needles have collected over time, forming thick mats on the
+ground.  Dampness seems to have caught up with them, and they are
+begining to rot.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+A small squirrel pops its head out from beneath a bramble before
+disappearing in the blink of an eye.
+~
+!
+2 15 0
+A
+search~
+needles~
+act_tochar( #nope, ch );
+act_notchar( #rmnope, ch );
+~
+E
+nope~
+You search the needles, but find nothing.
+~
+E
+rmnope~
+$n searches the needles, but finds nothing.
+~
+!
+0 0 0
+-1
+S
+
+#3806
+Trail Around Medienne~
+The path comes up to the base of a mighty stone wall once again. 
+Occasional pine trees dot the area, but thick tangles of brambles cover
+the sloping hill northeast of the path.  The thorns grow thick over the
+boulders and stones that dot the hillside.  You can follow the path north
+and east.
+~
+[Corde] brambles, thorns extra?
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 3805 10 10 5
+D1
+~
+~
+0 -1 3807 10 10 5
+E
+wall stone mighty~
+Rising nearly fifteen meters above the trail, this mighty stone wall has
+survived ages of abuse.  Its rough surface is marred by time and assault.
+~
+E
+hill~
+The hill rises to the northeast, completely covered with jagged rocks and
+sharp thorn bushes.
+~
+E
+jagged rocks~
+Several jagged granite stones dot the hillside.
+~
+A
+~
+~
+send_to_room( #something, room );
+~
+E
+something~
+Out of the corner of your eye you sense movement beneath the brambles on
+the hillside.
+~
+!
+2 20 0
+-1
+S
+
+#3807
+Trail Around Medienne~
+Slipping between a tall stone wall on the west, and a steep, thorn-
+tangled hillside on the east, the trail provides the only means of
+movement through the area.  Warm air rolls off the hillside to the east,
+causing small dust devils to swirl along the path.  The path leads west
+and south.
+~
+[Corde] Extras for thorns, vines.
+~
+301465600 2 7 0
+D2
+~
+~
+0 -1 3808 10 10 5
+D3
+~
+~
+0 -1 3806 10 10 5
+E
+wall~
+The rough stone wall rises about fifteen meters into the air and
+dominates the small dirth path.
+~
+E
+hillside thorn-tangled~
+A thick tangle of thorny vines covers the steep hillside to the east. 
+They grow thick enough to prevent any movement.
+~
+E
+dust devil~
+Harmless eddies of warm air and dust, they swirl about until they
+dissipate as they reach the edge of the path.
+~
+A
+~
+~
+send_to_room( #dust, room );
+~
+E
+dust~
+A small dust-devil whirls about the trail before suddenly dissipating.
+~
+!
+2 15 0
+-1
+S
+
+#3808
+Trail Around Medienne~
+The wide trail narrows to the north as it is squeezed between the stone
+wall to the west and steep embankment to the east.  The embankment is
+covered with a black vines sporting sharp and hooked thorns.  The dusty
+path widens to the south as it leads towards a flat, open meadow.
+~
+[Corde] Extras for thorns, vines.
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 3807 10 10 5
+D2
+~
+~
+0 -1 3613 10 10 5
+E
+wall~
+The rough stone wall towers fifteen meters above the path.  The wall runs
+as far as you can see to the north and south.
+~
+E
+embankment~
+The steep hill rises quickly to the east, the dark thorn bushes and vines
+growing out of control.
+~
+E
+meadow~
+A large meadow opens up to the south; a field of grass that spreads out
+far to the southeast.
+~
+-1
+S
+
+#0
+

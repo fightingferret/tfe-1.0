@@ -1,0 +1,1479 @@
+#AREA
+Great Snowy Plain~
+Nivel Phule~
+Great Snowy Plain~
+
+50 2
+0
+#ROOMS
+
+#53000
+Behind the Crystalline Pillars~
+Here a great flat underground plain spreads to the southwest.  Chill
+winds blow though the area like a hurricane.  To the north, great pillars
+of ice block the entrance into a small tunnel.  They are so thick and
+massive that even a red dragon's breath would be challenged to melt a
+passage through them.  The wind carries with it bits of ice and snow,
+whipping all about into a swirling mist which cloaks the true size and
+nature of the cavern.
+~
+[Phule] no.mob
+~
+301465612 11 8 0
+D0
+ice wall~
+ice wall~
+235 -1 34579 10 10 5
+D2
+~
+~
+0 -1 53001 10 10 5
+D3
+~
+~
+0 -1 53003 10 10 5
+E
+pillars north~
+The pillars of ice are so thick and massive that even a red dragon's
+breath would be challenged to melt a passage through them.
+~
+A
+yell~
+khiren~
+if( mob_in_room( 1103, find_room( 34579 ) ) ) {
+  act_tochar( #yell, ch );
+  act_notchar( #yells, ch );
+  transfer( ch, find_room( 34579 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+act_tochar( #no, ch );
+~
+E
+yell~
+You yell Khiren's name, and soon the ice wall melts a little and a
+powerful dwarf grabs you and hauls you through before it re-freezes.
+~
+E
+yells~
+$n yells for Khiren, and soon a gruff dwarf melts through the ice wall to
+the north and retrieves $m.
+~
+E
+arrive~
+Khiren melts through the ice to the south and grabs $n, hauling $m back
+to the heat of the forge.
+~
+E
+no~
+You yell and yell, but either Khiren is not near or cannot hear you.
+~
+!
+0 0 0
+-1
+S
+
+#53001
+Great Plain of Ice - Frigid Monoliths~
+Frigid monoliths extend up into the high reaches of this cavern; the
+ceiling is obscured by white mist.  Several high shelves of ice mark the
+eastern boundary of the cavern, some of them stacked in canopy
+formations above each other.  The rest of the white snow-encrusted tundra
+lies to your north, south and west.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53000 10 10 5
+D2
+~
+~
+0 -1 53005 10 10 5
+D3
+~
+~
+0 -1 53004 10 10 5
+E
+monoliths~
+These huge white monoliths are solid and rise up past the shield of mist
+that ceilings the cavern.  Shaped like an inverted cone, they are solid
+and you probably wouldn't want to stick your tongue on them.
+~
+A
+climb~
+monoliths frigid~
+act_tochar( #cant, ch );
+act_notchar( #rcant, ch );
+i = 10d2+10;
+dam_message( ch, i, "falling down from halfway up the icy monolith" );
+inflict( ch, mob, i, "falling down from halfway up the icy monolith" );
+~
+E
+cant~
+You try to climb up the monolith, but halfway up you slip and fall!
+~
+E
+rcant~
+$n tries to climb up the monolith, but halfway up he slips and falls!
+~
+!
+0 0 0
+1348 9 1509949540 3 0
+-1
+S
+
+#53003
+Great Snowy Plain - White Darkness~
+This great white plain is covered with over two feet of hard-packed snow,
+which seems to head in almost every direction.  Several iced-over
+boulders sit in a corner to your north, near a sheer wall of pure ice. 
+The plain continues to the east and west, and to the south a small
+rivulet of ice crosses into white darkness.
+~
+spike is for spiked obsidian armor, which hasn't even been started yet. 
+is going to be a custom soon.
+demonskin leggings also a custom, using metal upon which the demonskin is used.
+also, leggings are good ac, can't just give them to whatever class wants
+them *shrug*.
+need the spell damage, so cannot make attacks really stronger per se.
+~
+301465604 11 8 0
+D1
+~
+~
+0 -1 53000 10 10 5
+D2
+~
+~
+0 -1 53004 10 10 5
+D3
+~
+~
+0 -1 53007 10 10 5
+E
+boulders iced-over~
+These boulders are iced-over from being in this climate so long.  Many of
+them are cracking in the cold weather, as the elements have begun to take
+their toll on the mountains themselves.
+~
+A
+~
+~
+if( !is_resting( ch ) ) {
+act_tochar( #cross, ch );
+continue;
+}
+~
+E
+cross~
+You carefully make your way across the rivulet, avoiding the slippery
+patches of ice.
+~
+!
+3 0 4
+1348 9 1509949540 3 0
+-1
+S
+
+#53004
+Great Snowy Plain~
+Even obscured by the darkness of this cavern, the white snow blinds in
+what little light there is, as the thick layer of ice surrounding it
+reflects onto a myriad of crystalline shapes, some of which even appear
+to move.  The snowy plain heads off in all directions, and an icy lake
+lies to your southwest.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53003 10 10 5
+D1
+~
+~
+0 -1 53001 10 10 5
+D2
+~
+~
+0 -1 53006 10 10 5
+D3
+~
+~
+0 -1 53012 10 10 5
+1348 9 1509949540 3 0
+-1
+S
+
+#53005
+Great Snowy Plain - Sheer Wall of Ice~
+Cold breezes seem relentless as you travel farther into the heart of this
+cavern.  A few icy stalagmites here offer a little protection from the
+freezing winds.  They are covered with flaky white snow that is adamant
+to inch its way into any type of clothing.  A sheer wall of ice blocks
+off any movement east, and a small snow-covered stream lies to your south.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53001 10 10 5
+D2
+~
+~
+0 -1 53016 10 10 5
+D3
+~
+~
+0 -1 53006 10 10 5
+E
+wall sheer~
+This sheer wall of ice is solid as rock, and frosted white from years of
+exposure to the extreme cold.  It steams as it sublimates from the warmer
+air around it.
+~
+-1
+S
+
+#53006
+Great Snowy Plain - Ice Rivulet~
+Hard-packed snow here is covered by a smaller layer of icy flakes.  To
+the east a wall of ice can be faintly descried; the abundance of ice
+obscures vision in all directions.  West, the hard snow sinks down a few
+feet, and the curvature of it indicates a lake, probably solid from years
+of freezing temperatures.  Similarly a small icy rivulet running into the
+lake can be made out to the south, across which large frosty shapes loom.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53004 10 10 5
+D1
+~
+~
+0 -1 53005 10 10 5
+D2
+~
+~
+0 -1 53017 10 10 5
+D3
+~
+~
+0 -1 53013 10 10 5
+E
+rivulet~
+This small stream has long since frozen over, and is probably pretty
+solid.  Having a width of little over seven feet, you doubt crossing it
+will be a problem, even if it may be a little slippery.
+~
+E
+lake~
+The lake seems pretty solid, you should have no problems as long as you
+don't slip and break your neck on the ice.
+~
+A
+~
+~
+if( !is_resting( ch ) ) {
+  loop( all_in_room ) {
+    if( random( 0, 10 ) == 1 ) {
+      if( find_stat( ch, dex ) < 15 ) {
+        act_tochar( #slip, ch );
+        act_notchar( #rslip, ch );
+        i = 1d10+10;
+        dam_message( ch, i, "slipping on the ice" );
+        inflict( mob, ch, i, "slipping on the ice" );
+        continue;
+        }
+      else{ 
+        act_tochar( #makes, ch );
+        continue;
+        }
+      }
+    else {
+      act_tochar( #makes, ch );
+      continue;
+      }
+    }
+  }
+~
+E
+slip~
+You slip on the rivulet, falling on your back.
+~
+E
+rslip~
+$n slips on the rivulet, falling on his back as he slides his way over to
+the other side.
+~
+E
+makes~
+You make your way carefully over to the other side of the rivulet.
+~
+!
+3 0 8
+A
+~
+~
+if( !is_resting( ch ) ) {
+  act_tochar( #cross, ch );
+  continue;
+  }
+~
+E
+cross~
+You carefully cross onto the lake's icy surface.
+~
+!
+3 0 8
+1348 9 1509949540 3 0
+-1
+S
+
+#53007
+Great Snowy Plain - Cliff of Ice~
+Mist and wind mix together in a vortex in this part of the cavern,
+obscuring vision.  The packed snow here is very deep in some places, and
+you carefully avoid the larger snow drifts.  A cliff of ice rises up to
+the north, its steep walls marking the boundary of the cavern.
+~
+will have a place to climb up if you have a pickaxe and climbind spikes(
+which will make their way into availability eventually ) *shrug* 
+[Merior] i presume you havent added the climb up place yet
+nope won't be added for some time. I have to think upon what I want to have yet.
+for now the You made it!  wow!  thing works, because no one has a pickaxe
+or climbing spikes.
+~
+301465604 11 8 0
+D1
+~
+~
+0 -1 53003 10 10 5
+D2
+~
+~
+0 -1 53012 10 10 5
+D3
+~
+~
+0 -1 53008 10 10 5
+E
+cliff ~
+The cliff is very steep, and you doubt you can even get ten feet up it.
+~
+A
+climb~
+cliff~
+if( has_obj( 1632, ch ) && has_obj( 1405, ch ) ) {
+  act_tochar( #made, ch );
+  };
+else {
+  if( random( 0, 2 ) != 1 ) 
+    act_tochar( #noway, ch );
+  else {
+    act_tochar( #nope, ch );
+    };
+  }
+~
+E
+noway~
+You manage to get a few feet up before the cliff becomes extremely
+slippery and you fall to the ground.
+~
+E
+nope~
+You manage to get one foothold on the cliff face, but you have to climb
+down because the rest of the face is too slippery.
+~
+E
+made~
+You made it! Wow! That's great!
+~
+!
+0 0 0
+1348 9 1509949540 3 0
+-1
+S
+
+#53008
+Great Snowy Plain - Wall of Crystal~
+Four foot snow drifts make passage through this part of the cavern
+particularly difficult.  A pure crystal wall of ice borders the plain to
+the north here, and winds collide against the cold cliff face, erecting
+massive snow drifts.
+~
+~
+301465604 11 8 0
+D1
+~
+~
+0 -1 53007 10 10 5
+D2
+~
+~
+0 -1 53011 10 10 5
+D3
+~
+~
+0 -1 53009 10 10 5
+E
+crystal wall~
+As you look into the crystal wall you notice that it reflects your image
+almost mirror-like.  Aren't you the vain type?
+~
+1348 9 1509949540 3 0
+-1
+S
+
+#53009
+Great Snowy Plain - Near a Small Hollow Beneath an Ice Shelf~
+Winds rip through this edge of the cavern.  Great snow drifts pile up to
+ten feet in some areas, fortunately most on the face of the western wall. 
+A large shelf of ice lies above you on the northwest wall, its
+icicle-edged rim unclimbable.  A small hollow from the shelf allows a
+small place to rest away from the fierce winds.
+~
+~
+301465604 11 8 0
+D1
+~
+~
+0 -1 53008 10 10 5
+D2
+~
+~
+0 -1 53010 10 10 5
+E
+hollow~
+It is merely a small place where you can get out of the fierce cold for a
+few minutes.  Lined with snow, it is still a touch chilly.
+~
+-1
+S
+
+#53010
+Great Snowy Plain - Within the Ice Shelf~
+Swirling snow frosts over this portion of the cavern.  Shelves of ice
+line the western walls, but jutting out in a tidal-wave formation, they
+are impossible to climb, and such an effort would surely hurt the
+climber; icicles loose from the wind shake about from the fringes of the
+shelves, some as large as a horse's leg.  However, the shelves do offer a
+convenient way to avoid the vortex of snowy air that collects itself in
+huge drifts around the ledges.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53009 10 10 5
+D1
+~
+~
+0 -1 53011 10 10 5
+D2
+~
+~
+0 -1 53015 10 10 5
+E
+shelf shelves ice~
+These shelves of ice saturate the western walls.  They are stratified,
+and appear to be stable, although several are thoroughly engorged with
+snow.  A medium-sized shelf rests on the cavern floor, and its icicles
+hang down, serving as a barrier against the harsh winds.
+~
+1348 9 1509949485 3 0
+-1
+S
+
+#53011
+Great Snowy Plain - Deep Snow~
+The snow here is several feet deep, and hard packed, making travel
+through it difficult.  To the south, the snow drift juts out over a
+frozen lake, which can be seen from a hollowed out ring of snow that
+forms itself around the lake.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53008 10 10 5
+D1
+~
+~
+0 -1 53012 10 10 5
+D2
+~
+~
+0 -1 53014 10 10 5
+D3
+~
+~
+0 -1 53010 10 10 5
+E
+lake~
+The lake looks solid, as even the air seems to be in this part of the
+cavern.  It looks feasible as a way to go, as it isn't as covered in snow.
+~
+A
+~
+~
+act_tochar( #lake, ch ); 
+continue;
+~
+E
+lake~
+You carefully make your way through the deep snow and onto the icy lake.
+~
+!
+3 0 4
+1348 9 1509949540 3 0
+-1
+S
+
+#53012
+Great Snowy Plain - North of a Frozen Lake~
+Clouds of snow fly about here.  The cruel wind has no mercy, and you
+suddenly notice that a large boulder of ice nearby is really the head of
+a young red dragon, almost completely preserved in the snow, but long
+dead from the looks of it.  To the south a curving hollow of snow marks a
+white lake, likely frozen over from years of extreme cold.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53007 10 10 5
+D1
+~
+~
+0 -1 53004 10 10 5
+D2
+~
+~
+0 -1 53013 10 10 5
+D3
+~
+~
+0 -1 53011 10 10 5
+E
+red dragon head~
+This young dragon's eyes appear through the ice, glazed over in death. 
+Its body is buried in the packed snow, which by now you realize must be
+several feet deeper than it appears.
+~
+1348 9 1509949540 3 0
+-1
+S
+
+#53013
+On a Lake of Ice and Frost~
+The lake is very solid, and no cracks in the ice appear on the surface. 
+About six inches of snow cover the lake, and the wind makes its presence
+known as it blows snow all over surface in swirling mists.  A small
+stream lies to the southeast, also of solid ice, and the rest of the lake
+heads off south and west.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53012 10 10 5
+D1
+~
+~
+0 -1 53006 10 10 5
+D2
+~
+~
+0 -1 53018 10 10 5
+D3
+~
+~
+0 -1 53014 10 10 5
+-1
+S
+
+#53014
+On A Lake of Ice and Frost~
+The lake is solid ice, not making a single noise as you walk.  Blistering
+winds fly about, making visibility and footing difficult, but no snow
+drifts form on the surface, remarkable because of the lake's elevation. 
+A small stream of ice forms on the southwest end of this part of the
+lake, from which a small frost-covered bridge of ice can be seen
+extending across it.  The rest of the lake lies to the south and east.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53011 10 10 5
+D1
+~
+~
+0 -1 53013 10 10 5
+D2
+~
+~
+0 -1 53019 10 10 5
+D3
+~
+~
+0 -1 53015 10 10 5
+E
+bridge frost-covered~
+The winds are whipping hard in your face, but from what you can see it is
+a pure white bridge extending over the stream, and looks like a rare
+natural find, if it is natural.
+~
+A
+~
+~
+loop( all_in_room ) {
+  if( is_player( rch ) ) {
+    act_tochar( #wind, rch );
+    do_spell( chilling touch, rch );
+    }
+  }
+~
+E
+wind~
+@b@BThe wind whistles through this part of the cavern, sending a fingerlike
+chill up your spine.
+~
+!
+2 700 0
+-1
+S
+
+#53015
+Great Snowy Plain - On a Frost-Covered Bridge~
+A large shelf on the western wall makes travelling through this part of
+the cavern much easier.  The wind here has died down, as large icicles
+here serve as a barrier.  To your east a lake of ice stretches in the
+distance, marked faintly by a sunken edge curving around.  An odd
+formation of ice acts as a bridge over a frozen stream that runs from the
+lake.  A small orange glow comes from the south, very faint but reflected
+off of a few stalagmites to your southeast, on the border of the lake.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53010 10 10 5
+D1
+~
+~
+0 -1 53014 10 10 5
+D2
+~
+~
+0 -1 53020 10 10 5
+E
+orange glow~
+Although the glow is too faint to make certain, it seems to be pulsing.
+~
+E
+frost covered bridge~
+This bridge is very firm, and seems to be made from solid ice.  Looking
+over it onto the small stream below, you see the true nature of the
+bridge.  Small cracks in the stream seem to suggest it is not entirely
+frozen solid, and natural hot springs within the mountain range may be
+the culprit.
+~
+A
+~
+~
+if( !is_resting( ch ) ) {
+  act_tochar( #make, ch );
+  continue;
+  }
+~
+E
+make~
+You make your way across the stream to the other side.
+~
+!
+3 0 5
+1348 9 1509949540 3 0
+-1
+S
+
+#53016
+Great Snowy Plain - Frozen Waterfall~
+Here a great waterfall has iced over from the extreme temperature.  A
+rivulet to your north runs from the waterfall, or ran, as it too has
+frozen over from the cold.  The waterfall marks the eastern border of the
+cavern, as steep white walls of flaky snow make any attempt to climb
+futile.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53005 10 10 5
+D2
+~
+~
+0 -1 53021 10 10 5
+D3
+~
+~
+0 -1 53017 10 10 5
+E
+waterfall great frozen~
+This waterfall seems to have frozen in mid-fall.  The result is a
+glacier-like appearance with icicles hanging down off of it.  It reflects
+off the light in a brilliant crystalline cascade of colours.
+~
+E
+rivulet~
+This small stream is covered over with snow, and is not likely to cause
+you any trouble, as it is frozen solid.
+~
+A
+~
+~
+if( !is_resting( ch ) ) {
+  act_tochar( #cross, ch ); 
+  continue;
+  }
+~
+E
+cross~
+You carefully cross over the icy rivulet, avoiding the more slippery
+areas.
+~
+!
+3 0 1
+1348 9 1509949500 3 0
+-1
+S
+
+#53017
+Great Snowy Plain - East of a Frozen Lake~
+The air about this area of the cavern is colder, and the winds are
+whipping more furiously throughout the plain.  The ground here is covered
+with a thick layer of crusty snow.  A small icy stream to the north heads
+into what appears to be a lake of pure ice, and the lake itself lies to
+the west.  The snow-covered cavern continues to your south and east.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53006 10 10 5
+D1
+~
+~
+0 -1 53016 10 10 5
+D2
+~
+~
+0 -1 53022 10 10 5
+D3
+~
+~
+0 -1 53018 10 10 5
+E
+crusty snow~
+This snow is hard-packed and makes travelling through very difficult to manage.  
+~
+A
+~
+~
+ch = rand_player( room );
+if( cflag( 47, ch ) )
+end;
+if( is_fighting( ch ) )
+end;
+if( is_resting( ch ) ) 
+end;
+act_tochar( #snow, ch );
+~
+E
+snow~
+You think you see something buried in a nearby snowdrift.
+~
+!
+2 100 0
+A
+search~
+crusty snow snowdrift~
+if( !cflag( 47, ch ) ) {
+act_tochar( #notyet, ch );
+end;
+}
+if( rflag( reset2, room ) ) {
+act_tochar( #noth, ch );
+end;
+}
+remove_rflag( reset2, room );
+if( random( 0, 10 ) == 3 ){
+obj_to_char( oload( 1405 ), ch );
+act_tochar( #find, ch );
+i = 1d10+5;
+dam_message( ch, i, "being pricked on the spikes" );
+inflict( ch, mob, i, "being pricked on the spikes" );
+}
+else
+act_tochar( #noth, ch );
+~
+E
+notyet~
+You search the snow but there is nothing there to see.
+~
+E
+noth~
+You look about the snow, but don't find anything of particular interest.
+~
+E
+find~
+You find some spikes buried just beneath the snow, and you pricked your
+finger on them.
+~
+!
+0 0 0
+A
+~
+~
+if( random( 0, 5 ) == 1 ) 
+act_tochar( #head, ch );
+continue;
+~
+E
+head~
+You head south, cautiously watching your step.
+~
+!
+3 0 4
+-1
+S
+
+#53018
+On a Lake of Ice and Frost~
+Soft snow lies on this corner of the lake.  The wind is a bit calm here,
+gently blowing extremely cold air across the lake's surface and picking
+up cold from the ground.  A few inches of snow swirl about on the lake in
+beautiful patterns.  The lake continues to your north and west.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53013 10 10 5
+D1
+~
+~
+0 -1 53017 10 10 5
+D2
+~
+~
+0 -1 53023 10 10 5
+D3
+~
+~
+0 -1 53019 10 10 5
+1348 9 1509949540 3 0
+-1
+S
+
+#53019
+On a Lake of Ice and Frost~
+The lake's surface is quite solid, but the wind here is almost unbearable. 
+A frosty whirlwind roars around the lake, throwing about the little snow
+enveloping its surface; slick ice threatens footing.  To the south a
+large tunnel can be made out, glowing a pale-blue, although the source of
+the light is not visible.  The rest of the lake continues to the east and
+north.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53014 10 10 5
+D1
+~
+~
+0 -1 53018 10 10 5
+D2
+~
+~
+0 -1 53024 10 10 5
+D3
+~
+~
+0 -1 53020 10 10 5
+-1
+S
+
+#53020
+Great Snowy Plain - Before a Tunnel~
+The wind in this part of the cavern seems to have stopped altogether.  An
+orange glow eminates from the west, and a pure crystal tunnel reflects it
+as it curves into the unknown source of light.  There appear to be
+markings on the entrance to the tunnel, but they are very faint and hard
+to make out.  To your east a lake of ice is evident from a five foot drop
+of snow that sinks in, dipping icicles onto its surface.  A small
+frost-covered bridge to your north forms across a frozen stream that runs
+from the lake.
+~
+[Phule] no.mob
+~
+301465612 11 8 0
+D0
+~
+~
+0 -1 53015 10 10 5
+D1
+~
+~
+0 -1 53019 10 10 5
+D2
+~
+~
+0 -1 53025 10 10 5
+D3
+~
+~
+0 -1 53026 10 10 5
+E
+orange glow~
+Although you are not close enough to see what causes the orange
+pulsating, you can feel the energy that lies just west of you.
+~
+E
+tunnel~
+The tunnel is smooth and transparent, and there is very little breeze
+coming from it.  It reflects a warm, orange pulsating glow that seems to
+be coming from west of you.
+~
+E
+bridge~
+This frozen bridge leads over a small stream that runs west from the
+lake, and is solid white.  Although at first it appears as a natural
+formation, it seems to arc rather well over the stream, and the ice is
+very firm, colder than the air around it from the looks of the stream
+coming off it.
+~
+A
+look~
+markings~
+if( has_obj( 1812, ch ) || has_obj( 1823, ch ) )
+  act_tochar( #use, ch );
+else {
+  act_tochar( #not, ch );
+  end; }
+  wait( 2 );
+  act_tochar( #markings, ch );
+  wait( 1 );
+  act_tochar( #wait, ch );
+~
+E
+use~
+You use the icicle to look at the markings.
+~
+E
+markings~
+The markings are rather hard to see, whoever had them had horribly small
+and crummy handwriting...
+~
+E
+wait~
+You carefully read the words written out: 
+@b@BBeware...the...Lord....of......Wintre....fear....him.....
+@nIt loses any resemblance of language after that.
+~
+E
+not~
+You cannot read the markings, they are too faint.
+~
+!
+0 0 0
+1349 9 1509949540 3 0
+-1
+S
+
+#53021
+Great Snowy Plain - The Edge of the Cavern~
+This small snow-encrusted plain marks the edge of the cavern, as
+extremely steep walls of ice prevent any further movement south or east. 
+The wind picks up here along the edges of the walls, causing a whirlwind
+of frost from the walls to swirl about the area.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53016 10 10 5
+D3
+~
+~
+0 -1 53022 10 10 5
+A
+~
+~
+loop( all_in_room ) {
+  act_tochar( #frost, rch );
+  if( rch != mob )
+    do_spell( chilling touch, rch );
+  }
+~
+E
+frost~
+@b@CA wave of frost suddenly surrounds you, chilling you to the bone!@n
+~
+!
+2 200 0
+1348 9 1509949490 3 0
+-1
+S
+
+#53022
+Great Snowy Plain - Frosty Tundra~
+The wind is fierce here, as a gale of snow and air hit the icy cavern
+walls here.  The increased cold here has crystallized several rocks, some
+now over a foot thickly embraced in snow.  The frosty tundra continues to
+the north, east, and west, and you can see a large frozen lake to the
+northwest.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53017 10 10 5
+D1
+~
+~
+0 -1 53021 10 10 5
+D3
+~
+~
+0 -1 53023 10 10 5
+E
+rocks crystallized~
+From the looks of those rocks, whatever caused that kind of cold wasn't
+natural.  The rocks are entirely encased in a bubble of ice, with a
+perfection that isn't nature's way.
+~
+1348 9 1509949540 3 0
+-1
+S
+
+#53023
+Great Snowy Plain - South of an Icy Lake~
+It is particularly hard to move in this area of the cavern.  Large gusts
+of wind have drifted several feet of snow onto the plain, and the
+less-packed snow blocks several more favorable passageways.  A sheer face
+of ice lies to your south, bordering the cavern, and appears unclimable. 
+To your north a frost-covered lake appears sunken into the landscape,
+probably frozen solid from years of freezing temperatures.  A pale-blue
+light seems to be coming from the west, although very faintly, and is
+partially obscured by the white snow.
+~
+[Merior] alternate route
+[Merior] unclimbable?
+I might have something here later, to a new area,
+that's why the unclimable. for now, it is.
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53018 10 10 5
+D1
+~
+~
+0 -1 53022 10 10 5
+D3
+~
+~
+0 -1 53024 10 10 5
+1348 9 1509949540 3 0
+-1
+S
+
+#53024
+Great Snowy Plain - Before a Tunnel~
+The wind in this part of the cavern seems to have picked up quite a bit. 
+A torrent of cold air whips about, swirling snow and ice and mist
+together in a hurricane of frigidity.  A large tunnel leads south,
+curving into an unknown area, and a pale-blue light seems to be eminating
+from it, reflecting off of the flaky-white tunnel wall.  A few tiny
+markings appear on the entrance of the tunnel, but they are unreadable. 
+To the north a frozen lake looms, wind whipping fiercely over the surface
+of it.
+~
+[Lansharra] extra for markings?
+[Phule] no.mob
+~
+301465612 11 8 0
+D0
+~
+~
+0 -1 53019 10 10 5
+D1
+~
+~
+0 -1 53023 10 10 5
+D2
+~
+~
+0 -1 53027 10 10 5
+D3
+~
+~
+0 -1 53025 10 10 5
+E
+pale blue light s south~
+A faint blue light seems to be pulsing from that direction, and you can
+almost feel magical energies at work.  Gales are whirling from within the
+tunnel's direction, and frost clings to your face.
+~
+A
+look ~
+tiny markings~
+if( has_obj( 1812, ch ) || has_obj( 1823, ch ) )
+  act_tochar( #use, ch );
+else {
+  act_tochar( #not, ch );
+  end;
+  }
+wait( 2 ); 
+act_tochar( #markings, ch );
+wait( 2 );
+act_tochar( #wait, ch );
+~
+E
+use~
+You use the icicle to look at the markings on the tunnel wall.
+~
+E
+markings~
+The markings are very hard to read, but you think that is a 'C' and that
+is an 'a'...hmm, the icicle is making your hand extremely cold right now...
+~
+E
+markings~
+~
+E
+not~
+You cannot read the markings.  Perhaps if you got something to better
+look at them with, something like a lens, they would be readable.
+~
+E
+wait~
+@b@YThe markings are not completely decipherable, but they seem to say this:
+@b@BGET OUT...MONSTERS!!...EVIL WOMAN...OH THE COLD!!
+@n@YThey seem to abruptly stop at this point, but there is a small arrow
+among the markings, leading to the south, where the tunnel runs.@n 
+~
+!
+0 0 0
+A
+~
+~
+if( !is_resting( ch ) ) {
+  act_tochar( #goes, ch );
+  act_notchar( #rgoes, ch );
+  do_spell( chilling touch, ch );
+  continue;
+  }
+~
+E
+goes~
+As you enter the tunnel, a gust of air chills you over, sucking the
+warmth from your body!
+~
+E
+rgoes~
+As $n enters the tunnel, a gust of air chills $m over, sucking the warmth
+from $s body!
+~
+!
+3 0 4
+1349 137 1509949540 3 0
+-1
+S
+
+#53025
+Great Snowy Plain - The Cavern's Edge~
+The southwest edge of the cavern is covered with snowdrifts, ranging from
+one to fifteen feet deep.  Several shelves jut out from the edges of the
+solid cliff of ice that borders the tundra-like cavern, and several large
+stalagmites rise up out of the ground here, a peaking mountain range of
+ice.  To the northeast a great lake of ice lies, barely bounded here by
+sunken snow that seems to coalesce with the lake's edge.  An orange glow
+seems to be coming from the north, although very faint.  Another
+similarly eerie light glows from the east, a pale blue almost entirely
+absorbed by the white of the snow.
+~
+~
+301465604 11 8 0
+D0
+~
+~
+0 -1 53020 10 10 5
+D1
+~
+~
+0 -1 53024 10 10 5
+E
+pale blue~
+The light is coming from the east and is very faint.  
+~
+E
+orange glow~
+The light seems to be coming from the north, and is pulsing from what you
+can see.
+~
+1348 137 1509949498 3 0
+-1
+S
+
+#53026
+Throne of the Ice Lord~
+A large dais of solid transparent crystal ice lies in the center of this
+cavern.  Over twenty-five feet in height, a massive throne sits atop the
+dais.  Four huge transparent columns of solid ice lie around the dais,
+stretching to the mist above.  A perfectly spiked white icicle rises up
+from the center of a great seal that rests before the dais, and atop it a
+@b@RR@b@Ye@b@Rd@b@Y-@b@Ro@b@Yr@b@Ra@b@Yn@b@Rg@b@Ye@n crystal radiates
+light.  A tunnel east leads out of this throneroom.
+~
+[Merior] disabled entering trigger - ALWAYS went off
+~
+301465629 11 8 0
+D1
+~
+~
+0 -1 53020 10 10 5
+E
+crystal~
+@bThis glowing crystal seems to hum as it pulses from a deep red to a
+yellow-orange hue.
+~
+E
+dais throne~
+This throne is made of solid transparent ice, and is intricately carved
+with @b@Mstrange runes@n.  It rests upon a large dais, and both are
+sculpted to near-perfection.
+~
+E
+strange runes~
+@b@YThese runes are..well, runes.  They are unrecognizable to you, and
+you wonder what they mean.  Several are familiar, as you read a line of
+them:@n
+
+@I@b@G<|> (*> ^#^ {}-{} |><|
+@I@b@G I   [  |||   |    <>
+
+@b@YHmm...perhaps you'll come across it again.
+~
+A
+get~
+crystal~
+act_tochar( #tries, ch );
+act_notchar( #rtries, ch );
+~
+E
+tries~
+You try to get the glowing orange crystal, but the icicle is so slippery
+that reaching it seems futile.
+~
+E
+rtries~
+$n tries to get the glowing orange crystal, but cannot find a grip on the
+slippery icicle.
+~
+!
+0 0 0
+A
+climb~
+icicle~
+act_tochar( #tries, ch );
+act_notchar( #rtries, ch );
+~
+E
+tries~
+You try to climb up the icicle, but its smooth, slippery sides make it
+impossible.
+~
+E
+rtries~
+$n tries to climb up the icicle, but cannot as he slides down its smooth
+slippery sides.
+~
+!
+0 0 0
+A
+~
+~
+if( !rflag( reset0, room ) ) 
+  end;
+if( mob_in_room( 1351, room ) ) {
+  if( !is_fighting( mob_in_room( 1351, room ) ) ) {
+    act_tochar( #trans, ch );
+    act_notchar( #rtrans, ch );
+    transfer( ch, find_room( 19143 ) );
+    remove_rflag( reset0, room );
+    }
+  }
+else
+  continue;
+~
+E
+trans~
+@b@YFiordin calls the winds to banish you from his kingdom!@n
+~
+E
+rtrans~
+@b@YFiordin calls on the winds to banish $n from his domain!@n
+~
+!
+0 0 2
+1351 9 1509949540 3 0
+-1
+S
+
+#53027
+Throne of the Ice Priestess~
+A large dais of solid white ice lies in the center of this cavern.  Over
+twenty feet tall, a great throne atop the dais looks big enough for
+several trolls to fit comfortably in it.  Four massive white columns of
+ice lie around the throne, over ten feet in diameter and stretching to
+the misty ceiling above.  A perfectly spiked transparent icicle rises up
+from the center of a circular seal, and balanced atop the icicle is a
+pure @b@Cblue crystal@n of striking perfection, which radiates a pale-blue
+light.  A tunnel north leads out of the cavernous throneroom.
+~
+eminate in her appearance should be emanate
+[Lansharra] get icicle doesn't work?
+[Lansharra] sit throne perhaps?
+~
+301465605 11 8 0
+D0
+~
+~
+0 -1 53024 10 10 5
+E
+blue crystal~
+This @b@Cblue crystal@n pulses as it lights up the room; it almost seems
+to breathe with its pulsing motion, although that's probably just your
+imagination.
+~
+E
+throne dais~
+This massive throne is made completely of frost, snow, and ice, an
+absolute necessity for any queen wishing to take over the world using the
+elements of cold.  It sits upon a great dais of the same material, and is
+intricately carved with @b@Mstrange runes@n which you cannot translate.
+~
+E
+strange runes~
+@b@YYou try to read the runes, but you cannot translate them, and as you
+try harder and harder you feel more and more like a dunce.@n 
+~
+E
+icicle~
+This @bwhite icicle@n is completely solid clear ice.  It stands over
+fifteen feet tall from bottom to tip, and atop it is a perfect @b@Cblue
+crystal@n.
+~
+A
+get~
+blue crystal~
+act_tochar( #tries, ch );
+act_notchar( #rtries, ch );
+~
+E
+tries~
+You try to get the @b@Cblue crystal@n, but the sides of the icicle are
+too slippery.
+~
+E
+rtries~
+$n tries to get the @b@Cblue crystal@n, but the sides of the icicle are
+too slippery for $m.
+~
+!
+0 0 0
+A
+climb~
+icicle~
+act_tochar( #tries, ch );
+act_notchar( #rtries, ch );
+~
+E
+tries~
+You try to climb the transparent icicle, but the sides are too slippery.
+~
+E
+rtries~
+$n tries to climb up the transparent icicle, but the sides of the icicle
+are too slippery for $m.
+~
+!
+0 0 0
+1350 9 1509949540 3 0
+-1
+S
+
+#53028
+Within a Firey Canyon~
+Jet black rock shoots up from this narrow cleft in the earth.  Sheer
+cliffs surround you to the east and west, and a hot river of lava lies to
+the south, flowing in your direction, but passing underground just a few
+yards away.  The ground is barren and hot, and volcanic gases make it
+difficult to breathe.  Northwards, a small cave can be descried, and
+flames seem to flicker from it.  There appear to be no other exits from
+the narrow canyon.
+~
+~
+301465629 11 9 0
+D0
+~
+~
+0 -1 53029 10 10 5
+-1
+S
+
+#53029
+The Home of Norzan the Black~
+A perfect circle has been hewn into the middle of this cavernous abode,
+and flames spout from it, licking the top of the room's walls. 
+Surprisingly it is much cooler than it would appear, and there seems to
+be little volcanic gas or heat coming from center of the room.  Black
+walls frame the sides of the room, shining dully from the continuous
+burst of fire.  The cavern is relatively bare, but it feels evil here,
+and as you look behind you you notice that you cast no shadow on the
+ground despite the flames.
+~
+~
+301465629 11 9 0
+D2
+~
+~
+0 -1 53028 10 10 5
+1688 9 1509949540 3 0
+-1
+S
+
+#0
+

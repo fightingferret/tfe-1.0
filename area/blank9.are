@@ -1,0 +1,2693 @@
+#AREA
+Darkhaven~
+Kiian Terek~
+~
+
+0 0
+0
+#ROOMS
+
+#30000
+Before a Foul-Smelling Cave Entrance~
+Mounds of crumbled stone litter the mouth of this dark cave, each looking
+as if it were once part of a building.  Large, twisted vines drape down
+over the cave's opening, concealing what lies underground.  From within
+the bowels of the tunnel you can hear the faint sound of footsteps and
+voices no louder then a whisper.  A large mound of stone debris blocks
+passage to the north of the cave.  Beneath you, a tunnel descends into
+the dark caves.
+~
+All shopkeepers done
+All mobs done
+~
+301465677 0 6 0
+D0
+~
+~
+235 -1 19132 10 10 5
+D5
+~
+~
+0 -1 30060 10 10 5
+E
+1 north stone debris mound~
+A mound of stony debris lies blocking the north part of the cave.  The
+mound is quite large,though it is composed of much smaller pieces of
+stone.
+~
+A
+dig move clear~
+north stone debris mound~
+if( is_open( room, north ) ) {
+  act_tochar( #done, ch );
+  end;
+  }
+act_tochar( #dig, ch );
+act_notchar( #dig1, ch );
+Wait( 3 );
+act_tochar( #open, ch );
+act_notchar( #open1, ch );
+open( room, north );
+~
+E
+done~
+The stone debris has already been cleared.
+~
+E
+dig~
+@eYou begin to clear away the mound of stone debris.
+~
+E
+dig1~
+@e$n begins to clear away the mound of stone debris to the north
+~
+E
+open~
+@eYou finally clear the last stone away, opening passage to the north.
+~
+E
+open1~
+@e$n finally clears the last stone away, opening passage to the north.
+~
+!
+0 0 0
+-1
+S
+
+#30001
+Before the Gates of Darkhaven~
+Looming before you directly to the north are the massive iron gates
+leading into the city called Darkhaven.  Twin stone guard towers stand
+just to the north of the huge gates.  Rough stone walls rise up on each
+side of the gates, marred by several nicks and scratches made by mining
+tools.  Bolted onto the southern wall is a rusty steel ladder which heads
+up the passage above you into darkness.
+~
+~
+301465677 0 6 0
+D0
+massive iron gate~
+massive iron gate~
+195 -1 30002 10 10 5
+D4
+~
+~
+0 -1 30060 10 10 5
+E
+ladder 1 south~
+The ladder is large and sturdy, not difficult to use at all.
+~
+E
+massive iron gate~
+These huge iron gates were built to withstand all invasions.  The lower
+portion of the gate is solid iron; heavy bars cover the top several feet,
+allowing a brief glimpse into the heavily guarded town.
+~
+E
+guard tower~
+By peering through the bars at the top of the gate, you are just able to
+spy guard towers to the northeast and northwest.
+~
+E
+wall~
+The dark stone of the cavern has been hacked away in order to make a
+passage wide enough to accomodate the great gate into Darkhaven.  Many
+nicks as well as large gashes mar its surface.
+~
+A
+bang pound knock~
+n north massive iron gates~
+if( is_open( room, north ) ) {
+  act_tochar( #open?, ch );
+  end;
+  }
+act_tochar( #bang, ch );
+act_notchar( #bang1, ch );
+Wait( 1 );
+act_room( #open, ch );
+Wait( 1 );
+act_tochar( #guard, ch );
+act_notchar( #guard1, ch );
+open( room, north );
+~
+E
+bang~
+@eYou pound on the massive iron gates several times.
+~
+E
+bang1~
+@e$n pounds on the massive iron gates several times.
+~
+E
+open~
+@eSuddenly guards appear in the watchtowers above the gates bearing
+crossbows trained on you.
+~
+E
+no~
+No, you can't enter silly mortal
+~
+E
+no1~
+$n tries to enter darkhaven but is kicked out.
+~
+E
+guard~
+@eThe gates grind open and a lone guard steps forth, quietly looks you
+over then nods to you, motioning for you to enter.
+~
+E
+guard1~
+@eThe gates grind open and a lone guard steps forth, quietly looks $n
+over then nods to $m, motioning for $m to enter.
+~
+E
+open?~
+The gates are already open, there is no need to knock on them.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+end;
+act_room( #close, ch );
+close( room, north );
+~
+E
+close~
+@eThe gates grind and slowly close as you hear a loud thump as the cross
+beam is set back into place and the gates locked.
+~
+!
+1 0 1
+-1
+S
+
+#30002
+South Gate of Darkhaven~
+Towering up before you to the south are the enormous iron gates which
+guard Darkhaven from outside intruders.  A large steel-banded wooden beam
+lies across the gates, adding extra reinforcement to repel any invaders. 
+Twin stone watchtowers rest above the gate to the east and west from
+which you can see the movement of many guards.  A small steel @elever@n
+has been set into the western wall.  To the north a tunnel begins to make
+its way into the city itself.
+~
+[Rue] 
+*mickey-moused a way to make pets NOT get trapped in here when others are thrown out.
+~
+301465677 0 6 0
+D0
+~
+~
+0 -1 30003 10 10 5
+D1
+heavy stone door~
+heavy stone door~
+131 -1 30056 10 10 5
+D2
+massive iron gate~
+massive iron gate~
+195 -1 30001 10 10 5
+D3
+heavy stone door~
+heavy stone door~
+131 -1 30058 10 10 5
+E
+steel-banded wooden beam~
+This massive piece of timber is covered in thick steel bands to help
+strengthen it against any punishment an attacking force could offer.  It
+sits completely across the length of the gates causing any person wishing
+to leave the city to have to lift it to allow the gates to open.
+~
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( find_stat( ch, align ) == 6 ) {
+  act_tochar( #banish, ch );
+  act_notchar( #banish1, ch );
+  transfer( ch, find_room( 30001 ) );
+  act_notchar( #arrive, ch );
+acode( room, 5 );
+  }
+if( find_stat( ch, align ) == 3 ) {
+  act_tochar( #banish, ch );
+  act_notchar( #banish1, ch );
+  transfer( ch, find_room( 30001 ) );
+  act_notchar( #arrive, ch );
+acode( room, 5 );
+  }
+if( find_stat( ch, align ) == 1 ) {
+  act_tochar( #banish, ch );
+  act_notchar( #banish1, ch );
+  transfer( ch, find_room( 30001 ) );
+  act_notchar( #arrive, ch );
+acode( room, 5 );
+  }
+if( find_stat( ch, align ) == 7 ) {
+  act_tochar( #banish, ch );
+  act_notchar( #banish1, ch );
+  transfer( ch, find_room( 30001 ) );
+  act_notchar( #arrive, ch );
+acode( room, 5 );
+  }
+if( find_stat( ch, align ) == 4 ) {
+  act_tochar( #banish, ch );
+  act_notchar( #banish1, ch );
+  transfer( ch, find_room( 30001 ) ); 
+  act_notchar( #arrive, ch );
+acode( room, 5 );
+  }
+if( find_stat( ch, align ) == 0 ) {
+  act_tochar( #banish, ch );
+  act_notchar( #banish1, ch );
+  transfer( ch, find_room( 30001 ) ); 
+  act_notchar( #arrive, ch );
+  }
+acode( room, 5 );
+if( is_follower( ch ) )
+  end;
+Wait( 1 );
+act_room( #close, ch );
+close( room, south );
+~
+E
+close~
+@eThe gates quietly grind to a close and the guards place a large
+steel-banded wooden beam across the gates.
+~
+E
+banish~
+The Darkhaven gate guards quickly rush over to you, their pike tips aimed
+at your throat as one proclaims: @e"Your kind is not welcome here! 
+BEGONE!" 
+~
+E
+banish1~
+@b@RThe Darkhaven gate guards quickly rush over to $n, their pike tips
+aimed at $s throat as one of them steps forth, mutters some harsh words
+to $m and then forces $m out the gates.
+~
+E
+arrive~
+@b@RThe gates suddenly open and you watch the Darkhaven gate guards force
+$n out of the city with their pikes aimed at $s throat.
+~
+!
+1 0 4
+A
+pull push move~
+lever~
+if( is_open( room, south ) ) {
+  act_tochar( #open?, ch );
+  end;
+  }
+if( rflag( status1, room ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #pull1, ch );
+  act_room( #stuck, ch );
+  }
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #pull1, ch );
+  act_room( #open, ch );
+  open( room, south );
+  set_rflag( status1, room );
+  }
+~
+E
+pull~
+@eYou pull the steel lever.
+~
+E
+pull1~
+@e$n pulls the steel lever.
+~
+E
+stuck~
+@b@RThe gates slowly start to grind open but suddenly jam as the wooden
+beam holds the gates closed.
+~
+E
+open~
+@b@YThe gates slowly begin to open, sending the sound of grinding stone
+echoing down the tunnels.
+~
+E
+open?~
+The gates are already open.
+~
+!
+0 0 0
+A
+lift move remove~
+steel-banded wooden beam~
+if( !rflag( status1, room ) ) {
+  act_tochar( #gone, ch );
+  end;
+  }
+act_tochar( #heave, ch );
+act_notchar( #heave1, ch );
+remove_rflag( status1, room );
+~
+E
+heave~
+@eThrowing your back into it, you slowly lift the steel-banded beam off
+from across the gates and set it down on the ground.
+~
+E
+heave1~
+@eThrowing $s back into it, $n slowly lifts the steel-banded beam off
+from across the gates and sets it down on the ground.
+~
+E
+gone~
+The beam has already been moved from across the gates.
+~
+E
+open~
+No description~
+!
+0 0 0
+A
+~
+~
+if( cflag( 70, ch ) ) {
+  act_room( #salute, ch );
+  end;
+  }
+~
+E
+salute~
+One of the gate guards steps forth and raises his pike to his chest in
+salute and says: @W"Good Day M'Lord $n!  I am happy to report all
+is quiet in the city and that we are pleased at seeing you!"@n 
+~
+!
+1 0 15
+A
+~
+~
+loop( followers ) {
+act_tochar( #cant, rch );
+transfer( rch, find_room( 30001 ) );
+}
+act_notchar( #arrives, rch );
+~
+E
+cant~
+You are ushered out behind the one you follow.
+~
+E
+arrives~
+$n arrives behind you.
+~
+!
+0 0 0
+1738 9 1509949540 3 0
+1738 9 1509949540 3 0
+1738 9 1509949540 3 0
+1738 9 1509949540 3 0
+-1
+S
+
+#30003
+Dark Tunnel Through the Mountain~
+The rough stone walls of the tunnel narrow here, making passage for
+anyone larger than a human difficult.  Sheets of crystal clear water run
+down the walls and deposit on the floor where a large puddle has
+collected.  Two iron lamp posts sit alongside the walls, their candles
+flickering with a dim yellow light, barely illuminating the tunnel. 
+Hanging from the eastern wall of the tunnel is a small steel @esign@n on
+which several words have been engraved.  To the south the south gate of
+Darkhaven rises up while to the north the city opens up.
+~
+~
+301465677 1 6 0
+D0
+~
+~
+0 -1 30026 10 10 5
+D2
+~
+~
+0 -1 30002 10 10 5
+E
+sign~
+Elegantly written it reads:
+
+@eWelcome to the City of Darkhaven - Population ( 2,331 )@n
+~
+296 9 1509949540 3 0
+-1
+S
+
+#30004
+Dagger Street~
+Shards of broken glass litter the street here along with small piles of
+dirty rags and torn leather.  Planks of warped and cracked wood lie in
+piles along the western side of the road along with several rusty hammers
+and pick-axes.  To the west lies a small shop from which inside you can
+see shadows moving about in candle light.  Directly to the east lies the
+bank of Darkhaven marked by gold-trimmed windows, doors and 
+platinum-plated support beams.
+~
+[Terek] Done
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 30005 10 10 5
+D1
+door~
+door~
+0 -1 30011 10 10 5
+D2
+~
+~
+0 -1 30026 10 10 5
+D3
+door~
+door~
+0 -1 30012 10 10 5
+296 9 1509949540 3 0
+1758 9 1509949540 3 0
+-1
+S
+
+#30005
+Dagger Street~
+Dark stone buildings rise up alongside the street here, many covered in
+scorch marks left by fire while others appear rather freshly built.  A
+large stone house lies just off the street to the west where private
+citizens of Darkhaven dwell.  Directly to the east lies a blood-red
+colored stone building on which a small sign has been placed bearing the
+image of a dagger dripping with blood.  Dagger street continues to run
+its course to the north and south of here.
+~
+[Terek] Done
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 30006 10 10 5
+D1
+heavy steel door~
+heavy steel door~
+131 -1 30013 10 10 5
+D2
+~
+~
+0 -1 30004 10 10 5
+D3
+heavy ironwood door~
+heavy ironwood door~
+391 -1 30014 10 10 5
+E
+sign~
+This small sign is almost entirely covered by the image of a grey dagger. 
+The tip of the dagger is serrated, and is dripping with blood.  No words
+are necessary to describe what lies further to the east.
+~
+296 9 1509949540 3 0
+-1
+S
+
+#30006
+Dagger Street~
+Elegant dark stone buildings rise up on each side of the street here,
+their roofs nearly touching the top of the cavern.  Black iron lamp
+posts rest alongside the street, each shedding just enough light to
+illuminate the street.  To the west lies a small stone building covered
+in black scorch marks.  Rising up to the east is a massive black obsidian
+building.  A cracked wooden @esign@n hangs just above the door leading
+into the east building.  To the south Dagger Street continues while to
+the north Darkhaven square opens up.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 30008 10 10 5
+D1
+heavy oak door~
+heavy oak door~
+131 -1 30015 10 10 5
+D2
+~
+~
+0 -1 30005 10 10 5
+D3
+~
+~
+0 -1 30016 10 10 5
+E
+3 sign wooden~
+The sign declares, in cracked, unsteady lettering, @e"The Black Unicorn."@n
+~
+296 9 1509949540 3 0
+-1
+S
+
+#30008
+Darkhaven Square~
+Elegant stone statues rise up all about the square here, each portraying
+a different lord that once protected Darkhaven.  Several stone benches
+rest around a simple stone @efountain@n in the center of the square. 
+Directly to the north a massive black obsidian stone temple rises up,
+casting a dark shadow upon the square and surrounding buildings.  To the
+west and east cobblestone streets work their way through the city.
+~
+[Terek] Done
+[Silas] Request- Colour emphasize the fountain, please..:)
+[Tarsk] Vyan merchant, a vyan merchant, A dark-skinned @b@Rvyan merchant@n hurries along the street.
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 30009 10 10 5
+D1
+~
+~
+0 -1 30017 10 10 5
+D2
+~
+~
+0 -1 30006 10 10 5
+D3
+~
+~
+0 -1 30022 10 10 5
+E
+stone statue lord~
+Half a dozen statues of large, fierce-looking men surround the fountain. 
+These former lords of Darkhaven include two puny-looking humans as well
+as three large trolls and an immense ogre.
+~
+1 17 1509949540 -2 0
+296 9 1509949540 3 0
+296 9 1509949540 3 0
+1758 9 1509949540 3 0
+-1
+S
+
+#30009
+Before a Massive Black Obsidian Temple~
+Enormous black obsidian pillars rise up before you, supporting the
+elegantly carved stone ceiling of the temple.  Various carvings of
+worshippers of Morr in sacrifical rituals adorn the pillars while others
+portray Morr bringing his wrath down on a small elven village.  A set of
+reddish-colored stone steps lead up towards a massive black iron door
+which leads into the temple itself.  Off to the south you can see
+Darkhaven square and the many stone buildings of the city.
+~
+~
+335020109 1 6 0
+D0
+massive black iron doors~
+massive black iron doors~
+131 -1 30010 10 10 5
+D2
+~
+~
+0 -1 30008 10 10 5
+E
+ceiling stone~
+High overhead, the elegantly carved ceiling holds in its shadows, bas
+relief images of Morr cloaked in darkness, in all his many guises.  An
+eerie red glow emanates from his eyes in the central, dominant aspect of
+Morr.  A sense of utter emptiness pulls inexorably at the souls of all
+those who meet that fiery gaze.
+~
+E
+massive black iron door~
+As solid, dark and imposing as the rest of the temple's facade, this
+black iron door is set deep into its blood-red stone frame.  An iron
+mouth writhing in agony vomits forth the reddish, slick metal handle of
+this imposing door.
+~
+A
+~
+~
+send_to_char( #enter, ch );
+continue;
+~
+E
+enter~
+Taking a deep breath, you head north into Morr's domain.
+~
+E
+good~
+You sense an unspeakably evil and foul presence to the north; you cannot
+bring yourself to set foot within the domain of Morr.
+~
+!
+3 -1 1
+-1
+S
+
+#30010
+Temple of Morr - Entrance Foyer~
+Small, cushioned benches rest along the walls of this foyer, allowing
+travelers a place to rest a moment.  Several dozen silk tapestries hang
+along the eastern wall, depicting ghastly images of Morr bringing his
+wrath down upon bands of elves and dwarves.  The entire western wall is
+covered with a mural of followers of Morr performing blood rituals to
+their dark god.  Hanging from the ceiling is a chandelier composed of
+humanoid bones on which black candles rest, shedding a faint amount of
+light on the room.
+~
+~
+301466183 1 6 0
+D0
+~
+~
+0 -1 30025 10 10 5
+D2
+massive black iron doors~
+massive black iron doors~
+131 -1 30009 10 10 5
+E
+blood west rituals mural~
+Stretched across the western wall, a mural dedicated to the bloody
+rituals of Morr hangs in subdued agony.  In the foreground, lay followers
+of Morr perform self blood-letting rituals, their own blood spattering
+parchments burning in dim braziers.  Line upon line of doomed humanoids
+crisscross the central scene, awaiting their fate, where dark robed
+priests cut beating hearts from living chests, and the lines continue:
+empty, heartless, wandering down forever into the realm of the Dead.
+~
+E
+ceiling chandelier bones candles~
+Occasional drips of faintly luminescent black wax call attention to the
+dim glow emanating from above.  Bones from perhaps every known humanoid
+race glint dully from this macabre chandelier.  The candles themselves
+shine darkly with an odd radiance, like drops of black oil on water.
+~
+2486 17 1509949540 -2 0
+2486 17 1509949540 -2 0
+-1
+S
+
+#30011
+The Bank of Darkhaven~
+Several pine-wood tables and chairs fill this large chamber.  Smooth
+white and grey streaked marble walls rise up all around you from which
+several silk tapestries each depicting a past lord of Darkhaven hang.  An
+elegant birchwood spiral staircase rests along the eastern wall and
+spirals up out of view.  The entire northern wall of the building has
+been covered with thick steel bars and several bank tellers sit behind
+them waiting to conduct citizen's bank transactions.
+~
+[Terek] Done
+[Merior] staircase but no direction to get to it?
+[Merior] extras
+~
+335022181 1 6 0
+D3
+door~
+door~
+0 -1 30004 10 10 5
+A
+~
+~
+send_to_room( #cough, room );
+~
+E
+cough~
+You hear a cough as the old man behind the barred window clears his
+throat.
+~
+!
+2 50 0
+438 9 1509949540 3 0
+296 9 1509949540 3 0
+-1
+S
+
+#30012
+Danar's General Supply Shop~
+Several wooden crates and boxes, filled to their tops with wares, litter
+this small shop.  Wooden shelves covered with every possible type of
+supply an adventurer would need hang from the walls.  Lying in the center
+of the room is a simple oak desk covered with papers and bottles of ink. 
+Hanging along the western wall are several lanterns, some lit while
+others remain unlit.  To the east a small cloth flap hangs over a square
+opening, marking the exit out of the shop.
+~
+[Terek] done
+[Merior] extras for all the stuff
+[Dalthas] danar stands here, awaiting your _bussiness_
+~
+335020111 1 6 0
+D1
+~
+~
+0 -1 30004 10 10 5
+297 9 1509949540 3 0
+25 17 1509949520 -1 0
+55 17 1509949520 -1 0
+6 17 1509949442 -1 0
+229 17 1509949465 -1 0
+26 17 1509949490 -1 0
+950 17 1509949445 -1 0
+948 17 1509949465 -1 0
+230 17 1509949515 -1 0
+330 17 1509949540 -1 0
+27 17 1509949465 -1 0
+25 17 1509949480 -1 0
+229 17 1509949480 -1 0
+874 17 1509949485 -1 0
+-1
+S
+
+#30013
+Entrance to the Den of Thieves~
+Several jewel-encrusted braziers fill this dark room, each blazing with a
+brilliant green flame which illuminates the room brightly.  Upon the
+northern and southern walls are several unique and odd looking daggers
+encased in glass cases.  To the east a black velvet curtain embedded with
+small, red and green colored diamonds hangs over a door opening.  To the
+west a heavy steel door leads back out to Dagger street.
+~
+[Terek] Done
+[Merior] dagger, case, curtain, diamond.. extras
+~
+335020109 1 6 0
+D1
+~
+~
+0 -1 30021 10 10 5
+D3
+heavy steel door~
+heavy steel door~
+131 -1 30005 10 10 5
+A
+~
+~
+if( random( 1, 2 ) == 1 )
+send_to_char( #guild, ch );
+~
+E
+guild~
+~
+!
+1 -1 10
+-1
+S
+
+#30014
+Merchant's Home~
+Several silk tapestries adorn the walls of this large home, some of which
+bear images of majestic dragons while others potray the dark god Morr.  A
+large writing desk sits along the northern wall covered in papers and
+empty glasses.  A simple wooden bed rests along the southern wall covered
+in fine silk sheets and bear hide blankets.  Boarded up windows sit in
+the northern and southern walls, covered in dust and cobwebs.  To the
+west a small oak door has been placed on which a heavy iron lock hangs.
+~
+[Terek] Done
+[Merior] tapestry, desk, bed, window extras.. and/or reset some objects
+~
+335020109 1 6 0
+D1
+heavy ironwood door~
+heavy ironwood door~
+391 -1 30005 10 10 5
+D3
+small oak door~
+small oak door~
+391 -1 30024 10 10 5
+-1
+S
+
+#30015
+The Black Unicorn~
+Worn stones and weathered oak panels enclose a large, dingy space where
+Darkhaven's inhabitants gather to gossip, listen to news, and connive. 
+An immense fireplace dominates the northern wall, its glossy, jet-black
+stones reflecting the orange light generated within.  A reddish-brown bar
+winds its way along the southern wall, and you may take a seat there or a
+one of the many small tables scattered about the chamber.  To the east,
+the dimness increases, providing ample space for schemers and their shady
+dealings.
+~
+[Terek] Original Rdesc, Keep it
+[Merior] update extras, add some
+~
+335024207 1 6 0
+D1
+~
+~
+0 -1 30020 10 10 5
+D3
+heavy oak door~
+heavy oak door~
+131 -1 30006 10 10 5
+A
+~
+~
+i = random( 1, 10 );
+if( i == 1 )
+send_to_room( #secomber, room );
+if( i == 2 )
+send_to_room( #grumble, room );
+if( i == 3 )
+act_room( #fire, ch );
+~
+E
+fire~
+@B@RThe fire flickers for a moment, sparks rising up into the air.
+~
+E
+grumble~
+You hear an exchange of angry words at a nearby table.  Soon after, a
+patron stalks out of the bar in a huff.
+~
+E
+secomber~
+"Heh! Who needs Secomber, anyway! What a joke!" 
+~
+!
+2 25 0
+466 17 1509949540 -2 0
+10 9 1509949540 3 0
+24 17 1509949540 -1 1
+24 17 1509949540 -1 5
+23 17 1509949445 -1 1
+874 17 1509949450 -1 0
+761 17 1509949490 -1 33
+761 17 1509949490 -1 4
+761 17 1509949490 -1 38
+-1
+S
+
+#30016
+Lanthar's Premium Weapons~
+Several dozen polished weapons hang from the walls of this small, dimly
+lit shop.  Large glass cases rest along the northern and western walls,
+housing various weapons from daggers to two-handed swords.  An elegant
+grey marble desk sits in the center of the room covered in masses of
+papers and a few odd-looking daggers.  Hanging over the door to the east
+is a massive black and green colored broadsword from which a faint
+humming sound emanates.
+~
+[Terek] Done
+~
+335020143 1 6 0
+D1
+~
+~
+0 -1 30006 10 10 5
+E
+massive black green broadsword~
+Suspended in mid-air by some unseen force, the massive black and green
+colored broadsword hums with magic.  Several glowing runes have been
+etched along the blade which glow with a pale green light.  Its hilt is
+made from bone which has been carved to resemble a striking dragon.  The
+guard is made from silver and mithril and embedded on each end of it are
+large black diamonds.
+~
+E
+glass cases~
+Several large glass classes rest along the north and west walls of the
+shop, housing various weapons.  Glancing in the cases you spot several
+unique and odd looking daggers and swords each standing out with its
+beautiful craftmanship.
+~
+E
+daggers~
+The daggers lying upon the desk are unlike any you have ever laid eyes on
+before.  Each has a triangle-shaped blade about four inches long before
+it meets a black obsidian hilt.  Pulsing runes cover the blade and hilt
+which glow with a fiery light.  One dagger stands out more than the rest,
+its blade is no more than three inches long but is as thin as a needle
+with no apparent hilt attached to it.
+~
+E
+grey marble desk~
+The desk is note magnificent but elegant.  The grey marble used to
+compose it has been smoothed down and polished to a glossy shine. 
+Several small carvings of orcs dressed in battle-armor and wielding
+two-handed swords adorn its surface.  Lying atop the desk are several
+papers and odd-looking daggers, strewn about in an unorderly fashion.
+~
+A
+kill kick bash punch steal cast order~
+~
+send_to_char( #message, ch );
+act_notchar( #message2, ch );
+transfer( ch, find_room( 30006 ) );
+act_notchar( #message3, ch );
+~
+E
+message3~
+$n flys out of the door to the west, and lands on the ground with a thud.
+~
+E
+message2~
+Lanthar grabs $n and throws $m out the door to the east.
+~
+E
+message~
+Lanthar says, 'I dont think so!' as he grabs you and throws you out of
+his store.  
+~
+!
+0 0 0
+A
+~
+~
+if( done_quest( ch, 29 ) ) 
+  end;
+if( has_quest( ch, 29 ) )
+  end;
+wait( 1 );
+if( random( 1, 2 ) == 1 )
+act_tochar( #sigh, ch );
+~
+E
+sigh~
+@b@RAs you enter the store, you hear Lanthar whisper something about a
+peridot to another customer.
+~
+!
+1 0 2
+299 9 1509949540 3 0
+195 17 1509949455 -1 0
+891 17 1509949445 -1 0
+898 19 1509950725 -1 0
+935 17 1509949445 -1 0
+3016 17 1509949445 -1 0
+3001 17 1509949540 -1 0
+3000 17 100 -1 0
+3014 17 100 -1 0
+3032 17 100 -1 0
+1043 17 1509949540 -1 0
+3028 17 1509949540 -1 0
+-1
+S
+
+#30017
+Shadow Street~
+A few torches line the northern wall bordering the street here, their
+flames crackling against the damp stone surface and causing shadows to
+dance across the walls and buildings.  Colorful stalagtites hang down
+from the ceiling and sparkle as the light from the torches along the
+street strikes them.  Directly to the south a massive black-stoned
+building, completely barren of any windows or doors, shoots up towards
+the ceiling.
+~
+[Terek] Done
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30018 10 10 5
+D3
+~
+~
+0 -1 30008 10 10 5
+-1
+S
+
+#30018
+Shadow Street~
+Several small houses line the edge of the street here, some illuminated
+while others are pitch black.  The cobblestone of the street is covered
+in large cracks and scuff marks left by boots; several sections are
+missing stones.  To the north sits a small stone house covered in black
+scorch marks and splatters of dried blood.  Off to the east the street
+becomes more brightly lit and to the west it continues between the rows
+of houses.
+~
+[Terek] Done
+~
+301465669 1 9 0
+D0
+scorched wooden door~
+scorched wooden door~
+391 62 30019 10 10 5
+D1
+~
+~
+0 -1 30034 10 10 5
+D3
+~
+~
+0 -1 30017 10 10 5
+E
+house scorch mark blood~
+This portion of town appears to contain several small dwellings, possible
+those of some of the shopkeepers.  Although most of them appear quite
+mundane, the home to the north is covered with black scorch marks and
+dried blood: clearly the site of some recent catastrophe.
+~
+-1
+S
+
+#30019
+An Abandoned Home~
+This small home is completely barren; the stone walls bear no objects and
+the room is void of all furniture.  A window in the western wall has been
+boarded up making the room quite dark.  An old stone fireplace lies in
+the northern wall; a small pile of ashes the only hint of any former
+inhabitance here.  To the south a scorched wooden door marks the exit out
+of this home.
+~
+~
+301465669 1 9 0
+D2
+scorched wooden door~
+scorched wooden door~
+391 -1 30018 10 10 5
+-1
+S
+
+#30020
+A Dark Alcove~
+Clouds of smoke fill this small room along with several wooden tables and
+chairs.  Large wooden crates lie stacked up against the walls covered in
+a thin black cloth.  A few lit torches hang from the walls, illuminating
+the chamber just barely enough to see ones hand in front of their face. 
+Several large burlap bags, covered in black lettering, lie upon the
+smooth stone floor.
+~
+[Terek] Done
+[Merior] crate, bag extra, actions?
+[Inar] one's hand
+~
+335020111 1 9 0
+D3
+~
+~
+0 -1 30015 10 10 5
+A
+~
+~
+if( random( 1, 10 ) == 1 ) { 
+  wait( random( 5, 10 ) );
+  act_room( #argument, ch );
+  }
+~
+E
+argument~
+@b@RYou hear some people arguing in harsh, low voices off in a concealed
+spot.
+~
+!
+1 0 8
+912 17 1509949540 -2 0
+-1
+S
+
+#30021
+Master Thieves' Den~
+A single large oak table dominates this small room on which several
+sharpening stones lie.  The walls are covered with framed pictures of
+cloaked figures, each with a plaque resting beneath them.  A large
+dartboard hangs from the southern wall on which several steel daggers
+have been embedded into it.  An elegant marble fireplace lies in the
+eastern wall and upon its mantle are several bronze busts portraying a
+master thief.
+~
+[Terek] Done
+[Merior] lots of extras
+[Merior] add wire and picks?
+~
+335020111 1 6 0
+D3
+~
+~
+0 -1 30013 10 10 5
+298 9 1509949540 3 0
+127 17 1509949540 -1 0
+128 17 1509949540 -1 0
+-1
+S
+
+#30022
+Shadow Street~
+The dark cobblestone of the street here has been worn smooth by ages of
+citizens walking along it.  The dark cavern walls overhang the street
+here, casting a shadow upon the area.  Off to the south and east you can
+see the magnificent stone buildings that make up Darkhaven rising up
+towards the cavern ceiling.  To the west Shadow Street continues to run
+its course through the city.  Directly to the east several stone statues
+surround a stone fountain which marks Darkhaven Square.
+~
+[Terek] Done
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30008 10 10 5
+D3
+~
+~
+0 -1 30023 10 10 5
+-1
+S
+
+#30023
+Shadow Street~
+Several unlit black iron lamp posts, covered in a thin layer of rust, sit
+alongside the street here.  Heavy steel mining tools, used in the
+excavation of the collapsed tunnels, lie along the northern edge of the
+road along with a lone mining cart.  Small bits of dark stone litter the
+street along with a few chunks of raw iron ore.  To the west Shadow
+Street bends out of view towards the south, while to the east it
+continues through the city.
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30022 10 10 5
+D3
+~
+~
+0 -1 30050 10 10 5
+E
+steel mining tool cart~
+Several dozen steel pickaxes lie just off the north side of the road.  A
+single mining cart, empty now save a few tiny specs of iron ore, stands
+ready for loading.
+~
+E
+bit dark stone iron ore~
+Small stones and discarded bits of ore are scattered about the street. 
+They appear to be far too tiny and worthless to take.
+~
+296 9 1509949540 3 0
+-1
+S
+
+#30024
+Dust-Filled Room~
+This small is completely barren of any furniture or windows.  The smooth
+white stone walls are covered in several layers of dust.  Thick cobwebs
+drape down from the ceiling and constantly get in your way.  Bits of
+crumbled stone, broken free from the ceiling, lie in the center of the
+room.  Along the southern wall one of the stones have been removed
+leaving an empty, gaping hole.
+~
+[Terek] Done
+[Merior] stone, hole extra - there gonna be an action?
+~
+335020101 1 9 0
+D1
+small oak door~
+small oak door~
+391 -1 30014 10 10 5
+-1
+S
+
+#30025
+Temple of Morr - Passage Intersection~
+A circle of diamond-encrusted braziers sit in the center of the room,
+their flames blazing with an intense purple light.  In the center of the
+circle, carved into the floor, is a life-like image of Morr himself,
+grasping an enormous bastard sword.  Off to the west and east sit
+dimly-lit alcoves from which faint humming sounds emanate.  Directly to
+the north you can see a massive obsidian altar set into the far wall.
+~
+~
+301466191 1 9 0
+D0
+~
+~
+0 -1 30031 10 10 5
+D1
+~
+~
+0 -1 30052 10 10 5
+D2
+~
+~
+0 -1 30010 10 10 5
+D3
+~
+~
+0 -1 30053 10 10 5
+E
+Morr statue circle center~
+The carving depicts Morr is his common skeletal form.  His bones are
+black rather than white and a pair of glowing green pin-points serve as
+eyes.  He wears a black robe covered in blood and faces can be seen
+trapped within the robe, trying vainly to escape.  Grasped in the god's
+hand is a large black broadsword from which blood drips.
+~
+-1
+S
+
+#30026
+Intersection of Dagger and Dark Storm~
+The worn cobblestone streets of Dagger and Dark Storm intersect here,
+leading into different parts of the city.  All about the area massive
+stone buildings rise up throughout the cave, casting their ominous
+shadows everywhere.  Directly to the north a line of lamp posts begin to
+make their way down Dagger Street, illuminating the area.  Off to the
+south the enormous iron gates of the city gleam through the darkness of 
+the cavern.
+~
+[Terek] Done
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30004 10 10 5
+D1
+~
+~
+0 -1 30027 10 10 5
+D2
+~
+~
+0 -1 30003 10 10 5
+D3
+~
+~
+0 -1 30042 10 10 5
+-1
+S
+
+#30027
+Dark Storm Lane~
+Massive darkish-colored stone buildings rise up off towards the north and
+west, their tops nearly touching the cavern's ceiling.  Small piles of
+hay litter the cobblestone of the lane here, its scent lingering in the
+air.  A large building lies directly to the south from which the sound of
+horses snorting and stomping hooves eminate.  Dark Storm Lane continues
+to the east and west from here as it continues its course across the city.
+~
+[Terek] Done
+~
+301465668 1 6 0
+D1
+~
+~
+0 -1 30028 10 10 5
+D2
+~
+~
+0 -1 30054 10 10 5
+D3
+~
+~
+0 -1 30026 10 10 5
+E
+piles hay litter cobblestone~
+One of the few scents more familiar to the outdoors than these echoing
+caverns lingers over the hay that has slowly collected outside the
+stables.  Further inspection of the hay may reveal more than is
+desireable to the casual passerby.
+~
+-1
+S
+
+#30028
+Dark Storm Lane~
+Dark Storm Lane narrows here, allowing just enough passage for a
+human-sized man to squeeze through sideways.  Two lamp posts stand in the
+center of the road, their candles flickering with yellowish flames which
+barely illuminate this section of road.  Patches of red, brown and green
+colored moss cling to the cobblestone of the street and also along the
+entire southern wall.  Beneath the layers of moss upon the wall, the
+twinkle of something metallic can be seen every few moments as light
+strikes it.
+~
+[Terek] Done
+[Merior] metallic extra/action?
+[Merior] metal is ore
+~
+301465668 1 5 0
+D1
+~
+~
+0 -1 30029 10 10 5
+D3
+~
+~
+0 -1 30027 10 10 5
+E
+metallic~
+Fine specks of silver ore still within the rock glint in the light.
+The slivers are way too small to bother mining.
+~
+78 17 1509949447 -2 0
+78 17 1509949442 -2 0
+-1
+S
+
+#30029
+Dark Storm Lane~
+Dark Storm Lane bends here, heading off to the west and north through the
+many rows of stone buildings.  Sitting off the road to the east is a
+small green and black colored stone building, smoke constantly fuming
+from a small chimney atop it.  The southern wall of the cavern just off
+the road's edge is filled with several large holes from which the loud
+sound of rushing water can be heard.
+~
+[Terek] Done
+[Silas] glimpse glipse
+~
+301465668 1 5 0
+D0
+~
+~
+0 -1 30030 10 10 5
+D1
+~
+~
+0 -1 30035 10 10 5
+D3
+~
+~
+0 -1 30028 10 10 5
+E
+southern wall holes water~
+A large gap in the cavern wall to the south affords a glimpse of an
+underground river rushing by.  A pile of stones has been neatly stacked
+just beneath the hole, although it is impossible to tell whether they are
+part of the destruction or repair.
+~
+E
+east green black building~
+This colored stone building is topped with a ever-smoking chimney. 
+Smells of fresh-baking food wafts out of the door.
+~
+A
+enter~
+south hole~
+act_tochar( #nogo, ch );
+~
+E
+nogo~
+You are not able to enter the hole; someone seems to have sealed it off
+magically.
+~
+!
+0 0 0
+1758 9 1509949540 3 0
+-1
+S
+
+#30030
+Dark Storm Lane~
+Dark Storm Lane works its way north and south here, squeezing through the
+many stone buildings of the city and allowing just barely enough room for
+two human-sized men to pass side by side.  To the east a simple stone
+building sits, marked only by a rickety wooden @esign@n which swings back
+and forth silently at its own accord.  Off to the south several small
+houses sit off the streets edges while off to the west many large
+buildings rise up toward the cavern ceiling.
+~
+[Terek] Done
+[Ashke] cloaked human,
+~
+301465668 1 5 0
+D0
+~
+~
+0 -1 30032 10 10 5
+D1
+~
+~
+0 -1 30040 10 10 5
+D2
+~
+~
+0 -1 30029 10 10 5
+E
+sign~
+Covered in glowing runes and glyphs a small portion of the sign has been
+reserved for a small message to be written reading: @e"Oiudar's"@n 
+~
+296 9 1509949490 3 0
+296 9 1509949540 3 0
+-1
+S
+
+#30031
+Temple of Morr - Before an Ornate Black Obsidian Altar~
+A massive black obsidian altar, covered with intricate carvings and
+embedded with precious gems, dominates the northern wall of the temple
+here.  Silk tapestries hang down from the east and west walls depicting
+battles between clerics of Morr and elven clerics.  A large blood-red
+carpet covers the floor of the chamber on which several strange glyphs
+and runes have been embroidered with golden thread.
+~
+[Terek] done
+[Arban] i love it
+[Arban] dont really like the priests mprogs tho
+[Arban] extras...
+~
+301467343 1 5 0
+D2
+~
+~
+0 -1 30025 10 10 5
+A
+3 cast kick punch kill bash order~
+~
+send_to_char( #no, ch );
+end;
+~
+E
+no~
+You find yourself unable to bring yourself to do this.
+~
+!
+0 -1 0
+854 9 1509949540 3 0
+-1
+S
+
+#30032
+Dark Storm Lane~
+Large pieces of dark stone, broken free from the gigantic stone pillars
+which support the cavern's ceiling, litter the sides of the lane.  Stout
+wooden support beams reinforced with adamantite and steel bands have been
+set against the eastern wall bordering the road.  Upon the western wall
+are the remains of a intricate carving but very little remains as time
+and the damp underground climate have all but destroyed it.
+~
+EVIL ALIGN VALUES 2, 5, 8
+~
+301465668 1 9 0
+D0
+~
+~
+0 -1 30033 10 10 5
+D2
+~
+~
+0 -1 30030 10 10 5
+E
+western wall carving~
+What the carving once portrayed is now a mystery as the wall has eroded
+over time and cracks running along its surface have met and caused
+several large pieces of stone to fall free.  Only a small portion of the
+carving remains and examining it carefully you notice it portrays the
+image of a horned demon and the words "Morkith" have been written next to
+it.
+~
+296 9 1509949540 3 0
+-1
+S
+
+#30033
+Dark Storm Lane~
+Several stacks of dark wooden planks line the sides of the lane here
+along with several crates filled with mining equipment.  The entire
+western wall has had a colorful mural painted across its surface
+portraying black-robed figures battling a legion of elven archers.  Along
+the eastern side of the road are several stone pillars carved in the
+likeness of horned demons which shoot up towards the cavern ceiling.  To
+the north Shadow Street begins to work its way around the city while to
+the south Dark Storm Lane continues.
+~
+[Yraina] renovations
+~
+301465668 1 5 0
+D0
+~
+~
+0 -1 30034 10 10 5
+D1
+~
+~
+0 -1 30036 10 10 5
+D2
+~
+~
+0 -1 30032 10 10 5
+E
+stack wooden plank crate mining equipment~
+Wood, as well as a pile of new-looking mining equipment lie off to the
+side of the lane.  Other signs of the recent rennovations and butressing
+are all about this area.
+~
+E
+western wall mural elven archers black-robed figures~
+The mural potrays black-robed priests of Morr standing before the gates
+of Darkhaven hurling bolts of magic at the oncoming elven archers. 
+Following up the rear of the brigade of archers are several elves mounted
+on unicorns with their swords raised skyward.  Standing above the gates
+of the city is a tall humanoid, wearing a suit of crimson and black
+platemail which bears the mark of the Lord of Darkhaven.  The lord stands
+vigil over his minions as he observes the battle from a safe distance yet
+close enough to assist his followers.  In the upper right corner of the
+mural is a peculiar image of a great horned demon with red and black skin. 
+In the demons hand is a large glowing axe which drips with fresh blood.
+~
+E
+stone pillars demons horned~
+The pillars are composed of a reddish-colored stone which has a very
+glossy appearance.  Each pillar has had a statue of a great horned demon
+carved into it and care has been taken to match exactly what a real one
+would look like.  The eyes of the demons are composed of small, red and
+green bloodstones which sparkle in the light.  Upon each of the pillars
+are several runes which glow with a faint green light.
+~
+-1
+S
+
+#30034
+Shadow Street~
+The rough stone walls of the cavern to the east hang partially over the
+road, casting a dark shadow upon the surrounding buildings.  Deep ruts
+scar the cobblestone street before you, a testament to the many years of
+use the city has seen.  Directly to the north rests a small stone
+building from which you can hear the sound of cheering, furniture
+breaking and shouts of foul words.  To the south Dark Storm Lane begins
+to weave its way through the city.
+~
+[Terek] Done
+[Terek] Shouts can be heard because theres always a gambler in there
+~
+301465668 1 9 0
+D0
+~
+~
+0 -1 30041 10 10 5
+D2
+~
+~
+0 -1 30033 10 10 5
+D3
+~
+~
+0 -1 30018 10 10 5
+E
+rough stone wall east~
+The rough walls of the encroaching cavern to the east loom over this
+portion of the street.  Signs of its careless creation abound as you can
+see the gouges and chips made by the stone working tools.
+~
+-1
+S
+
+#30035
+Darkhaven Grocery Shop~
+Crates and iron-banded barrels, filled with slabs of beef and hardtack,
+crowd this small shop.  Rickety wooden shelves, covered in packages of
+brown paper, line the walls around the shop.  Several open crates sit
+against the southern wall covered with bold black writing.  A few large
+burlap sacks lie scattered about the floor of the shop, bits of grain
+spilled out alongside them.  In the center of the room sits a large
+cutting table, covered in blood, strips of flesh and other unknown
+substances.
+~
+[Terek] Done
+~
+301465679 1 5 0
+D3
+~
+~
+0 -1 30029 10 10 5
+E
+crate barrel slab shelf burlap sack~
+The shop shows its purpose everywhere you look.  It is crammed with every
+possible type of food container in order to provide the grocer with a
+full range of treats to sell.  His inventory ranges from the mundane to
+exotic.
+~
+E
+cutting table~
+This large table's surface is covered with a thin layer of stains.  Off
+to one side are strips of flesh, though they are far too mangled to
+determine their origin.
+~
+1740 9 1509949540 3 0
+1583 17 1509949515 -1 0
+4 17 1509949515 -1 0
+2481 17 1509949530 -1 0
+1449 17 1509949530 -1 0
+53 17 1509949530 -1 0
+36 17 1509949515 -1 0
+85 17 1509949515 -1 0
+-1
+S
+
+#30036
+Aranidian's Scrolls and Magicial Tomes~
+Bookcases span from wall to wall in this large shop, overflowing with
+dusty leather-bound books and ancient tomes.  A simple wooden counter
+sits in the center of the room covered in tied-up scrolls and large stone
+tablets.  Hovering just below the ceiling is a small ball of white light
+which illuminates the shop brightly.  Carved into the wall over the door
+to the west is a simple, glowing red rune which hums with magic.
+~
+~
+301465678 1 7 0
+D3
+~
+~
+0 -1 30033 10 10 5
+E
+west red rune door~
+A red rune softly glows with magic as it seems to protect the shop and
+its owner.
+~
+E
+bookcase book tome scroll tablet counter~
+The walls of this shop are filled with bookcases.  Hundreds of dusty
+tomes and books cram the shelves; there for occasional reference rather
+then constant use.  Tied-up scrolls and stone tablets are scattered about
+on a pine counter, ready for sale.
+~
+1717 9 1509949540 3 0
+1021 17 1509949475 -1 0
+1008 17 1509949515 -1 0
+1020 17 1509949515 -1 0
+285 17 1509949455 -1 0
+1017 17 1509949470 -1 0
+1010 17 1509949465 -1 0
+305 17 1509949470 -1 0
+-1
+S
+
+#30037
+Aged Stone Building~
+You have entered a large circular stone building.  The walls here are
+carefully joined, uncharacteristically so for its surroundings, and most
+of the dirt and grime common to Darkhaven seems absent as well.
+~
+going to be outcast mages' training area 
+reset grimpen here, only lets outcasts up
+redo damaged rdescs, add an armory
+add some details
+~
+301465668 1 9 0
+D4
+~
+~
+0 -1 30038 10 10 5
+-1
+S
+
+#30038
+Worn Stone Stairs~
+A flight of stairs follows a circular course here, leading further up
+into the tower overhead, and down toward the ground below.  No windows
+mark the smooth stone walls, and deep grooves in the steps signal that
+many feet have come before your own along this path.
+~
+~
+301465668 1 5 0
+D5
+~
+~
+0 -1 30037 10 10 5
+-1
+S
+
+#30039
+Worn Stone Stairs~
+A flight of stairs follows a circular course here, leading further up
+into the tower overhead, and down toward the ground below.  No windows
+mark the smooth stone walls, and deep grooves in the steps signal that
+many feet have come before your own along this path.
+~
+~
+301465669 1 5 0
+-1
+S
+
+#30040
+Oiudar's Alchemy Supplies and Spell Components~
+Large oak tables run wall-to-wall in this large shop, covered with
+alchemy devices, glass vials and small bubbling cauldrons.  Several
+shelves hang from the northern and southern walls which are covered in
+odd-looking roots and mosses.  Off in the southeast corner of the room
+sits a large black iron cauldron from which the foul smell of burning
+sulfur emanates.
+~
+Mandrake, recalls, alum, etc
+Scrolls..
+[Terek] Done
+~
+301469775 1 5 0
+D3
+~
+~
+0 -1 30030 10 10 5
+E
+table alchemy vial cauldron shelf~
+This shop is crammed with reagents used by all levels of mages. 
+Containers range from ordinary-looking crates to strange-looking
+distilling devices to those you can only guess the purpose of.
+~
+801 9 1509949540 3 0
+81 17 1509949480 -1 0
+79 17 1509949480 -1 0
+280 17 1509949450 -1 0
+37 17 1509949460 -1 0
+304 17 1509949445 -1 0
+284 17 1509949460 -1 0
+206 17 1509949480 -1 0
+873 17 1509949480 -1 0
+872 17 1509949530 -1 0
+98 17 1509949490 -1 0
+1182 17 1509949540 -1 0
+425 17 1509949515 -1 0
+1194 17 1509949465 -1 0
+1269 17 1509949480 -1 0
+1301 17 1509949490 -1 0
+977 17 1509949490 -1 0
+249 17 1509949540 -1 0
+78 17 1509949490 -1 0
+474 17 1509949515 -1 0
+479 17 1509949485 -1 0
+-1
+S
+
+#30041
+Darkhaven Gambler's Den~
+Many small card tables fill this large building, along with many small
+alcoves set aside for games of darts and dice.  Massive crystal
+chandeliers hang from the ceiling, their candles producing an enormous
+amount of light which illuminates the den brightly.  The entire northern
+wall of the building is covered in a mithril grate behind which several
+tellers sit ready to exchange money for house chips.  Upon the western
+and eastern walls hang small oil paintings of various woodland scenes.
+~
+[Terek] Done
+~
+301465677 1 9 0
+D2
+~
+~
+0 -1 30034 10 10 5
+E
+card table alcove~
+Small alcoves have been built into the eastern and western sides of this
+large chamber.  Dozens of card tables have been place about this
+establishment ready for those who wish to try their hand at games of
+skill and luck.
+~
+E
+northern wall mithril grate~
+A large mithril grate spans the entire north wall of this room, providing
+separation and protection for the clerks who sell and collect gambling
+chips, as well as I.O.U.'s.
+~
+A
+~
+~
+i = random( 1, 2 );
+if( i == 1)
+send_to_room( #groan, room );
+if( i == 2 )
+send_to_room( #sigh, room );
+~
+E
+sigh~
+You hear several sighs as a roll goes badly at a nearby table.
+~
+E
+groan~
+You hear several patrons groan in disgust as yet more money goes to the
+house.
+~
+!
+2 50 0
+815 9 1509949540 3 0
+-1
+S
+
+#30042
+Dark Storm Lane~
+Crumbled stone statues, covered in a thin layer of grime, litter the
+surface of the road here, their original forms unrecognizable.  A row of
+torches hangs from the southern wall, shedding an immense amount of light
+upon the lane.  The dark cobblestones beneath your feet are covered in
+green-colored moss and small blades of brown grass rise up from within
+cracks in the stone.  To the west and east Dark Storm Lane continues to
+make its way through the city.
+~
+[Terek] Done
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 30026 10 10 5
+D3
+~
+~
+0 -1 30043 10 10 5
+E
+stone statues~
+Now, nothing more than bits of crumbled stone, the statues have broken to
+the point where their original forms are no longer recognizable.  A small
+piece of statue remains, a leg, an arm and a fragment of a head but none
+that could hint at what creatures they once depicted.
+~
+-1
+S
+
+#30043
+Dark Storm Lane~
+Colorful murals cover the southern wall along the lane's edge here, each
+depicting a battle between the forces of light and dark.  A large puddle
+of murky water covers the street, ripples running across its surface as
+drops of water trickle down from the ceiling and hit it.  A few unlit
+lanterns hang from the southern wall, water dripping from several cracks
+along the ceiling of the cavern having hit them.  To the north lies a
+small, dimly lit shop.
+~
+[Terek] Done
+~
+301465669 1 9 0
+D0
+heavy ironwood door~
+heavy ironwood door~
+0 -1 30061 10 10 5
+D1
+~
+~
+0 -1 30042 10 10 5
+D3
+~
+~
+0 -1 30044 10 10 5
+E
+southern wall mural~
+Five murals have been painted on the southern wall, each depicting
+knights in black armor charging through the ranks of elven soldiers and
+dwarven berserkers.  Clerics of Morr and elven priests duel with each
+other in the backdrop, throwing spells at one another and charging each
+other with their maces held high.  In each of the murals stand the Lords
+of Darkhaven preparing to do battle with the leader of the forces of
+light, a tall human clad in white armor.
+~
+-1
+S
+
+#30044
+Dark Storm Lane~
+A large mound of crumbled stone covers the entire western portion of the
+lane here, remnants of a cave-in.  Steel mining carts rest along the
+southern edge of the road, filled to their tops with chunks of
+darkish-colored stone.  A long black iron lamp post sits in the center of
+the lane, its flame flickering with an unnatural purple light.  To the
+north a large shop sits off the road from which a blue and green light
+emanates.  To the east Dark Storm Lane continues through the city.
+~
+[Terek] West use to be 30047
+[Terek] South use to be 30045
+[Terek] Done
+[Merior] west extra
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30048 10 10 5
+D1
+~
+~
+0 -1 30043 10 10 5
+E
+black iron lamp post purple light~
+Overhead the purple witchlight of the lamp post flickers and falters, as
+if silently warring with the garrish blues and greens emanating from the
+north.  A cloying opiate tang palls the air; perhaps some of Darkhaven's
+seedier citizens find the colors intoxicating.
+~
+-1
+S
+
+#30045
+Darkhaven Dump - Above a Garbage Pit~
+You stand unsteadily upon a pile of rubble and garbage, in what surely is
+the dumping grounds for the worst of the refuse generated by the Outcasts. 
+A gaping black hole yawns in the ground before you, a foul stench wafting
+upwards from its depths and stinging your nose and making your eyes water. 
+You do not feel comfortable tarrying here, to say the least.
+~
+rubble garbage refuse hole 
+action for smelling/random
+~
+301465665 1 9 0
+D3
+~
+~
+0 -1 30046 10 10 5
+D5
+~
+~
+0 -1 30049 10 10 5
+-1
+S
+
+#30046
+Darkhaven Dump - Knee-Deep In Garbage~
+Piles of boards, boulders and shifting mounds of foul trash slow your
+progress here, the remains of years of slovenly conduct on the part of
+Darkhaven's populace.  Here and there, you sense movement among the
+reeking piles of garbage.
+~
+edit trash here
+same deal
+new rdesc
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30047 10 10 5
+D1
+~
+~
+0 -1 30045 10 10 5
+E
+trash~
+The trash is dirty This is line 5 and another detail.
+Blah blah, blah!
+~
+-1
+S
+
+#30047
+Darkhaven Dump~
+Piles of boards, boulders and shifting mounds of foul trash slow your
+progress here, the remains of years of slovenly conduct on the part of
+Darkhaven's populace.  Here and there, you sense movement among the
+reeking piles of garbage.
+~
+trash piles boards boulders
+~
+301465665 1 9 0
+D2
+~
+~
+0 -1 30046 10 10 5
+-1
+S
+
+#30048
+Lystra's Precious Gem and Jewelry Shop~
+Glass display cases stand against the walls of this small shop; wooden
+shelves lined with strange devices cover the walls above them.  In the
+center of the room is a very large display case containing many different
+gems and unique jewerly.  Upon the north, west, and east walls hang small
+torches which flicker with green and blue flames, illuminating the shop
+brightly.  Hanging from the ceiling is an elegant crystal chandalier
+which sends a rainbow of colors across the shop as light hits it.
+~
+[Terek] Done
+[Merior] extras
+~
+301465671 0 5 0
+D2
+~
+~
+0 -1 30044 10 10 5
+1742 9 1509949540 3 0
+31 17 1509949490 -1 0
+105 17 1509949490 -1 0
+182 17 1509949490 -1 0
+-1
+S
+
+#30049
+Darkhaven Dump - Garbage Pit~
+Perhaps used originally as a well, this structure has been stuffed with
+kitchen middens and other less readily identifiable matter.  All about
+you, you hear the faint scratchings of rats in the darkness.
+~
+action going up and down
+middens matter crap random scratching action
+~
+301465664 1 9 0
+D4
+~
+~
+0 -1 30045 10 10 5
+-1
+S
+
+#30050
+Shadow Street~
+The western progress of Shadow Street comes to an abrupt halt here,
+stopped by the sheer cavern walls.  Large boulders fill the northwestern
+portion of the road here, allowing just barely enough room for two
+human-sized men to pass side by side.  Broken lamp posts litter the
+ground along with a few rusty lanterns.  Off to the south a dim light
+breaks through the darkness of the caverns.  To the east the street
+continues to weave its way around the edge of the city.
+~
+[Terek] Done
+~
+301465669 1 9 0
+D0
+heavy iron-bound gates~
+heavy iron-bound gates~
+455 -1 30062 10 10 5
+D1
+~
+~
+0 -1 30023 10 10 5
+D2
+~
+~
+0 -1 30051 10 10 5
+1758 9 1509949540 3 0
+-1
+S
+
+#30051
+Zamkin's Quality Armor~
+Several dozen candles line the walls of this large shop, barely
+illuminating it enough to see ones hand in front of their face.  Pieces
+of battered plate armor and worn leather armor hang from the southern
+wall while on the western and eastern walls hang brand new pieces. 
+Stacked up against the southwest wall of the shop are several piles of
+steel and iron plates along with a small black iron forge.  Sitting in
+the center of the room is a small birchwood desk completely bare except
+for a single unlit candle.
+~
+[Terek] Done
+~
+301469775 0 9 0
+D0
+~
+~
+0 -1 30050 10 10 5
+E
+candles~
+Simple tallow candles, they flicker with dull flames which barely
+illuminate the shop, making it constantly dim and uninviting.
+~
+E
+pieces battered plate armor worn leather southern wall~
+The southern wall is adorned with various suits of plate and leather
+armor.  The platemail has seen better days; it is badly dented and large
+spots of rust scar its surface.  The leather armor is pratically
+worthless as moths and time have taken their toll on it.
+~
+E
+southwest piles steel iron~
+Stacks of crude iron and steel plates rest in the southwest corner of the
+room, each finely crafted and void of any inperfections.  Each of the
+plates are quite sturdy, measuring about two inches in thickness, perfect
+for making a suit of plate mail.
+~
+E
+small black forge~
+The forge is rather small, just large enough to hammer a sword on.  Its
+surface is covered in black soot and metal splinters from past usage. 
+Next to it rests a small forging hammer which glows a deep scarlet red
+from the heat contained within it.
+~
+E
+birchwood desk~
+The desk has been finely crafted of birchwood, on which small carvings of
+ogres in battle can be seen.  Its surface is completely bare save for a
+small unlit candle which rests upon it 
+~
+828 9 1509949540 3 0
+2081 17 1509949460 -1 0
+985 17 1509949460 -1 0
+2002 17 1509949460 -1 0
+2022 17 1509949460 -1 0
+2042 17 1509949460 -1 0
+2102 17 1509949460 -1 0
+2181 17 1509949460 -1 0
+2003 17 1509949450 -1 0
+2103 17 1509949450 -1 0
+2182 17 1509949450 -1 0
+875 17 1509949470 -1 0
+-1
+S
+
+#30052
+Temple of Morr - Meditation Room~
+Several black silk meditation mats, embroidered with the image of Morr on
+them, fill this small alcove.  Small steel censors rest next to each of
+the meditation mats, filled with small blocks of incense.  Upon the
+northern wall rests a small shrine, covered in black tallow candles. 
+Upon the eastern wall are several wooden shelves, covered with various
+herbs, incense and small glass vials.
+~
+~
+301466191 1 9 0
+D3
+~
+~
+0 -1 30025 10 10 5
+E
+north shrine black tallow candles~
+The heady scent of bloodroot and mandrake hangs heavily over this small
+black shrine.  Tortured figures melt and pirouette in a macabre dance of
+entropy across its inlaid surface.  Instruments for burning incense and
+other small offerings lay amidst the blackened husks of the candles
+crouched below the figures burning across and leaping amidst this dark
+tableau.
+~
+-1
+S
+
+#30053
+Temple of Morr - Before a Sacrifical Shrine~
+Flickering black candles hang from the walls of the small alcove, each
+giving off a very faint amount of light.  Resting against the northern
+wall is a small black stone altar, covered in blood stains.  Small niches
+cover the entire western wall, each housing a small sacrifical dagger and
+pieces of black silk cloth.  A simple glass case, housing a black iron
+goblet, sits against the southern wall.
+~
+[Finius] if i knew how to code a 'self blood letting' action I would. good room for it.
+~
+301466831 1 9 0
+D1
+~
+~
+0 -1 30025 10 10 5
+-1
+S
+
+#30054
+Moradin's Stables and Livery~
+Several dozen horse stalls line the interior of this large building, each
+filled with a foot of hay and a snorting horse.  Hanging on the far
+southern wall are many sets of horseshoes and barding.  Set into the
+western wall is a large fireplace and next to it a small iron forge has
+been erected.  Along the eastern wall are several barrels, each filled to
+their tops with various oats and grains.
+~
+[Terek] Done
+~
+301473870 1 7 0
+D0
+~
+~
+0 -1 30027 10 10 5
+D5
+~
+~
+235 -1 30055 10 10 5
+E
+fireplace forge horseshoe barding~
+Trademarks of a blacksmith's craft are found within this shop.  A large
+fireplace is lit, and forge stands ready for making and repairing
+horseshoes.
+~
+E
+barrel oats grains~
+Large wooden casks neatly labelled are pushed against the eastern wall. 
+Oats, barley, and corn can be clearly seen; others are too faded to read
+clearly.
+~
+1741 9 1509949540 3 0
+-1
+S
+
+#30055
+Moradin's Holding area~
+Holding room for pets
+~
+~
+301473868 1 9 0
+D4
+~
+~
+235 -1 30054 10 10 5
+623 9 1509949540 3 0
+645 9 1509949540 3 0
+646 9 1509949540 3 0
+647 9 1509949540 3 0
+119 9 1509949540 3 0
+-1
+S
+
+#30056
+East Guard Station~
+This small room is completely barren of any furniture or wall decorations
+except for a small fireplace which has been built into the eastern wall. 
+The smooth, grey stone walls of the station show no sign of blemishes or
+cracks and look to be rather new.  Within the southern wall are small
+slits, used by the Darkhaven guards to fire arrows from a safe spot
+against any invader that dares attack the city.  A simple wooden
+staircase has been set into the northern wall where it spirals up toward
+the top of the guard tower.
+~
+~
+301465677 0 9 0
+D3
+heavy stone door~
+heavy stone door~
+131 -1 30002 10 10 5
+D4
+~
+~
+0 -1 30057 10 10 5
+1738 9 1509949540 2 0
+1738 9 1509949540 2 0
+-1
+S
+
+#30057
+Eastern Watch Tower~
+Small wooden weapon racks occupy this spacious watch tower, filled with
+various spears, pikes and other weapons.  The west, north, and south
+walls of the tower are covered with steel shutters with small arrow slits
+carved into them.  Set into the eastern wall is a small fireplace over
+which a small kettle hangs.  In the center of the room is a small table,
+covered with crossbow bolts and empty mugs.  Four wooden chairs, covered
+in velvet cloth, have been tucked underneath the table.  A small trapdoor
+lies at the north end of the tower, covering the staircase leading back
+down.
+~
+[Finius] i have no idea how to add the trapdoor the rdesc describes.
+~
+301465677 0 9 0
+D5
+~
+~
+0 -1 30056 10 10 5
+1739 9 1509949540 3 0
+1739 9 1509949540 3 0
+-1
+S
+
+#30058
+West Guard Station~
+Several barrels and wooden crates, all covered in a thick layer of dust,
+fill this tiny guard station.  A large fireplace dominates the western
+wall of the room, blazing with a warm fire.  In the center of the room
+rests a lone, rickety wooden table on which are several unlit candles. 
+Upon the southern wall hangs a cloth tapestry; the insignia of the
+Darkhaven guards sewn onto it with fine black thread.  Upon the northern
+wall sits a simple wooden staircase leading up to the watch tower.
+~
+~
+301465677 0 9 0
+D1
+heavy stone door~
+heavy stone door~
+131 -1 30002 10 10 5
+D4
+~
+~
+0 -1 30059 10 10 5
+1738 9 1509949540 2 0
+1738 9 1509949540 2 0
+-1
+S
+
+#30059
+Western Watch Tower~
+This large watch tower sits atop the gates of Darkhaven, giving a clear
+view of the city to the north and anyone entering the city through the
+gates to the south.  Large racks, filled with crossbows and long
+composite bows, rest along the western wall of the tower.  Steel shutters
+hang from the eastern and southern sides of the towers, able to be shut
+and locked tight at a moments notice providing archers a safe place to
+fire from.  A wooden staircase, set into the floor to the north, leads
+back down to the lower level of the guard house.
+~
+~
+301465677 0 9 0
+D5
+~
+~
+0 -1 30058 10 10 5
+1739 9 1509949540 3 0
+1739 9 1509949540 3 0
+-1
+S
+
+#30060
+A Slick Vertical Passage~
+Smooth, black stone walls, covered in slime and water, rise up on all
+sides of the passage here.  Beneath you a faint light illuminates the
+caves and the faint sound of voices can be heard echoing from within them. 
+Large cracks run along the stone walls, from which a steady flow of water
+pours only, making the walls quite slippery.  Bolted onto the southern
+wall is a rusty steel ladder which ascends up towards the opening of the
+caves and descends downwards, deeper in the caves.
+~
+~
+301465677 0 9 0
+D4
+~
+~
+0 -1 30000 10 10 5
+D5
+~
+~
+0 -1 30001 10 10 5
+-1
+S
+
+#30061
+Lachdanion's Furs and Pelts~
+Various pelts and furs, large and small, hang from the walls of this
+small, crowded shop.  Several large crates lie scattered about the floor,
+overflowing with hides from yetis to bear skins.  A large ironwood desk,
+covered in various skinning knives and bottles of oil, sits against the
+northern wall.  Hanging on each side the door to the south are small
+torches; their flames flickering with tiny flames, barely illuminating
+the shop.
+~
+~
+301465671 1 9 0
+D2
+heavy ironwood door~
+heavy ironwood door~
+0 -1 30043 10 10 5
+1767 9 1509949540 3 0
+40 17 1509949490 -1 0
+41 17 1509949490 -1 0
+211 17 1509949490 -1 0
+43 17 1509949490 -1 0
+-1
+S
+
+#30062
+Before the Gates of the Lord of Darkhaven's Keep~
+Set into the northern wall of the cavern are the massive black adamantite
+gates leading into the Lord of Darkhaven's personal keep.  Golden
+braziers line each side of the path leading up the gate, a blaze with
+brilliant red-orange flames.  On the east and west sides of the gates
+small rectangular archer's holes have been placed.  The gates themselves
+have had the crest of the Lord of Darkhaven etched into them; an ash-grey
+raven swooping down for an attack.  Directly to the south shadow street
+makes its run through the city.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30063 10 10 5
+D2
+heavy iron-bound gates~
+heavy iron-bound gates~
+455 -1 30050 10 10 5
+-1
+S
+
+#30063
+Dark Cobblestone Courtyard~
+Stretching out before you to the north and west is a massive dark
+cobblestone courtyard filled with elegant marble statues.  Intricate
+carvings of the past Lord's of Darkhaven in battle have been etched into
+the eastern wall along the courtyard.  Golden lamp posts have been placed
+along the edges of the courtyard, each giving off a tremendous amount of
+light and causing shadows to dance across the dark stone walls.  To the
+south a pair of massive black adamantite gates mark the exit out of the
+keep.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30066 10 10 5
+D2
+~
+~
+0 -1 30062 10 10 5
+D3
+~
+~
+0 -1 30064 10 10 5
+-1
+S
+
+#30064
+Dark Cobblestone Courtyard~
+Under Construction.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30065 10 10 5
+D1
+~
+~
+0 -1 30063 10 10 5
+-1
+S
+
+#30065
+Dark Cobblestone Courtyard~
+Under Construction.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30068 10 10 5
+D1
+~
+~
+0 -1 30066 10 10 5
+D2
+~
+~
+0 -1 30064 10 10 5
+-1
+S
+
+#30066
+Dark Cobblestone Courtyard~
+Under Construction.
+~
+~
+301465669 1 9 0
+D2
+~
+~
+0 -1 30063 10 10 5
+D3
+~
+~
+0 -1 30065 10 10 5
+-1
+S
+
+#30067
+Dark Cobblestone Courtyard~
+Under Construction.
+~
+~
+301465669 1 9 0
+-1
+S
+
+#30068
+Before a Massive Gold and Adamantite Door~
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30069 10 10 5
+D2
+~
+~
+0 -1 30065 10 10 5
+-1
+S
+
+#30069
+Elegantly Furnished Entrance Chamber~
+Black velvet padded benches, made from exotic wood and embedded with
+precious gems, line the walls of this large entrance chamber.  A gigantic
+diamond chandalier, filled with blue tallow candles which burn
+indigo-colored flames, hangs from the ceiling.  Set into the center of
+the chamber is a large round stone table made from the purest and
+blackest obsidian on which several wine bottles and glasses rest.  To the
+east and west small alcoves house guard stations from within which you
+can hear the roar of their fireplaces.  To the north the antechamber for
+the Lord of Darkhaven opens up.  To the south a towering door made from a
+gold and adamatite has been set into the wall.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30072 10 10 5
+D1
+~
+~
+0 -1 30071 10 10 5
+D2
+~
+~
+0 -1 30068 10 10 5
+D3
+~
+~
+0 -1 30070 10 10 5
+-1
+S
+
+#30070
+Guard Station~
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30069 10 10 5
+-1
+S
+
+#30071
+Guard Station~
+Under Construction.
+~
+~
+301465669 1 9 0
+D3
+~
+~
+0 -1 30069 10 10 5
+-1
+S
+
+#30072
+Lord of Darkhaven's Antechamber~
+This large, circular stone chamber has been carved from black obsidian
+blocks which have been polished to a high shine.  Padded velvet benches
+line the walls of the chamber, allowing those wishing to speak to the
+Lord of Darkhaven a comfortable place to wait.  A small grey marble
+fountain, carved to resemble a slim vyan woman holding a jug, has been
+placed in the center of the chamber.  Set into the northern wall is a
+large adamantite door leading into the throne room.  To the east and west
+small alcoves house guard stations from within which you spy several
+guards peering out into the chamber.  To the south lies a brightly-lit
+chamber, filled with various pieces of furniture.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 30073 10 10 5
+D1
+~
+~
+0 -1 30075 10 10 5
+D2
+~
+~
+0 -1 30069 10 10 5
+D3
+~
+~
+0 -1 30074 10 10 5
+-1
+S
+
+#30073
+Throne Room of the Lord of Darkhaven~
+A massive red silk carpet spans wall-to-wall in this large chamber,
+embroidered with the emblem of the Lord of Darkhaven.  Lining the walls
+are several dozen large grey marble statues carved to resemble human
+sword maidens; each wielding a two-handed sword which she raises to the
+sky.  Dominating the northern wall of the chamber is a massive golden
+throne embedded with several hundred precious gems.  Two grey steel
+braziers sit on each side of the throne, blazing with a bluish flame
+which illuminates the entire chamber.  Set into the east and west walls
+are sturdy oak doors covered with a soft velvet cloth.  To the south a
+large adamantite door marks the exit out of the throne room.
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30076 10 10 5
+D2
+~
+~
+0 -1 30072 10 10 5
+D3
+~
+~
+0 -1 30077 10 10 5
+1830 9 1509949540 3 0
+-1
+S
+
+#30074
+Lord's Personal Guard's Chambers~
+Under Construction.
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30072 10 10 5
+-1
+S
+
+#30075
+Lord's Personal Guard's Chambers~
+Under Construction.
+~
+~
+301467717 1 9 0
+D3
+~
+~
+0 -1 30072 10 10 5
+-1
+S
+
+#30076
+Lord's Treasury~
+Under Construction.
+~
+~
+301465669 1 9 0
+D3
+~
+~
+0 -1 30073 10 10 5
+-1
+S
+
+#30077
+Before a Massive Marble Fountain~
+Under Construction.
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 30073 10 10 5
+-1
+S
+
+#0
+

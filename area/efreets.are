@@ -1,0 +1,1042 @@
+#AREA
+Lesser Efreets~
+Phule~
+Ethereal Efreets~
+
+40 0
+0
+#ROOMS
+
+#51750
+Before the Elemental Arch~
+An arch of swirling patterns and colours rises overhead in a majestic
+array of light and fire.  Elemental magicks ebb and flow like a cosmic
+rainbow, separating the material plane from something grander, something
+decidedly otherworldly, to the north.  The solid stones at your feet seem
+to fade into cloud and mist as the path crosses through the arch and into
+the swirling canvas of the ethereal plane.  The path of stone leads
+south, away from the portal.
+~
+leaving north
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 51751 10 10 5
+D2
+~
+~
+0 -1 51752 10 10 5
+E
+arch gateway portal~
+The portal is an arch of swirling patterns and colours rising overhead
+into a majestic array of light and fire.
+~
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You leave this world and step into another one altogether different.
+~
+!
+3 0 1
+-1
+S
+
+#51751
+The Edge of the Ethereal Plane~
+@b@GThis world is not real.  Colours and patterns arising from the corners
+of your own mind filter in through the ethereal mists, creating a
+shimmering plane of twilight in conjunction with the dawn.  The only
+thing which is convincingly real is the portal to the south, a massive
+rainbow arch, alive with elemental magicks, which leads back to the
+material plane.  The only visual way by which to guide your trek through
+the plane is by colour; distinct yet subdued variations of red, cyan,
+yellow, and white.@n 
+~
+leaving south
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51755 10 10 5
+D1
+~
+~
+0 -1 51754 10 10 5
+D2
+~
+~
+0 -1 51750 10 10 5
+D3
+~
+~
+0 -1 51756 10 10 5
+E
+arch gateway portal~
+The portal is an arch of swirling patterns and colours rising overhead
+into a majestic array of light and fire.
+~
+A
+~
+~
+act_tochar( #step, ch );
+continue;
+~
+E
+step~
+You step out of the ethereal plane, setting foot on solid ground once
+again.
+~
+!
+3 0 4
+-1
+S
+
+#51752
+The Path of Stones - Winding Path~
+This meandering path, paved with small, smooth stones, winds its way
+north, around, and up a grass-covered hill.  The path is lined with small
+flowers of myriad colours and sizes, most of them white or pale yellow. 
+The whole of the view is picturesque, as the path overlooks a valley
+filled with swirling greens and crystal streams, all sparkling with the
+clarity of a spring day just after the rain stops.
+~
+pick flowers
+take stone
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 51750 10 10 5
+D2
+~
+~
+0 -1 51753 10 10 5
+E
+path stones hill~
+The soft earth of the hill is dark brown, not quite permanent enough to
+support an enduring trail.  Someone has gone to great lengths to place
+small stone after small stone in a long line, creating a traversable path
+up the steep hill.
+~
+E
+flowers~
+The tiny flowers have barely begun to sprout with life, yet are lovely
+and delicate.
+~
+A
+pick take get grab~
+flowers~
+if( !rflag( reset0, room ) )
+  act_tochar( #nada, ch );
+else {
+  remove_rflag( reset0, room );
+  i = random( 0, 29 );
+  if( i == 13 ) {
+    act_tochar( #grab, ch );
+    obj_to_char( oload( 1853 ), ch );
+    }
+  else
+    act_tochar( #nada, ch );
+  }
+~
+E
+nada~
+You try to grab one of the flowers, but strangely it escapes your grasp!!
+~
+E
+grab~
+You manage to grab one of the wildflowers.
+~
+!
+0 0 0
+A
+pick take get grab~
+stones~
+act_tochar( #no, ch );
+~
+E
+no~
+You try to take one of the stones but find it magically attached to the
+ground.  It will not budge.
+~
+!
+0 0 0
+-1
+S
+
+#51753
+The Path of Stones - Winding Path~
+A silvery stream trickles by, bringing its cool, clear, refreshing waters
+down into the small gully to the south.  This path paved by small stones
+disappears into the small stream, the swiftly-flowing water eroding and
+washing away the dirt and smaller rocks, leaving only a few stepping
+stones behind as a means of crossing the stream.  The path leads up and
+around the small hill to the north, away from the stream.
+~
+cross stream
+[Eltrex] after using cros str to enter the zone, if a person follows you see X arrives having crosses the stream
+[Zot] person arrives having crosses the stream to the south.
+[Issib] at efreets stream crossing it says someone arrives having crosses the stream to the south instead of crossed
+~
+301465600 12 9 0
+D0
+~
+~
+0 -1 51752 10 10 5
+D2
+~
+~
+234 -1 23091 10 10 5
+A
+cross~
+stream gully south~
+act_tochar( #cross, ch );
+act_notchar( #rcross, ch );
+transfer( ch, find_room( 23091 ) );
+act_notchar( #arrive, ch );
+~
+E
+cross~
+You cross the stream to the south.
+~
+E
+rcross~
+$n crosses the stream to the south.
+~
+E
+arrive~
+$n crosses the stream from the north.
+~
+!
+0 0 1
+398 17 1509949540 -2 0
+-1
+S
+
+#51754
+The Ethereal Plane - Yellow Light~
+@b@YWaves of magic and light swim across your vision, a hypnotizing
+display of spinning spheres and melting, flowing patterns.@n @b@GThe
+fabric of reality has no place here, as depths, shapes, and colours all
+blend together and fade into the tapestry of the ethereal plane.@n
+
+~
+[Merior] given up waiting for cast_spell?
+[Merior] for level 30 mobs.. they dont have much armor :(
+[Merior] what does invul flag do? resist fire/cold?
+[Merior] should they see hidden?
+[Fyli] In yellow efreet's mind blade, he
+[Fyli] 'preses' his head.
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51759 10 10 5
+D1
+~
+~
+0 -1 51757 10 10 5
+D3
+~
+~
+0 -1 51751 10 10 5
+1365 9 1509949540 3 0
+-1
+S
+
+#51755
+The Ethereal Plane - White Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@GThe fabric of reality has
+no place here, as depths, shapes, and colours all blend together and fade
+into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51759 10 10 5
+D2
+~
+~
+0 -1 51751 10 10 5
+1364 9 1509949540 3 0
+-1
+S
+
+#51756
+The Ethereal Plane - Red Light~
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51760 10 10 5
+D1
+~
+~
+0 -1 51751 10 10 5
+D3
+~
+~
+0 -1 51762 10 10 5
+1361 9 1509949540 3 0
+-1
+S
+
+#51757
+The Ethereal Plane - White Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@GThe fabric of reality has
+no place here, as depths, shapes, and colours all blend together and fade
+into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51758 10 10 5
+D3
+~
+~
+0 -1 51754 10 10 5
+1364 9 1509949540 3 0
+-1
+S
+
+#51758
+The Ethereal Plane - Red Light~
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 51757 10 10 5
+D3
+~
+~
+0 -1 51759 10 10 5
+1361 9 1509949540 3 0
+-1
+S
+
+#51759
+The Ethereal Plane - Cyan Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51758 10 10 5
+D2
+~
+~
+0 -1 51754 10 10 5
+D3
+~
+~
+0 -1 51755 10 10 5
+1362 9 1509949540 3 0
+-1
+S
+
+#51760
+The Ethereal Plane - Yellow Light~
+@b@YWaves of magic and light swim across your vision, a hypnotizing
+display of spinning spheres and melting, flowing patterns.@n @b@GThe
+fabric of reality has no place here, as depths, shapes, and colours all
+blend together and fade into the tapestry of the ethereal plane.@n
+@YBrilliant yellow light and energy cascades around into a swirling
+vortex, whose mass is anchored at the tip of a black spire of rock.@n 
+
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51764 10 10 5
+D2
+~
+~
+0 -1 51756 10 10 5
+D3
+~
+~
+0 -1 51761 10 10 5
+A
+pour empty cast~
+urn ash-filled ashes~
+if( !mob_in_room( 1365, room ) )
+if( rflag( reset0, room ) )
+if( !mob_in_room( 2256, room ) )
+if( has_obj( 3383, ch ) ) {
+remove_rflag( reset0, room );
+act_tochar( #empty, ch );
+act_notchar( #rempty, ch );
+junk_obj( has_obj( 3383, ch ), 1 );
+wait( 2 );
+act_room( #fall, ch );
+wait( 2 );
+act_room( #encircle, ch );
+wait( 1 );
+act_room( #stepout, ch );
+transfer( mob_in_room( 2256, find_room( 48245 ) ), room );
+wait( 2 );
+act_room( #shrink, ch );
+}
+else
+continue;
+else
+act_tochar( #already, ch );
+else
+act_tochar( #ritual, ch );
+else
+act_tochar( #cant, ch );
+~
+E
+empty~
+You empty the silver urn onto the top of the spire.
+~
+E
+rempty~
+$n empties a silver urn filled with ash onto the top of the spire.
+~
+E
+fall~
+The ash falls atop the spire like snow drifting onto a mountain.
+~
+E
+encircle~
+The ash suddenly begins to whirl about, in a solid ring.  It hovers over
+the spire with its needle-sharp tip piercing its center.
+~
+E
+stepout~
+The circle of ash turns golden and widens.  As it does so, it sweeps down
+to the floor.  When it touches the ground, brilliant energy rises up like
+a curtain and out steps a matronly woman.
+~
+E
+already~
+Alegra has already been summoned from her restless sleep.
+~
+E
+ritual~
+The ritual to summon Alegra has already been completed.  Ash covers the
+surface of the spire.
+~
+E
+shrink~
+After stepping out of the golden light, the circle shrinks and once again
+rests light a halo over the center of the spire's tip.
+~
+E
+cant~
+It would be very difficult to do that with a yellow efreet in the area.
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 2256, room ) ) {
+  act_room( #dis, ch );
+  transfer( mob_in_room( 2256, room ), find_room( 48245 ) );
+  continue;
+  }
+else
+  continue;
+~
+E
+dis~
+Alegra the magesmith disappears back into the halo of golden light
+floating about the tip of the spire.
+~
+!
+3 0 13
+1365 9 1509949540 3 0
+3379 17 1509949540 -2 0
+-1
+S
+
+#51761
+The Ethereal Plane - White Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@GThe fabric of reality has
+no place here, as depths, shapes, and colours all blend together and fade
+into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51763 10 10 5
+D1
+~
+~
+0 -1 51760 10 10 5
+D2
+~
+~
+0 -1 51762 10 10 5
+1364 9 1509949540 3 0
+-1
+S
+
+#51762
+The Ethereal Plane - Cyan Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51761 10 10 5
+D1
+~
+~
+0 -1 51756 10 10 5
+1362 9 1509949540 3 0
+-1
+S
+
+#51763
+The Ethereal Plane - Red Light~
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51764 10 10 5
+D2
+~
+~
+0 -1 51761 10 10 5
+1361 9 1509949540 3 0
+-1
+S
+
+#51764
+The Ethereal Plane - Cyan Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+[Severus] in the ethereal plane: The sun slowly disappears in the west.
+[Severus] Sixteen silver coins falls to the ground.
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51765 10 10 5
+D2
+~
+~
+0 -1 51760 10 10 5
+D3
+~
+~
+0 -1 51763 10 10 5
+1362 9 1509949540 3 0
+-1
+S
+
+#51765
+The Ethereal Plane - Red Light~
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51768 10 10 5
+D1
+~
+~
+0 -1 51766 10 10 5
+D3
+~
+~
+0 -1 51764 10 10 5
+1361 9 1509949540 3 0
+-1
+S
+
+#51766
+The Ethereal Plane - White Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@GThe fabric of reality has
+no place here, as depths, shapes, and colours all blend together and fade
+into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51767 10 10 5
+D3
+~
+~
+0 -1 51765 10 10 5
+1364 9 1509949540 3 0
+-1
+S
+
+#51767
+The Ethereal Plane - Cyan Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 51766 10 10 5
+D3
+~
+~
+0 -1 51768 10 10 5
+1362 9 1509949540 3 0
+-1
+S
+
+#51768
+The Ethereal Plane - Yellow Light~
+@b@YWaves of magic and light swim across your vision, a hypnotizing
+display of spinning spheres and melting, flowing patterns.@n @b@GThe
+fabric of reality has no place here, as depths, shapes, and colours all
+blend together and fade into the tapestry of the ethereal plane.@n
+
+~
+~
+301465609 3 9 0
+D1
+~
+~
+0 -1 51767 10 10 5
+D2
+~
+~
+0 -1 51765 10 10 5
+D3
+~
+~
+0 -1 51769 10 10 5
+1365 9 1509949540 3 0
+-1
+S
+
+#51769
+The Ethereal Plane - Cyan and White Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@CLightning crackles all
+around you, making your hairs stand on end as the air is filled with
+static electricity.@n @b@GThe fabric of reality has no place here, as
+depths, shapes, and colours all blend together and fade into the tapestry
+of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51768 10 10 5
+D3
+~
+~
+0 -1 51770 10 10 5
+1362 9 1509949540 3 0
+1364 9 1509949540 3 0
+-1
+S
+
+#51770
+The Ethereal Plane - Red and White Light~
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@WThe air crystallizes
+before your eyes, then blows away on one of the myriad eddies of wind
+which swirl about.@n @b@GThe fabric of reality has no place here, as
+depths, shapes, and colours all blend together and fade into the tapestry
+of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51771 10 10 5
+D1
+~
+~
+0 -1 51769 10 10 5
+1364 9 1509949540 3 0
+1361 9 1509949540 3 0
+-1
+S
+
+#51771
+The Ethereal Plane - White and Yellow Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@YWaves of magic and light
+swim across your vision, a hypnotizing display of spinning spheres and
+melting, flowing patterns.@n @b@GThe fabric of reality has no place here,
+as depths, shapes, and colours all blend together and fade into the
+tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51772 10 10 5
+D2
+~
+~
+0 -1 51770 10 10 5
+1365 9 1509949540 3 0
+1364 9 1509949540 3 0
+-1
+S
+
+#51772
+The Ethereal Plane - Orange Light~
+@b@YWaves of magic and light swim across your vision, a hypnotizing
+display of spinning spheres and melting, flowing patterns.@n
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@GThe fabric of reality
+has no place here, as depths, shapes, and colours all blend together and
+fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51773 10 10 5
+D3
+~
+~
+0 -1 51771 10 10 5
+1361 9 1509949540 3 0
+1365 9 1509949540 3 0
+-1
+S
+
+#51773
+The Ethereal Plane - Violet Light~
+@b@RUndulating flame billows in a display of red, orange and yellow as
+the very air around you is woven into flame.@n @b@CLightning crackles all
+around you, making your hairs stand on end as the air is filled with
+static electricity.@n @b@MThe fabric of reality has no place here, as
+depths, shapes, and colours all blend together and fade into the tapestry
+of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51774 10 10 5
+D3
+~
+~
+0 -1 51772 10 10 5
+1362 9 1509949540 3 0
+1361 9 1509949540 3 0
+-1
+S
+
+#51774
+The Ethereal Plane - Green Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@YWaves of magic and light
+swim across your vision, a hypnotizing display of spinning spheres and
+melting, flowing patterns.@n @b@GThe fabric of reality has no place here,
+as depths, shapes, and colours all blend together and fade into the
+tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51775 10 10 5
+D3
+~
+~
+0 -1 51773 10 10 5
+1365 9 1509949540 3 0
+1362 9 1509949540 3 0
+-1
+S
+
+#51775
+The Ethereal Plane - Orange and White Light~
+@b@WThe air crystallizes before your eyes, then blows away on one of the
+myriad eddies of wind which swirl about.@n @b@RUndulating flame billows
+in a display of red, orange and yellow as the very air around you is
+woven into flame.@n @b@YWaves of magic and light swim across your vision,
+a hypnotizing display of spinning spheres and melting, flowing
+patterns.@n @b@GThe fabric of reality has no place here, as depths,
+shapes, and colours all blend together and fade into the tapestry of the
+ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 51776 10 10 5
+D3
+~
+~
+0 -1 51774 10 10 5
+1364 9 1509949540 3 0
+1361 9 1509949540 3 0
+1365 9 1509949540 3 0
+-1
+S
+
+#51776
+The Ethereal Plane - Magenta Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@YWaves of magic and light
+swim across your vision, a hypnotizing display of spinning spheres and
+melting, flowing patterns.@n @b@RUndulating flame billows in a display of
+red, orange and yellow as the very air around you is woven into flame.@n
+@MThe fabric of reality has no place here, as depths, shapes, and
+colours all blend together and fade into the tapestry of the ethereal
+plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51775 10 10 5
+D2
+~
+~
+0 -1 51777 10 10 5
+1361 9 1509949540 3 0
+1365 9 1509949540 3 0
+1362 9 1509949540 3 0
+-1
+S
+
+#51777
+The Ethereal Plane - Green and White Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@WThe air crystallizes
+before your eyes, then blows away on one of the myriad eddies of wind
+which swirl about.@n @b@YWaves of magic and light swim across your
+vision, a hypnotizing display of spinning spheres and melting, flowing
+patterns.@n @b@GThe fabric of reality has no place here, as depths,
+shapes, and colours all blend together and fade into the tapestry of the
+ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51776 10 10 5
+D1
+~
+~
+0 -1 51778 10 10 5
+1365 9 1509949540 3 0
+1364 9 1509949540 3 0
+1362 9 1509949540 3 0
+-1
+S
+
+#51778
+The Ethereal Plane - White and Violet Light~
+@b@CLightning crackles all around you, making your hairs stand on end as
+the air is filled with static electricity.@n @b@RUndulating flame billows
+in a display of red, orange and yellow as the very air around you is
+woven into flame.@n @b@WThe air crystallizes before your eyes, then blows
+away on one of the myriad eddies of wind which swirl about.@n @b@MThe
+fabric of reality has no place here, as depths, shapes, and colours all
+blend together and fade into the tapestry of the ethereal plane.@n 
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 51779 10 10 5
+D3
+~
+~
+0 -1 51777 10 10 5
+1364 9 1509949540 3 0
+1361 9 1509949540 3 0
+1362 9 1509949540 3 0
+-1
+S
+
+#51779
+The Ethereal Plane - Conjunction of Colours~
+@b@GFor whatever reason, the swirling chaotic winds of elemental energies
+seem to intermix here, growing and feeding off of one another.  @b@RThe
+fires of red create a storm of heat, which in turn @b@Ccrackles with
+electricity.  @b@WWithin it all the essense of cold itself seems to churn
+within the maestrom, @b@Yheld together and mixed by chaotic yellow winds
+of swirling magic.@n @b@GTo the east all colour seems to fade away,
+however, as a great grey barrier seems to suck all energy into its hungry
+clutches.@n 
+~
+[Florian] Useful for elemental conjunction
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 51780 10 10 5
+D2
+~
+~
+0 -1 51778 10 10 5
+1365 9 1509949540 3 0
+1364 9 1509949540 3 0
+1361 9 1509949540 3 0
+1362 9 1509949540 3 0
+-1
+S
+
+#51780
+The Ethereal Plane - Before the Grey Barrier~
+@h@YThere is nothing reminiscent of the living world in this grey section
+of time and space.  No colour, no substance, no texture exists in the
+massive wall of grey mist which surrounds you.  Looking around, you can
+see that no colour escapes from or invades into the area.  Then again, it
+may be in fact that this corner of the ethereal plane is not devoid of
+colour, but perhaps so infinitely packed with colour as to appear grey.@n
+
+~
+[Phule] wonder who changed this code...  where is the rbugs saying it was
+changed please 
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 51779 10 10 5
+A
+~
+~
+if( mob_in_room( 37, room ) )
+  end;
+if( !rflag( reset0, room ) )
+  end;
+send_to_room( #twinkle, room );
+~
+E
+twinkle~
+@b@WSomething twinkles in and out of your vision, disappearing into the ether.@n
+~
+!
+2 200 0
+A
+search get grab take~
+ether ethergem~
+if( mob_in_room( 37, room ) ) {
+  act_tochar( #cannot, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  if( random( 1, 75 ) <= 74 ) {
+    act_tochar( #search, ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #gem, ch );
+    obj_to_char( oload( 1854 ), ch );
+    }
+  }
+else
+  act_tochar( #search, ch );
+~
+E
+search~
+You search about in the nothingness which is the ether, but find only
+emptiness.
+~
+E
+gem~
+You manage to CATCH the glimmering object, a small twinkling gem.
+~
+E
+cannot~
+You cannot search anything while the madman tirades about, wreaking havock.
+~
+!
+0 0 0
+A
+bash~
+~
+act_tochar( #bash, ch );
+~
+E
+bash~
+In the disorienting grey haze of the ether, it is impossible to gather
+yourself to bash.
+~
+!
+0 0 0
+37 9 1509949540 3 0
+-1
+S
+
+#0
+

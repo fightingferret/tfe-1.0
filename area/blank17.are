@@ -1,0 +1,1167 @@
+#AREA
+Hill Giants Cave~
+Serth Orb~
+Hill Giants Cave~
+
+25 0
+0
+#ROOMS
+
+#32000
+Large Cave Entrance~
+Before you, a very large opening in the hillside seems to split the hill
+in half.  The yawning mouth of the cave is enormous, and seems to engulf
+the surrounding terrain.  The hard-packed, dirt path slopes downward
+oward it, leading into darkness.  Two large boulders on either side of
+the cave entrance keep loose stones and dirt from spilling into the
+massive cavern.  A small path leads up to a ledge above the mouth of the
+cave.
+~
+[Moxie] o spar push bould 'sparky tries unsuccessfully tries to move a boulder."
+[Bowen] er
+[Cucho] Beginning of the fourth line...i suppose it should be 'towards' instead of toward...er oward
+~
+301465608 4 6 0
+D0
+entrance~
+entrance~
+0 -1 32001 10 10 5
+D2
+~
+~
+0 -1 32002 10 10 5
+D4
+~
+~
+0 -1 32006 10 10 5
+E
+boulder~
+The boulder looks huge and heavy, but moveable.
+~
+A
+pull move~
+boulder~
+if( is_open( room, north ) ) {
+  send_to_char( #true_char, ch );
+  act_notchar( #true_room, ch );
+  close( room, north );
+  }
+else
+  send_to_char( #false_char, ch );
+~
+E
+false_char~
+It won't move.
+~
+E
+true_room~
+$n pulls a boulder onto the path, blocking the entrance to the cave, and
+revealing a small hole.  
+~
+E
+true_char~
+You pull a boulder onto the path, blocking the cave entrace and revealing
+a small hole.  
+~
+!
+0 0 0
+A
+push~
+boulder~
+if( !is_open( room, north ) ) {
+  send_to_char( #true_char, ch );
+  act_notchar( #true_room, ch );
+  open( room, north );
+  }
+else {
+  send_to_char( #false_char, ch );
+  act_notchar( #false_room, ch );
+  }
+~
+E
+false_room~
+$n tries unsuccessfully tries to move a boulder.
+~
+E
+false_char~
+You try, but it won't move.
+~
+E
+true_room~
+$n pushes a boulder off the path, gaining access to the cave.
+~
+E
+true_char~
+You push a boulder off the path, gaining access to the cave.
+~
+!
+0 0 0
+A
+enter crawl fall~
+hole~
+if( !is_open( room, north ) ) {
+  send_to_char( #true_char, ch );
+  act_notchar( #true_room, ch );
+  transfer( ch, find_room( 32015 ) );
+  }
+else
+  send_to_char( #false_char, ch );
+~
+E
+false_char~
+What hole?
+~
+E
+true_room~
+$n crawls into a small hole.
+~
+E
+true_char~
+You climb down a small hole.
+~
+!
+0 0 0
+A
+1 look~
+1 north~
+if( is_open( room, north ) )
+  send_to_char( #open, ch );
+else
+  send_to_char( #closed, ch );
+~
+E
+closed~
+A large boulder blocks the entrance.
+~
+E
+open~
+The dim light in the cavern makes it hard to see any details.
+~
+!
+0 0 0
+-1
+S
+
+#32001
+Inside The Cavern~
+This large, dim room gives shelter to the rock formations all around
+you.  Stalagtites hang from the top, most of them broken off.  They drip
+water onto you and the stone floor, making everything musty and damp. 
+Two equally large tunnels branch off from here going into the darkness
+north and west.  
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 32008 10 10 5
+D2
+opening~
+opening~
+0 -1 32000 10 10 5
+D3
+~
+~
+0 -1 32009 10 10 5
+A
+push~
+south boulder~
+if( !is_open( room, south ) ) {
+  act_tochar( #push, ch );
+  act_notchar( #rpush, ch );
+  open( room, south );
+  send_to_room( #opening, find_room( 32000 ) );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+push~
+You push the boulder away, revealing an opening.
+~
+E
+rpush~
+$n pushes the boulder away, revealing an opening!
+~
+E
+open~
+The opening is already revealed.
+~
+E
+opening~
+The boulder is pushed away from the inside.
+~
+!
+0 0 0
+352 9 1509949540 3 0
+-1
+S
+
+#32002
+Top Of A Small Hill~
+You are at the top of a small hill.  A large cave entrance at the bottom
+of the hill to the north draws your attention.  The small foothills
+surrounding this place make it seem like a valley.  The smaller hills are
+dwarfed by a large mound to the north.  The huge, snow-capped spires of
+the Cairn mountains in the distance loom over the hillside.
+~
+~
+301465600 4 8 0
+D0
+~
+~
+0 -1 32000 10 10 5
+D2
+~
+~
+0 -1 32003 10 10 5
+-1
+S
+
+#32003
+Before A Small Hill~
+This muddy path has taken you to the base of a small hill.  Just beyond
+it, the top of a more rough looking hill can be seen.  The path up the
+hill seems more stable, with a few pebbles packed into its hard dirt. The
+few wild bushes around you have been trampled down, and what little wild
+grass there is seems to be dying, its color a faint brown.
+~
+~
+301465600 2 8 0
+D0
+~
+~
+0 -1 32002 10 10 5
+D2
+~
+~
+0 -1 32004 10 10 5
+-1
+S
+
+#32004
+Bend In The Muddy Path~
+The path bends around the beginning of a small hill and continues to the
+north.  Your feet sink into the dark mud, making it an effort to walk at
+normal pace.  You can see more small, grey hills to the east, and a
+larger one to the north.  There are a few wild flowers trampled by the
+side of the path, and a dying sapling grows just to the south, many of
+its branches are broken and limp.
+~
+~
+301465600 2 8 0
+D0
+~
+~
+0 -1 32003 10 10 5
+D1
+~
+~
+0 -1 32005 10 10 5
+E
+sapling~
+Destined to be a grand oak, this small tree looks nearly dead.  Its small
+branches have been snapped at the base.
+~
+-1
+S
+
+#32005
+Muddy Path~
+Entering the foothills of the Cairn Mountains, the snow-capped peaks loom
+above you in the distance to the north.  The foothills themselves are
+a rocky, barren area covered with little more than mud and stones.  The
+occassional gnarled pine struggles to stand against the ever present
+mountain wind.  A rather vague path winds its way westward, covered in
+soupy, black mud.
+~
+~
+301465600 2 6 0
+D2
+~
+~
+0 -1 28018 10 10 5
+D3
+~
+~
+0 -1 32004 10 10 5
+380 9 1509949540 3 0
+-1
+S
+
+#32006
+On The Steep Hill~
+This small path winds its way up the steep face of this hill.  Jagged
+rocks all around you make for a dangerous walk, but the stone path seems
+smooth and safe.  The path winds its way up to the ledge, and back down
+to the cave entrance.  
+~
+~
+301465608 5 6 0
+D4
+~
+~
+0 -1 32007 10 10 5
+D5
+~
+~
+0 -1 32000 10 10 5
+A
+smell~
+flowers~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  mload( 315, room );
+  }
+else {
+  send_to_char( #fail_char, ch );
+  act_notchar( #to_fail, ch );
+  }
+~
+E
+to_fail~
+$n bends over and takes a deep sniff from the flowers.
+~
+E
+fail_char~
+You bend over and smell the sweet scent of the flowers.
+~
+E
+to_room~
+$n bends over to smell the flowers and disturbs an angry bee which
+attacks $m.
+~
+E
+to_char~
+As you smell the flowers, you disturb an angry bee which flies up to
+attack you.  
+~
+!
+0 0 0
+-1
+S
+
+#32007
+On A Ledge~
+You are on a ledge that overlooks the terrain south.  You can almost see
+over the hills to the east and west, and can make out strange patterns in
+the wild grass growing in the foothills down below.  They look like giant
+footprints, leading to this particular cavern.  Looking down, you can see
+the small dirt path and the small hill far below.  The wind here blows
+dirt and small rocks from the wall behind you, pelting you with tiny
+stings.  There is a small beehive on a large rock above you.  
+~
+~
+301465600 4 6 0
+D5
+~
+~
+0 -1 32006 10 10 5
+E
+beehive~
+This beehive is quite large, more so than you have ever seen.  It also
+still looks in use, so walk softly and don't disturb it.  
+~
+A
+~
+~
+send_to_room( #all, room );
+~
+E
+all~
+A few stones fall off the edge, bouncing off the ground far below.
+~
+!
+2 100 0
+A
+~
+~
+wait( 8 );
+if( !rand_char( room ) )
+  end;
+send_to_room( #buzz, room );
+wait( 6 );
+if( !mob_in_room( 315, room ) ) {
+  wait( 5 );
+  send_to_room( #bees, room );
+  mload( 315, room );
+  mload( 315, room );
+  mload( 315, room );
+  }
+~
+E
+bees~
+A small swarm of bees fly out of the hive, disturbed and angry by your presence.
+~
+E
+buzz~
+You hear a buzzing sound but do not yet see a source of the fearsome
+sound.
+~
+!
+1 4 32
+315 9 1509949540 3 0
+-1
+S
+
+#32008
+Northern Tunnel~
+You are in a large tunnel that travels north and south.  The dirt path is
+packed down hard, and you can make out giant footprints heading north. 
+Small streams of water trickle down the stone walls, making them slick to
+the touch.  
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 32010 10 10 5
+D2
+~
+~
+0 -1 32001 10 10 5
+-1
+S
+
+#32009
+Western Tunnel~
+This dirt path has fallen into disuse.  Dusty and littered with small
+stones, it bears small resemblance to the hard-packed dirt at the
+entrance to the cave.  The rough, stone walls are covered with jagged
+rocks and clusters of clear quartz.  The main tunnel curves to the north,
+with a smaller tunnel continuing west.
+~
+~
+301465612 0 7 0
+D0
+~
+~
+0 -1 32012 10 10 5
+D1
+~
+~
+0 -1 32001 10 10 5
+D3
+~
+~
+0 -1 32013 10 10 5
+59 9 1509949540 3 0
+314 9 1509949540 3 0
+-1
+S
+
+#32010
+Tunnel~
+The tunnel seems to slope here, leading into another large chamber in the
+cave.  You can hear faint sounds of running water down to the north as
+well as the horrible stench of decay.  Small quartz crystals shimmer in
+these walls and rocks.  Several scars show where larger crystals have
+been ripped from the walls.
+~
+~
+301465604 0 7 0
+D2
+~
+~
+0 -1 32008 10 10 5
+D5
+~
+~
+0 -1 32011 10 10 5
+E
+quartz crystals~
+The clear, pointed crystals bristle from the walls like shimmering spikes.
+~
+-1
+S
+
+#32011
+At The Underground Lake~
+This wide cavern houses a shallow, underground lake.  The water is
+crystal clear; bottom of the pool is quite evident.  To the west, a small
+waterfall flows into the lake from a high ledge, the roar of the falling
+water echoing through the cavern.  Huge, jagged rocks prevent any
+westward movement, blocking off access to the waterfall.  The dirt path
+turns into packed clay that leads east into another giant opening in the
+rock.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 32016 10 10 5
+D4
+~
+~
+0 -1 32010 10 10 5
+314 9 1509949540 3 0
+1 17 1509949540 -2 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#32012
+Tunnel~
+Faint sounds of water can be heard as you enter this part of the tunnel. 
+The packed dirt turns into rock to the north, and the passage gradually
+slopes downward from where a misty breeze blows, bringing the scent of
+minerals.  Bat guano covers the western rocks beside the path.
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 32021 10 10 5
+D2
+~
+~
+0 -1 32009 10 10 5
+314 9 1509949540 3 0
+-1
+S
+
+#32013
+Small Tunnel~
+This low tunnel almost forces you to duck to avoid the small rocks that
+cling to the ceiling.  Water pours from cracks in the walls in a steady
+stream collecting in between two stalagmites, forming a small pool of
+sorts.  A large calcium deposit shaped like a column extends down to the
+ground, the dim light making it glow like a lantern.  There is a small
+hole in the west wall.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 32009 10 10 5
+E
+hole~
+The hole looks large enough to crawl into.
+~
+A
+crawl enter~
+hole~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 32014 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n climbs into the hole.
+~
+E
+room~
+$n crawls into a hole.
+~
+E
+char~
+You crawl into a hole.
+~
+!
+0 0 0
+-1
+S
+
+#32014
+In A Hole~
+This small, cramped hole was bored roughly out of solid rock.  Sharp
+edges from the poorly cut stone scrape you at every breath.  Littered
+rubble, the floor is covered with jagged stones.  To the south, the tiny
+tunnel turns to hard-packed dirt or you can crawl back out of the hole to
+the east.
+~
+~
+301465604 5 4 0
+D1
+~
+~
+0 -1 32013 10 10 5
+D2
+~
+~
+0 -1 32015 10 10 5
+-1
+S
+
+#32015
+In A Hole~
+This small hole is almost too narrow to crawl through.  You can see small
+worms crawling about, squirming in the dirt.  After inching your way far
+into the ground, you can see that you can go north, farther into the
+hole, or you can crawl up to the surface.  The glint of metal in the dirt
+just catches your eye.  
+~
+[Merior] this dagger hilt could be used in some custom item - seems to
+have been forgotten about.
+[Draynath] no messages from when people enter the hole
+~
+301465604 5 4 0
+D0
+~
+~
+0 -1 32014 10 10 5
+D4
+opening~
+opening~
+0 -1 32000 10 10 5
+E
+glint metal~
+You cant tell much about it by looking at it, perhaps if you dug up
+the ground a little.
+~
+A
+dig~
+dirt ground floor~
+if( rflag( reset0, room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_char( oload( 376 ), ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nothing, ch );
+~
+E
+nothing~
+Odd, there seems to be nothing there.
+~
+E
+room~
+$n digs in the dirt and finds a dagger hilt.
+~
+E
+char~
+You dig up what appears to be the hilt of a dagger.
+~
+!
+0 0 0
+-1
+S
+
+#32016
+Eastern Tunnel~
+The smell of decay is even worse in here.  The sounds of water echo off
+the large walls throughout this cavernous tunnel.  A ledge high on the
+north wall disappears into the eastern rock face right above the tunnel. 
+Large, flat rocks jut out of the north wall, forming a crude, yet
+climbable, staircase to the ledge.  The path continues to the east and
+west.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 32018 10 10 5
+D3
+~
+~
+0 -1 32011 10 10 5
+D4
+~
+~
+0 -1 32017 10 10 5
+872 17 1509949450 -2 0
+-1
+S
+
+#32017
+A Ledge~
+This ledge overlooks a small path below.  Large, flat rocks set into the
+wall make it possible to gain access to it.  You can continue on this
+edge, as it leads through the west wall into another tunnel.  Faint
+sounds of water echo off the walls, breaking the silence.
+~
+~
+301465604 4 7 0
+D3
+~
+~
+0 -1 32019 10 10 5
+D5
+~
+~
+0 -1 32016 10 10 5
+314 9 1509949540 3 0
+314 9 1509949540 3 0
+-1
+S
+
+#32018
+Tunnel~
+The dirt path ends here at a pile of rubble.  The tunnel to the east has
+collapsed, littering the floor with chunks of rock and other scattered
+debris.  Dust, still unsettled from must have been a recent cave-in,
+partially obscures your view of the rubble.  An ominous rumbling sound
+discourages closer examination.
+~
+~
+301465604 0 7 0
+D3
+~
+~
+0 -1 32016 10 10 5
+E
+pile rubble~
+This pile of stones and dirt was produced from a recent cave-in. 
+However, the pile threatens to topple over at any second.  Getting any
+closer could be dangerous.
+~
+314 9 1509949540 3 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#32019
+Tunnel~
+The dull, rough rock of this tunnel is similar to the rest, save for the
+giant, rotted, wooden door set into the northern wall.  A moldy, old sign
+hangs beside it, halfway torn from its place.  The faint roaring of water
+can be heard to the west, and the tunnel opens wide to the east.
+~
+~
+301465605 0 7 0
+D0
+door~
+door~
+391 62 32022 10 10 5
+D1
+~
+~
+0 -1 32017 10 10 5
+D3
+~
+~
+0 -1 32020 10 10 5
+E
+1 north door~
+This door is old and has moss growing on it.  No handle is visible from
+this side.
+~
+E
+sign~
+It is made of wood, old and rotting.  The faint print is barely readable,
+but you can make out one specific word.."Taurgus." 
+~
+A
+say shout '~
+taurgus~
+if( !mob_in_room( 352, room ) ) {
+  if( !is_open( room, north ) ) {
+    if( rflag( reset0, room ) ) {
+      act_tochar( #say, ch );
+      act_notchar( #rsay, ch );
+      open( room, north );
+      mload( 352, room );
+      remove_rflag( reset0, room );
+      }
+    else {
+      act_tochar( #nothing, ch );
+      act_notchar( #rnothing, ch );
+      }
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    }
+  }
+else {
+  act_tochar( #laugh, ch );
+  act_notchar( #rlaugh, ch );
+  }
+~
+E
+say~
+You say, "Taurgus!"
+The door opens and an extremely large hill giant steps through!
+~
+E
+rsay~
+$n says, "Taurgus!"
+The door opens and an extremely large hill giant steps through!
+~
+E
+nothing~
+You say, "Taurgus!"
+Nothing happens.
+~
+E
+rnothing~
+$n says, "Taurgus!"
+Nothing happens.
+~
+E
+laugh~
+As you cry, "@eTaurgus@n," the hill giant bellows a braying laugh.
+~
+E
+rlaugh~
+As $n cries, "@eTaurgus@n," the hill giant bellows a braying laugh.
+~
+!
+0 0 0
+81 17 1509949465 -2 0
+-1
+S
+
+#32020
+By The Waterfall~
+This small ledge runs along the northern wall, overlooking a shallow
+river flowing off the ledge just to the southwest of you, falling into a
+dark lake far below.  A cave opening in the eastern wall leads away into
+darkness. The rocks here are slippery from the water spray and the
+occasional splash, making it hard to keep your balance.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 32019 10 10 5
+E
+sw river flow~
+You'll give to cross the river here to continue southwest.
+~
+A
+cross wade~
+river flow sw~
+send_to_char( #cross, ch );
+act_notchar( #crosses, ch );
+transfer( ch, find_room( 32021 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n comes wading across the river.
+~
+E
+crosses~
+$n crosses the shallow river, to the southwest.
+~
+E
+cross~
+You head southwest and wade across the shallow river flow.
+~
+!
+0 0 0
+59 9 1509949540 3 0
+344 17 1509949540 -2 0
+-1
+S
+
+#32021
+In A Shallow River~
+You stand on a ledge in the southwest part of a large cavern.  The north
+and west walls are covered in sheets of water that constantly flow from
+the ceiling above, collecting into a small river which flows across the
+path and drops off the ledge into a lake visible far below.  You can see
+the ledge continue on the other side.  
+~
+~
+301465604 6 7 0
+D2
+~
+~
+0 -1 32012 10 10 5
+E
+ne river flow~
+You'll have to cross the river here to continue northeast.
+~
+E
+ledge~
+The ledge isn't too wide, just enough for the giants, and runs
+northeast.  A shallow flowing river crosses across it, just NE of you.  
+~
+A
+cross wade~
+river flow ne~
+send_to_char( #cross, ch );
+act_notchar( #crosses, ch );
+transfer( ch, find_room( 32020 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n comes wading across the shallow river.
+~
+E
+crosses~
+$n wades across the shallow river flow, northeast.
+~
+E
+cross~
+You head northeast and wade across the shallow river.
+~
+!
+0 0 0
+A
+catch grab 2 get~
+fish~
+mob = mob_in_room( 183, room );
+if( mob ) {
+  junk_mob( mob );
+  obj_to_char( oload( 117 ), ch );
+  send_to_char( #fish, ch );
+  }
+else
+  send_to_char( #!fish, ch );
+~
+E
+fish~
+You grab the fish.
+~
+E
+!fish~
+There is no fish around to get.
+~
+!
+0 0 0
+183 9 1509949540 3 0
+344 17 1509949540 -2 0
+-1
+S
+
+#32022
+A Giant Room~
+This huge room has been roughly carved out of the rock.  The floor and
+walls are uneven and cracked.  A small lantern sits on a grand oak table
+in the middle of the room.  There are fairly new-looking doors to the
+west and north, and an old, rotted door to the south.
+~
+[Merior] extras would be nice here
+~
+301465605 0 7 0
+D0
+door~
+door~
+131 -1 32023 10 10 5
+D2
+old, rotted door~
+door~
+391 -1 32019 10 10 5
+D3
+door~
+door~
+131 -1 32024 10 10 5
+E
+1 south~
+The door looks old and rotted. It also looks like it gets frequent abuse.
+~
+E
+lantern~
+The small, crude lantern sits on the oak table, shedding weak light on
+the room.
+~
+E
+table oak grand~
+Extravagantly carved and lovingly polished, this oak table seems out of
+place in these rough, stone tunnels.
+~
+A
+2 open smash bash hit~
+door 1 south~
+if( !is_open( room, south ) ) {
+  send_to_char( #true_char, ch );
+  act_notchar( #true_room, ch );
+  open( room, south );
+  }
+else
+  send_to_char( #false_char, ch );
+~
+E
+false_char~
+It's already open!
+~
+E
+true_room~
+$n opens the door.
+~
+E
+true_char~
+The door opens, almost falling off the hinges.
+~
+!
+0 0 0
+314 9 1509949540 3 0
+352 9 1509949540 3 0
+-1
+S
+
+#32023
+A Private Room~
+This room is larger than any you have encountered in the tunnels and
+decorated with various animal skins.  A poorly cured grizzly rug covers a
+giant stone slab, and a dragonskin hangs above it on the wall.  Lanterns
+hang on the walls, providing enough light to see the ceiling, which is
+cracked, water dripping onto the floor.  A rotted wooden lever sticks out
+of a crack in the wall.
+~
+~
+301465605 0 7 0
+D2
+door~
+door~
+131 -1 32022 10 10 5
+D3
+wall~
+wall~
+431 62 32025 10 10 5
+E
+lever~
+It looks like pulling it might do something.
+~
+A
+~
+~
+mob = mob_in_room( 381, room );
+
+if( mob ) {
+  if( !is_fighting( mob ) ) {
+    send_to_room( #leaving, room );
+    junk_mob( mob );
+    }
+  }
+~
+E
+leaving~
+The giant looks around one more time while exploring a nostril, grunts
+and then leaves.
+~
+!
+4 50 0
+A
+pull~
+wooden lever~
+mob = mob_in_room( 351, room );
+if( mob ) {
+  act_tochar( #chief, ch );
+  act_notchar( #rchief, ch );
+  attack( mob, ch, 10d6+10, "rushing charge" );
+  }
+else {
+  if( !is_open( room, west ) ) {
+    act_tochar( #lever, ch );
+    act_notchar( #rlever, ch );
+    open( room, west );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+~
+E
+lever~
+As you pull the lever, a section of the western wall slides open.
+~
+E
+rlever~
+As $n pulls the lever, a section of the western wall slides open.
+~
+E
+nothing~
+The wall is already open.
+~
+E
+chief~
+@eAs you reach for the lever, the chief bellows in rage and attacks!
+~
+E
+rchief~
+@eAs $n reaches for the lever, the chief bellows in rage and attacks!
+~
+!
+0 0 0
+351 9 1509949540 3 0
+-1
+S
+
+#32024
+A Prison~
+In this room, there is a small cage to the west, not occupied at the
+moment.  Another large table sits to the north, and a huge, dirty leather
+vest is hung over a nearby chair.  
+~
+[Merior] make the table a resettable object
+[Merior] this isnt a real good rdesc - might as well re-do it too
+[Celine] add dex
+~
+301465604 0 7 0
+D1
+door~
+door~
+131 -1 32022 10 10 5
+E
+cage~
+The cell looks effective, with thick steel bars extending the whole
+height of the room.  
+~
+E
+vest~
+This huge leather vest looks like it could be used for shelter, not very
+good armour for you.  
+~
+352 9 1509949540 3 0
+-1
+S
+
+#32025
+Treasure Room~
+Adjoined to the chieftan's room, the hill giants treasure vault is easily
+guarded by Gharl.  Though it is merely a tiny alcove roughly chiseled out
+of the rock, it contains many treasures, most broken and worthless.  Here
+is where all the gold and gems are stored after digging them out of rocks
+or, more often, stealing them from helpless victims.
+~
+~
+301465605 0 7 0
+D1
+wall~
+wall~
+431 -1 32023 10 10 5
+A
+2 open 2 push~
+wall door stone rock 1 east~
+if( is_open( room, east ) )
+  send_to_char( #open, ch );
+else {
+  open( room, east );
+  send_to_room( #open1, room );
+  send_to_room( #open2, room );
+  }
+~
+E
+open2~
+You open the wall.
+~
+E
+open1~
+The wall is opened by $n.
+~
+E
+open~
+It is currently open.
+~
+!
+0 0 0
+119 17 1509949490 -2 0
+182 17 1509949445 -2 0
+1039 17 1509949540 -2 0
+1039 17 1509949540 -2 0
+983 17 1509949490 -2 0
+998 17 1509949465 -2 0
+1023 17 1509949450 -2 0
+119 17 1509949490 -2 0
+1982 17 1509949470 -2 0
+-1
+S
+
+#0
+

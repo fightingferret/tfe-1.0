@@ -1,0 +1,1951 @@
+#AREA
+Crypt of Medienne~
+Kiian~
+~
+
+0 0
+0
+#ROOMS
+
+#35500
+Dark Chamber~
+You are in a small chamber steeped in shadow.  The room is cold, and you
+find yourself shivering involuntarily.  There are thousands upon
+thousands of small stones in the room.  The only way to leave this area
+is by climbing up out of the pit you stand in, or by following the
+passage north.
+~
+~
+301465612 0 5 0
+D0
+~
+~
+0 -1 35501 10 10 5
+D4
+~
+~
+0 -1 35505 10 10 5
+E
+1 stones~
+The many stones shift under your feet.
+~
+A
+~
+~
+act_tochar( #up, ch );
+act_notchar( #o-up, ch );
+continue;
+~
+E
+up~
+You climb up out of the pit to the room above.
+~
+E
+o-up~
+$n climbs up out of the pit.
+~
+!
+3 0 16
+A
+~
+~
+ch = rand_char( room );
+interpret( ch, "shiver" );
+~
+!
+2 0 0
+648 9 1509949535 3 0
+-1
+S
+
+#35501
+Small Tunnel~
+The tunnel narrows rapidly to the north, looking as though it may require
+moving single file as it continues.  The hall is dusty, ill-kept, and
+looks quite abandoned by living creatures.  There are many stones
+scattered about the area, apparently thrown here from the room to the
+south.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35502 10 10 5
+D2
+~
+~
+0 -1 35500 10 10 5
+E
+stones~
+Big stones, small stones, round stones, flat stones.  There are many
+stones here.
+~
+-1
+S
+
+#35502
+Small Tunnel~
+The tunnel is quite narrow here, requiring that you move single file as
+it continues.  The hall abandoned and poorly kept.  Dust fills the air,
+stirred by your own movements.  The floor is rough, and the passage
+continues both to the north and the south.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 35503 10 10 5
+D2
+~
+~
+0 -1 35501 10 10 5
+E
+1 crack wall~
+Upon closer examination, you realize that the crack is actually a long,
+jagged scrape in the stone.  The only thing capable of making such a mark
+would be...a claw?
+~
+-1
+S
+
+#35503
+Narrow Tunnel~
+The tunnel narrows to the south, probably requiring moving single file if
+you head that way.  The walls may once have been decorated with murals
+and carvings, but they are now nothing more than rough and unadorned
+slabs of stone.  The passage bends here, going west and south.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35502 10 10 5
+D3
+~
+~
+0 -1 35509 10 10 5
+E
+wall~
+You try to make out any of the carvings or murals on the wall, but they
+are simply too worn away to be remotely discernable.
+~
+A
+move push lift~
+stone~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+mob = mload( 631, room );
+act_tochar( #char, ch );
+act_notchar( #nochar, ch );
+~
+E
+rnothing~
+$n moves the stone, and nothing happens.
+~
+E
+nothing~
+You move the stone, and nothing happens.
+~
+E
+nochar~
+@b@YWith a grunt and a heave, $n slides the stone from its base.
+A dark shape rushes out from under the stone and attacks!
+~
+E
+char~
+@b@YWith a grunt and a heave, you slide the stone from its base.
+A dark shape rushes out from under the stone and attacks!
+~
+!
+0 0 0
+-1
+S
+
+#35504
+Domed Chamber~
+The chamber in which you stand is quite large, and framed in pillars of
+solid marble.  Every wall and even the domed ceiling are covered in
+frescoes, most of which were worn away with time.  The mosaic-tiled floor
+stretches out in all directions, the only visible exits are an archway to
+the west, and a heavy door to the east.
+~
+[Issib] eastern door to the east seems redundant
+~
+301465604 0 9 0
+D1
+eastern door~
+door wooden~
+131 -1 35508 10 10 5
+D3
+~
+~
+0 -1 35511 10 10 5
+E
+1 walls~
+The wall frescos are covered with hundreds of small battle and feast
+scenes, many dominated by a large, mailed figure wearing a dark crown.
+~
+E
+1 floor~
+Looking down at the floor, you notice that you stand upon a what was once
+a large map!  At the center of the room is what appears to be a large
+city, and many roads radiate out from the settlement in all directions.
+~
+E
+1 ceiling vaulted up domed~
+The ceiling frescos are dominated by a large, mailed figure who looms
+over you.  Strangely, his person seems to have suffered little from the
+passage of time, while most of the frescos which surround him have
+crumbled into near nothingness.
+~
+E
+1 frescos~
+The frescos surround you in a dazzling display of ancient artistry.
+~
+641 137 1509949540 3 0
+1743 137 1509949540 3 0
+1743 137 1509949540 3 0
+1743 9 1509949540 3 0
+-1
+S
+
+#35505
+Forgotten Chamber~
+Judging from the crude stonework and lack of ornamentation, you have
+entered an extremely old area.  The ceiling is low, the air stale, and
+the shadows deep.  The room is littered with rubble; thousands of small
+stones have been placed in strange, haphazard piles with no apparent
+purpose.
+~
+~
+301465604 3 9 0
+D1
+concealed door~
+~
+139 -1 1939 10 10 5
+E
+1 stones rubble~
+Glancing at the strange piles of stones at your feet, you notice the
+outline of a small door in the floor!
+~
+E
+door~
+There is a small trapdoor in the floor leading down!
+~
+E
+east~
+There is a medium-sized door somewhat concealed in the east wall.
+~
+A
+open~
+door down dow d do~
+send_to_char( #char, ch );
+act_notchar( #open, ch );
+transfer_all( room, find_room( 35500 ) );
+room = find_room( 35500 );
+loop( all_in_room ) {
+  act_notchar( #follow, rch );
+  i = 3d10;
+  dam_message( rch, i, "The fall" );
+  inflict( rch, mob, i, "falling" );
+  }
+~
+E
+follow~
+$n comes tumbling down from above.
+~
+E
+open~
+$n opens the door, and the floor around you!
+You are falling!  Thousands of stones clatter about your head!
+~
+E
+char~
+The door opens, but so does the floor around you!
+You are falling!  Thousands of stones clatter about your head!
+~
+!
+0 0 0
+A
+open~
+concealed east~
+if( is_open( room, east ) ) {
+  send_to_char( #already_open, ch ); 
+  end;
+  }
+open( room, east );
+act_tochar( #open, ch );
+act_notchar( #o-open, ch );
+~
+E
+already_open~
+The door is already open.
+~
+E
+open~
+You open a concealed door to the east.
+~
+E
+o-open~
+$n opens a concealed door to the east!
+~
+!
+0 0 0
+872 17 1509949450 -2 0
+-1
+S
+
+#35506
+Burial Chamber~
+This room has frescos covering its walls, ceiling, and floor.  From what
+you are able to gather, they are concerned with funerary rites of some
+kind.  Smashed wood, broken braziers, and assorted rubble litter the
+floor.  The only visible exit from the room lies to the west.
+~
+~
+301465604 0 9 0
+D3
+portal~
+portal~
+131 -1 35508 10 10 5
+D5
+hatch~
+hatch~
+139 -1 35507 10 10 5
+E
+floor down~
+Examining the painted floor on which you stand, you notice a very large
+hatch under your feet.  It is clearly some sort of large door leading
+down into darkness. 
+~
+E
+walls frescos ceiling~
+The frescos depict the death and embalming of a great warrior.  They are
+extremely detailed, almost as if they were left as a record for future
+generations.
+~
+-1
+S
+
+#35507
+Burial Chamber~
+Smooth, well-preserved walls tell you that this was a place of great
+importance to its builders.  The strident frescos present in nearby rooms
+are absent here, exchanged for dark rock walls polished to a glassy sheen. 
+~
+above is 35506
+~
+301465604 0 9 0
+D4
+hatch~
+hatch~
+139 -1 35506 10 10 5
+E
+1 walls~
+Looking into the dark walls, you gaze at your own image, and find it
+contorted by the stone into sinister, twisted shapes.
+~
+A
+~
+~
+act_tochar( #thud, ch );
+close( room, up );
+~
+E
+thud~
+@b@RThe hatch overhead seals with a resounding thud as you enter.
+~
+!
+1 0 16
+A
+open~
+up hatch~
+if( is_open( room, up ) )
+  act_tochar( #nada, ch );
+else {
+  act_notchar( #yes, ch );
+  act_tochar( #hatch, ch );
+  open( room, up );
+  }
+~
+E
+yes~
+$n opens the hatch above.
+~
+E
+hatch~
+You open the hatch above.
+~
+E
+nada~
+The hatch is already open.
+~
+!
+0 0 0
+637 9 1509949540 3 0
+-1
+S
+
+#35508
+Painted Room~
+Done in white and black marble tiles, the floor is painfully reminiscent
+of the chessboard laying elsewhere in the crypt.  The walls were probably
+once covered from floor to ceiling with bright frescoes, although only
+small fragments of the artisans' work remain.  There is a stout wooden
+door to the west, and another portal to the east.
+~
+~
+301465604 0 9 0
+D1
+portal~
+'east portal'~
+131 -1 35506 10 10 5
+D3
+western door~
+door wooden~
+131 -1 35504 10 10 5
+E
+1 frescos ceiling floor walls~
+The frescos here are more brightly colored and detailed that those in
+nearby rooms, but nearly all are crumbled beyond hope of recognition.
+~
+640 137 1509949540 3 0
+386 137 1509949540 3 0
+1743 9 1509949540 3 0
+1743 9 1509949540 3 0
+1743 9 1509949540 3 0
+1743 9 1509949540 3 0
+-1
+S
+
+#35509
+Narrow Tunnel~
+There is a noticable shift in the style of construction here, the passage
+to the north is obviously of even older construction than even what has
+come before in this passage, perhaps only a little more sophisticated
+than the catacombs of King Grattza.  The crude stonework of the tunnel
+gives way to bare rock walls supported by timber bracings here.  You may
+follow the tunnel north or east from here.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35510 10 10 5
+D1
+~
+~
+0 -1 35503 10 10 5
+E
+1 rock walls~
+The walls are extremely rough and uneven.  The construction here appears
+to be very old.
+~
+E
+1 bracings timber~
+The bracings appear to be extremely old, their dry wood straining under
+the weight of millenia.
+~
+A
+~
+random~
+send_to_room( #sound, find_room( 35509 ) );
+~
+E
+sound~
+You hear a soft, distant scraping sound.
+~
+!
+2 100 0
+81 9 1509949520 3 0
+-1
+S
+
+#35510
+Narrow Tunnel~
+The passage here is of construction almost as old as anything you have
+seen in the crypts.  The crude stonework and timber construction of the
+tunnel speaks of a style that is more similar to a mining shaft than a
+catacomb.  A large stone is set into the north wall here, almost as some
+kind of marker.  You may follow the tunnel south or east.
+~
+[Merior] seems like the marker should do more
+[Marek] I'd like to leave it in in as a spot for future expansion.
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35511 10 10 5
+D2
+~
+~
+0 -1 35509 10 10 5
+E
+stone large~
+The stone is huge, perhaps 20' in diameter, and has many deep marks
+hammered into it surface.  Its white, marbled color stands in contrast to
+the dark stone of the surrounding tunnels.
+~
+-1
+S
+
+#35511
+Ancient Tunnel~
+The wooden bracings supporting the passageway are widely spaced here. 
+Tons of black rock above your head are enough to encourage a silent
+prayer from even the least devout to the nameless craftsmen responsible
+for the construction here.  The passage continues to the east and west.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35504 10 10 5
+D3
+~
+~
+0 -1 35510 10 10 5
+E
+1 bracings wooden~
+The aged wooden bracings are of a strange silver-black wood which is cold
+to the touch.  They seem to sag slightly under their unrelenting burden.
+~
+-1
+S
+
+#35513
+Atop the Blackest Stair~
+You stand at the top of stairway leading down into darkness.  The stairs
+are simple and unadorned, and are constructed out of a black stone
+polished to a glossy finish.  Gazing down into the open maw of the earth,
+you cannot help but experience a deep disquiet as you consider the
+enterprise before you.
+~
+~
+301465612 0 9 0
+D3
+'hidden door'~
+'hidden door'~
+139 -1 1950 10 10 5
+D5
+~
+~
+0 -1 35514 10 10 5
+A
+random~
+~
+send_to_room( #random, room );
+~
+E
+random~
+A soft warm wind blows up from the darkness below.
+~
+!
+2 50 0
+-1
+S
+
+#35514
+The Blackest Stair~
+The incline steepens here, and you are forced to continue carefully,
+slowly tracing your steps down the sharply angled staircase.  A rusted
+lantern hangs on a chain from the ceiling.  It swings back and forth in a
+leisurely arc, oblivious to the conspicuous stillness of the surrounding
+air.
+~
+~
+301465604 0 9 0
+D4
+~
+~
+0 -1 35513 10 10 5
+D5
+~
+~
+0 -1 35515 10 10 5
+-1
+S
+
+#35515
+Dark Landing~
+You have arrived at a small landing.  The stairs double back upon
+themselves here, continuing their downward trek into the unknown. 
+Directly in front of you is what appears to be a huge black mirror.
+~
+~
+301465604 0 9 0
+D4
+~
+~
+0 -1 35514 10 10 5
+D5
+~
+~
+0 -1 35516 10 10 5
+E
+mirror black huge~
+The mirror is perhaps 40' in diameter, and its glass is of a deep dark
+hue which offers only the faintest of reflections.
+~
+-1
+S
+
+#35516
+The Blackest Stair~
+The stairs continue their single-minded descent into the bowels of the
+earth.  It is becoming uncomfortably warm.
+~
+~
+301465604 0 9 0
+D4
+~
+~
+0 -1 35515 10 10 5
+D5
+~
+~
+0 -1 35517 10 10 5
+-1
+S
+
+#35517
+Dark Landing~
+At last the black stairs yield, depositing you in a rectangular chamber. 
+The room is sharply cut from dark black stone, with surfaces
+intersecting one another at perfect right angles.  The room is large,
+with the ceiling towering perhaps 30' or more above your head.
+
+Sunken into the center of the room is a circular firepit, and
+inscribed around its edge are hundreds of strange and unfamiliar symbols.
+
+There are passages leading to the east and west.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35518 10 10 5
+D3
+~
+~
+0 -1 35540 10 10 5
+D4
+~
+~
+0 -1 35516 10 10 5
+E
+1 symbols edge~
+The symbols are of no language you have ever seen; the are long and curve
+together in a tangle of interlocking circles and swirls.
+~
+E
+1 firepit circular~
+The firepit is full of many small, white-hot coals arranged in strange
+and complex patterns.
+~
+A
+move~
+coals~
+i = 3d10;
+room = find_room( 35548 );
+send_to_char( #movecoals, ch );
+act_notchar( #movecoals2, ch );
+dam_message( ch, i, "the firepit" );
+inflict( ch, mob, i, "the firepit" );
+if( rflag( reset0, find_room( 35517 ) ) ) {
+  if( !is_open( room, east ) ) {
+    send_to_room( #open, room );
+    open( room, east );
+    if( random( 1, 10 ) < 4 )
+      mload( 597, find_room( 35517 ) );
+    }
+  send_to_char( #flash, ch );
+  act_notchar( #flash2, ch );
+  }
+remove_rflag( reset0, find_room( 35517 ) );
+~
+E
+flash2~
+A flash of brilliant light floods the room!
+~
+E
+flash~
+A flash of brilliant light floods the room!
+~
+E
+open~
+The east opens.
+~
+E
+movecoals2~
+$n moves the coals in the firepit.
+~
+E
+movecoals~
+You move the coals in the firepit.
+~
+!
+0 0 0
+14 9 1509949540 3 0
+872 17 1509949460 -2 0
+-1
+S
+
+#35518
+East Landing~
+The tunnel here is smooth and constructed out of an unfamiliar dark stone. 
+This area seems to be free of the cobwebs which plague nearby rooms. 
+What appear to be the crushed remnants of an iron lantern lie strewn
+about the floor.
+~
+~
+301465612 0 9 0
+D0
+~
+~
+0 -1 35519 10 10 5
+D3
+~
+~
+0 -1 35517 10 10 5
+E
+1 remnants lantern~
+The lantern appears to have been crushed by some unknown force.
+~
+-1
+S
+
+#35519
+Dark Passage~
+Ashes cover the floor here.  You cough as your footsteps cloud the
+already choked tunnel air with fine dust.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35520 10 10 5
+D2
+~
+~
+0 -1 35518 10 10 5
+A
+random~
+~
+send_to_room( #wind, find_room( 35519 ) );
+~
+E
+wind~
+A faint wind blows through the room, scattering ashes around your feet.
+~
+!
+2 125 0
+-1
+S
+
+#35520
+Dark Passage~
+It seems as if your surroundings absorb all available light.  You stop
+for a moment to consider what type of creature would inhabit such a
+place, but quickly move on to less harrowing thoughts.  Small bits of ash
+and charred wood lie on the floor here.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35521 10 10 5
+D3
+~
+~
+0 -1 35519 10 10 5
+-1
+S
+
+#35521
+Dark Passage~
+Scorch marks cover the area, and sizeable chunks of the walls, floor and
+ceiling have seemingly been melted away by some unknown force.  You
+shiver upon considering what could have caused such destruction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35522 10 10 5
+D2
+~
+~
+0 -1 35520 10 10 5
+E
+1 walls ceiling floor~
+Looking around, you cannot fathom the destructive force it would take to
+cause such damage.
+~
+-1
+S
+
+#35522
+Shadowy Passage~
+A trickle of warm, ashy water flows down the east wall, collecting in a
+meager, stagnant pool at your feet.  The tunnel leads to the north and
+west here.  You see a glow off to the north.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35523 10 10 5
+D3
+~
+~
+0 -1 35521 10 10 5
+A
+random~
+~
+send_to_room( #geyser, find_room( 35522 ) );
+~
+E
+geyser~
+You hear the hiss of a distant geyser's discharge.
+~
+!
+2 200 0
+-1
+S
+
+#35523
+Rectangular Room~
+In the center of the floor here is a large firepit.  The light from the
+coals bathes the room in a muted orange light, casting deep shadows on
+the midnight-hued stone.
+
+Ringing the firepit are many strange markings.
+~
+~
+301465653 0 9 0
+D0
+~
+~
+0 -1 35524 10 10 5
+D2
+~
+~
+0 -1 35522 10 10 5
+E
+1 firepit~
+The fire pit is round and deep, and contains hundreds of small, white-hot
+coals painstakingly arranged in careful, interlocking circular patterns.
+~
+E
+1 markings strange~
+The markings appear to be ancient runes of some unfamiliar type; their
+elegant curves elude your comprehension.
+~
+A
+move~
+coals~
+i = 3d10;
+room = find_room( 35529 );
+send_to_char( #movecoals, ch );
+act_notchar( #movecoals2, ch );
+dam_message( ch, i, "the firepit" );
+inflict( ch, mob, i, "the firepit" );
+if( rflag( reset0, find_room( 35523 ) ) ) {
+  if( !is_open( room, south ) ) {
+    send_to_room( #open, room );
+    open( room, south );
+    if( random( 1, 10 ) < 4 )
+      mload( 688, find_room( 35523 ) );
+    }
+  send_to_room( #flash, find_room( 35523 ) );
+  }
+remove_rflag( reset0, find_room( 35523 ) );
+~
+E
+flash~
+A brilliant flash of light floods the room!
+~
+E
+open~
+You hear a soft hiss as an opening to the south appears from nowhere.
+~
+E
+movecoals2~
+$n moves the coals in the firepit.
+~
+E
+movecoals~
+You move the coals in the firepit.
+~
+!
+0 0 0
+14 9 1509949540 3 0
+872 17 1509949460 -2 0
+-1
+S
+
+#35524
+Shadowy Passage~
+The corridor here is warm and dry.  The floor is even, the walls
+polished, and the ceiling unbent by the passage of time.  You spy a dim
+light off to the south.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35523 10 10 5
+D3
+~
+~
+0 -1 35525 10 10 5
+-1
+S
+
+#35525
+Dark Passage~
+There is a large circle sketched on the floor here.  A second glance
+reveals that it was drawn with great haste.  Its thin white lines shimmer
+faintly on the black stone of the corridor.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35526 10 10 5
+D1
+~
+~
+0 -1 35524 10 10 5
+D2
+portal~
+portal~
+251 -1 35552 10 10 5
+E
+1 circle~
+The circle is filled with many strange markings which you cannot understand.
+~
+A
+stand enter~
+circle~
+room = find_room( 35525 );
+send_to_char( #enter, ch );
+act_notchar( #enter2, ch );
+if( rflag( reset0, room ) ) {
+  send_to_room( #open, room );
+  open( room, south );
+  }
+remove_rflag( reset0, room );
+~
+E
+open~
+With a low rumble, an opening to the south appears.
+~
+E
+enter2~
+$n steps inside the circle.
+~
+E
+enter~
+You step inside the circle.
+~
+!
+0 0 0
+-1
+S
+
+#35526
+Dark Passage~
+The tunnel continues its frenetic switchback motion here, darting off to
+the west and south.  A long, jagged crack bisects the corridor here, the
+result of the movements of the very earth itself.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35525 10 10 5
+D3
+~
+~
+0 -1 35527 10 10 5
+E
+crack~
+The crack is narrow, perhaps 1" wide, and dark.  Warm air blows up from
+it in periodic gusts.
+~
+A
+random~
+~
+send_to_room( #steam, find_room( 35526 ) );
+~
+E
+steam~
+A sudden gust of warm air blows up from the floor.
+~
+!
+0 200 0
+-1
+S
+
+#35527
+Dark Passage~
+The tunnel floor has become rough and scored with numerous pock-marks. 
+Bending down for a closer look, you notice many impact and scrape marks. 
+A battle was fought here.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35528 10 10 5
+D1
+~
+~
+0 -1 35526 10 10 5
+A
+random~
+~
+send_to_room( #geyser, find_room( 35527 ) );
+~
+E
+geyser~
+You hear the hiss of a distant steam jet's discharge.
+~
+!
+0 0 0
+-1
+S
+
+#35528
+Shadowy Passage~
+There is an orange glow off to the west.  It casts long, ominous shadows
+down the dark corridor.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35527 10 10 5
+D3
+~
+~
+0 -1 35529 10 10 5
+-1
+S
+
+#35529
+Rectangular Room~
+You have entered another large chamber.  Its high ceilings and carefully
+angled planes mark it as the counterpart to the stairway landing.  Yet
+another large, circular firepit is sunken into the center of the room,
+ringed by hundreds of peculiar runes.
+
+The smooth black passageway leads east and west from here.
+~
+~
+301465653 0 9 0
+D1
+~
+~
+0 -1 35528 10 10 5
+D2
+~
+~
+235 -1 35541 10 10 5
+D3
+~
+~
+0 -1 35530 10 10 5
+E
+1 runes~
+The runes are clearly ancient, and utterly incomprehensible to you.
+~
+E
+1 firepit~
+The firepit contains many carefully arranged coals.
+~
+A
+move~
+coals~
+i = 3d10;
+room = find_room( 35529 );
+send_to_char( #movecoals, ch );
+act_notchar( #movecoals2, ch );
+dam_message( ch, i, "the firepit" );
+inflict( ch, mob, i, "the firepit" );
+if( rflag( reset0, room ) ) {
+  send_to_room( #flash, room );
+  mload( 691, find_room( 35519 ) );
+  mload( 696, find_room( 35519 ) );
+  mload( 696, find_room( 35539 ) );
+  mload( 691, find_room( 35539 ) );
+  mload( 691, find_room( 35550 ) );
+  mload( 691, find_room( 35550 ) );
+  mload( 696, find_room( 35550 ) );
+  mload( 696, find_room( 35550 ) );
+  mload( 696, find_room( 35548 ) );
+  mload( 691, find_room( 35548 ) );
+  send_to_room( #load, room );
+  if( random( 1, 10 ) < 6 )
+    mload( 688, room );
+  }
+remove_rflag( reset0, room );
+send_to_char( #weremoved, ch );
+act_notchar( #weremoved2, ch );
+~
+E
+flash~
+A flash of brilliant light floods the room!
+~
+E
+load~
+load dEmonS
+~
+E
+weremoved2~
+$n moves the coals in the firepit.  Nothing seems to happen.
+~
+E
+weremoved~
+You move the coals, but nothing seems to happen.
+~
+E
+movecoals2~
+$n moves the hot coals in the firepit.
+~
+E
+movecoals~
+You move the hot coals.
+~
+!
+0 0 0
+14 9 1509949540 3 0
+872 17 1509949460 -2 0
+-1
+S
+
+#35530
+Damp Passage~
+The floor is slick here, and the air damp.  The tunnel surfaces are rough
+here, perhaps intentionally left unfinished for some unknown reason.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35529 10 10 5
+D2
+~
+~
+0 -1 35531 10 10 5
+-1
+S
+
+#35531
+Slippery Passage~
+The tunnel is wet here, with warm beads of water coating the dark
+ceiling, floor and walls.  There is a small hole in the stone floor
+directly in front of you here.  It is about the size of a man's fist, and
+appears to be very deep.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35530 10 10 5
+D3
+~
+~
+0 -1 35532 10 10 5
+A
+random~
+~
+send_to_room( #steam, find_room( 35531 ) );
+~
+E
+steam~
+A scalding jet of steam shoots out from the floor, whizzing close by your
+face and covering the room in a warm mist!
+~
+!
+2 150 0
+-1
+S
+
+#35532
+Slippery Passage~
+The corridor's floor is slick here.  Moving slowly so as not to slip, you
+you may continue east or south from here.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35531 10 10 5
+D2
+~
+~
+0 -1 35533 10 10 5
+A
+random~
+~
+send_to_room( #steam, find_room( 35532 ) );
+~
+E
+steam~
+A setam jet shoots up from the floor, coating the tunnel with a warm mist!
+extent!
+~
+!
+2 100 0
+-1
+S
+
+#35533
+Damp Passage~
+You think you detect a weak light source to the west.  The passage is
+damp here, the smooth stone floor slick with condensation.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35532 10 10 5
+D3
+~
+~
+0 -1 35534 10 10 5
+-1
+S
+
+#35534
+Shadowy Passage~
+The tunnel straightens out to the south, off to which direction you spy a
+soft red-orange glow.  To the east, the dark passage continues its
+subterranean journey.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35533 10 10 5
+D2
+~
+~
+0 -1 35535 10 10 5
+-1
+S
+
+#35535
+Rectangular Room~
+A large round firepit dominates the center of this room.  Adorning its
+out rim are scores of archaic symbols.  Many small scraps of parchment
+are strewn about the room.  A large chunk of dark rock, covered with
+scorch marks, leans against the wall.
+
+A passage leads off to the north and south.
+~
+~
+301465653 0 9 0
+D0
+~
+~
+0 -1 35534 10 10 5
+D2
+~
+~
+0 -1 35536 10 10 5
+E
+1 chunk rock~
+The boulder is large, heavy, and strangely warm to the touch.
+~
+E
+1 firepit~
+The firepit contains many carefully arranged coals.  Their steady orange
+glow illuminates the room, and gives off considerable heat.
+~
+E
+1 symbols archaic rim~
+The strange symbols dance along the firepit's edge, at once joining with
+and breaking away from one another.
+~
+E
+1 parchment scraps~
+Written on the cracked, yellowed parchment scraps are hundreds of small
+strange runes which match those inscribed around the perimeter of the
+firepit.
+~
+A
+move~
+coals~
+i = 3d10;
+room = find_room( 35549 );
+send_to_char( #movecoals, ch );
+act_notchar( #movecoals2, ch );
+dam_message( ch, i, "the firepit" );
+inflict( ch, mob, i, "the firepit" );
+if( rflag( reset0, find_room( 35535 ) ) ) {
+  send_to_room( #swangarrive, room );
+  mload( 682, room );
+  if( random( 1, 10 ) < 4 )
+    mload( 688, find_room( 35535 ) );
+  send_to_room( #flash, find_room( 35535 ) );
+  }
+remove_rflag( reset0, find_room( 35535 ) );
+~
+E
+flash~
+A brilliant flash of light floods the room!
+~
+E
+swangarrive~
+With a thunder and a dark flash, a diseased figure appears where there
+was none.
+~
+E
+movecoals2~
+$n moves the coals in the firepit.
+~
+E
+movecoals~
+You move the coals in the firepit.
+~
+!
+0 0 0
+14 9 1509949540 3 0
+872 17 1509949460 -2 0
+-1
+S
+
+#35536
+Shadowy Passage~
+A large chunk of the south wall has been seemingly ripped out and
+pulverized, leaving a deep dark hole.  Covering the floor is a fine layer
+of ash, presumably the remnants of the rock.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35535 10 10 5
+D1
+~
+~
+0 -1 35537 10 10 5
+E
+1 dark hole~
+The hole is dark and deep.  You cannot see far into it.
+~
+A
+enter~
+hole~
+send_to_char( #enter, ch );
+act_notchar( #enter2, ch );
+transfer( ch, find_room( 35553 ) );
+~
+E
+enter2~
+$n climbs into the dark hole and disappears from view.
+~
+E
+enter~
+You climb into the dark hole.
+~
+!
+0 0 0
+-1
+S
+
+#35537
+Dark Passage~
+Dozens of small tallow candles are scattered about the area.  Their wicks
+have almost been burned away, and many small drops of wax are scattered
+across the floor.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35538 10 10 5
+D3
+~
+~
+0 -1 35536 10 10 5
+E
+1 wax drops~
+The wax drops seem to be scattered on the floor in a rough circle.
+~
+-1
+S
+
+#35538
+Dark Passage~
+The echoes of your footsteps suddenly fall silent here, muffled by some
+unseen force.  The dark stone under you seems to pulse and wince with
+each of your hesitant steps.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35537 10 10 5
+D1
+~
+~
+0 -1 35539 10 10 5
+-1
+S
+
+#35539
+Dark Passage~
+The tunnel walls reach out toward you like immense stone fingers.  Try as
+you might, you cannot shake the feeling that you are an intruder here,
+meddling in something profoundly dangerous and sinister.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35540 10 10 5
+D3
+~
+~
+0 -1 35538 10 10 5
+A
+random~
+~
+send_to_room( #wind, find_room( 35539 ) );
+~
+E
+wind~
+A soft wind billows in from the west.
+~
+!
+0 0 0
+-1
+S
+
+#35540
+West Landing~
+A soft glow from the east casts deep shadows across the room.  An unlit
+lantern hangs from a heavy metal chain high overhead.  Its black metal
+mimics the dark stone motif of the tunnel.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35539 10 10 5
+D1
+~
+~
+0 -1 35517 10 10 5
+A
+random~
+~
+send_to_room( #steam, find_room( 35540 ) );
+~
+E
+steam~
+A steam jet shoots out from the ceiling, covering the room in a warm mist.
+~
+!
+2 100 0
+-1
+S
+
+#35541
+Rough Tunnel~
+In contrast to the smooth and polished surfaces of nearby areas, this
+tunnel has been cored out of the natural rock itself.  Dark crags
+protrude from the ceiling and floor.  There are many ceramic shards
+scattered about your feet.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+235 -1 35529 10 10 5
+D2
+~
+~
+0 -1 35542 10 10 5
+-1
+S
+
+#35542
+Rough Tunnel~
+Navigation of the passage is become increasingly troublesome.  The tunnel
+is warm and narrow, and you carefully thread your way around the rapidly
+increasing number of crags, overhangs, and protrusions.  You may continue
+to the north, and to the east you spy a brige over a deep underground
+chasm.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 35541 10 10 5
+D1
+~
+~
+0 -1 35543 10 10 5
+-1
+S
+
+#35543
+Bridge over a dark fissure~
+You stand at the midpoint of a narrow stone bridge which spans a profound
+subterranean fissure.  The bridge is constructed out of an immense
+block of smooth, dark stone which matches the surfaces of the surrounding
+tunnels.  Looking down for a moment, you cannot detect a bottom to the
+chasm underneath you.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35544 10 10 5
+D3
+~
+~
+0 -1 35542 10 10 5
+E
+chasm bottom~
+You sense certain death in the dark chasm depths below you.
+~
+A
+1 north~
+~
+send_to_char( #north, ch );
+~
+E
+north~
+You take a step north, and then decide not to leap toward certain death.
+~
+!
+0 1000 0
+A
+1 east~
+~
+send_to_char( #east, ch );
+~
+E
+east~
+You look east, and then down, and decide not to leap toward certain death.
+~
+!
+0 0 0
+-1
+S
+
+#35544
+Flowstone Passageway~
+The tunnel continues to appear less and less affected by artifice, and
+more and more subject to the whimsy of natural - or unnatural, you are
+not sure - forces.  To the north is span crossing a dark chasm, and the
+passage continues off to the south.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35543 10 10 5
+D2
+~
+~
+0 -1 35545 10 10 5
+-1
+S
+
+#35545
+Flowstone Passageway~
+The passage here appears entirely untouched by mortal hands.  Great
+primal forces have shaped the unforgiving stone, with exits leading north
+and west.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35544 10 10 5
+D3
+~
+~
+0 -1 35546 10 10 5
+-1
+S
+
+#35546
+Flowstone Passageway~
+The passageway continues.  A few small stalagtites hang from the ceiling
+here, barely recognizeable shapes in the dimness.  Small drops of warm
+water drip from them onto your head in a steady, patient marking of time. 
+The water has collected in a shallow pool at your feet.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35545 10 10 5
+D3
+~
+~
+0 -1 35547 10 10 5
+E
+pool shallow~
+The shallow pool radiates a surprising amount of heat.  Small amounts of
+steam rise up from its surface.
+~
+-1
+S
+
+#35547
+Flowstone Passageway~
+The slow curves of the surrounding flowstone give your imagination ample
+opportunity to work.  Strange dark shapes shift in the general dimness
+and prey upon the margins of your consciousness.  You stumble across the
+slippery-smooth floor.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35548 10 10 5
+D1
+~
+~
+0 -1 35546 10 10 5
+A
+random~
+~
+send_to_room( #wind, find_room( 35547 ) );
+~
+E
+wind~
+You feel a soft, warm breeze on your face.
+~
+!
+0 100 0
+-1
+S
+
+#35548
+Columned Grotto~
+You have entered a vast underground grotto replete with scores of
+spiraling stone columns.  The stoney arms support a ceiling somewhere in
+the darkness high above your The floor beneath you is smooth and rippled,
+perhaps the after-effect of a long-past lava flow.  It is still warm to
+the touch.  You sense a living - or undying - presence quite close at
+hand.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 35554 10 10 5
+D1
+portal~
+portal~
+255 62 35549 10 10 5
+D2
+~
+~
+0 -1 35547 10 10 5
+D3
+~
+~
+0 -1 35551 10 10 5
+14 9 1509949540 3 0
+-1
+S
+
+#35549
+Heart of Darkness~
+You stand inside a small black chamber seemingly hacked from the
+surrounding stone in a moment of primal frenzy.  The room's jagged
+surfaces confound the mortal eye with their harsh angles and
+unforgiving collisions.  Dark ashes litter the floor.  It is warm here,
+too warm.
+~
+~
+301465605 0 9 0
+D3
+~
+~
+255 -1 35548 10 10 5
+-1
+S
+
+#35550
+Mob storage room~
+If you are a player and somehow find yourself here, mail Kiian and let
+him know.  He'll appreciate it.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35519 10 10 5
+D2
+~
+~
+0 -1 35517 10 10 5
+D3
+~
+~
+0 -1 35539 10 10 5
+696 9 1509949540 3 0
+691 9 1509949540 3 0
+-1
+S
+
+#35551
+Columed Grotto~
+The columned grotto continues here, the stone supports creating a
+underground maze of great size.  Small pools of steaming hot water are
+scattered throughout the area.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 35548 10 10 5
+-1
+S
+
+#35552
+Lost Laboratory~
+You are in a small study.  Shelves cover every inch of wallspace, and a
+large workbench and chair is set up in the center of the room.  The
+shelves are crowded with books, strange instruments and many objects
+which you cannot quite identify.  A number of small skulls are arranged
+on a top shelf, out of easy reach.  A large book lies open on the
+workbench, along with several stacks of musty papers.
+~
+finish action
+~
+301465604 0 9 0
+D0
+~
+~
+251 -1 35525 10 10 5
+E
+workbench~
+The workbecnh is constructed of a silvery-black wood.  It is cold to the touch.
+~
+E
+chair~
+The chair is straight-backed and made from a silvery-black wood.  It has
+a soft cushion attached for added comfort.
+~
+E
+book large~
+The tome is huge, with a thick cover made from some unidentified scaled
+material.  The pages contain hundreds of intricate diagrams and runic
+sequences.
+~
+E
+skulls~
+You can recognize many of the skulls as from humanoid and small animals. 
+Others, with crooked horns and strange protrusions, are somewhat less
+recognizeable.
+~
+E
+papers stacks~
+The papers seem to be someone's notes on a text.
+~
+E
+shelves~
+Amid scores of glass containers, scribbeld notes, and strange trinkets,
+you find a small sign, perhaps a name tag, which simply reads, "Conrad."
+~
+E
+1 north~
+You see a small discolored stone in the wall.
+~
+A
+move lift~
+cushion~
+room = find_room( 35552 );
+send_to_char( #move, ch );
+act_notchar( #move2, ch );
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) < 6 ) {
+    send_to_char( #scroll, ch );
+    act_notchar( #scroll2, ch );
+    obj_to_room( oload( 1021 ), room );
+    }
+  }
+remove_rflag( reset0, room );
+~
+E
+scroll2~
+A leather scroll rolls out from under the cushion and onto the floor!
+~
+E
+scroll~
+As you disturb the cushion, a leather scroll rolls out from under the
+cushion and onto the floor!
+~
+E
+move2~
+$n moves the cushion.
+~
+E
+move~
+You move the cushion.
+~
+!
+0 0 0
+A
+push twist lift touch~
+north discolored stone~
+act_tochar( #open, ch );
+act_notchar( #open2, ch );
+open( room, north );
+if( !is_open( room, north ) ) {
+  act_room( #opens, ch );
+  end;
+  }
+else
+  act_tochar( #was, ch );
+~
+E
+was~
+The way was already open to the north.
+~
+E
+opens~
+An opening to the north appears.
+~
+E
+open2~
+$n touches the north wall.
+~
+E
+open~
+You push the discolored stone.
+~
+!
+0 0 0
+681 9 1509949540 3 0
+-1
+S
+
+#35553
+Scorched Grotto~
+This small cave is dark and uncomfortable.  The ceiling, walls, and floor
+rough and uneven.  It seems that mother nature - or whatever force is
+responsible for this shadowed subterranean corner - created this place in
+a momentary explosive fit.  The walls are full of scorch marks, and dark
+ashes are scattered across the floor.
+
+On the west wall you see some writing.
+~
+~
+301465604 0 4 0
+E
+2 ashes floor~
+Examining the ashes underfoot, you locate a few small bone fragments. 
+Human bone.
+~
+E
+1 writing wall west~
+The writing is in a hurried yet confident hand.  Most of it has faded with time, but many letters remain:
+...ealed the chamber behind, yet I know he....again...minions hound me, I
+could not imagine his...is astounding...every failsafe
+lost...enchantments overwhelmed...i can sense him outside now... 
+waiting...it is my responsibility for loosing such a thing, i must... 
+contain...they come again
+~
+A
+enter~
+hole~
+send_to_char( #enter, ch );
+act_notchar( #enter2, ch );
+transfer( ch, find_room( 35536 ) );
+~
+E
+enter2~
+$n enters the dark hole and disappears from view.
+~
+E
+enter~
+You enter the dark hole.
+~
+!
+0 0 0
+-1
+S
+
+#35554
+Columned Grotto~
+The grotto continues here, the maze of ancient columns stretching from
+floor to ceiling like a thicket of undying, spindly trees.  The air is
+warm, and thick with humidity.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 35548 10 10 5
+A
+random~
+~
+send_to_room( #geyser, room );
+~
+E
+geyser~
+You hear the hiss of a distant steam jet's discharge.
+~
+!
+2 75 0
+-1
+S
+
+#0
+

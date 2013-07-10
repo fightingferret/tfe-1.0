@@ -1,0 +1,2328 @@
+#AREA
+Kobold Caves~
+Chaser/Rue~
+kobolds~
+
+8 0
+0
+#ROOMS
+
+#12000
+A Dusty Trail~
+~
+can'r delete this room, is first room of kobolds
+~
+301469832 1 6 0
+-1
+S
+
+#12006
+Entrance to Cave~
+A dark and foreboding cave entrance leads down from here into the
+mountain.  The wind and snow make this look like a promising place but
+bones litter the ground making your passage through them a crunchy
+affair.  You can hear the wind howling through unknown passages in the
+cave and this arouses your curiosity.  
+~
+south was 26552
+[Starshine] why a promising place? sounds nasty to me.
+[Starshine] remove 'arouses curiosity'. is action best left to player to feel.
+[Starshine] make wind howling into a random action?
+[Starshine] then can add to room desc what lies west and north and east.
+[Starshine] added extra 1 down ..
+~
+301465612 4 6 0
+D3
+~
+~
+0 -1 26574 10 10 5
+D5
+~
+~
+0 -1 12007 10 10 5
+E
+bone bones~
+As you examine the bones you notice that some of them are dwarf-sized. 
+You have a feeling anyone or anything inside that cave is not going to be
+very friendly.  
+~
+E
+1 down entrance cave~
+Below you is the entrance to a dark, ominous-looking cave.  Light from
+the entrance illuminates a small patch of the rough floor of the cave,
+but nothing else.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou enter the small cave, lowering yourself into the earth.@n
+~
+!
+3 -1 32
+-1
+S
+
+#12007
+Cave Passageway - Beneath a Hole~
+This cave is large and twisted, full of stalactites and stalagmites
+that make movement somewhat difficult.  Rough tunnels head off to the
+east and west, curving into darkness as they leave this room.  A sloped
+passageway leads up and out of the cave turning towards the west as it
+goes.  Dust and dirt cover the floor of the cave.
+~
+size ogre to keep out horses - these are kobolds after all
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 12012 10 10 5
+D3
+~
+~
+0 -1 12008 10 10 5
+D4
+~
+~
+0 -1 12006 10 10 5
+E
+dust dirt floor 1 down~
+You can see many prints crisscrossing across the floor of the cave. 
+They appear to be dog-like, but much larger.
+~
+E
+1 up out~
+A hole in the ceiling of the cave leads up out of this tunnel.  The hole
+leads into a short passageway which heads out and then seems to turn west.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou head up and out of the cave.@n
+~
+!
+3 -1 16
+153 9 1509949540 3 0
+-1
+S
+
+#12008
+Twisted Passageway~
+The damp tunnel twists downward towards the west, while climbing steeply
+towards the east.  The floor is covered in a crunchy white powder, and
+the walls are covered with an almost luminescent film of glittering white
+as well.  In places the tunnel narrows where thick columns of the white
+material reach from the ceiling to the floor.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 12007 10 10 5
+D3
+~
+~
+0 -1 12009 10 10 5
+E
+powder floor crunchy~
+The floor seems to be made of a crystalline, but friable, powder of some
+sort.  Mixed in among the white crystals are flecks of a shimmering gold
+substance.
+~
+E
+film walls luminescent~
+The stone walls are almost completely covered by a smooth white substance. 
+Flecks of a gold color shimmer, encased in the hard material.
+~
+E
+columns material~
+Made of the hard white substance, these columns appear to be stalactites
+and stalagmites that have joined over time.
+~
+E
+flecks~
+The shimmering flecks appear to be nothing more than a pyrite in the
+stone.
+~
+A
+get scratch dig take~
+golden flecks~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou try in vain to scratch some of the flecks from the stone.@n
+~
+E
+rmsearch~
+@$n scratches fitfully at the stone for a few moments.@n
+~
+!
+0 0 0
+-1
+S
+
+#12009
+Turn in the Passageway~
+The cramped tunnel curves here, turning to the north and to the east.  A
+milky white substance seems to ooze down the walls, forming into solid
+and smooth lumps along the floor.  Stones litter the slick floor, made
+damp by the constant dripping of water.  Several small pools of water
+have collected in the deeper depressions in the floor.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 12010 10 10 5
+D1
+~
+~
+0 -1 12008 10 10 5
+E
+white milky lumps substance walls~
+This sticky fluid oozes down the walls, coating them with a thick film. 
+It seems that when it dries it forms into a smooth, stone-like substance
+that coats the walls and forms into solid lumps on the floor.
+~
+E
+pools depressions~
+Shallow depressions cover the floor, where water has collected.  The
+water appears fresh and might be drinkable.
+~
+E
+lumps stones floor 1 down~
+The lumps being formed upon the floor are the beginnings of new
+stalagmites.  Stones broken from existing stalagmites and stalactites to
+form the tunnel help with the foundations for new lumps.
+~
+A
+~
+~
+send_to_room( #drip, room );
+~
+E
+drip~
+@GThe silence is broken by the sound of dripping water echoing down the
+tunnel.@n
+~
+!
+2 100 0
+A
+get move break~
+lumps~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GThe lumps are stone and you cannot take them.@n
+~
+E
+rmsearch~
+@G$n tries in vain to rip the lumps from the floor.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #stench, room );
+~
+E
+stench~
+@YA horrible stench wafts in from the north.@n
+~
+!
+2 50 0
+819 17 1509949540 -2 0
+-1
+S
+
+#12010
+Filthy Cave - Above a Large Hole~
+A large pit surrounded by shattered bones dominates this stinking chamber. 
+The rough walls of the cave are covered with a layer of green moss that
+seems to thrive in the moist air.  Small, whitish stalactites hang from
+the cave roof.  Small bits of rock and other debris are also scattered on
+the floor, as are bits of bone.  The floor is spongy in places, and
+dotted with filth.  To the south a twisting tunnel leads out of the
+chamber and into darkness.
+~
+[Rue] room intentionally small.  Tromp won't fit.
+~
+301465605 0 5 0
+D2
+~
+~
+0 -1 12009 10 10 5
+D5
+~
+~
+0 -1 12011 10 10 5
+E
+pit 1 down hole~
+You peer down the pit but you can see nothing but darkness.  A metal
+ladder is inset into the wall of the pit so you can climb down should
+you have the urge to.  
+~
+E
+bones~
+The bones are of all sorts of creatures, and most of them are split and
+broken.  In the jumbled mix you can see small animal bones and some that
+are larger, probably humanoid.
+~
+E
+stalactites~
+The small stalactites can't be more than an inch long.  Although there is
+no way to reach them, they don't look all that interesting anyway.
+~
+A
+~
+~
+send_to_room( #stench, room );
+~
+E
+stench~
+@YA horrible smell wafts up from the pit below!@n
+~
+!
+2 100 0
+A
+~
+~
+if( mob_in_room( 126, find_room( 12011  ) ) ) {
+  find_room( 12010 );
+  i = 1d2;
+  if( i == 1 )
+    send_to_room( #croaking, room );
+  if( i == 2 )
+    send_to_room( #tromping, room );
+  }
+~
+E
+tromping~
+@YSuddenly the ground shakes and trembles as you hear a deep thunderous
+sound from below!@n
+~
+E
+croaking~
+@YA fearful, booming croaking sound echoes up from the pit!@n
+~
+!
+2 250 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou grab the rungs and lower yourself into the pit.@n
+~
+E
+to_room~
+@$n lowers $mself into the pit.@n
+~
+!
+3 0 32
+144 9 1509949540 3 0
+36 17 1509949540 -1 0
+36 17 1509949500 -1 0
+-1
+S
+
+#12011
+Pit~
+The steep walls of the pit are coated with a thick gore that mingles with
+a carpet of green moss.  The floor of the pit is covered with a layer of
+crushed bones and shattered rock.  A stout pillar of stone sits in the
+center of the pit, rusted manacles hangling limply from chains bolted to
+it.  Ancient iron rungs lead up the wall, providing exit from the dark
+pit.
+~
+[Rue] please leave it so people can't just walk out with tromp zombies
+~
+301465613 0 7 0
+D4
+~
+~
+0 -1 12010 10 10 5
+E
+bones floor 1 down moss carpet~
+Bones cover the floor of the pit, most of them splintered and crushed
+into a fine dusty layer over the ground.  Growing upon some of the bones
+and covering the floor is a carpet of moss.
+~
+E
+stone pillar~
+This thick stone pillar must be at least three feet in diameter.  Deep
+scratches and gouges mar the surface, along with stains that could only
+be blood.  A deep crack can be seen near the bottom of the pillar.
+~
+E
+crack~
+The crack looks deep enough to hide something in.
+~
+E
+manacles rusted chains~
+A thick pair of crude iron manacles hang from bolts in the stone pillar. 
+They are broken now and covered with a thick layer of damp rust.
+~
+E
+iron rungs~
+Thick iron rungs are bolted into the pit's side.  They lead upwards and
+out of the pit.  Some of the lower rungs are badly bent.
+~
+E
+walls gore~
+Gore covers the steep, rough walls of the pit.  The gore seems to be a
+mixture of slime, blood, feces, moss, and other fluids.
+~
+E
+1 up~
+Old iron rungs lead up to a small cave, which seems to have an opening
+south.
+~
+A
+1 look search feel~
+cracks~
+if( rflag( reset0, room ) ) {
+  send_to_char( #taken, ch );
+  act_notchar( #took, ch );
+  obj_to_char( oload( 57 ), ch );
+  remove_rflag( reset0, room );
+  };
+else
+  send_to_char( #nothing, ch );
+~
+E
+taken~
+@GYou search the crack and find a slip of paper.@n 
+~
+E
+took~
+@G$n searches the cracks in the pillar.@n
+~
+E
+nothing~
+@GYou search the cracks, but find nothing at all.@n
+~
+!
+0 0 0
+A
+move push~
+pillar~
+send_to_char( #groins, ch );
+act_notchar( #toroom, ch );
+~
+E
+groins~
+@GYou push the pillar as hard as you can, but nothing happens.@n
+~
+E
+toroom~
+@G$n grunts as $e pushes the pillar.  Oddly, it doesn't move at all.@n
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou grab the iron rungs and try to climb up.@n
+~
+E
+to_room~
+@G$n starts climbing up the iron rungs.@n
+~
+!
+3 0 16
+126 9 1509949540 3 0
+14 17 1509949470 -1 0
+14 17 1509949470 -1 0
+716 17 1509949441 -2 0
+983 17 1509949445 -2 0
+1039 17 1509949465 -2 0
+1039 17 1509949465 -2 0
+12 17 75 -2 0
+12 17 75 -2 0
+-1
+S
+
+#12012
+Twisting Passageway~
+A thick mold grows on the cave walls, fed by the dripping water that
+leaks in from the ceiling.  The floor is muddy and uneven, but easy
+enough to pass through without difficulty.  Small stalactites hang from
+the low ceiling, making it imperative that you watch where you are
+going.  After a slight rise the tunnel jogs slightly and then heads east. 
+You can also head west through the tunnel.
+~
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 12013 10 10 5
+D3
+~
+~
+0 -1 12007 10 10 5
+E
+dark mold~
+The dark mold is fed by the moisture dripping in from the ceiling.  It
+covers most of the walls, and appears harmless.
+~
+E
+muddy floor~
+You can see dog-like prints in the thick mud on the floor.  The prints
+lead both east and west.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GMoving to the east, you climb the slight rise in the floor and then
+continue down the tunnel.@n
+~
+!
+3 0 2
+A
+entering~
+~
+i = 1d20;
+if( i == 3 ) {
+  act_tochar( #whoa, ch );
+  act_notchar( #rmwhoa, ch );
+  }
+~
+E
+whoa~
+@YYou barely avoid hitting your head on one of the lower stalactites.@n
+~
+E
+rmwhoa~
+@Y$n nearly hits $s head on one of the low-hanging stalactites.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #wind, room );
+~
+E
+wind~
+@GA cool breeze flows by you, coming from the west.@n
+~
+!
+2 100 0
+A
+get take search~
+mold~
+Act_tochar( #search, ch );
+act_notchar( #search, ch );
+~
+E
+search~
+@GYou poke at the mold, but it is too difficult to remove from the wall.@n
+~
+E
+rmsearch~
+@GPokes the mold on the wall.@n
+~
+!
+0 0 0
+-1
+S
+
+#12013
+Twisting Passageway~
+The cramped tunnel curves quickly, cutting through a maze of large
+stalactites, stalagmites and columns.  A thick layer of dirt and rock
+covers the floor, making footing quite easy despite the irregularities. 
+The rock formations appear solid, and most are almost a foot thick.  The
+tunnel widens to the north, where you can see that the rock formations
+thin out and disappear.  To the west the tunnel descends a foot or two in
+small steps, then continues on for some distance.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 12014 10 10 5
+D3
+~
+~
+0 -1 12012 10 10 5
+E
+stalactites stalagmites columns~
+Thick rock formations sprout from the ceiling and floor.  They are all
+quite large and thick, and look very strong.  They are a whitish color,
+and smooth to the touch.
+~
+E
+dirt rock~
+The floor is covered by a thick layer of dirt mixed with gravel.  The
+gravel seems to have made it difficult to see any prints that may have
+been left.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou step down the small slope, then continue moving west.@n
+~
+!
+3 0 8
+A
+search~
+gravel dirt~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou poke around in the gravel, but find nothing.@n
+~
+E
+rmsearch~
+@G$n kneels down and pokes around in the gravel.@n
+~
+!
+0 0 0
+-1
+S
+
+#12014
+Tunnel~
+The cave spreads out into a semicircular bulge, with a small tunnel
+leading off to the east.  The floor has been covered with dirt and rock,
+as well as a thin layer of straw.  It is apparent from the prints on the
+floor that there is heavy traffic through this cave, much of it traveling
+towards the tunnel to the east.  To the north the tunnel pinches in and
+heads into darkness, while to the south a thick forest of stalactites and
+other rock formations make it difficult to see.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 12016 10 10 5
+D1
+~
+~
+0 -1 12015 10 10 5
+D2
+~
+~
+0 -1 12013 10 10 5
+E
+floor dirt rock straw 1 down~
+A thin layer of dirt and rock has been spread out on the floor to even it
+out.  The layer is only about two inches deep, but has been packed down
+over time.  Small dog-like prints can be seen in the dirt.
+~
+E
+prints~
+These prints are just smaller than a dwarven foot, but have an
+unmistakable look of canine to them.  They lead in all directions.
+~
+A
+~
+~
+send_to_room( #watersounds, room );
+~
+E
+watersounds~
+@BThe sound of running water can be heard coming from the east.@n
+~
+!
+2 100 0
+A
+search~
+floor straw dirt gravel~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou poke around in the dirt and straw, but find nothing.@n
+~
+E
+rmsearch~
+@$n pokes around the floor.@n
+~
+!
+0 0 0
+153 9 1509949540 3 0
+153 9 1509949490 3 0
+-1
+S
+
+#12015
+Lichen-Covered Cave~
+Hard-packed earth covers the stone floor of this cold and damp cave.  A
+small hole in the floor sits in the northeastern corner of the room.  The
+ceiling of the cave is slanted towards the north end, rising to its
+highest point near the small tunnel that leads westwards.  A thin layer
+of black lichen covers most of the wall, only missing a small space a few
+feet above the hole in the floor.
+~
+~
+301465605 0 6 0
+D3
+~
+~
+0 -1 12014 10 10 5
+E
+hole 6 northeastern corner~
+The hole is about a foot in diameter, but you can see down into it about
+six feet.  A fast-moving stream of water gurgles loudly by beneath the
+hole.
+~
+E
+lichen black~
+Long-dead patches of lichen cover the walls and ceiling of the cave.  The
+small patch where the lichen is missing appears to be polished by
+constant touching of some sort.
+~
+A
+~
+~
+send_to_room( #chuckle, room );
+~
+E
+chuckle~
+Loud gurgling sounds can be heard coming from the hole in the floor.
+~
+!
+2 100 0
+A
+enter go~
+hole floor~
+act_tochar( #noway!, ch );
+act_notchar( #rmnoway!, ch );
+~
+E
+noway!~
+The hole is far too small and smelly for you to enter.
+~
+E
+rmnoway!~
+$n thinks about entering the small hole for only a second before
+changing $s mind.
+~
+!
+0 0 0
+A
+get take~
+lichen~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GYou cannot take the lichen.@n
+~
+!
+0 0 0
+146 9 1509949540 3 0
+-1
+S
+
+#12016
+Broad Tunnel~
+This cave is quite wide, spreading to the east and west and bulging above
+your head to a height of about twelve feet.  The dark brown stone of
+the ceiling and floor are almost smooth, though the floor is a bit uneven,
+rolling slightly with small dips.  Towards the southwest side of the cave
+a small pinched-in tunnel leads south into darkness.  To the north, a
+large tunnel leads towards a slight glow.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 12017 10 10 5
+D2
+~
+~
+0 -1 12014 10 10 5
+E
+ceiling above 1 up~
+The ceiling is bowed slightly upwards, ranging from a height of about six
+feet at the edges of the room, to a height of twelve feet at the center.
+~
+E
+floor 1 down~
+The floor is comprised of a smooth, brown stone.  There are several
+depressions and heights in the cave, but they are only minor and easy to
+traverse.
+~
+-1
+S
+
+#12017
+Cavern~
+This huge cavern reaches high above you into darkness.  Poorly crafted
+low wooden tables are arranged in a crude attempt to create a banquet
+hall of some sort.  Crude wooden plates and mugs litter the floor and
+tables, casually tossed aside by their last users.  Bolted to the walls
+are some torches which cast a pale and feeble light about the cave.  To
+the north the cave continues, curving around a natural stone formation as
+it leads that way.  To the east the large cavern expands, more tables
+visible even in the gloom.  A dwarf skeleton is shackled to the west, the
+bones hanging limply from rusty chains.
+~
+[Kwee] very cute, burn the old players who reach for the torch. :P
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 12026 10 10 5
+D1
+~
+~
+0 -1 12023 10 10 5
+D2
+~
+~
+0 -1 12016 10 10 5
+E
+skeleton chains~
+These are the skeletal remains of a dwarf that was kept chained to the
+wall.  The bones have been picked clean of flesh by something, but enough
+connective tissue remains to keep it intact.
+~
+E
+plates mugs floor 1 down~
+The plates and mugs are of crude manufacture and are encrusted with filth. 
+The plates are stained and caked with dried food, and many of the mugs
+have mold growing in them.
+~
+E
+tables wooden~
+The low wooden tables are covered in crusty food and stains from unknown
+sources.  The craftsmanship of the tables is substandard, and time, nor
+the kobolds has been kind to them.
+~
+E
+torches~
+The torches are merely oil-wrapped wooden clubs, their feeble flame
+burning smoking.  The wall brackets holding the torches are old and made
+of crude iron.  They are solidly bolted to the walls though.
+~
+A
+~
+~
+send_to_room( #flicker, room );
+~
+E
+flicker~
+@YThe torch flickers briefly, sputtering then resumes burning.@n
+~
+!
+2 75 0
+A
+pull push turn twist~
+iron sconce torch~
+act_tochar( #burn, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 15 );
+dam_message( ch, i, "a searing hot torch" );
+inflict_fire( ch, mob, i, "a searing hot torch" );
+~
+E
+burn~
+@RYou reach for the torch, burning your hand badly as you touch the hot flame!@n
+~
+E
+witness~
+@RBefore you can stop $n, $e reaches for the torch, burning $s hand!@n
+~
+!
+0 0 0
+147 9 1509949540 3 0
+147 9 1509949520 3 0
+148 9 1509949540 3 0
+-1
+S
+
+#12019
+Passageway~
+This passageway is wide and free from the natural stone obstructions
+prevalent in much of the caves.  From the crude chisel marks visible on
+the walls, this tunnel has been carved into its present shape by
+unskilled miners.  The most striking thing in the cave is a thick, wooden
+door set into the tunnel to the north, flanked on either side by stout
+poles with dessicated dwarf heads mounted atop them.  A stained curtain
+of sorts hangs along the east wall, perhaps leading into another cave. 
+The passageway also leads south.
+~
+[Rue] should stay dark 
+~
+301465604 0 5 0
+D0
+door~
+door~
+391 256 12021 10 10 5
+D1
+curtain~
+curtain~
+131 -1 12020 10 10 5
+D2
+~
+~
+0 -1 12026 10 10 5
+E
+door 1 north~
+The dried and shriveled heads of two dwarves are mounted atop thick
+wooden poles that flank each side of the door.  The mouths hang open, and
+their skin has turned a dark brown.  Their long beards still cling to the
+dry flesh, now covered with cobwebs and dust.  The eyes of the dwarf on
+the west side of the door are still open, and rolled to the heavans.
+~
+E
+door~
+The door is made from thick planks of wood bound by heavy bands of iron. 
+The wood of the door is scarred from what appear to be axe chops, but
+stands firm despite the damage.
+~
+E
+1 east curtain~
+A blanket hangs on the east wall, acting as a curtain between this room
+and the room beyond.  The curtain is badly stained and dirty, though its
+sides are worn almost bald, indicating heavy use.
+~
+A
+get take pull lift remove~
+dessicated heads dwarf dried~
+act_tochar( #noget, ch );
+act_notchar( #rmnoget, ch );
+~
+E
+noget~
+@G You can't take the heads, they are firmly stuck in the poles.@n
+~
+E
+rmnoget~
+@G$n tries to pull the heads off the poles, but they are stuck firmly.@n
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 159, find_room( 12020 ) ) ) {
+  find_room( 12019 );
+  send_to_room( #crying, room );
+  }
+~
+E
+crying~
+@RYou hear a muffled and low howling sound coming from the east.@n 
+~
+!
+2 200 0
+A
+~
+~
+continue;
+~
+E
+To_char~
+@GYou brush the curtain as you move through.@n
+~
+E
+to_room~
+@G$n $t east through the curtained doorway.@n
+~
+!
+3 0 2
+154 9 1509949540 3 0
+-1
+S
+
+#12020
+Nursery~
+This rectangular cave is situated just off the main passageway.  A thick
+and stained blanket hangs from iron hooks along the west wall, and can be
+used to close off the small entrance from the rest of the cavern.  Three
+crudely constructed wooden cradles line the east wall, filled with mats
+of stinking straw.  One torch lights the cave, resting in an iron sconce
+bolted to the south wall.  The only way out is west towards the main
+passageway.
+~
+[Rue] flame code set for when inflict_fire works
+[Rue] she can detect_hidden..no way to sneak through curtain..and she has
+a good sense of smell.
+~
+301465605 0 5 0
+D3
+curtain~
+curtain~
+131 -1 12019 10 10 5
+E
+blanket curtain 1 west~
+This thick cotton blanket has seen better days.  It may have once been a
+decent piece of cloth, but now it is stained and probably infested with
+fleas.  The blanket looks like it would easily be pushed out of the way
+to move west.
+~
+E
+cot cradle box~
+These crude wooden boxes are used as cradles by the kobolds.  They have
+been stuffed with straw which seems to do a wonderful job of soaking up
+and preserving the hideous smells kobold children produce.
+~
+E
+sconce torch iron~
+A plain torch sits in a crude but effective iron sconce bolted to the
+wall.
+~
+A
+pull move twist turn~
+torch iron sconce~
+send_to_char( #burn, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 15 );
+dam_message( ch, i, "a searing hot torch" );
+inflict_fire( ch, ch, i, "a searing hot torch" );
+~
+E
+burn~
+You reach for the torch, burning your hand badly as you touch the hot flame!
+~
+E
+witness~
+Before you can stop $n, $e reaches for the torch, burning $s hand!
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 158, room );
+if( !mob )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_room( #snarl, room );
+  }
+~
+E
+snarl~
+@GThe kobold nursemaid bares her teeth and snarls!@n
+~
+!
+1 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou brush the curtain as you head west.@n
+~
+E
+to_room~
+@G$n $t through the curtained doorway to the west.@n
+~
+!
+3 0 8
+158 9 1509949540 3 0
+159 9 1509949540 3 0
+159 9 1509949540 3 0
+159 9 1509949540 3 0
+-1
+S
+
+#12021
+Chieftain's Room~
+Carved from stone, this chamber is quite pleasant even for a kobold. 
+The chamber is as roughly square as kobold miners could hope to
+accomplish.  A wide shelf of sorts has been cut into the east wall, and a
+bedding of old skins acts as a mattress.  Two torches burn brightly on
+the west wall, sitting in iron sconces bolted into the stone.  Sharp
+hooks hang from the ceiling next to a heavy wooden door to the north.  To
+the south a heavy wooden door bound by iron provides exit.
+~
+[Rue] done
+~
+301465605 0 5 0
+D0
+heavy wooden door~
+heavy wooden door~
+235 -1 12022 10 10 5
+D2
+wooden door~
+door~
+391 256 12019 10 10 5
+E
+button~
+The button is smooth from use.  It looks like you can press it.
+~
+E
+skins bedding mattress~
+The old skins that make up the bedding are quite dirty and stained.
+~
+E
+sconces~
+The sconces are made of iron and hold hot, burning torches.
+~
+E
+shelf bed~
+This wide shelf is about four feet wide.  From the dirty skins heaped on
+it, you would guess it is a bed.
+~
+E
+hooks sharp~
+Heavy iron hooks with a cruel and barbed tip are bolted to the stone
+ceiling.  They are covered in rust, and what appears to be caked blood.
+~
+A
+~
+~
+mob = mob_in_room( 153, room );
+if( mob ) {
+  if( is_fighting( mob ) )
+    end;
+  if( random( 1, 2 ) == 1 ) {
+    if( num_in_room( room ) < 1 ) {
+      act_room( #guard, ch );
+      junk_mob( mob );
+      }
+    }
+  }
+mob = mob_in_room( 145, room );
+if( random( 1, 2 ) == 1 ) {
+  if( num_in_room( room ) < 1 ) {
+    act_room( #guard, ch );
+    junk_mob( mob );
+    }
+  }
+~
+E
+guard~
+The guard returns to his post.
+~
+!
+2 100 0
+A
+push press~
+button~
+mob = mob_in_room( 157, room );
+if( mob ) {
+  act_room( #rage, ch );
+  attack( mob, ch, 3d6+1, "leaping smash" );
+  end;
+  }
+if( is_open( room, north ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rmclose, ch );
+  close( room, north );
+  send_to_room( #otrmclose, find_room( 12022  ) );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #rmopen, ch );
+  open( room, north );
+  send_to_room( #otrmopen, find_room( 12022  ) );
+  }
+~
+E
+rage~
+@YThe kobold chieftain moves to attack!@n
+~
+E
+close~
+@GYou press the small button and the northern door slides closed with a
+bang.@n 
+~
+E
+rmclose~
+@G$n puts $s hand in the bedding and the northern door slams shut with a
+bang!@n 
+~
+E
+otrmclose~
+@GThe door slams shut with a bang!@n
+~
+E
+open~
+@GYou press the button and the north door slides open silently.@n
+~
+E
+rmopen~
+@G$n puts $s hand in the hay and the north door slides open silently.@n
+~
+E
+otrmopen~
+@GThe door slides open silently.@n
+~
+!
+0 0 0
+A
+search look~
+bedding sheets~
+if( find_skill( ch, searching )  > random( 0, 2 ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #search, ch );
+  }
+else {
+  act_tochar( #nofind, ch );
+  act_notchar( #search, ch );
+  }
+~
+E
+find~
+@GYou search through the bedding and find a small button.@n
+~
+E
+search~
+@G$n searches the bedding.@n
+~
+E
+nofind~
+@GYou search through the bedding, but find nothing of value.@n
+~
+!
+0 0 0
+A
+pull push twist turn~
+torch sconce~
+act_tochar( #burn, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 15 );
+dam_message( ch, i, "a searing hot torch" );
+inflict_fire( ch, mob, i, "a searing hot torch" );
+~
+E
+burn~
+@RYou reach for the torch, burning your hand badly as you touch the hot
+flame!  @n 
+~
+E
+witness~
+@RBefore you can stop $n, $e reaches for the torch, burning $s hand!  @n
+~
+!
+0 0 0
+157 41 1509949540 3 0
+153 73 1509949540 3 0
+-1
+S
+
+#12022
+Small Cave~
+This small room has been slightly enlarged in part by mining, only the
+northeast corner remaining natural, of what must have been a very small
+cave.  The ceiling is about nine feet high, except in the corner where
+several small stalactites and the natural, height of the room make it
+around seven.  The walls are barren stone, and the floor is quite dusty. 
+A heavy wooden door dominates the south wall.  A small lever protrudes
+from the south wall beside the door.
+~
+[Rue] done
+~
+301465604 0 5 0
+D2
+heavy wooden door~
+heavy wooden door~
+235 -1 12021 10 10 5
+E
+lever~
+The lever is made from rusty iron.  It looks like you can pull it.
+~
+E
+stalactites~
+The small stalactites look normal.  They are tiny, only a few inches long.
+~
+E
+1 south door~
+The door is made of solid wood and is unbreakable.  There is no keyhole
+and no doorknob or way to pry the door open.
+~
+A
+~
+~
+if( mob_in_room( 153, room ) ) {
+  if( is_fighting( mob ) )
+    end;
+  if( random( 1, 2 ) == 1 ) {
+    if( num_in_room( room ) < 1 ) {
+      act_room( #guard, ch );
+      junk_mob( mob );
+      }
+    }
+  if( random( 1, 2 ) == 1 ) {
+    if( num_in_room( room ) < 1 ) {
+      act_room( #guard, ch );
+      mob = mob_in_room( 145 );
+      junk_mob( mob );
+      }
+    }
+  }
+~
+E
+guard~
+The guard returns to his post.
+~
+!
+2 50 0
+A
+pull push flip~
+lever~
+mob = mob_in_room( 157, room );
+if( mob ) {
+  act_room( #rage, ch );
+  attack( mob, ch, 3d6+1, "leaping smash" );
+  end;
+  }
+if( is_open( room, south ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rmclose, ch );
+  close( room, south );
+  send_to_room( #otrmclose, find_room( 12021  ) );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #rmopen, ch );
+  open( room, south );
+  send_to_room( #otrmopen, find_room( 12021  ) );
+  }
+~
+E
+rage~
+@YWith a loud bellow the chieftain attacks!@n
+~
+E
+close~
+@GThe door to the south swings closed with a bang as you pull the
+lever.@n 
+~
+E
+rmclose~
+@GAs $n pulls the lever the door south slams shut loudly!@n
+~
+E
+otrmclose~
+@GYou hear a grating sound just before the north door slams shut!@n
+~
+E
+open~
+@GYou pull the lever and the door swings silently open.@n
+~
+E
+rmopen~
+@G$n pulls the lever and the south door swings open silently.@n
+~
+E
+otrmopen~
+@GThe north door swings silently open.@n
+~
+!
+0 0 0
+23 17 1509949540 -2 1
+118 49 1509949540 -2 0
+14 81 1509949540 -2 0
+12 81 1509949540 -2 0
+14 81 1509949540 -2 0
+872 81 1509949450 -2 0
+941 81 1509949443 -2 0
+910 81 1509949443 -2 0
+95 81 1509949465 -2 0
+1077 81 1509949450 -2 0
+2101 81 1509949450 -2 0
+14 81 1509949450 -2 0
+14 81 1509949465 -2 0
+2180 81 1509949450 -2 0
+14 81 1509949450 -2 0
+1039 81 1509949465 -2 0
+79 81 1509949450 -2 0
+998 81 1509949445 -2 0
+1132 81 1509949455 -2 0
+1054 81 1509949455 -2 0
+1266 81 1509949445 -2 0
+78 17 1509949490 -2 0
+78 17 1509949490 -2 0
+-1
+S
+
+#12023
+Cavern~
+Small white stalactites hang from the high ceiling in this part of the
+cave.  The walls are a rough brown stone, stained with food and wine. 
+Torches are set into iron sconces on the walls, providing a flickering
+fitful light.  A small tunnel leads north towards what looks like a small
+cave.  To the east another tunnel winds into darkness, towards a strong
+light.  The large cavern leads westward, towards a row of low tables.
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 12024 10 10 5
+D1
+~
+~
+0 -1 12025 10 10 5
+D3
+~
+~
+0 -1 12017 10 10 5
+E
+torches sconces iron~
+Two torches are set in iron sconces on the cave walls.  The sconces are
+crudely fashioned.
+~
+E
+stalactites white~
+These small stalactites look quite normal.  Many of them are scattered
+across the ceiling, too high up to reach.
+~
+E
+formations stone~
+These formations appear to be nothing more than irregularities along the
+cave floor.  They appear to be used as seats.
+~
+A
+~
+~
+send_to_room( #flicker, room );
+~
+E
+flicker~
+@Y The torch flickers for a moment, casting wicked shadows across the
+irregular stone walls.@n
+~
+!
+2 75 0
+A
+pull grab get push~
+torch sconce~
+act_tochar( #burn, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 15 );
+dam_message( ch, i, "a searing hot torch" );
+inflict_fire( ch, mob, i, "a searing hot torch" );
+~
+E
+burn~
+@RYou reach for the torch, burning your hand badly as you touch the hot flame!@n
+~
+E
+witness~
+@RBefore you can stop $n, $e reaches for the torch, burning $s hand!@n
+~
+!
+0 0 0
+147 9 1509949540 3 0
+145 9 1509949540 3 0
+145 9 1509949490 3 0
+-1
+S
+
+#12024
+Sleeping Area~
+This medium-sized cave is dotted with dirty straw mats that cover the
+hard stone floor.  The floor is irregular, as are the walls, and provide
+several small and secluded areas that are somewhat private.  The
+soot-stained ceiling is low, just over ten feet in height, and dips to a
+height of about eight feet in a few spots.  A small tunnel leads south
+towards a flickering light.  To the west, there is a shallow drop, which
+quickly turns into a tunnel.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 12023 10 10 5
+D3
+~
+~
+0 -1 12026 10 10 5
+E
+straw mats~
+The straw mats appear to be used as beds by the kobolds.  From the looks
+of them, kobolds are not very particular about cleanliness.
+~
+E
+1 down floor~
+The floor is rough, with lumps that are natural to a cave floor.  Mats of
+straw dot the floor.
+~
+E
+1 south flickering light~
+South is a natural cave that leads to a dim, flickering light.  The
+light, though, is too faint for you to make out anymore details.
+~
+A
+search~
+straw mats beds bedding~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+You search the straw mats and find nothing.
+~
+E
+rmsearch~
+$n pokes around in the straw mats.
+~
+!
+0 0 0
+147 9 1509949540 3 0
+150 9 1509949540 3 0
+150 9 1509949540 3 0
+150 9 1509949520 3 0
+147 9 1509949490 3 0
+-1
+S
+
+#12025
+Training Area~
+The walls of this cave have been crudely worked into a circular shape. 
+The center of the room is depressed, the sunken area covering about
+twenty feet in diameter and filled with a heavy sand.  Along the south
+wall is a wooden weapons rack.  Four torches sit in iron sconces that are
+spread about the room giving good light to this training area.  A winding
+tunnel leads westward.
+~
+[Rue] The burning code is set up for if/when inflict_fire works
+~
+301465605 0 5 0
+D2
+weapon rack~
+weapon rack~
+203 -1 12027 10 10 5
+D3
+~
+~
+0 -1 12023 10 10 5
+E
+torches~
+These iron sconces appear firmly bolted to the walls.  The torches are
+firmly fixed in the sconces and look like they make them very hot.
+~
+E
+rack~
+This old wooden rack leans heavily against the south wall.  Oddly, the
+rack is empty.  Along the floor near the rack are some scratches.
+~
+E
+sand pit area~
+The sand pit is lowered from the rest of the floor by about one foot. 
+The sand is heavy and damp, and dotted by innumerable dog-like prints.
+~
+E
+scratches~
+Small scratches run alongside the floor leading from the rack.  The
+scratches are minor, but look like they were caused by the scratching of
+sand.
+~
+A
+push pull move~
+weapons rack wooden~
+if( is_open( room, south ) ) {
+  act_tochar( #to_char_nothing, ch );
+  act_notchar( #to_room_nothing, ch );
+  close( room, south );
+  send_to_room( #closing, find_room( 12027  ) );
+  }
+else {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  open( room, south );
+  send_to_room( #opening, find_room( 12027  ) );
+  }
+~
+E
+to_char~
+@GYou find the weapons rack slides easily to the side revealing a
+passageway behind it.@n
+~
+E
+to_room~
+@G$n slides the weapons rack aside, revealing a hidden passage.@n
+~
+E
+to_char_nothing~
+@GYou slide the weapons rack back to hide the passage.@n
+~
+E
+to_room_nothing~
+@G$n slides the weapons rack, covering the passage.@n
+~
+E
+opening~
+@GThe wooden panel to the north slides open.@n
+~
+E
+closing~
+@GThe passageway north closes, as somebody slides it shut.@n
+~
+!
+0 0 0
+A
+pull push move turn twist get~
+torch sconce~
+act_tochar( #burn, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 15 );
+dam_message( ch, i, "a searing hot torch" );
+inflict_fire( ch, mob, i, "a searing hot torch" );
+~
+E
+burn~
+@RYou reach for the torch, burning your hand badly as you touch its hot
+flames!@n
+~
+E
+witness~
+@RBefore you can stop $n, $e reaches for the torch, burning $s hand!@n
+~
+!
+0 0 0
+151 9 1509949540 3 0
+152 9 1509949540 3 0
+152 9 1509949540 3 0
+-1
+S
+
+#12026
+Cavern~
+Twisted walls and a tall ceiling make up this cavern.  The stone of the
+walls is brown and made of grotesquely-shaped formations.  The floor
+is smooth, unlike that of the nearby caves, and appears to have heavy
+traffic by the prints in the dust.  Several tunnels branch off of this
+cave; one each to the east, south, and north.  To the south you see a
+flickering light.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 12019 10 10 5
+D1
+~
+~
+0 -1 12024 10 10 5
+D2
+~
+~
+0 -1 12017 10 10 5
+E
+prints dust~
+Many dog-like paw prints lead in all directions, easily visible in the
+dust of the floor.
+~
+E
+grotesquely-shaped formations~
+These twisted masses of stone appear natural.  Other than the odd shapes
+they possess, nothing appears special about them.
+~
+148 9 1509949540 3 0
+148 9 1509949490 3 0
+148 9 1509949490 3 0
+-1
+S
+
+#12027
+Enclosed Room~
+Bare stone walls carved from the solid rock greet you in this small
+chamber.  The stonework is rough and uneven, but still manages to make
+this a somewhat nice room.  A large wooden vat sits in the southeast
+corner, giving off a faint smell of rot and salt.  In the southwest
+corner sits a small desk, covered in dust.  A small iron chain hangs from
+a tiny hole in the ceiling along the north wall.  An old warped door sits
+in the middle of the south wall.  The north wall is dominated by a curved
+archway.
+~
+[Rue] add water to room
+[Rue] ae 3 must remain the third code in the room
+~
+301465629 0 5 0
+D0
+wood panel~
+~
+203 -1 12025 10 10 5
+D2
+warped door~
+warped door~
+131 -1 12028 10 10 5
+E
+hole~
+This small hole is barely big enough for the chain that dangles from it. 
+The sides are chipped from where the chain has repeatedly hit them.
+~
+E
+chain~
+This chain hangs from the ceiling to a height of about four feet off the
+ground.  The chain is made of iron, and has a thin sheen of rust on it.
+~
+E
+archway~
+The curved archway looks more a product of lazy mining than any planned
+decoration.  The less than graceful curves of the arch show the inept
+chisel marks of whoever once carved it.
+~
+A
+open~
+warped south s door~
+if( is_open( find_room( 12027 ), south ) ) {
+  act_tochar( #alreadyopen, ch );
+  end;
+  }
+act_tochar( #to_char, ch );
+act_notchar( #to_room, ch );
+send_to_room( #opening, find_room( 12028 ) );
+continue;
+~
+E
+alreadyopen~
+It's already open.
+~
+E
+to_char~
+@GThe door creaks loudly as you open it!@n
+~
+E
+opening~
+@GYou hear a loud creaking sound!@n
+~
+E
+to_room~
+@GThe door creaks loudly as $n opens it!@n
+~
+!
+0 0 0
+A
+pull tug yank~
+chain~
+if( is_open( room, north ) ) {
+  act_tochar( #tocharclose, ch );
+  act_notchar( #tormclose, ch );
+  close( room, north );
+  send_to_room( #otrmclose, find_room( 12025 ) );
+  }
+else {
+  act_tochar( #opens, ch );
+  act_notchar( #rmopen, ch );
+  open( room, north );
+  send_to_room( #otrmopen, find_room( 12025  ) );
+  }
+~
+E
+tocharclose~
+@GA thick wood panel slides shut over the north doorway when you pull the
+chain.@n 
+~
+E
+tormclose~
+@GAs $n pulls the chain, a wooden panel slides over to cover the north
+doorway.@n
+~
+E
+otrmclose~
+@GThe weapons rack slides over the doorway to the south, concealing it.@n
+~
+E
+opens~
+@GA wooden panel slides away, revealing a doorway to the north.@n
+~
+E
+otrmopen~
+@GThe weapons rack slides open, revealing a doorway.@n
+~
+E
+rmopen~
+@GA panel slides open to the north, revealing a doorway when $n pulls the chain.@n
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #vat, ch );
+act_notchar( #rmvat, ch );
+wait( 1 );
+i = 1d20;
+if( rflag( reset1, room ) ) {
+  if( i < 11 ) {
+    obj = oload( 2620 );
+    obj_to_room( obj, room );
+    act_tochar( #gotcorpse, ch );
+    act_notchar( #rmgotcorpse, ch );
+    remove_rflag( reset1, room );
+    end;
+    }
+  act_tochar( #nocorpse, ch );
+  act_notchar( #rmnocorpse, ch );
+  remove_rflag( reset1, room );
+  }
+else
+  act_tochar( #nocorpse, ch );
+~
+E
+vat~
+@GYou plunge your hands into the vat and grope around looking for
+something.@n 
+~
+E
+rmvat~
+@G$n plunges $s hands into the reeking vat, and begins searching for something.@n
+~
+E
+gotcorpse~
+@YYour hands touch something, and your fingers wrap around a rubbery mass. 
+You pull it free and a horrible stench explodes in the room as you pull
+out a bloated corpse!@n 
+~
+E
+rmgotcorpse~
+@Y$n fishes about for a few moments before quickly pulling out the
+bloated corpse of a dwarf!  The stench is horrible!@n 
+~
+E
+nocorpse~
+@GYou reach and grope, but don't find anything in the vat.@n
+~
+E
+rmnocorpse~
+@GAfter a few fruitless moments of searching, $n gives up.@n
+~
+!
+0 0 0
+A
+search~
+vat rotting stinking~
+if( !is_player( ch ) )
+  end;
+if( race( ch ) == troll ) {
+  acode( room, 3 );
+  if( race( ch ) == ogre )
+    acode( room, 3 );
+  if( race( ch ) == orc )
+    acode( room, 3 );
+  if( race( ch ) == goblin )
+    acode( room, 3 );
+  end;
+  }
+else {
+  act_tochar( #noway, ch );
+  act_notchar( #rmnoway, ch );
+  end;
+  }
+~
+E
+noway~
+@YYou start to move closer to the vat, but the smell drives you back!@n
+~
+E
+rmnoway~
+@Y$n struggles to move closer to the stinking vat, but gives up.@n
+~
+!
+0 0 0
+3162 17 1509949540 -2 0
+3163 17 1509949540 -2 14
+-1
+S
+
+#12028
+Smelly Chamber~
+This domed chamber is filled with garbage and discarded junk.  A thick
+marble-topped table sits against the east wall.  At the south end of the
+table sits a heavy wooden barrel.  The ceiling is about twelve feet tall
+in the center, dropping to about eight where it meets the walls.  A
+wooden door sits in the middle of the north wall.  A small passageway
+leads south.
+~
+~
+301465621 0 5 0
+D0
+warped door~
+warped door~
+131 -1 12027 10 10 5
+D2
+~
+~
+0 -1 12029 10 10 5
+E
+garbage junk~
+A closer examination of the junk and garbage reveals that it consists of
+old, blood-stained clothing items.  Mixed in with the sullied clothing
+are broken trinkets, hunks of hair and other worthless items.
+~
+E
+marble-topped table~
+This table is about six feet long and three feet wide.  Deep,
+crimson-stained grooves run along the sides of the table and lead towards
+the south end of the table where a small funnel empties into a barrel.
+~
+E
+barrel~
+This barrel is rotten, but is still able to hold its grisly contents.  A
+thin layer of crusted blood covers the inside of the barrel, while old
+bits of flesh are stuck to the sides.
+~
+E
+passageway~
+The small passageway is too dark to see very far into.
+~
+A
+open~
+warped door north~
+if( is_open( find_room( 12028 ), north ) ) {
+  act_tochar( #alreadyopen, ch );
+  end;
+  }
+act_tochar( #creak, ch );
+act_notchar( #rmcreak, ch );
+send_to_room( #opening, find_room( 12027 ) );
+continue;
+~
+E
+alreadyopen~
+It's already open!
+~
+E
+creak~
+@GThe door creaks loudly on its rusty hinges!@n
+~
+E
+opening~
+@GYou hear a loud creaking sound!@n
+~
+E
+rmcreak~
+@GThe door creaks loudly as $n opens it!@n
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 66, room );
+if( mob )
+end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_room( #zombie, room );
+  mob = mload( 66, room );
+  attack( mob, victim, 3d4+2, "swipe" );
+  }
+~
+E
+zombie~
+@GWith a low moan, a @Ydwarf zombie@n@G gets up off the marble table and
+moves towards you!@n 
+~
+!
+1 0 5
+A
+search~
+barrel~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the barrel but find nothing.@n
+~
+E
+rmsearch~
+@G$n searches the barrel.@n
+~
+!
+0 0 0
+83 9 1509949515 3 0
+-1
+S
+
+#12029
+Small Passageway~
+Crudely carved stone walls and floors make this twisted passageway
+difficult to walk in.  The uneven floor and walls disorient you as you
+try and walk.  Matters are not helped by the number of small bones
+littering the floor, making it easy to slip.  To the north the passage
+opens into a large room.  A quick turn in the tunnel also leads west.
+~
+~
+301465628 0 5 0
+D0
+~
+~
+0 -1 12028 10 10 5
+D3
+~
+~
+0 -1 12031 10 10 5
+E
+1 down floor bones~
+The floor is rough and uneven, the natural result of this passageway
+being formed from a cavern by amateur stonemasons.  Moreover, the floor
+is littered with small bones, adding to the uncertain footing.
+~
+E
+walls 1 east 1 south~
+The walls are uneven, being mostly the natural walls of this underground
+cavern.  Some effort has been made to form the walls, as evidenced by the
+rough chisel marks.  However, the carvers were not very neat and the
+walls are bumpy and quite irregular.
+~
+A
+~
+~
+i = 1d20;
+if( i < 3 ) {
+  act_tochar( #whoa, ch );
+  act_notchar( #rmwhoa, ch );
+  end;
+  }
+~
+E
+whoa~
+@GYou stumble over the bones littering the floor.@n
+~
+E
+rmwhoa~
+@G$n stumbles against the bones littering the floor.@n
+~
+!
+1 0 9
+A
+search~
+bones junk~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the bones on the floor, but find nothing.@n
+~
+E
+rmsearch~
+@G$n searches the bones on the floor.@n 
+~
+!
+9 0 0
+-1
+S
+
+#12031
+Winding Tunnel~
+This small round chamber has only one feature of note: A few iron rungs
+leading up into the darkness.  The stone of the walls and floors has been
+crudely tunneled, and is uneven and even sharp in some places.  It is
+impossible to see more than ten feet above you.  The twisting passage
+leads east, as well as up the rungs.
+~
+[Rue] mob jumps on first person going up.
+~
+301465684 0 5 0
+D1
+~
+~
+0 -1 12029 10 10 5
+D4
+~
+~
+0 -1 12033 10 10 5
+E
+iron rungs~
+These old iron rungs appear to have been here for ages.  They are firmly
+embedded in the stone, and despite the dusting of rust on them, appear
+quite strong.
+~
+A
+up~
+~
+if( rflag( reset0, room ) ) {
+  mload( 66, room );
+  act_tochar( #whattha, ch );
+  act_notchar( #death, ch );
+  mob = mob_in_room( 66, find_room( 12031 ) );
+  if( attack( mob, ch, 5d6+4, "flying tackle" ) ) {
+    act_tochar( #down, ch );
+    act_notchar( #rmdown, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  else {
+    i = 2d10;
+    send_to_room( #thud, room );
+    dam_message( mob, i, "hitting the floor" );
+    inflict( mob, mob, i, "hitting the floor" );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+continue;
+~
+E
+death~
+@GAs $n begins climbing the rungs you hear a scrabbling sound and
+suddenly a grey blur falls down on $m from above!@n
+~
+E
+whattha~
+@GYou grab hold of the rungs and begin climbing when you hear a
+scrabbling sound and something jumps on you from above!@n
+~
+E
+down~
+@RThe zombie's momentum drags you off the rungs!@n
+~
+E
+rmdown~
+@R$n is dragged off the rungs by the zombies attack!@n
+~
+E
+thud~
+@YThe zombie misses entirely and slams into the floor with a thud!@n
+~
+!
+0 0 0
+A
+scan~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GYou can't see anything up, and the tunnel is too twisted to see east.@n
+~
+!
+0 0 0
+-1
+S
+
+#12033
+Winding Tunnel~
+The dark and twisted passage winds its way lazily to the west and down. 
+At this end of the passage there is a sudden drop-off.  Over the side
+you can see iron rungs that lead down into the shaft.  The tunnel is
+quite tight in places, making all but the smallest people squeeze through
+the tight opening.
+~
+~
+301465628 0 5 0
+D3
+~
+~
+0 -1 12034 10 10 5
+D5
+~
+~
+0 -1 12031 10 10 5
+E
+drop-off shaft 1 down~
+The shaft is wide enough to allow an ogre to move through comfortably. 
+Iron rungs embedded in the stone provide you an easy way to climb down.
+~
+E
+iron rungs~
+The iron rungs are somewhat rusty, but appear to be quite strong still.
+~
+A
+~
+~
+if( size( ch ) > 4 )
+  continue;
+~
+E
+to_char~
+@GThe tunnel is a tight squeeze, but you push through.@n
+~
+E
+to_room~
+@G$n barely manages to squeeze through the tunnel to the west.@n
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+!
+3 0 8
+-1
+S
+
+#12034
+Winding Tunnel~
+You stand in a small, winding tunnel cored from the bedrock.  It is dark
+and has an unpleasant odor.  Carved through solid stone, this tunnel does
+its best to head straight east and west, where you see a natural cave. 
+The tunnelers were not very skilled, and seem to have made several
+changes in the direction they were digging.  The walls and floor are very
+rough, and the air is stale.
+~
+~
+301465620 0 5 0
+D1
+~
+~
+0 -1 12033 10 10 5
+D3
+~
+~
+0 -1 12035 10 10 5
+E
+walls floor 1 north 1 south 1 down 1 up ceiling~
+The walls, floor, and ceiling are carved from solid stone.  Left over
+from the digging process are chisel marks and other sharp angles.  The
+tunnelers carved only what was necessary for them to use this passage.
+~
+A
+~
+~
+if( size( ch ) > 4 )
+  continue;
+~
+E
+to_char~
+@GYou press into the small tunnel, barely squeezing through.@n
+~
+E
+to_room~
+@G$n grunts as $e presses into the tunnel to the east.@n
+~
+!
+3 0 2
+A
+~
+~
+continue;
+~
+!
+3 0 2
+66 9 1509949540 3 0
+-1
+S
+
+#12035
+Dead End~
+Humanoid bones are scattered all about this medium-sized chamber.  The
+cave appears natural, its irregular walls showing no signs of work except
+where a small tunnel has been dug into the east wall.  The irregular wall
+hides many niches that make it hard be sure if you are alone.  Among the
+bones on the floor are rags and other small piles of detritus that have
+been piled into small nest-like heaps.
+~
+~
+301465620 0 6 0
+D1
+~
+~
+0 -1 12034 10 10 5
+E
+bones humanoid floor 1 down~
+The bones are all gnawed clean.  They have been broken open and all the
+marrow sucked out.  They are scattered about the floor, and are
+concentrated around the small piles of rags.
+~
+E
+niches~
+The niches are not very deep, but provide enough space to make it
+difficult to see what is in them in the darkness.
+~
+A
+search~
+nests piles rags~
+if( is_player( ch ) ) {
+  i = random( 1, 25 );
+  if( rflag( reset0, room ) ) {
+    if( i == 1 ) {
+      act_tochar( #fpile, ch );
+      act_notchar( #rfpile, ch );
+      obj = oload( 382 );
+      obj_to_char( obj, ch );
+      remove_rflag( reset0, room );
+      end;
+      }
+    act_tochar( #pile, ch );
+    act_notchar( #rpile, ch );
+    end;
+    }
+  act_tochar( #pile, ch );
+  act_notchar( #rpile, ch );
+  end;
+  }
+~
+E
+fpile~
+@GYou search through the rags, finding an old axe shaft!@n
+~
+E
+rfpile~
+@G $n sifts through the piles of rags, pulling a shaft from one of them.@n
+~
+E
+pile~
+@GYou dig through the rags, finding nothing of value.@n
+~
+E
+rpile~
+@G$n sifts through the piles of rags, but appears frustrated in $s search.@n
+~
+!
+0 0 0
+A
+search~
+niches crevices~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the niches, but come up with nothing.@n
+~
+E
+rmsearch~
+@G$n digs around in the niches.@n
+~
+!
+0 0 0
+71 9 1509949520 3 0
+71 9 1509949465 3 0
+71 9 1509949460 3 0
+71 9 1509949455 3 0
+-1
+S
+
+#0
+

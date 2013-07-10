@@ -1,0 +1,1599 @@
+#AREA
+Wererat Temple~
+amon ( Rev. Rue/Calliope~
+~
+
+0 0
+0
+#ROOMS
+
+#75250
+Small Brick Tunnel~
+Ancient bricks make up the walls, ceiling and floor of this small
+tunnel.  The red-clay bricks have been stained by the passage of time as
+well as watermarks.  The mortar between the bricks is decaying, and is
+powdery to the touch.  The floor is covered in a thin layer of silt, and
+the unmistakable tracks left by rats.  The thin tunnel leads north,
+while a metal grate above you provides the only other way out.
+~
+[Rue] connects to 13541
+~
+301596676 0 5 0
+D0
+~
+~
+0 -1 75251 10 10 5
+D4
+metal grate~
+metal grate~
+235 -1 13541 10 10 5
+E
+bricks walls ceiling mortar~
+The red-clay bricks from which this narrow passage is constructed are
+old, cracked and broken in spots, corners worn and rounded with age. 
+Dark stains, the memories of dripping and flowing water, mark the tunnels
+walls and the crumbling mortar that barely holds the bricks in place. 
+Blacker even than the watermarks, patches of mildew lend the air a
+faintly musty smell.
+~
+E
+floor silt tracks~
+The tunnel floor, buried beneath a thin layer of silt, clearly shows the
+tracks of rats...  very large rats.  Countless in number, the tracks lead
+into this area from the north and back out.
+~
+E
+grate~
+Planted firmly in the tunnel's roof, an iron grate gives entrance to and
+exit from the sewers.  Although covered with dark orange patches of rust,
+the grate is still solid and heavy.
+~
+A
+move push slide open~
+metal grate~
+if( is_open( room, up ) ) {
+  act_tochar( #openalready, ch );
+  act_notchar( #rmopenalready, ch );
+  close( room, up );
+  send_to_room( #closing, find_room( 13541  ) );
+  }
+else {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  open( room, up );
+  send_to_room( #opening, find_room( 13541  ) );
+  }
+~
+E
+openalready~
+@GYou grab the grate and slide it over the opening, barely avoiding
+crushing your fingers!@n 
+~
+E
+rmopenalready~
+@G$n reaches up and slides the metal grate back over the opening.@n
+~
+E
+closing~
+@GA hand reaches up from below, and pulls the grate back over the hole!@n
+~
+E
+to_char~
+@GYou grunt as you push the metal grate from its seat, and slide it aside.@n
+~
+E
+to_room~
+@G$n grunts as $e pushes the metal grate out of the way and slides it
+aside.@n 
+~
+E
+opening~
+@GSomebody pushes the metal grate up, and slides it aside, opening a hole
+to a tunnel below.@n 
+~
+!
+0 0 0
+A
+~
+~
+i = 1d20;
+if( i == 3 ) {
+  act_tochar( #whoa, ch );
+  act_notchar( #rmwhoa, ch );
+  }
+~
+E
+whoa~
+@YYou slip momentarily on the silt before regaining your balance!@n
+~
+E
+rmwhoa~
+@G$n slips before catching $mself on the wall.@n
+~
+!
+1 0 1
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou pull yourself up and out through the grate.@n 
+~
+E
+to_room~
+@G$n climbs out through the grate.@n
+~
+!
+3 0 16
+A
+~
+~
+obj_to_room( oload( 1460 ), find_room( 19 ) );
+continue;
+~
+!
+1 0 16
+243 137 1509949540 3 0
+-1
+S
+
+#75251
+Narrow Brick Tunnel~
+Red-brick walls surround you on four sides, leaving a tight tunnel that
+leads north and south.  The bricks are old, worn and stained by the
+passage of sewage long ago.  The tunnel tilts slowly upward towards the
+north, where in the distance there is a reddish glow.  You can follow the
+passage either north or south.
+~
+acode 2 - triggered by enter code north
+[Rue] This code works how I want it, if the players don't kill the rats,
+more can fill the room.
+~
+301596676 0 5 0
+D0
+~
+~
+0 -1 75252 10 10 5
+D2
+~
+~
+0 -1 75250 10 10 5
+E
+glow reddish~
+Barely visible from this vantage point, a dull crimson glow alleviates
+the unrelenting darkness that lies to the north.
+~
+E
+bricks walls tunnel~
+The tunnel is close and cramped, surrounding you on four sides with
+cracked and aging bricks.  Running halfway up the wall, a dark stain
+defines the level of flowing sewage and the purpose these tunnels once
+served.  At one point, just above the waterline, you see a section of
+wall where the bricks are clearly loose, only held in place by a minimal
+amount of mortar.
+~
+A
+take open pry dig~
+bricks loose mortar~
+if( is_player( ch ) ) {
+  if( rflag( reset1, room ) ) {
+    act_tochar( #dig, ch );
+    act_notchar( #rmdig, ch );
+    wait( 1 );
+    act_tochar( #dig2, ch );
+    act_notchar( #rmdig2, ch );
+    remove_rflag( reset1, room );
+    send_to_room( #burst, room );
+    obj_to_room( oload( 1036 ), find_room( 75251 ) );
+    obj_to_room( oload( 1036 ), find_room( 75251 ) );
+    mload( 74, find_room( 75251 ) );
+    mload( 2512, find_room( 75251 ) );
+    mload( 2512, find_room( 75251 ) );
+    mload( 2512, find_room( 75251 ) );
+    mob = mob_in_room( 74, room );
+    if( mob )
+      attack( mob, ch, 2d6, "gnashing bite" );
+    end;
+    }
+  else
+    act_tochar( #digdone, ch );
+  }
+~
+E
+dig~
+@GYou dig at the loose bricks, the mortar powdering easily as you pry.@n
+~
+E
+rmdig~
+@G$n prys at some loose bricks, the mortar disintegrating easily beneath
+$s fingers.@n 
+~
+E
+digdone~
+@GThe bricks have already been dug out.@n
+~
+E
+dig2~
+@GAs you pry away the loose bricks, a loud chittering sound can be heard
+echoing behind the wall.@n 
+~
+E
+rmdig2~
+@GAs $n prys loose bricks from the wall, you can hear a loud chittering
+sound coming from inside!@n 
+~
+E
+burst~
+@YSuddenly the bricks fly out in a shower of gray-white mortar and a
+swarm of rats leap out of the wall!@n 
+~
+!
+0 0 0
+A
+~
+~
+if( !mob_in_room( 74, find_room( 75251 ) ) ) {
+  if( rflag( reset1, find_room( 75251 ) ) ) {
+    remove_rflag( reset1, find_room( 75251 ) );
+    wait( 1 );
+    send_to_room( #burst, find_room( 75251 ) );
+    mload( 74, find_room( 75251 ) );
+    mload( 2512, find_room( 75251 ) );
+    obj_to_room( oload( 1036 ), find_room( 75251 ) );
+    obj_to_room( oload( 1036 ), find_room( 75251 ) );
+    mload( 2512, find_room( 75251 ) );
+    mload( 2512, find_room( 75251 ) );
+    mob = mob_in_room( 74, find_room( 75251 ) );
+    ch = rand_char( find_room( 75251 ) );
+    attack( mob, ch, 2d6, "gnashing bite" );
+    end;
+    }
+  }
+~
+E
+burst~
+@YYou hear a loud chittering sound that gets louder every moment!@n
+~
+E
+burst2~
+@YSuddenly the east wall explodes in a shower of brick and mortar! 
+Several large rats leap from the hole and attack!@n 
+~
+!
+0 0 0
+A
+~
+~
+i = 1d20;
+if( i == 3 ) {
+  act_tochar( #whoa, ch );
+  act_notchar( #rmwhoa, ch );
+  }
+~
+E
+rmwhoa~
+@G$n slips before catching $mself on the wall.@n 
+~
+E
+whoa~
+@YYou slip momentarily on the silt before regaining your balance!@n
+~
+!
+1 0 5
+-1
+S
+
+#75252
+Brick Tunnel - Before the Copper Door~
+The brick tunnel is blocked to the north by a massive copper door.  On
+each side of the door, set into deep niches are red, glowing balls of
+light.  The balls float in midair, and give off a reddish glow that
+reflects off the copper door.  The door has no apparent handle or hinges
+on its decorated face.  To your south is a long brick tunnel that leads
+slightly downwards.
+~
+[Rue] There is a key players need.  Door codes work fine
+~
+301596677 0 5 0
+D0
+copper door~
+copper door~
+407 122 75253 10 10 5
+D2
+~
+~
+0 -1 75251 10 10 5
+E
+carvings door 1 north copper~
+The short stretch of tunnel ends abruptly at a tall copper door.  Shadows
+cast from nearby scarlet spheres enhance carvings beaten into its surface. 
+These carvings, though crude, depict the very essence of evil.  Man-sized
+rodents - bipedal rats - carry out various methods of torture and murder
+on hapless victims.  One particularly grisly scene shows them stripping
+the flesh from a living, human child then throwing those chunks of 'meat'
+into a bubbling, boiling cauldron.  One of the carvings looks worn, as if
+it has been touched many times.
+~
+E
+niches light ball~
+Flanking the door, deep niches hold glowing balls of light the size of a
+large fist.  The lights are red, a dark crimson color reminiscent of
+spilling blood.  Reflecting off the portal, the spheres cast eerie
+shadows across its carven face.
+~
+A
+~
+~
+if( is_player( ch ) ) {
+  act_tochar( #gleaming, ch );
+  acode( find_room( 75251 ), 2 );
+  }
+~
+E
+gleaming~
+@GYou come upon a gleaming, beaten copper door blocking your movement
+north.  The copper reflects an eerie reddish glow that bathes you in a
+haunting light.@n 
+~
+!
+1 0 4
+A
+get take touch~
+red ball glowing~
+act_tochar( #burn, ch );
+act_notchar( #witness, ch );
+i = dice( 1, 15 );
+dam_message( ch, i, "an electrical field" );
+inflict_shock( ch, mob, i, "an electrical field" );
+~
+E
+burn~
+@GAs you reach for the glowing ball a shimmering yellow field comes into
+focus around your hand!@n
+~
+E
+witness~
+@GAs $n reaches for one of the balls, a shimmering yellow field comes
+into focus around $s hand!@n 
+~
+!
+0 0 0
+A
+unlock~
+copper door 1 north~
+if( is_open( room, north ) )
+  act_tochar( #doorwhatdoor, ch );
+mob = mob_in_room( 243, room );
+if( mob ) {
+  act_room( #attack, ch );
+  attack( mob, ch, 2d9, "quick assault" );
+  end;
+  }
+if( is_locked( room, north ) ) {
+  if( !has_obj( 122, ch ) ) {
+    act_tochar( #need, ch );
+    act_notchar( #rmneed, ch );
+    end;
+    }
+  act_tochar( #unlock, ch );
+  act_notchar( #rmunlock, ch );
+  unlock( room, north );
+  }
+~
+E
+attack~
+@YThe wererat leaps to attack!@n
+~
+E
+need~
+@GYou lack the key.@n
+~
+E
+rmneed~
+@G$n fiddles with the door, but nothing happens.@n
+~
+E
+unlock~
+@GAs you turn the key in the lock, the click of the mechanism echos
+through the silent tunnel, carrying with it the barely audible screams of
+a thousand tortured souls.@n 
+~
+E
+rmunlock~
+@GAs $n turns the key in the lock, the click of the mechanism echos
+through the silent tunnel, carrying with it the barely audible screams of
+a thousand tortured souls.@n 
+~
+E
+doorwhatdoor~
+@GWhat door?  Are you hallucinating?@n
+~
+!
+0 0 0
+A
+press depress push touch~
+carving~
+if( !is_locked( room, north ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #rmopen, ch );
+  wait( 1 );
+  send_to_room( #disappear, room );
+  open( room, north );
+  send_to_room( #otrmopen, find_room( 75253 ) );
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rmnothing, ch );
+  }
+~
+E
+open~
+@GYou depress one of the carvings in the door which recedes with an
+audible *click*.@n 
+~
+E
+rmopen~
+@G$n presses something on the door, and you hear an audible *click*@n
+~
+E
+disappear~
+@YThe copper doors shimmers for an instant, a bluish haze that ripples as
+though it were alive, and then the door is gone!@n 
+~
+E
+otrmopen~
+@YThe copper door shimmers with a bluish haze, slowly dissipating until
+it is no more!@n 
+~
+E
+nothing~
+@GYou press the carvings with no effect.@n
+~
+E
+rmnothing~
+@G$n pushes against the door, but nothing happens.@n
+~
+!
+0 0 0
+A
+open~
+1 north door copper carving~
+if( !is_open( room, north ) ) {
+  act_tochar( #noopen, ch );
+  end;
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+noopen~
+@GYou see no obvious way to open the door.@n 
+~
+E
+already~
+@GHow much more open does it need to be?@n
+~
+!
+0 0 0
+A
+close~
+copper carvings door 1 north~
+act_tochar( #none, ch );
+~
+E
+none~
+@GThere is no 'door' to close here.@n
+~
+!
+0 0 0
+243 137 1509949540 3 0
+-1
+S
+
+#75253
+Granite Hallway~
+The walls and ceiling of this hallway are sheathed in polished black
+granite, cut through with violent swirls of a pinkish hue.  A large
+archway is cut into the south wall, inset with a burnished copper door. 
+The floor is red flagstone, and is also polished to a high sheen.  You
+can head east or west down the hallway.  Next to the archway is a small
+metal plate about three feet off the ground.
+~
+~
+301596676 0 5 0
+D1
+~
+~
+0 -1 75254 10 10 5
+D2
+copper door~
+copper door~
+407 122 75252 10 10 5
+D3
+~
+~
+0 -1 75257 10 10 5
+E
+wall ceiling granite~
+Sheathed in what appears to be a single piece of solid black granite, the
+cramped tunnel flows east and west.  Highly polished, the stone absorbs
+the light, only faintly illuminating the pattern of swirls that ripple
+along its lustrous surface. The swirls range in color from palest rose to
+a deep violet-pink, nearly the color of blood.
+~
+E
+archway copper door 1 south~
+An archway, curved and slightly askew as though crafted by an amateur's hand,
+showcases a burnished copper door that lies on the southern wall.  Beaten
+into the door, crude carvings of a malevolent nature portray gruesome
+scenes.  One such scene shows a massive rat, clad in flowing robes,
+gouging the eye from an unfortunate elven victim.
+~
+E
+floor red flagstone 1 down~
+Thick slabs of rusty red flagstone forge the floor of the narrow
+passageway.  Stretching from wall to wall, disappearing to the east and
+west into darkness, their surface is no less glossy than the tunnel's
+granite walls.
+~
+E
+metal plate hole~
+Crafted of a shining steel, the metal plate appears to be able to be
+depressed.  In the center of the plate is a small hole, perhaps for a key.
+~
+A
+press push depress~
+steel metal plate~
+if( is_open( room, south ) ) {
+  act_tochar( #openalready, ch );
+  end;
+  }
+if( !is_locked( room, south ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #rmopen, ch );
+  wait( 1 );
+  send_to_room( #disappear, room );
+  open( room, south );
+  send_to_room( #otrmopen, find_room( 75252 ) );
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rmnothing, ch );
+  }
+~
+E
+open~
+@GYou press the cool metal of the plate, and it slides into position with
+a *click.*@n
+~
+E
+rmopen~
+@G$n presses the metal plate, and you hear an audible *click*@n
+~
+E
+disappear~
+@YThe copper doors shimmers for an instant, a bluish haze that ripples as
+though it were alive, and then the door is gone!@n
+~
+E
+otrmopen~
+@YThe copper door shimmers with a bluish haze, slowly dissipating until
+it is no more.@n
+~
+E
+nothing~
+@GYou press the metal plate with no effect.@n
+~
+E
+rmnothing~
+@G$n pushes the metal plate, but nothing happens.@n
+~
+E
+openalready~
+@GYou press the plate, but nothing happens.@n
+~
+!
+0 0 0
+A
+close~
+1 south door copper~
+if( is_open( room, south ) ) {
+  act_tochar( #none, ch );
+  end;
+  }
+else
+act_tochar( #none2, ch );
+~
+E
+none~
+@GThere is nothing to close here.@n
+~
+E
+none2~
+@GThe door is already closed.@n
+~
+!
+0 0 0
+A
+open~
+1 south door copper~
+if( !is_open( room, south ) ) {
+  act_tochar( #noopen, ch );
+  end;
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+noopen~
+@GYou see no obvious way to open the door.@n
+~
+E
+already~
+@GHow much more open does it need to be?@n
+~
+!
+0 0 0
+A
+unlock~
+metal plate hole~
+if( is_open( room, south ) )
+  act_tochar( #open, ch );
+mob = mob_in_room( 243, room );
+if( mob ) {
+  act_room( #attack, ch );
+  attack( mob, ch, 2d9, "quick assault" );
+  end;
+  }
+if( is_locked( room, south ) ) {
+  if( !has_obj( 122, ch ) ) {
+    act_tochar( #need, ch );
+    act_notchar( #rmneed, ch );
+    end;
+    }
+  act_tochar( #unlock, ch );
+  act_notchar( #rmunlock, ch );
+  unlock( room, south );
+  }
+~
+E
+attack~
+@YThe wererat leaps to attack!@n
+~
+E
+need~
+@GYou lack the key.@n
+~
+E
+rmneed~
+@$n fiddles with the door, but nothing happens.@n
+~
+E
+unlock~
+@GYou place the key into the small hole, and turn it with an audible *click*.@n
+~
+E
+rmunlock~
+@GAs $n turns the key in the lock, you hear a muffled *click* from deep
+within the wall.@n 
+~
+E
+open~
+@GThe door is already wide open.@n
+~
+!
+0 0 0
+A
+unlock~
+door copper 1 south~
+act_tochar( #nope, ch );
+~
+E
+nope~
+@GYou see no keyhole in the door.@n
+~
+!
+0 0 0
+243 9 1509949540 3 0
+-1
+S
+
+#75254
+Granite Hallway~
+The polished granite hallway deadends here, coming upon two heavy
+iron-bound wooden doors.  One door is set into the north wall, while the
+other is in the east wall.  The polished slate floor is covered in
+stains, deep-purple upon the already red stone.  Aside from entering the
+doors you can head west down a long hallway.
+~
+~
+301596676 0 5 0
+D0
+heavy iron-bound door~
+heavy iron-bound door~
+391 170 75255 10 10 5
+D1
+heavy iron-bound door~
+heavy iron-bound door~
+261 170 75256 10 10 5
+D3
+~
+~
+0 -1 75253 10 10 5
+E
+heavy iron-bound wooden doors~
+Two doors, each the mirror-image of the other, obstruct the black granite
+passageway to the north and east.  Fashioned from solid planks of
+dense-grained oak, the doors are weathered but still sturdy, with thick
+iron bands enwrapping them, both horizontally and vertically.  Issuing
+from gaps beneath the doors and the rusty-red floor, rises a stench of
+unknown origin.
+~
+E
+slate floor stains~
+Deep purple stains, nearly black in color, have seeped into the porous
+surface of the glossy, rust-red slate.  Large blotches and small,
+spatters and drips, they all look suspiciously like dried blood.
+~
+A
+~
+~
+if( is_player( ch ) ) {
+  if( rflag( reset1, room ) ) {
+    mob = mob_in_room( 1943, find_room( 75255 ) );
+    if( mob ) {
+      send_to_room( #inroom, find_room( 75255 ) );
+      send_to_room( #scratching, find_room( 75254 ) );
+      remove_rflag( reset1, find_room( 75254 ) );
+      }
+    }
+  }
+~
+E
+inroom~
+@GYou hear something moving outside the door, as does the emaciated man,
+who scratches feebly at the door.@n 
+~
+E
+scratching~
+@YYou hear a feeble scratching noise coming from the door to the north.@n
+~
+!
+1 0 10
+243 9 1509949540 3 0
+-1
+S
+
+#75255
+Cell~
+Bare brick walls covered in filth and spattered blood are all you see
+here.  A thin layer of straw has been spread over the floor, in a failed
+attempt to bring meager comfort to any imprisoned here.  This room is
+uncomfortable at best, the brick floor poking through the straw.  The
+only way out is through a heavy, iron-bound door to the south.
+~
+~
+301596676 0 5 0
+D2
+heavy iron-bound door~
+heavy iron-bound~
+391 170 75254 10 10 5
+E
+straw floor~
+The cold and damp floor is blanketed by a thin covering of straw, strewn
+about the room.  A sizable clump has been collected along the far wall,
+perhaps an attempt at creating a bed, and several discolored and filthy
+scraps of clothing peek out from the mottled patch.  Further
+investigation reveals the gruesome world that lives beneath the meager
+attempt at comfort...insects of all sizes and shapes shrink from the
+light and skitter around your boots and out across the floor.
+~
+E
+walls filth blood~
+Uneven rows of weathered bricks comprise the walls of the cell,
+alternating shades of grey beneath the filth that clings to the stone. 
+Like the work of a demented artist, splotches of dull and darkened
+crimson adorn the walls in haphazard patterns, with several long and
+torturous smears sinking down towards the floor.
+~
+A
+free break~
+chain man emaciated~
+mob = mob_in_room( 1943, room );
+if( mob ) {
+  act_tochar( #free, ch );
+  act_notchar( #rmfree, ch );
+  wait( 1 );
+  act_tochar( #free1, ch );
+  act_notchar( #rmfree1, ch );
+  open( room, south );
+  wait( 1 );
+  send_to_room( #leaves, room );
+  junk_mob( mob );
+end;
+  }
+act_tochar( #man, ch );
+~
+E
+free~
+@GYou easily break the rusted chain holding the man to the wall, the
+broken links falling to the floor with a dull thud.@n 
+~
+E
+rmfree~
+@G$n easily snaps the rusted chain holding the man to the wall.@n
+~
+E
+free1~
+@GThe tired old man looks at you and smiles feebly, "Thank you friend, I
+will never forget this." @n 
+~
+E
+rmfree1~
+@GThe emaciated man mumbles something to $n.@n
+~
+E
+leaves~
+@GThe emaciated man looks around carefully before slinking slowly out of
+the room and disappearing into the shadows.@n 
+~
+E
+man~
+@GWhat man? You don't see anybody to free.@n
+~
+!
+0 0 0
+1943 9 1509949540 3 0
+-1
+S
+
+#75256
+Cell~
+This small cell has bare brick walls and straw strewn about the floor. 
+Leg irons are bolted to the wall in the northeast corner, the shackles
+have long since been broken.  There are several small holes in the wall
+just at floor level.  The only way out of this cell is west, through a
+heavy iron-bound door.
+~
+~
+301596676 0 5 0
+D3
+heavy iron-bound door~
+heavy iron-bound door~
+261 170 75254 10 10 5
+E
+chained leg shackle~
+A reminder of the nature of the room, a long and rusted iron chain
+stretches from a bolt in the stained and filthy grey brick wall opposite
+the door.  The leg iron ends in a battered and broken shackle, the
+recipient of countless hours of abuse and perhaps frantic bashing.
+~
+E
+holes wall~
+The base of each of the walls is dotted by cracks and small holes, the
+result of poor construction, the dripping of water through the soil, and
+no doubt owing to the diligent efforts of the room's former occupants. 
+Occasionally the small shadow of a rodent emerges from the holes to watch
+your movements with alarming interest.
+~
+A
+search~
+holes~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the holes, but find nothing.@n
+~
+E
+rmsearch~
+@G$n searches the holes in the wall.@n
+~
+!
+0 0 0
+2512 9 1509949540 3 0
+2512 9 1509949540 3 0
+74 9 1509949540 3 0
+-1
+S
+
+#75257
+Granite Hallway~
+The polished granite walls are cold, as is the air that flows silently
+past you.  Large red slate slabs make up the floor, which reflects onto
+the glossy surface of the ceiling and walls.  The granite walls are shot
+through with spidery veins of a sickly pink color.  The long hallway
+leads west and east.
+~
+~
+301596676 0 5 0
+D1
+~
+~
+0 -1 75253 10 10 5
+D3
+~
+~
+0 -1 75258 10 10 5
+E
+granite walls ceiling~
+Shot through with spidery veins of putrid pink, black granite encases the
+walls of this long stretch of hallway.  Chill to the touch, the stone
+offers no welcome to unwanted intruders.
+~
+E
+red slate slabs floor 1 down~
+Thick slabs of darkest red slate form the floor in this section of the
+passage.  Polished to a high gloss, they cast a carmine glow along the
+granite walls.
+~
+272 9 1509949540 3 0
+-1
+S
+
+#75258
+Granite Hallway~
+The granite hallway runs east and west, leading towards a turn in the
+hallway and some doors to the west.  The floor is made of a polished red
+flagstone.  Inset in the north wall is a carved archway, bordered on each
+side by red granite pillars with golden flecks.  Inside the archway is a
+carved oaken door.
+~
+~
+301596676 0 5 0
+D0
+carved oaken door~
+carved oaken door~
+391 62 75259 10 10 5
+D1
+~
+~
+0 -1 75257 10 10 5
+D3
+~
+~
+0 -1 75260 10 10 5
+E
+pillars granite flecks archway door 1 north~
+Looming over the gnarled oaken door is a well-crafted archway carved from
+a dark black and grey stone, set carefully within the dull rock of the
+northern wall.  The stone is riddled with several patterns and shapes,
+each seeming to snake its way down the sloping sides to fade into mere
+random scratches near the ground.  Flanking the archway like guardians of
+a sacred portal, two red granite pillars riddled with golden flecks
+support the sides of the inset stone with silent symmetry.
+~
+E
+floor flagstone 1 down~
+The floor is a blood-red color, the flagstone neat and well-kept.
+~
+-1
+S
+
+#75259
+Priest's Room~
+This chamber is sheathed in red velvet curtains hung from iron hooks on
+the walls.  The floor is covered in a thick black carpet, and cushions
+are spread all over the floor as well.  A small black-granite altar sits
+along the west wall.  The north wall has a tapestry hanging from it,
+displaying scenes of a vile nature.  The south wall has a intricately
+carved oaken door in it.
+~
+~
+301596676 0 5 0
+D2
+carved oaken door~
+~
+391 62 75258 10 10 5
+E
+red velvet curtains iron hook~
+Three sides of the chamber are draped in scarlet, rich-textured velvet
+that hangs in deep folds from simple iron hooks affixed near the ceiling. 
+The hems of the heavy fabric brush an ebon carpet, plush and deep-piled,
+that covers the floor.  Scattered around the room, over-stuffed cushions
+are strategically placed around a black granite altar.
+~
+E
+altar~
+Cries of torment and the unholy chanting of hissing voices seem to writhe
+behind the walls and beneath the heavy cloak of silence, like echoes of
+power and fear etched deep within the stones of this chamber.  Nestled
+within a shroud of overlapping shadows, this altar of darkened stone
+absorbs the light of the ensconced torches as though it hungered for
+their very essence.  Lines and rivulets run the length of the slab,
+darkened permanently by layers of black soot and stains of crimson.  Like
+veins they flow along the edge of the altar to small and barely-visible
+holes, only to reappear stains with even brighter red as they spiral down
+the carved legs and onto the cold, stone steps.
+~
+E
+tapestry~
+Like a long drawn veil, the tapestry hides the northern wall, a myriad of
+colors and threads.  The cloth is quite fine, the detailed art clearly
+the work of a skilled weaver.  A striking scene of despair and torture
+unfolds across the center of the tapestry, figures, of various races
+being impaled, burned, even devoured by a horde of demonic creatures that
+faintly resemble large, armored rodents.  Several smaller scenes flank
+the larger, decorating the perimeter with assorted symbols and pictures
+of the worship of a dark deity.  Below the landscape of roving creatures
+and wailing figures, the image of a pit descends into shadow, and only by
+the slight variation in thread and two bright red eyes, is the image of a
+looming beast in the depths of the tapestry revealed.
+~
+248 9 1509949540 3 0
+-1
+S
+
+#75260
+Granite Hallway~
+The polished granite hallway turns here, heading north and east.  A heavy
+wooden door is set into an arch in the west wall, and an iron-bound door
+in the south.  The floor is polished slate, in a checkerboard pattern of
+red and black.  To the east a long hallway runs, while to the north you
+see a wider hallway.
+~
+~
+301596676 0 5 0
+D0
+~
+~
+0 -1 75263 10 10 5
+D1
+~
+~
+0 -1 75258 10 10 5
+D2
+iron-bound door~
+iron-bound door~
+131 -1 75262 10 10 5
+D3
+heavy wooden door~
+heavy wooden door~
+131 -1 75261 10 10 5
+E
+walls floor doors~
+Walls of polished black stone and a floor of glossy slate, its slabs of
+red and black laid in alternating squares resembling a checkerboard, seem
+to shift in the flickering light from a distant brazier lying to the
+north.  Doors to the west and south huddle in the shadows, one crafted of
+heavy wood from an icalah tree, the other encased in iron bands.
+~
+A
+~
+~
+send_to_room( #flickering, room );
+~
+E
+flickering~
+@Crimson light flickers to the north.@n 
+~
+!
+2 50 0
+272 9 1509949540 3 0
+-1
+S
+
+#75261
+Common Room~
+The walls and floor of this large room are brick and stained with age and
+covered in filth.  Old rugs, clothes and other useless items are piled in
+heaps around the room, making it quite cluttered and dingy.  The ceiling
+is a barrel-vault constructed of brick, and covered with cobwebs.  There
+are several small holes in the base of the walls, and rat prints are
+quite plainly seen.  A heavy wooden door in the east wall provides the
+only means of exit.
+~
+~
+301596676 0 5 0
+D1
+heavy wooden~
+heavy wooden~
+131 -1 75260 10 10 5
+E
+walls floor filth heaps holes prints~
+Cracked and broken bricks, smeared with unnamable globs of filth and goo,
+comprise the chambers walls.  There is a stench here, arising from the
+old rugs and dirt-infested clothing that lie in ragged heaps upon
+the floor.  Footprints, clearly those of large rats, lead to and from
+holes riddled in the base of the walls, zigzagging between the scattered
+and bug-infested piles of dingy cloth.
+~
+E
+ceiling cobwebs~
+Stretching up into grim shadows, the bricks form a barrel vaulted ceiling
+whose gentle curve is just discernible from below.  Giant cobwebs festoon
+the arch, draping like dusty and worn battle standards, rotted with age
+and neglect.
+~
+E
+prints ratprints~
+Prints, clearly those of large rats, lead to and from holes riddled in
+the base of the walls, zigzagging between the scattered and bug-infested
+piles of dingy cloth.
+~
+A
+~
+~
+send_to_room( #webs, room );
+~
+E
+webs~
+@GFilmy cobwebs sway slowly in the corner of the room.@n
+~
+!
+2 50 0
+A
+search~
+cobwebs webs~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the cobwebs, but find nothing.@n
+~
+E
+rmsearch~
+@$n searches the cobwebbed corners.@n
+~
+!
+0 0 0
+A
+search~
+rat holes~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou poke around the rat holes, but find nothing.@n
+~
+E
+rmsearch~
+@G$n pokes around in the rat holes.@n
+~
+!
+0 0 0
+248 9 1509949540 3 0
+2512 9 1509949540 3 0
+2512 9 1509949540 3 0
+-1
+S
+
+#75262
+Common Room~
+This room has red-brick walls, and is bare except for worn sleeping mats
+and old, broken furniture.  The brickwork appears ancient, and the
+mortar crumbles onto the floor in places.  The chamber's roof is a
+barrel-vault, curving gently overhead.  A large iron-bound door is set
+into the north wall.
+~
+~
+301596676 0 5 0
+D0
+iron-bound door~
+iron-bound door~
+131 -1 75260 10 10 5
+E
+mats furniture~
+Woven mats, encrusted with filth and grime, lie in various stages of
+disarray upon the cracked and broken floor.  Strewn carelessly about,
+piles of shattered and splintered furniture are silent testimony to the
+barbaric nature of the chamber's inhabitants.
+~
+E
+roof brick~
+Ancient bricks, some cracked and broken, some missing altogether, form
+walls that meet overhead in a barrel-vault ceiling.  Cobwebs stretch
+across the room, forming a latticework of shadows that dance eerily in a
+draft wafting in through the door.
+~
+A
+~
+~
+send_to_room( #mortar, room );
+~
+E
+mortar~
+@GBits of mortar fall from the ceiling.@n
+~
+!
+2 50 0
+272 9 1509949540 3 0
+-1
+S
+
+#75263
+Hall of Worship~
+The floor here is polished black slate, reflecting the flickering light
+of a brazier set along the east wall.  The flames are also reflected off
+the shiny surface of the black-granite walls.  Set along the sides of the
+wide corridor are four pillars on each side.  The pillars are a deep-red
+marble, sliced through with black veins.  To the north you can see a
+large chamber, while to the south you see a turn in the granite hallway. 
+The floor here is made of polished black slate, reflecting the flickering
+light 
+~
+~
+301596677 0 5 0
+D0
+~
+~
+0 -1 75264 10 10 5
+D2
+~
+~
+0 -1 75260 10 10 5
+E
+wall granite pillar marble~
+Shadows twist and turn in a maniacal dance about the flickering light of
+the brazier, leaping from the walls and alcoves of the passageway, hiding
+in the placid pool of deep black granite.  The four pillars that anchor
+the room seize the firelight, setting the black-flecked red marble ablaze
+and casting radiant lines of crimson across the shining black slate sea
+beneath your feet.
+~
+A
+~
+~
+send_to_room( #flickering, room );
+~
+E
+flickering~
+@RShadows do a macabre dance on the walls as the brazier flickers@n
+~
+!
+2 50 0
+140 17 1509949540 -2 0
+-1
+S
+
+#75264
+Temple of the Rat God~
+You are in the center of a large domed chamber.  The walls are covered in
+beaten copper, and reflect an eerie and shadowy light from the burning
+braziers off to the east and west.  Before you, to the north, is a huge
+statue of a giant humanoid rat learing evilly into the chamber.  In front
+of the statue is a stark black altar, crafted of a deep-black granite.
+A long hallway leads south.
+~
+~
+301597701 0 5 0
+D0
+~
+~
+0 -1 75267 10 10 5
+D2
+~
+~
+0 -1 75263 10 10 5
+D3
+beaten-copper wall~
+*ain'tnone*~
+171 -1 75266 10 10 5
+E
+statue altar~
+In the distance, dominating the northern wall of the expansive room, the
+giant statue emerges from the shadows to pass its gaze across the chamber. 
+Twisted and deformed, the figure stands with arms outstretched, and the
+shrouded eyes glint red in the flicker of firelight.  The soft glow of
+the braziers limns the silhouette of a large stone table, as black as the
+floor beneath your feet.
+~
+E
+beaten walls~
+Plates of copper line the stone walls, like hundreds of dark, shattered
+mirrors.  The metal is battered and beaten, but untarnished by rust,
+casting a myriad of deep golden and brown reflections upon the
+roughly-carved ceiling.  The mere flicker of the brazier's flame upon the
+dented copper sends a multitude of pale lights dancing across the
+polished floor.  The western wall seems slightly darker than the east
+though perhaps, its just a trick of the uneven glow that lights the room.
+~
+A
+~
+~
+if( has_obj( 157, ch ) ) {
+  mob = mob_in_room( 247, room );
+  if( mob ) {
+    attack( mob, rch, 3d6+0, "bite" );
+    act_tochar( #block, ch );
+    end;
+    }
+  }
+continue;
+~
+E
+blocked~
+get
+~
+E
+block~
+@YThe Great Demon-Rat cackles gleefully as it blocks your escape!@n
+~
+E
+blocked~
+@Y$n cowers in terror as the Great Demon-Rat blocks $s escape!@n
+~
+!
+3 0 13
+A
+~
+~
+if( is_player( ch ) ) {
+  if( rflag( reset1, room ) ) {
+    mob = mob_in_room( 248, find_room( 75266 ) );
+    interpret( mob, "pull velvet" );
+    remove_rflag( reset1, find_room( 75264 ) );
+    }
+  }
+~
+!
+1 0 4
+A
+flip press push~
+catch button switch~
+if( is_open( room, west ) ) {
+  act_tochar( #openalready, ch );
+  act_notchar( #rmopenalready, ch );
+  close( room, west );
+  send_to_room( #closing, find_room( 75266  ) );
+  }
+else {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  open( room, west );
+  send_to_room( #opening, find_room( 75266  ) );
+  }
+~
+E
+openalready~
+@YYou press the hidden catch and the western wall slides down from the
+ceiling, closing off the room to the west@n
+~
+E
+rmopenalready~
+@G$n touches something hidden, and a copper-covered wall slides down from
+the ceiling to the west.@n 
+~
+E
+closing~
+@GA wood-paneled wall slides down to the east, sealing off the small
+chamber you are in.@n 
+~
+E
+to_char~
+@GYou press the small catch and the copper-covered wall to the west slids
+quickly into the ceiling!@n 
+~
+E
+to_room~
+@G$n manipulates something you can't see, and the whole west wall slides
+up into the ceiling!@n 
+~
+E
+opening~
+@GSuddenly the east wall slides up into the ceiling!@n
+~
+!
+0 0 0
+A
+search~
+wall west~
+if( find_skill( ch, searching )  > random( 0, 5 ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #search, ch );
+  end;
+  }
+else
+  act_tochar( #nofind, ch );
+act_notchar( #search, ch );
+~
+E
+find~
+@GYou search the west wall carefully, finding a small switch hidden
+behind one of the braziers.@n 
+~
+E
+search~
+@G$n searches the west wall.@n
+~
+E
+nofind~
+@GYour search comes up with nothing.@n
+~
+!
+0 0 0
+140 17 1509949540 -2 0
+140 17 1509949540 -2 0
+273 137 1509949540 3 0
+248 137 1509949540 3 0
+272 9 1509949540 3 0
+-1
+S
+
+#75266
+Secret Chamber - Temple of the Rat God~
+This small chamber is cramped and stuffy.  Three of the walls are made of
+brick, while the east wall is paneled in wood.  The floor is brick as
+well, and covered for the most part by a cushiony black carpet.  A long
+velvet rope hangs from a small hole in the ceiling, and a heavy lever is
+set into the north wall.
+~
+~
+301596676 0 5 0
+D1
+beaten-copper wall~
+*ain'none*~
+171 -1 75264 10 10 5
+E
+panel~
+The wooden panel is made from smooth-polished oak.  It has been stained a
+deep-red, and covers all of the east wall.
+~
+E
+velvet rope~
+This soft velvet ropes hangs from a small hole in the ceiling.  About two
+inches in diameter, it is sheathed in a crimson-plush cloth.  At the
+bottom is a small yellow tassel.
+~
+E
+carpet~
+The thick and black carpet is soft to the touch, and cushioned well to
+provide comfort for those that must stand in here for long hours.
+~
+E
+lever~
+This lever is made of a heavy iron.  It is bolted to a small panel on the
+wall and looks like it can be flipped in either direction.
+~
+A
+l look peek peer~
+peephole peep-hole hole~
+act_tochar( #looking, ch );
+act_notchar( #rmlooking, ch );
+if( players_room( find_room( 75264 ) ) > 1 ) {
+  act_tochar( #somebody, ch );
+  end;
+  }
+if( num_in_room( find_room( 75264 ) )  > 0  ) {
+  act_tochar( #somebody, ch );
+  end;
+  }
+act_tochar( #nobody, ch );
+~
+E
+looking~
+@GYou peek through the peep-hole.@n
+~
+E
+rmlooking~
+@G$n presses $s face up against the east wall.@n
+~
+E
+somebody~
+@GYou can see somebody moving in the temple next door.@n 
+~
+E
+nobody~
+@GYou can see nobody in the temple.@n
+~
+!
+0 0 0
+A
+throw pull flip~
+lever~
+if( is_open( room, east ) ) {
+  act_tochar( #openalready, ch );
+  act_notchar( #rmopenalready, ch );
+  close( room, east );
+  send_to_room( #closing, find_room( 75264  ) );
+  }
+else {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  open( room, east );
+  send_to_room( #opening, find_room( 75264  ) );
+  }
+~
+E
+openalready~
+@GYou pull the lever, and a wooden wall to the east slides silently down
+from the ceiling, sealing the chamber with a click.@n 
+~
+E
+rmopenalready~
+@G$n pulls the lever, and a wooden wall to the east slides silently down
+from the ceiling, sealing the chamber with a click.@n 
+~
+E
+closing~
+@GSuddenly a burnished copper panel slides down from the ceiling, closing
+the wall to the east.@n 
+~
+E
+to_char~
+@GYou pull the lever and the wooden wall to the east slides silently up
+into the ceiling.@n 
+~
+E
+to_room~
+@G$n pulls the lever and a wooden wall to the east slides silently up into the ceiling.@n
+~
+E
+opening~
+@GSuddenly, the west wall slides silently open, disappearing into the
+ceiling!@n 
+~
+!
+0 0 0
+A
+tug pull grab yank~
+velvet rope~
+act_tochar( #pullrope, ch );
+act_notchar( #rmpullrope, ch );
+send_to_room( #noises, find_room( 75264  ) );
+send_to_room( #noises, find_room( 75267 ) );
+send_to_room( #noises2, find_room( 75264  ) );
+send_to_room( #noises2, find_room( 75267 ) );
+~
+E
+pullrope~
+@GYou take the velvet rope in your hand and gently pull it.@n
+~
+E
+rmpullrope~
+@G$n gently pulls the velvet rope.@n
+~
+E
+noises~
+@RSuddenly the eyes of the statue illuminate; two red orbs staring into
+your soul.@n 
+~
+E
+noises2~
+@BEchoing all around you, you hear the chittering sounds of rats.@n
+~
+!
+0 0 0
+248 9 1509949540 3 0
+-1
+S
+
+#75267
+At the Feet of the Statue~
+You are at the foot of a towering statue of a massive humanoid rat. 
+In front of the statue rests a heavy altar of black granite.  The top
+of the altar is shaped like a large oval bowl; roomy enough to hold a large
+human.  Behind the statue, the walls of beaten copper gleam in the
+eerie light.  To the south is the main area of the temple.
+~
+~
+301596677 0 5 0
+D2
+~
+~
+0 -1 75264 10 10 5
+E
+altar~
+Low and wide, a solid block of black granite lies at the base of a
+monolithic statue that dominates the room.  Cut into the top of the altar
+is a long, shallow indentation, roughly oval and large enough to form a
+rocky bed for a large human.  The altar is dull and flat, its surface
+permanently dulled by the oozing blood of sacrificial victims.
+~
+E
+walls~
+The walls of beaten copper form a glistening backdrop for the towering
+statue.  Flames from distant braziers dance fitfully off the slick
+surface to brush the statue, making it almost seem to move.
+~
+145 17 1509949540 -2 0
+-1
+S
+
+#0
+

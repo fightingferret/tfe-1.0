@@ -1,0 +1,1283 @@
+#AREA
+Chiiron Bandits~
+Rue~
+Chiiron Bandits~
+
+9 0
+0
+#ROOMS
+
+#47000
+Path Through the Oaks~
+A thick hedgerow of bushes borders the area to the north.  A faint path
+leads south through the sparse grass, meandering lazily underneath the
+stands of oak trees.  Each of the oaks has several trunks that spread out
+from near the ground, the limbs twisting around each other and reaching
+towards the sky.
+~
+no.mob
+~
+301465608 3 5 0
+D0
+hedgerow~
+hedgerow bushes~
+235 -1 40534 10 10 5
+D2
+~
+~
+0 -1 47001 10 10 5
+E
+bushes hedgerow~
+The thick row of bushes makes an almost solid barrier to the north.  The
+path, however leads right up to the bushes, and you can see a piece of
+torn cloth on one of the branches.
+~
+E
+cloth piece~
+The tiny piece of bright-red cloth appears to have been torn from a
+passerby's clothing.
+~
+E
+oaks trunks~
+The bark of the oaks is a light grey-brown.  The small, oval leaves range
+in color from brown to green.  High up one of the trees you see a dead
+clump of mistletoe.
+~
+E
+mistletoe~
+The mistletoe is long dead, and has turned a light-brown color.
+~
+E
+path~
+The faint path heads south and north, right up to the thick hedgerow.
+~
+A
+move push part~
+bushes hedgerow~
+if( !is_open( room, north ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #rmove, ch );
+  open( room, north );
+  }
+else {
+  act_tochar( #move2, ch );
+  act_notchar( #rmove2, ch );
+  close( room, north );
+  }
+~
+E
+move~
+You move the hedgerow bush aside, revealing a way north.
+~
+E
+rmove~
+$n moves aside a hedgerow bush, revealing a way north.
+~
+E
+move2~
+You move the hedgerow bush, concealing the path north.
+~
+E
+rmove2~
+$n moves a hedgerow bush, concealing the path north.
+~
+!
+0 0 0
+A
+~
+~
+obj_to_room( oload( 2629 ), find_room( 19 ) );
+continue;
+~
+!
+1 0 1
+-1
+S
+
+#47001
+Path Through the Oaks~
+The small path wanders from tree to tree, taking full advantage of the
+cover of the trees as it heads north and south.  The ground here is
+uneven and you see the beginnings of more hilly terrain to the south. 
+Beneath the trees the grass grows sparsely, and where their shade does
+not reach the grass becomes greener and more plentiful.  A large
+manzanita bush sits near the trail.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 47000 10 10 5
+D2
+~
+~
+0 -1 47002 10 10 5
+E
+path~
+The small path is barely more than a faint trail where there is a lack of
+grass.  It winds back and forth beneath the oaks and the occasional
+bushes.
+~
+E
+hills hilly~
+In the distance to the south you can see the beginnings of rolling hills.
+~
+E
+grass~
+The grass here is spotty, green in some places and brown in others.
+~
+E
+manzanita bush~
+The manzanita is about five-feet tall, its reddish bark smooth.  The
+leaves are gray-green, and the plant has small pink flowers hanging in
+little clusters.
+~
+A
+~
+~
+if( is_follower( ch  ) )
+  end;
+if( is_player( ch ) ) {
+  mob = mob_in_room( 1828, room );
+  if( mob )
+    act_tochar( #halt, ch );
+  }
+else
+  continue;
+~
+E
+halt~
+The human leaps out from behind the bush, obviously thinking you didn't
+see him.
+
+He raises his right hand to stop you and says, "Halt!  Give me a silver
+coin and I might spare your life!" 
+~
+!
+1 0 5
+A
+pick get~
+flowers pink clusters~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You try and pick one of the small flower clusters, but you crush it while
+trying.
+~
+!
+0 0 0
+1828 9 1509949540 3 0
+-1
+S
+
+#47002
+Meadow Among the Oaks~
+Rolling hills covered in dry yellow grass spread out to the distance to
+the southwest.  Small manzanitas and other scrub brush grow here and
+there, adding a little color to the drab landscape.  To the north and
+east small stands of oaks sit proudly upon the hills.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 47001 10 10 5
+D1
+~
+~
+0 -1 47004 10 10 5
+D2
+~
+~
+0 -1 47005 10 10 5
+D3
+~
+~
+0 -1 47003 10 10 5
+E
+grass~
+Long yellow stalks of grass cover the hills.  When the breeze blows, the
+ground seems to flow as the grass waves in the wind.
+~
+E
+bushes manzanita~
+The smooth red bark of the manzanita bushes stands out against the yellow
+background of grass.  The small green leaves are waxy, and small clusters
+of flowers hang from the branches.
+~
+-1
+S
+
+#47003
+Meadow Among the Oaks~
+The rolling hills come upon a steep washout that cuts off the meadow to
+the north and west.  Floodwaters have carved a steep ravine out of the
+flatlands here, making it impossible to head over the washout without
+finding another way across.  To the south and east the rolling hills
+continue, the yellow grass waving in the occasional breeze.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 47002 10 10 5
+D2
+~
+~
+0 -1 47006 10 10 5
+E
+washout ravine~
+The ravine is deep, carved from the soft dirt of the meadow during
+periods of heavy rain.  Small stones dot the side and bottom of the
+ravine, uncovered by the action of the water.  The sides appear unstable;
+it would be best to avoid getting too close.
+~
+E
+stones~
+Small stones rounded by the action of the water dot the ravine.  Other
+stones are still embedded in the dirt walls.
+~
+A
+climb get~
+rocks stones ravine washout down~
+act_tochar( #ack!, ch );
+act_notchar( #rmack!, ch );
+~
+E
+ack!~
+As you near the edge of the ravine huge chunks of dirt start to give way,
+and you back off to avoid falling in.
+~
+E
+rmack!~
+$n quickly backs away from the ravine as the dirt begins 
+to give way beneath $m!
+~
+!
+0 0 0
+755 9 1509949540 3 0
+-1
+S
+
+#47004
+Oak-Rimmed Vale~
+The air temperature drops as you enter a protected vale rimmed by oaks. 
+Several large stones are scattered about, half buried on the sloping
+ground.  Up the hill to the west the trees begin to clear somewhat,
+leading to a meadow.  Small holes dot the ground, evidence that some
+small burrowing creatures make this their home.
+~
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 47002 10 10 5
+E
+stones~
+The large stones appear to be a grey-black granite.  You can determine no
+special order to the placement of the stones, and they appear to have
+been here for quite some time.
+~
+E
+holes burrows~
+The holes appear to be fresh, probably the burrows of squirrels or other
+small animals.
+~
+E
+oaks~
+The oaks grow around the rim of the small vale.  Most of them are old,
+but a few new ones grow in the shade of the taller trees.  The limbs of
+the oaks are too far above you to climb them easily.
+~
+A
+~
+~
+if( is_follower( ch  ) )
+  end;
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  mob = mob_in_room( 1831, room );
+  if( mob ) {
+    i = 1d10;
+    if( i > 7 ) {
+      act_tochar( #falls, ch );
+      interpret( mob, "sit" );
+      }
+    }
+  }
+~
+E
+falls~
+The youth tries to climb one of the trees, but falls down.
+~
+!
+1 0 8
+A
+~
+~
+mob = mob_in_room( 1831, room );
+if( mob ) {
+  if( is_resting( mob ) )
+    interpret( mob, "stand" );
+  continue;
+  }
+else
+  continue;
+~
+!
+3 0 8
+A
+climb~
+tree oaks~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You cannot see where you could get good enough handholds to climb the
+trees.
+~
+!
+0 0 0
+A
+enter climb~
+holes~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You can't fit in there!
+~
+!
+0 0 0
+1831 9 1509949540 3 0
+-1
+S
+
+#47005
+Meadow Among the Oaks~
+The hills become less pronounced, forming a flat meadow of waving yellow. 
+The oaks fade off into the distance to the north and west, only
+manzanitas sprinkled about the landscape.  A cool breeze gently spreads
+over the field, bringing with it a faint sound like laughter.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 47002 10 10 5
+D3
+~
+~
+0 -1 47006 10 10 5
+E
+oaks~
+Far off to the north and west you can see rolling hills covered by oak
+trees.  One large oak dominates the hills to the west, rising high above
+the others.
+~
+E
+manzanita bush~
+Small manzanitas dot the meadow, their red bark and green leaves vibrant
+compared to the yellow grass.
+~
+A
+listen~
+breeze laughter~
+act_tochar( #laugh, ch );
+~
+E
+laugh~
+You strain to listen for the sounds of laughter, but can't quite pick up
+where they are coming from.
+~
+!
+0 0 0
+-1
+S
+
+#47006
+Meadow Among the Oaks~
+Yellow grass and solitary oaks dot the rolling hills.  Small shrubs grow
+here and there, some beneath trees and others not.  A faint trail comes
+from the south and leads to the west.  One large oak tree stands out from
+the others, towering high into the sky.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 47003 10 10 5
+D1
+~
+~
+0 -1 47005 10 10 5
+D2
+~
+~
+0 -1 47008 10 10 5
+D3
+~
+~
+0 -1 47007 10 10 5
+D4
+~
+~
+239 -1 47014 10 10 5
+E
+shrubs~
+Small manzanita and other evergreen shrubs grow on the hillside.  A few
+seem to flourish under trees, but there appears to be nothing special
+about them.
+~
+E
+trail~
+A small animal track cuts through the grass.  It is faint and grows even
+fainter as it moves from the south to the west.
+~
+E
+large oak tree~
+This oak tree is huge!  It must be at least eighty-feet tall, and spreads
+out covering much of the sky.  A thick rope hangs from one of its
+branches.
+~
+E
+rope~
+A sturdy rope hangs from one of the branches of the tree.
+~
+E
+up~
+You think you can see some sort of platform hidden amongst the branches
+of the oak.
+~
+A
+climb~
+rope tree up u~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 47014 ) );
+  act_notchar( #arrive, ch );
+  end;
+  }
+else {
+  act_tochar( #rope, ch );
+  act_notchar( #rmrope, ch );
+  transfer( ch, find_room( 47014 ) );
+  act_notchar( #arrive, ch );
+  }
+~
+E
+rope~
+You grab the rope and begin climbing up the tree.
+~
+E
+rmrope~
+$n grabs the rope and begins climbing into the tree.
+~
+E
+arrive~
+$n arrives from below.
+~
+E
+fly~
+You fly easily up into the tree.
+~
+E
+rmfly~
+$n flies up into the tree with little effort.
+~
+!
+0 0 0
+932 9 1509949540 3 0
+-1
+S
+
+#47007
+Path through the Oaks~
+A deep ravine cuts through the meadow, slicing a deep scar just to the
+northwest.  A gnarled oak tree leans precariously over the side of the
+ravine, somehow managing to not fall in.  The grass here is greener, but
+sparse underneath the tree.  Off to the east a large oak tree grows high
+over the rolling hills.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 47006 10 10 5
+E
+tree oak gnarled~
+The gnarled limbs of the oak tree twist upwards.  Some of its roots are
+exposed, wrapped around a rock at the base of the tree.
+~
+E
+scar ravine~
+The ravine is deep, carved from the soft dirt of the meadow during
+periods of heavy rain.  Small stones dot the side and bottom of the
+ravine, uncovered by the action of the water.  The sides appear unstable;
+it would be best to avoid getting too close.
+~
+E
+rock~
+This ancient rock is tightly clutched by the roots of the oak tree.  The
+dirt near the rock looks like it has been disturbed recently.
+~
+E
+grass~
+The grass begins to show signs of being healthier, turning from a yellow
+to a green color.  Underneath the oak, however, the grass becomes patchy.
+~
+E
+dirt~
+The dirt by the stone has been disturbed recently.
+~
+A
+get climb~
+ravine scar down north west d~
+acode( find_room( 47003 ), 1 );
+~
+!
+0 0 0
+A
+dig search~
+rock stone ground~
+mob = mob_in_room( 1835, room );
+if( mob ) {
+  act_tochar( #whap, ch );
+  act_notchar( #rmwhap, ch );
+  end;
+  }
+if( is_player( ch ) ) {
+  act_tochar( #dig, ch );
+  act_notchar( #rmdig, ch );
+  if( rflag( reset1, room ) ) {
+    i = 1d20;
+    if( i < 9 ) {
+      obj = oload( 1039 );
+      act_tochar( #found1, ch, obj );
+      act_notchar( #rmfound1, ch, obj );
+      obj_to_char( obj, ch );
+      }
+    if( i == 9 ) {
+      obj = oload( 1066 );
+      act_tochar( #found1, ch, obj );
+      act_notchar( #rmfound1, ch, obj );
+      obj_to_char( obj, ch );
+      }
+    if( i == 10 ) {
+      obj = oload( 1293 );
+      act_tochar( #found1, ch, obj );
+      act_notchar( #rmfound1, ch, obj );
+      obj_to_char( obj, ch );
+      }
+    remove_rflag( reset1, room );
+    end;
+    }
+  else {
+    act_tochar( #nope, ch );
+    act_notchar( #rmnope, ch );
+    }
+  }
+~
+E
+dig~
+You kneel down on the ground and start to dig at the base of the rock.
+~
+E
+rmdig~
+$n kneels down and begins to dig near the rock.
+~
+E
+found1~
+You stop digging and pull $p from the cold earth!
+~
+E
+rmfound1~
+$n pulls $p from the ground!
+~
+E
+nope~
+You dig for a while, but you don't find anything.
+~
+E
+rmnope~
+$n digs for a while, but gives up in disgust.
+~
+E
+whap~
+@YThe dwarf pushes you away from the rock, snarling.@n
+~
+E
+rmwhap~
+@GThe dwarf shoves $n away forcefully.@n
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( is_follower( ch ) )
+    end;
+  if( mob_in_room( 1835, room ) )
+    act_tochar( #start, ch );
+  }
+~
+E
+start~
+The dwarf looks startled as you come upon him!
+~
+!
+1 0 2
+A
+~
+~
+if( mob_in_room( 1835, find_room( 47007 ) ) ) {
+  mob = mob_in_room( 1835, find_room( 47007 ) );
+interpret( mob, "say Run away ya pansy!" );
+  continue;
+  }
+else
+  continue;
+~
+!
+3 0 2
+1835 9 1509949540 3 0
+-1
+S
+
+#47008
+Path Through the Oaks~
+The faint trail winds its way through the hilly field, beneath oaks and
+around small bushes.  You can see obvious footprints in the dirt of the
+trail, which lead off to the east into a ravine.  To the south a smaller
+trail splits off, heading between two small bushes and off into a thick
+stand of elms.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 47006 10 10 5
+D1
+~
+~
+0 -1 47010 10 10 5
+D2
+~
+~
+0 -1 47009 10 10 5
+E
+trail footprints dirt~
+Booted footprints of various sizes head back and forth on the path. 
+Whoever walked along the trail didn't seem to care or know that they
+could be tracked.
+~
+E
+bushes~
+Two small manzanita bushes flank the faint trail to the south.
+Beyond them is a thick stand of elm trees.
+~
+E
+stand elm trees~
+Tall elms with outstretched canopies grow to the south.  Beneath them are
+small elms, struggling to grow in the diminished light.
+~
+1837 9 1509949540 3 0
+-1
+S
+
+#47009
+Beneath the Elms~
+Elms with grey bark grow tall and close together.  In a small clearing, a
+thick, green grass grows in their shade.  Several small tree stumps dot
+the clearing, as well as a recently fallen tree.  To the north the elms
+disappear, giving way to a hillside meadow.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 47008 10 10 5
+E
+grass green~
+The luxurious grass is quite healthy and green.  The small clearing is
+shady, and the grass looks inviting.
+~
+E
+stumps~
+Cut close to the ground, these stumps appear somewhat fresh from the
+thick sap that still oozes out near the bark.
+~
+E
+elms trees~
+These appear to be quite old elm trees.  Their bark is greyed from the
+affect of weather, and their branches spread out in a living canopy
+overhead.
+~
+A
+~
+~
+if( is_follower( ch  ) )
+  end;
+if( is_player( ch ) ) {
+  if( rflag( reset1, room ) ) {
+    if( mob_in_room( 1838, room ) ) {
+      if( mob_in_room( 1839, room ) ) {
+        mob = mob_in_room( 1838, room );
+        interpret( mob, "tickle rake" );
+        mob = mob_in_room( 1839, room );
+        interpret( mob, "giggle" );
+        remove_rflag( reset1, room );
+        interpret( mob, "say Hey! Who are you?" );
+        }
+      }
+    }
+  }
+~
+!
+1 0 1
+1838 9 1509949540 3 0
+1839 9 1509949540 3 0
+-1
+S
+
+#47010
+In a Ravine~
+The walls of the ravine rise high above your head, and the loose,
+crumbling soil of those walls appears quite fragile.  Several large
+stones are half-uncovered and protrude from the walls and ground.  The
+bottom of the ravine as been used as a trail for some time from the
+indications of the loose soil and deep footprints.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 47011 10 10 5
+D3
+~
+~
+0 -1 47008 10 10 5
+E
+walls loose crumbling soil~
+The loose dirt threatens to come down on you at anytime.  Small stones
+dot the walls, embedded deep in the dirt.  They are far too steep to
+climb, and would probably fall down on you if you tried.
+~
+E
+stones~
+There is nothing special about the stones except for the fact they are
+half-buried in the walls.
+~
+A
+dig move pry get take~
+stones rocks~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You pry at the loose stones, but they are more firmly stuck than you
+thought.
+~
+!
+0 0 0
+-1
+S
+
+#47011
+In a Ravine - Dead End~
+The ravine winds along to the east and west, sharp turns making it
+difficult to see very far ahead.  After a sharp turn, the ravine comes to
+a dead end.  The floor of the ravine has been cleared here, and several
+stout tree trunks have been sunk into the ground to form a half-complete
+wall.  The wall remains unfinished and does not block your movement
+through the ravine.  Two large holes have been dug into the wall of the
+ravine and shored up with logs.
+~
+maybe add pointment to asks for gnome
+~
+301465600 4 9 0
+D1
+rough-planked door~
+rough-planked door~
+391 2596 47012 10 10 5
+D2
+stained curtain~
+stained curtain~
+131 -1 47013 10 10 5
+D3
+~
+~
+0 -1 47010 10 10 5
+E
+trunks stout wall~
+It looks like the bandits are in the progress of making a defensive wall
+for their hideout.  Thankfully, it appears that the wall is unfinished. 
+The tree trunks are lashed together with rope, and appear solid.
+~
+E
+holes~
+The holes appear to have been dug out of the walls recently.  Loose dirt
+is spread about the floor, and shovel marks can still be seen on the
+walls.  The hole to the east has been blocked with a crude door made from
+rough-cut boards.  To the south, the hole is covered by a stained curtain.
+~
+E
+door~
+The door is built of thick planks of roughly sawn wood.  A rusty iron
+keyhole implies that the door can be locked.
+~
+E
+curtain~
+The curtain is made of a heavy green wool.  It is stained with all manner
+of sticky and smelly agents.
+~
+A
+op open pick~
+rough lock door east rough-hewn e~
+if( mob_in_room( 1840, find_room( 47011 ) ) ) {
+  mob = mob_in_room( 1840, find_room( 47011 ) );
+  interpret( mob, "say Hey! What ye think yer doin?  Move away from there!" );
+  i = 1d8;
+  act_tochar( #kick, ch );
+  act_notchar( #rmkick, ch );
+  dam_message( ch, i, "the gnome's shin-kick" );
+  inflict( ch, mob, i, "being kicked to death" );
+  end;
+  }
+continue;
+~
+E
+kick~
+The gnome kicks your shin sharply!
+~
+E
+rmkick~
+The gnome kicks $n in the shin!
+~
+!
+0 0 0
+1840 9 1509949540 3 0
+-1
+S
+
+#47012
+Ravine - Inside the East Hole~
+A large chamber has been dug out of the soft dirt.  Several strong
+timbers brace the sides, and thick planks keep the ceiling from caving in. 
+On the floor are several old rugs, much the worse for wear.  Against the
+south wall a few planks have been placed, probably to prevent that wall
+from collapsing.  A thick iron door is bolted to some posts along the 
+east wall.
+~
+~
+301465605 0 9 0
+D1
+thick iron door~
+thick iron door~
+131 -1 47015 10 10 5
+D3
+rough-planked door~
+rough-planked door~
+391 2596 47011 10 10 5
+E
+timbers strong~
+Thick wooden timbers support the heavy and unstable dirt ceiling.  The
+wood smells fresh, and sap still seeps from the cuts.
+~
+E
+ceiling~
+Crudely sawn planks crisscross the ceiling providing support for the
+loose soil.
+~
+E
+rugs old~
+The rugs are stained and full of dirt.  Some appear to have once been
+valuable, but they are now moldy and worthless.
+~
+E
+south wall~
+The thick planks that are set along the south wall seem solid.  They are
+somewhat bowed into the room, evidence that immense pressure is pushing
+against them.
+~
+A
+~
+~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( is_follower( ch ) )
+    end;
+  if( mob_in_room( 1845, room ) )
+    act_tochar( #challenge, ch );
+  mob = mob_in_room( 1845, find_room( 47012 ) );
+interpret( mob, "say You dare come for me in my own home?" );
+  interpret( mob, "say Have at you, then!" );
+  rch = rand_player( find_room( 47012 ) );
+  attack_weapon( mob, rch, 2d6+3, "lighting-quick counterstrike" );
+  }
+~
+E
+challenge~
+The slender man strides towards you, rapier in hand.
+~
+!
+1 0 8
+A
+search~
+rugs~
+act_tochar( #rug, ch );
+act_notchar( #rmrug, ch );
+~
+E
+rug~
+You search the rugs, but find nothing.
+~
+E
+rmrug~
+$n searches the rugs but comes up empty handed.
+~
+!
+0 0 0
+A
+search pry~
+plank wooden~
+act_tochar( #plank, ch );
+act_notchar( #rmplank, ch );
+~
+E
+plank~
+You pry back one of the planks, and search around, but find nothing.
+~
+E
+rmplank~
+$n prys back one of the planks, and searches behind it.
+~
+!
+0 0 0
+1845 9 1509949540 3 0
+-1
+S
+
+#47013
+Ravine - Inside the South Hole~
+You are in a small dirt chamber that has been dug from the ravine wall. 
+The dirt walls are supported by thick wood columns.  The floor is covered
+in furs, most stained and ratty looking.  The dirt walls are bare, and
+the ceiling only shows the marks from when it was dug.  A stained curtain
+hangs in the exitway to the north.
+~
+~
+301465604 0 9 0
+D0
+stained curtain~
+stained curtain~
+131 -1 47011 10 10 5
+E
+columns~
+The thick wooden columns appear to be simply tree trunks cut to size. 
+There is one in each corner of the room, and a few planks run from one
+corner of the ceiling to the other.
+~
+E
+furs stained ratty~
+A thick pile of nasty smelling and dusty furs covers the floor.  They
+appear quite dirty and disgusting.
+~
+E
+walls dirt~
+The loose dirt of the walls looks like it could collapse at any time. 
+Several planks and columns support them to make the room safer.
+~
+A
+search get~
+furs skins rugs~
+act_tochar( #rugs, ch );
+act_notchar( #rmrug, ch );
+~
+E
+rugs~
+You pick up one of the furs, but decide to drop it when you notice lice
+crawling on it.
+~
+E
+rmrug~
+$n begins searching through the furs, but drops one with a look of
+disgust.
+~
+!
+0 0 0
+A
+search~
+planks boards ceiling~
+act_tochar( #planks, ch );
+act_notchar( #rmplanks, ch );
+~
+E
+planks~
+You slide your hand above the planks but find nothing.
+~
+E
+rmplanks~
+$n slides $s hand along the planks on the ceiling,
+but gives up after finding nothing.
+~
+!
+0 0 0
+1841 9 1509949540 3 0
+1844 9 1509949540 3 0
+-1
+S
+
+#47014
+Up in the Oak Tree~
+Several boards have been nailed into the tree, providing a stable
+platform to watch over the fields.  However, the branches of the oak make
+it almost impossible to see anything but directly under the tree.  A
+ratty bedroll sits in one corner of the platform.  A rope hanging from
+one of the branches provides the only means out of the tree.
+~
+~
+301465600 3 9 0
+D5
+~
+~
+239 -1 47006 10 10 5
+E
+branches down~
+The thick canopy of branches makes it difficult to look out over the
+hillside.  However, you notice some mistletoe growing on one of the
+branches.
+~
+E
+mistletoe~
+A small bough of mistletoe hangs from one of the branches.  You might
+just be able to reach it to pick some.
+~
+E
+bedroll~
+This ratty bedroll is made of cotton and has seen better days.  The
+stuffing is coming out of it, and it has a peculiar odor.
+~
+E
+platform~
+The platform is made of several rough planks nailed to the branches of
+the oak.  It appears to be solid, if crude.
+~
+E
+rope~
+The rope dangles down, hanging loosely from one of the thick branches.
+~
+A
+climb~
+rope down d do dow~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rmfly, ch );
+  transfer( ch, find_room( 47006 ) );
+  act_notchar( #arrive, ch );
+  }
+else {
+  act_tochar( #rope, ch );
+  act_notchar( #rmrope, ch );
+  transfer( ch, find_room( 47006 ) );
+  act_notchar( #arrive, ch );
+  }
+~
+E
+fly~
+You easily fly down.
+~
+E
+rmfly~
+$n flies down quickly.
+~
+E
+arrive~
+$n climbs down the rope.
+~
+E
+rope~
+You grab the rope and climb down the tree.
+~
+E
+rmrope~
+$n climbs down the rope.
+~
+!
+0 0 0
+A
+pick get grab~
+bough sprig mistletoe~
+if( is_player( ch ) ) {
+  act_tochar( #stretch, ch );
+  act_notchar( #rmstretch, ch );
+  wait( 1 );
+  i = 1d20;
+  if( rflag( reset1, room ) ) {
+    if( i < 4 ) {
+      obj = oload( 667 );
+      obj_to_char( obj, ch );
+      act_tochar( #got, ch );
+      act_notchar( #rmgot, ch );
+      remove_rflag( reset1, room );
+      end;
+      }
+    act_tochar( #not, ch );
+    act_notchar( #rmnot, ch );
+    remove_rflag( reset1, room );
+    }
+  else {
+    act_tochar( #not, ch );
+    act_notchar( #rmnot, ch );
+    }
+  }
+~
+E
+stretch~
+You reach out for the mistletoe, stretching as far as you can to pull
+some off.
+~
+E
+rmstretch~
+$n reaches out to one of the branches, stretching to pull some
+mistletoe off.
+~
+E
+got~
+You manage to pull off a sprig of mistletoe!
+~
+E
+rmgot~
+$n manages to pull off a sprig of mistletoe!
+~
+E
+not~
+You can't quite reach the mistletoe.
+~
+E
+rmnot~
+$n can't quite reach the mistletoe.
+~
+!
+0 0 0
+A
+sleep lie~
+bed roll mattress bedroll~
+act_tochar( #bugs, ch );
+~
+E
+bugs~
+The bedbugs hopping out of the bedroll make you decide against that
+course of action.
+~
+!
+0 0 0
+1832 9 1509949540 3 0
+-1
+S
+
+#47015
+Inside a Gloomy Cell~
+The stale air of this dark and gloomy room chokes you.  The eastern wall
+is nothing more than a large rock, while the others are made of loose
+ soil that threatens to cave in at any time.  Bolted into the rock is a
+thick pair of iron manacles.  Dominating the western wall is a thick iron
+door set into wide timbers.
+~
+the girl is NOT a girl, she is an ogre magi with an illusion spell
+~
+301465612 0 9 0
+D3
+thick iron door~
+thick iron door~
+131 -1 47012 10 10 5
+E
+stone large rock wall~
+This massive grey stone makes up the entire east wall.  Small flecks
+sparkle in its surface, making you think it to be granite.  A pair of
+manacles are bolted into the stone.  Underneath the stone, the dirt looks
+recently disturbed.
+~
+E
+manacles~
+These thick iron manacles are bolted firmly into the stone.  They appear
+unused and rusty.
+~
+E
+thick iron door~
+The thick iron door hangs on heavy hinges bolted into thick wooden beams. 
+Spots of rust dot the iron, and it has many scratch marks on it.
+~
+A
+dig~
+dirt stone ground~
+if( doing_quest( ch, 49 ) ) {
+  act_tochar( #dig, ch );
+  act_notchar( #rmdig, ch );
+  wait( 1 );
+  if( rflag( reset1, room ) ) {
+    obj = oload( 2629 );
+    obj_to_char( obj, ch );
+    act_tochar( #got, ch );
+    act_notchar( #rmgot, ch );
+    remove_rflag( reset1, room );
+    end;
+    }
+  act_tochar( #not, ch );
+  act_notchar( #rmnot, ch );
+  }
+else {
+  act_tochar( #not, ch );
+  act_notchar( #rmnot, ch );
+  }
+~
+E
+dig~
+You begin digging in the cool dirt, your hands easily moving the recently
+moved soil.
+~
+E
+rmdig~
+$n digs in the dirt beneath the stone.
+~
+E
+got~
+Your hands strike something soft, and you manage to pull a tattered dress
+from the ground.
+~
+E
+rmgot~
+$n digs with renewed intensity, finally pulling
+a tattered dress from the ground in a cloud of dust!
+~
+E
+not~
+You dig a large hole, but come up with nothing but dirt under your
+fingernails.
+~
+E
+rmnot~
+$n digs a little longer, but gives up after awhile.
+~
+!
+0 0 0
+1846 9 1509949540 3 0
+-1
+S
+
+#0
+

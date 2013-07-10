@@ -1,0 +1,3432 @@
+#AREA
+Medienne Sewers~
+Amon, Talis~
+Medienne Sewer~
+
+8 0
+0
+#ROOMS
+
+#13500
+Sewer Entry~
+You are in a pool of murky, standing water at the base of a rusty ladder
+that leads up to a heavy grate.  The still air is rank with the foul
+stenches of humanoid waste and things long dead, making each breath a
+caustic hazard.  The putrescent water of the pool seems deeper in the
+middle, with shallow ledges along the sides which can be followed east.
+~
+-done (T)
+[Starshine] acode open/close grate - you give a big push or something (grate is heavy?). could be race dependent.
+[Starshine] create acode drink water/pool/sewage - the water is much too dirty to drink - and refer to this acode from all the sewer-water rooms.
+[Starshine] add stench message to acode 1, please.
+[Talis] The sound will carry even to areas where the stench is cleared.
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13501 10 10 5
+D4
+rusted grate~
+rusted grate~
+131 -1 159 10 10 5
+E
+grate 1 up~
+A large rusted grate is set in the stone ceiling above.  Some light
+filters down through it.  A gentle breeze of air far fresher and sweeter
+than any found in the depths of this sewer wafts down through the grate.
+~
+E
+pool~
+You can't determine how deep the pool is, but the vile smell rising from
+it and the strange lumps of unnamed things floating on its surface, are
+probably a good sign that you should avoid it at all costs.
+~
+E
+ladder~
+The ladder is wrought of thick iron made to last despite the years of
+heavy rust that have built up on it.  At the top of the ladder an equally
+rusty grate allows light and a possible exit from this dank and dismal
+abode.
+~
+E
+ledge~
+Shallow ledges, just inches wide, flank the pool, extending to the east. 
+They are little more than a dry space rising about the sludge.
+~
+A
+~
+~
+i = random( 1, 6 );
+if( i == 1 )
+  send_to_area( #chitter, room );
+if( i == 2 )
+  send_to_area( #skitter, room );
+if( i == 3 )
+  send_to_area( #drip, room );
+if( i == 4 )
+  send_to_area( #drip, room );
+if( i == 5 )
+  send_to_area( #drip, room );
+if( i == 6 )
+  send_to_area( #scream, room );
+~
+E
+chitter~
+The chitter of nearby rodents echoes through the sewers.
+~
+E
+skitter~
+The skitter of dozens of little feet tell tales of rodents running about
+dire errands.
+~
+E
+drip~
+The echoes of vile liquids dripping into the filthy water resound down
+the tunnels and chambers.
+~
+E
+scream~
+The harsh sound of screams, or perhaps it is just a large rat squealing,
+fills the darkness.
+~
+!
+4 30 0
+199 9 1509949540 3 0
+199 9 1509949540 3 0
+199 9 1509949490 3 0
+-1
+S
+
+#13501
+Sewer Intersection~
+The filthy ledges along the walls are an inch or two above the mire of
+the sewage water.  A large pool of dark, foreboding liquid giving off a
+nauseating stench has collected in the center.  Passageways lead off into
+dank-smelling darkness in the four cardinal directions.  You could
+carefully tread through the sludge along the ledges to continue onward.
+~
+-done (T)
+[Calliope] I would like to see an action here for something, rolling or
+splashing in the sludge.  It wouldn't have to be named nor would anything
+have to happen, just something for atmosphere.  'Suddenly in the sewer's
+silent tunnels there is a churning and bubbling in the filthy pool.' or
+something.
+[Rhen] hehe i agree with call
+[Talis] There are such actions, area-wide...  just the random call isn't
+working yet.
+[Starshine] acode leave down would be cool
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13502 10 10 5
+D1
+~
+~
+0 -1 13504 10 10 5
+D2
+~
+~
+0 -1 13534 10 10 5
+D3
+~
+~
+0 -1 13500 10 10 5
+D5
+~
+~
+0 -1 13503 10 10 5
+E
+ledges pool liquid~
+The ledges, mere lengths of dry tunnel emerging above the stream of raw
+sewage, are clotted with filth; indiscernible smears and clots of goo you
+would rather avoid.
+~
+-1
+S
+
+#13502
+End Chamber~
+The sewer, though comparatively drier here than in other regions, still
+manages to give off a rather noxious odor.  The usual canal of water has
+dwindled to little more than a small stream that grows as it heads south. 
+With the decreased volume of water you can now tell that the central
+portion of the canals are about three feet deep, arcing upward to a mere
+one foot deep where the ledges end.  To the north the tunnel dead-ends in
+a wall from which several pipes protrude.
+~
+-done (T)
+[Starshine] rooms need to be ogre sized (will do myself later if i have time)
+[Starshine] search pipes, get/take slime/moss
+~
+335151108 0 5 0
+D2
+~
+~
+0 -1 13501 10 10 5
+E
+pipes 1 north~
+The pipes seem to be the entrance from which a portion of the town's
+sewage is dumped into the sewers.  Some of the pipes, lined with a lush
+growth of slimy mosses and molds, look relatively dry, indicating
+blockages that might explain a few of the more aromatic areas in the town
+above.  A steady trickle of disgusting filth drips out of those pipes
+that are not so dry.
+~
+E
+canal stream 1 south~
+The water runs down the center of the canal here, joining with a greater
+flow to the south.
+~
+185 9 1509949540 3 0
+-1
+S
+
+#13503
+In Sewage, Underwater~
+The vile water is thick with the rot of sewage and you are unable to see
+anything beyond a few inches away.  You try in vain to keep the sludge
+out of your nose and mouth, but it's a losing battle and you feel your
+stomach acids rising, heralding the coming vomit.
+~
+-done (T)
+[Calliope] Would like to see action here, indicating you're swallowing
+sewage not water.  Somehow the generic unable to breathe underwater
+doesn't seem quite sufficient.
+[Talis] I know... wish I could make it undersewage instead of underwater
+[Starshine] acode for going up
+~
+335151108 7 5 0
+D4
+~
+~
+0 -1 13501 10 10 5
+-1
+S
+
+#13504
+Sewer Passage~
+The dirty side ledges are relatively dry with only the occasional bit of
+detritus or refuse lying in wait for you to slip on it.  A pipe on the
+north wall dumps a steady stream of steaming sewage into the murky canal. 
+Opposite it, jutting out of the south wall, another pipe is clogged with
+vile-smelling sewage and only rarely drops a semi-solid chunk into the
+waters below.
+~
+-done (T)
+[Rhen] add acode - you slip on the refuse
+[Starshine] acode search refuse/detritus/pipe - there really is nothing
+worth keeping.
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13509 10 10 5
+D3
+~
+~
+0 -1 13501 10 10 5
+E
+trash refuse~
+Searching through the debris you find ragged scraps of tattered cloth and
+the occasional bit of wood, but overall you find nothing of use or
+interest.
+~
+E
+pipe 1 north 1 south~
+The sewage is full of dark brown mud-like clumps and the occasional
+doughy white pieces.  Nothing worthwhile though.
+~
+199 9 1509949540 3 0
+-1
+S
+
+#13505
+Small Storage Chamber~
+This appears to be a narrow storage chamber of some sort.  Ancient, rusty
+hooks set into the stone walls provided a place for brooms and traps to
+be hung when not in use.  Though the stench of nearby sewers invariably
+permeates the air, this little room is decidedly less filthy than the
+tunnels beyond.  In the heavy dust that covers the floor, the majority of
+the tracks belong to rats, confirmed moreover by the scattered rat
+pellets along the walls and dark corners.  Set in the east wall, in
+shadows so deep you almost missed it altogether, is a steel-bound oak
+door with a rather solid look to it.
+~
+-done (T)
+~
+335151108 0 5 0
+D1
+steel-bound oak door~
+steel-bound oak door~
+391 -1 146 10 10 5
+D3
+~
+~
+0 -1 13518 10 10 5
+E
+1 east door~
+The door is made of strong oak planks bound in steel bands.  Oddly, it
+shows no sign of wood rot; not even dust coats it.  Although it has
+obviously been here quite a long time, the depth of the undisturbed dust
+on the surrounding floor indicates even the rats seem to avoid it. 
+Someone went to a lot of trouble to keep it secure, further evidenced by
+the heavy iron lock set in the clasp to hold it shut.
+~
+E
+chair~
+Once of stout oak timbers, the ancient chair must have been treated with
+care to have lasted this long in so caustic an environment.  Now it is
+rotted, covered with mildew, and looks barely strong enough to hold even
+the bare bones of a dead man in place.
+~
+E
+hooks walls~
+The walls, made of cut stone blocks, have several metal hooks placed at
+various heights to hold tools.  Unfortunately the metal of the hooks long
+ago succumbed to the moisture in the rancid air and many have rusted down
+to nothing more than little nubs of disintegrating metal.
+~
+E
+pellets rats corners~
+Rat pellets litter the floor along the walls and piled in the dark
+corners.  Though never amounting to so many as to be able to hide
+anything worthwhile, the droppings are evidence of the large number of
+rats in these sewers.
+~
+A
+~
+~
+act_tochar( #dust, ch );
+~
+E
+dust~
+You stir up a small cloud of dust from the floor as you enter.
+~
+!
+1 0 15
+A
+get search examine take~
+droppings pellets~
+act_tochar( #get, ch );
+act_notchar( #rget, ch );
+obj_to_char( oload( 3228 ), ch );
+obj_to_char( oload( 3228 ), ch );
+obj_to_char( oload( 3228 ), ch );
+~
+E
+get~
+You gather a few rat droppings to examine them.
+~
+E
+rget~
+$n goes around collecting rat droppings.
+~
+!
+0 0 0
+143 9 1509949540 3 0
+199 9 1509949490 3 0
+199 9 1509949540 3 0
+-1
+S
+
+#13509
+Intersection Main~
+The walkway ledges are about a foot above the dark, glassy water of the
+central pool.  Oddly, the walkways are fairly clear, almost clean, of the
+detritus that fills the sewers elsewhere and the central pool is rather
+clear of the muck as well.  It's almost as if someone, or something, is
+clearing away whatever filth ends up in this dark intersection of the
+tunnels.  Wretched-smelling sewer passageways continue off in all the
+cardinal directions.
+~
+-done (T)
+[Starshine] acode leave down would be cool
+[Lansharra] ok, check follow down? or not supposed to follow down?
+[Lansharra] enter pool, enter down, etc. ought to work. swim down too i think.
+~
+335151116 0 5 0
+D0
+~
+~
+0 -1 13510 10 10 5
+D1
+~
+~
+0 -1 13513 10 10 5
+D2
+~
+~
+0 -1 13526 10 10 5
+D3
+~
+~
+0 -1 13504 10 10 5
+D5
+~
+~
+0 -1 13525 10 10 5
+E
+pool water~
+The water, though still dark and murky, is clear of the floating detritus. 
+If you had to take a dip anywhere in the sewers, this would have to be
+the cleanest and probably best place to do it.  The water is deeper here
+than in the surrounding rooms.
+~
+E
+ledges sewage~
+The ledges which extend along the tunnel, emerging from the ribbon of
+sewage flowing here, are still filthy and dark, but on the whole much
+cleaner than elsewhere in the sewers.
+~
+A
+~
+~
+if( find_stat( ch, level ) > 90 )
+  end;
+if( mob_in_room( 190, find_room( 13516 ) ) ) {
+  if( random( 0, 1 ) == 0 ) {
+    if( random( 0, 1 ) == 0 ) {
+      act_tochar( #pull, ch );
+      act_notchar( #pulled, ch );
+      transfer( ch, find_room( 13516 ) );
+      act_notchar( #apulled, ch );
+      }
+    else {
+      if( rflag( reset0, room ) ) { 
+        act_room( #all, ch );
+        mload( 189, room );
+        remove_rflag( reset0, room );
+        }
+      }
+    }
+  else
+    act_room( #nothing, ch );
+  }
+~
+E
+apulled~
+@b$n is pulled down from above, a tentacle around $s leg.
+~
+E
+nothing~
+@bYou sense movement under the pool's surface.
+~
+E
+all~
+@bSomething below senses your presence and a tentacle rises above the surface.
+~
+E
+pulled~
+@CA tentacle rises from the water and wraps around $n!
+With a last yelp of fear, $e is pulled under the pool's surface!
+~
+E
+pull~
+@bA tentacle rises from the water and pulls you into the pool!
+~
+!
+1 0 63
+A
+~
+~
+if( find_skill( ch, swimming ) > 0 ) {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 13525 ) );
+  act_notchar( #arr, ch );
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+char~
+@CYou slip into the pool and swim down.
+~
+E
+room~
+@C$n takes a breath and jumps off the edge down into the pool.
+~
+E
+arr~
+@C$n comes swimming down from the surface.
+~
+E
+no~
+The moving waters would be too great for you to fight, lacking any ability
+to swim at all.
+~
+!
+3 0 32
+-1
+S
+
+#13510
+Sewer Passage~
+The sewage burbles by in its never ending deluge just below the lip of the
+walkway ledge.  Though the dank tunnel air is permeated by the endless
+chitterings, scrapings, and scream-like squeals of the local wildlife,
+this tunnel is surprisingly devoid of activity.  The smaller insects are
+still around, but you see no sign of the common rats and small animals
+that dwell down here.
+~
+-done (T)
+[Starshine] acode insects buzz about your head, small insect takes a nip at you (slight damage)
+~
+335151116 0 5 0
+D0
+~
+~
+0 -1 13511 10 10 5
+D2
+~
+~
+0 -1 13509 10 10 5
+E
+insects~
+Dark-shelled cockroaches and several insects you can't even name skitter
+about at your approach.  Most profuse of all is an odd little critter
+with a shiny black carapace and long spindly black legs that can be seen
+jumping from lump to lump atop the sewage.
+~
+-1
+S
+
+#13511
+Sewer Passage~
+Two pipes face each other out of the eastern and western walls, carrying
+sewage into this murky canal.  A distinct lack of animal life is readily
+apparent by the lack of their spoor or tracks.  Strange wispy streamers
+hang down from the ceiling, clinging delicately to the walls and pipes
+and a multitude of little hard-carapaced strange black insects caper up
+and down the strands.  The whitish strands seem thicker to the north.
+~
+-done (T)
+[Starshine] acode climb/enter pipe - much too small
+[Starshine] acode search pipe - too disgusting
+[Starshine] touch/get/take streamers/web - load insects which attack? (cockroaches?)
+[Starshine] or one of those creatures loaded north?
+[Starshine] or just message "insects scurry away as you disturb the strands"? sometimes, get a piece of web?
+[Starshine] acode leave north - Break many sticky strands as you walk north?
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13512 10 10 5
+D2
+~
+~
+0 -1 13510 10 10 5
+E
+wispy streamers 1 up insects ceiling~
+A strange, sticky white substance like some sort of odd web.  They extend
+up into the darkness of the vaulted ceiling where they meet much thicker
+strands.  Among the shifting shadows you can make out a flurry of
+movement from even more of the black insect things.
+~
+E
+pipes 1 east 1 west walls~
+The pipes face each other from either side of the foul canal and are
+currently mostly dry.  Though an ever-present sludge hangs perpetually on
+the verge of falling off the pipes' rims, it somehow remains intact, only
+occasionally dripping filth into the murky waters.  The pipes are each no
+larger than a few scant inches across and are far too small for even a
+young goblin to fit in.
+~
+-1
+S
+
+#13512
+Passage End and Lair~
+Thick white strands of sticky web-like material hang in dense sheets
+around this dead-ended tunnel.  You can't move without several strands
+attaching themselves firmly to you and pulling against your movements. 
+Fortunately they break fairly easily under your pull and you easily
+escape each time you are ensnared.  A few pipes exit from the wall in
+various places, but most are clogged with an excess of the sticky white
+material.
+~
+-done (T)
+[Rhen] extra up - coating "the" entire.....
+[Starshine] acode leave south - Several strands brush against you, breaking, as you leave south.
+[Starshine] acode search pipes - refer to previous acodes in other rooms.
+[Starshine] consider removing the break easily line from rdesc and adding an acode random chance of being webbed when you enter room.
+[Starshine] web should reset in room
+~
+335151108 0 5 0
+D2
+~
+~
+0 -1 13511 10 10 5
+E
+1 up~
+Though dark, you can make out the massses of white web-like material
+coating the entire ceiling giving it an surreal appearance like a
+snow-covered landscape.
+~
+E
+webs wispy strands sheets material~
+Amidst the strands you see several lumps bound in white, each about the
+size of a rat and some larger.  Higher up, near the ceiling, you see a
+much denser area which completely obstructs view.  A layer of some kind
+perhaps, though you can not reach it to be certain.
+~
+E
+pipes walls~
+Two of the larger pipes, each about four inches across, still ooze a
+thick sludge into the putrescent water of the canal.  The remaining pipes
+are all sealed by the white web-like substance preventing anything more
+than smell from coming out.  The backed up sewage, left to rot in place
+for so long gives this region of the sewers an even more wretched smell
+than most other sections.
+~
+187 137 1509949540 3 0
+-1
+S
+
+#13513
+Sewer Passage~
+The mire-stained walkway ledges are a few inches above the dark filth of
+the sewage water.  A collection of debris, almost a dam of sorts, seems
+to have gathered on the western section of the canal before it enters an
+intersection, as if something had pushed or pulled it back into a single
+mass.  Small rats and countless insects gather and scavenge over the
+floating offal.
+~
+-done (T)
+[Starshine] acode search collection/debris/mass/trash - it's all trash. nothing worth keeping?
+[Starshine] acode 1: why the (long) wait?
+[Rhen] i like the long wait, that way only shows up if someone stops and rests in this room and might frighten them
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13514 10 10 5
+D3
+~
+~
+0 -1 13509 10 10 5
+E
+rats insects~
+Cockroaches, rats, and even the occasional lizard scatter at your
+approach.  These lesser denizens of the sewers, scavengers and small-time
+hunters, are too quick for you to catch in this, their home territory.
+~
+E
+offal trash debris~
+The collection is made up of all sorts of foul-smelling debris that
+includes everything from decaying leaves to the ashy, gray-blue of
+ragged, bloated flesh.  Amid the litter you see bits of old dolls, toys,
+and clothes.  It seems that anything unwanted in Medienne may end up down
+here at some point.
+~
+A
+~
+~
+wait( random( 2, 6 ) );
+i = random( 1, 3 );
+if( i == 1 )
+  act_tochar( #ripple, ch );
+else
+  act_tochar( #ripple2, ch );
+~
+E
+ripple2~
+The murky water parts slightly on the surface in a V-shape as rats and
+lizards scatter at your approach.
+~
+E
+ripple~
+The murky water parts slightly on the surface in a V-shape as something
+large approaches you rapidly then submerges out of sight before you can
+identify it.
+~
+!
+1 0 10
+-1
+S
+
+#13514
+Sewer Intersection~
+You are in a large junction chamber where three foul sewage 
+tunnels converge.  Where the morass of the sewage canals meet, a large,
+oddly calm pool forms.  The ever-present sound of dripping water comes
+out of the tunnels and echoes eerily off the high, vaulted ceiling
+seeming more ominous for its repetition.
+~
+-done (T)
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13515 10 10 5
+D2
+~
+~
+0 -1 13518 10 10 5
+D3
+~
+~
+0 -1 13513 10 10 5
+D5
+~
+~
+0 -1 13516 10 10 5
+E
+pool~
+The viscous pool looks still despite the continuous influx of more sewage,
+demonstrating that it is probably quite deep.  Floating atop the foul
+water you see waste, rotting food, bloated corpses, and some things you
+can't even identify.
+~
+E
+corpses~
+A few of the corpses appear to be dead rats, but most of the others are
+ether too rotted or bloated to identify.  Most seem to be partially eaten
+or gnawed upon.
+~
+A
+~
+~
+act_tochar( #down, ch );
+act_notchar( #rdown, ch );
+continue;
+~
+E
+down~
+You dive into the vile murk of the dark morass, its dark ooze filling
+your eyes and nose with a burning sensation.
+~
+E
+rdown~
+$n jumps into the vile morass of sewage and disapears from view scant
+inches from the surface.
+~
+!
+3 0 32
+199 9 1509949540 3 0
+-1
+S
+
+#13515
+Sewer Dead End~
+The passage abruptly dead-ends to the north where several pipes jut out
+from the stone walls to empty into a small pool.  The stench from the
+vile, semi-solid liquids is almost overwhelming, collecting at the
+fringes of the pool before eventually washing away down the southern
+canal.  Two clogged pipes, close together, provide a wider than usual
+area clear of moist debris where you might be able to rest for a moment,
+provided you can stomach the stench.
+~
+-done (T)
+~
+335151108 0 5 0
+D2
+~
+~
+0 -1 13514 10 10 5
+E
+pool~
+The grimy pool is a basin for the sewage pipes to empty into.  It is
+only a few feet deep at its center but it is filled with an abominal
+amount of blackish-brown sludge that wreaks of unclean decay and rot. 
+~
+E
+pipes~
+Most of the pipes here emit a more or less steady drizzle of sludge,
+though a few give off only an occasional drip and nothing more.  From
+the pipes with a less voluminous outpour of sewage, the skitter of small
+rat feet can be heard as they trundle along on their unseen errands.
+~
+A
+search~
+pipes~
+if( rflag( reset1, room ) ) {
+  i = random( 1,10 );
+  if( i < 3 ) {
+    obj = oload( 122 );
+    act_tochar( #found_item, ch, obj );
+    act_notchar( #found_rmitem, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset1, room );
+    end;
+    }
+  }
+act_tochar( #nothin, ch );
+act_notchar( #rmnothin, ch );
+~
+E
+found_item~
+@GYou search inside the pipes, and your hand closes on something small.@n
+~
+E
+found_rmitem~
+@$n pokes around in the pipes.@n
+~
+E
+nothin~
+@GYou search the pipes, but find nothing.@n
+~
+E
+rmnothin~
+@G$n pokes around in the pipes.@n
+~
+!
+0 0 0
+199 9 1509949465 3 0
+-1
+S
+
+#13516
+Sewage Pool Bottom~
+The rancid sludge that passes for water is thick with sewage, making
+sight almost impossible.  The mire gets in your eyes, nose and mouth,
+numbing your senses, causing a burning sensation wherever it touches bare
+skin.  Now is probably not a good idea to start thinking about all the
+diseases spawned in such environs.
+~
+-done (T)
+[Calliope] last line could be changed.. a little weak.
+[Starshine] acode for going up
+~
+335151172 7 5 0
+D4
+~
+~
+0 -1 13514 10 10 5
+E
+water sludge sewage mire~
+The water here is extremely cloudy and filled with dissolved dirt and
+other detritus.
+~
+A
+scan~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+The caustic fluids burn your eyes mercilessly making it hard to see very
+far at all.
+~
+!
+0 0 0
+188 9 1509949540 3 0
+-1
+S
+
+#13518
+Sewer Passage~
+The malodorous scent of raw sewage accompanies the steam rising off the
+foul rot that floats in the murky waters.  The walkway ledges, as grimy
+as ever, line either side of the north-south running canal, providing the
+only relatively safe place to travel short of swimming through the filth. 
+A narrow, arched opening in the eastern wall yields entrance to what
+might have been a maintenance storage area for whatever once worked down
+here.
+~
+-done (T)
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 13514 10 10 5
+D1
+~
+~
+0 -1 13505 10 10 5
+D2
+~
+~
+0 -1 13519 10 10 5
+E
+1 eastern archway opening entrance storage area~
+The archway set in the wall is a mere two feet wide and a good five feet
+tall, but the stone craftsmanship shows that it is far from an accidental
+breach or collapse of the chamber wall.  If the people of Medienne once
+payed someone to work down here, what lies beyond looks like it would be
+the perfect place to store tools and spare rat traps while not in use.
+~
+-1
+S
+
+#13519
+Sewer Passage~
+The stench of the sewers so thoroughly permeates the air that the odor of
+rot is the only thing that fills your olfactory senses.  Two pipes, one
+in the east wall and one in the west, spill a steady trickle of steaming
+ooze into the basin of the canal, adding to the stomach-churning odor. 
+Along the western wall someone has drawn images on the wall in what looks
+like blood.
+~
+-done (T)
+[Starshine] acode search pipes
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13518 10 10 5
+D2
+~
+~
+0 -1 13520 10 10 5
+E
+pipes~
+The pipes, rusted and rimmed with a foul ichor, are no larger than five
+inches wide at the mouth.  A steady, sickly grey-green ooze trickles
+out of the western pipe, while the eastern one yields forth a steadier
+stream of dark brown, almost black, slush with an occasional chunk or two
+in it.
+~
+E
+images blood~
+The images, formed of a dry, ruddy-brown medium that is thick enough to
+flake away in places, depict a gruesome mosaic.  The artwork is in the
+inexpert hand of an amateur with misproportioned humanoid forms shown in
+various stages of injury.  One that could only be an elf, due to the
+extremely oversized pointed ears, is laying on its side, an arm inches
+away from its body.  Several other humanoid forms lay torn limb from limb
+or crumpled in heaps.  Surrounding the scene everywhere, are hundreds of
+bloody rats, always shown biting or tearing at the torn and maimed
+corpses.  Looming over the gruesome scene, is a single, large ratlike
+figure standing on hind legs, human hands plainly seen.  The creature's
+head is a nightmare mix of rat and man, seeming to watch over the scene
+with malicious satisfaction.
+~
+E
+basin canal~
+The canal basin runs north-south with liquid oozing in from the north to
+be augmented by the flow from the pipes before continuing on southward.
+~
+E
+1 west~
+A pipe protrudes from the west wall, dumping a trickle of greenish sewage. 
+Gruesome images cover the wall about the pipe, images which are quite
+violent.
+~
+E
+walls~
+A pipe protrudes, one each, from the western and eastern walls, each
+dumping sewage into the canal.  Upon the western wall are ruddy-brown
+images, devastatingly gruesome.
+~
+-1
+S
+
+#13520
+Sewer Intersection~
+The rotting morass oozes along with a prominent gurgling sound overlaid
+by the constant drip of viscous fluids falling into it from nearby pipes. 
+More thick sludge constantly arrives from the northern and southern
+canals to pool here before continuing its journey out the larger western
+canal.  At times the torrent from the north increases suddenly, as if a
+large runoff suddenly broke free of a blockage.  Occasionally, it
+threatens to overflow the lip of the narrow ledge that provides the only
+safe haven from a dip in the putrescent waters.
+~
+-done (T)
+[Starshine] extra 3: not quite sure in which direction the angle is, but if enough, perhaps a leave room code - go up the incline? (and down when coming into this room or west)?
+[Starshine] search morass/ooze?
+[Starshine] acode 1: maybe i'm reading this wrong, but doesn't it seem to say, if no one in this room and mob down, then print message? (yes i know message prints. seems wierd to me :P)
+like function's working backwards.
+[Starshine] acode leave down would be cool
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13519 10 10 5
+D2
+~
+~
+0 -1 13523 10 10 5
+D3
+~
+~
+0 -1 13524 10 10 5
+D5
+~
+~
+0 -1 13521 10 10 5
+E
+morass ooze sewage water~
+The sewage is a sickly brown-black color with the occasional oily slick
+green rivulet running through it.  Bits of slimy debris, perhaps cloth or
+moldering wood so decayed it is nothing more than loose pulp, bobs to the
+surface after being dumped into the pool from the northern or southern
+canals.
+~
+E
+pipes~
+Though it is hard to tell for certain in the dark recess of the ceiling,
+it appears as if there are no pipes to be found here.  The ever-present
+trickling sound of sewage dripping out of pipes must be coming from other
+pipes further up the various tunnels.
+~
+E
+1 north 1 south~
+A sewage tunnel terminates in a connection with this chamber where the
+steady sluice of sewage drops a few inch to keep the flow going in the
+proper direction.  The walkway ledge angles up sharply in that direction
+to compensate for the sudden change in elevation for the canals.
+~
+E
+1 west~
+A sewer tunnel considerably larger than the ones to the north and south
+provides a means of escape for the never ending build-up of sewage.  The
+loud squeals of rats echo down the wide tunnel, their exact location a
+mystery in the darkness ahead.
+~
+A
+~
+~
+if( !rand_player( find_room( 13520 ) ) ) {
+  if( mob_in_room( 400, find_room( 13521 ) ) )
+    act_tochar( #bubble, ch );
+  }
+~
+E
+bubble~
+@y
+There is a thick burbling sound and slow ripple in the sewage as
+something submerges with your arrival.
+~
+!
+1 0 31
+-1
+S
+
+#13521
+In Sewage, Underwater~
+Several sizable chunks of trash float about in the dark waters that are,
+at best, little more than opaque.  The caustic liquids burn your
+unprotected nose and eyes making the swim just about unbearable.  At
+least while under the water you don't have to deal with the stench,
+though the idea of which is worse, the stench or the burning and choking
+sensation is a matter for personal decision.
+~
+-done (T)
+[Starshine] acode 2: add command get/take and target bits/corpses
+[Starshine] acode for moving up
+~
+335151172 7 5 0
+D4
+~
+~
+0 -1 13520 10 10 5
+E
+trash garbage~
+Floating about at various levels in the dark filth is trash of every
+available kind.  Most notable though would probably be the bloated
+corpses or bits of corpses.
+~
+E
+corpses~
+Most of them seem to be rats though a sufficient number are humanoid to
+suggest that the sewers may be a common dumping grounds for murderers.
+~
+A
+scan~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+The sewage burns your eyes as you try to peer through the thick sludge.
+~
+!
+0 0 0
+400 137 1509949530 3 0
+-1
+S
+
+#13522
+Huge Sewage Pool~
+You are in a huge chamber within the sewers, the largest you have seen
+thus far.  The vitriolic sludge of the sewer arrives from the four
+adjoining tunnels with a variety of gurgling, hissing and even popping
+sounds making this a decidedly nasty place to take a dip.  A yellow-green
+steam slowly rises up out of the thick mire and wafts upward toward a
+ceiling obscured by a miasma of foulness that has taken refuge there. 
+Fortunately, for those who have no desire to stay here longer than they
+absolutely must, someone long ago built four rather sturdy stone bridges
+that arc across each of the four canal mouths, connecting all the ledges
+and allowing egress in all directions.
+~
+-done (T)
+[Starshine] acode leave down would be cool
+[Steele] agress
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13527 10 10 5
+D1
+~
+~
+0 -1 13524 10 10 5
+D2
+~
+~
+0 -1 13529 10 10 5
+D3
+~
+~
+0 -1 13531 10 10 5
+D5
+~
+~
+0 -1 13528 10 10 5
+E
+pool sewage sludge much mire morass 1 down~
+The putrid murk of the sewage is only parallelled by its caustic smell. 
+Frequently, odd shapes break the surface, shapes with hard angles or
+rounded edges unidentifiable under the layers of thick muck that slowly
+but never completely ooze off of them before they are pulled back under
+by the slow, shifting currents.  Circular spatter marks form where
+bubbles, some measuring several inches across, rise from the deep only to
+pop and release the vile stenches they hold.
+~
+E
+ceiling 1 up~
+The ceiling is obscured in a roiling chartreuse effluvium that hovers
+menacingly above diffusing whatever light is available into a soft haze
+beyond which lies impenetrable darkness.  The actual ceiling is lost
+somewhere beyond the shifting mass.
+~
+E
+bridges~
+The bridges provide access across each of the four canals that drop a
+seemingly endless supply of raw sewage into the large collection basin. 
+Though littered with slimy debris, the bridges look far safer than the
+alternative choice of a swim.  Even the rats seem to be avoiding a dip in
+the wretched stuff, sticking instead to the high walkways.
+~
+E
+steam yellow-green~
+It rises slowly off the dark morass of the sewage basin, like the
+tendrils of some demon of a dark abyss slowly reaching out to grasp you
+and destroy you.  Granted, if you were to get stuck here the stench just
+may succeed in that task over a span of many years as slowly and
+maddeningly as any tormented spirit focused on your demise could ever
+wish for.
+~
+199 9 1509949490 3 0
+-1
+S
+
+#13523
+Small Chamber~
+The stench of rot and decay is overwhelming in this far corner of the
+sewers where air circulation is almost non-existent.  A single pipe in
+the eastern wall oozes a thick grey ichor into the shallow basin of
+sewage canal where it accumulates and flows northward into a connecting
+chamber.  The walkway ledge arcs around from the eastern edge to the
+western edge of the basin and encircles the basin to the south.  The
+eastern and the western walls, as well as the walkway, are covered by the
+usual accumulation of odd detritus that has washed up over the rim of the
+pool.
+~
+-done (T)
+South of here is not sewers.
+[Starshine] room extra 3 (sewage) second sentence unclear
+[Starshine] acode random slip on ooze?
+[Starshine] acode search/get/take detritus/chunks?
+[Snog] look basin has the word eventualyl instead of eventually
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13520 10 10 5
+D2
+mortared wall~
+~
+431 -1 3802 10 10 5
+E
+1 west 1 east walls~
+Gore and slime are spattered across the walls in odd and sometimes nearly
+impossible to understand configurations.  Some of the stains, near the
+ceiling mostly, look like someone would have had to work at them to get
+them so thoroughly ground in.
+~
+E
+pipe~
+The narrow, three-inch pipe juts out from the eastern wall, though a
+rusted-through hole in its base causes it to spill most of the dark-grey
+ichor out over the walkway before it slides thickly into the morass of
+the sewer canal.  A sufficient quantity of the slime oozes out to insure
+that at least a steady stream manages to pour from the pipe's intended
+edge as well as the broken area from which most of it falls.
+~
+E
+1 down basin sewage~
+The sewage rests in a shallow basin where it accumulates before
+continuing on to join the rest of the sludge.  Though it is hard to tell
+beneath the far from clear liquid, you would estimate from the area
+covered by the steady trickle that it is no more than a foot and a half,
+perhaps even two feet deep at the center.  The odd, greyish chunk that
+manages to clear the pipe lands heavily amidst the sewage then slowly
+dissolves into the same swirling mass that eventually moves on.
+~
+E
+walkway ledge~
+The ledge is pretty evenly covered with dark stains and fresher grey
+spatterings.  The eastern side, directly under the pipe, is covered in a
+thick, viscous slime that seems to be replaced by the liquid from the
+broken pipe as quickly as it manages to trickle away.
+~
+A
+look~
+1 south~
+if( is_open( room, south ) )
+  act_tochar( #open, ch );
+if( !is_open( room, south ) )
+  act_tochar( #closed, ch );
+~
+E
+open~
+The south wall is cleaner and apparently newer than the other walls.
+The neat mitering done in the corners is absent there, although the
+craftsmanship is excellent, perhaps better even than the standard sewer
+walls.  Currently a door-like section of thick stones stands ajar
+revealing a portal that would be essentially invisible if it were closed.
+~
+E
+closed~
+The south wall is cleaner and apparently newer than the other walls.  The
+neat mitering done in the other corners is absent there, although the
+craftsmanship is excellent, perhaps better even than the standard sewer
+walls.  Perhaps the natural sewer walls beyond this point caved in and
+this was placed to shore up this section.  Perhaps this is the sight of
+some ancient tragedy where some valiant hero was defeated and walled
+forever into a concealed tomb beyond.  Either way, there appears to be no
+way of bypassing the obstruction short of getting a crew down here to
+tear it apart with hours of hard labor.
+~
+!
+0 0 0
+A
+~
+~
+if( race( ch ) == goblin )
+  end;
+if( race( ch ) == troll )
+  end;
+if( race( ch ) == orc ) {
+  if( random( 1, 3 ) == 1 )
+    end;
+  }
+act_tochar( #sick, ch );
+act_notchar( #rsick, ch );
+~
+E
+sick~
+The fumes overcome you and you wretch violently, adding to the vile
+sewage in the basin.
+~
+E
+rsick~
+$n's face pales noticeably then, suddenly, they wretch loudly, adding to
+the vile sewage in the basin.
+~
+!
+4 300 0
+199 9 1509949540 3 0
+-1
+S
+
+#13524
+Sewer Passage~
+The dirty side ledges are relatively dry with only the occasional bit of
+detritus or refuse lying in wait for you to slip on it.  A pipe on the
+north wall dumps a steady stream of steaming sewage into the murky canal. 
+Opposite it, jutting out of the south wall, another pipe is clogged with
+vile-smelling sewage and only rarely drops a semi-solid chunk into the
+waters below.
+~
+-done (T)
+[Starshine] not sure you need the extra rats
+[Starshine] acode search/enter pipes, search detritus/chunks/sewage
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13520 10 10 5
+D3
+~
+~
+0 -1 13522 10 10 5
+E
+rats~
+Dirty little creatures.  You can't even see what their original color
+might have been under the caked on filth.  They seem timid enough now,
+but maybe you shouldn't lay down.  
+~
+E
+detritus trash~
+Mostly the clutter takes the shape of unidentifiable masses encases in a
+thick sludge surrounded by trailing spatter marks.  Occasionally
+something is identifiable and turns out to be things like rotting apple
+cores or, frequently, severed limbs or body parts exposing decaying bones.
+~
+E
+pipes~
+Which one? The one on the north wall or the one on the south wall?
+~
+E
+1 north~
+The pipe is forged of thick metal showing definite signs of rust.  At its
+end, the mouth flares a bit to a gaping five inches wide from which pours
+a steady stream of foul-smelling liquid laden with frequent chunks of
+flotsam.
+~
+E
+walls~
+Simple cut stone, not completely smooth but well laid to last a very
+long time.  A single pipe sticks out of the north wall and another out of
+the south.
+~
+E
+1 south~
+The pipe in the wall is made of a solid, rust-coated metal and appears
+made to last for a long time before needing to be replaced.  A nearly
+solid mass has plugged the mouth entirely allowing an infrequent dripping
+to seek through the gelid mass.  Once in a great while the seeping water
+seems to loosen the mass enough carry a portion of the sludge away into
+the canal below, allowing space for more sludge to build up in the pipe.
+~
+E
+sewage waters canal~
+The sewage moves along westward at a slow pace as it delivers its foul
+cargo to an adjoining chamber.
+~
+E
+1 west 1 east~
+A forbidding darkness awaits in that direction concealing what lays
+beyond.
+~
+A
+~
+~
+if( random( 1, 3 ) == 1 ) {
+  wait( random( 2, 5 ) );
+  act_room( #bat, ch );
+  }
+~
+E
+bat~
+A thin shriek echoes through the tunnels, as a bat takes flight in the
+wake of your disturbance.
+~
+!
+1 0 10
+-1
+S
+
+#13525
+Under the Pool's Surface~
+In the murky water you only see an occasional bit of trash or the odd,
+ragged chunk of decaying flesh float by.  Though cloudy, the water
+remains oddly fairly clean for being in a sewer.  Something has obviously
+worked at removing the detritus from the water, though where it would put
+it is a mystery yet.  On the floor of the pool, the smooth stones are
+broken and disheveled showing the muddy earth below.
+~
+-done (T)
+[Starshine] room desc/extras implies mass of thorns is underground. acode to have mass jump out if it pulled someone in here, else people have to dig/search the ground for it?
+[Starshine] acode for going up
+~
+335151172 7 5 0
+D4
+~
+~
+0 -1 13509 10 10 5
+E
+bottom 1 down stones muddy earth~
+You stir up a small cloud of silt as you examine the rocks.  It appears
+as if something big decided to dig down a short ways through the
+stonework of the sewer, perhaps to find a secure purchase at the bottom
+of the pool.
+~
+E
+trash flesh~
+The water is less fouled here than elsewhere, presumably due to a lower
+influx of trash as something has kept it at bay for so long.  At the
+periphery, where the rest of the sewer system connects, the detritus
+increases in volume and the occasional stream of muck starts to dilute as
+it mixes with the relatively cleaner water.
+~
+190 9 1509949540 3 0
+120 49 1509949540 -2 0
+-1
+S
+
+#13526
+Sewer Main~
+The sewage canal, lined on either side by narrow, mire-spattered ledges,
+is wide, measuring six feet across from western wall to eastern.  Rusty
+pipes set in either wall contribute an interesting conglomeration of
+water and other garbage, creating a murky, foul-smelling sludge, which
+flows south.  The water entering the canal from the north, though cloudy
+and filled with decidedly unwholesome looking flotsam, looks strikingly
+clear for what you might expect to find in the heart of a large city's
+sewers.
+~
+-done (T)
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13509 10 10 5
+D2
+~
+~
+0 -1 13527 10 10 5
+E
+creepy crawly insects things~
+Small critters with shiny black carapases and long spindly black legs. 
+While a few are quite obviously alive, jumping from flotsam bit to
+flotsam bit, most appear dead as they float still and curled into little
+balls on the water's surface.
+~
+E
+flotsam~
+The flotsam consists primarily of waste products, dead rats, and mostly
+dead insects.  A few of the creepy crawly insect-like things do seem to
+be alive as they hop about on the surface of the gruesome mire.
+~
+E
+canal basin water~
+The sewage coming in from the north is decidedly cleaner than the sewage
+that leaves southward.  Even at its clearest point the sewage remains, at
+best, an opaque grey-brown viscuous liquid that reaks of rot and decay. 
+The effluence from the pipes often steams and hisses as it contacts the
+main sewage stream, clouding it further and thickening the dark morass.
+~
+E
+pipes 1 west 1 east~
+A rust-rimmed pipe set in the eastern and western walls are each angled
+downward to rest mere inches above the slow-moving sewage.  Fortunately
+this does wonders to keep splashing to a minimum as raw sewage enters
+into the basin.  A particularly good thing when you see how the incoming
+sewage hisses and sizzles when it contacts the main stream.
+~
+E
+1 north 1 south~
+The darkness of the unlit sewers makes it difficult to see very far.
+~
+-1
+S
+
+#13527
+Sewer Main~
+The thin ledge that prevents the necessity of wading through the sewage
+canal is almost completely covered in a dried ooze and it is obvious that
+it frequently, if not regularly, overflows the rim of the canal.  The
+thick mire is less than an inch from overflowing the bounds even now and
+occasionally spatters up over the rim even as you observe it.  A single
+pipe sticks out from the eastern wall slowly dripping a vile black ooze
+into the already thick sewage.
+~
+-done (T)
+[Rhen] wait code - add a wait code so as to amplify the carfulness with
+which they must travel.
+[Starshine] acode 1: can get/search bulk/pipe be a separate action, for those that want to do it?
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13526 10 10 5
+D2
+~
+~
+0 -1 13522 10 10 5
+E
+sewage canal~
+The sewage consists primarily of a dark, nearly black viscous liquid
+littered with a large amount of floating debris both solid and semi-solid. 
+The occasional bit of fresh trash winds up in the mire revealing a bright
+touch of color to this otherwise dreary realm until it too is sucked
+under to be coated in the thick, dark ooze.
+~
+E
+ledge walkway rim ooze~
+The ooze-spattered walkway looks narrow in comparison to the wide canal
+of sewage that nearly overflows its basin.  The ledge, though slick,
+looks like it could be safely navigated if you kept one hand on the wall
+for support.
+~
+E
+1 west~
+You see the western wall, a mass of large rough-cut stones carefully
+layed and mortared into place.  Dark stains are smeared across the wall
+in random patterns that seem to hold no signifigance.
+~
+E
+stains patterns~
+A dark smear here, a bloody stain there.  Looks like your typical sewer
+stains.  In retrospect, wouldn't it be even odder if the walls of a sewer
+were pristine and clean?
+~
+E
+1 north 1 south~
+The darkness of the unlit sewer tunnels stretches out before you, only
+the gurgle of moving sewage yielding any information about what lays
+ahead.
+~
+A
+look~
+1 east pipe~
+if( rflag( reset0, room ) ) {
+  act_tochar( #look, ch );
+  remove_rflag( reset0, room );
+  wait( 3 );
+  act_tochar( #get, ch );
+  act_notchar( #rget, ch );
+  wait( 1 );
+  act_tochar( #found, ch );
+  wait( 2 );
+  act_tochar( #found2, ch );
+  act_notchar( #rfound, ch );
+  obj_to_char( oload( 3177 ), ch );
+  }
+else
+  act_tochar( #empty, ch );
+~
+E
+look~
+The pipe in the eastern wall is rimmed with the same viscous black ooze
+that slowly drips from it.  Though there seems to be no blockage,
+whatever greasy sewage it leaks into the canal must not come from any
+place in great volume.  A slight bulk further into the pipe shows
+something is jammed further in.
+~
+E
+get~
+You reach into the pipe and withdraw whatever was concealed within it.
+~
+E
+rget~
+$n reaches $s arm into the pipe and withdraws something.
+~
+E
+found~
+You hold the soft object up to inspect it only to find your are holding a
+little doll by the leg...  no wait....
+~
+E
+found2~
+It's no doll!  It's the sewage-besmirched corpse of a dead sprite you're
+holding by one leg, its other leg, arms, and head hanging limply
+earthward, dripping a dark slime.
+~
+E
+rfound~
+$n has withdrawn a small doll-like shape that drips with dark ooze from
+the pipe.
+~
+E
+empty~
+The pipe in the eastern wall is rimmed with the same viscous black ooze
+that slowly drips from it.  Though there seems to be no blockage,
+whatever greasy sewage it leaks into the canal must not come from any
+place in great volume.
+~
+!
+0 0 0
+-1
+S
+
+#13528
+Under the Huge Sewage Pool~
+The vitriolic sewage is dense and painful to the eyes but after several
+blurry moments of looking you manage to get an idea of the surroundings. 
+As your eyes adjust to the foul ichor you can vaguely make out the deep,
+wide basin.  The bottom and walls, unlike the tunnels above, are not
+lined with cut stone but rather with muddy silt through which the liquid
+slowly filters back into the earth.
+~
+-done (T)
+[Starshine] hmm...should acode 1 sometimes load a smaller version of the bloodworm? baby worms?
+[Starshine] acode for moving up
+~
+335151172 7 5 0
+D4
+~
+~
+0 -1 13522 10 10 5
+E
+1 down bottom walls dirt~
+Strange plants that look something like seaweed have begun to grow in the
+nutrient-rich sewage and has taken hold in vast colonies across the silty
+bottom and earthen walls.  Amid the plants strange little worm-like
+creatures weave in and out feeding on the chunks of detritus that settle
+among the plants.
+~
+E
+worms worm-like creatures~
+The small worm-like creatures seem to pulse and writhe, moving their way
+among the plants.  Their dark, fleshy skins do much to hide them against
+the backdrop of the mire and you now see their are many many more than
+you first realized.  Whenever you get close enough to see them any better
+they scatter away raising small clouds of silt to hide their escape.
+~
+A
+1 look~
+plants seaweed~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 10 );
+  if( i == 1 ) {
+    act_tochar( #found, ch );
+    act_notchar( #rfound, ch );
+    obj_to_char( oload( 14 ), ch );
+    act_tochar( "You found something! A rusty silver coin!", ch );
+    end;
+    }
+  if( i < 4 ) {
+    act_tochar( #found, ch );
+    act_notchar( #rfound, ch );
+    obj_to_char( oload( 12 ), ch );
+    act_tochar( "You found something! A rusty copper coin!", ch );
+    end;
+    }
+  }
+act_tochar( #plants, ch );
+act_notchar( #found, ch );
+~
+E
+plants~
+The small colonies of sickly grey-green plants seem to thrive in the
+thick beds of dark sludge digging roots deep into the mire.  They wave
+back and forth in the slow currents unharmed by the caustic fluids.
+~
+E
+found~
+The small colonies of sickly grey-green plants seem to thrive in the
+thick beds of dark sludge digging roots deep into the mire.  They wave
+back and forth in the slow currents unharmed by the caustic fluids. 
+Amidst the plants a faint shimmering draws your attention.
+
+~
+E
+rfound~
+$n swims through the sewage to examine the strange seaweed-like plants.
+~
+!
+0 0 0
+A
+scan~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+The vitriolic soup of the sewage burns your eyes as you attempt to peer
+out of it making it near impossible to see at all let alone clear out of
+the sewage itself.
+~
+!
+0 0 0
+191 9 1509949540 3 0
+-1
+S
+
+#13529
+Huge Sewage Pool~
+The sewage in the canal begins as a viscous trickle where it comes out of
+various pipes in the wall and falls to the basin before gurgling along
+northward.  The canal tilts upwards to the south, but no trickle of
+filthy sludge comes from that direction.  In fact, the canal here is
+almost clean compared to the rest of the sewers.  Obviously, no sewage
+has come from the south in a long time.  Perhaps that gentle @ggreen@n
+glow coming from there has something to do with it?
+~
+-done (T)
+[Starshine] is there a reason why flies are sentinel? would make sense for flies to be in the sewers...let them wander?
+[Starshine] acode leave south - indicate the change in terrain from garbage to moss?
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13522 10 10 5
+D2
+~
+~
+0 -1 13530 10 10 5
+E
+sewage basin canal~
+It's a sickly brownish sludge that moves along slowly, the liquid seeping
+out faster than the semi-liquid, semi-solid chunks that seem to be
+coagulating in small mounds.  It appears that eventually the mounds build
+up until they form a small dam which eventually breaks under the strain
+of liquid and is washed away to begin the cycle anew.  The buzzing of
+sewer flies is quite strong in this mired ecology.
+~
+E
+pipes 1 west 1 east~
+Several pipes measuring anywhere from one inch to five inches across
+intermittantly spill slow trickles of viscous sludge into the basin.  A
+few pipes appear blocked at some point as nothing comes out, but the
+majority seem to be in working order.
+~
+E
+1 south~
+A gentle glow comes from further along the southern tunnel like the eerie
+glow of foxfire at night.  Despite your careful observations the glow is
+too subtle at this range to see much, though it does seem that the
+glowing comes from the walls ahead.
+~
+E
+1 north~
+The heavy gurgling of a large amount of sewage being dumped into a deep
+basin is easy to perceive over the constant drone of sewer flies dwelling
+here.  The tunnel widens some before it disapears into the darkness ahead
+concealing whatever may be laying in wait.
+~
+518 9 1509949540 3 0
+518 9 1509949540 3 0
+518 9 1509949540 3 0
+-1
+S
+
+#13530
+End Chamber~
+The walls and floor are almost completely concealed by a dense,
+slime-ridden phosphorescent growth.  The cut stonework walls of the room
+show through in only a few places where the dripping growth has yet to 
+spread.  Even the ceiling is nearly obscured by the stuff as
+teardrop-shaped bulges hang from tendrils never quite managing to drip
+off.  If there were any pipes leading into the shallow basin they have
+long since corroded away and been covered over by the unusual growth.
+~
+-done (T)
+[Starshine] delete the first acode since there's no garbage/piles in this room and the slime has the circlet?
+~
+335151117 0 5 0
+D0
+~
+~
+0 -1 13529 10 10 5
+E
+walls floor stonework~
+What little stone showing indicates that this was once nothing more than
+another of the many sewage tunnels.  It seems that the phosphorescent
+growth has taken over now though.
+~
+E
+basin sewage~
+The shallow basin meant for sewage conveyance seems to get deeper as it
+heads northward, out of the room, as if it would lead the sewage away
+from this place in that general direction.  Instead of sewage it is
+filled with the glowing moss that has overrun this section of the sewers.
+~
+E
+1 north~
+The glow of the moss does little to aid your night vision, so the
+darkness ahead remains a mystery.
+~
+E
+1 east 1 west 1 south~
+A phosphorescent slime conceals the walls beyond.
+~
+E
+phosphorescent~
+Phosphorescent means it glows.
+~
+E
+growth slime-ridden teardrop bulges~
+The odd growth seems to give off an eerie green glow of foxfire casting the
+room in a gentle light from all directions and leaving no shadows.  It
+seems something like wet seaweed cast up on shore, though there is no
+water here to support it.  A viscuous fluid coats the short tendrils and
+almost seems to be flowing slowly over the sickly plant growths despite
+the edicts of gravity.  The glow seems to be coming from the ooze more so
+than the plants.
+~
+E
+1 up ceiling teardrop bulges~
+Short strands of the strange plant growth hang down from the ceiling
+coated in a thin, phosphorescent mucous-like slime.  The slime collects
+in large teardrop-shaped bulges that glow like small balls of light, but
+never manage to fall to the ground.
+~
+A
+search~
+sand pile garbage~
+if( rflag( reset0, room ) ) {
+  act_tochar( #find, ch );
+  act_notchar( #rfind, ch );
+  obj_to_char( oload( 2114 ), ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+~
+E
+find~
+You search the sand, finding a circlet of gems!
+~
+E
+rfind~
+$n searches the sand and finds something valuable.
+~
+E
+fail~
+You search the sand but come up empty handed.
+~
+E
+rfail~
+$n searches the sand, finding nothing.
+~
+!
+0 0 0
+A
+get cut destroy~
+plant seaweed moss mold slime growth~
+act_tochar( #going, ch );
+act_notchar( #rgoing, ch );
+wait( 1 );
+act_tochar( #ouch, ch );
+act_notchar( #rouch, ch );
+i = 2d2+1;
+dam_message( ch, i, "The phosphorescent slime from a plant" );
+inflict_acid( ch, mob, i, "acidic slime" );
+~
+E
+going~
+You do your best to rip out a few chunks of the strange plant growth.
+~
+E
+rgoing~
+$n leans over and starts to pluck at the strange plant growth.
+~
+E
+ouch~
+You smell something burning and notice the phosphorescent ooze has begun
+to burn through your clothing and gear where it contacts it.  You manage
+to pull away before more than a bit gets through any protective layers
+and begins to burn you.
+~
+E
+rouch~
+$n reaches into the strange luminescent growth then pulls $s hand back
+suddenly and a burning scent fills the room.
+~
+!
+0 0 0
+192 9 1509949540 3 0
+2114 17 1509949520 -1 0
+-1
+S
+
+#13531
+Sewer Passage~
+Narrow ledges line the north and south walls on either side of the putrid
+sewer canal, though the southern walkway has a break where it has begun
+to crumble away.  A pipe in the south wall drops a steady trickle of
+thick brown ooze into the sewage canal where it falls with a heavy
+slapping sound spattering sewage everywhere.  Even the walls near the
+ceiling are marked by the random spatterings of the fresh sewage.  The
+tunnel continues on east and west into darkness.
+~
+-dne (T)
+[Starshine] red 5 (walkway) : last sentence - not sure i understand it. re-word?
+[Starshine] acode search pipe
+[Starshine] acode search sewage - monster jumps out? or not?
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13522 10 10 5
+D3
+~
+~
+0 -1 13532 10 10 5
+E
+1 east 1 west~
+The total darkness of the sewer tunnels provides no interesting sights in
+that direction.
+~
+E
+1 north~
+Sewage spatterings in dark shades of brown and black randomly mark the
+wall clear up to the arched ceiling of the tunnel.
+~
+E
+1 south pipe~
+Sewage spatterings in dark shades of brown and black randomly mark the
+wall on either side of the pipe and clear up to the arched ceiling of the
+tunnel.  The pipe itself, though thoroughly lined in rust, looks like it
+will support quite a few more years of use before giving out.  It emits a
+more-or-less steady stream of sewage that comes out in mouldering chunks
+to land heavily in the canal below.
+~
+E
+canal sewage 1 down~
+The sickly smelling decay of the sewage sluggishly flows eastward in a
+never ending torrent of filth.  A slight depression forms periodically
+whenever the pipe in the south wall introduces a thicker than usual load
+until the slow moving mire fill up the depresssion full of ooze once
+again.
+~
+E
+walkway break~
+While the northern walkway, though covered in foul-smelling, dubious
+stains, looks relatively sturdy, a portion about a foot and a half long
+has crumbled out of the southern walkway.  Almost like something large
+came along and took a bite out of the walkway and maybe whatever was
+standing on it at the time.  Though the sewage covers the canal in a
+morass too thick to see through, it couldn't be that deep and still be
+this full enough to hide something that big, could it?
+~
+-1
+S
+
+#13532
+Sewage Intersection~
+A continuous heavy spatter of sewage arriving over a short waterfall from
+the north throws a constant spray of sewage about the room.  The falls
+spill into the constant mire of the large central basin where the morass
+rots for some time before it manages to run off into one of the two
+canals leading east or west.  Three small steps lead up to the edge of
+the falls though if the amount of sewage coming over increases any more
+even the steps will disappear beneath it.  Walkways encompass the wide
+basin and allow egress in the remaining three cardinal directions as well.
+~
+-done (T)
+[Starshine] acode to go up steps north
+[Starshine] also should be hard to go north (sewage heavy current pushes you back)
+[Starshine] if reset more rats to north, reset fewer rats here?
+[Starshine] acode for going down
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13533 10 10 5
+D1
+~
+~
+0 -1 13531 10 10 5
+D2
+~
+~
+0 -1 13536 10 10 5
+D3
+~
+~
+0 -1 13539 10 10 5
+D5
+~
+~
+0 -1 13535 10 10 5
+E
+rats~
+Common rats typical of any sewer, they come in an assortment of dark
+furry pelts and mire-spattered pink tails.  The common rats tend to stay
+clear of you but that doesn't stop them from chittering at you in anger.
+~
+E
+pool cistern basin canal sewage~
+The basin is wide and dark with a touch of steam rising off it where
+warmth of rotting sewage rapidly cools at the touch of the foul air.  The
+constant spattering of the falls throws semi-liquid stands of sewage
+several meters in all directions and you can't avoid the occasional wet
+spattering you receive.  Most of the debris floating in the dark morass
+is coated in so much slime it has become as unidentifiable as the liquid
+it floats in.
+~
+E
+1 north~
+Three steps on either side of the fall lead up to the tunnel there, but
+it looks as if you'll have to step down off the top step into a slightly
+lower tunnel that is already flooded with sewage.  By the sound of it
+there are at least a score of rats already swimming in it, so how
+dangerous could it be to wade in it? 
+~
+E
+1 east~
+The dark of the lightless sewer tunnel waits ahead confounding sight.
+~
+E
+1 west~
+In the darkness ahead scores of little red glowing eyes glare back at you
+accompanied by the shrill, angry squeak of rats.
+~
+E
+1 south~
+The walkways leading south seem to taper off into nonexistence as the
+channel widens to encompass the entire tunnel.  The design looks
+intentional, so perhaps that is merely a run-off cistern.
+~
+A
+~
+~
+if( random( 1, 4 ) == 1 ) 
+  act_tochar( #really_gross, ch );
+else
+  act_tochar( #gross, ch );
+~
+E
+gross~
+The everpresent spatterings of the sewer falling in from the north manage
+to catch you in one far-reaching splatter drawing a line of thin sewage
+across you and your gear.
+~
+E
+really_gross~
+Preceded by a particularly evil sounding splut, something large is pushed
+over the falls causing a larger than usual splashdown that lobs a healthy
+glob of sewage up into your face coating your eyes, your nose and even
+your lips in a foul ichorous filth.
+~
+!
+2 500 0
+A
+~
+west~
+act_tochar( #end_wall, ch );
+loop( followers )
+  act_tochar( #end_wall, rch );
+continue;
+~
+E
+end_wall~
+As you enter the western tunnel you find that the rough-cut stone walls
+of the sewer stop abruptly giving way to a tunnel carved through natural
+stone.
+~
+!
+3 0 8
+199 9 1509949540 3 0
+199 9 1509949490 3 0
+199 9 1509949465 3 0
+199 9 1509949490 3 0
+-1
+S
+
+#13533
+Sewer Passage~
+The thick sewage has overflowed the basin that usually contains it and
+bobs up and down between roughly five inches to a foot deep.  A few rats
+swim about, occasionally taking refuge on a bit of refuse long enough to
+gobble up some rat delicacy floating in the debris.  There is a definite
+current heading south where the wet sound of sewage spattering on sewage
+echoes back at you.
+~
+-done (T)
+[Starshine] reset a rat or two here? seems like there ought to be more rats here since rdesc and rextra mentions rats.
+[Starshine] also, rextra 1 is pipes but no pipes are mentioned in other rextras or in rdesc. either delete or have rdesc refer to them. or have random loose footing, catch yourself on pipes?
+~
+335151108 13 5 0
+D0
+~
+~
+0 -1 13534 10 10 5
+D2
+~
+~
+0 -1 13532 10 10 5
+E
+pipes~
+There are a several pipes coming from both the western and eastern walls
+and you have to duck under them frequently to move about.  Fortunately
+they also make excellent handholds to grasp whenever you begin to slip as
+you are forced to wade through the sewage here.
+~
+E
+basin canal~
+It must be here, after all it is cut through all the other tunnels.  With
+the sewage nothing more than a dark morass it is impossible to see the
+canal through it.
+~
+E
+1 north~
+The darkness of the deep sewer tunnels is all you see ahead.
+~
+E
+1 south~
+You can just make out a sheer line where the bobbing sewage flattens
+before going over an edge like some putrescent waterfall.  The heavy
+smack of thick sewage landing hard against more sewage avows to the
+veracity of a fall.  Taking a few steps you can see that the sides of the
+fall are lined with three short steps each leading down to a ledge around
+a large sewage basin.
+~
+E
+debris refuse sewage~
+The sewage is a dark morass, thick and soupy. Odd bits of floating
+debris, mostly rotted wood or apple cores, bob along the surface heading
+southward in the current.  Several hit the sheer line of sewage at the
+drop off to the south and quickly disappear.  Ever so often a rat, unable
+to escape the pull of the current goes over amid the debris with a thin
+squeal of terror before its sound is lost to the general cries of the
+sewer darkness.
+~
+A
+~
+~
+act_notchar( #splash, ch );
+continue;
+~
+E
+splash~
+$n comes splashing in through the sewage.
+~
+!
+1 0 1
+A
+~
+~
+act_tochar( #shiver, ch );
+~
+E
+shiver~
+Something long and sinuous breifly brushes against you under the sewage. 
+Perhaps it was nothing more than a bit of debris, but it certainly did
+feel like it.
+~
+!
+2 150 0
+A
+~
+~
+act_tochar( #bye, ch );
+continue;
+~
+E
+bye~
+@m
+You carefully edge to the side of the falls and down onto the steps where
+the footing is safer.
+~
+!
+3 0 4
+A
+~
+~
+act_tochar( #bye, ch );
+continue;
+~
+E
+bye~
+@m
+You carefully walk upcurrent to a place where the sewage is safely
+contained in a basin and not freely flowing between your toes.
+~
+!
+3 0 1
+-1
+S
+
+#13534
+Sewer Passage~
+The waterline of the viscous sewage rises as it flows south, its volume
+being increased by pipes emptying from the east and west walls.  If it
+continues to rise it will surely overflow the already mire-stained
+walkway ledge that is your only dry haven.  The stench of the raw sewage
+stewing in this underground labyrinth is drawn over you steadily as the
+warm air is drawn northward, perhaps to some ventilation exit.
+~
+-done (T)
+[Starshine] from rextra 1: entry code to this room - duck under pipes as you come in? or hit head?
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13501 10 10 5
+D2
+~
+~
+0 -1 13533 10 10 5
+E
+pipes~
+Two pipes empty into the canal here, which you have to duck under to
+continue.  Both are emptying a steady flow of refuse and garbage from
+the buildings above.
+~
+E
+1 north~
+The darkness of the waiting sewer tunnels is all you see ahead.
+~
+E
+1 south~
+The darkness of the sewer tunnels quickly obscures sight, though not
+before you can see that the sewage does overflow the walkway up ahead.
+~
+E
+waterline~
+Though waterline might be the correct term for it, with all the filth
+floating in the mire, water is not quite the image that comes to mind. 
+Currently it bobbs anywhere from one inch below the lip to nearly
+overflowing it.  Further south you can just see where it does overflow
+the ledge to cover it.
+~
+E
+1 west 1 east~
+The cut stones of the walls are securely mortared in place and look as if
+they are meant to last a long time.  Lines of muck and filth and even
+blood crisscross the wall in long smears and short spatter marks.
+~
+A
+~
+~
+act_tochar( #slimed, ch );
+act_notchar( #rslimed, ch );
+continue;
+~
+E
+slimed~
+@m
+You head south into a region where the sewer rises above the level of the
+walkway.  Soon after the warm sewer liquids are squishing noisily between
+your now soggy toes.
+~
+E
+rslimed~
+@m
+$n heads south and you hear the echoes of splashing as they
+walk headlong into a region where the sewage overflows the walkway.
+~
+!
+3 0 4
+199 9 1509949465 3 0
+-1
+S
+
+#13535
+Below the Sewer Pool's Surface~
+Deep within the heart of a sewage cistern you are encased in a vile
+coccoon of filth.  The harsh sound of sewage being dumped into the
+cistern somewhere overhead is an everpresent droning that fills your ears
+as thickly as the mire in which you float.  Glancing about through the
+caustic, burning liquid you can make out small things swimming about,
+perhaps lizards or frogs that somehow have made this environment their
+cozy little home.
+~
+-done (T)
+- - - - -
+reminder to me, make quest to aquire the third eye of a newt for some out
+of the way mage!  -Talis 
+[Starshine] acode for going up
+[Starshine] random - caustic burning?
+~
+335151180 7 5 0
+D4
+~
+~
+0 -1 13532 10 10 5
+E
+walls 1 down floor~
+You see simple, rough-cut stones made to line the sides and bottom of
+this sewage basin.
+~
+E
+1 up~
+More sewage and perhaps a way out.
+~
+E
+sewage morass filth muck ooze mire~
+A thick soup of unhealthy looking sewage, it is nearly impossible to see
+through.  It burns your open eyes just to be in it.
+~
+E
+swimming things lizards frogs~
+It's hard to tell what exactly they are as they easily evade you whenever
+you try to get close enough to see them up close.  At best you get an
+impression of slick skin and webbed feet as one jets away from you, more
+adapted to moving in this environment than you.
+~
+A
+scan~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+The thick sewage is caustic and burns your eyes mercilessly as you try in
+vain to peer through it.
+~
+!
+0 0 0
+2085 137 1509949530 3 0
+-1
+S
+
+#13536
+Sewer Passage~
+A mire-spattered narrow walkway ledge runs on either side of a pool of
+vile-looking sewage that opens out northward.  The rise and fall of the
+sewage bobs up and down, very nearly overflowing the rim of the ledge at
+times as it surges in and washes out again.  A pipe, set in the ceiling
+more or less centered over the pool adds its own steady stream of
+foul-smelling liquid with a greenish-yellow color to the dark quagmire.
+~
+-done (T)
+[Merolen] look pipe, absorbed is misspelt.
+[Starshine] acode random - sludge splashes down upon you from the pipe overhead?
+[Starshine] search pipe, enter/clim pipe acodes?
+[Starshine] search sewage/morass?
+[Starshine] there isn't any sewage south? can you see that from here?
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 13532 10 10 5
+D2
+~
+~
+0 -1 13537 10 10 5
+E
+pipes 1 up ceiling~
+A pipe set in the center of the ceiling is coated in rust and a dark
+fungus that has also begun to spread to the surrounding stone of the
+arched ceiling.  A steady trickle of green-yellow liquid drizzles out and
+skips across the surface of the dark morass of sewage before finally
+being absorbed as a part of it.
+~
+E
+1 west 1 east~
+Rough-cut square stones form the solid walls of the tunnel that begin to
+arch inward as the ceiling curves overhead.  The dark stains of spattered
+sewage stain the wall nearly up the ceiling in odd, irregular patterns
+showing that nothing, with the exception of bats perhaps, is safe from
+the threat of being stained by it.
+~
+E
+1 north 1 south~
+The darkness of the sewers conceals anything farther than a few feet
+ahead of you rather effectively.
+~
+E
+sewage morass ooze mire quagmire~
+The sewage is a dark, almost black viscous ooze that bobs up and down
+along the rim of the walkway as it surges in and out of the basin from
+the wider northern opening.  Odd debris, mostly rotting wood,
+filth-covered apple cores and the odd dead rat floats along the surface
+coated in the sickly dark ooze.
+~
+-1
+S
+
+#13537
+Sewage Cave~
+Rough-cut stone walls lead in from the north then abruptly stop, showing
+signs that the work was left unfinished.  A few large blocks sit slightly
+askew, having being bumped loose at the edge, and one large block rests
+near the base of the unfinished eastern wall.  The walls south of the cut
+stone are natural stone, rough hewn with pick and shovel as if someone
+may have once planned on building more of the tunnels but left off here
+for whatever reason.  Along the western wall, set squarely in a section
+of rough-hewn cave wall, is a rickety wooden door.
+~
+-done (T)
+[Starshine] there isn't any sewage here? why?
+[Starshine] random - acode dripping sound from the north?
+~
+335151116 0 5 0
+D0
+~
+~
+0 -1 13536 10 10 5
+D3
+small hut's door~
+"small hut's door" door~
+131 -1 13538 10 10 5
+E
+canal~
+There isn't one here, the floor is just a solid packed layer of dirt
+covering hard stone.
+~
+E
+door opening~
+The door is made of aged-grey wooden planks, and through its cracks a
+warm yellow firelight can be seen inside.  Wide, slightly rusty hinges
+and a simple ring set in a clasp acting as a handle make look as if it
+may squeak when opening, but probably isn't barred.
+~
+E
+stones cut blocks~
+Now that you can see the edges where the wall is unfinished you can see
+that they are cubes.  The rough cut stone blocks are roughly two feet on
+each side.  Near the eastern portion of the wall one block rests on the
+floor, slightly raised on one corner by crushed rock it must have landed
+on when it fell from the wall.
+~
+E
+1 south cave~
+The rough cave ends abruptly and bits of shattered rock and dirt line its
+end.  Thick wooden beams, only just starting to show signs of woodrot,
+shore up the tunnel before it ends abruptly in a solid-looking wall of
+natural stone.
+~
+E
+1 west~
+Rough-cut stone blocks mark the northern section of this wall stopping
+abruptly where construction ended and the earthen tunnel begins then also
+ends.  Set in the earthen tunnel is a small opening blocked by a rickety
+looking door.
+~
+E
+1 east~
+Rough-cut stone blocks mark the northern section of this wall stopping
+abruptly where construction ended and the earthen tunnel begins then also
+ends.
+~
+E
+1 north~
+The rough-cut and well-laid stones of the sewer tunnel quickly lead into
+darkness from which comes the sounds of dripping and chittering rats.
+~
+126 17 1509949540 -2 0
+189 17 1509949465 -2 0
+-1
+S
+
+#13538
+Inside a Simple, Warm Cave Dwelling~
+You are inside a rather cozy-looking cave lit by the gentle, flickering
+aura of a small campfire at its relative center.  An alcove bed lined
+with several large furs and a low table to one side indicate this is
+either a rest area or, perhaps, someone's dwelling place.  On one of the
+walls, the west one you'd say if the tunnels have not completely gotten
+you turned about, there are a number of crude paintings similar to kinds
+often found in ancient caves.
+~
+[Starshine] would be nice sometimes to come in here and have him give you a skin. perhaps if you've been nice to him and have listened to his stories?
+[Kwee] so won't he even HINT where the wererats are now.
+~
+335151109 0 5 0
+D1
+small hut's door~
+"small hut's door" door~
+131 -1 13537 10 10 5
+E
+1 east door~
+The door isn't very secure and leads back out into the smelly sewers.
+~
+E
+fireplace hearth~
+A small fire dances happily above red embers, giving its light unto the
+room.  An old blackened pot hangs here, giving pleasant rise to smells
+of cooking.  Just above the hearth a string is strung suspending small
+skins to dry.  
+~
+E
+alcove bed furs~
+The bed has been hewn out of the stone of the cave walls and measures
+roughly five feet in width and three feet in height.  The alcove is not
+deep, perhaps a little more than three feet, but the furs lining it make
+it look almost comfortable.  A closer look at the large furs show that
+they are the dried and cured skins of giant sewer rats.  Perhaps not the
+most glamorous of furs but definitely convenient and thrifty for one who
+lives down in the sewers.
+~
+E
+1 west wall paintings~
+The crude paintings on the wall are done in a dark medium-like mud or
+sediment and has been well-preserved in the dry air of the cave.  The
+scenes depicted vary greatly and, though crude, some are identifiable
+with little effort.
+
+You can make out a swamp-like terrain throughout most of it, and small
+domed huts.  In another place you can see strange, fuzzy, ball-like
+shapes and saurians carrying either broad spears or long-handled swords. 
+Among them all, there is one picture that stands out in stark contrast,
+for it has color where none of the others do: A saurian shape, one of th
+lizardfolk, with a streak of vivid crimson staining the ridges above and
+below each eye and running down to the shoulders in sleek lines where
+they drift into pools of blue that cover the upper torso almost entirely.
+~
+A
+~
+~
+if( mob_in_room( 193, room ) ) {
+  if( random( 0, 1 ) > 0 )
+    send_to_room( #stir, room );
+  else
+    send_to_room( #pelts, room );
+  }
+~
+E
+pelts~
+The lizardman goes over to the drying skins and checks them, turning a
+couple over and stretching a couple others.  
+~
+E
+stir~
+The lizardman shuffles over to the fire to stir the pot.
+~
+!
+2 100 0
+193 9 1509949540 3 0
+2689 17 1509949540 -2 0
+3179 17 1509949540 -2 0
+-1
+S
+
+#13539
+Sewer Drainage Tunnel~
+The natural stone of the tunnel walls is relatively smooth and looks to
+have been carved long ago.  The stone floor angles downward towards the
+center of the tunnel forming a wide canal filled nearly up to the walls
+with sewage that flows sluggishly westward.  At intervals of roughly every
+ten feet, heavy wooden braces are set into the tunnel walls to help
+support the incredible weight of the stone overhead.
+~
+-done (T)
+[Starshine] is the sewage to the west particularly violent as it flows this way? if so, please indicate via random acode? if not, ignore this.
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13532 10 10 5
+D3
+~
+~
+0 -1 13540 10 10 5
+E
+walls tunnel 1 north 1 south~
+The natural stone of the walls is worn smooth from years of exposure to
+the elements and the movements of people.  The stone itself is a
+gray-brown and looks rather solid.  It must have been no easy task to
+tunnel through in the first place.
+~
+E
+braces~
+The braces are made of thick, strong wood and look like they may have
+come from an oak though they must have been specially treated to have
+lasted for so long in this damp, caustic environment.  Dark stains as
+high as two feet on the braces show where the flow of sewage had risen
+well above its present level in past years.
+~
+E
+canal sewage floor 1 down~
+The slow-moving morass of the rotting filth rests like some vile beast,
+its only weapons its stench and the possibility of infection from contact
+with it.  Small objects, including the bodies of dead rats, float on the
+surface only to sink down suddenly as something within the foul ichor
+snatches them from beneath and pulls them under.
+~
+E
+1 west 1 east~
+Only darkness as far as the eye can see.
+~
+A
+~
+~
+act_tochar( #begin_wall, ch );
+loop( followers )
+  act_tochar( #begin_wall, rch );
+continue;
+~
+E
+begin_wall~
+As you head east the stone tunnel around you ends abruptly where walls of
+rough-cut stone form straight, well-laid tunnels.
+~
+!
+3 0 2
+-1
+S
+
+#13540
+Sewer Drainage Tunnel~
+The natural stone walls, hewn by the blood and sweat of workers long
+gone, are smoothed by the hand of time.  The tunnel walls meld seamlessly
+with the stone of the floor as it curves downward at its center to
+contain a mass of slow-moving sewage as it flows steadily westward.  A
+runoff canal set in the north wall between two stout oak support beams
+empties down a heavy iron grate bolted to the floor.
+~
+-done (T)
+[Starshine] rextra 3: what are the nooks and crannies described here? give them their own extra? add acode to search them?
+[Starshine] acode to open/unlock/pick/pry grate - can't do it.
+[Starshine] acode to move/open/unlock/pick/pry grate - can't do it
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13539 10 10 5
+D3
+~
+~
+0 -1 13541 10 10 5
+E
+walls 1 north 1 south~
+The natural stone walls show signs of rough work done long ago.  Deep
+gouges with edges rounded by the passage of time.  Uneven scoring where
+picks were steadily, and somewhat unevenly, swung by determined workers.
+~
+E
+stout oak supports~
+The sturdy oak timbers have, as yet, defied the ravages of time.  Either
+they are replaced periodically or they were treated somehow to last a
+very long time.  Dark stains as high as two feet from the bottom of the
+supports mark the highest points the rotting sewage reaches from time to
+time.
+~
+E
+1 down canal sewage~
+The sewage canal is filled with reaking filth that flows along slowly
+carrying the detritus off to the west.  Nestled into the nooks and
+crannies of the downward arcing floor the canal has room to rise and fall
+as volume demands, dark stains showing it periodically rises well above
+its current level.  Fortunately it is low enough right now to provide a
+dry, comparatively clean surface on which to walk on either side just now.
+~
+E
+runoff grate~
+The runoff channel is a narrow divet in the natural floor only made to
+decrease the flow to managable levels when it gets above a certain point. 
+A steady stream of sewage runs through it down the heavy iron grate
+bolted to the ground.  Though one side of the grate is hinged, as if it
+could be tilted up when opened, the other side looks quite permanently
+affixed with heavy bolts to the ground.  Beyond it is only darkness from
+which the far away splash of wet sewage hitting more wet sewage can be
+heard.
+~
+E
+1 west 1 east~
+The darkness of the deep earth conceals its secrets well.
+~
+-1
+S
+
+#13541
+Sewer Drainage Tunnel~
+Thick wooden beams of oak help support this tunnel that burrows through
+the dark stone of the earth.  On either side, tunnel walls meld into a
+stone floor that angles downward towards a central canal filled with a
+putrescent stream of sewage.  The canal flows from east to west and a
+small runoff channel, currently clear of sewage, leads to a grate set in
+the floor between two support beams in the southern wall.
+~
+-done (T)
+[Starshine] extra 4 and room desc contradict eachother, i think.
+[Starshine] hints to clear channel? perhaps need to clear channel to open grate?
+[Starshine] acode 2: the grate is near the floor, set into the southern wall, right?
+[Starshine] acode open grate - try moving it if not open; close grate - try moving it if not closed.
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13540 10 10 5
+D3
+~
+~
+0 -1 13542 10 10 5
+D5
+metal grate~
+metal grate~
+235 -1 75250 10 10 5
+E
+1 north 1 south~
+The natural stone of the earth, dark like the loam of good soil, is hard
+and must have put up a good struggle before yielding to the picks and
+shovels of long-gone workers.
+~
+E
+support beams oak~
+The support beams, apparently oak, show no signs of decay.  Either they
+are periodically replaced or they had been thoroughly treated in some
+manner to permit them a long life in this dank environment.  Dark stains
+as high as two feet from their bases indicate just how high the sewage
+can flow through here.
+~
+E
+canal sewage 1 down~
+The vile morass of the sewage flows sluggishly on its way to its final
+destination somewhere west of here.  Dead things, animal and insect,
+float along the surface floating along slower than even the passage of
+the sewage.
+~
+E
+runoff channel grate~
+The small runoff channel is blocked by a thick sludge of detritus that
+doesn't permit more than a few drops of sewage to trickle through at a
+time.  The grate itself is hinged, as if it could be lifted back, and the
+bolts that would normally keep its leading edge affixed to the floor are
+mysteriously missing.  Despite dark stains around it, showing it was once
+in frequent use, only a few rare drops of the sewage manage to make it
+through the heavy grate now.
+~
+E
+1 west 1 east~
+The darkness of the deep earth conceals its secrets well.
+~
+A
+clear~
+detritus channel runoff debris~
+act_tochar( #no, ch );
+act_notchar( #rno, ch );
+~
+E
+no~
+You reach a hand into the foul mess that is blocking the runoff channel
+with the intent to clear some of it away.  When you go to clear away the
+detritus, oddly, you find a small metal dam hidden under all the debris. 
+Looks like someone wanted to keep this channel blocked off.
+~
+E
+rno~
+$n reaches a hand into the foul detritus that blocks the runoff channel,
+swishes $s hand about and pulls it out (now covered in clinging filth as
+damp clots fall to the ground) with a perplexed expression on $s face.
+~
+!
+0 0 0
+A
+move slide pull open~
+metal grate~
+if( is_open( room, down ) ) {
+  act_tochar( #openalready, ch );
+  act_notchar( #rmopenalready, ch );
+  close( room, down );
+  send_to_room( #closing, find_room( 75250  ) );
+  }
+else {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  open( room, down );
+  send_to_room( #opening, find_room( 75250  ) );
+  }
+~
+E
+openalready~
+@GYou grab the grate and slide it away from the opening, barely avoiding
+crushing your fingers!@n 
+~
+E
+rmopenalready~
+@G$n reaches down and slides the metal grate back over the opening.@n
+~
+E
+closing~
+@GThe hole in the ceiling is closed by a metal grate that slides over with
+a clang!@n 
+~
+E
+to_char~
+@GYou grunt as you pull the metal grate from its seat, and slide it aside.@n
+~
+E
+to_room~
+@G$n grunts as $e pulls the metal grate out of the way and slides it aside.@n
+~
+E
+opening~
+@GThe metal grate in the ceiling is opened from above.@n
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou gingerly lower yourself to the floor below.@n 
+~
+E
+to_room~
+@G$n lowers $mself through the grate.@n
+~
+!
+3 0 32
+199 9 1509949490 3 0
+-1
+S
+
+#13542
+Sewer Drainage Tunnel~
+A few odd patches of green lichen have found purchase on the rock walls
+of the tunnel despite the caustic stench of the sewage that runs
+underfoot.  As the liquid waste is carried away in a canal in the
+tunnel's center, the more solid debris is carried off at a slower rate
+and collects long enough to rot into more liquid forms before washing
+away.  The stench becomes a heady one and is nearly overwhelming at times
+as you fight to avoid succumbing to faintness.  The oak support beams
+stand sentinel here as elswhere, spaced roughly every ten feet.
+~
+-done (T)
+[Starshine] rare random - choke on the bluish mist?
+[Starshine] get/take lichen
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13541 10 10 5
+D3
+~
+~
+0 -1 13543 10 10 5
+E
+1 west 1 east~
+The darkness of the deep earth conceals its secrets well.
+~
+E
+1 north 1 south~
+The stone of the walls has been worn smooth by many, many years of
+exposure and time.
+~
+E
+grate~
+What grate?  There isn't one here.
+~
+E
+1 down canal sewage waste~
+A faint bluish mist rises off the black ichor never seeming to rise more
+than an inch or so before it dissipates.  Where semi-solid clumps have
+fetched up near the edge of the sewage, the bluish miasma of foulness is
+thicker and even the insects seem to avoid it.  Whatever it is, it can't
+be pleasant, though you can identify no single source other than the
+simple sewage itself.  Whatever has mixed together has started to have a
+very dangerous reaction.
+~
+E
+lichen~
+A simple fungal growth that thrives on the scant moisture and nutrients
+it can scavenge from the rocks.  It does add a bit of color to the
+otherwise dreary gloom of the tunnel.
+~
+-1
+S
+
+#13543
+Break-In Area of the Sewage Tunnel~
+Time-worn stone makes up the rough walls of the long, dark tunnel.  At
+intervals, roughly every ten feet or so, heavy wooden beams form braces
+to support the immense weight of the stone overhead.  Most notable,
+however, is how the stone underfoot angles downward to form a natural
+canal through which flows a seemingly endless stream of vile sewage.  A
+narrow runoff channel leads to a grate set in the floor between two
+supports in the north wall.  A collapsed tunnel is set in the north wall
+just behind the grate.
+~
+-done (T)
+[Rhen] extra collapsed tunnel adjoining - im not sure what is trying to be said but it sounds funny.
+[Starshine] rare random - cough from smoke?
+[Starshine] open/pry grate - can't.
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13542 10 10 5
+D3
+~
+~
+0 -1 13544 10 10 5
+E
+1 west 1 east~
+The darkness of the deep earth conceals its secrets well.
+~
+E
+1 south~
+The gray-brown stone of the walls is the natural stone of the earth and
+shows the deep, ancient scoring of picks used long ago.  Time has eroded
+its sharp edges into soft curves giving it a more subdued appearance.
+~
+E
+1 down canal sewage~
+Though the sluggishly moving sewage is black in color, a strange
+bluish-black smoke wafts from it's surface rising a few inches before
+dissipating in the still tunnel air.  Getting a whiff of the foul miasma
+of mists, it smells caustic, almost acidic.  Before long your lungs begin
+to feel unpleasantly warm.  Perhaps it's not a good idea to inhale the
+fumes to strongly.
+~
+E
+grate runoff channel~
+The little runoff channel permits a steady flow of the sewage to slip
+through the heavy iron grate where it falls a long time before you hear
+the far away splash of sewage falling into sewage.  The grate itself
+looks quite sturdy and, though one side is hinged as if to permit it to
+be opened, it is bolted down on the opposite side preventing it from
+being opened.
+~
+E
+braces~
+The heavy oaken braces arc overhead forming an adequate support system to
+replace the tons of stone removed from the rock.  Dark stains measuring
+as high as two feet from the floor on the posts indicate the height to
+which the sewage has arisen in previous times.
+~
+E
+collapsed tunnel adjoining~
+It looks as if a hole once set in the wall leads to some further tunnel,
+though a cave-in just beyond the hole has filled it with debris.
+~
+E
+1 north~
+The gray-brown stone of the walls is the natural stone of the earth and
+shows the deep, ancient scoring of picks used long ago.  Time has eroded
+its sharp edges into soft curves giving it a more subdued appearance.  A
+hole dug into the wall between two of the support braces looks as if it
+once lead to an adjoining tunnel, though the entrance is currently filled
+with debris from a cave-in.
+~
+A
+sniff inhale whiff~
+fumes miasma smoke mist~
+act_tochar( #idiot, ch );
+act_notchar( #ridiot, ch );
+wait( 1 );
+if( find_stat( ch, con ) < 15 ) {
+  i = 1d5;
+  dam_message( ch, i, "caustic fumes" );
+  inflict_acid( ch, mob, i, "inhaling acidic fumes" );
+  }
+else
+  act_tochar( #burning, ch );
+interpret( ch, "cough" );
+~
+E
+idiot~
+You lean over and inhale the foul miasma of fumes.
+~
+E
+ridiot~
+$n leans over and takes a good sniff of the dark fumes.
+~
+E
+burning~
+An unpleasant warmth begins to spread in your chest.
+~
+!
+0 0 0
+A
+dig clear~
+1 north collapsed tunnel debris rubble stone rock~
+if( !is_player( ch ) ) {
+  act_tochar( #no, ch );
+  act_notchar( #rno, ch );
+  end;
+  }
+i = random( 1, 3 );
+if( i == 1 )
+  act_tochar( #clearing1, ch );
+if( i == 2 )
+  act_tochar( #clearing2, ch );
+if( i == 3 )
+  act_tochar( #clearing3, ch );
+act_notchar( #rclear );
+wait( 1 );
+if( random( 1, 3 ) == 1 ) {
+  act_tochar( #oops, ch );
+  act_notchar( #roops, ch );
+  i = 2d2;
+  dam_message( ch, i, "dislodged rubble" );
+  inflict( ch, mob, i, "falling debris" );
+  wait( 1 );
+  act_room( #full, ch );
+  }
+~
+E
+rclear~
+$n works to clear rubble from the hole to the north but doesn't seem to
+be accomplishing much.  The more $e clears away, the more seems to fill
+back in from a seemingly endless supply of rubble.
+~
+E
+no~
+You aren't equiped to do that, perhaps if you were a person and not a pet.
+~
+E
+rno~
+$n looks with confusion at a hole in the northern wall.
+~
+E
+oops~
+While clearing away stones you seem to have dislodged a small rockslide!
+~
+E
+roops~
+$n accidently dislodges a small rockslide!
+~
+E
+clearing1~
+You heft a few heavy stones from the hole, but more remain.  Maybe if you
+tried some more.
+~
+E
+clearing2~
+You clear away a good amount of debris, looks like you're starting to
+make a dent in the debris.
+~
+E
+clearing3~
+You manage to clear a good portion of rubble creating a fair sized cavity
+in the debris.
+~
+E
+full~
+When the dust clears you can see the the cavity beyond the hole is filled
+with stone again.
+~
+!
+0 0 0
+-1
+S
+
+#13544
+Sewer Drainage Tunnel~
+Stout oaken beams form braces to support the heavy stone of the tunnel
+created long ago when workers carved their way through the natural stone
+of the earth.  The angled floor dips lower and lower as it approaches the
+center of the tunnel where it contains a disgusting stream of
+foul-smelling sewage.  An iron grating is set between two of the supports
+in the southern wall where it receives the excess flow of sewage as it
+surges through a runoff channel.
+~
+-done (T)
+[Starshine] random breath in black mist and cough.
+[Starshine] open/pry grate - can't.
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13543 10 10 5
+D3
+~
+~
+0 -1 13545 10 10 5
+E
+1 north 1 south~
+The stone of the tunnel walls, though once deeply gouged, is now smoothed
+by long years of exposure.  The dark stone does little to brighten the
+place.  However, a good bit of green lichen grows in moist crevices
+dappling the rock in the slightest bit of color.
+~
+E
+support beams oak~
+The support beams are cut from solid oak planks and look as if they are
+made to weather time better than natural oak should.  Someone must have
+treated them with something for them to have lasted this long undamaged. 
+Dark stains as high as two feet from the base of the beams display quite
+aptly just how high the sewage can rise in these limited confines.
+~
+E
+iron grate grating runoff channel~
+A runoff channel pours a thick flow of sewage into an iron grating set at
+the base of the southern wall.  The grate, though hinged on one side to
+be opened, is firmly bolted to the floor and remains shut.
+~
+E
+1 west 1 east~
+The darkness of the deep earth conceals its secrets well.
+~
+E
+1 down sewage morass filth canal stream~
+The dark ooze slowly works its way westward towards some distant goal
+that only the current knows.  A wispy blue-black miasma rises off the
+surface looking like a visible correlation to the rotting smell left by
+the sewage itself.  A few thin strands of the foul mist waft a foot or
+two above the sewage before dissipating.
+~
+E
+mist miasma blue-black steam smoke~
+The foul mist writhes insiduously like snakes slithering through the air. 
+As one of the particularly intense strands wafts high enough to come near
+your face you catch a sickly-sour scent followed by a faint burning
+sensation in your chest.  Perhaps it is best to avoid inhaling the fumes
+too deeply.
+~
+A
+sniff inhale whiff~
+fumes miasma smoke mist~
+act_tochar( #idiot, ch );
+act_notchar( #ridiot, ch );
+wait( 1 );
+if( find_stat( ch, con ) < 16 ) {
+  i = 1d4+1;
+  dam_message( ch, i, "caustic fumes" );
+  inflict_acid( ch, mob, i, "inhaling acidic fumes" );
+  }
+else
+  act_tochar( #burning, ch );
+interpret( ch, "cough" );
+~
+E
+idiot~
+You lean over and inhale the foul miasma of the fumes.
+~
+E
+ridiot~
+$n leans over and takes a good sniff of the dark fumes.
+~
+E
+burning~
+An unpleasant warmth begins to spread in your chest.
+~
+!
+0 0 0
+-1
+S
+
+#13545
+Sewer Drainage Tunnel~
+The time-smoothed stone walls are heavily dappled in thick lichens in
+shades of green.  Heavy oak timbers form support beams every ten feet or
+so along the tunnel to help support the massive weight left overhead when
+the tunnel was carved.  The floor is angled so that its center forms a
+natural canal through which flows a foul morass of sewage brought in from
+a city high overhead.  A bluish-black effluvium rises off the dark ooze,
+thick enough that it is quite noticeable.
+~
+-done (T)
+[Starshine] random acode for little races - fumes burn you.
+[Haart] oc
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13544 10 10 5
+D3
+~
+~
+0 -1 13546 10 10 5
+E
+1 east~
+The darkness of the deep earth conceals its secrets well.
+~
+E
+1 west~
+Bluish-black strands of the foul effluvium seem to writhe forth into the
+darkness ahead.
+~
+E
+1 north 1 south~
+Thick lichens in several shades of green thickly dapple the otherwise
+featureless stone of the tunnel walls.
+~
+E
+support beams oak timber~
+The stout-looking support beams look as whole as if they were installed
+only days ago.  Belying the newness of their appearance, dark stains of
+sewage as high as two feet from the bases of the supports indicate that
+the sewage has sometimes flowed much higher in the past.
+~
+E
+1 down morass filth canal stream sewage~
+The foul ichor moves slowly but steadily westward releasing a nearly
+intolerable stench as it passes.  Thick strands of blue-black mist rises
+off like some evil incarnation of the stench waiting to ensnare the
+unwary passerby.
+~
+E
+miasma mist strands blue-black bluish steam smoke effluvium~
+The foul concoction of the condensed fumes writhes about as if in
+agonizing pain.  Several look as if attempting to escape the low-set
+miasma that flows freely about the floor and a few actually manage to
+make it as high as three feet before being drawn inexorably, slowly
+westward into the darkness.  From the few strands nearest you, faint
+tendrils of their scent wafts towards you leaving behind a burning
+sensation in your lungs.  Perhaps it's best not to inhale the fumes too
+deeply.
+~
+E
+lichen~
+The lichen, in shades of pale green, almost white, to darker shades of
+green like moist pine needles dapples the rock heavily.  A careful
+observation shows that it grows less frequently near the base of the
+walls where the foul vapors are visible as a blue-black haze, though
+above that level it is quite frequent adding a touch oc color to the
+tunnel.
+~
+A
+sniff inhale whiff~
+fumes miasma smoke mist~
+act_tochar( #idiot, ch );
+act_notchar( #ridiot, ch );
+wait( 1 );
+if( find_stat( ch, con ) < 17 ) {
+  i = 1d3+2;
+  dam_message( ch, i, "caustic fumes" );
+  inflict_acid( ch, mob, i, "inhaling acidic fumes" );
+  }
+else
+  act_tochar( #burning, ch );
+interpret( ch, "cough" );
+~
+E
+idiot~
+You lean over and inhale the foul miasma of fumes.
+~
+E
+ridiot~
+$n leans over and takes a good sniff of the dark fumes.
+~
+E
+burning~
+An unpleasant warmth begins to spread in your chest.
+~
+!
+0 0 0
+A
+none~
+~
+act_tochar( #foul, ch );
+loop( followers )
+  act_tochar( #foul, rch );
+~
+E
+foul~
+@m 
+You leave behind the fresh, salty scent of cool air to be hit with the
+warm blast of foul decay found only in deep sewage left to rot for years.
+~
+!
+1 0 8
+-1
+S
+
+#13546
+Iron Grating~
+A massive iron grating has been set in the western wall in an attempt to
+close off the tunnel, yet the attempt is a clear failure.  A patina of
+rust heavily coats the grate and a wide rift in its center is lined by
+rust-coated bars bent at odd angles as if someone, or something, passed
+freely back and forth through the hole.  A thick stream of sewage flows
+steadily along a canal in the floor picking up speed as it leaves
+westward from whence a loud roar, as if a waterfall were nearby, comes. 
+A thick bluish-black mist rises off the sewage only briefly before being
+drawn along with it to the west.
+~
+-done (T)
+[Starshine] acode leave west - step through the hole in the grate?
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13545 10 10 5
+D3
+~
+~
+0 -1 13547 10 10 5
+E
+rusty iron grating grate~
+The thick iron grating sealing off the cavern opening must once have
+served to keep things from entering the sewers from this route.  Over the
+ages the grating looks to have rusted in the salty air, and something
+came along and found this weakness.  For, now the iron bars are bent at
+odd angles and ripped wide, leaving a hole torn in the center.
+~
+E
+1 north 1 south~
+The rather plain looking, time-worn rocks of the tunnel walls are thickly
+covered in lichens and moss.  Beads of salty dew manage to hang suspended
+on the sparse moss that grows in crevices among the rocks.
+~
+E
+1 east~
+Thick bluish-black tendrils of vapor flow in low to the ground out of the
+darkness.
+~
+E
+1 west~
+The thick bluish-black mist leaves in a nearly opaque sheet concealing
+the ground until darkness conceals all but the loud roar of a waterfall
+coming from the west.
+~
+E
+patina~
+A greenish heavy coat of rust that forms when metal comes in contact with
+salty conditions over an extended period of time.
+~
+E
+1 down sewage ooze mire morass~
+The black bile of the sewage has an insidiously evil look with the
+blue-black mist rising off of it like the residue of an evil spell. 
+Thick chunks move hurriedly along the surface picking up speed as they
+follow the canal west.
+~
+A
+sniff inhale whiff~
+fumes miasma smoke mist~
+act_tochar( #idiot, ch );
+act_notchar( #ridiot, ch );
+wait( 1 );
+if( find_stat( ch, con ) < 18 ) {
+  i = 1d2+3;
+  dam_message( ch, i, "caustic fumes" );
+  inflict_acid( ch, mob, i, "inhaling acidic fumes" );
+  }
+else
+  act_tochar( #burning, ch );
+interpret( ch, "cough" );
+~
+E
+idiot~
+You lean over and inhale the foul miasma of fumes.
+~
+E
+ridiot~
+$n leans over and takes a good sniff of the dark fumes.
+~
+E
+burning~
+An unpleasant warmth begins to spread in your chest.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #fresh_air, ch );
+loop( followers )
+  act_tochar( #fresh_air, rch );
+~
+E
+fresh_air~
+@c
+The foul stench of the sewage is noticeably decreased when you are
+suddenly hit with a steady flow of cool air heavy with a salty scent.
+~
+!
+1 0 2
+199 9 1509949490 3 0
+-1
+S
+
+#13547
+Underground Cavern~
+You are at the peak of a sheer drop overlooking a massive cavern whose
+boundaries are lost in the far reaches of darkness.  A thick stream of
+sewage widens considerably before it flows over the sheer edge of the
+cliff creating a vile mockery of a waterfall.  A thin mist of bluish-
+black smoke wafts from vile morass but dissipates quickly in the salty
+breeze wafting up from the cavern's bottom.  The only options of egress
+seem to be a rift through a large iron grating to the east or a dive into
+the watery unknown below.
+~
+[Derjek] l west, 'teh depths' should be the depths
+[Starshine] rdesc: two viles. replace one?
+[Starshine] walls go a bit more west, but floor ends, resulting in waterfall? perhaps this could be clarified? *ponder*
+[Starshine] acode random for little guys - breath in mist and choke (it hurts you)?
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 13546 10 10 5
+E
+grating 1 east~
+A thick iron grating covers the tunnel's entrance.  A large hole has been
+rent in its center.  
+~
+E
+1 west 1 north 1 south cavern~
+The cavern is large and echoes with the sound of the falling sewage
+landing hard on water.  Its far reaches are lost in the depths of shadow
+and darkness.
+~
+E
+1 down sewage waterfall~
+Semi-solid clots in the sewage mark its passage over the edge as it
+hurtles downward to disappear into the darkness before landing wetly into
+water somewhere far below.  Perhaps if you were brave, and could swim,
+you could leap off the edge and into whatever liquid it is that churns so
+noisily far below in the darkness.  A slight glint reveals a series of
+slick rungs set in the cliff wall, though they are lost in the darkness
+before you can be sure they are a means back up should you jump off.
+~
+E
+mist miasma effluvium bluish-black blue-black smoke steam~
+The blue-black mist seems to rise off the sewage but dissipates before
+enough can collect to be a problem.
+~
+A
+dive jump leap~
+1 west off cliff waterfall 1 down~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+wait( 1 );
+transfer( ch, find_room( 21133 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 21133 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n comes after.
+~
+E
+f_leave~
+$n follows.
+~
+E
+arr~
+$n comes diving down from above.  $e disappears below the
+surface, bobbing up a minute later nearby.
+~
+E
+room~
+$n takes a step back and then surges forward, diving off into
+the air.
+~
+E
+char~
+@c
+You courageously leap off the cliff's edge and plummet into the darkness
+only to be shocked by the icy shards of chilly waters prickling your skin
+when you land far below.
+~
+!
+0 0 0
+A
+1 west~
+~
+act_tochar( #oops, ch );
+act_notchar( #roops, ch );
+acode( room, 1 );
+~
+E
+oops~
+You dash forward headlong over the cliff unwary of its edge.
+~
+E
+roops~
+$n walks right off the edge of the cliff and seems to hang suspended for
+a moment before plummeting into the darkness below.
+~
+!
+0 0 0
+199 9 1509949490 3 0
+-1
+S
+
+#0
+

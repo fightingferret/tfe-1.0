@@ -1,0 +1,1577 @@
+#AREA
+Orc Raider Camp~
+Terek~
+Orc Raider Camp~
+
+30 0
+0
+#ROOMS
+
+#27250
+Inside a Dark Cave~
+Peering into the darkness you discover that you are standing just inside
+a dark, foul smelling cave.  The cold, wet walls are slick with a slimey
+moss that has accumulated over the years.  The sound of dripping water
+echoes throughout the cave breaking the eerie silence.  Looking upon the
+ground you notice the remaining bones of various rodents and some
+humanoid beings.  Off to the east and west lie two small alcoves.  To the
+north a dim light begins to break through the darkness of the cave.  To
+the south there seems to be a large boulder.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27253 10 10 5
+D1
+~
+~
+0 -1 27252 10 10 5
+D2
+boulder~
+boulder~
+235 -1 27274 10 10 5
+D3
+~
+~
+0 -1 27251 10 10 5
+E
+Bones~
+The bones of these beings look as if they had been torn limb from limb. 
+The remaining bones resemble those of elves, lizardmen, and humans.  Bits
+of torn leather and cloth still cling to the remains and appear as tho
+they died recently.  Among the bones of humanoids lie those of rats and
+small mice.  Lying beneath the pile of bones is a small shiny object.
+~
+E
+South Boulder~
+The cave entrance is covered by what appears to be a large boulder.  It
+seems as though you may be able to move it.
+~
+A
+Search~
+pile bones~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 2 ) == 1 ) {
+    act_tochar( #got_key, ch );
+act_notchar( #gotit, ch );
+    obj_to_char( oload( 1566 ), ch );
+    end;
+    }
+  }
+act_tochar( #no_key, ch );
+act_notchar( #nada, ch );
+~
+E
+got_key~
+Searching the bones you find a key.
+~
+E
+no_key~
+You search the bones, but find nothing of interest.
+~
+E
+gotit~
+You see $n search the pile of bones and pull something out from beneath
+them.
+~
+E
+nada~
+$n searches the piles of bones but comes up empty-handed.
+~
+!
+0 0 0
+A
+Push move~
+boulder~
+if( !is_open( room, south ) ) {
+  act_tochar( #1_open, ch );
+  act_notchar( #2_open, ch );
+  open( room, south );
+  }
+~
+E
+1_open~
+@b@WYour push the boulder with all your might and finally manage to move
+it, revealing an exit out of the cave.
+~
+E
+2_open~
+@b@W$n begins to push the boulder, finally moving it revealing an exit
+out of the cave.
+~
+!
+0 0 0
+2745 17 1509949450 -2 0
+-1
+S
+
+#27251
+A Crude Guard Post~
+This small alcove has been crudely made into a guard post.  Various
+weapons have been strewn about the room.  Straw beds lie in each corner
+of the room giving off a foul smell.  A small wooden table stands in the
+center of the room covered with rotting slabs of meat.  A shelf carved
+straight into the cave's walls lies in the northern wall and it appears
+that there a few items laying on it.  Upon the south wall a small rune
+glows with a pale blue light.
+~
+Attempting to "Get Ruby" Causes a firebolt to streak out from
+within the rune.  Bad pc's shouldve heed'd the warning ;)
+~
+301465613 11 5 0
+D1
+~
+~
+0 -1 27250 10 10 5
+E
+Rune~
+Carved straight into the stone walls of this room, the rune glows with a
+pale blue light.  Closer examination shows that the script in which it
+was carved in resembles something orcish.  Surrounding the rune are many
+red rubies which form a triangle around it.  It looks as if the rubies
+might be removable but whoever put them here most likely guarded them
+from theft.
+~
+E
+Shelf~
+This shelf has been carved into the cave's walls with crude tools and
+without much worry about perfection.  Several articles lie on the shelf
+but the strangest of them all are the collection of humanoid skulls.  The
+skulls have been lined up in a row as if they were taken as trophies.
+~
+E
+straw~
+This crude pile of straw seems to be used as a bed for the inhabitants of
+this guard post.  The straw gives off a quite foul odor, possibly from
+from the mildew it has accumulated over the years.  A thin cloth blanket
+lies in a clump next to the straw.
+~
+A
+get~
+ruby~
+act_tochar( #shock, ch );
+act_notchar( #rshock, ch );
+i = 3d10;
+dam_message( ch, i, "The firebolt" );
+inflict( ch, mob, i, "A glowing rune" );
+~
+E
+shock~
+As you reach toward the rubies, they begin to glow with a deep fiery red
+light.  Suddenly a bolt of fire streaks from within rune heading straight
+towards you!
+~
+E
+rshock~
+$n attempts to take a ruby from its place.  As soon as $s hand gets close
+the rubies begin to glow with a deep fiery red color and a bolt of fire
+streaks out from within the rune!
+~
+!
+0 0 0
+1219 9 1509949540 3 0
+-1
+S
+
+#27252
+Caved-In Guard Post~
+A large pile of rocks lies against the eastern wall suggesting that
+deadly cave in occurred recently.  Sticking out from beneath the pile of
+rocks is what appears to be the bones of some unfortunate victim who did
+not make it out in time.  A small fire pit lies in the center of the room
+along with a single straw bed next to it.  Looking up above you, you
+notice a hole in the ceiling and you can see the sky above you.
+~
+~
+301465613 11 5 0
+D3
+~
+~
+0 -1 27250 10 10 5
+E
+pile rocks~
+This pile of rocks appears to be what is left of the ceiling.  Most of
+the rocks are far too large to even attempt to clear away.  Sticking out
+from beneath the rocks are the bones of this rooms former inhabitant who
+did not escape in time.
+~
+E
+bones~
+The bones of this poor victim seem to have been shattered when the
+cave-in occurred.  The lack of any flesh on the bones suggest this person
+died quite a long time ago.
+~
+E
+fire pit small~
+This small fire pit consists of only a few twigs and wood logs.  Looking
+closer it appears as though it has not been used in quite a while.
+~
+1219 9 1509949540 3 0
+-1
+S
+
+#27253
+A Damp Tunnel~
+This tunnel is quite small, barely wide enough allow one person to walk
+through without difficulty.  The walls of the tunnel are covered with a
+red-colored moss that gives off a strange red glow.  A small stream of
+water snakes beneath your feet heading deeper into the cave.  The footing
+here is very unstable and hard to tell if it will improve.  The tunnel
+begins to slant downwards towards the north making this a most dangerous
+journey.
+~
+[Terek] Adding Dex roll check for unstable footing.
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27254 10 10 5
+D2
+~
+~
+0 -1 27250 10 10 5
+E
+Moss~
+This thick, red moss covers every inch of the ceiling and walls of this
+tunnel.  It glows with an unnatural fiery red color and seems to emit
+heat warming this part of the cave.  Every few moments the glow dims and
+then brightens.
+~
+A
+~
+0~
+if( find_skill( ch, float ) < 0 )
+if( find_stat( ch, dex ) < random( 1, 15 ) ) {
+  act_tochar( #slip, ch );
+  act_notchar( #r_slip, ch );
+  interpret( ch, "sit" );
+  }
+else
+  continue;
+else
+continue;
+~
+E
+slip~
+@b@WYou lose your footing and tumble to the ground.
+~
+E
+r_slip~
+@b@W$n slips and tumbles to the ground.
+~
+!
+3 0 1
+-1
+S
+
+#27254
+A Damp Tunnel~
+The tunnel begins to drop steeply down toward the north.  Sounds of
+dripping water and the occasional tumble of small rocks from the walls
+echo throughout the tunnel.  Barrels, crates and other containers line
+the walls of the tunnel making it even more difficult to squeeze through.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27256 10 10 5
+D2
+~
+~
+0 -1 27253 10 10 5
+E
+Barrel Crate~
+Many barrels and crates line the walls here.  Judging by the amount it
+must have taken a large force of men to haul this many supplies through
+this terrain.  Each of the barrels and crates have been broken open and
+their contents extracted leaving nothing but the crate's padding.
+~
+A
+~
+~
+if( find_skill( ch, float ) < 0 )
+  if( find_stat( ch, dex ) < random( 1, 15 ) ) {
+  act_tochar( #slip, ch );
+  act_notchar( #r_slip, ch );
+  interpret( ch, "sit" );
+  }
+else
+  continue;
+else
+  continue;
+~
+E
+slip~
+@b@WYou lose your footing and tumble to the ground.
+~
+E
+r_slip~
+@b@W$n slips and tumbles to the ground.
+~
+!
+3 0 5
+1199 9 1509949540 3 0
+1199 9 1509949540 3 0
+2745 17 1509949455 -2 0
+-1
+S
+
+#27255
+Raider Chieftain's Chambers~
+You are standing in a well-furnished chamber.  Elegant walnut desks,
+tables, and chairs fill the room.  A crude fireplace has been carved into
+the east wall, which provides the room with its heat.  A large bookcase
+sits against the west wall, filled completely with books and old tomes. 
+A very large oak table lies in the center of the room, covered with
+papers and books.  Carved into the north wall are a line of elegant runes
+which glow faintly.
+~
+Runes in wall open secret passage to treasure room, Push rune in order
+ Circle, Square, Diamond, Triangle to open 
+[Terek] Will lower chief's area
+[Rebekka] DIFFERENT in rune
+~
+301465605 11 5 0
+D0
+~
+~
+123 -1 27273 10 10 5
+D2
+Iron-Banded Door~
+Iron-banded door~
+391 1566 27265 10 10 5
+E
+Table desk large~
+A beautifully carved oak table lies in the center of the room.  Papers
+and books are stacked on it along with a fresh mug of ale.  Looking
+closer at the papers they seem to contain some writing that is still
+legible.
+~
+E
+Paper papers~
+Examining the papers you noitce that most of them are maps of the
+surrounding area.  Several notes have been scribbled along the edges of
+the papers detailing caravan routes and ambush sites.  Several other
+papers contain more detailed raiding plans on Sos-Kul and caravans in the
+area.
+~
+E
+Bookcase~
+A elegant maple bookcase stands here.  Several books seem to have
+survived the ages and are still intact and legible.  Most of the books
+are those of the art of war while others are detailed manuscripts on
+forging weapons.
+~
+E
+Runes North elegant~
+The runes have been carved straight into the stone wall of this chamber. 
+Each rune is represented by a different shape, a square, diamond, circle,
+and triangle, each glowing with its own faint light.  Closer examination
+shows that the runes seem to be on a type of stone plate and look as tho
+you could possibly push them into the wall.
+~
+A
+push touch~
+square~
+if( !rflag( status0, room ) ) {
+  if( !rflag( status1, room ) ) {
+    if( !rflag( status2, room ) ) {
+      set_rflag( status0, room );
+      act_tochar( #touch, ch );
+      act_notchar( #rtouch, ch );
+      }
+    }
+  }
+else{
+  act_tochar( #zap, ch );
+  act_notchar( #rzap, ch );
+  i = 3d10;
+  dam_message( ch, i, "The electric discharge" );
+  inflict( ch, mob, i, "The electric discharge" );
+  set_rflag( status2, room );
+  }
+~
+E
+touch~
+You touch the square rune, but nothing happens.
+~
+E
+rtouch~
+@b@Y$n touches the square rune.
+~
+E
+zap~
+You touch the square rune, and suddenly it releases an electric discharge
+which strikes you!
+~
+E
+rzap~
+$n touches the square rune, and suddenly an electric discharge leaps from
+its surface striking him!
+~
+!
+0 0 0
+A
+push touch~
+Diamond~
+if( rflag( status0, room ) ) {
+  if( !rflag( status2, room ) ) {
+    if( !rflag( status1, room ) ) {
+      set_rflag( status1, room );
+      act_tochar( #touch, ch );
+      act_notchar( #rtouch, ch );
+      }
+    }
+  }
+else {
+  act_tochar( #zap, ch );
+  act_notchar( #rzap, ch );
+  i = 4d10;
+  dam_message( ch, i, "The electric discharge" );
+  inflict( ch, mob, i, "The electric discharge" );
+  set_rflag( status2, room );
+  }
+~
+E
+touch~
+You touch the diamond rune, but nothing happens.
+~
+E
+rtouch~
+@b@Y$n touches the diamond rune.
+~
+E
+zap~
+You touch the diamond rune, and suddenly it releases an electric discharge
+which strikes you!
+~
+E
+rzap~
+$n touches the diamond rune, and suddenly an electric discharge leaps from
+its surface striking him!
+~
+!
+0 0 0
+A
+push touch~
+triangle~
+if( rflag( status1, room ) ){
+  if( rflag( status0, room ) ){
+    if( !rflag( status2, room ) ) {
+      set_rflag( status2, room );
+      act_tochar( #touch, ch );
+      act_notchar( #rtouch, ch );
+      wait( 2 );
+      act_room( #opens, ch );
+      send_to_room( #opens_there, find_room( 27273 ) );
+      open( room, north );
+      wait( 30 );
+      send_to_room( #close1, find_room( 27273 ) );
+      send_to_room( #close1_here, find_room( 27255 ) );
+      wait( 10 );
+      send_to_room( #close2, find_room( 27273 ) );
+      send_to_room( #close2_here, find_room( 27255 ) );
+      wait( 10 );
+      send_to_room( #closed, find_room( 27273 ) );
+      send_to_room( #closed_here, find_room( 27255 ) );
+      close( room, north );
+      }
+    }
+  }
+else {
+  act_tochar( #zap, ch );
+  act_notchar( #rzap, ch );
+  i = 4d10;
+  dam_message( ch, i, "The electric discharge" );
+  inflict( ch, mob, i, "The electric discharge" );
+  set_rflag( status2, room );
+  }
+
+~
+E
+touch~
+You touch the triangle rune and suddenly the room is filled with a
+rumbling sound.
+~
+E
+rtouch~
+@b@Y$n touches the triangle rune and a rumbling sound fills the room.
+~
+E
+zap~
+You touch the triangle rune, and suddenly it releases an electric discharge
+which strikes you!
+~
+E
+rzap~
+$n touches the triangle rune, and suddenly an electric discharge leaps from
+its surface striking him!
+~
+E
+opens~
+@CThe rumbling continues to echo throughout the room as a crack in the
+northern wall begins widen.  After a few moments the crack is wide enough
+to permit passage beyond it.  The crack ceases to widen and the rumbling
+sound dies out.
+~
+E
+close1~
+@RA loud rumbling sound fills the room as the walls begins to vibrate. 
+Peering around you notice that the crack in the southern wall which you
+came through has begun to close.  In a matter of time it will close
+leaving you with no way out.
+~
+E
+close1_here~
+@RA loud rumbling fills the room and you suddenly notice the crack in the
+northern wall becoming thinner as it slowly closes.
+~
+E
+close2~
+@RThe crack in the southern wall is almost completely gone.  This is your
+final chance to escape while there is still time or be forced to face the
+rest of your life sealed in this room with no hope of escape.
+~
+E
+close2_here~
+@RThe crack in the northern wall continues to close and is almost
+completely sealed off now.
+~
+E
+closed~
+@RThe crack has been sealed leaving you trapped!  You are forced to live
+your remaining years trapped in this damp, dark chamber.  It is only a
+matter of time before the oxygen supply in the room runs out bringing you
+to a slow, painful death.
+~
+E
+closed_here~
+@RThe crack in the north wall closes, and the loud rumbling sounds cease.
+~
+E
+opens_there~
+@CA loud rumbling noise fills the air, as a crack in the southern wall
+widens enough to permit passage through it.
+~
+!
+0 0 0
+A
+push touch~
+circle~
+if( mob_in_room( 1218, room ) ) {
+  act_tochar( #nada, ch );
+  end;
+  }
+else {
+  if( rflag( status0, room ) ) {
+    remove_rflag( status0, room );
+    if( rflag( status1, room ) )
+      remove_rflag( status1, room );
+    if( rflag( status2, room ) )
+      remove_rflag( status2, room );
+    act_tochar( #touch, ch );
+    act_notchar( #rtouch, ch );
+    }
+  }
+~
+E
+touch~
+You touch the circular rune, but nothing happens.
+~
+E
+rtouch~
+@b@Y$n touches the circular rune.
+~
+E
+nada~
+@WYou find it difficult to touch the runes with the raider chieftain
+looming infront of them.
+~
+!
+0 0 0
+1218 9 1509949540 3 0
+1219 9 1509949540 3 0
+1219 9 1509949540 3 0
+-1
+S
+
+#27256
+A Damp Tunnel~
+The constant sound of dripping water reaches your ears along with the
+sounds of water draining somewhere nearby.  Off to the north a bright
+light seems to break through the darkness of the tunnel.  A dead silence
+covers the area and is only broken by the sound of your own footsteps. 
+To the south the tunnel begins to climb steeply upwards.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27257 10 10 5
+D2
+~
+~
+0 -1 27254 10 10 5
+-1
+S
+
+#27257
+A Large Cavern~
+This large chamber seems to have been naturally formed over many
+centuries.  Stalactites and stalagmites cover most of the cavern's edges,
+making movement difficult.  Droplets of water trickle down the
+stalactite's surface making a drip-drop sound echo throughout the cavern. 
+Torches line the walls of the cavern giving off barely enough light to
+see clearly.  Shadows dance along the wall suggesting movement but from
+an unknown source.  Small fire pits have been placed every few feet on
+the cavern's floor in an attempt to heat this large chamber.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27260 10 10 5
+D1
+~
+~
+0 -1 27258 10 10 5
+D2
+~
+~
+0 -1 27256 10 10 5
+D3
+~
+~
+0 -1 27259 10 10 5
+E
+stalactites stalagmites~
+Formed over many centuries, these stalactites and stalagmites cover the
+interior of the cavern.  Each one is quite different from the either,
+some different shapes while others sparkle with beautiful arrays of
+colors.
+~
+E
+fire pits~
+The fire pits have seem to be placed here in a vain attempt to heat the
+chamber.  The pits are stacked high with wooden logs suggesting that
+someone lurks nearby tending to them.
+~
+-1
+S
+
+#27258
+Cooking Area~
+Many piles of wet straw litter the floor of this section of the cavern. 
+Stone-working tools have been scattered over the floor along with several
+sacks of rocks.  A small fire pit lies in the corner of the room giving
+off very little heat.  A small pile of charred bones lie next to the fire
+pit apparently the remains of someone's meal.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27261 10 10 5
+D3
+~
+~
+0 -1 27257 10 10 5
+E
+Charred bones pile small~
+The bones have been charred to a deep black color, possibly from lying in
+a fire pit.  It is hard to distinguish what the remains once were due to
+the deformities caused by extreme heat.
+~
+E
+straw wet~
+Mounds of wet straw litter the floor and appear to be used as beds of
+sorts.  Mildew has built up on it from the wet climate here making them a
+gooey mess.
+~
+1199 9 1509949540 3 0
+-1
+S
+
+#27259
+A Large Cavern~
+This area of the cavern is much colder then other parts due to a large
+hole in the ceiling.  Smoke from the various fire pits wafts up towards a
+the ceiling, only to float through the hole exiting the cavern.  Upon the
+southern wall there is a large patch of green moss and a faint glow seems
+to emanate from behind it.  The western wall has had a large portion of
+stone removed from it and is scarred by deep stone nicks.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27262 10 10 5
+D1
+~
+~
+0 -1 27257 10 10 5
+E
+Moss~
+The moss on this wall seems to pushed into its cracks rather then growing
+over naturally.  A dim glow emanates from behind moss and the faint
+outline of an orcish rune can be seen.
+~
+E
+hole west~
+This hole is no larger then four inches wide by six inches high.  It
+looks as though several attempts were made to create a tunnel or another
+room but the miners struck bedrock halting their construction.
+~
+E
+Rune glowing Diamond~
+The rune glows with a pale yellow light and small diamonds surround the
+rune forming a perfect square.  Pieces of the of rock have been chipped
+away in what appears to be an attempt to pry the diamonds loose.
+~
+A
+Get touch~
+Diamond Rune~
+act_tochar( #diam, ch );
+act_notchar( #rdiam, ch );
+i = 3d10;
+dam_message( ch, i, "The blast of cold air" );
+inflict( ch, mob, i, "A glowing yellow rune" );
+~
+E
+diam~
+As your hand touches the diamonds they suddenly turn very cold and begin
+to pulse with a deep blue light.  The rune brightens quickly and suddenly
+releases a blast of frigid air!
+~
+E
+rdiam~
+$n grabs hold of a diamond trying to pry it from its hole.  Suddenly the
+rune pulses with a deep blue light and releases a blast of frigid air
+towards $n!
+~
+!
+0 0 0
+A
+Touch move~
+Moss~
+act_tochar( #touch, ch );
+act_notchar( #r_touch, ch );
+~
+E
+touch~
+@b@WYou move the moss away from the wall and discover a hidden rune
+behind it.
+~
+E
+r_touch~
+@b@W$n moves the moss away from the wall, revealing a hidden rune.
+~
+!
+0 0 0
+A
+search~
+crack hole~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) < 5 ) {
+    act_tochar( #got_rock, ch );
+    obj_to_char( oload( 143 ), ch );
+    end;
+    }
+  }
+act_tochar( #no_rock, ch );
+~
+E
+got_rock~
+You search the crack and find a small rock.
+~
+E
+no_rock~
+You search the crack, but find nothing of intrest.
+~
+!
+0 0 0
+1199 9 1509949540 3 0
+-1
+S
+
+#27260
+A Large Cavern~
+This section of the cavern is quite bare except for a few spears strewn
+about the floor.  Carved below you on the floor are some crude drawings
+and they appear to be quite old.  A small puddle of fresh blood lies on
+the floor along with a bloodied spear.  The cavern's silence is
+occasionally broken by either the sound of dripping water or your own
+footsteps.  Off to the north a large door has been set into the cavern
+wall.  A brightly lit room room is off to your east.
+~
+[Rebekka] spear extra?
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27265 10 10 5
+D1
+~
+~
+0 -1 27261 10 10 5
+D2
+~
+~
+0 -1 27257 10 10 5
+D3
+~
+~
+0 -1 27262 10 10 5
+E
+Drawings Floor Crude~
+The drawings are those of various shapes, each with its own number
+beneath it.  The drawings are quite old but you can still manage to make
+out the numbers beneath the shapes.  A diamond with a three beneath it, a
+triangle with a four, a circle with a one, and a square with a two. 
+There is no sure way of telling why someone would draw something like
+this but apparently it meant something to them.
+~
+E
+puddle blood~
+The puddle upon the blood is quite large, about 4' x 4' and gives off a
+horrid stench.  It appears that some sort of battle took place judging by
+the bloodied spear lying on the floor.
+~
+1199 9 1509949540 3 0
+-1
+S
+
+#27261
+A Large Cavern~
+Several piles of bloodied weapons and armor have been stacked in this
+chamber.  A wave of heat hits the area and seems to be coming from
+somewhere to the east of you.  The chamber seems deathly quiet and only
+occasionally broken by the sound of dripping water or the flicker of a
+fire pit.  A horrid stench assails you and it seems to emanate from the
+room to the east.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27266 10 10 5
+D1
+~
+~
+0 -1 27269 10 10 5
+D2
+~
+~
+0 -1 27258 10 10 5
+D3
+~
+~
+0 -1 27260 10 10 5
+E
+pile weapons armor~
+All of the weapons and armor in these piles are completely useless.  They
+have been bent, snapped, and torn to shreds beyond repair.  Fresh blood
+still trickles down the weapons surface adding to the gore.
+~
+A
+search get~
+pile piles bloodied weapons armor~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) == 1 ) {
+    act_tochar( #got_weap, ch );
+    obj_to_char( oload( 1080 ), ch );
+    end;
+    }
+  }
+act_tochar( #no_weap, ch );
+~
+E
+got_weap~
+You search the pile of rusty weapons and find one still usable.
+~
+E
+no_weap~
+You search the pile of rusty weapons but find nothing usable.
+~
+!
+0 0 0
+1199 9 1509949540 3 0
+2745 17 1509949450 -2 0
+-1
+S
+
+#27262
+A Large Cavern~
+Several barrels and crates have been placed in this section of the cavern. 
+The barrels and crates are fairly new and have been handled carefully by
+the looks of them.  Piles of rope and several logs have been oddly placed
+here and seem completely out of place.  A draft of cold air blows through
+the room every few moments, eminating from somewhere to the west.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27267 10 10 5
+D1
+~
+~
+0 -1 27260 10 10 5
+D2
+~
+~
+0 -1 27259 10 10 5
+D3
+~
+~
+0 -1 27268 10 10 5
+E
+piles rope logs~
+Several bundles of rope and a few logs have been stacked here.  Many of
+the logs have deep gashes and cuts in them made by what appears to be
+stone.  It seems as though these supplies were used to haul the heavy
+crates and barrels into the cave.
+~
+E
+barrels crates~
+These barrels appear to have been recently brought into this cave by the
+condition of them.  The lids of the crates and barrels have been tightly
+nailed shut and it appears as though no amount of force could pry them
+open.  Several of the crates have blood stains on them but the blood is
+dry suggesting that they were hauled in quite a time ago.
+~
+A
+search get~
+crates barrels~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) < 5 ) {
+    act_tochar( #got_beef, ch );
+    obj_to_char( oload( 823 ), ch );
+    end;
+    }
+  }
+act_tochar( #no_beef, ch );
+~
+E
+got_beef~
+You search the barrels and crates and find a slab of beef!
+~
+E
+no_beef~
+You search the crates and barrels, but find nothing useful.
+~
+!
+0 0 0
+1199 9 1509949540 3 0
+-1
+S
+
+#27263
+A Damp Tunnel~
+Under Construction.
+~
+~
+301465601 3 5 0
+-1
+S
+
+#27264
+A Damp Tunnel~
+Under Construction.
+~
+~
+301465601 3 5 0
+-1
+S
+
+#27265
+A Large Cavern~
+Looming before you is a large iron-banded door that has been placed into
+the cavern wall.  A small ray of light shines through a small crack along
+the door's edges.  Upon the northern wall above the door, large glowing
+rune has been placed.  Two torches hang on each side of the door serving
+as light sources for this chamber.  There is a large crack in the wall
+and as the torches flicker something glitters from within it.
+~
+~
+301465605 11 5 0
+D0
+Iron-Banded Door~
+Iron Banded Door~
+391 1566 27255 10 10 5
+D1
+~
+~
+0 -1 27266 10 10 5
+D2
+~
+~
+0 -1 27260 10 10 5
+D3
+~
+~
+0 -1 27267 10 10 5
+E
+crack glitter~
+As the light flickers gently, something begins to glitter.  Looking more
+closely you can make out the source to be a large slab of mithril ore. 
+The ore is far too large to remove and it appears that someone has
+already tried to remove it to no avail.
+~
+E
+rune glowing~
+Yet another rune has been place upon the cavern wall.  It glows with a
+faint yellow light which slowly brightens and diminishes.  A circle of
+emeralds surround the rune which also glow with an unearthly yellow light.
+~
+E
+door iron-banded~
+This massive door has been made of the finest oak planks and reinforced
+with iron bands.  The door looks almost impossible to break down without
+breaking a few bones while trying.  A small handle seems to serve as a
+door knob.  A tiny keyhole has been placed just below the handle.
+~
+A
+search get~
+crack mithril~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) < 5 ) {
+    act_tochar( #got_mith, ch );
+    obj_to_char( oload( 1588 ), ch );
+    end;
+    }
+  }
+act_tochar( #no_mith, ch );
+~
+E
+got_mith~
+You reach into the crack and grab hold of a piece of rock.
+~
+E
+no_mith~
+You attempt to grab hold of the mithril, but fail to reach it.
+~
+!
+0 0 0
+1199 9 1509949540 3 0
+-1
+S
+
+#27266
+Near a Pile of Bones~
+A huge pile of bones fills this entire corner of the cavern.  The bones
+resemble those of humanoids and not just common rodents.  Rats crawl in
+and out from underneath the pile, gnawing at whatever bits of flesh still
+remain.  Bits and pieces of what was once fine armor still cling to some
+of the bones but is completely unusable.
+~
+~
+301465605 11 5 0
+D2
+~
+~
+0 -1 27261 10 10 5
+D3
+~
+~
+0 -1 27265 10 10 5
+E
+bones pile~
+These are the remains of what appear to have once been humans.  Skulls,
+femurs, and other pieces have been ripped off and tossed into the pile
+casually.  Bits of flesh still hang from some of the remains suggesting
+they died recently.  Large teeth marks in some of the bones suggest
+something quite large did this and was not produced by a small rat.
+~
+E
+armor~
+Once fine leather armor and plate armor, they are now completely
+worthless.  The leather has been torn to shreds beyond repair and the
+platemail has become rusted and brittle to the touch.
+~
+1199 9 1509949540 3 0
+-1
+S
+
+#27267
+A Large Cavern~
+The walls of this chamber have been heavily worked on.  Large cracks,
+holes, and cuts scar its surface.  Wheelbarrels and pickaxes lie
+scattered about the room suggesting that heavy mining has taken place
+here.  Within some of the holes and cracks in the wall there seems to be
+something shimmering in its recesses.
+~
+~
+301465605 11 5 0
+D1
+~
+~
+0 -1 27265 10 10 5
+D2
+~
+~
+0 -1 27262 10 10 5
+E
+hole crack shimmering~
+Large holes and cracks cover the wall suggesting that heavy mining has
+taken place.  Within some of the cracks and holes there is what appears
+to be chunks of mithril ore just out of reach.  It appears that the
+miners attempted to extract it but hit the hard bedrock just before it
+and could go no further.
+~
+A
+Get~
+Mithril~
+Act_tochar( #Mith, ch );
+act_notchar( #r_mith, ch );
+~
+E
+Mith~
+You try and grab a chunk of mithril ore, but the bedrock prevents you.
+~
+E
+r_mith~
+$n reaches into the crack, but comes up empty-handed.
+~
+!
+0 0 0
+1199 9 1509949540 3 0
+-1
+S
+
+#27268
+Storage Area~
+Several crates and barrels fill this small storage room.  The room is
+incredibly cold and damp and gives off a horrid stench of rotted meat. 
+Rats swarm the area picking up bits and pieces of the remaining food and
+chewing holes in the crates.  Most of the crates and barrels contents
+have long since spoiled and the once fresh meat and wine now are rotten. 
+Bales of what was once fine silk and cotton but now worthless material
+littered with holes lies in the corner of the room.
+~
+~
+301465613 11 5 0
+D1
+~
+~
+0 -1 27262 10 10 5
+E
+cotton silk bales~
+Many bails of what was once fine cotton and silk lie in the corner of the
+room.  Water, moths, and time has made these once fine fabrics completely
+worthless and of no value.  The bails that were once used to transport
+these wares have been smashed open leaving only a few planks of wood.
+~
+488 9 1509949540 3 0
+1230 9 1509949540 3 0
+1230 9 1509949540 3 0
+1230 9 1509949540 3 0
+1044 9 1509949540 3 0
+-1
+S
+
+#27269
+Raider's Barracks~
+Several slain bodies lie in heaps across this room.  Pikes, spears and
+bloodied swords still stick into the dead bodies making it seem as though
+they were slain just recently.  The walls of this room are covered in
+fresh and dried blood and the smell of death and decay hangs in the air. 
+Several small straw beds line the wall and a small fire pit lies in the
+center of the room.  Bundles of spears and pikes lean against the walls
+of this chamber as blood slowly drips from their tips.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 27271 10 10 5
+D2
+~
+~
+0 -1 27272 10 10 5
+D3
+~
+~
+0 -1 27261 10 10 5
+E
+piles bodies slain~
+A foul stench of decay emanates from the piles of the bodies.  The bodies
+are those of humans, elves, lizardmen and dwarves and fresh wounds
+suggest that they died very recently.  Broken spears and pikes still
+stick within the bodies creating a gruesome scene of death.  The bodies
+have been severely mutilated and only a blood-thirsty beast could
+possibly do such a horrific thing.
+~
+E
+bundles spears pikes~
+Bundles of spears and pikes lie against the walls of the room with fresh
+blood still trickling down their surfaces.  The spears and pikes are
+quite large, far too big for a human to use but almost perfectly sized
+for a troll, orc, or ogre.
+~
+E
+straw~
+Several piles of straw that have been converted into a crude bed line the
+walls of the room.  The straw is quite damp from water dripping on it
+over long periods of time making it a gooey mess.
+~
+E
+Pit small fire~
+This small fire pit seems to be in use at the moment as you notice a
+small rabbit on a spit, slowly roasting.  Small swirls of smoke rise up
+giving the room a grey, hazy atompshere.
+~
+A
+get search~
+bundles spears pikes~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) == 1 ) {
+    act_tochar( #got_weap, ch );
+    obj_to_char( oload( 3006 ), ch );
+    end;
+    }
+  }
+act_tochar( #no_weap, ch );
+~
+E
+got_weap~
+You search the bundles of spears and pikes and find one still in good
+condition.
+~
+E
+no_weap~
+You search through the bundles of spears and pikes, but find nothing
+useful.
+~
+!
+0 0 0
+1199 9 1509949540 3 0
+1199 9 1509949540 3 0
+1199 9 1509949540 3 0
+-1
+S
+
+#27270
+A Damp Tunnel~
+Under Construction.
+~
+~
+301465601 3 5 0
+-1
+S
+
+#27271
+Raider's Barracks~
+This room has been cluttered with several large sacks, straw beds, and
+bundles of weapons.  A small iron forge lies in the corner of the room
+billowing smoke up through a ventilation hole in the ceiling.  Several
+weapon molds lie scattered across the room and a few of them contain
+liquid iron.  Just above the forge, a large rune shimmers brightly and
+emits a faint buzzing sound.
+~
+cauldron 1572 loads and is full of molten metal.
+leaving room without emptying load 1574, molten metal has cooled, heavy
+and smaller container.  Worth 2 ingots for the metal in it, but none for
+the cauldron.
+emptying before leaving loads 987, empty, lighter and bigger container,
+but poor quality and worth 0 ingots.
+~
+301465605 11 5 0
+D2
+~
+~
+0 -1 27269 10 10 5
+E
+rune shimmering large~
+The rune shimmers with a bright golden light and several glowing violet
+tourmalines form a diamond around it.  Stone cuts next to the rune
+suggest someone has very recently tried to remove the rune.
+~
+E
+forge small~
+The forge seems to be currently in use as iron is melted into liquid form. 
+Smoke swirls from its chimneys only to be sucked out by a gust of air
+from a ventilation hole in the ceiling.  Every few moments the sound of
+bubbling iron comes from within the forge breaking the silence of the
+room.  Even though the forge is small it must have taken an army to haul
+such a heavy item into this cave.
+~
+A
+get touch~
+rune tourmalines violet~
+act_tochar(#tour, ch );
+act_notchar( #rtour, ch );
+i = 4d10;
+dam_message( ch, i, "The arc of electricity" );
+inflict( ch, mob, i, "A shimmering rune" );
+~
+E
+tour~
+As your hand nears the rune, it begins to shimmer brightly as an arc of
+electricity leaps from its surface striking you!
+~
+E
+rtour~
+$n reaches for the shimmering rune and suddenly an arc of electricity
+leaps from its surface, striking $m!
+~
+!
+0 0 0
+A
+~
+~
+if( has_obj( 1572, ch ) ) {
+  junk_obj( has_obj( 1572, ch ) );
+  obj_to_char( oload( 1574 ), ch );
+  act_tochar( #solid, ch );
+  }
+continue;
+~
+E
+solid~
+The liquid metal in the cauldron is rapidly cooling and has already begun
+to solidify.
+~
+!
+3 0 4
+1199 9 1509949540 3 0
+1231 9 1509949540 3 0
+1572 17 100 -2 0
+1572 17 100 -2 0
+1572 17 80 -2 0
+1572 17 40 -2 0
+1572 17 20 -2 0
+-1
+S
+
+#27272
+Raider's Barracks~
+The walls of this chamber are very jagged and it looks as though this
+chamber is unfinished.  Mining tools litter the floor along with chunks
+of freshly chipped rock.  A large crack runs down the south wall and the
+faint sound of dripping water can be heard from deep within its bowels. 
+A single torch hangs from the wall shedding very little light on the area
+causing you to continually bump into walls.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 27269 10 10 5
+E
+South S Crack~
+The crack is no larger than twelve inches in diameter by twelve inches
+high.  The faint sound of dripping water echoes from within its bowels
+and peering closer you notice it could possibly lead to another chamber
+but there seems to be no possible way to get through it.
+~
+E
+tools mining~
+Pickaxes, shovels, and other various mining tools litter the floor.  The
+tools are covered in a thick layer of dust and appear quite rusty.  It
+appears that the tools are now just worthless pieces of metal.
+~
+1199 9 1509949540 3 0
+-1
+S
+
+#27273
+Secret Treasure Room~
+Piles of hoarded treasure captured by the raiders has been thrown into
+this room.  Large sacks filled with various loot lie scattered about the
+room.  Examining the the hoard, you surmise that the exact wealth of it
+all is enough to satisfy ten kings.  Upon the ground are the remains of a
+human, his skull completely crushed.
+~
+~
+301465605 11 5 0
+D2
+~
+~
+123 -1 27255 10 10 5
+E
+remains human skull~
+These appear to be the remains of a clergyman by the looks of his
+remaining white robes.  Little remains of his skeleton, most of it seems
+to have been crushed be falling rocks which shattered his skull.  His
+outstretched hand still grasps a rusty iron mace which is buried beneath
+the rocks.
+~
+1556 49 1509949540 -2 0
+16 81 1509949540 -2 0
+16 81 1509949452 -2 0
+77 81 1509949441 -2 0
+983 81 1509949445 -2 0
+998 81 1509949445 -2 0
+1023 81 1509949445 -2 0
+1039 81 1509949515 -2 0
+1554 81 1258291225 -2 0
+910 81 1509949445 -2 0
+938 81 1509949445 -2 0
+953 81 1509949445 -2 0
+956 81 1509949445 -2 0
+893 81 1509949445 -2 0
+911 81 1509949445 -2 0
+876 81 1509949445 -2 0
+944 81 1258291205 -2 0
+1531 81 1509949460 -2 0
+-1
+S
+
+#27274
+Before a Rocky Cliff~
+The cliff's face rises up above the swamp, providing a natural shelter
+from the elements.  Several vines, moss, and other vegetation cover the
+cliff's walls, making it seem that it is just another part of the swamp. 
+Upon the northern wall of the cliff lies a very large boulder covered by
+a few vines and it appears as though that it is covering something.
+~
+[Terek] Push Boulder To reveal cave entrance.
+[Irmo] When close boulder is done, boulder is captialized
+[Lansharra] move boulder: both close and open would be nice :P
+[Celine] Wouldnt it just?
+[Kastle] when you open the boulder here, its Boulder, should be lowercase b
+~
+301465612 11 9 0
+D0
+boulder~
+boulder~
+235 -1 27250 10 10 5
+D1
+~
+~
+0 -1 27275 10 10 5
+E
+North Boulder Large~
+The boulder is quite large and appears very heavy.  Looking more closely
+you notice that it seems to be covering an opening of sorts and it may be
+possible to move the boulder.
+~
+A
+push move~
+boulder~
+if( !is_open( room, north ) ) {
+  act_tochar( #1_open, ch );
+  act_notchar( #2_open, ch );
+  open( room, north );
+  }
+~
+E
+1_open~
+@b@WYou push the boulder with all your might and finally manage to move
+it, revealing a dark cave opening.
+~
+E
+2_open~
+@b@W$n begins to push the boulder finally moving it, revealing a dark
+cave opening.
+~
+!
+0 0 0
+-1
+S
+
+#27275
+Faint Trail Through the Swamp~
+The sounds of the swamp's inhabitants can be heard all around you, adding
+to the dark image of the swamp.  This portion of the trail has become
+more of a sandy base rather then a muddy one, and several footprints are
+clearly visible.  A small piece of tattered cloth clings to a branch on
+the trail's path as it wavers slightly in the breeze.
+~
+~
+301465605 11 9 0
+D2
+~
+~
+0 -1 27276 10 10 5
+D3
+~
+~
+0 -1 27274 10 10 5
+E
+footprints floor~
+The tracks head towards the west and south and it is difficult to
+determine what made them due to the ever-changing swamp.  Closer
+examination shows that the tracks seem fairly new and the trail is
+well-used.
+~
+E
+Cloth tattered small piece~
+The cloth appears to be quite old by the dirt stains and condition of it. 
+A small patch of blood on it suggest that whoever came through here may
+have been wounded.
+~
+-1
+S
+
+#27276
+Faint Trail Through the Swamp~
+Three feet of thick mud cover this section of the trail making passage
+difficult and quite messy.  Dead trees, large vines and dense vegetation
+make movement all too difficult.  Visibility on the trail is barely over
+three feet due to the dense foliage which allows no light to pass through.
+~
+~
+301465605 11 9 0
+D0
+~
+~
+0 -1 27275 10 10 5
+D3
+~
+~
+0 -1 27277 10 10 5
+-1
+S
+
+#27277
+Faint Trail Through the Swamp~
+The trail here twists and turns through the dense vegetation and it
+almost appears that someone has attempted to cover the trail's path by
+laying vines and tree branches over it.  Upon the ground are a set of
+footprints that head in both directions and a poor attempt to conceal
+them seems to have been made.
+~
+~
+301465605 11 9 0
+D1
+~
+~
+0 -1 27276 10 10 5
+D2
+~
+~
+0 -1 31130 10 10 5
+E
+footprints~
+It is hard to determine who or what made the footprints, but it appears
+as though some were made by humanoid beings.  The footprints are set deep
+into the ground suggesting that either someone very heavy came through
+here or someone was carrying a heavy load.
+~
+-1
+S
+
+#0
+

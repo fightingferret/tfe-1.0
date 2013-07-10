@@ -1,0 +1,1444 @@
+#AREA
+Rabbit Warren~
+Caer Merior~
+Rabbit Warren~
+
+6 0
+0
+#ROOMS
+
+#40250
+Under a Musty Hole~
+You find yourself in a large hole dug under the base of a oak tree. 
+Heading north and west into the darkness are the tracks of many animals,
+the likes of which you've never seen above ground.  If you get on your
+knees, you can crawl in those two directions, or you can rise and leave
+the underground world.
+~
+have to climb in and out of hole
+[Ssleestaq] climb up and climb root do not work. climb hole words, but makes no sense.
+~
+335020045 11 5 0
+D0
+~
+~
+0 -1 40253 10 10 5
+D3
+~
+~
+0 -1 40260 10 10 5
+E
+north~
+You shiver as you peer at the tunnel's dark interior.
+~
+E
+hole base~
+As you look up the great roots of the banyan tree arch to form the
+support of this tunnel entrance.  The earth has been clawed and dug into
+the depths of the earth.  Looking upward, you see a large hole which you
+think you can climb back through.  A few of the roots hang down allowing
+anyone to grab hold of them as a tool to climb out.
+~
+E
+roots up~
+The roots are thick and covered with a dry earthen soil.
+~
+A
+climb go scale ascend~
+up hole out root~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 40251 ) );
+  act_notchar( #fly2, ch );
+  }
+else {
+  if( find_skill( ch, climb ) > random( -1, 7 ) ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    transfer( ch, find_room( 40251 ) );
+    act_notchar( #char2, ch );
+    }
+  else {
+    send_to_char( #fail, ch );
+    i = 1d3;
+    dam_message( ch, i, " The slip " );
+    inflict( ch, mob, i, " The fall " );
+    act_notchar( #failed, ch );
+    end;
+    }
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+failed~
+You see $n grab hold of a root, and try to climb up.  $e slips, and falls
+back by your side.
+~
+E
+fail~
+You try to climb out by holding on to the roots, but slip and fall back
+in the hole.
+~
+E
+room~
+$n grabs hold of one of the oak's roots and climbs out of the hole.
+~
+E
+char~
+You grab onto the exposed roots of the oak tree and climb up and out of
+the hole.
+~
+E
+char2~
+$n climbs out of a hole in the ground.
+~
+E
+fly~
+You fly upwards and out the hole, barely slipping through it.
+~
+E
+rfly~
+$n flies up and out of the hole overhead.
+~
+E
+fly2~
+$n zips out of a hole in the ground, launching into the air before flying back down to the ground.
+~
+!
+0 0 0
+A
+none~
+~
+send_to_room( #room, room );
+~
+E
+room~
+From deep within the tunnels that surround you, you hear a faint
+scrabbling sound, as if something were digging into the dirt walls.  The
+echoes from the surrounding tunnels make you unsure of the actual
+direction of the noise.
+~
+!
+2 100 0
+-1
+S
+
+#40251
+Base of a Tall Oak Tree~
+The bark of the oak tree is dark and rough.  Its branches stretch out to
+reach high into the sky.  Down towards the ground, you notice that there
+is a lot of loose earth near the base of the tree.
+~
+no mob
+rabbits here
+[Bliss] lack of capital in last sentence of oak tree entrance site to giant rabbits
+~
+335020041 4 9 0
+D0
+~
+~
+0 -1 38328 10 10 5
+D3
+~
+~
+0 -1 38324 10 10 5
+E
+earth~
+You see a lot of loose earth heaped near the base of the oak tree.
+~
+E
+oak tree~
+A giant oak tree grows right here.  Its branches reach high into the sky,
+and its large roots extend all around you.  The base of the tree is
+covered with loose earth.  the trunk of the tree seems a bit out of place.
+~
+E
+roots~
+Bits of fur stick to many of the roots, showing the passing of creatures
+with brown, black, white, and tan fur.
+~
+E
+hole~
+A dark, gaping hole seems to have been dug out just under the base of the
+tree, leaving a few roots hanging in the breeze.  Something appears to be
+sticking to some of the roots.
+~
+E
+bark~
+The dark brown bark of the tree appears to have been gnawed at by the
+teeth of many animals.  The chew marks stop at just about the top of your
+head.
+~
+E
+base~
+At the very base of the oak tree is a large hole in the ground.
+~
+E
+branches~
+Large branches grow reasonably close to the ground, and might provide
+hand-holds for climbing.
+~
+A
+climb~
+1 u tree oak~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 40252 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 1, 7 ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 40252 ) );
+  act_notchar( #char2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+failed~
+You see $n try to climb the tree, but slip back down.
+~
+E
+fail~
+You try to climb the tree, but slip back down.
+~
+E
+arr ~
+You see $n climb up the trunk of the tree and disappear from view.
+~
+E
+room~
+You see $n climb up the trunk of the tree and disappear from view.
+~
+E
+char~
+You climb up the trunk of the tree.
+~
+E
+flying2~
+$n flies up into the tree.
+~
+E
+flying~
+You see $n go flying up the tree.
+~
+E
+fly~
+You fly up the tree.
+~
+E
+char2~
+$n climbs up into the tree.
+~
+!
+0 0 0
+A
+enter go~
+hole tree~
+if( find_skill( ch, climb ) > random( 1, 7 ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 40250 ) );
+  act_notchar( #char2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  transfer( ch, find_room( 40250) );
+  i = dice( 2, 7 );
+  dam_message( ch, i, "The fall" );
+  inflict( ch, mob, i, "the fall" );
+  act_notchar( #fail2, ch );
+  }
+loop( followers ) {
+  if( !is_resting( rch ) ) {
+    ch = rch;
+    acode( room, 2 );
+    }
+else
+act_tochar( #cant, ch );
+  }
+~
+E
+failed~
+You see $n slip and fall into the hole.
+~
+E
+fail~
+You slip, and go tumbling into the hole.
+~
+E
+room~
+You see $n climb into the hole and disappear from sight.
+~
+E
+char~
+You climb into the hole.
+~
+E
+char2~
+$n has climbed down through the hole above you.
+~
+E
+fail2~
+$n comes crashing through the hole overhead to land on the ground with a
+loud @YWHUMP!@n 
+~
+E
+cant~
+You try to follow into the hole but are not in a position to do so.
+~
+!
+0 0 0
+755 9 1509949540 3 0
+-1
+S
+
+#40252
+Up the Oak Tree~
+You cling tenaciously to the branches of the oak, trying to survey the
+territory.  To the south, you can just barely tell that there is a break
+in the trees.  The branches of the tree make it difficult to survey the
+land to the east and north.
+~
+~
+335020033 3 4 0
+E
+branch~
+Many large, leafy branches surround you, blocking out your view of the
+surrounding countryside.
+~
+A
+push~
+branch~
+send_to_char( #view, ch );
+~
+E
+view~
+You push aside the branches, and are able to see the shapes of tall, dark
+hills far to your west.  No matter how you push the branches, you cannot
+see anything but leaves in the other directions.
+~
+!
+0 0 0
+A
+climb~
+1 down tree~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flying, ch );
+  transfer( ch, find_room( 40251 ) );
+  act_notchar( #flying2, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 1, 3 ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 40251 ) );
+  act_notchar( #char2, ch );
+  }
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  end;
+  }
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+failed~
+You see $n start to climb down the tree, then return.
+~
+E
+fail~
+You try to climb down the trunk, but are suddenly afraid.
+~
+E
+room~
+You see $n climb down the trunk and out of sight.
+~
+E
+char~
+You climb swiftly down the trunk of the tree.
+~
+E
+flying~
+You see $n go flying down and out of sight.
+~
+E
+fly~
+You fly down to the ground.
+~
+E
+flying2~
+$n flies down out of the tree.
+~
+E
+char2~
+$n climbs down out of a tree.
+~
+!
+0 0 0
+A
+sleep~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+You can't sleep while clinging to tree branches!
+~
+!
+0 0 0
+-1
+S
+
+#40253
+Warren Tunnels - T Intersection~
+As you move through the tunnels, you see roots from the tree above
+weaving their way along the ceiling.  The dank smell of wet clay nearly
+overwhelms you.  A faint light glows far to the south; darkness extends
+in all other directions.  The wall on your east is slick with water,
+other directions seem open.
+~
+~
+335020036 11 5 0
+D0
+~
+~
+0 -1 40254 10 10 5
+D2
+~
+~
+0 -1 40250 10 10 5
+D3
+~
+~
+0 -1 40261 10 10 5
+949 9 1509949540 3 0
+-1
+S
+
+#40254
+Warren Tunnels - Dark Corridor~
+The ground slopes sharply under your feet as you try to walk.  The air is
+damp, and the smell of wet fur is quite strong.  The tunnels curve east
+and south here, but are too dark to see where they might lead.
+~
+~
+335020036 11 5 0
+D1
+~
+~
+0 -1 40255 10 10 5
+D2
+~
+~
+0 -1 40253 10 10 5
+949 9 1509949540 3 0
+-1
+S
+
+#40255
+Warren Tunnels - T Intersection~
+The twisting path of the tunnels seem to form the letter 'T' here.  All
+directions but north are possible, and all seem equally dark and
+uninviting.  The damp atmosphere is filled with unpleasant smells, and
+makes you feel cold and miserable.
+~
+~
+335020036 11 5 0
+D1
+~
+~
+0 -1 40258 10 10 5
+D2
+~
+~
+0 -1 40256 10 10 5
+D3
+~
+~
+0 -1 40254 10 10 5
+972 9 1509949540 3 0
+973 9 1509949540 3 0
+-1
+S
+
+#40256
+Warren Tunnel - Scene of Death~
+The walls in this area of the tunnel are dark and grimy, and splattered
+with blood.  Small bits of bloody fur lie on the ground, still wet and
+slippery.  The smell of blood and sweat is extremely strong here, and
+most unpleasant.
+~
+~
+335020044 11 5 0
+D0
+~
+~
+0 -1 40255 10 10 5
+D1
+~
+~
+0 -1 40257 10 10 5
+949 9 1509949540 3 0
+973 9 1509949515 3 0
+-1
+S
+
+#40257
+Warren Tunnel - Scene of Death~
+The smell in this room is terrible indeed.  The source of the smell is
+quite obvious: the carcasses of dozens of animals lie scattered about the
+floor.  The meat has not yet been removed from the skin, and flies feast
+hungrily on their remains.
+~
+~
+335020044 11 5 0
+D0
+~
+~
+0 -1 40258 10 10 5
+D3
+~
+~
+0 -1 40256 10 10 5
+E
+carcass animal~
+Several types of dead animals lie on the floor.  It is easy to recognize
+rabbits, chipmunks, and squirrels; larger ones might be deer and goat,
+but have been torn up too much to be entirely recognizable.
+~
+973 9 1509949515 3 0
+972 9 1509949520 3 0
+1310 17 1509949540 -2 0
+-1
+S
+
+#40258
+Warren Tunnel - Bones~
+The floor of this section of the tunnel is worn into small, oval,
+depressions, each of which is approximately the same size as the
+creatures that inhabit this place.  Tufts of fur and small bones lie
+about the area, and bugs swarm to feast on the remains.
+~
+~
+335020036 11 6 0
+D2
+~
+~
+0 -1 40257 10 10 5
+D3
+~
+~
+0 -1 40255 10 10 5
+E
+bones~
+Tiny bones lie scattered about on the floor.  Even tinier teeth marks
+show where some creature has recently feasted.
+~
+973 9 1509949540 3 0
+949 9 1509949510 3 0
+-1
+S
+
+#40259
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 40258 10 10 5
+-1
+S
+
+#40260
+Warren Tunnels - By the Root~
+A faint light shines to the east.  The damp tunnels extend into darkness
+both north and west, and you can see no indication of what lies ahead. 
+The earth here is hard and packed, as if many feet often passed this way. 
+A loose root sticks out of the southern wall.
+~
+~
+335020036 11 5 0
+D0
+~
+~
+0 -1 40261 10 10 5
+D1
+~
+~
+0 -1 40250 10 10 5
+D3
+~
+~
+0 -1 40262 10 10 5
+A
+cut~
+root fur~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 387 ), ch );
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+yes_char~
+You have found a furry tail stuck to the root.
+~
+E
+yes_room~
+You see $n pulling at a root and grabbing a small piece of fur.
+~
+E
+no_char~
+You find nothing special stuck to the root.
+~
+E
+no_room~
+You see $n pulling at the root, and coming up with dirty hands.
+~
+!
+0 0 0
+A
+1 look examine~
+root~
+if( find_skill( ch, searching ) > random( 0, 7 ) ) 
+  send_to_char( #found, ch );
+else
+  send_to_char( #notfound, ch );
+~
+E
+found~
+A small root has several pieces of brown fur entwined in its tendrils. 
+The fur looks as if it can be removed from the root, perhaps with a knife.
+~
+E
+notfound~
+There is nothing unusual about the root.
+~
+!
+0 0 0
+387 17 1509949460 -2 0
+973 9 1509949540 3 0
+972 9 1509949490 3 0
+-1
+S
+
+#40261
+Warren Tunnels - Low Area~
+The ceiling in this area of the tunnel is lower, and the floor is made of
+stone rather than dirt.  It seems quite likely that the diggers hit rock
+and could go no lower; while making the ceiling higher might well cause
+the room to be out in the open.  It is necessary to crawl in order to go
+south; the way east is more open.
+~
+~
+335020036 11 5 0
+D1
+~
+~
+0 -1 40253 10 10 5
+D2
+~
+~
+0 -1 40260 10 10 5
+A
+~
+~
+send_to_char( #no_char, ch );
+act_notchar( #no_room, ch );
+continue;
+~
+E
+no_room~
+You see $n crawl south through the dirt.
+~
+E
+no_char~
+You crawl through the dirt and head south.
+~
+!
+3 0 4
+945 9 1509949520 3 0
+973 9 1509949540 3 0
+-1
+S
+
+#40262
+Warren Tunnels - Pawprints~
+The tunnel widens a bit here, as if to allow several creatures to pass
+side by side.  The ground is a bit moist, and you can see the prints of
+dozens of paws, heading in both directions.  The tunnel slopes sharply
+down as it goes west; the ground to the east is on the same level.
+~
+warren tunnels - pattern
+~
+335020036 11 6 0
+D1
+~
+~
+0 -1 40260 10 10 5
+D3
+~
+~
+0 -1 40263 10 10 5
+E
+prints~
+The pawprints of many rabbits cover the soft earth.  The prints are
+smaller than yours, but still much larger than those you are accustomed
+to associating with rabbits.
+~
+972 9 1509949540 3 0
+972 9 1509949515 3 0
+972 9 1509949490 3 0
+-1
+S
+
+#40263
+Warren Tunnels - Pebbles~
+The tunnel curves sharply to the north and east.  The sides narrow a bit
+here, and the earth is damp to your touch.  The air is quite still, and a
+damp, musty odor wafts towards you.  The ground is covered with many
+loose pebbles here, though no rocks can be seen.
+~
+~
+335020036 11 6 0
+D0
+~
+~
+0 -1 40264 10 10 5
+D1
+~
+~
+0 -1 40262 10 10 5
+E
+pebbles~
+Small, dark pebbles litter the ground near your feet.  As you stoop to
+examine them, you realize that they are in fact not drops, but are rabbit
+droppings.
+~
+972 9 1509949490 3 0
+973 9 1509949540 3 0
+-1
+S
+
+#40264
+Warren Tunnels - Gash~
+The twisting passages of the tunnels straightens out here and goes north
+and south.  The ground slopes down to the south, and up towards the north. 
+A gash covers much of the eastern wall, running parallel to the ceiling,
+and does not look like something that could be made by a rabbit, no
+matter how large.
+~
+~
+335020036 11 6 0
+D0
+~
+~
+0 -1 40267 10 10 5
+D2
+~
+~
+0 -1 40263 10 10 5
+E
+gash~
+A large, thick gash runs along the eastern wall.  This gash is straight
+and deep, and looks as if it were made by a weapon.
+~
+949 9 1509949540 3 0
+-1
+S
+
+#40265
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 6 0
+D3
+~
+~
+0 -1 40264 10 10 5
+-1
+S
+
+#40266
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 6 0
+D0
+~
+~
+0 -1 40265 10 10 5
+-1
+S
+
+#40267
+Warren Tunnels - Another Turning~
+The tunnel winds east and south, as it twists in the dark soil.  Several
+abandoned bits of refuse lie on the ground, as if something other than
+rabbits were here before.  A breeze from the east blows your hair, and
+causes bits of the remnants to knock against themselves, filling the air
+with a faint drumming sound.
+~
+~
+335020036 11 6 0
+D1
+~
+~
+0 -1 40268 10 10 5
+D2
+~
+~
+0 -1 40264 10 10 5
+E
+leather refuse remnants~
+Bits of torn leather catch your eye.  As you stoop down to examine them
+better, you realize that they are actually parts of armor.
+~
+E
+armor~
+Various bits of used armor, including helmet visors, broken chainmail,
+and even a sole-less boot lie tossed about on the ground.  No single
+piece is whole or likely to be of any use.
+~
+972 9 1509949540 3 0
+973 9 1509949540 3 0
+-1
+S
+
+#40268
+Somewhere in the Warren~
+This portion of the tunnel is wide, and the ceiling stands very high. 
+The ceiling of the tunnel forms a small arch to the south; the way east
+and west is wide and open.  The ground slopes sharply up to the east, and
+drops towards the south.  Bits of rock show on the ground and ceiling,
+defining the passageway.
+~
+~
+335020036 11 6 0
+D1
+~
+~
+0 -1 40270 10 10 5
+D2
+~
+~
+0 -1 40269 10 10 5
+D3
+~
+~
+0 -1 40267 10 10 5
+E
+rock~
+Bits of multi-colored rock break through the earth on the ground and
+ceiling of the tunnel.  Faint outlines of large chunks of the minerals
+can be seen, as well as scratches nearby.
+~
+972 9 1509949490 3 0
+973 9 1509949540 3 0
+-1
+S
+
+#40269
+Warren Tunnels - Dead End~
+This small, dead-end room has been the scene of former battles.  In one
+corner lies a bloody corpse of some kind of animal.  Splotches of blood
+lie large and ominous all about this area, delineating the scenes of
+former battles.
+~
+~
+335020036 11 6 0
+D0
+~
+~
+0 -1 40268 10 10 5
+E
+corpse~
+A small, bloody corpse lies in the corner of the room.  Upon careful
+examination, it can be determined to be that of a rat.
+~
+A
+~
+~
+if( is_player( ch ) ) {
+  act_tochar( #web, ch );
+  act_notchar( #dirt, ch );
+  do_spell( web, ch, ch );
+  }
+~
+E
+dirt~
+A large spider @W@bweb@n hits $n right in the face.
+~
+E
+web~
+As you enter the room, you stumble into a sticky spider web.
+~
+!
+1 0 1
+949 9 1509949540 3 0
+293 9 1509949540 3 0
+-1
+S
+
+#40270
+Warren Tunnels - Moldy Ground~
+The passage narrows here, as it turns north and west.  The ground here
+really isn't ground -- it is covered with a carpet of light green mold. 
+The mold is wet, and provides a very slippery surface for you to walk on. 
+The walls are close together, providing a natural barrier to uninvited
+guests or invaders.
+~
+~
+335020036 11 5 0
+D0
+~
+~
+0 -1 40271 10 10 5
+D3
+~
+~
+0 -1 40268 10 10 5
+E
+mold~
+Light green mold grows on the ground, making it very slippery.  Walking
+is difficult on this surface, and running would be impossible.
+~
+945 9 1509949520 3 0
+973 9 1509949540 3 0
+1300 17 1509949485 -2 0
+-1
+S
+
+#40271
+Warren Tunnels - By a Crevice~
+The tunnels curve east and south here, although a tiny crevice to the
+north might just be passable, if you tried to squeeze your way in.  The
+wall to your west is made of hard-packed clay, with flecks of dark rock. 
+The earth beneath your feet is loose, and bits of gravel are mixed with
+the dark earth.
+~
+always the sound?
+[Arathorn] no message for look north, not even you see nothing of intreset
+~
+335020037 11 6 0
+D0
+rock granite~
+rock granite~
+0 -1 40272 10 10 5
+D1
+~
+~
+0 -1 40273 10 10 5
+D2
+~
+~
+0 -1 40270 10 10 5
+E
+west wall~
+The wall is made of hard, red clay, spotted with flecks of obsidian.  It
+is cold, and hard to your touch, and makes a natural barrier to the west. 
+The wall trembles slightly, as if something from deep within the earth
+were trying to move.
+~
+A
+~
+~
+act_tochar( #closed, ch );
+end;
+if( !rflag( reset2, find_room( 40272 ) ) ) {
+  send_to_char( #blocked, ch );
+  end;
+  }
+continue;
+~
+E
+Unstable~
+No description~
+E
+blocked~
+The passage north has caved in and is completely blocked.  You have no
+hope of making your way through.
+~
+E
+closed~
+The tunnel has caved in, and you can not go that way.
+~
+!
+3 0 1
+A
+1 look~
+1 north~
+end;
+if( rflag( reset2, find_room( 40272 ) ) ) 
+  continue;
+acode( room, 1 );
+~
+!
+0 0 0
+949 9 1509949540 3 0
+-1
+S
+
+#40272
+Warren Tunnels - Rumbling Walls~
+This small room is filled with the bones of many animals.  The walls are
+dark, and seem close and threatening.  A faint rumbling can be heard in
+the distance, and the ground reverberates.  You think perhaps it would be
+wise not to linger in this spot.
+~
+might make a check vs searching for players each time they look in room
+to notice unstable walls etc - skill checks for things like search etc
+are good to code as it makes those skills more useful :) 
+-------START PHULE
+is this a death trap?  what about when a player comes in, leaves for 30
+ticks, then comes back and misses all warning and is splatted?  make a
+chari_in_room check.
+-------END PHULE
+~
+335020044 11 6 0
+D2
+granite rock~
+granite rock~
+0 -1 40271 10 10 5
+E
+bones~
+White bones, stripped of all flesh, lie scattered about on the floor.  It
+is impossible to determine what type of animals provided the source for
+these remnants.
+~
+A
+pull~
+none~
+remove_rflag( reset0, room );
+wait( 5 );
+send_to_room( #start, room );
+wait( 25 );
+send_to_room( #time2, room );
+wait( 7 );
+send_to_room( #time3, room );
+wait( 3 );
+acode( room, 3 );
+remove_rflag( reset2, room );
+~
+E
+start~
+A loud rumble echos through the room and a few rocks fall from the
+ceiling.
+~
+E
+time2~
+The ground shakes and a large chunk of rock narrowly misses you as the
+ceiling above the west wall partially collapses.  It would be well
+advised to quickly leave this room as the ceiling does not appear even
+slightly stable.
+~
+E
+time3~
+A large crack forms in the rock above you.  It is obvious that this
+tunnel will not survive for more than a few seconds longer.  Pebbles and
+rocks are already beginning to shower down upon you.  Staying here would
+mean certain death due to the crushing weight of the ground above you.
+~
+!
+1 0 4
+A
+search~
+bones~
+if( obj_in_room( 289, room ) ) {
+  if( rflag( reset1, room ) ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    obj_to_char( oload( 3029 ), ch );
+    if( random( 1, 2 ) == 1 )
+      obj_to_char( oload( 2001 ), ch );
+    remove_rflag( reset1, room );
+    }
+  else
+    send_to_char( #false_char, ch );
+  }
+else
+  continue;
+~
+E
+false_char~
+You rummage through the bones, but find nothing.
+~
+E
+true_room~
+$N rummages through the bones and finds something of value.
+~
+E
+true_char~
+You have found something in the pile of bones.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #crush, room );
+loop( all_in_room ) {
+  i = 0d0+5000;
+  dam_message( rch, i, "The wall" );
+  inflict( rch, mob, i, "being crushed to death" );
+  }
+~
+E
+crush~
+The ceiling gives way completely.  Rocks and boulder pummel you as they
+come crashing down.  You have no chance of surviving.  A large boulder
+mercifully knocks you unconcious before the crushing weight of many tons
+of rock kill you.
+~
+!
+0 0 0
+289 17 1509949460 -2 0
+972 9 1509949540 3 0
+973 9 1509949520 3 0
+972 9 1509949500 3 0
+-1
+S
+
+#40273
+Warren Tunnels - Puddle~
+A small puddle lies at your feet, and small drops from up above slowly
+drip down to add to the liquid.  In the soft, moist dirt you can see the
+pawprints of many, many animals.  This pool shows signs of being a
+popular drinking spot for all of the inhabitants.
+~
+~
+335020037 11 6 0
+D1
+~
+~
+0 -1 40274 10 10 5
+D3
+~
+~
+0 -1 40271 10 10 5
+E
+pawprints~
+You see the prints of dozens of extra-large rabbit feet.  It seems as if
+this is an especially popular drinking spot.
+~
+E
+puddle~
+The splashing of drops of cold water into a small puddle catches your eye. 
+As you bend down closer to inspect it, you notice that there is a very
+strange smell coming from the water.
+~
+A
+smell~
+water puddle~
+if( !is_player( ch ) )
+  end;
+    send_to_char( #smell, ch );
+    act_notchar( #he_smell, ch );
+~
+E
+he_smell~
+You see $n stoop down and sniff at the puddle of water.
+~
+E
+smell~
+The liquid has a fresh, minty smell, that somehow makes you want to drink
+it.
+~
+!
+0 0 0
+A
+drink~
+water puddle~
+if( !is_player( ch ) )
+  end;
+send_to_char( #drink, ch );
+do_spell( hallucinate, ch, ch );
+act_notchar( #he_drink, ch );
+~
+E
+he_drink~
+You see $n stoop, get some of the liquid, and slurp it down.
+~
+E
+drink~
+You stoop and eagerly drink the refreshing liquid.
+~
+!
+0 0 0
+A
+fill~
+container cup waterskin flask horn chalice bucket bowl wineskin mug canteen~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The puddle is too shallow to fill a container from.
+~
+!
+0 0 0
+949 9 1509949520 3 0
+973 9 1509949515 3 0
+981 9 1509949540 3 0
+-1
+S
+
+#40274
+Warren Tunnels - Near Some Holes~
+The ground slopes off sharply here to the east, making it difficult to
+stand upright.  Small holes appear in the sides of the tunnel, giving it
+a curious, polka-dot appearance.  A faint light appears to the east; to
+the west lies only darkness.
+~
+[Staer] and make only drink pudd work
+[Nezzim] This is buggy
+[Nezzim] *snicker* more specifically - look hole and search hole give the same response.  Should be fixed.
+~
+335020036 11 6 0
+D1
+"engraved wooden door"~
+"engraved wooden door"~
+0 -1 40275 10 10 5
+D3
+~
+~
+0 -1 40273 10 10 5
+A
+touch enter~
+hole~
+if( is_player( ch ) ) {
+if( rflag( reset1, room ) ) {
+    send_to_char( #true_char, ch );
+    act_notchar( #true_room, ch );
+    mload( 974, room );
+      mload( 974, room );
+ if( random( 1, 10 ) < 6 )
+   mload( 974, room );
+  if( random( 1, 10 ) < 4 )
+    mload( 974, room );
+    remove_rflag( reset1, room );
+    }
+  else
+    send_to_char( #false_char, ch );
+}
+else
+  send_to_room( #notplayer );
+~
+E
+false_char~
+The hole seems to be empty.
+~
+E
+true_room~
+Suddenly, red ants come pouring out of the hole and head towards $n!
+~
+E
+true_char~
+Suddenly, red ants come pouring out of the hole and head straight towards you.
+~
+E
+notplayer~
+Nothing happens when $n touches the hole.
+~
+!
+0 0 0
+A
+1 look search~
+hole~
+if( find_skill( ch, searching ) > 1 ) 
+  send_to_char( #notouch, ch );
+else
+  send_to_char( #touch, ch );
+~
+E
+touch~
+You search the hole, and think that something interesting might be inside.
+~
+E
+notouch~
+You search the hole and see some red ants inside it.
+~
+!
+0 0 0
+945 137 1509949540 3 0
+972 9 1509949520 3 0
+972 9 1509949540 3 0
+-1
+S
+
+#40275
+Warren Tunnels - Dead End~
+Looking up, you can see that a root descends into this space, having
+broken through the earthen ceiling.  The root has made a small crack, and
+threatens to open this spot to the elements.  The only exit appears to
+be back towards the west.
+~
+~
+335020165 11 6 0
+D3
+"engraved wooden door"~
+"engraved wooden door"~
+0 -1 40274 10 10 5
+E
+earth~
+Globs of caked earth stick to the thick root.  Upon closer inspection,
+the dirt looks just a bit strange, as if something were enclosed in it.
+~
+E
+root~
+A large, thick root, caked with earth hangs near your head.
+~
+A
+search break open~
+glob earth dirt~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 14 ), ch );
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+yes_char~
+You break up all the globs of earth, and find something quite useful!
+~
+E
+no_char~
+You break up all the globs of earth, and get quite dirty.
+~
+E
+yes_room~
+You see $N breaking up the globs of earth, and beam through the coat of dirt.
+~
+E
+no_room~
+You see $n break up all the globs of earth, and get covered with dirt.
+~
+!
+0 0 0
+972 9 1509949540 3 0
+945 137 1509949515 3 0
+973 9 1509949515 3 0
+-1
+S
+
+#40276
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 9 0
+D2
+~
+~
+0 -1 40277 10 10 5
+-1
+S
+
+#40277
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 6 0
+D3
+~
+~
+0 -1 40257 10 10 5
+-1
+S
+
+#40278
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 6 0
+D0
+~
+~
+0 -1 40277 10 10 5
+-1
+S
+
+#40279
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 40278 10 10 5
+-1
+S
+
+#40280
+Warren Tunnels~
+Under Construction.
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 40275 10 10 5
+-1
+S
+
+#0
+

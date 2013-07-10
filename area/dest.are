@@ -1,0 +1,2109 @@
+#AREA
+Path of Destiny~
+Fenlyn~
+Path of Destiny~
+
+60 0
+4
+#ROOMS
+
+#67000
+Before the Black Void~
+Down about six feet in the hole, you notice that dirt walls surround you
+on every side.  Large wooden roots from the surrounding trees planted in
+the area weave around in the dirt wall making random turns every few
+inches.  Most of the dirt is dark brown in color, but on the north wall
+there is a black hole that seems to warp any molecules that come near it. 
+Fresh footprints in the dirt floor indicate that this hole has recently
+seen visitors.
+~
+[Fenlyn] enter void action
+[Fenlyn] HELP CLASSES for list of current classes for path of destiny.
+[Fenlyn] area linking is irrelevant.  movement is based on acode.  All of it.
+
+[Fenlyn] Random Entrance: U --> 3796
+[Fenlyn] Pets will fail to follow into hole because of level restr.
+~
+335151214 3 5 0
+D4
+hole~
+hole~
+10 -1 3796 10 10 5
+E
+footprints ground dirt~
+Each footprint is of varying size.  Some are only a few inches long, and
+others are over a foot long.  But each footprint has one thing in common. 
+Each leads to the void and disappears.
+~
+A
+~
+~
+i = random( 1, 5 );
+room = find_room( 67000 );
+if( is_open( room, up ) )
+  close( room, up );
+room = find_room( 67021 );
+if( is_open( room, up ) )
+  close( room, up );
+room = find_room( 67022 );
+if( is_open( room, up ) )
+  close( room, up );
+room = find_room( 67023 );
+if( is_open( room, up ) )
+  close( room, up );
+room = find_room( 67024 );
+if( is_open( room, up ) )
+  close( room, up );
+if( i == 1 ) {
+  room = find_room( 3796 );
+  if( players_room( room ) == 0 ) {
+    if( players_room( find_room( 67000 ) ) == 0 ) {
+      send_to_room( #change1, find_room( 84 ) );
+      open( room, down );
+      }
+    }
+  }
+if( i == 2 ) {
+  room = find_room( 21017 );
+  if( players_room( room ) == 0 ) {
+    if( players_room( find_room( 67021 ) ) == 0 ) {
+      send_to_room( #change2, find_room( 84 ) );
+      open( room, down );
+      }
+    }
+  }
+if( i == 3 ) {
+  room = find_room( 28035 );
+  if( players_room( room ) == 0 ) {
+    if( players_room( find_room( 67022 ) ) == 0 ) {
+      send_to_room( #change3, find_room( 84 ) );
+      open( room, down );
+      }
+    }
+  }
+if( i == 4 ) {
+  room = find_room( 19374 );
+  if( players_room( room ) == 0 ) {
+    if( players_room( find_room( 67023 ) ) == 0 ) {
+      send_to_room( #change4, find_room( 84 ) );
+      open( room, down );
+      }
+    }
+  }
+if( i == 5 ) {
+  room = find_room( 37038 );
+  if( players_room( room ) == 0 ) {
+    if( players_room( find_room( 67024 ) ) == 0 ) {
+      send_to_room( #change5, find_room( 84 ) );
+      open( room, down );
+      }
+    }
+  }
+~
+E
+change1~
+@MThe entrance for the Path of Destiny is now in the Medienne Forest.@n
+~
+E
+change2~
+@MThe entrance for the Path of Destiny is now in Chiiron.@n
+~
+E
+change3~
+@MThe entrance for the Path of Destiny is now on the Mountain Road.@n
+~
+E
+change4~
+@MThe entrance for the Path of Destiny is now in the Vaasa.@n
+~
+E
+change5~
+@MThe entrance for the Path of Destiny is now in Pennan.@n
+~
+!
+4 50 0
+A
+enter~
+void black hole~
+i = random( 67001, 67020 );
+room = find_room( i );
+if( is_fighting( ch ) )
+  end;
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves~
+You enter the void and find yourself in another place.
+~
+E
+ncmoves~
+$n enters the void and disappears from sight.
+~
+!
+0 200 0
+-1
+S
+
+#67001
+In the Void~
+You find yourself floating in blackness.  There is not anything
+supporting your feet nor anything holding you up.  It seems as if you are
+suspended by invisible strings extending from the mysterious, colorless
+expanse.  An eerie light appears to come from nowhere allowing you to see
+only yourself hovering in the void.  Out in the emptiness a steady
+low-pitched hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+ch = rand_player( room );
+if( is_fighting( ch ) )
+  end;
+wait( 3 );
+i = random( 67001, 67022 );
+if( i >= 67021 ) {
+  acode( find_room( 67001 ), 2 );
+  end;
+  }
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves~
+An unseen force seems to grab you and pull you through the void.
+~
+E
+ncmoves~
+$n disappears before your eyes.
+~
+!
+2 400 0
+A
+~
+~
+room = find_room( 67025 );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves2, ch );
+  act_notchar( #ncmoves2, ch );
+  transfer( ch, room );
+  act_notchar( #arr, ch );
+  send_to_room( #ent, find_room( 84 ) );
+  mob = mload( 1938, find_room( 84 ) );
+  obj_to_char( oload( 2 ), mob );
+  interpret( mob, "put gold destiny" );
+  junk_mob( mob );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves2~
+A huge hand decends upon your head, grabs it, and pulls you out of the void.
+~
+E
+ncmoves2~
+A huge hand decends upon $n's head grabbing $m
+and pulling $m out of the void.
+~
+E
+arr~
+A large hand comes down from the sky and releases $n from its grasp.
+$n appears quite relieved to be placed back on the ground.
+~
+E
+moves~
+An unseen force seems to grab you and pull you through the void.
+~
+E
+ncmoves~
+$n disappears before your eyes.
+~
+E
+ent~
+@MSomeone has entered the Path of Destiny.@n
+~
+!
+0 0 0
+-1
+S
+
+#67002
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67003
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151173 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+A
+cast~
+summon astral blink~
+acode( find_room( 67025 ), 2 );
+~
+!
+0 0 0
+1938 9 1509949540 3 0
+-1
+S
+
+#67004
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67005
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67006
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67007
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67008
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151189 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67009
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67010
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151173 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+A
+cast~
+summon astral blink~
+acode( find_room( 67025 ), 2 );
+~
+!
+0 0 0
+1938 9 1509949540 3 0
+-1
+S
+
+#67011
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67012
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67013
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67014
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67015
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151173 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+A
+cast~
+summon astral blink~
+acode( find_room( 67025 ), 2 );
+~
+!
+0 0 0
+1938 9 1509949540 3 0
+-1
+S
+
+#67016
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67017
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67018
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67019
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67020
+In the Void~
+You find yourself floating in blackness.  There isn't anything supporting
+your feet nor anything holding you up.  It seems as if you are suspended
+by invisible strings extending from the mysterious, colorless expanse. 
+An eerie light appears to come from nowhere allowing you to see only
+yourself hovering in the void.  Out in the emptiness a steady low-pitched
+hum can be heard.
+~
+~
+335151221 9 9 0
+A
+~
+~
+acode( find_room( 67001 ), 1 );
+~
+!
+2 400 0
+-1
+S
+
+#67021
+Before the Black Void~
+Down about six feet in the hole, you notice that dirt walls surround you
+on every side.  Large wooden roots from the surrounding trees planted in
+the area weave around in the dirt wall making random turns every few
+inches.  Most of the dirt is dark brown in color, but on the north wall
+there is a black hole that seems to warp any molecules that come near it. 
+Fresh footprints in the dirt floor indicate that this hole has recently
+seen visitors.
+~
+[Fenlyn] Random Entrance 21017 --> U
+~
+335151214 3 9 0
+D4
+hole~
+hole~
+10 -1 21017 10 10 5
+E
+footprints ground dirt~
+Each footprint is of varying size.  Some are only a few inches long, and
+others are over a foot long.  But each footprint has one thing in common. 
+Each leads to the void and disappears.
+~
+A
+enter~
+black hole void~
+i = random( 67001, 67020 );
+room = find_room( i );
+if( is_fighting( ch ) )
+  end;
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves~
+You enter the void and find yourself in another place.
+~
+E
+ncmoves~
+$n enters the void and disappears from sight.
+~
+!
+0 0 0
+-1
+S
+
+#67022
+Before the Black Void~
+Down about six feet in the hole, you notice that dirt walls surround you
+on every side.  Large wooden roots from the surrounding trees planted in
+the area weave around in the dirt wall making random turns every few
+inches.  Most of the dirt is dark brown in color, but on the north wall
+there is a black hole that seems to warp any molecules that come near it. 
+Fresh footprints in the dirt floor indicate that this hole has recently
+seen visitors.
+~
+[Fenlyn] Random Entrance 28035 --> U
+~
+335151214 3 9 0
+D4
+hole~
+hole~
+10 -1 28035 10 10 5
+E
+footprints ground dirt~
+Each footprint is of varying size.  Some are only a few inches long, and
+others are over a foot long.  But each footprint has one thing in common. 
+Each leads to the void and disappears.
+~
+A
+enter~
+black hole void~
+i = random( 67001, 67020 );
+room = find_room( i );
+if( is_fighting( ch ) )
+  end;
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves~
+You enter the void and find yourself in another place.
+~
+E
+ncmoves~
+$n enters the void and disappears from sight.
+~
+!
+0 0 0
+-1
+S
+
+#67023
+Before the Black Void~
+Down about six feet in the hole, you notice that dirt walls surround you
+on every side.  Large wooden roots from the surrounding trees planted in
+the area weave around in the dirt wall making random turns every few
+inches.  Most of the dirt is dark brown in color, but on the north wall
+there is a black hole that seems to warp any molecules that come near it. 
+Fresh footprints in the dirt floor indicate that this hole has recently
+seen visitors.
+~
+[Fenlyn] Random Entrance 19374 --> U
+~
+335151214 3 5 0
+D4
+hole~
+hole~
+8 -1 19374 10 10 5
+E
+footprints ground dirt~
+Each footprint is of varying size.  Some are only a few inches long, and
+others are over a foot long.  But each footprint has one thing in common. 
+Each leads to the void and disappears.
+~
+A
+enter~
+black hole void~
+i = random( 67001, 67020 );
+room = find_room( i );
+if( is_fighting( ch ) )
+  end;
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves~
+You enter the void and find yourself in another place.
+~
+E
+ncmoves~
+$n enters the void and disappears from sight.
+~
+!
+0 0 0
+-1
+S
+
+#67024
+Before the Black Void~
+Down about six feet in the hole, you notice that dirt walls surround you
+on every side.  Large wooden roots from the surrounding trees planted in
+the area weave around in the dirt wall making random turns every few
+inches.  Most of the dirt is dark brown in color, but on the north wall
+there is a black hole that seems to warp any molecules that come near it. 
+Fresh footprints in the dirt floor indicate that this hole has recently
+seen visitors.
+~
+[Fenlyn] Random Entrance: U --> 37038
+~
+335151214 3 9 0
+D4
+hole~
+hole~
+10 -1 37038 10 10 5
+E
+footprints ground dirt~
+Each footprint is of varying size.  Some are only a few inches long, and
+others are over a foot long.  But each footprint has one thing in common. 
+Each leads to the void and disappears.
+~
+A
+enter~
+black hole void~
+i = random( 67001, 67020 );
+room = find_room( i );
+if( is_fighting( ch ) )
+  end;
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+i = random( 67001, 67020 );
+room = find_room( i );
+if( players_room( room ) == 0 ) {
+  act_tochar( #moves, ch );
+  act_notchar( #ncmoves, ch );
+  transfer( ch, room );
+  end;
+  }
+~
+E
+moves~
+You enter the void and find yourself in another place.
+~
+E
+ncmoves~
+$n enters the void and disappears from sight.
+~
+!
+0 0 0
+-1
+S
+
+#67025
+The Path of Destiny - The Beginning~
+Surrounding you on three sides are some very thick, dark green bushes
+that stand about seven feet tall.  The soil under the shrubs is moist and
+rich; bits of healthy roots arch above the ground and resturn to their
+earthy abode.  It is impossible to move through the hedge; you can only
+follow the path to the north.
+~
+[Fenlyn] end result of void travel
+[Fenlyn] no mobs here
+[Fenlyn] code: check for players north before allowing move north.
+[Celine] A hand grabs me by my head and pulls meout of the void?  :P
+[Fenlyn] It's the hand of God.  :)
+~
+335151176 12 9 0
+D0
+~
+~
+0 -1 67026 10 10 5
+E
+roots~
+The roots, although sticking up out of the ground, are very moist and
+healthy looking.  Each is a dark brown color and about as thick as the
+branches on the brush.
+~
+E
+bushes dark green~
+The brush is a healthy dark green in color.  At the tips of each leaf the
+green color turns a very light shade of pink.
+~
+E
+soil dirt ground~
+The soil is very dark and moist.  Planted in it are several bushes of
+which some have their roots exposed.
+~
+A
+~
+~
+if( players_room( find_room( 67026 ) ) >= 1 )
+  act_tochar( #noway, ch );
+else {
+  if( mob_in_room( 1903, find_room( 67026 ) ) )
+    junk_mob( mob_in_room( 1903, find_room( 67026 ) ) );
+  continue;
+  }
+~
+E
+noway~
+Someone else is facing their destiny to the north.  Wait your turn.
+~
+E
+ent~
+@MSomeone has begun the Path of Destiny.@n
+~
+!
+3 0 1
+A
+cast~
+summon astral blink~
+act_tochar( #summ, ch );
+~
+E
+summ~
+It isn't in your destiny to cast that right now.
+~
+!
+0 0 0
+-1
+S
+
+#67026
+The Path of Destiny - First Challenge~
+A hard-packed dirt path runs north and south here between walls of bushes. 
+On the west wall, the bushes appear to be the type that produce
+delectable berries, but they have been picked clean of any nourishment. 
+To the north, two finely-crafted stone pillars reach up to the sky
+marking the north exit.
+~
+[Fenlyn] code: prevent summon and astral
+[Merior] just one gladiator? is gonna be a twink for fighters and impossible for clerics
+[Fenlyn] Challenge 1-3 mobs tested and adjusted based on beta tests.
+[Celine] look wall?
+[Celine] This room is flagged as underground, yet this doesnt seem to be
+indoors and the terrain is road.  I see nothing to indicate whether I am
+inside or out.
+~
+335151168 12 9 0
+D0
+~
+~
+0 -1 67027 10 10 5
+D2
+~
+~
+0 -1 67025 10 10 5
+E
+pillars stone finely-crafted north~
+Each pillar has several spirals carved into it going all the way up to as
+far as your eye can focus.  The spirals are so tall that they seem to
+loom over you like a redwood tree.  In the facing sides of the pillars
+are several holes the size of copper coins.
+~
+E
+bushes west~
+The bushes contain nothing fruity to eat.
+~
+A
+cast~
+astral summon blink~
+act_tochar( #summ, ch );
+~
+E
+summ~
+It isn't in your destiny to cast that right now.
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, level ) >= 93 )
+  continue;
+else
+  act_tochar( #nogo, ch );
+~
+E
+nogo~
+An invisible barrier prevents you from going that way.
+~
+!
+3 0 4
+A
+~
+~
+if( mob_in_room( 1903, room ) ) {
+  act_tochar( #heh, ch );
+  end;
+  }
+if( players_room( find_room( 67027 ) ) >= 1 )
+  act_tochar( #noway, ch );
+else {
+  if( mob_in_room( 1905, find_room( 67027 ) ) )
+    junk_mob( mob_in_room( 1905, find_room( 67027 ) ) );
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    if( find_stat( ch, dex ) < random( 18, 24 ) ) {
+      act_tochar( #trap, ch );
+      i = 20d10;
+      dam_message( ch, i, "the spike attack" );
+      inflict( ch, mob, i, "a lethal impalement" );
+      }
+    else {
+      act_tochar( #avoid, ch );
+      continue;
+      }
+    }
+  else {
+    act_tochar( #avoid2, ch );
+    continue;
+    }
+  }
+~
+E
+noway~
+Someone else is facing their destiny to the north.  Wait your turn.
+~
+E
+trap~
+@YAs you attempt to move north, a set of very large spikes shoots towards
+you from the pillars.@n 
+~
+E
+avoid~
+@GAs you attempt to move north, a set of very large spikes shoots towards
+you from the pillars, but you skillfully avoid them and continue north.@n
+~
+E
+avoid2~
+@GYou seem to have triggered the only booby trap as you continue north
+without harm.@n 
+~
+E
+heh~
+You haven't done what is required to go north yet.
+~
+!
+3 0 1
+A
+~
+~
+if( !rflag( reset1, room ) )
+  set_rflag( reset1, room );
+act_tochar( #loads, ch );
+mob = mload( 1903, room );
+if( find_stat( ch, level ) < 93 )
+  attack( mob, ch, 10d10, "frenzied slash" );
+~
+E
+loads~
+@eA man falls from the sky and hits the ground in front of you.  Confused
+as to who you are, he starts swinging at you.@n 
+~
+!
+1 0 4
+-1
+S
+
+#67027
+The Path of Destiny - Second Challenge~
+Very tall bushes line the eastern and western sides of the path, their
+branches thinning towards the north.  In between the thinning bushes are
+small lion statues that gradually increase in size from the south to the
+north.  Furthest north are a pair opposing statues of lions.  Each is
+twenty feet tall and depicts a lion in a ferocious-looking roar.
+~
+[Fenlyn] Also can be used for customs to be put in at a later date.  If
+custom, then can lower reset to something better.  Or reagent for something.
+[Fenlyn] Decided to create a custom.  Scarred leather belt in theatre and lion's mane = furred belt.
+[Fenlyn] vnum 2870 = heavy furred belt
+[Merior] something you get from a level 55 mob shouldnt custom a level 65
+object - lower what the belt does 
+[Fenlyn] adjusted resists according to Marek's object_affects helpfile.
+[Celine] color in mload message would be good
+~
+335151168 12 9 0
+D0
+~
+~
+0 -1 67028 10 10 5
+D2
+~
+~
+0 -1 67026 10 10 5
+E
+statues lion monuments~
+Each stone statue immortalizes the graceful and strong figure of a lion
+as it sits except for the two taller ones.  The lions on the taller
+statues furthest to the north face each other and appear to be roaring.
+~
+A
+~
+~
+if( find_stat( ch, level ) >= 93 )
+  continue;
+else
+  act_tochar( #nogo, ch );
+~
+E
+nogo~
+An invisible barrier prevents you from going that way.
+~
+!
+3 0 4
+A
+cast~
+astral summon blink~
+act_tochar( #summ, ch );
+~
+E
+summ~
+It isn't in your destiny to cast that right now.
+~
+!
+0 0 0
+A
+~
+~
+if( !rflag( reset1, room ) )
+  set_rflag( reset1, room );
+act_tochar( #loads, ch );
+mob = mload( 1905, room );
+if( find_stat( ch, level ) < 93 )
+  attack( mob, ch, 10d10, "tearing teeth" );
+~
+E
+loads~
+@eSomething comes out of hiding and attacks!@n
+~
+!
+1 0 4
+A
+~
+~
+if( mob_in_room( 1905, room ) ) {
+  act_tochar( #heh, ch );
+  end;
+  }
+if( players_room( find_room( 67028 ) ) >= 1 )
+  act_tochar( #noway, ch );
+else {
+  if( mob_in_room( 1904, find_room( 67028 ) ) )
+    junk_mob( mob_in_room( 1904, find_room( 67028 ) ) );
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    if( find_stat( ch, con ) < random( 17, 24 ) ) {
+      act_tochar( #trap, ch );
+      i = 20d7;
+      dam_message( ch, i, "the loud roaring" );
+      inflict( ch, mob, i, "severe blood loss through the ears" );
+      }
+    else {
+      act_tochar( #avoid, ch );
+      continue;
+      }
+    }
+  else {
+    act_tochar( #avoid2, ch );
+    continue;
+    }
+  }
+~
+E
+noway~
+Someone else is facing their destiny to the north.  Wait your turn.
+~
+E
+trap~
+@YAs you walk between the two lion statues, they each let out an
+extremely loud roar directed towards your ears.
+~
+E
+avoid~
+@GAs you walk between the two lion statues, they each let out an
+extremely loud roar directed towards your ears.  However, your excellent
+constitution allows you to block out the pain as you continue north.
+~
+E
+avoid2~
+@GYou seem to have triggered the only booby trap as you continue north
+without harm.@n 
+~
+E
+heh~
+You haven't done what is required to go north yet.
+~
+!
+3 0 1
+-1
+S
+
+#67028
+The Path of Destiny - Third Challenge~
+Healthy, dark soil makes up this part of the path.  The soil is so rich
+and loose that each step you take creates footprints about an inch deep. 
+Along the side of the path are hardened walls of dirt that reach about
+ten feet into the air.  The path to the north leads to a pair of hardened
+dirt pillars capped with steel plating at the very top.  At the base of
+the western pillar is a shiny metallic panel with protruding buttons.
+~
+[Fenlyn] done
+~
+335151168 12 9 0
+D0
+~
+~
+0 -1 67029 10 10 5
+D2
+~
+~
+0 -1 67027 10 10 5
+E
+panel buttons metallic~
+Each button on the metallic panel is raised about an inch from the
+panel's surface, but there is no separation between the buttons and the
+panel making it all but impossible to depress the buttons.
+~
+E
+pillars steel plating~
+The pillars appear to be of the same hard packed dirt that makes up the
+western and eastern walls.  Each pillar's steel tip glistens from the
+celestial light in the sky.
+~
+A
+~
+~
+if( find_stat( ch, level ) >= 93 )
+  continue;
+else
+  act_tochar( #nogo, ch );
+~
+E
+nogo~
+An invisible barrier prevents you from going that way.
+~
+!
+3 0 4
+A
+cast~
+astral summon blink~
+act_tochar( #summ, ch );
+~
+E
+summ~
+It isn't in your destiny to cast that right now.
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 1904, room ) ) {
+  act_tochar( #heh, ch );
+  end;
+  }
+if( players_room( find_room( 67029 ) ) >= 1 )
+  act_tochar( #noway, ch );
+else {
+  if( mob_in_room( 1906, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1906, find_room( 67029 ) ) );
+  if( mob_in_room( 1907, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1907, find_room( 67029 ) ) );
+  if( mob_in_room( 1910, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1910, find_room( 67029 ) ) );
+  if( mob_in_room( 1908, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1908, find_room( 67029 ) ) );
+  if( mob_in_room( 1909, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1909, find_room( 67029 ) ) );
+  if( mob_in_room( 1911, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1911, find_room( 67029 ) ) );
+  if( mob_in_room( 1912, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1912, find_room( 67029 ) ) );
+  if( mob_in_room( 443, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 443, find_room( 67029 ) ) );
+  if( mob_in_room( 444, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 444, find_room( 67029 ) ) );
+  if( mob_in_room( 453, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 453, find_room( 67029 ) ) );
+  if( mob_in_room( 454, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 454, find_room( 67029 ) ) );
+  if( mob_in_room( 1082, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1082, find_room( 67029 ) ) );
+  if( mob_in_room( 1833, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1833, find_room( 67029 ) ) );
+  if( mob_in_room( 1843, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1843, find_room( 67029 ) ) );
+  if( mob_in_room( 1995, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1995, find_room( 67029 ) ) );
+  if( mob_in_room( 1996, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1996, find_room( 67029 ) ) );
+  if( mob_in_room( 1997, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1997, find_room( 67029 ) ) );
+  if( mob_in_room( 1998, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1998, find_room( 67029 ) ) );
+  if( mob_in_room( 1999, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 1999, find_room( 67029 ) ) );
+  if( mob_in_room( 2000, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2000, find_room( 67029 ) ) );
+  if( mob_in_room( 2001, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2001, find_room( 67029 ) ) );
+  if( mob_in_room( 2002, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2002, find_room( 67029 ) ) );
+  if( mob_in_room( 2003, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2003, find_room( 67029 ) ) );
+  if( mob_in_room( 2004, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2004, find_room( 67029 ) ) );
+  if( mob_in_room( 2005, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2005, find_room( 67029 ) ) );
+  if( mob_in_room( 2006, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2006, find_room( 67029 ) ) );
+  if( mob_in_room( 2007, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2007, find_room( 67029 ) ) );
+  if( mob_in_room( 2008, find_room( 67029 ) ) )
+    junk_mob( mob_in_room( 2008, find_room( 67029 ) ) );
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    if( find_stat( ch, int ) < random( 18, 24 ) ) {
+      act_tochar( #trap, ch );
+      i = 20d5;
+      dam_message( ch, i, "the electric shock" );
+      inflict( ch, mob, i, "electrocution" );
+      }
+    else {
+      act_tochar( #avoid, ch );
+      continue;
+      }
+    }
+  else {
+    act_tochar( #avoid2, ch );
+    continue;
+    }
+  }
+~
+E
+noway~
+Someone else is facing their destiny to the north.  Wait your turn.
+~
+E
+trap~
+@YYou walk up to the panel and touch some of its polished metal buttons,
+but as you touch the last one, you receive an electric shock.@n 
+~
+E
+avoid~
+@GYou walk up to the panel and touch some of its polished metal buttons. 
+Nothing unusual seems to happen, so you continue north.
+~
+E
+avoid2~
+@GYou seem to have triggered the only booby trap as you continue north
+without harm.@n 
+~
+E
+heh~
+You haven't done what is required to touch the panel and go north.
+~
+!
+3 0 1
+A
+~
+~
+if( !rflag( reset1, room ) )
+  set_rflag( reset1, room );
+act_tochar( #loads, ch );
+mob = mload( 1904, room );
+if( find_stat( ch, level ) < 93 )
+  attack( mob, ch, 10d10, "muddy right hand" );
+~
+E
+loads~
+@eWhen you walk into the room, a mound of earth rises from the path and
+leaps at you aggressively.
+~
+!
+1 0 4
+A
+push touch~
+buttons metal panel~
+acode( find_room( 67028 ), 3 );
+~
+!
+0 0 0
+-1
+S
+
+#67029
+The Path of Destiny - Final Challenge~
+A translucent field of blue light separates this part of the path from
+the room to the north.  Occasionally a burst of electrical energy sparks
+through the blue field indicating that it is a barrier of some kind.  The
+firm ground is made up of a very fine red dirt that resembles clay in
+color but beach sand in texture.  Just before the barrier to the north, a
+small panel with many colored parts stands alone.
+~
+[Fenlyn] each color points to an rflag.  If that rflag is false ( made
+false on entering), then only that button will raise the barrier.
+~
+335151168 12 9 0
+D0
+barrier~
+~
+195 -1 67030 10 10 5
+D2
+~
+~
+0 -1 67028 10 10 5
+E
+panel colored colors~
+This mechanical panel is only comprised of five unlabeled, colored
+buttons.  From left to right, the colors are @Rred@n, @Bblue@n, @Yyellow@n,
+@Ccyan@n, and @Mmagenta@n.
+~
+A
+~
+~
+if( find_stat( ch, level ) >= 93 )
+  continue;
+else
+  act_tochar( #nogo, ch );
+~
+E
+nogo~
+An invisible barrier prevents you from going that way.
+~
+!
+3 0 4
+A
+cast~
+astral summon blink~
+act_tochar( #summ, ch );
+~
+E
+summ~
+It isn't in your destiny to cast that right now.
+~
+!
+0 0 0
+A
+~
+~
+i = 1d5;
+set_rflag( reset0, room );
+set_rflag( reset1, room );
+set_rflag( reset2, room );
+set_rflag( status0, room );
+set_rflag( status1, room );
+set_rflag( status2, room );
+if( i == 1 ) {
+  if( rflag( reset0, room ) )
+    remove_rflag( reset0, room );
+  }
+if( i == 2 ) {
+  if( rflag( reset1, room ) )
+    remove_rflag( reset1, room );
+  }
+if( i == 3 ) {
+  if( rflag( reset2, room ) )
+    remove_rflag( reset2, room );
+  }
+if( i == 4 ) {
+  if( rflag( status0, room ) )
+    remove_rflag( status0, room );
+  }
+if( i == 5 ) {
+  if( rflag( status1, room ) )
+    remove_rflag( status1, room );
+  }
+acode( room, 9 );
+~
+!
+1 0 4
+A
+press push~
+red~
+act_tochar( #push1, ch );
+wait( 1 );
+if( !rflag( reset0, room ) ) {
+  act_tochar( #push2, ch );
+  open( room, north );
+  set_rflag( reset0, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  i = random( 1, 5 );
+  if( i == 1 )
+    transfer( ch, find_room( 3796 ) );
+  if( i == 2 )
+    transfer( ch, find_room( 21017 ) );
+  if( i == 3 )
+    transfer( ch, find_room( 28035 ) );
+  if( i == 4 )
+    transfer( ch, find_room( 19374 ) );
+  if( i == 5 )
+    transfer( ch, find_room( 37038 ) );
+  act_notchar( #arr, ch );
+  if( is_open( find_room( 67029 ), north ) )
+    close( find_room( 67029 ), north );
+  }
+~
+E
+push1~
+You push the @Rred@n button.
+~
+E
+push2~
+After a moment, the barrier to the north disappears.
+~
+E
+fail~
+After a moment, your surroundings fade from vision.
+~
+E
+arr~
+$n arrives in a puff of smoke.
+~
+!
+0 0 0
+A
+press push~
+blue~
+act_tochar( #push1, ch );
+wait( 1 );
+if( !rflag( reset1, room ) ) {
+  act_tochar( #push2, ch );
+  open( room, north );
+  set_rflag( reset1, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  i = random( 1, 5 );
+  if( i == 1 )
+    transfer( ch, find_room( 3796 ) );
+  if( i == 2 )
+    transfer( ch, find_room( 21017 ) );
+  if( i == 3 )
+    transfer( ch, find_room( 28035 ) );
+  if( i == 4 )
+    transfer( ch, find_room( 19374 ) );
+  if( i == 5 )
+    transfer( ch, find_room( 37038 ) );
+  act_notchar( #arr, ch );
+  if( is_open( find_room( 67029 ), north ) )
+    close( find_room( 67029 ), north );
+  }
+~
+E
+push1~
+You push the @Bblue@n button.
+~
+E
+push2~
+After a moment, the barrier to the north disappears.
+~
+E
+fail~
+After a moment, your surroundings fade from vision.
+~
+E
+arr~
+$n arrives in a puff of smoke.
+~
+!
+0 0 0
+A
+press push~
+yellow~
+act_tochar( #push1, ch );
+wait( 1 );
+if( !rflag( reset2, room ) ) {
+  act_tochar( #push2, ch );
+  open( room, north );
+  set_rflag( reset2, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  i = random( 1, 5 );
+  if( i == 1 )
+    transfer( ch, find_room( 3796 ) );
+  if( i == 2 )
+    transfer( ch, find_room( 21017 ) );
+  if( i == 3 )
+    transfer( ch, find_room( 28035 ) );
+  if( i == 4 )
+    transfer( ch, find_room( 19374 ) );
+  if( i == 5 )
+    transfer( ch, find_room( 37038 ) );
+  act_notchar( #arr, ch );
+  if( is_open( find_room( 67029 ), north ) )
+    close( find_room( 67029 ), north );
+  }
+~
+E
+push1~
+You push the @Yyellow@n button.
+~
+E
+push2~
+After a moment, the barrier to the north disappears.
+~
+E
+fail~
+After a moment, your surroundings fade from vision.
+~
+E
+arr~
+$n arrives in a puff of smoke.
+~
+!
+0 0 0
+A
+press push~
+cyan~
+act_tochar( #push1, ch );
+wait( 1 );
+if( !rflag( status0, room ) ) {
+  act_tochar( #push2, ch );
+  open( room, north );
+  set_rflag( status0, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  i = random( 1, 5 );
+  if( i == 1 )
+    transfer( ch, find_room( 3796 ) );
+  if( i == 2 )
+    transfer( ch, find_room( 21017 ) );
+  if( i == 3 )
+    transfer( ch, find_room( 28035 ) );
+  if( i == 4 )
+    transfer( ch, find_room( 19374 ) );
+  if( i == 5 )
+    transfer( ch, find_room( 37038 ) );
+  act_notchar( #arr, ch );
+  if( is_open( find_room( 67029 ), north ) )
+    close( find_room( 67029 ), north );
+  }
+~
+E
+push1~
+You push the @Ccyan@n button.
+~
+E
+push2~
+After a moment, the barrier to the north disappears.
+~
+E
+fail~
+After a moment, your surroundings fade from vision.
+~
+E
+arr~
+$n arrives in a puff of smoke.
+~
+!
+0 0 0
+A
+press push~
+magenta~
+act_tochar( #push1, ch );
+wait( 1 );
+if( !rflag( status1, room ) ) {
+  act_tochar( #push2, ch );
+  open( room, north );
+  set_rflag( status1, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  i = random( 1, 5 );
+  if( i == 1 )
+    transfer( ch, find_room( 3796 ) );
+  if( i == 2 )
+    transfer( ch, find_room( 21017 ) );
+  if( i == 3 )
+    transfer( ch, find_room( 28035 ) );
+  if( i == 4 )
+    transfer( ch, find_room( 19374 ) );
+  if( i == 5 )
+    transfer( ch, find_room( 37038 ) );
+  act_notchar( #arr, ch );
+  if( is_open( find_room( 67029 ), north ) )
+    close( find_room( 67029 ), north );
+  }
+~
+E
+push1~
+You push the @Mmagenta@n button.
+~
+E
+push2~
+After a moment, the barrier to the north disappears.
+~
+E
+fail~
+After a moment, your surroundings fade from vision.
+~
+E
+arr~
+$n arrives in a puff of smoke.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #light, ch );
+if( find_stat( ch, level ) >= 80 ) {
+  if( class( ch ) == mage )
+    mob = mload( 1906, room );
+  if( class( ch ) == warrior )
+    mob = mload( 1907, room );
+  if( class( ch ) == ranger )
+    mob = mload( 1908, room );
+  if( class( ch ) == cleric )
+    mob = mload( 1909, room );
+  if( class( ch ) == paladin )
+    mob = mload( 1910, room );
+  if( class( ch ) == monk )
+    mob = mload( 1911, room );
+  if( class( ch ) == thief )
+    mob = mload( 1912, room );
+  if( find_stat( ch, level ) < 92 )
+    attack( mob, ch, 1d4, "surprise attack" );
+  continue;
+  }
+if( find_stat( ch, level ) >= 75 ) {
+  if( class( ch ) == mage )
+    mob = mload( 2000, room );
+  if( class( ch ) == warrior )
+    mob = mload( 443, room );
+  if( class( ch ) == ranger )
+    mob = mload( 1843, room );
+  if( class( ch ) == cleric )
+    mob = mload( 2003, room );
+  if( class( ch ) == paladin )
+    mob = mload( 1997, room );
+  if( class( ch ) == monk )
+    mob = mload( 2006, room );
+  if( class( ch ) == thief )
+    mob = mload( 454, room );
+  if( find_stat( ch, level ) < 92 )
+    attack( mob, ch, 1d4, "surprise attack" );
+  continue;
+  }
+if( find_stat( ch, level ) >= 70 ) {
+  if( class( ch ) == mage )
+    mob = mload( 2001, room );
+  if( class( ch ) == warrior )
+    mob = mload( 444, room );
+  if( class( ch ) == ranger )
+    mob = mload( 1995, room );
+  if( class( ch ) == cleric )
+    mob = mload( 2004, room );
+  if( class( ch ) == paladin )
+    mob = mload( 1998, room );
+  if( class( ch ) == monk )
+    mob = mload( 2007, room );
+  if( class( ch ) == thief )
+    mob = mload( 1082, room );
+  if( find_stat( ch, level ) < 92 )
+    attack( mob, ch, 1d4, "surprise attack" );
+  continue;
+  }
+if( find_stat( ch, level ) >= 60 ) {
+  if( class( ch ) == mage )
+    mob = mload( 2002, room );
+  if( class( ch ) == warrior )
+    mob = mload( 453, room );
+  if( class( ch ) == ranger )
+    mob = mload( 1996, room );
+  if( class( ch ) == cleric )
+    mob = mload( 2005, room );
+  if( class( ch ) == paladin )
+    mob = mload( 1999, room );
+  if( class( ch ) == monk )
+    mob = mload( 2008, room );
+  if( class( ch ) == thief )
+    mob = mload( 1833, room );
+  if( find_stat( ch, level ) < 92 )
+    attack( mob, ch, 1d4, "surprise attack" );
+  continue;
+  }
+~
+E
+light~
+@eA burst of @Bblue@n@e energy fills the room and converges to the center
+forming a being that looks exactly like you.@n 
+~
+!
+0 0 0
+A
+look~
+mirror image~
+if( mob_in_room( 1906, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+if( mob_in_room( 1907, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+if( mob_in_room( 1908, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+if( mob_in_room( 1909, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+if( mob_in_room( 1910, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+if( mob_in_room( 1911, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+if( mob_in_room( 1912, room ) ) {
+  interpret( ch, "qlook self" );
+  end;
+  }
+act_tochar( "You don't see that here.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#67030
+Destiny's End~
+A singular beam of light shines down on the end of the path you have
+traveled.  Several trees prevent any further travel along the path; their
+branches are tightly interwoven into a mess of wood and leaves.  In the
+center of the room lies a simple wooden chest.
+~
+[Fenlyn] Also location of Florian's 80+ font
+~
+335151179 12 9 0
+D2
+barrier~
+barrier~
+195 -1 67029 10 10 5
+E
+beam light~
+The light beam comes straight down out of the sky and appears to be
+focused on the chest in the center of the room.
+~
+E
+trees branches~
+The tightly spaced trees appear to be of the Vaasan oakenwood variety. 
+The foliage is a dark shade of green, and there are very few dead leaves
+on the ground.
+~
+A
+~
+~
+if( find_stat( ch, level ) >= 93 )
+  continue;
+else
+  act_tochar( #nogo, ch );
+~
+E
+nogo~
+An invisible barrier prevents you from going that way.
+~
+!
+3 0 4
+A
+~
+~
+if( is_open( room, south ) ) {
+  obj_to_char( oload( 14 ), ch );
+  interpret( ch, "mail Path of Destiny Completion" );
+  interpret( ch, "mail send Fenlyn" );
+  close( room, south );
+  act_room( #closes, ch );
+  }
+~
+E
+closes~
+A barrier asserts itself to the south.
+~
+!
+1 0 4
+A
+cast~
+summon astral blink~
+acode( find_room( 67029 ), 2 );
+~
+!
+0 0 0
+2703 49 1509949540 -2 0
+2 81 1509949530 -2 0
+2 81 1509949520 -2 0
+2 81 1509949510 -2 0
+2 81 1509949500 -2 0
+2 81 1509949490 -2 0
+2 81 1509949480 -2 0
+2 81 1509949470 -2 0
+2 81 1509949460 -2 0
+2 81 1509949450 -2 0
+2 81 1509949450 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+2 81 1509949540 -2 0
+3 65 1509949465 -2 0
+8 65 1509949465 -2 0
+3 64 1509949465 -2 0
+7 64 1509949465 -2 0
+16 80 1509949540 -2 0
+77 81 1509949490 -2 0
+2 65 1509949530 -2 0
+2 65 1509949530 -2 0
+2 65 1509949530 -2 0
+38 81 1509949490 -2 0
+2976 81 1509949540 -2 0
+1624 81 1509949540 -2 27
+2845 81 1509949445 -2 0
+-1
+S
+
+#0
+

@@ -1,0 +1,5897 @@
+#AREA
+Hills of Pennan~
+Kiian, Talis~
+Hills of Pennan~
+
+1 0
+0
+#ROOMS
+
+#39250
+Before a Dark and Sinister Portal~
+An immense, featureless portal dominates the chamber's north wall. 
+Otherwise, the room is bare, save for a thin lever, its wooden handle dry
+and slightly warped with age.  All about you, the stone surfaces which
+surround you are smooth and seem to be joined together effortlessly, 
+their edges perflect flush with one another.
+~
+~
+301465604 0 5 0
+D0
+northern door~
+~
+195 -1 37234 10 10 5
+D1
+~
+~
+0 -1 39251 10 10 5
+D2
+~
+~
+0 -1 39252 10 10 5
+D3
+~
+~
+0 -1 39254 10 10 5
+A
+pull~
+lever~
+if( !is_open( room, north ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, north );
+  send_to_room( #open, find_room( 39250 ) );
+  send_to_room( #n-open, find_room(  37234 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, north );
+  send_to_room( #close1, find_room( 39250 ) );
+  send_to_room( #n-close1, find_room(  37234 ) );
+  }
+~
+E
+stuck~
+Nothing happens.
+~
+E
+open~
+The portal to the north slides silently away.
+~
+E
+rpull~
+$n pulls the wooden lever.
+~
+E
+pull~
+You pull the wooden lever.
+~
+E
+close~
+You pull the wooden lever.
+~
+E
+rclose~
+$n pulls the wooden lever.
+~
+E
+close1~
+The portal to the north slides silently closed.
+~
+E
+n-close1~
+The portal to the south slides silently closed.
+~
+E
+n-open~
+The portal to the south slides silently open.
+~
+!
+0 0 0
+A
+~
+~
+i = random( 1, 4 );
+if( i == 1 ) {
+  i = 1d5+5;
+  loop( all_in_room ) {
+    if( rch != mob ) {
+      send_to_room( #cool, room );
+      dam_message( ch, i, "the darkness" );
+      inflict( ch, rch, i, "the darkness" );
+      }
+    }
+  }
+~
+E
+cool~
+The cool darkness washes over you.
+~
+!
+4 -1 0
+A
+~
+~
+i = random( 1, 5 );
+j = random( 1, 5 );
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) {
+    wait( j );
+    act_room( #warning, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+~
+E
+warning~
+@b@BFrom nowhere, an emaciated figure bathed in pale blue light appears. 
+"Beware their hunger!", he croaks, and then disappears as suddenly as he
+came.
+~
+!
+1 0 14
+-1
+S
+
+#39251
+Corners Small and Forgotten~
+You find yourself in a humble chamber, with finely-fitted stones covering
+the walls, floor and ceiling.  As you examine them, you notice their
+startlingly close fit with their neighbors, and the thick layer of dust
+which covers them in their unfeeling, unending slumbers.
+~
+removed reset till mob is fixed
+[ 1] *    100%   0%   0%       Stan            621 a banshee
+~
+301465604 0 5 0
+D3
+~
+~
+0 -1 39250 10 10 5
+E
+stones floor ceiling~
+Smooth and joined together without any mortar.  Quite a marvel.
+~
+621 137 1509949540 3 0
+-1
+S
+
+#39252
+Cut through the Darkest of Stone~
+Vertical lines and right angles cleave through dull rock, the stones
+surrounding you irregular in shape, their strange angles and lines
+somehow fitted perfectly with one another.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39250 10 10 5
+D2
+~
+~
+0 -1 39253 10 10 5
+D3
+~
+~
+0 -1 39267 10 10 5
+-1
+S
+
+#39253
+Through the Unfeeling Dark~
+A carefully constructed square tunnel leading north and south.  The
+stones here are irregular in shape, with their strange angles and lines
+somehow fitted perfectly with one another.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39252 10 10 5
+D2
+~
+~
+0 -1 39260 10 10 5
+D3
+~
+~
+0 -1 39262 10 10 5
+E
+stone~
+The stones are smooth and ancient, and covered by a thick layer of dust.
+~
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  wait( 3 );
+  if( random( 1, 3 ) == 1 ) {
+    act_room( #room, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+~
+E
+room~
+A single blue flame appears from nowhere, hovers in the air for a
+moment, and then vanishes from sight.
+~
+!
+1 -1 13
+-1
+S
+
+#39254
+Before the Darkness~
+A large stone chamber opens up around you, its walls and floor
+constructed with strangely-shaped, smooth stones.  The ceiling above you
+looms high, the darkness overhead undaunted by your feeble light source. 
+A steep ramp constructed from the oddly-shaped flagstones descends further
+into the depths below, creeping its way downward along the chamber's
+southern wall.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39250 10 10 5
+D3
+~
+~
+0 -1 39263 10 10 5
+D5
+~
+~
+0 -1 39383 10 10 5
+E
+ramp southern~
+The ramp descends into the darkness at a steep angle, and seems as if it
+might be slippery.
+~
+A
+d down~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You head down the ramp.
+~
+!
+0 -1 0
+A
+~
+~
+ch = rand_char( room );
+if( mob_in_room( 802, find_room( 39256 ) ) ) 
+  send_to_char( #shiver, ch );
+if( mob_in_Room( 802, find_room( 39257 ) ) )
+  send_to_char( #shiver, ch );
+~
+E
+shiver~
+@b@BYou sense a dark presence down below.
+~
+!
+2 50 0
+-1
+S
+
+#39255
+Stone Ramp~
+A wide stone ramp which cuts through the earth.  The stone walls here are
+smooth and carefully joined together.  A strange purplish-blue light
+permeates the sloped corridor, its source indeterminate.
+~
+no_mob
+~
+301465612 0 5 0
+D4
+~
+~
+0 -1 39383 10 10 5
+D5
+~
+~
+0 -1 39256 10 10 5
+A
+~
+~
+i = 1d10;
+if( find_stat( ch, dex ) < random( 1, 20 ) ) {
+  send_to_char( #slip, ch );
+  act_notchar( #slip2, ch );
+  wait( 1 );
+  transfer( ch, find_room( 39256 ) );
+  dam_message( ch, i, "the fall" );
+  inflict( ch, rch, i, "the fall" );
+  interpret( ch, "sit" );
+  act_notchar( #arrives, ch );
+  }
+~
+E
+arrives~
+$n comes tumbling down the ramp from above.
+~
+E
+slip2~
+$n slips on the smooth stone and falls down the ramp!
+~
+E
+slip~
+You slip on the smooth stone and fall head over heels into the darkness below!
+~
+!
+1 -1 48
+A
+~
+~
+send_to_char( #up, ch );
+continue;
+~
+E
+up~
+You head up the smooth stone ramp.
+~
+!
+3 -1 16
+A
+~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You head down the smooth stone ramp.
+~
+!
+3 0 32
+-1
+S
+
+#39256
+Cleave the Midnight Dark~
+A immense, jagged cave opens up around you.  The floor is made from the
+smooth, finely-joined stone characteristic of the areas above you; the
+walls and ceiling, however, are rough and unfinished.  A smooth stone
+ramp makes a steep ascent into darkness along the east wall.
+~
+mpda of y'va'an
+~
+301465604 0 9 0
+D3
+~
+~
+0 -1 39257 10 10 5
+D4
+~
+~
+0 -1 39255 10 10 5
+A
+~
+~
+room = find_room( 39257 );
+if( mob_in_room( 802, find_room( 39257 ) ) ) {
+  wait( 2 );
+  send_to_room( #lights, find_room( 39526 ) );
+  }
+if( mob_in_room( 802, find_room( 39526 ) ) ) {
+  wait( 1 );
+  send_to_room( #lights2, find_room( 39256 ) );
+  }
+~
+E
+lights2~
+A cloud of strange shimmering lights engulfs you.
+~
+E
+lights~
+You spy some strange lights off to the west.
+~
+!
+0 -1 58
+A
+u up~
+~
+if( !mob_in_room( 802, room ) ) {
+  send_to_char( #up, ch );
+  continue;
+  }
+continue;
+~
+E
+up~
+You head up the smooth stone ramp.
+~
+!
+0 -1 0
+802 9 1509949540 3 0
+-1
+S
+
+#39257
+Afoot on the Dark Stone~
+The finely-joined stones create a flawless plane here, at the foot of a
+stone ramp leading up a steep incline.  Aside from the smooth stone
+surfaces of the stone ramp, which climbs the west wall up and out of
+sight, the floor beneath you is the only other finished surface around
+you.  Everywhere else, jagged stone outcroppings and rough stone
+surfaces dart here and there, opening up to reveal a huge natural
+cavern all around you.
+~
+redo exiting
+stones, ramp, floor, outcroppings cavern
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39256 10 10 5
+D4
+~
+~
+0 -1 39258 10 10 5
+A
+u up~
+~
+if( !mob_in_room( 802, room ) ) {
+  act_tochar( #up, ch );
+  continue;
+  }
+continue;
+~
+E
+up~
+You head up the ramp.
+~
+!
+0 -1 0
+A
+~
+~
+room = find_room( 39257 );
+if( mob_in_Room( 802, find_room( 39256 ) ) ) {
+  wait( 2 );
+  send_to_room( #lights, find_room( 39257 ) );
+  }
+if( mob_in_room( 802, find_room( 39527 ) ) ) {
+  wait( 1 );
+  send_to_room( #lights2, find_room( 39257 ) );
+  }
+~
+E
+lights2~
+A cloud of strange shimmering lights engulfs you.
+~
+E
+lights~
+You spy some strange lights off to the east.
+~
+!
+0 -1 58
+-1
+S
+
+#39258
+Slippery Stone Ramp~
+The floor is steeply angled and quite slippery here, the finely joined
+stones of the tunnel leading downward further in the darkness.  You sense
+a presence, a hugeness, close at hand in the cool, damp air somewhere
+below. 
+~
+rw
+~
+301465604 0 5 0
+D4
+~
+~
+0 -1 39259 10 10 5
+D5
+~
+~
+0 -1 39257 10 10 5
+A
+~
+~
+i = 1d10;
+if( find_stat( ch, dex ) < random( 1, 10 ) ) {
+  send_to_char( #slip, ch );
+  act_notchar( #slip2, ch );
+  wait( 1 );
+  transfer( ch, find_room( 39257 ) );
+  dam_message( ch, i, "the fall" );
+  inflict( ch, rch, i, "the fall" );
+  interpret( ch, "sit" );
+  send_to_room( #arrives, room );
+  }
+end;
+~
+E
+arrives~
+$n comes tumbling down the ramp from above.
+~
+E
+slip2~
+$n slips on the smooth stone and falls down the ramp!
+~
+E
+slip~
+You slip on the smooth stone and fall head over heels into the darkness below!
+~
+!
+1 0 48
+A
+~
+~
+i = 1d10;
+if( find_stat( ch, dex ) < random( 1, 40 ) ) {
+  send_to_char( #slip, ch );
+  act_notchar( #slip2, ch );
+  transfer( ch, find_room( 39257 ) );
+  dam_message( ch, i, "the fall" );
+  inflict( ch, mob, i, "the fall" );
+  interpret( ch, "sit" );
+  send_to_room( #arrives, find_room( 39257 ) );
+  }
+~
+E
+arrives~
+$n comes tumbling down the ramp from above.
+~
+E
+slip2~
+$n slips on the smooth stone and falls down the ramp!
+~
+E
+slip~
+You slip on the smooth stone and fall head over heels into the darkness below!
+~
+!
+2 65 0
+A
+~
+~
+i = 1d10;
+if( find_skill( ch, climb ) < random( 1, 10 ) ) {
+  send_to_char( #slip, ch );
+  act_notchar( #slip2, ch );
+  transfer( ch, find_room( 39257 ) );
+  dam_message( ch, i, "the fall" );
+  inflict( ch, rch, i, "the fall" );
+  interpret( ch, "sit" );
+  send_to_room( #arrives, room );
+  end;
+  }
+continue;
+~
+E
+arrives~
+$n comes tumbling down the ramp from above.
+~
+E
+slip2~
+$n slips on the smooth stone and falls down the ramp!
+~
+E
+slip~
+You slip on the smooth stone and fall head over heels into the darkness below!
+~
+!
+3 0 48
+A
+u up~
+~
+send_to_char( #up, ch );
+continue;
+~
+E
+up~
+You head up the smooth stone ramp.
+~
+!
+0 1000 0
+A
+d do dow down~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You head down the smooth stone ramp.
+~
+!
+0 0 0
+-1
+S
+
+#39259
+Peering into Darkness~
+Carved stone arches lead off into darkness in three directions from here,
+while a stone ramp cut into the floor leads further downward into
+darkness.  A single grey lantern swings slowly overhead, hanging from a
+thick metal chain which disappears into the silent blackness above where
+you stand.
+~
+37161 secret to e
+guardian?
+use cflag entering action for malevolent air?
+r/w
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 39264 10 10 5
+D2
+~
+~
+0 -1 39266 10 10 5
+D3
+~
+~
+0 -1 39265 10 10 5
+D5
+~
+~
+0 -1 39258 10 10 5
+E
+ramp down~
+The ramp is steep, and the stone very smooth, despire the layer of dust
+which covers it.
+~
+E
+carvings walls~
+The carvings are old, and are barely distinguisable from the wall itself.
+~
+A
+d do dow down~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You head down the ramp.
+~
+!
+0 -1 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+You feel a soft, almost imperceptable breeze rise up from the darkness
+below.
+~
+!
+2 0 0
+A
+~
+~
+i = 1d25+25;
+send_to_room( #lantern, room );
+loop( all_in_room ) {
+  dam_message( rch, i, "the chill air" );
+  inflict( rch, mob, i, "the chill air" );
+  }
+~
+E
+lantern~
+@B@b The lantern swings slowly overhead, sending a chilly draft of air
+coursing through the room.
+~
+!
+2 0 0
+-1
+S
+
+#39260
+Facing the Silver Door~
+The square tunnel opens up here somewhat, creating a small chamber at its
+endpoint.  Like the rest of the length of the tunnel, the stones here are
+irregular in shape, with their strange angles and lines somehow fitted
+perfectly with one another.  A large silver door is set in the center of
+the southern wall, its surface perfectly smooth and unmarked except for a
+single keyhole in its center.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39253 10 10 5
+D2
+silver door~
+silver door~
+407 870 39261 10 10 5
+E
+south silver door~
+Inscribed in elegant lettering, you read:
+
+     @CThe fate of sentient minds
+     are sins that last through time.
+     Seven are these mortal Sins,
+     Their worldly Aspects lie within.
+~
+786 9 1509949540 3 0
+803 9 1509949540 3 0
+618 9 1509949540 3 0
+-1
+S
+
+#39261
+Circular Chamber~
+The smooth, curved stone walls of an immense circular chamber open up
+around you.  The air is moist and cool, the ceiling overhead domed, and a
+slight, inexplicable breeze blows through the room.  An incessant feeling
+of an impermable spirit, ever in search of rest, hangs about the smooth
+stone chamber.
+~
+mosaic
+~
+301465604 0 9 0
+D0
+silver door~
+silver door~
+407 870 39260 10 10 5
+D1
+~
+~
+0 -1 39268 10 10 5
+D2
+door~
+door~
+0 870 39275 10 10 5
+D3
+~
+~
+0 -1 39274 10 10 5
+808 9 1509949540 3 0
+-1
+S
+
+#39262
+The Overlooked and the Forgotten~
+A small side chamber, its floor covered with ancient wood fragments and a
+generous layer of dust.  Several immense stone blocks are stacked in a
+corner, their smooth surfaces unmarked save for a layer of ancient dust.
+~
+r/w
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39253 10 10 5
+787 9 1509949540 3 0
+-1
+S
+
+#39263
+Long Chamber~
+A narrow chamber extends for a great distance to the east and west. 
+Finely joined stones complete the carefully constructed walls and ceiling
+here, curves in a lazy arc as the walls rise to meet the ceiling looms
+high overhead.  Several pieces of twisted metal lie scattered on the
+floor here, covered by a thick blanket of dust.
+~
+xtra - metal, dust, floor
+nd sentence 
+metal, dust, stones wall ceiling
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39254 10 10 5
+D3
+~
+~
+0 -1 39277 10 10 5
+A
+~
+~
+i = random( 5, 15 );
+ch = rand_player( room );
+if( random( 1, 5 ) == 1 ) {
+  wait( i );
+  act_room( #light, ch );
+  }
+~
+E
+light~
+@b@BYou spy a momentary flash of wan blue light off to the west; as soon
+as it appears it is gone, leaving you in darkness once more.
+~
+!
+2 50 0
+-1
+S
+
+#39264
+A Darkened Corner~
+You stand in a small niche carved out of the stone hill.  The
+finely-joined walls present elsewhere in the complex here are incomplete. 
+About eye level, the careful masonry gives way to the rough, unfinished
+uand natural underground rock.
+~
+[Merior] silver key resets on this guy
+~
+301465605 0 5 0
+D2
+~
+~
+0 -1 39259 10 10 5
+E
+masonry~
+The finished stonework here is flawless, the stones fitting together to
+form a smooth surface which has remained undamaged for ages.
+~
+E
+stones~
+Strangely shaped, with many odd angles darting back and forth, they are
+somehow fitted together with one another - perfectly, and all done
+without mortar.
+~
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( mob_in_room( 806, room ) )
+  end;
+if( rflag( reset0, room ) ) {
+  wait( 1 );
+  act_room( #apparition, ch );
+  mload( 806, room );
+  remove_rflag( reset0, room );
+  }
+~
+E
+apparition~
+@b@RAs you step into the small chamber, a spirit rises up from the
+darkness and attacks!
+~
+!
+1 -1 5
+-1
+S
+
+#39265
+A Shadowy Vault~
+The fine stonework present throughout the tunnels gives way here to a
+natural rock floor, as if this room had been left incomplete for some
+tacit cause.  Smooth, angled walls rise up to meet one another overhead,
+giving the small chamber its gently domed shape.
+~
+w is 39276
+[Conner] fix messages
+~
+301465605 0 5 0
+D1
+~
+~
+0 -1 39259 10 10 5
+D3
+star stone~
+stone~
+235 -1 39276 10 10 5
+E
+walls angled overhead up ceiling~
+Smooth and cold to the touch, the strangely shaped stones meet one
+another in an almost perfect fit.
+~
+E
+natural rock floor down~
+The floor is rough and uneven, left unworked and unfinished by the
+creators of this subterranean complex.
+~
+E
+star~
+The star stone is huge, perhap 8' in diameter.  Its edge is intricate,
+with its zigzagging line mimicing that of a single great star shining
+down from avbove in the midsummer sky.
+~
+A
+l lo loo look~
+stones stonework~
+if( find_skill( ch, searching ) > random( 2, 11 ) ) {
+  wait( 1 );
+  send_to_char( #notice, ch );
+  end;
+  }
+send_to_char( #duh, ch );
+~
+E
+duh~
+The stones are joined together in typically careful fashion.
+~
+E
+notice~
+The stones are joined together in typically careful fashion.  You notice
+a particularly large star-shaped stone in the center of the west wall.
+~
+!
+0 -1 0
+A
+push move lift~
+star star-shaped~
+if( !is_open( room, west ) ) {
+  send_to_char( #push, ch );
+  act_notchar( #push2, ch );
+  wait( 2 );
+  if( !char_in_room( ch, find_room( 39265 ) ) )
+    end;
+  open( room, west );
+  act_room( #falls, ch );
+  wait( 5 );
+  if( !char_in_room( ch, find_room( 39265 ) ) )
+    end;
+  send_to_room( #quiet, find_room( 39265 ) );
+  }
+send_to_char( #already, ch );
+~
+E
+quiet~
+All is still.
+~
+E
+falls~
+The great star-shaped stone falls away into the darkness, leaving a dark
+opening in the west wall.
+~
+E
+already~
+You don't see the star-shaped stone.
+~
+E
+push2~
+With a heave, $n pushes the great star-shaped stone.
+~
+E
+push~
+With a heave, you push the great star-shaped stone.
+~
+!
+0 0 0
+A
+l lo loo look~
+west w we wes~
+if( is_open( room, west ) )
+  send_to_char( #open, ch );
+else
+  send_to_char( #closed, ch );
+~
+E
+closed~
+A large star-shaped stone sits in the center of the west wall.
+~
+E
+open~
+A dark opening in the west wall leads to parts unknown.
+~
+!
+0 0 0
+-1
+S
+
+#39266
+Beyond Time and Memory~
+This chamber is long and narrow, having been tunneled from the bare, dull
+rock of the hills.  The ceiling here is arched and low, forcing you to
+stoop over as you move about.  The fine stonework present elsewhere in
+the complex is unfinished here.  The customary strangely-shaped stones
+only rise a foot or so above floor level here, construction having been
+apparently suspended due to some unknown cause.
+~
+reset flag for action
+no magic, no recall
++ dam
+~
+301465653 0 5 0
+D0
+~
+~
+0 -1 39259 10 10 5
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  wait( 15 );
+  if( random( 1, 2 ) == 1 ) {
+    if( !char_in_room( ch, find_room( 39266 ) ) )
+      end;
+    act_room( #room, ch );
+    }
+  }
+~
+E
+room~
+@b@BA pale blue flame appears in midair, flickers momentarily, and then
+disappears.
+~
+!
+1 1000 1
+A
+~
+~
+i = 1d25;
+act_room( #drain, ch );
+modify_mana( ch, -50 );
+modify_move( ch, -50 );
+dam_message( ch, i, "the cold rush of air" );
+inflict( ch, mob, i, "the cold rush of air" );
+~
+E
+drain~
+@b@BA cold rush of air passes through the darkness about you.
+~
+!
+2 1000 0
+-1
+S
+
+#39267
+Of Labours Past~
+Smashed beakers, vials and work stations fill this dusty chamber, the
+remnants of past explorations into the arcane.  The stones here and there
+appear damaged, blackened spots signaling the location of past explosions
+and experiments gone awry.
+~
+[Merior] up initiate level?
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39252 10 10 5
+E
+spots blackened~
+Scorched stones show the aftereffects of mishaps past.
+~
+-1
+S
+
+#39268
+Circular Chamber~
+The smooth, curved walls arch in a slow curve here through the dark stone. 
+Here and there, beads of water run down the walls, the condensation from
+the damp air of the great chamber.
+~
+r/w
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 39269 10 10 5
+D3
+~
+~
+0 -1 39261 10 10 5
+-1
+S
+
+#39269
+Circular Chamber~
+The smooth stone walls continue here in their circular journey, with the
+domed ceiling and smooth stone underfoot mimicing their movements to a
+surprising extent.  A small, circular opening has been cut into the
+eastern wall here, its purpose unknown.
+~
+opening/alcove
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39268 10 10 5
+D2
+~
+~
+0 -1 39270 10 10 5
+D3
+~
+~
+0 -1 39275 10 10 5
+809 9 1509949540 3 0
+-1
+S
+
+#39270
+Circular Chamber~
+The air here seems slightly less damp, but a soft, shifting breeze
+constantly blows about the area.  The domed ceiling curves upwards here
+toward the northwest and the center of the chamber, where the
+impenetrable darkness overhead obscures its exact height.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39269 10 10 5
+D3
+~
+~
+0 -1 39271 10 10 5
+814 137 1509949540 3 0
+-1
+S
+
+#39271
+Circular Chamber~
+A large circular stone chamber, with a giant mosaic laid out on the floor. 
+Several small alcoves are cut into the walls at regular intervals.  The
+ceiling is domed here, with its height over the center of the room
+reaching 40' or more.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39275 10 10 5
+D1
+~
+~
+0 -1 39270 10 10 5
+D3
+~
+~
+0 -1 39272 10 10 5
+-1
+S
+
+#39272
+Circular Chamber~
+A large circular stone chamber, with a giant mosaic laid out on the floor. 
+Several small alcoves are cut into the walls at regular intervals.  The
+ceiling is domed here, with its height over the center of the room
+reaching 40' or more.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39273 10 10 5
+D1
+~
+~
+0 -1 39271 10 10 5
+810 9 1509949540 3 0
+-1
+S
+
+#39273
+Circular Chamber~
+A large circular stone chamber, with a giant mosaic laid out on the floor. 
+Several small alcoves are cut into the walls at regular intervals.  The
+ceiling is domed here, with its height over the center of the room
+reaching 40' or more.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39274 10 10 5
+D1
+~
+~
+0 -1 39275 10 10 5
+D2
+~
+~
+0 -1 39272 10 10 5
+812 9 1509949540 3 0
+-1
+S
+
+#39274
+Circular Chamber~
+The smooth stone is slick underfoot, and you tread carefully lest you
+stumble in the dimness which surrounds you.  The curved walls arc from
+northeast to southwest here, their odd forms carefully merged to form a
+watertight seal.
+~
+r/w
+imp. proc.
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39261 10 10 5
+D2
+~
+~
+0 -1 39273 10 10 5
+811 9 1509949540 3 0
+-1
+S
+
+#39275
+Skies Infinite and Dark~
+The ceiling here looms somewhere in the indefinite darkness overhead. 
+A soft breeze circles the area, the damp air brushing against your cheek.
+The smooth stone floor echos flatly underfoot as you move about, sounds
+deadened by the masses of cold dark rock of the hills.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39261 10 10 5
+D1
+~
+~
+0 -1 39269 10 10 5
+D2
+~
+~
+0 -1 39271 10 10 5
+D3
+~
+~
+0 -1 39273 10 10 5
+813 9 1509949540 3 0
+-1
+S
+
+#39276
+In that Quiet Earth~
+The jagged, bare rock walls seem almost alive here.  their frenetic lines
+seeming somehow sullen and spiteful toward all warm-blooded intruders. 
+Without having to think, you sense that some entity dwells here. 
+Tacitly, you know it to be older even than the dull, unfeeling stone of
+the hills which cradles you in its blunt, unfeeling grey grasp.
+~
+entrance to mallander's tomb
+e is 39265
+~
+301465605 0 9 0
+D1
+star stone~
+star stone~
+235 -1 39265 10 10 5
+E
+rock walls jagged bare~
+The walls are entirely unfinished and natural, except for a single star
+shaped stone in the west wall.
+~
+A
+pull move~
+star~
+if( !is_open( room, east ) ) {
+  send_to_char( #pull, ch );
+  act_notchar( #pull2, ch );
+  wait( 2 );
+  if( !char_in_room( ch, find_room( 39276 ) ) )
+    end;
+  open( room, east );
+  act_room( #falls, ch );
+  wait( 5 );
+  if( !char_in_room( ch, find_room( 39276 ) ) )
+    end;
+  send_to_room( #quiet, find_room( 39276 ) );
+  }
+send_to_char( #already, ch );
+~
+E
+quiet~
+All is still.
+~
+E
+falls~
+The great star-shaped stone falls to the floor, leaving a dark opening in
+the east wall.
+~
+E
+already~
+You don't see the star-shaped stone.
+~
+E
+pull2~
+With a heave, $n pulls the great star-shaped stone.
+~
+E
+pull~
+With a heave, you pull the great star-shaped stone.
+~
+!
+0 -1 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( mob_in_room( 805, room ) )
+  end;
+if( rflag( reset0, room ) ) {
+  wait( 1 );
+  act_room( #undying, ch );
+  mload( 805, room );
+  remove_rflag( reset0, room );
+  }
+~
+E
+undying~
+@b@RFrom the darkest of shadows emerges a gaunt figure!
+~
+!
+1 -1 2
+A
+l lo loo look~
+east e ea eas ~
+if( is_open( room, east ) )
+  send_to_char( #open, ch );
+else
+  send_to_char( #closed, ch );
+~
+E
+closed~
+A large star-shaped stone sits in the center of the east wall.
+~
+E
+open~
+A dark opening in the east wall leads to parts unknown.
+~
+!
+0 0 0
+-1
+S
+
+#39277
+Long Chamber~
+The indifferent stone floor rises along a steady curve upwards to the
+west, ending in front of a strange diamond-shaped stone set in the center
+of the wall.  The fine construction continues here, with little evidence
+to be found that human hands or manual labor of any kind was responsible
+for the construction of this dark and forgotten place.
+~
+stone in west
+r/w
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39263 10 10 5
+A
+~
+~
+i = random( 1, 10 );
+if( rflag( reset0, room ) ) {
+  wait( i );
+  send_to_room( #chant, room );
+  remove_rflag( reset0, room );
+  }
+~
+E
+chant~
+@b@BA distant chant echoes through the darkness.
+~
+!
+1 -1 10
+-1
+S
+
+#39278
+Narrow Trail~
+Under Construction.
+~
+will link/climb up to 37153
+leads down and across gorge and back up toward tower of cardinal magics
+~
+301465604 0 9 0
+D2
+~
+~
+234 -1 37153 10 10 5
+D3
+~
+~
+0 -1 39279 10 10 5
+-1
+S
+
+#39279
+Narrow Trail~
+Under Construction.
+~
+narrow trail cut into side of cliff, size max ogre
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39278 10 10 5
+D5
+~
+~
+0 -1 39280 10 10 5
+-1
+S
+
+#39280
+Narrow Trail~
+Under Construction.
+~
+~
+301465604 0 9 0
+D3
+~
+~
+0 -1 39281 10 10 5
+D4
+~
+~
+0 -1 39279 10 10 5
+-1
+S
+
+#39281
+Bottom of Gorge~
+Under Construction.
+~
+rock walls rise up about you, thunder of waterfall to w
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39282 10 10 5
+D1
+~
+~
+0 -1 39280 10 10 5
+-1
+S
+
+#39282
+Elemental Bridge?~
+Under Construction.
+~
+waterfall to w, sheer walls rise up around
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39283 10 10 5
+D2
+~
+~
+0 -1 39281 10 10 5
+-1
+S
+
+#39283
+Bottom of Gorge~
+Under Construction.
+~
+will go up and n a few to tower
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 39282 10 10 5
+D4
+~
+~
+0 -1 39284 10 10 5
+-1
+S
+
+#39284
+Cliffside Trail~
+The path levels off to cross a wide shelf to the north.  Several old camp
+fires and some random trash clutter the ground where previous travelers
+of the path have taken a break from the steep path.  The path to the
+south dips sharply down and continues to the valley floor.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39285 10 10 5
+D5
+~
+~
+0 -1 39283 10 10 5
+-1
+S
+
+#39285
+Cliffside Trail~
+The trail begins to rise steeply to the north, lifting off this wide
+shelf halfway up the trail.  It follows the contours of the cliff leading
+to the cleft between the twin peaks of the mountains far above you.  The
+path leads south across the shelf to where it extends down to the valley
+floor, winding along the cliff's face.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 39284 10 10 5
+D4
+~
+~
+0 -1 39286 10 10 5
+-1
+S
+
+#39286
+Cliffside Trail~
+The path here slopes downward to the south and levels off leading to a
+gate to the north.  Standing tall above the gate is a great tower tucked
+between two solitary mountain peaks.  A shimmering light plays about the
+tower and between the peaks, and strangely, it makes the area around the
+tower seem larger.
+~
+will link to cardinal tower somewhere perched atop a high rocky hillside
+to the north 
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 40793 10 10 5
+D5
+~
+~
+0 -1 39285 10 10 5
+-1
+S
+
+#39287
+Among the Silent Pines~
+The darkest of pine branches shift slowly as a breeze courses along the
+fringes of this, the darkest of groves.  To the east and north, the
+remains of Pennan's old town wall stand, their rough, crumbled stones
+scattered about the soggy, moss-covered ground.  Dark limbs and ragged
+branches sway in the limp air, daring you to venture westward, toward the
+eye of the arboreal storm.
+~
+old wall e and n
+wall itself covered in moss?
+heh r/ww
+r/w
+~
+301465604 3 9 0
+D2
+~
+~
+0 -1 39288 10 10 5
+D3
+~
+~
+0 -1 39290 10 10 5
+E
+limbs branches~
+Wizened and craggy like the weathered fingers of an aged hand, the
+branches pierce the empty space overhead, their uneven shapes haunting
+the moonless darkness.
+~
+E
+wall east town north~
+The rough stones of the town wall are cracked in many places, with thick
+mosses and wild weeds and creepers fighting for space with one another in
+the shadow of the grove.
+~
+835 9 1509949540 3 0
+685 17 1509949445 -2 0
+-1
+S
+
+#39288
+Amongst the Whisp'ring Pines~
+The deep folds of the ancient pine trees envelop you, their soft arms
+reaching 'round your shoulders and drawing you into darkness, and away
+from the bright, hateful light.  Only the faint gurgling of the Valewash
+to the south signals to you that time has not stopped, that this grove
+does not stand in opposition to the rest of the natural world, frozen in
+eternity.
+~
+valewash s
+otter bank? beaver dam?
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39287 10 10 5
+D1
+~
+~
+0 -1 39289 10 10 5
+D3
+~
+~
+0 -1 39292 10 10 5
+E
+pines trees~
+Dark, impassive and mute, their forms tower above you, without comment.
+~
+A
+~
+~
+send_to_char( #pile, ch );
+continue;
+~
+E
+pile~
+The bed of dried pine needles underfoot cushions your footfalls.
+~
+!
+3 0 11
+-1
+S
+
+#39289
+Over the Wall~
+To the north, the remains of Pennan's stone curtain rest in an uneasy
+slumber, indifferent to your momentary scrutiny.  A thicket of tangled
+trees and brush grows to the east, along the spit of land between the
+remains of the wall and the creek known as the Valewash which flows by to
+the south.  Peering west, you spy a tight grove of ancient pine trees
+which rise high above the rest of your surroundings, their darkish,
+spectral forms casting the ground beneath them into murky, indefinite
+darkness.
+~
+no_mob
+action to enter thicket to e
+finish extras, add action to get inside tower
+north is 37193
+~
+301465612 2 5 0
+D3
+~
+~
+0 -1 39288 10 10 5
+E
+1 south~
+The Valewash flows by to the south.
+~
+E
+curtain wall north~
+The wall looms above you, crumbled but still standing.  Ont the other
+side you think you sense the movements of villagers and their animals.
+~
+E
+stones~
+Damp from the shelter offered by the thicket, and the wet misty air of
+the Valewash, the stones are slick and heavy.
+~
+E
+tangle 1 east brush trees thicket~
+The tangle growing to the east appears to crowd around the base of the
+remains of a crumbled tower which once overlooked the creek to the south. 
+The tower's stones are nearly completely covered with the thick
+vegetation, from small trees, bushes and strange dark mosses which
+overhang the slow murky waters of the creek.
+~
+A
+~
+~
+send_to_char( #grove, ch );
+if( find_stat( ch, level ) < 10 ) 
+send_to_char( #danger, ch );
+continue;
+~
+E
+danger~
+You sense a peril beyond your power lurking within the darkness.
+~
+E
+grove~
+Sucking in your breath, you step into the darkness of the grove.
+~
+!
+3 0 8
+A
+climb~
+wall north curtain~
+if( find_skill( ch, climb ) > random( 4, 7 ) ) {
+  send_to_char( #climb, ch );
+  act_notchar( #climb2, ch );
+  transfer( ch, find_room( 37193 ) );
+  }
+~
+E
+climb2~
+$n heaves $f up and over the remains of thhe wall to the north.
+~
+E
+climb~
+With a grunt, you heave yourself up and over the crumbled remains of the
+old battlements.
+~
+!
+0 0 0
+-1
+S
+
+#39290
+Among the Silent Pines~
+A thicket of trunks rise straight up towards a dim morass of dark green
+and black overhead.  The cool, damp space under the shadowy veil far
+above you is still and quiet, its muted ambience disturbed only by the
+soft, blunt echoes of your movements against the piles of soft, dead
+needles underfoot.
+~
+r/w
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39291 10 10 5
+D1
+~
+~
+0 -1 39287 10 10 5
+D2
+~
+~
+0 -1 39292 10 10 5
+D3
+~
+~
+0 -1 39294 10 10 5
+E
+trunks~
+Thick and straight, they rise like wooden pillars toward a darkened,
+nightmarish sky of deep green and black.
+~
+685 17 1509949445 -2 0
+843 9 1509949540 3 0
+-1
+S
+
+#39291
+Among the Silent Pines~
+Dark creepers climb an old wall to the northeast, whilst the pungent,
+earthy smell of moss on shadowed earth infiltrates your nostrils.  The
+thick veil of dark pines dominates the area overhead, the darkness
+underneath soft and cool, its unspoken menace nearly palpable.
+~
+old wall e and n
+find something hidden in weeds when actions are fixed
+~
+301465604 3 9 0
+D2
+~
+~
+0 -1 39290 10 10 5
+D3
+~
+~
+0 -1 39293 10 10 5
+E
+wall old northeast~
+Mosses and weeds, withered and yellowed from a lack of sunlight, grow
+along the remains of Pennan's town wall.
+~
+835 9 1509949540 3 0
+685 17 1509949450 -2 0
+685 17 1509949450 -2 0
+843 9 1509949490 3 0
+26 17 1509949450 -2 0
+-1
+S
+
+#39292
+Among the Silent Pines~
+The dim folds of the impassive pines hush the incessant gurglings of the
+Valewash here, until only a distant whisper of flowing water can be heard
+off to the south, from behind a dark screen of trees.  Underfoot, a thick
+bed of dried needles covers the hard, sunless earth, cushioning your
+steps as you pick your way between the rigid, vertical trunks.
+~
+air sucked out of lungs/body blow
+extra for trees
+r/w action
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39290 10 10 5
+D1
+~
+~
+0 -1 39288 10 10 5
+D2
+~
+~
+0 -1 39296 10 10 5
+D3
+~
+~
+0 -1 39295 10 10 5
+E
+pines trees trunks~
+Dark and utterly motionless, you could swear that the trees are aware of
+your presence, your warmth, and your life beneath their deep olive
+fingers, and that they resent the intrusion.
+~
+A
+~
+~
+act_tochar( #ch, ch );
+continue;
+~
+E
+ch~
+Your steps fall silently as you head across the carpet of dried pine
+needles.
+~
+!
+3 0 15
+835 9 1509949540 3 0
+685 17 1509949445 -2 0
+685 17 1509949445 -2 0
+685 17 1509949445 -2 0
+12 17 1509949500 -2 0
+-1
+S
+
+#39293
+Among the Silent Pines~
+The moss-covered remains of Pennan's old battlements lean unsteadily on
+their sunken foundations, their giant stones weathered and crumbled from
+years of decay.  Tall, dark pines overhang the remains of the wall,
+their sweeping shoals of dark needles casting a thick veil of shadow upon
+the entire area.  To the west, the cluster of pines thickens, their
+evergreen spires packed against one another in close formation, as if to
+intentionally blot out the unwelcome light of the sun.
+~
+finish
+add pine branches to other side of wall
+extra to look at walls, find secret door to chamber of old gatehouse to north
+north is 39300
+cracks to get secret
+~
+301465604 3 9 0
+D0
+vine~
+'vine'~
+235 -1 39300 10 10 5
+D1
+~
+~
+0 -1 39291 10 10 5
+D2
+~
+~
+0 -1 39294 10 10 5
+D3
+~
+~
+0 -1 39297 10 10 5
+E
+vines~
+As you examine the vines, you notice a small space behind them, perhaps a
+small cave...
+~
+E
+fortifications remnants~
+The fortifications are cracked and worn from years of neglect, small
+vines and plants clinging to their crumbled forms.
+~
+E
+pine branches~
+The trees stand silent, their dark needles slowly sqeezing the warmth
+from your body.  Each moment, you become closer to death.
+~
+E
+battlements foundations stones~
+Their cracked surfaces covered with dense vegetation, the remains of the
+old town's fortifications stand mute and broken, shattered remnants of
+follies past.
+~
+A
+move~
+vines north n~
+if( !is_open( room, north ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #nmove, ch );
+  open( room, north );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+move~
+You move the vines, clearing a passage northward.
+~
+E
+nmove~
+$n moves the vines, allowing passage northward.
+~
+E
+nada~
+The vines have already been moved.
+~
+!
+0 0 0
+843 9 1509949540 3 0
+843 9 1509949540 3 0
+685 17 1509949450 -2 0
+12 17 1509949470 -2 0
+14 17 1509949450 -2 0
+-1
+S
+
+#39294
+Among the Silent Pines~
+Stately, dark boughs rise to meet one another in an arboreal embrace,
+their lofty curves creating a living vault of branches in the shadowy,
+still air overhead.  Underfoot, the dry pine needles carpet the cool,
+level ground underneath.  Several large white stone boulders lie against
+one another near the base of a great pine.  Upon second glance, you
+realize that they come together to form a crude altar.
+~
+altar
+action to finish when bugs fixed
+altar_neutral
+~
+301466116 3 9 0
+D0
+~
+~
+0 -1 39293 10 10 5
+D1
+~
+~
+0 -1 39290 10 10 5
+D2
+~
+~
+0 -1 39295 10 10 5
+D3
+~
+~
+0 -1 39298 10 10 5
+E
+boughs~
+Thick, dark branches reach out to one another, tentatively touching one
+another in the creeping darkness overhead.
+~
+E
+pine great~
+The great pine, although seemingly ageless and a permanent fixture of the
+area as much as the mountains which loom in the distance, appears somehow
+older than the rest of the dark trees which encircle this spot.
+~
+E
+white stone boulders altar~
+Large and smooth, the boulders seem at once a product of no man's hands,
+yet far too perfect to be the result of nature's caprice or the whim of
+some passing zephyr.
+~
+A
+~
+altar~
+if( !is_player( ch ) ) 
+  end;
+if( find_stat( ch, align ) == 0 )
+  send_to_char( #good );
+~
+E
+good~
+You pray and find solace in your spirituality.
+~
+!
+0 0 0
+835 9 1509949540 3 0
+685 17 1509949450 -2 0
+685 17 1509949445 -2 0
+-1
+S
+
+#39295
+Among the Silent Pines~
+Creeping vines hang down from atop a stone cliff which runs west to south
+here, their long, willowy strands immobile in the still air of the grove. 
+The pines stand impassively here, silent and somehow able to brook your
+presence amongst their ageless, towering forms.  Large strands of a dark,
+sticky substance span the gaps between several trunks here, forming a
+giant web.
+~
+cliff to s and w
+do something with web
+when action code is finished
+cave?
+action to get stuck in web
+mummified corpses here too
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39294 10 10 5
+D1
+~
+~
+0 -1 39292 10 10 5
+E
+cliff~
+Sheer and impassive, the stone face of the cliff rises above you, utterly
+featureless save for the long stringy vines which hang from atop the
+precipice.
+~
+E
+vines strands willowy~
+Thick and tangled, you examine the vines and cannot decide if they are
+merely plants, twisted by the darkness of the mute pines, or strands
+created by the spiders, or a combination of both.
+~
+835 9 1509949540 3 0
+835 9 1509949490 3 0
+685 17 1509949450 -2 0
+685 17 1509949445 -2 0
+261 17 1509949445 -2 0
+12 17 1509949490 -2 0
+12 17 1509949445 -2 0
+12 17 1509949445 -2 0
+12 17 1509949445 -2 0
+12 17 1509949445 -2 0
+14 17 1509949450 -2 0
+14 17 1509949445 -2 0
+14 17 1509949445 -2 0
+-1
+S
+
+#39296
+Among the Silent Pines~
+Standing beside the trunk of a single great pine, you can see the deep
+dark waters of the Valewash idle by to the south, bathed in the undying
+shadow of the pine grove.  Looking about, you realize that save for the
+insistent chatter of water against stone, the air about you is utterly
+silent.  Unpleasantly so.
+~
+stream is below this spot
+idles by?  then has to flow over stones quickly to make sounds heard in
+other rdescs 
+action redo
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39292 10 10 5
+E
+1 west~
+A high cliff rises above even the great pines to the west.
+~
+E
+1 south 1 east~
+The Valewash flows by to the south and east.
+~
+E
+single trunk pine~
+The great pine appears ageless, its thick, vertical trunk unmarked and
+unmarred.
+~
+A
+~
+~
+act_room( #gurgle, ch );
+~
+E
+gurgle~
+The brook gurgles by, its lively sounds seeming almost alien in the dim
+stillness of the pine grove.  The sounds seem to be coming from upstream,
+somewhere to the southwest.
+~
+!
+2 75 0
+A
+~
+~
+if( !is_player( ch ) ) {
+  send_to_char( #nope, ch );
+  transfer( ch, find_room( 39292 ) );
+  }
+~
+E
+nope~
+@B@G A strange force compels you to remain outside of that area.
+~
+!
+1 0 1
+685 17 1509949450 -2 0
+3001 17 1509949470 -2 0
+14 17 1509949490 -2 0
+14 17 1509949490 -2 0
+14 17 1509949465 -2 0
+5 17 1509949470 -2 0
+948 17 1509949470 -2 0
+2101 17 1509949450 -2 0
+835 9 1509949540 3 0
+843 9 1509949465 3 0
+843 9 1509949540 3 0
+2000 17 1509949465 -2 0
+-1
+S
+
+#39297
+Among the Silent Pines~
+A sheer cliff rises above you to the west, its great height imparting a
+solemn stillness to the pine grove spread out at its base.  The dark,
+wrinkled trunks of the indifferent pines rise high above you, their
+desire to annihilate the sky before it should penetrate the dark fastness
+of the grove.  Underfoot, the dried pine needles muffle your footfalls. 
+All is still, all is quiet.
+~
+xtras trees, needles
+r/w
+action for leaving/heading north out of grove
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39299 10 10 5
+D1
+~
+~
+0 -1 39293 10 10 5
+D2
+~
+~
+0 -1 39298 10 10 5
+E
+trunks~
+Wrinkled, but absolutely straight.
+~
+E
+needles~
+Dried and brown, the carpet of needles is thick here, entirely covering
+the hard, flat earth underneath.
+~
+E
+cliff~
+Rocky and steep, you consider the arduous and most likely fatal climb
+which it offers, and decline.
+~
+835 9 1509949540 3 0
+685 17 1509949450 -2 0
+-1
+S
+
+#39298
+Among the Silent Pines~
+A rocky cliff looms overhead to the west and south, its massive, angled
+form towering high above the thick canopy of pine trees which stands
+overhead, screening you from the sky.  A few large boulders lie between
+drifts of dry, brown pine needles on the bare earth, while here and there
+the sticky sap of the pine trees oozes out onto a rough trunk.
+~
+cliff to s and w
+needles, boulders extra, sap trunk
+sap
+~
+301465604 3 9 0
+D0
+~
+~
+0 -1 39297 10 10 5
+D1
+~
+~
+0 -1 39294 10 10 5
+E
+needles earth~
+Drifts of needles litter the area underfoot.
+~
+E
+boulders~
+The boulders are smooth, and are from a type of white stone atypical of
+the hills which encircle Pennan and the Rua Valley.
+~
+E
+cliff rocky~
+The cliff rises up at an almost sheer angle; impossible to climb.
+~
+E
+sap~
+The sap oozes from the trunk in several different locations.
+~
+835 9 1509949540 3 0
+685 17 1509949445 -2 0
+-1
+S
+
+#39299
+Between the Great Pines~
+A few immense pines rise up between the aged face of the old town wall to
+the east, and a steep rocky, cliff to the west.  A narrow path lined with
+dried pine needles weaves between rough trunks and boulders, leading
+south.  The path appears to lead toward a dark stand of thick, ancient
+pines, the ground beneath them well sheltered from the rays of the sun.
+~
+r/w action
+no_mob
+~
+301465612 3 5 0
+D0
+pine branch~
+'pine branch' branch~
+235 -1 37032 10 10 5
+D2
+~
+~
+0 -1 39297 10 10 5
+E
+boulders~
+Cast here and there at nature's whim, boulders litter the area.
+~
+E
+trunks rough~
+Thick and old, the tree trunks are rigid and stright, mutely supporting
+the dark canopy overhead.
+~
+E
+path needles~
+The path follows a rough curve in the earth, its course quite difficult
+to follow as it enters the shadows of the pines to the south.
+~
+A
+~
+~
+send_to_char( #muffled, ch );
+if( find_stat( ch, level ) < 10 )
+  act_tochar( #danger, ch );
+continue;
+~
+E
+danger~
+You sense a peril far beyond your ability lurking in the darkness up
+ahead.
+~
+E
+muffled~
+The bed of dried needles muffles your footfalls as you enter the grove.
+~
+!
+3 0 4
+A
+~
+~
+if( find_stat( ch, level ) < 10 ) 
+act_tochar( #fear, ch );
+~
+E
+fear~
+@b@GAs you step into the fringes of the dark grove, you sense a danger
+beyond your feeble powers lurking, waiting for you, beneath the silent
+pines...
+~
+!
+1 0 1
+A
+~
+~
+if( !is_player( ch ) ) {
+send_to_char( #nope, ch );
+transfer( ch, find_room( 37032 ) );
+}
+~
+E
+nope~
+A strange, cold force propels you back out of the grove.
+~
+!
+1 0 1
+A
+bend move part~
+pine branches trees~
+if( is_open( room, north ) ) {
+act_tochar( #close, ch );
+act_notchar( #rclose, ch );
+close( room, north );
+}
+else {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, north );
+}
+~
+E
+close~
+You bend a pine branch over, hiding the Greened Way.
+~
+E
+rclose~
+$n bends a pine branch over, hiding the Greened Way.
+~
+E
+open~
+You move a pine branch, revealing the Greened Way to the north.
+~
+E
+ropen~
+$n moves a pine branch, revealing the Greened Way to the north.
+~
+!
+0 0 0
+-1
+S
+
+#39300
+A Crumbled Tower~
+Cracked stones lie scattered about the damp dirt floor of a circular
+chamber.  Once perhaps a small side chamber, a cistern, or a storeroom,
+time and the changes wrought by it have transformed the room into a
+pocket of darkness, forgotten by mankind.  A few vines grow off to the
+south, near the entrance to the chamber.
+~
+south is 39293
+interior of gatehouse basement
+r/w
+either as guardian of area below or to give out a quest?
+no mob
+[Conner] Ooh, an area below... THAT sounds cool.
+~
+301465612 0 5 0
+D2
+vine~
+vine~
+235 -1 39293 10 10 5
+E
+1 south vines~
+Some vines grow about the entrance to this chamber, obscuring it from the
+outside.
+~
+E
+floor stones cracked~
+Looking at the cracked stones on the floor beneath you, you notice that
+they once formed a stairway.  Today, the tower is collapsed, and the
+rubble blocks any downward progress...
+~
+A
+move~
+vines south s~
+if( !is_open( room, south ) ) {
+act_tochar( #move, ch );
+act_notchar( #nmove, ch );
+open( room, south );
+}
+else
+act_tochar( #nada, ch );
+~
+E
+move~
+You move the vines, allowing departure from the chamber.
+~
+E
+nmove~
+$n moves the vines, allowing departure from the chamber.
+~
+E
+nada~
+The vines have already been moved.
+~
+!
+0 0 0
+840 9 1509949540 3 0
+755 17 1509949540 -2 0
+-1
+S
+
+#39301
+Below the Mill~
+You stand in a dark stone room.  Looking about at the shattered pieces of
+machinery and broken shafts of wood, you realize that this must have been
+where the mill's inner workings were housed.
+~
+at the wheel
+make broken stairs above as well
+up to 37091
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39302 10 10 5
+D2
+~
+~
+0 -1 39303 10 10 5
+D4
+hatch~
+hatch~
+391 1035 37091 10 10 5
+3000 9 1509949540 3 0
+-1
+S
+
+#39302
+Storage Room~
+You stand in a large rectangular storage room, which continues off to the
+west.  The rotten remains of scores of large wooden barrels and decayed
+burlap sacks fill the room, until you are ankle-deep in junk.  A doorway
+leads off to the south.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 39301 10 10 5
+D3
+~
+~
+0 -1 39304 10 10 5
+E
+sacks grain remains~
+The sacks contain nothing but rotted grain.
+~
+E
+barrels~
+The barrels are little more than shells of once-useful liquid containers.
+~
+-1
+S
+
+#39303
+Store Room~
+More broken equipment, plus the additional scattered sack and smashed
+barrel, lie about this room.  The room's well-constructed walls have
+remained standing somehow despite obvious neglect.
+~
+sacks broken equipment pipes bags 
+below to watery caves
+r/w
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 39301 10 10 5
+D5
+hatch~
+hatch~
+139 -1 39305 10 10 5
+E
+equipment~
+A mishmash of rotten leather bits, pieces of wood and corroded metals,
+all in a giant heap.
+~
+E
+heap~
+Looking at the heap, you realize that this refuse is utterly worthless.
+~
+E
+refuse~
+Refuse is refuse is refuse - perhaps once it was of use, but now it
+merely litters the floor.
+~
+E
+bits~
+Looking more closely at some odd bits scattered among the pile of old
+equipment on the floor, you notice an odd, shiny piece of metal - the
+handle of what appears to be a small hatch in the floor beneath you.
+~
+3000 9 1509949540 3 0
+-1
+S
+
+#39304
+Storage Room~
+You stand in what was once a large storeroom.  The remains of a few large
+sacks of grain and barrels lie scattered here, about the otherwise empty
+room.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 39302 10 10 5
+E
+remains sacks grain~
+Rotted and utterly useless, the sacks have decayed away to near
+nothingness.
+~
+3000 9 1509949540 3 0
+3000 9 1509949540 3 0
+3002 9 1509949540 3 0
+-1
+S
+
+#39305
+Damp Cave~
+This is a small, natural chamber.  The limestone walls are curved and
+rough, with their strange contours creating strange shapes in the
+darkness around you.  To the south, the cave floor leads downward, and
+seems to become more wet.
+~
+up 
+up hatch
+no_mob
+[Hestal] search reports something up, but there is no keyword for it
+~
+301465612 11 6 0
+D2
+~
+~
+0 -1 39306 10 10 5
+D4
+hatch~
+hatch~
+139 -1 39303 10 10 5
+E
+up~
+You see a small hatch above you.
+~
+A
+~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You follow the slope of the cave floor south, and down into the water.
+~
+!
+3 -1 4
+-1
+S
+
+#39306
+Watery Caves~
+You stand knee-deep in the icy water of an underground stream or river -
+you aren't sure which, and are unable to detect much of a current.  To
+the north, a patch of rough ground rises up out of the water, while to
+the east a passageway cuts its way through the limestone and water.
+~
+~
+301465604 6 5 0
+D0
+~
+~
+0 -1 39305 10 10 5
+D1
+~
+~
+0 -1 39307 10 10 5
+A
+~
+~
+send_to_char( #north, ch );
+continue;
+~
+E
+north~
+You head north, and up and out of the water.
+~
+!
+3 -1 1
+-1
+S
+
+#39307
+Damp Caves~
+The icy water deepens here, to just above your waist, while the cavern
+walls close in on you on either side.  You proceed slowly, unable to see
+where you are stepping.  You may slog east or west from here.
+~
+sizes
+r/w
+~
+301465604 6 5 0
+D1
+~
+~
+0 -1 39308 10 10 5
+D3
+~
+~
+0 -1 39306 10 10 5
+856 9 1509949540 3 0
+3254 17 1509949540 -2 0
+-1
+S
+
+#39308
+Damp Caves~
+The cave is quite narrow here, the limestone walls jutting out from
+unexpected places and irregular angles.  The water remains at about
+waist-height, but as you move you detect a steady downward slope to the
+east.  Should you head in that direction, you should prepare to hold your
+breath.  The moist air is still and stale here, not moving in the spaces
+above the still black underground waters.
+~
+sloping down
+~
+301465604 6 5 0
+D1
+~
+~
+0 -1 39309 10 10 5
+D3
+~
+~
+0 -1 39307 10 10 5
+A
+~
+~
+send_to_char( #east, ch );
+continue;
+~
+E
+east~
+You head east, and take one long last gasping breath of air.
+~
+!
+3 -1 2
+3254 17 1509949540 -2 0
+856 9 1509949540 3 0
+-1
+S
+
+#39309
+Underground Lake~
+You swim the dark, chilling waters of an underground lake.  Strange
+pillars of submerged rock rise around you, forming a great submerged
+gallery of sleeping stone.
+~
+Grotto Below the Lake
+~
+301465604 7 9 0
+D0
+~
+~
+0 -1 39312 10 10 5
+D1
+~
+~
+0 -1 39310 10 10 5
+D3
+~
+~
+0 -1 39308 10 10 5
+856 9 1509949540 3 0
+856 9 1509949540 3 0
+-1
+S
+
+#39310
+Underground Lake~
+You swim the dark, chilling waters of an underground lake.  Strange
+pillars of submerged rock rise around you, forming a great submerged
+gallery of sleeping stone.
+~
+cave fish here and w
+~
+301465604 7 9 0
+D0
+~
+~
+0 -1 39311 10 10 5
+D2
+~
+~
+0 -1 39313 10 10 5
+D3
+~
+~
+0 -1 39309 10 10 5
+856 9 1509949540 3 0
+856 9 1509949540 3 0
+856 9 1509949540 3 0
+-1
+S
+
+#39311
+Underground Lake~
+You swim the dark, chilling waters of an underground lake.  Strange
+pillars of submerged rock rise around you, forming a great submerged
+gallery of sleeping stone.
+~
+~
+301465604 7 9 0
+D2
+~
+~
+0 -1 39310 10 10 5
+D3
+~
+~
+0 -1 39312 10 10 5
+856 9 1509949540 3 0
+-1
+S
+
+#39312
+Underground Lake~
+You swim the dark, chilling waters of an underground lake.  Strange
+pillars of submerged rock rise around you, forming a great submerged
+gallery of sleeping stone.
+~
+~
+301465604 7 9 0
+D1
+~
+~
+0 -1 39311 10 10 5
+D2
+~
+~
+0 -1 39309 10 10 5
+856 9 1509949540 3 0
+856 9 1509949540 3 0
+-1
+S
+
+#39313
+Damp Caves~
+A huge black stone boulder dominates the western wall of this narrow
+underwater tunnel.  The cave is narrow, forcing you to swim slowly lest
+you brush up against some rough rock and injure yourself.
+The cave floor rises to the east, where presumably you can find air...
+~
+[Seltha] Well, there's a boulder here, but I can't look at it, or attempt to move it...
+~
+301465604 7 5 0
+D0
+~
+~
+0 -1 39310 10 10 5
+D1
+~
+~
+0 -1 39314 10 10 5
+3254 17 1509949540 -2 0
+-1
+S
+
+#39314
+Damp Caves~
+The tunnel narrows here once again, the walls pinching in toward you,
+uncomfortably so.  To the east and west, the watery caverns continue and
+deepen, and you think you spy a great boulder jutting out from the rest
+of the walls off to the west.
+~
+acitons
+r/w 
+~
+301465604 6 5 0
+D1
+~
+~
+0 -1 39315 10 10 5
+D3
+~
+~
+0 -1 39313 10 10 5
+3254 17 1509949540 -2 0
+-1
+S
+
+#39315
+Damp Caves~
+The cave widens here, even as the waters deepen.  The air is cool and
+still, even as it is extremely damp.  Your movements are muffled, and the
+strange, unfamiliar smells of the subterreanean world enter your nostrils
+and dance upon the edges of your mind, a subtle suggestion of worlds
+unseen and wonders unfound.
+~
+~
+301465604 6 6 0
+D2
+~
+~
+0 -1 39316 10 10 5
+D3
+~
+~
+0 -1 39314 10 10 5
+3254 17 1509949540 -2 0
+-1
+S
+
+#39316
+Damp Caves~
+The watery cave makes its way between several large rock formations,
+forcing you to inch carefully between their odd protrusions and slick
+surfaces.  Up above you, you sense another open space, and think you can
+detect scores of stalagmites and stalagtites littering the distant
+cavern, but the climb up a sheer, wet cavern wall is clearly beyond the
+realm of possibility.
+~
+more boulders
+[Derna] extras extras extras
+~
+301465604 6 5 0
+D0
+~
+~
+0 -1 39315 10 10 5
+D3
+~
+~
+0 -1 39317 10 10 5
+3254 17 1509949540 -2 0
+-1
+S
+
+#39317
+Damp Caves~
+The water is about two feet deep here, and quite cold.  Fortunately, the
+cave's ceiling rises high overhead into darkness, affording you
+sufficient space to stand and try to gain your bearings.  Sound reacts
+poorly here, muffled by the water and unfriendly stone surfaces.  You may
+head east and south through the turbid water.
+~
+boulders
+[Derna] ceiling extra
+~
+301465604 6 9 0
+D1
+~
+~
+0 -1 39316 10 10 5
+D2
+~
+~
+0 -1 39318 10 10 5
+3254 17 1509949540 -2 0
+-1
+S
+
+#39318
+Damp Caves~
+You stand in a stagnant, waist-deep water.  It is quite cold here, the
+chill stone of the cave walls having never seen the light of day.  To the
+south, the caves lead up and out of the water, while the passage
+continues north.
+~
+~
+301465604 6 9 0
+D0
+~
+~
+0 -1 39317 10 10 5
+D2
+~
+~
+0 -1 39319 10 10 5
+856 9 1509949540 3 0
+3254 17 1509949540 -2 0
+-1
+S
+
+#39319
+Damp Caves~
+The cave narrows here, sloping downward to the north towards water.  The
+stone surfaces are slick with condensation, and the air is cool, dark and
+misty.  To the east, you see a small side cave, and to the south the
+passage slopes upward.
+~
+slopes down into water here
+hear water
+no_mob
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 39318 10 10 5
+D1
+~
+~
+0 -1 39320 10 10 5
+D2
+~
+~
+0 -1 39321 10 10 5
+A
+~
+~
+act_tochar( #ch, ch );
+continue;
+~
+E
+ch~
+You follow the tunnel down the slope and into the water.
+~
+!
+3 -1 1
+855 9 1509949540 3 0
+2837 17 1509949445 -2 0
+-1
+S
+
+#39320
+Damp Alcove~
+Several large, flat rocks lie scattered about this small, damp alcove. 
+Rock walls crowd you as you note the remains of an old fire in the
+center of the room.
+~
+alcove, shelter, rises up a bit. some skins, an old fire
+rock walls, with some carvings
+[Derna] desc is a little weak, but from your notes it looks like a work in progress
+~
+301465604 11 4 0
+D3
+~
+~
+0 -1 39319 10 10 5
+E
+fire remains center~
+A few damp bits of charred wood and small stones are all that signal that
+a fire was once here.  It seems to have been long ago.
+~
+246 17 1509949465 -2 0
+-1
+S
+
+#39321
+Down in a Hole~
+You stand in what appears to be a small, dark pit tunneled out of the
+earth below the pruner's shack.  The earth underfoot is loose and moist,
+and as you move, you feel yourself sinking somewhat.  A dark opening
+leads to the north.
+~
+up 37208
+no mob
+[Rue] skinny old man upstairs
+[Rue] done
+~
+301465612 11 5 0
+D0
+~
+~
+0 -1 39319 10 10 5
+D4
+trapdoor~
+trapdoor~
+139 -1 37208 10 10 5
+E
+up~
+You see a small trapdoor in the ceiling.
+~
+E
+earth~
+The earth is damp and dark.  The rich soil of the Rua Valley holds water
+well.
+~
+-1
+S
+
+#39322
+Cave Mouth~
+You stand near the mouth of a small, dark cave.  Looking outside the cave
+to the east, you notice how several immense boulders pinching together
+conceal the cave opening surprisingly well from the Greened Way. 
+Examining your surroundings, you notice the rough walls of the cavern are
+covered in a strange brownish-green lichen.  Several small rocks lie
+scattered about the floor.
+~
+up is 39359
+no mob
+~
+301465612 0 5 0
+D1
+stone opening east~
+stone opening east~
+139 -1 37034 10 10 5
+D4
+~
+~
+171 -1 39360 10 10 5
+D5
+~
+~
+0 -1 39323 10 10 5
+E
+rocks ~
+The rocks are large, heavy, and rather unremarkable.
+~
+E
+1 east~
+You see an opening in the stone to the east.
+~
+78 17 1509949445 -2 0
+78 17 1509949445 -2 0
+78 17 1509949445 -2 0
+224 9 1509949540 3 0
+-1
+S
+
+#39323
+A Dark Cave~
+Dark, rough walls rise overhead into darkness in this large, nearly
+circular underground chamber.  Clumps of odd, brownish lichens cover
+large areas on the walls around you, and as you listen you hear the
+distant, slow drip of water falling against stone somewhere, in the
+darkness, far away.
+~
+~
+301465604 0 7 0
+D4
+~
+~
+0 -1 39322 10 10 5
+224 9 1509949540 3 0
+224 9 1509949490 3 0
+224 9 1509949465 3 0
+78 17 1509949445 -2 0
+983 17 1509949450 -2 0
+14 17 1509949465 -2 0
+902 17 1509949442 -2 0
+3000 17 1509949445 -2 0
+3028 17 1509949445 -2 0
+1003 17 1509949445 -2 0
+1035 17 1509949540 -2 0
+-1
+S
+
+#39324
+By a Raging River~
+You stand in a small clearing along the western bank of a wild, raging
+river which runs northeast to southwest.  To the west, a thick stand of
+ancient oaks looms like a silent black and green curtain, everpresent but
+utterly still.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 37001 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#39325
+On a Riverbank~
+The turbid waters of the Elhanni rush by to the east, flowing southeast
+in a headlong rush which contrasts with the stillness of the surrounding
+flora.  To the north, you spy a narrow dirt road cutting through the dark
+trees, which continue off to the west and south.
+~
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 37001 10 10 5
+D2
+~
+~
+0 -1 39327 10 10 5
+D3
+~
+~
+0 -1 39326 10 10 5
+E
+1 west 1 south~
+The dark woods continue off in that direction.
+~
+E
+1 east~
+The rough, choppy waters of the Elhanni River rush by to the east.
+~
+-1
+S
+
+#39326
+Dark Woods~
+You stand amidst ancient elms and stately oaks, surrounded on all sides
+by their mute, weathered forms.  Looking overhead, you can see little of
+the sky; you are sure it is there, yet the lush canopy overhead prevents
+both sun and starlight from penetrating to the forest floor.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 37002 10 10 5
+D1
+~
+~
+0 -1 39325 10 10 5
+D2
+~
+~
+0 -1 39362 10 10 5
+D3
+~
+~
+0 -1 39355 10 10 5
+2509 9 1509949540 3 0
+2508 9 1509949540 3 0
+2694 17 1509949460 -2 0
+-1
+S
+
+#39327
+On a Riverbank~
+The Elhanni River rushes by to the east, cutting its way through the
+forested banks on either side.  The grass along the bank here is tall,
+and thick, crowding against the water even as the nearby oaks and elms,
+in turn, push towards the bank.
+~
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 39325 10 10 5
+D2
+~
+~
+0 -1 39361 10 10 5
+D3
+~
+~
+0 -1 39362 10 10 5
+E
+1 east~
+The rough, choppy waters of the Elhanni River rush by to the east.
+~
+E
+river~
+The Elhanni River rushes by, forming sections of white foamy water where
+it churns over rocks.  It churns forward with enough strength to prevent
+most things from crossing, hurling them back to the sides.  A slim, muddy
+shore lines the river here.
+~
+A
+1 look~
+shore bank edge 3 muddy slim~
+if( rflag( reset0, room ) ){
+  act_tochar( #clay, ch );
+  end;
+  }
+else{
+  act_tochar( #notclay, ch );
+  end;
+  }
+~
+E
+notclay~
+Erosion wears away at the banks, slowly breaking down the rocks and soil. 
+You notice the revealed earth is comprised of primarily a muddy slurry of
+dirt, sticks, and leaves.
+~
+E
+clay~
+Erosion wears away at the banks, slowly breaking down the rocks and soil. 
+You notice the revealed earth retains an odd gray brown mix that
+seems reflect silvery sparkles like light off of water.  You could
+probably collect some of the clay if you wished to risk the slippery
+footing near the river.
+~
+!
+0 0 0
+A
+get take collect scoop~
+clay~
+if( rflag( reset0, room ) ){
+  act_tochar( #go_shore, ch );
+  act_notchar( #rgo_shore, ch );
+  obj_to_char( oload( 1082 ), ch );
+  remove_rflag( reset0, room );
+  end;
+  }
+else{ 
+  act_tochar( #no_reason, ch );
+  end;
+  }
+~
+E
+no_reason~
+You see no reason to risk life and limb to go down to the river bank and
+play in the mud.
+~
+E
+rgo_shore~
+$n carefully eases $s way down to the edge of the water then begins to do
+something utterly amazing.  $e begins to play in the mud.  How odd.
+~
+E
+go_shore~
+You carefully work your way down the slippery bank, retaining a firm hold
+on a convenient tree root.  Making an extreme effort not to fall into the
+Elhanni you manage to scoop up a significant amount of the clay.
+~
+!
+0 0 0
+2509 9 1509949540 3 0
+2506 9 1509949540 3 0
+-1
+S
+
+#39328
+Cave Entrance~
+A dark tunnel opens up behind a large boulder here, with several smaller
+but still sizeable stones scattered around the opening.  Looking about,
+you notice that the walls here were regular, hewn from the surrounding
+rock and dirt of the hillside and braced with thick timber posts.  The
+tunnel leads back up and outside, and continues downward into the depths
+of the hill.
+~
+[Calliope] add extra boulder stones
+[Calliope] extra for walls timber posts
+acode for leaving up and leaving down?
+~
+301465604 0 5 0
+D4
+~
+~
+1 -1 39354 10 10 5
+D5
+~
+~
+0 -1 39329 10 10 5
+A
+~
+~
+if( find_stat( ch, level ) < 5 ) { 
+  wait( 1 );
+  act_tochar( #peligro, ch );
+  }
+~
+E
+peligro~
+@bYou sense a danger lurking down below beyond your means to face.
+~
+!
+1 -1 16
+-1
+S
+
+#39329
+Entrance Chamber~
+Crude wooden braces help support the dark earthen roof of a large chamber. 
+Wide tunnels have been burrowed through the earth in four directions,
+their floors relatively level to this one.  A series of large stones
+forms a crude, and rather unstable looking, mound that could be used to
+climb upwards towards a much narrower tunnel set in the chamber's angled
+ceiling.
+~
+-done (T)
+[Calliope] acode for leaving up?
+~
+301596676 0 6 0
+D0
+~
+~
+0 -1 39344 10 10 5
+D1
+~
+~
+0 -1 39334 10 10 5
+D2
+~
+~
+0 -1 39330 10 10 5
+D3
+~
+~
+0 -1 39331 10 10 5
+D4
+~
+~
+0 -1 39328 10 10 5
+E
+1 north 1 south 1 west 1 east~
+The wide tunnel has a more or less level floor, although uneven
+depressions in the ground and walls indicate it was cut more by force
+than skill.  The dark soil of the packed earth quickly recedes into the
+darker recess of shadow and anything beyond is concealed from sight.
+~
+E
+rocks stones mound~
+The crude mound of rocks is formed of large, mostly flat, rocks and
+boulders.  The heap seems largely unstable, but with a little caution it
+would make a passable set of stairs.  Considering the placement directly
+under the narrow opening in the ceiling, it is quite likely that that is
+indeed its intended purpose.
+~
+E
+1 up ceiling~
+The dark soil of the packed earth overhead rests at an angle, as if
+whoever dug the rather large burrow was trying to approximate some sort
+of arch or dome.  A narrow rift provides access to a tunnel that looks to
+lead further up, perhaps to the surface.  A slight breeze of fresh air
+wafting down from the ceiling lends further credence to the possibility.
+~
+857 9 1509949540 3 0
+857 9 1509949540 3 0
+78 17 1509949515 -2 0
+78 17 1509949465 -2 0
+-1
+S
+
+#39330
+Ancient Tunnel~
+The dark soil of the earth, crumbling in places, forms the walls of this
+tunnel as it procedes north and south.  Crude wooden braces help to
+reinforce the tunnels structure and appear to be the only thing
+preventing an imminent cave-in in some places.  Rusty sconces are
+sporadically mounted to the support braces, although none of them hold
+torches now, and a few even hang at odd angles where bolts have
+completely rusted through.
+~
+-done (T)
+~
+301596676 0 5 0
+D0
+~
+~
+0 -1 39329 10 10 5
+D2
+~
+~
+0 -1 39332 10 10 5
+E
+soil walls 1 west 1 east~
+The soil of the walls is hard packed from centuries of weight pressing
+down on it.  It is the dark loamy color of good soil.
+~
+E
+support braces~
+The wood, often mildewed and starting to show signs of wood rot, still
+provides adequate support for the tunnel.  A few even have rusty metal
+sconces bolted loosely to them.
+~
+E
+sconces~
+Simple metal brackets meant to hold torches, if the sconces were all in
+use, the tunnels would be well lit with torches lining the walls on
+opposing sides, every other brace.  Heavy layers of rust coat the metal
+of the brackets now and a few hang loosely from only one or two rusty
+bolts, where the other bolts having disintegrated completely.
+~
+E
+1 north 1 south~
+The tunnel is dark ahead.
+~
+78 17 1509949450 -2 0
+-1
+S
+
+#39331
+Tunnel Cave-in~
+The wide tunnel curves sharply as the miners long ago avoided a
+particularly sturdy boulder that forms the western wall.  Shallow
+depressions in the boulder are left where someone long ago gave up the
+attempt to dig through it and turned the trail aside so that it now bends
+north and east.  Wide support beams form rough arches where they support
+the curving passageway.
+~
+-done (T)
+~
+301596676 0 5 0
+D0
+~
+~
+0 -1 39389 10 10 5
+D1
+~
+~
+0 -1 39329 10 10 5
+E
+1 east 1 north~
+The passageway curves ahead into darkness.
+~
+E
+1 south~
+The earthen wall is the dark color of loamy soil, but the rock is much
+harder.
+~
+E
+1 west~
+The giant boulder is a light tan color much different from the dark rock
+that forms most of the cave.  Ancient attempts to tunnel through it show
+now as only shallow, well-rounded depressions in the boulder's surface.
+~
+E
+support beams braces~
+The support braces are evenly spaced and, though slightly bulging under
+the weight of the ceiling, are still solidly in place.  Rusty brackets
+meant for torches alternate on oposite sides of the hall.
+~
+78 17 1509949445 -2 0
+78 17 1509949445 -2 0
+-1
+S
+
+#39332
+Guard Room~
+Four wide tunnels join together to form a comparatively large cave. 
+Thick support braces form the corners of the more or less squared off
+room, though the southeast brace is nearly buried in dirt where it gave
+out and a corner of the ceiling collapsed.  A cracked and battered table
+rests upended in another corner, altogether missing a leg.  The rest of
+the room is littered with wooden debris, the remains of chairs and
+benches that were smashed beyond use.
+~
+-done (T)
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39330 10 10 5
+D1
+~
+~
+0 -1 39342 10 10 5
+D2
+~
+~
+0 -1 39339 10 10 5
+D3
+~
+~
+0 -1 39333 10 10 5
+E
+1 north 1 west 1 south 1 east~
+The wide tunnels extend away into darkness.
+~
+E
+southeast se~
+From what remains of the torn wooden support at its top, it looks as if
+it rotted and simply gave way under the strain of the earth it supported
+in a shower of rock and soil.  Fortunately, the remaining three primary
+support beams, and all the lesser ones, seem to be holding the rest up
+quite well for now.
+~
+E
+table~
+The table is a piece of sturdy work, meant to last in the none-too-gentle
+environment of a mining cave.  Wide cracks run through it and one corner
+has been sheered away with what looks like...  bite marks?
+~
+E
+benches chairs wood debris~
+The benches and chairs that would have provided surcease for the weary
+miner have been forcibly destroyed.  Thick splinters, dark with age, form
+jagged edges where wood was shorn from wood by brute force.  None of it
+looks useful.
+~
+A
+dig clear~
+dirt cave-in southeast se~
+act_tochar( #dig, ch );
+act_notchar( #rdig, ch );
+~
+E
+dig~
+You dig through the dirt of the collapsed corner for a short time but
+find nothing of interest.
+~
+E
+rdig~
+$n digs through the dirt of the southeast corner for some timmes but
+seems to find nothing of interest.
+~
+!
+0 0 0
+857 9 1509949540 3 0
+697 9 1509949540 3 0
+697 9 1509949540 3 0
+-1
+S
+
+#39333
+Tunnel~
+Thick wooden braces reinforce the dark, packed earth of the wide tunnel
+as it procedes east and west.  Ancient, metal sconces are embedded in the
+support beams, devoid of torches, but rife with rust and damage.  The
+complete absence of any cobwebs is a good indication that this must be an
+often-used tunnel.
+~
+-done (T)
+[Calliope] extra east.. first sentence of that extra needs to be redone.
+[Calliope] same extra needs to be renamed I think.
+~
+301596676 0 9 0
+D1
+~
+~
+0 -1 39332 10 10 5
+D3
+~
+~
+0 -1 39335 10 10 5
+E
+east~
+The old and worm support seem sturdy despite a mild bit of woodrot
+setting in.  Overhead they sag slightly with age and time.
+~
+E
+1 north 1 south~
+You see the dark rock of the earth.
+~
+E
+1 west 1 east~
+The tunnel continues on into darkness.
+~
+E
+1 west~
+The gentle glow of a banked fire depicts the haze of a smoke-filled
+chamber ahead.
+~
+698 9 1509949540 3 0
+-1
+S
+
+#39334
+Sleeping Quarters~
+The earthen tunnel terminates abruptly at an immense boulder that blocks
+the east.  A widening of the tunnel at the boulder show failed attempts
+to dig around it, and the rusting remains of crude digging implements in
+the corner speak of a failed attempt to dig through it.  A rather pungent
+stink wafts from a tattered pile of ratty cloth and leaves that appears
+to be some sort large nest or bedding.
+~
+-done (T)
+[Rhen] where do the bedrolls come from in the extras
+[Rhen] maybe an acode where someone steps on one of the old tools
+damageing them or their boots 
+[Calliope] remove extra for bedroll.. the one for bedding covers it all.;)
+~
+301596676 0 6 0
+D3
+~
+~
+0 -1 39329 10 10 5
+E
+bedrolls~
+The bedrolls are disgusting, made out of ratty pieces of cloth that stink
+to no end.
+~
+E
+1 west~
+The wide earthen tunnel seems to be the only escape from this cull-de-sac.
+~
+E
+1 east boulder~
+It looks to be a rather large rock.  Shallow scratches mark the futile
+attempts someone made to dig through it.
+~
+E
+implements corners digging~
+The shattered, rusted remains of crude picks lay among the splintered
+remains of wooden hafts.  Clearly someone attempted to dig their way both
+through and around the boulder before simply giving up.
+~
+E
+bedding nest pile cloth leaves~
+The cloth and leaves seem to be the remains of last years leavings.  Its
+size aside, large enough for two or three tall humans to bed down in, it
+looks like the work of an overeager rat.  Bits of rotting meat nestled
+among the filthy debris does little to improve the bedding's already foul
+scent.
+~
+697 9 1509949540 3 0
+-1
+S
+
+#39335
+Ancient Guard Post~
+You are in a cave that flares wide to create a room of sorts, with
+squared corners.  Two large firepits form the focal points of the room
+choking the air with fetid smoke and grime.  The smoke filling the room
+and utter stillness indicate an extreme lack of proper ventilation.  Dark
+tunnels, difficult to see through the dusky smoke, extend away in three
+directions.
+~
+-done (T)
+[Calliope] add extra for firepits smoek fire
+~
+301596677 0 9 0
+D1
+~
+~
+0 -1 39333 10 10 5
+D2
+~
+~
+0 -1 39343 10 10 5
+D3
+~
+~
+0 -1 39340 10 10 5
+E
+1 west 1 south 1 east~
+The tunnels, difficult to see through the fetid smoke, leads away into
+darkness.
+~
+E
+1 north~
+You see the hard-packed earth of a solid wall.
+~
+857 9 1509949540 3 0
+698 9 1509949540 3 0
+697 9 100 3 0
+698 9 100 3 0
+3198 17 1509949540 -2 0
+3198 17 1509949540 -2 0
+-1
+S
+
+#39336
+Ancient Tunnel~
+Three wide tunnels form a T-intersection where a tunnel from the south
+dead-ends into an east-west running tunnel.  The intersection is
+reinforced by several stout wooden beams that brace the arched ceiling in
+place, greatly decreasing the chance of a cave-in.  Brackets, thick with
+rust, are bolted to the support beams and probably once held torches for
+the miners who once worked these now-dark tunnels.
+~
+-done (T)
+~
+301596676 0 9 0
+D1
+~
+~
+0 -1 39386 10 10 5
+D2
+~
+~
+0 -1 39340 10 10 5
+D3
+~
+~
+0 -1 39385 10 10 5
+E
+sconces torches~
+The wall sconces have not been used in ages.  They are covered in rust
+and a generous layer of dust.
+~
+E
+1 north~
+The dark earth of the rock wall is a solid barrier.
+~
+E
+1 west 1 east 1 south~
+The wide tunnel extends away into darkness.
+~
+E
+brackets sconces~
+The brackets are thick with rust and many have bars or bolts that are
+rusted completely through, leaving them hanging by only a margin.  Though
+they may have once housed torches enough to light the halls they are
+quite empty now.
+~
+697 9 1509949540 3 0
+-1
+S
+
+#39337
+Ancient Guard Post~
+This juncture of tunnels was widened significantly and seems to serve as
+a large room of sorts.  The smashed remains of a chair and what looks
+like a table are scattered haphazardly about the floor.  In place of the
+ravaged furniture, several large rocks have been arranged to serve as
+seats.  A few ratty scraps of cloth and bedroll in one corner seems to
+serve as some sort of bedding where the cave's occupant can catch some
+sleep in an off moment.
+~
+-done (T)
+[Rhen] acode - have some small flea like insects jump on the passerby
+~
+301596676 0 6 0
+D0
+~
+~
+0 -1 39341 10 10 5
+D2
+~
+~
+0 -1 39385 10 10 5
+D3
+~
+~
+0 -1 39338 10 10 5
+E
+furs ratty~
+The furs are revolting, full of grime and giving off a foul odor.
+~
+E
+wood bits smashed~
+The bits of wood were apparently once furniture; now, they are garbage,
+or firewood, or both.
+~
+E
+1 north 1 south~
+The tunnel extends away into darkness.
+~
+E
+1 east~
+The solidness of the dark wall is indisputable as it blocks your vision
+and your path to the east.
+~
+E
+chair table debris remains smashed~
+The wooden debris was forcibly destroyed in some act of brutality.  Dark
+stains, blood perhaps, mar much of the wood's now dulled finish.  Sharp
+splinters of wood stick out from every shattered joint further adding to
+the display of brute force.  Nothing useful remains in the debris.
+~
+E
+ratty scraps cloth bedroll bedding~
+The bedding is formed of ratty scraps of torn cloth and a rather chewed
+looking bedroll.  Clumps of smelly fur, perhaps rabbit or squirrel, hair
+and straw help to add to the mound of bedding as well.  It doesn't look
+as if it holds anything of interest excepting, perhaps, fleas if you were
+seeking some.
+~
+E
+1 west~
+The gentle red glow of firelight flickers along the walls.  In the glow
+you can make out cave holding a table and chairs set near a small blazing
+fire.
+~
+857 9 1509949540 3 0
+698 9 1509949540 3 0
+697 9 100 3 0
+3199 17 1509949540 -2 0
+3199 17 1509949540 -2 0
+3199 17 1509949540 -2 0
+-1
+S
+
+#39338
+Guard Quarters~
+A square stone table dominates the room as its centerpiece with two crude
+chairs arranged around it.  A small firepit has been dug on the western
+side of the room and its smoke rises neatly up through a narrow hole that
+must be some sort of ventilation shaft.  The scent of charred, burned
+meat permeates the room and everything in it so thoroughly that it is
+unavoidable.  Dark tunnels extend away to the north and east.
+~
+-done (T)
+[Rhen] desc line 2 - rises through "a" narrow hole that "must"
+~
+301596677 0 6 0
+D0
+door~
+door~
+0 1048 39347 10 10 5
+D1
+~
+~
+0 -1 39337 10 10 5
+E
+table square~
+The table is covered in grease and grime.  Evidently the hobgoblins are
+not sticklers for cleanliness.
+~
+E
+firepit ~
+The firepit is full of hot coals, none of which you feel the desire to
+touch.
+~
+E
+1 east~
+The wide tunnel quickly disapears into the darkness.
+~
+E
+1 north~
+The wide tunnel, wider than most as it easily encompasses a width of
+about six feet, quickly fades to dark.
+~
+E
+1 south~
+The dark earth of the cavern wall looks quite solid.
+~
+E
+1 western~
+The firepit rests before the dark earth of the solid western wall.
+~
+E
+1 up vent hole~
+The hole is a mere two inches across and slants sharply left almost
+immediately, though a steady stream of smoke curls upward showing it is,
+indeed, a clear ventilation shaft.
+~
+A
+~
+~
+act_room( #fire, ch );
+~
+E
+fire~
+@b@RThe fire along the western wall flickers for a moment.
+~
+!
+2 50 0
+697 9 1509949540 3 0
+697 9 50 3 0
+3198 17 1509949540 -2 0
+3200 17 1509949540 -2 0
+1754 17 1509949540 -2 0
+1754 17 1509949540 -2 0
+-1
+S
+
+#39339
+Cistern~
+A stone fountain dominates the southern portion of this tunnel as it
+widens into a small room.  Several support beams insure that a cave-in
+will not occur, cutting off this spring-fed water supply.  Several
+planks of wood are nailed across the supports just over the fountain to
+keep the stray clod of dirt and rock from falling into the cool, clear
+water.  Though the walls of the cave are nothing more than dirt, it looks
+as if the dirt has been packed tight to prevent it from crumbling.  The
+only appearant means of exit seems to be the wide tunnel leading
+northward away from the fountain.
+~
+-done (T)
+[Calliope] extra for 1 east 1 west isn't a complete sentence.
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39332 10 10 5
+E
+1 north~
+The wide tunnel quickly disappears into the darkness.
+~
+E
+1 east 1 west~
+Earthen walls of dark, loamy soil packed hard under the weight above it.
+~
+E
+1 south fountain~
+The fountain, though grime-covered around its sides and base, contains
+clean, cool water within.  A hole in its base look like a drain but none
+of the water seems to be draining out.  A careful examination shows that
+the fountain is actually an artesian well, meaning the water supply here
+is guaranteed for some time so long as the river that feeds it doesn't
+dry up.
+~
+E
+support braces~
+There are more braces here than you have typically seen in the tunnels. 
+Someone obviously wanted to take extra care that this room didn't cave
+inward.  Even though some of the braces begin to show signs of woodrot
+and mildew, more than enough remain solidly intact.
+~
+E
+1 up planks~
+The planks are solidly nailed to the supports and provide a good
+dirt-shield for the fountain.  Pulling them down would quite possibly
+pull down the braces as well and probably kill you in the ensuing cave in.
+~
+A
+pull get take~
+planks support braces~
+act_tochar( #no, ch );
+~
+E
+no~
+The cave in would kill you and death traps are prohibited so...  go find
+a more conventional way to get killed please.
+~
+!
+0 0 0
+1044 17 1509949540 -2 0
+697 9 1509949540 3 0
+5 17 1509949465 -2 0
+5 17 1509949490 -2 0
+23 17 1509949445 -2 0
+859 9 100 3 0
+-1
+S
+
+#39340
+Side Room~
+The normally wide tunnel flares wider yet to form a room of sorts here. 
+Extra support beams reinforce the widened cave once providing a
+relatively safe place for weary miners to rest between shifts.  A dozen
+grubby bedrolls and countless scraps of rotting food are scattered about
+the chamber producing a foul odor.  Three tunnels, each roughly five feet
+across and seven feet tall, offer a means of escape from the stench of
+the room.
+~
+-done (T)
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39336 10 10 5
+D1
+~
+~
+0 -1 39335 10 10 5
+D2
+~
+~
+0 -1 39346 10 10 5
+E
+1 west~
+The cavern wall arcs outward providing resting space outside the path of
+entrance and egress offered by the three adjoining tunnels.  Most of the
+filthy-looking bedrolls are stashed amidst little heaps of debris along
+this wall.
+~
+E
+1 north 1 south~
+The wide tunnel quickly fades into the darkness.
+~
+E
+support beams~
+There are more support beams here than usually found in the tunnels,
+lending the room an added air of stability, even if a few are beginning
+to buckle under the immense weight.
+~
+E
+grubby bedrolls~
+The bedrolls look to be the tattered remains of the original compliment
+alloted to miners, whowever time and hard use has taken its toll on them. 
+Whoever is using them now has added a profussion of ragged scraps of
+cloth and fur to the remains to increase their effectiveness.  What
+remains of the bedrolls leave an impression of squalid filth, each coated
+in bat guano as well as fouler-smelling, brown smears that nearly conceal
+the original grey-blue color.
+~
+E
+1 east~
+The gentle glow of a banked fire depicts the haze of a smoke-filled
+chamber ahead.
+~
+A
+search examine~
+bedrolls bedding rags~
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+~
+E
+search~
+You quickly search the bedrolls for anything of use but find nothing.
+~
+E
+rsearch~
+$n quickly searches the bedrolls for anything of use, but appears to come
+up empty-handed.
+~
+!
+0 0 0
+859 9 1509949540 3 0
+860 9 1509949540 3 0
+860 9 1509949490 3 0
+78 17 1509949450 -2 0
+35 17 1509949450 -2 0
+406 17 1509949445 -2 0
+1014 17 1509949442 -2 0
+859 9 1509949540 3 0
+-1
+S
+
+#39341
+Tunnels~
+What was once a rather large chamber has become little more than a narrow
+passage where two tunnels meet.  Great chunks of rubble and splintered
+support beams make it difficult to squeeze through the west-south running
+turn where once both would have met at a larger chamber.  Whatever its
+former purpose, it is now lost to time under tons of heavy stone.
+~
+-done (T)
+[Rhen] desc - line 1 - a narrow passage where two tunnels meet.
+[Rhen] acode - hmm have one of the beams fall and hurt some people
+~
+301596676 0 5 0
+D2
+~
+~
+0 -1 39337 10 10 5
+D3
+~
+~
+0 -1 39347 10 10 5
+E
+supports beams~
+The thick wooden supports seem to sag a bit here, but have remained
+standing despite their advanced age.
+~
+E
+chunks earth~
+A mixture of loose, dark earth, bare rock and splintered wood, the debris
+scattered about the area has not been here for very long.  While the wood
+is of advanced age, you notice bits of cloth and decayed flesh pinned
+underneath a large stone.
+~
+E
+flesh decayed cloth~
+You spy what appears to be the decayed arm of a hobgoblin, pinned
+underneath tons of rock.  It appears that hobgoblins do not bury their
+dead, save for where they might fall.
+~
+E
+1 west 1 south~
+The tunnels widen as you move away from the cave-in but quickly disapear
+in the darkness beyond.
+~
+E
+1 north 1 east~
+Whatever once existed in that direction is now thoroughly burried under
+tons of rock and rubble.
+~
+E
+support braces beams timber~
+There are none.  Perhaps this isn't such a safe place to be.
+~
+E
+debris rubble rocks cave-in~
+The heavy ceiling overcame the strength of the supports and they
+shattered under the weight of the collapsing ceiling.
+~
+A
+~
+~
+room = find_Room( 39341 );
+i = random( 1, 20 );
+if( players_room( room ) > 1 ) {
+  wait( i );
+  act_room( #groan, ch );
+  }
+~
+E
+groan~
+@R@bOne of the wooden supports groans ominously for a moment, then the
+area is silent once more.
+~
+!
+2 25 0
+78 17 1509949445 -2 0
+698 9 1509949540 3 0
+-1
+S
+
+#39342
+Old Supply Room~
+The earthen walls of the tunnel have a smooth, worked look to them, as if
+someone went to an effort to pack the earth of the tunnel walls even
+more tightly.  Short of adding a wooden or stone wall, the earthen perimeter
+forms as good a room as you're likely to find in these tunnels.  Several
+mounds of rags and odd bits of cloth, apparently used for sleeping, have
+been arranged throughout this room.
+~
+-done (T)
+~
+301596676 0 6 0
+D3
+~
+~
+0 -1 39332 10 10 5
+E
+1 north 1 east 1 south~
+The walls are smooth and tightly packed, as if someone went to effort to
+compress the already compressed earth.  Whoever dug out this tunnel meant
+it to last for a while.  Perhaps it was some sort of store room or
+sleeping chamber.
+~
+E
+1 west~
+A dark tunnel is the only normal means of egress from this cave.
+~
+E
+mounds~
+The mounds of cloth are scattered profusely about the room, each with a
+depression in the center as if someone, or something, had been bedding
+down in it.  As you observe the mounds, you see most are infested with
+crawling insects and vermin.
+~
+A
+search examine~
+bedding rags nests~
+act_tochar( #fleas, ch );
+act_notchar( #rsearch, ch );
+~
+E
+fleas~
+You find a half eaten rat and manage to aquire quite a few fleas.
+~
+E
+rsearch~
+$n searches the bedding, then gets up itching $mself furiously.  Looks as
+if $e managed to find fleas if nothing else.
+~
+!
+0 0 0
+697 9 1509949540 3 0
+860 9 1509949540 3 0
+859 9 1509949540 3 0
+872 17 1509949450 -2 0
+-1
+S
+
+#39343
+Sleeping Chamber~
+Thick wooden support beams sag under the great weight of the stone
+overhead, giving the room an opressive feeling of impending devastation. 
+The walls of the cave show signs of fresh digging where small hollows
+near the floor are littered with scraps of cloth and fur, like some sort
+of bedding.  The heavy scent of rotting meat wafts from one of the heaps
+of bedding large enough to serve for an ogre.
+~
+-done (T)
+[Rhen] ahh definitly have the beams collapse here!!
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39335 10 10 5
+D3
+~
+~
+0 -1 39346 10 10 5
+E
+1 north 1 west~
+A wide tunnel extends away into darkness.
+~
+E
+1 east 1 south~
+The dark earthen walls show signs of recent excavation near the base
+wherein bedding of cloth and fur has been layed out.
+~
+E
+support beams wooden thick~
+The thick wooden support beams look old and worn as they sag wearily
+under the tremendous weight of the stone above.  One of the beams is
+clearly cracked and looks ready to fall at any minute.
+~
+E
+bedding~
+The bedding in the rough-hewn alcoves is made from mostly bits of ragged
+cloth and fur.  The piles are thick with accumulated dirt, though most
+appear free of rocks or other sharp objects that would impinge on sleep. 
+The sickly-sweet scent of rotting meet exudes from one of the piles.
+~
+A
+search examine~
+bedding scraps rags~
+act_tochar( #oogie, ch );
+act_notchar( #rsearch, ch );
+~
+E
+oogie~
+You quickly search the tattered bedding for anything of note.  Most
+contain nothing more than an abundant colony of insects but one, the one
+that smells of rotting meat, contains the rotting remains of a small
+rabbit; now furless and crawling with maggots.
+~
+E
+rsearch~
+$n quickly searches through the piles of bedding for anything of interest.
+~
+!
+0 0 0
+A
+look examine search~
+rabbit~
+act_tochar( #yuck, ch );
+act_notchar( #rsearch, ch );
+~
+E
+yuck~
+Perhaps the rabbit was once someone's pet as it shows no signs of having
+been skinned or gnawed on.  Unfortunately for the rabbit, it has long
+since passed on.  The skin hangs like a taught drape exposing the ridges
+of the ribs and many other bones easily.  All the hair seems to have
+fallen out, as a thick pile of short white and gray fur rests under the
+emaciated carcass.  The rabbit is obviously the source of the stench as
+its pallid flesh crawls with the busy shape of maggots within.
+~
+E
+rsearch~
+$n pulls a sickly-looking rabbit's corpse from the bedding, prods it a
+few times and drops it back amidst the debris.
+~
+!
+0 0 0
+697 9 1509949540 3 0
+697 9 1509949540 3 0
+-1
+S
+
+#39344
+Abandoned Chamber~
+The wide earthen tunnel narrows and stops abruptly for no apparent reason. 
+Fresh, loose dirt lays crumbled at the base of the narrowest area as if
+digging had only stopped recently.  The only obvious means of exit seems
+to be the wide tunnel leading south.
+~
+-done (T)?
+[Calliope] extra 3 isn't finished.
+~
+301596676 0 5 0
+D2
+~
+~
+0 -1 39329 10 10 5
+E
+tunnel~
+It looks like a crude hole burrowed through the earth, measuring roughly
+seven feet wide and five feet wide.
+~
+E
+fresh loose dirt 1 north~
+The tunnel ends in a deadend, the wall rough as though someone was
+attempting to extend the northern passage but stopped.  The loose dirt on
+the ground is a fresh, loamy dark brown.
+~
+E
+1 south~
+No description.
+~
+2745 17 1509949455 -2 0
+-1
+S
+
+#39346
+Tunnel~
+This looks to be little more than one of the various mining tunnels that
+were once the very reason for the existence of this network of tunnels
+and caves.  A strange dark-veined rock mingles with another dark rock
+that glitters when light hits it right in a rough slash through the
+strata.  Thick wooden support beams are evenly spaced along the tunnel
+with rusted brackets bolted to them meant to hold torches.
+~
+-done (T)
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39340 10 10 5
+D1
+~
+~
+0 -1 39343 10 10 5
+E
+1 north 1 east~
+The wide tunnels disapear into darkness.
+~
+E
+1 west 1 south~
+The hard rock of the tunnel wall shows evidence of long ago being worked
+for minerals, though time has worn smooth the rough edges of the work
+showing it has lain untouched for years.
+~
+E
+dark-veined rock glitter~
+The two veins of rock look to be a crude sort of iron and perhaps a
+narrower, nearly non-existent vein of hematite.  Perhaps if you had some
+mining tools you could even pick up where the long-gone miners left off.
+~
+E
+support braces thick wooden~
+The thick wooden support braces, many beginning to show signs of rot from
+lack of care, still look strong enough to fulfill their duty of holding
+up the walls and ceiling for a bit longer.
+~
+A
+mine~
+hematite~
+if( rflag( reset1, room ) ) {
+  if( has_obj( 1632, ch ) || has_obj( 2589, ch ) ) {
+    act_tochar( #mining, ch );
+    act_notchar( #rmining, ch );
+    wait( 1 );
+    if( rflag( reset0, room ) ) {
+      act_tochar( #got_some, ch );
+      act_notchar( #rgot_some, ch );
+      obj_to_char( oload( 2745 ), ch );
+      if( random( 1, 4 ) > 1 )
+        remove_rflag( reset1, room );
+      }
+    else {
+      act_tochar( #no_luck, ch );
+      act_notchar( #rno_luck, ch );
+      }
+    }
+  else
+    act_tochar( #need_pickaxe, ch );
+  }
+else {
+  act_tochar( #no_luck, ch );
+  act_notchar( #rno_luck, ch );
+  }
+~
+E
+mining~
+You use your pickaxe to try and mine some of the hematite from the wall.
+~
+E
+rmining~
+$n starts hammering away at the tunnel wall with a pickaxe.
+~
+E
+got_some~
+You manage to get a few sizable chunks of hematite from the wall.
+~
+E
+rgot_some~
+$n seems satisfied with $s work, dusts $s hands off and picks up a few
+shiney stones from the floor.
+~
+E
+no_luck~
+After several minutes of hewing at the wall with your pickaxe you need to
+stop for a break.  Unfortunately you still haven't pulled out any sizable
+chunks of hematite.
+~
+E
+rno_luck~
+After several minutes of hewing at the wall with a pickaxe, $n has to
+take a break.
+~
+E
+need_pickaxe~
+Perhaps you would succeed better at mining if you had a pickaxe or
+something?
+~
+!
+0 0 0
+A
+mine~
+iron rock stone~
+if( rflag( reset0, room ) ) {
+  if( has_obj( 1632, ch ) || has_obj( 2589, ch ) ) {
+    act_tochar( #mining, ch );
+    obj_to_room( oload( 14 ), find_room( 85 ) );
+    act_notchar( #rmining, ch );
+    remove_rflag( reset0, room );
+    wait( 1 );
+    if( random( 1, 10 ) == 1 ) {
+      act_tochar( #got_some, ch );
+      act_notchar( #rgot_some, ch );
+      obj_to_char( oload( 639 ), ch );
+      }
+    else {
+      act_tochar( #no_luck, ch );
+      act_notchar( #rno_luck, ch );
+      }
+    }
+  else
+    act_tochar( #need_pickaxe, ch );
+  }
+else {
+  act_tochar( #no_luck, ch );
+  act_notchar( #no_luck, ch );
+  }
+~
+E
+mining~
+You use your pickaxe to try and mine some iron from the vein in the wall.
+~
+E
+rmining~
+$n starts hammering away at the tunnel wall with a pickaxe.
+~
+E
+got_some~
+After some hard work a chunk of solid iron falls clear of the wall and
+you pick it up from the floor.
+~
+E
+rgot_some~
+$n finally works loose a fair-sized chunk of the dark ore and stops
+mining to pick it up.
+~
+E
+no_luck~
+After several minutes of hewing at the wall with your pickaxe you need to
+stop for a break.  Unfortunately you still haven't managed to get an
+sizable chunks of iron from the wall.
+~
+E
+rno_luck~
+After several minutes of hewing at the wall with a pickaxe, $n has to
+take a break.
+~
+E
+need_pickaxe~
+Perhaps you would succeed better at mining if you had a pickaxe or
+something?
+~
+!
+0 0 0
+2745 17 1509949480 -2 0
+2745 17 1509949460 -2 0
+-1
+S
+
+#39347
+Lavish Chamber~
+You are in a rather large chamber, quite probably the most opulent among
+the caves considering the bare emptiness of the tunnels and the squalid
+conditions of other chambers.  Several bedrolls, cushions and tattered
+animal skins have been piled up against the northwestern corner
+fashioning a crude bed-mound.  Several large, flat rocks lie positioned
+about the room in strategic places to serve as crude chairs and tables as
+the need arises.
+~
+-done (T)
+~
+301596676 0 7 0
+D1
+~
+~
+0 -1 39341 10 10 5
+D2
+~
+~
+0 -1 39338 10 10 5
+E
+rocks tables chairs~
+Roughly-carved and extremely crude, the furniture lies in disarray,
+scattered about the room.
+~
+E
+1 east~
+A wide tunnel seems to narrow suddenly, but you can not be certain in the
+darkness at its edge.
+~
+E
+1 south~
+The wide tunnel is lit by the warm, flickering glow of firelight that
+reveals a cave filled with a table and chairs ahaed.
+~
+E
+1 north 1 west~
+The dark stone of the wall is rounded outward to increase the chamber's
+size as much as possible.  There is no appearant exit in this direction.
+~
+E
+northeast ne bedrolls bed-mound cushions tattered animal skins~
+The bed-mound is formed from the plushest bedrolls and cushions as well
+as several worthless, but nearly whole animal skins to be found down here. 
+Granted, by common standards the bed-mound is still a pile of trash and
+squalor, but by the standards of these meager caves this is a throne-room
+of opulence.
+~
+A
+3 inspect~
+large wooden chest closed~
+if( rflag( reset0, room ) )
+  if( find_skill( ch, inspect ) > random( 3, 11 ) )
+  act_tochar( #trap, ch );
+else
+  continue;
+else
+  continue;
+~
+E
+notrap~
+It's a chest, all right.
+~
+E
+trap~
+Carefully examining the lock on the chest, you notice a carefully
+concealed needle attached to it.  
+~
+!
+0 0 0
+A
+disarm untrap~
+closed trap wooden needle chest large~
+i = random( 5, 10 );
+if( find_skill( ch, untrap ) > random( 2, 11 ) ) { 
+  remove_rflag( reset0, room );
+  act_tochar( #success, ch );
+  }
+else { 
+  act_tochar( #failure, ch );
+  dam_message( ch, i, "the tiny needle" );
+  inflict( ch, mob, i, "the trap" );
+  poison( ch );
+  }
+~
+E
+failure~
+You inadvertently prick your finger on a tiny needle, concealed within
+the lock mechanism!
+~
+E
+success~
+Carefully manipulating the internal workings of the lock, you manage to
+bend the needle out of the way, making it safe to try and pick.
+~
+!
+0 0 0
+A
+pick unlock~
+closed trap wooden needle chest large~
+i = random( 5, 10 );
+if( rflag( reset0, room ) ) { 
+  act_tochar( #ouch, ch );
+  dam_message( ch, i, "the tiny needle" );
+  inflict( ch, mob, i, "a trap" );
+  poison( ch );
+  }
+else
+  continue;
+~
+E
+ouch~
+You inadvertently prick your finger on a tiny needle, concealed within
+the lock mechanism!
+~
+!
+0 0 0
+A
+search examine~
+bed-mound bedroll bedding animal skins ne northeast~
+if( !mob_in_room( 858, room ) ) {
+  act_tochar( #searching, ch );
+  act_notchar( #rsearching, ch );
+  if( rflag( reset1, room ) ) {
+    act_tochar( #found, ch );
+    act_notchar( #rfound, ch );
+    if( random( 1, 4 ) == 1 )
+      obj_to_char( oload( 41 ), ch );
+    else
+      obj_to_char( oload( 40 ), ch );
+    if( random( 1, 10 ) > 1 )
+      remove_rflag( reset1, room );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+searching~
+You carefully search the bed-mound for anything of value.
+~
+E
+rsearching~
+$n carefully searches the bed-mound for anything of interest.
+~
+E
+found~
+You manage to find an animal skin in good enough condition it might
+actually be worth something.
+~
+E
+rfound~
+$n gathers something up from the tattered remains.
+~
+E
+fail~
+You don't manage to find anything worth keeping.
+~
+E
+rfail~
+$n gives up $s search empty-handed.
+~
+E
+no~
+You can't do that with the owner staring nearly straight at it.
+~
+!
+0 0 0
+1049 49 1509949540 -2 0
+12 81 1509949515 -2 0
+116 81 1509949475 -2 0
+1039 81 1509949490 -2 0
+1043 81 1509949475 -2 0
+12 81 1509949540 -2 0
+14 81 1509949530 -2 0
+941 81 1509949447 -2 0
+953 81 1509949447 -2 0
+973 81 1509949465 -2 0
+1039 81 1509949515 -2 0
+2181 81 1509949455 -2 0
+969 81 1509949475 -2 0
+858 9 100 3 0
+862 9 100 3 0
+697 9 50 3 0
+984 81 1509949450 -2 0
+1095 81 1509949455 -2 0
+1053 81 1509949455 -2 0
+416 81 1509949450 -2 0
+1130 81 1509949450 -2 0
+1232 81 1509949445 -2 0
+3205 81 1509949465 -2 0
+1054 81 1509949540 -2 0
+3199 17 1509949540 -2 0
+3199 17 1509949540 -2 0
+3199 17 1509949540 -2 0
+3199 17 1509949540 -2 0
+-1
+S
+
+#39348
+A Low Rise in the Hills~
+You stand on a low rise in the hills west of the Rua Valley.  To the
+north, a large hemlock bush grows at the edge of the grassy clearing in
+which you stand.
+~
+r/w
+no mob
+~
+301465612 4 9 0
+D0
+hemlock bush~
+hemlock bush north~
+168 -1 37045 10 10 5
+D2
+~
+~
+0 -1 39349 10 10 5
+D3
+~
+~
+0 -1 39351 10 10 5
+E
+1 north 3 hemlock~
+A large hemlock grows off to the north; on the other side you think you
+see the Greened Way snake its way by.
+~
+A
+push part move~
+bushes hemlock north~
+if( is_open( room, north ) ) {
+act_tochar( #move, ch );
+act_notchar( #rmove, ch );
+close( room, north );
+}
+else {
+act_notchar( #rmove2, ch );
+act_tochar( #move2, ch );
+open( room, north );
+}
+~
+E
+move~
+You move the hemlock bush aside, covering the way north.
+~
+E
+rmove~
+$n moves a hemlock bush aside, covering the way north.
+~
+E
+rmove2~
+$n moves a hemlock bush aside, revealing the way north.
+~
+E
+move2~
+You move the hemlock bush aside, revealing a way north.
+~
+!
+0 0 0
+122 9 1509949540 3 0
+1 17 1509949540 -2 22
+-1
+S
+
+#39349
+Rocky Area~
+Several large boulders and strands of dense bushes are scattered about the
+area here.  To the west, the ground rises, leading to the crest of a
+grassy hilltop.  Looking east, the ground falls away quite quickly, and
+you can look down on the Greened Way below you in that direction.
+~
+rewrite
+~
+301465612 4 9 0
+D0
+~
+~
+0 -1 39348 10 10 5
+D2
+~
+~
+0 -1 39350 10 10 5
+D3
+~
+~
+0 -1 39352 10 10 5
+E
+bushes~
+The bushes grow in thick clumps near one another, and as you move they
+pull and tug at your clothing, slowing you down.
+~
+-1
+S
+
+#39350
+Narrow Ledge~
+You stand upon a narrow ledge in the hills.  The ground falls away to the
+east, where below you you can see the Greened Way pass by north to south,
+a narrow ribbon cutting its way between the verdant flora and fauna which
+surround it on all sides.  To the west, a sheer rock wall towers above
+you, too steep to climb.
+~
+~
+301465612 4 5 0
+D0
+~
+~
+0 -1 39349 10 10 5
+D2
+~
+~
+0 -1 39353 10 10 5
+-1
+S
+
+#39351
+In the Hills~
+Scrub bushes grow along the edge of steep slope which runs from the north
+to the west, while thick clumps of moss and grass cover the area
+underfoot.
+~
+r/w
+~
+301465612 4 9 0
+D1
+~
+~
+0 -1 39348 10 10 5
+D2
+~
+~
+0 -1 39352 10 10 5
+-1
+S
+
+#39352
+Grassy Knoll~
+You stand upon a small, grassy hilltop.  To the west and south, a steep
+drop down to a rushing stream makes you think twice about heading in that
+direction.
+~
+r/w
+~
+301465612 4 9 0
+D0
+~
+~
+0 -1 39351 10 10 5
+D1
+~
+~
+0 -1 39349 10 10 5
+130 9 100 3 0
+-1
+S
+
+#39353
+Small Wooded Hilltop~
+A tight cluster of thick oaks and elms crowd this small, hilly area.  To
+the west and south, the steeply wooded slopes plunge towards a forested
+gorge, at the bottom of which flows a rushing stream.  To the east, the
+ground rises in jagged, rough formations, and you think you spy a cave
+opening.
+~
+~
+301465612 4 7 0
+D0
+~
+~
+0 -1 39350 10 10 5
+D1
+~
+~
+0 -1 39354 10 10 5
+2509 9 1509949540 3 0
+2509 9 1509949465 3 0
+-1
+S
+
+#39354
+Before A Dark Cave~
+You see the opening of a large cave down a steep slope in front of you. 
+Thick bushes grow about the base of the slope to the east, while steep
+rock walls to the north and south loom high overhead.
+~
+no_mob
+east is 39356
+[Starshine] would be nice to have an acode when you go down (enter the cave) or go east (squeeze by the bushes?)
+[Starshine] hobs should be separated out
+~
+301465612 4 6 0
+D1
+bushes~
+bushes~
+235 -1 39356 10 10 5
+D3
+~
+~
+0 -1 39353 10 10 5
+D5
+~
+~
+1 -1 39328 10 10 5
+E
+bushes~
+The bushes grow about the eastern slope, and the mouth of the cave,
+almost concealing the cave opening when viewed from afar.
+~
+E
+slope~
+As you look at the bushes along the eastern slope, you think you spy
+something behind them.  Perhaps if someone were to open the bushes, much like a hedge...
+~
+A
+open move part budge kick~
+hedges bushes eastern~
+if( is_open( room, east ) ) {
+act_tochar( #close, ch );
+act_notchar( #rclose, ch );
+close( room, east );
+}
+else {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, east );
+}
+~
+E
+close~
+You kick at one of the bushes, moving it to block the way east.
+~
+E
+rclose~
+$n kicks at one of the bushes, moving it to block the way east.
+~
+E
+open~
+Grabbing ahold of two bushes, you pull them apart, revealing a way east.
+~
+E
+ropen~
+Grabbing ahold of two bushes, $n pulls them apart, revealing a way east.
+~
+!
+0 0 0
+-1
+S
+
+#39355
+Dark Woods~
+Thick trunks rise towards the dark canopy over head, their twisted
+branches slowly swaying in a soft, damp breeze which rustles leaf and
+grassy tuft alike.  To the north, a narrow dirt road cuts its way between
+the dark recesses of the forest, which seems everywhere and nowhere all
+at once.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 37003 10 10 5
+D1
+~
+~
+0 -1 39326 10 10 5
+-1
+S
+
+#39356
+Rocky Rise~
+The ground here is steep, the way treacherous, with loose dirt and rocks
+underfoot forcing you to proceed with care.  To the west, several huge
+bushes and large boulders protrude from the hillside, while the ground
+continues to rise toward the east.  A cliff rises above you to the south,
+while north of here the ground drops away.  At the base of the drop to
+the north you spy the Greened Way snake by, leading east and west.
+~
+west is 39354
+no
+~
+301465612 4 7 0
+D1
+~
+~
+0 -1 39357 10 10 5
+D3
+bushes~
+bushes~
+235 -1 39354 10 10 5
+E
+bushes~
+Looking at the bushes, you think there is something behind them.  If only
+if someone were to open them, much like a hedge...
+~
+A
+move part push open~
+bushes hedges huge~
+if( is_open( room, west ) ) {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+close( room, west );
+}
+else {
+act_tochar( #open2, ch );
+act_notchar( #ropen2, ch );
+open( room, west );
+}
+~
+E
+open2~
+You tug at the bushes, nearly uprooting them.  But when you are done, you
+can see a way west, near a cave.
+~
+E
+ropen2~
+$n tugs at some bushes, nearly uprooting them.  But when $e is done, you
+can see a way west, near a cave.
+~
+E
+open~
+Trying to be unobtrusive, you bunch some bushes up to the west,
+concealing what lies beyond.
+~
+E
+ropen~
+Trying to be unobtrusive, $n bunches some bushes up to the west,
+concealing what lies beyond.
+~
+!
+0 0 0
+-1
+S
+
+#39357
+Rocky Slope~
+The ground continues to offer scant purchase, making you look before each
+hesitant step.  Above to the south, a cliff towers overhead, with the
+branches of a few great trees reaching out over the edge.  Below you to
+the north the Greened Way passes by, oblivious to your hillside position.
+~
+~
+301465612 4 7 0
+D1
+~
+~
+0 -1 39358 10 10 5
+D3
+~
+~
+0 -1 39356 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#39358
+Steep Slope~
+The ground is quite steep here, but a series of boulders embedded in the
+hillside provide a convenient, natural means to navigate such an obstacle. 
+A few bushes grow along the cliff face to the south, their snarled forms
+clinging to the crevices between the rock slabs.
+~
+~
+301465612 4 7 0
+D1
+~
+~
+0 -1 39359 10 10 5
+D3
+~
+~
+0 -1 39357 10 10 5
+-1
+S
+
+#39359
+Rocky Hilltop~
+You stand on a rocky hilltop.  Below you to the north and east, the
+narrow band known as the Greened Way cuts through a sea of brambles, rock
+and dense vegetation.  To the south, the ground slopes down slightly,
+while several large boulders lie embedded in the steep slope which
+tumbles downward to the west of here.
+~
+safe?
+extras, door
+~
+301465612 4 9 0
+D2
+~
+~
+0 -1 39360 10 10 5
+D3
+~
+~
+0 -1 39358 10 10 5
+E
+brambles vegitation~
+The vegetation below you is thick, thick enough for just about anything. 
+to conceal just about anything.
+~
+205 9 1509949540 3 0
+-1
+S
+
+#39360
+Sheltered Cut in the Hills~
+You stand in a level, sheltered area in the hills.  Immense slabs of rock
+descend off to the east.  Underfoot, a few small plants and humble
+lichens struggle to take root in the hard ground.
+~
+down is 39322
+down hidden
+If there is a secret, maybe a tad more obvious?
+Looked at room - fix down?
+~
+301465612 4 5 0
+D0
+~
+~
+0 -1 39359 10 10 5
+D5
+~
+~
+171 -1 39322 10 10 5
+E
+lichens ground~
+The lichens cling in the cracks underfoot, struggling with a few stray
+weeds to survive in the rocky soil.
+~
+E
+slabs rock ~
+The rocks surround you on the three sides, and are immense.  Pock-marked
+and weathered, their ascent is nearly vertical, and too steep to climb.
+~
+E
+cracks~
+The cracks are large, but not quite large enough to enter.
+~
+-1
+S
+
+#39361
+On a Riverbank~
+The ground slopes here, the bank rising somewhat above the water and the
+ground becoming somewhat more muddy.  The Elhanni flows by to the east,
+but further off to the south you see a widening bend in the river, while
+elsewhere the thick forest looms, at once everpresent yet still distant.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 39327 10 10 5
+D3
+~
+~
+0 -1 39363 10 10 5
+-1
+S
+
+#39362
+Edge of Woods~
+A few old oaks, beeches and elms grow here, near the riverbank to the
+east.  You can feel the cool air of the Elhanni as it flows by further
+east, while to the west the forest thickens.
+~
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 39326 10 10 5
+D1
+~
+~
+0 -1 39327 10 10 5
+D2
+~
+~
+0 -1 39363 10 10 5
+-1
+S
+
+#39363
+Forest's Edge - Elms and Beeches~
+A stand of beeches and elms grows off to the north of here, while to the
+west and northwest the forest thickens.  To the east and south you spy a
+riverbank, and can sense the cool air and mist of the Elhanni River as it
+flows by, covered in a slight mist.
+~
+~
+301465608 2 9 0
+D0
+~
+~
+0 -1 39362 10 10 5
+D1
+~
+~
+0 -1 39361 10 10 5
+D2
+~
+~
+0 -1 39364 10 10 5
+D3
+~
+~
+0 -1 39366 10 10 5
+-1
+S
+
+#39364
+On a Muddy Riverbank~
+The Elhanni bends by you to the south, its waters calmed by the deep turn
+here as it carves its way through the thick, wooded hills of the
+surrounding area.  Looking further south, you notice a region shrouded in
+mist.  The bank is steep here, with several muddy slides.  running from
+the tufted top of the bank down to the water's edge.
+~
+~
+301465604 2 9 0
+D0
+~
+~
+0 -1 39363 10 10 5
+D2
+~
+~
+0 -1 70513 10 10 5
+D3
+~
+~
+0 -1 39365 10 10 5
+E
+1 south mist~
+A thick cloud of white mist fills the horizon to the south of you.
+~
+A
+~
+~
+acode( find_room( 39365 ), 1 );
+continue;
+~
+!
+3 0 4
+-1
+S
+
+#39365
+On a Muddy Riverbank~
+The Elhanni bends by you to the south, its waters calmed by the deep turn
+here as it carves its way through the thick, wooded hills of the
+surrounding area.  Gazing further south beyond the river is an area
+surrounded in a dense, ominous mist.  The bank is steep here, with
+several muddy slides running from the tufted top of the bank down to the
+water's edge.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 39366 10 10 5
+D1
+~
+~
+0 -1 39364 10 10 5
+D2
+~
+~
+0 -1 70514 10 10 5
+D3
+~
+~
+0 -1 39367 10 10 5
+E
+1 south mist~
+The cloud of mist expands across the southern horizon like a gaseous
+pillow resting upon a muddy bed.
+~
+A
+~
+~
+act_tochar( #slide, ch );
+continue;
+~
+E
+slide~
+You slide down the riverbank bank and into the river.
+~
+!
+3 0 4
+46 9 1509949540 3 0
+46 9 1509949540 3 0
+-1
+S
+
+#39366
+Forest's Edge - Elms and Beeches~
+A stand of beeches and elms grows off to the north of here, while to the
+west and northwest the forest thickens.  To the east and south, you spy a
+steep, muddy riverbank, and can sense the cool air and mist of the
+Elhanni as it flows between the wooded hills.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 39363 10 10 5
+D2
+~
+~
+0 -1 39365 10 10 5
+D3
+~
+~
+0 -1 39369 10 10 5
+-1
+S
+
+#39367
+On a Muddy Riverbank~
+The Elhanni flows by to the southeast, its deep waters for a short while
+calmed by its sudden turn between the rolling, forested hills.  The lip
+of the riverbank is steep here, with a steep, muddy slope plummeting down
+to the water's edge at a sharp, uncomfortable angle.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 39369 10 10 5
+D1
+~
+~
+0 -1 39365 10 10 5
+D2
+~
+~
+0 -1 39368 10 10 5
+D3
+~
+~
+0 -1 39370 10 10 5
+46 9 1509949540 3 0
+46 9 1509949540 3 0
+-1
+S
+
+#39368
+A Steep, Muddy Riverbank~
+What appear as several small mudslides plummet down the course of this
+steep riverbank, leading into the deep waters of the Elhanni.  The river
+flows east to south here, more slowly perhaps than in other parts, but it
+is also quite deep.
+~
+r/w
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 39367 10 10 5
+D3
+~
+~
+0 -1 39371 10 10 5
+46 9 1509949540 3 0
+-1
+S
+
+#39369
+Forest's Edge - Elms and Beeches~
+A stand of beeches and elms grows off to the north of here, while to the
+west and northwest the forest thickens.  To the east and south, you spy a
+steep, muddy riverbank, and can sense the cool air and mist of the
+Elhanni as it flows between the wooded hills.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 39366 10 10 5
+D2
+~
+~
+0 -1 39367 10 10 5
+-1
+S
+
+#39370
+Forest - Beech Woods~
+Scores of beeches grow overhead here, forming a thicket which bristles
+near the edge of the riverbank.  To the north and west, the woods thicken
+as the ground rises and falls with the undulating curves of the wooded
+hills.  The air here is cool and still, but you sense the soft, telltale
+breeze of the river air off to the southeast.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 39367 10 10 5
+D2
+~
+~
+0 -1 39371 10 10 5
+D3
+~
+~
+0 -1 39372 10 10 5
+-1
+S
+
+#39371
+Forest - Beech Woods~
+The woods thin out here, with spaces between the beech trees where one
+can easily look and find an unobscured patch of sky.  To the east, you
+see tufts of snarled grass grow along the lip of the riverbank, while
+north and west of here the woods seem to thicken, with a few oaks and
+elms scattered in among the stands of beech trees.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 39370 10 10 5
+D1
+~
+~
+0 -1 39368 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#39372
+Forest - Beech Woods~
+The woods open up around you here, the ground damp and sloped, leading
+downward slightly to the east.  What seems to be a large earthen mound,
+exceedingly steep and covered with thorns and other vegetation, blocks
+passage to the south.
+~
+~
+301465608 3 9 0
+D1
+~
+~
+0 -1 39370 10 10 5
+D3
+~
+~
+0 -1 39373 10 10 5
+-1
+S
+
+#39373
+Forest - Beech Woods, Slope~
+The woods here open up into a few small clearings where tall stands of
+grass eke out an existence.  The moss-covered remains of a wall snake
+west to south here, while the ground rises and falls in great, ambulatory
+ripples which suggest a subtle life to the forest of beeches which
+envelops you.
+~
+[Lansharra] extra wall
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39377 10 10 5
+D1
+~
+~
+0 -1 39372 10 10 5
+D3
+~
+~
+0 -1 39374 10 10 5
+-1
+S
+
+#39374
+Forest - Beech Woods~
+The air here is cool, the forest floor soft and damp, with little sun
+able to reach it through the forest canopy.  The moss-covered remains of
+an ancient wall stand off to the south, covered with a dense layer of
+vegetation.
+~
+expand this path
+[Lansharra] extra wall
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39375 10 10 5
+D1
+~
+~
+0 -1 39373 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#39375
+Forest - Edge of Beech Woods~
+An ancient wall stands off to the south, crumbled.  Trees grow in
+ever-thickening clusters here, forming a green canopy which shields you
+from the sky.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 39377 10 10 5
+D2
+~
+~
+0 -1 39374 10 10 5
+D3
+~
+~
+0 -1 39376 10 10 5
+-1
+S
+
+#39376
+Near Mallander's Tower - Edge of Wood~
+An ancient stone wall towers over you to the south, connected to the
+great gatehouse known as Mallander's Tower.  Continuing east and south
+from here, it enters a rugged, hilly area where thick stands of beeches
+obscure your view.
+~
+~
+301465608 3 9 0
+D1
+~
+~
+0 -1 39375 10 10 5
+D3
+~
+~
+0 -1 37051 10 10 5
+-1
+S
+
+#39377
+Forest - Deep in the Beech Wood~
+The beeches here seem somehow older, as they cover the sloped,
+moss-covered ground and slick, damp rocks shielded from the sun's rays by
+the dark canopy overhead.  The air is cool and quiet, and you spy what
+appears to be a small structure to the northeast of here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39378 10 10 5
+D2
+~
+~
+0 -1 39373 10 10 5
+D3
+~
+~
+0 -1 39375 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#39378
+Forest - Rise in the Woods~
+You stand on a small, mossy hillock in the beech woods.  A small shelter
+stands in between several old trees to the east, only noticeable due to a
+small sign posted out in front of the structure.  In all other
+directions, the woods open up around you, their branches screening you
+from the sky above.  To the northeast, the ground tumbles down toward the
+dim, sleek shape of the Valewash as it flows through the woods, along the
+floor of the Rua Valley.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 39379 10 10 5
+D2
+~
+~
+0 -1 39377 10 10 5
+E
+sign~
+An ancient sign is posted on the tree, the words no longer legible.
+~
+-1
+S
+
+#39379
+The Hedge Wizard's~
+Weathered branches intertwine to form a small shelter here, their gnarled
+forms providing an ample if cramped space for scores of small potions,
+powders and oddies collected from across the realms.  Its denizen a
+practitioner of the many, varied lesser magical and mystical arts, you
+can expect to find anything - and everything - among his wares.  Who he
+follows and where he has come from is unknown, yet the hedge wizard has
+remained here, for time untold.
+~
+rework
+safe
+no mob
+~
+335024142 0 5 0
+D3
+~
+~
+0 -1 39378 10 10 5
+916 9 1509949540 3 0
+78 17 1509949540 -1 0
+81 17 1509949540 -1 0
+84 17 1509949450 -1 0
+37 17 1509949540 -1 0
+227 17 1509949450 -1 0
+425 17 1509949465 -1 0
+1269 17 1509949465 -1 0
+1182 17 1509949490 -1 0
+872 17 1509949450 -1 0
+79 17 1509949465 -1 0
+1301 17 1509949450 -1 0
+1246 17 1509949450 -1 0
+210 17 1509949465 -1 0
+479 17 1509949490 -1 0
+474 17 1509949540 -1 0
+-1
+S
+
+#39380
+Invasion1~
+Under Construction.
+~
+~
+301465612 3 9 0
+D0
+~
+~
+0 -1 39382 10 10 5
+D1
+~
+~
+0 -1 39381 10 10 5
+857 41 1509949540 3 0
+697 73 1509949540 3 0
+697 73 1509949540 3 0
+697 73 1509949540 3 0
+-1
+S
+
+#39381
+Invasion1~
+Under Construction.
+~
+~
+301465612 3 9 0
+D3
+~
+~
+0 -1 39380 10 10 5
+862 41 1509949540 3 0
+698 73 1509949540 3 0
+698 73 1509949540 3 0
+698 73 1509949540 3 0
+698 73 1509949540 3 0
+698 73 1509949540 3 0
+-1
+S
+
+#39382
+Invasion1~
+Under Construction.
+~
+~
+301465612 3 9 0
+D2
+~
+~
+0 -1 39380 10 10 5
+843 41 1509949540 3 0
+843 73 1509949540 3 0
+-1
+S
+
+#39383
+On a Dark Ramp~
+A wide stone ramp which cuts through the earth.  The stone walls here are
+smooth and carefully joined together.  A strange purplish-blue light
+permeates the sloped corridor, its source indeterminate.
+~
+~
+301465604 0 9 0
+D4
+~
+~
+0 -1 39254 10 10 5
+D5
+~
+~
+0 -1 39255 10 10 5
+-1
+S
+
+#39384
+Dark Woods~
+Under Construction.
+~
+~
+301465604 0 9 0
+-1
+S
+
+#39385
+Ancient Tunnel~
+The wide tunnel gradually curves until it is no longer heading straight,
+but rather heads north or east from here.  The support braces this deep
+into the old mines are still in fair condition despite the obvious span
+of time it has been since they saw any maintenence.  The brackets that
+would have held torches in better times are less rusted here than in most
+other parts of the mine, though some are just plain missing where they
+had been bolted in before.
+~
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39337 10 10 5
+D1
+~
+~
+0 -1 39336 10 10 5
+E
+1 south 1 west~
+The wall of the cave curves so that there is nothing but rock to see in
+that direction.
+~
+E
+1 north 1 east~
+The tunnel reaches forth into darkness.
+~
+E
+braces supports~
+The wooden braces, time-smoothed and dry, still look sturdy enough to
+last for some years yet.
+~
+E
+brackets~
+Slightly rusty and occasionally missing altogether, taken for who knows
+what purpose, the brackets would have once held torches along the braces
+to provide light for miners as they worked and travelled these halls.
+~
+-1
+S
+
+#39386
+Ancient Tunnel~
+The wide tunnel retains the gloom that is everpresent in the deep of the
+earth.  Dark timbers form supporting braces that do little to enhance the
+gloomy atmosphere of the caves.  A gentle curve brings the passage around
+so that its exits face north and west rather than running in a straight
+line.  A thin, nearly non-existent line of bright metal flakes embeded in
+the wall show where a vein once ran and the probable reason for the
+sinuous path woven by the tunnel.
+~
+-done (T)
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39387 10 10 5
+D3
+~
+~
+0 -1 39336 10 10 5
+E
+1 east 1 south silver flecks walls~
+Flecks of silvery metal, perhaps silver itself, sparkle in the darker
+material of the native rocks walls.  Too little remains to be of use,
+though enough does remain to name the reason for the oddly twisting halls.
+~
+E
+1 north 1 west~
+The wide hallway disapears into the darkness.
+~
+E
+timbers braces supporting~
+The supports are formed of thick, dark timbers that continue to do an
+adequate job of holding the roof in place overhead.
+~
+860 9 1509949540 3 0
+860 9 1509949540 3 0
+-1
+S
+
+#39387
+Ancient Tunnel~
+Thick wooden timbers form braces that help support the immense weight of
+the rocks overhead.  Though the braces are starting to show signs of
+sagging they look as if they could go a good while longer before they
+would give in.  The stone of the walls is the dark color of fresh, loamy
+soil though it remains much harder than the loose-packed soil it appears
+to be.
+~
+-done (T)
+~
+301596676 0 9 0
+D0
+~
+~
+0 -1 39388 10 10 5
+D2
+~
+~
+0 -1 39386 10 10 5
+E
+1 north 1 south~
+The wide tunnel extends off into the darkness.
+~
+E
+1 west 1 east~
+The walls are timeworn and smoothed by the passage of many beings over
+the years.  The rough edges have all been worn away to smoother, rounded
+bulges and depressions.
+~
+E
+timbers wooden thick braces supports~
+The support braces are made from thick timber and show little sign of
+wear despite the fact they have been here for some time.  Rusted sconces
+that once held torches are bolted to the occasional support beam.  More
+often than not the brackets are missing, rusted off by time.
+~
+E
+1 up~
+The rocks overhead are begining to show a spiderweb maze of cracks that
+mark the fractures that will eventually break apart under the strain of
+all the weight.  For now the braces are doing an adequate job of holding
+it all in place safely.
+~
+697 9 1509949540 3 0
+-1
+S
+
+#39388
+Ancient Tunnel~
+The dark stone of the tunnel walls curves sharply, almost at a right
+angle, following some directive only known to the miners and formen no
+longer present.  Thick wooden beams, sagging under the weight of all the
+heavy stone overhead, form braces that still manage to prevent the tunnel
+from collapsing completely.  Small piles of rock rest against the wall
+where passing feet have kicked them aside after falling in bits and
+pieces from the ceiling.
+~
+-done (T)
+~
+301596676 0 9 0
+D1
+~
+~
+0 -1 39389 10 10 5
+D2
+~
+~
+0 -1 39387 10 10 5
+E
+1 east 1 south~
+The tunnel extends away into darkness.
+~
+E
+1 north 1 west~
+The dark walls of the tunnel meet at nearly a right angle as the tunnel
+curves sharply from a north-south heading to an east-west heading.
+~
+E
+1 up ceiling overhead~
+A spiderweb maze of cracks turns the ceiling into no more than a
+collection of dangerous looking boulders with the appearance of immenent
+collapse held in check only by the straining timber of the support beams. 
+Small divets in the ceiling show where bits have crumbled away despite
+the beams that hold it up.
+~
+E
+support beams braces~
+The support braces are obviously all that is preventing a titanic cave-in
+as the loose rock on the ground obviously coems from the shattered rock
+overhead.  Glancing upwards might be akin to looking down over a long
+fall for the feint-hearted and might be best avoided.
+~
+78 17 1509949520 -2 0
+78 17 1509949450 -2 0
+78 17 1509949442 -2 0
+697 9 1509949540 3 0
+-1
+S
+
+#39389
+Ancient Tunnel~
+The wide earthen tunnel splits to form a T-junction heading north, south
+and west.  While the southern and western junctions lead off into the
+total darkness common to the tunnels, the northern tunnel ends abruptly
+in a solid wall of collapsed rock and shattered timber where the tunnel
+finally caved in.  The support beams lining the southern and western
+tunnels sag noticably and it is only a matter of time before they too
+give in.
+~
+-done (T)
+~
+301596676 0 9 0
+D2
+~
+~
+0 -1 39331 10 10 5
+D3
+~
+~
+0 -1 39388 10 10 5
+E
+1 west 1 south~
+The tunnels extend away into darkness.
+~
+E
+1 east~
+The dark rock of the tunnels is the color of rich soil.
+~
+E
+1 northern cave-in collapse~
+It looks as if the timber of the braces finally collapsed under the
+mighty weight of all the stone overhead and collapsed in a ravaged pile. 
+If anything was under there at the time it is surely dead now and if
+there was a tunnel beyond it is blocked unless there is some other means
+of entrance.
+~
+E
+support beams braces~
+The remaining support beams sag noticably under the oppressive weight of
+the heavy stone above you.  Unless they are replaceed it is only a matter
+of time before they too fail.
+~
+860 9 1509949540 3 0
+860 9 1509949540 3 0
+-1
+S
+
+#0
+

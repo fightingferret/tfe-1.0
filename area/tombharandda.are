@@ -1,0 +1,2059 @@
+#AREA
+Tomb of Harand-Da~
+Phule~
+tomb of harand-da~
+
+25 20
+0
+#ROOMS
+
+#46750
+Before an Underground Archway~
+You stand before a large shimmering, archway of granite, raising up to
+the ceiling of the cavern.  It is inlaid with tiny bits of @b@Wmithril@n
+around its curved, dusty surface in a strange pattern which seems to be
+responsible for the shimmering, @Bblue-hued@n sheet of energy which fills
+the arch.  An inscription is almost visible through the layers of dust on
+the stone beside the arch.  A massive stairway leads up toward the
+surface and out of the mountain.  Abandoned sconces on the walls hold
+burnt-out torches which have long since ceased to light the chamber.
+~
+wipe dust to read inscription on stone
+[Greyclaw] Am working on this action.
+[Kanroc] what exactly does light the chamber?
+[Aldric] need to see other people exit other than the tank.
+~
+335020032 11 8 0
+D0
+~
+~
+0 -1 46751 10 10 5
+D4
+~
+~
+0 -1 43278 10 10 5
+E
+arch sheet energy n north~
+The massive granite archway reaches at least 30 feet from the stone floor. 
+Within it a sheet of brilliant energy ripples.
+~
+E
+u up stairway~
+This narrow, winding staircase twists its way up and out of the depths of
+the mountain.
+~
+A
+wipe dust clear~
+stone inscription~
+if( rflag( reset0, room ) ) {
+remove_rflag( reset0, room );
+act_tochar( #dust, ch );
+}
+else
+act_tochar( #already, ch );
+~
+E
+dust~
+@b@WYou carefully brush the age-old dust from the stone, revealing a
+faded inscription.@n 
+~
+E
+already~
+Someone has already brushed the dust from the stone.
+~
+!
+0 0 0
+A
+look read~
+inscription stone~
+if( rflag( reset0, room ) )
+  act_tochar( #too, ch );
+else
+  act_tochar( #look, ch );
+~
+E
+too~
+The inscription is coated with many layers of dust.
+~
+E
+look~
+The ancient, faded inscription reads:
+ 
+@I @I Be ye warned all who enter here
+@I @I Who be not of Khedrus' descent.
+~
+!
+0 0 0
+A
+~
+~
+if( !cflag( 79, ch ) )
+  continue;
+else {
+  act_tochar( #tochar, ch );
+  act_notchar( #toroom, ch );
+  do_spell( lightning bolt, ch, ch );
+  continue;
+  }
+continue;
+~
+E
+tochar~
+As you step through the arch a @b@R*BLAST*@n of energy hits you from
+above!
+~
+E
+toroom~
+As $n steps through the arch, a powerful bolt of energy @b@R*BLASTS*@n $m
+from above.
+~
+!
+3 0 1
+1 17 1509949540 -2 0
+-1
+S
+
+#46751
+Beyond an Underground Archway~
+Your footsteps echo down the length of this long dusty hall, forgotten by
+time, forgotten by the world above for generations.  To the south you see
+a great granite arch, beyond which lies a staircase leading up and out of
+the mountain tomb.  To the north the hall continues into the very heart
+of the Cairn Mountains.
+~
+no_mob
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 46754 10 10 5
+D2
+~
+~
+0 -1 46750 10 10 5
+E
+s south arch~
+A massive sheet of glowing energy, the arch seems weaker on this side of
+the tomb.  Perhaps its builders were more concerned with keeping
+intruders out than allowing them to leave.
+~
+A
+~
+~
+send_to_room( #chant, room );
+~
+E
+chant~
+From somewhere below in the depths of the mountain you hear the quiet,
+low echo of a dwarvish chant.
+~
+!
+2 150 0
+-1
+S
+
+#46754
+A Long Dark Hall~
+The hard granite walls reverberate every sound, causing the echos of your
+footsteps to linger in the shadows for quite some time.  To the south the
+faint glow of a towering archway can be seen, while the darkness
+continues to the north.  The cold stone floor has a decidedly downward
+slope, leading deeper and deeper into the mountain.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46755 10 10 5
+D2
+~
+~
+0 -1 46751 10 10 5
+1362 17 1509949540 -2 0
+-1
+S
+
+#46755
+A Long Dark Hall - Intersection in the Darkness~
+The cold, dark, forgotten hallway leads down into the very bones of the
+earth to the north, into an impenetrable darkness which your light source
+cannot illuminate.  Side passageways lead east and west, but their
+destinations are not clear as the floors blend into shadow.  To the south
+you can barely make out a shimmering arch of blue energy.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46772 10 10 5
+D1
+~
+~
+0 -1 46756 10 10 5
+D2
+~
+~
+0 -1 46754 10 10 5
+D3
+~
+~
+0 -1 46764 10 10 5
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+1362 17 1509949540 -2 0
+1019 9 1509949490 3 0
+-1
+S
+
+#46756
+East Side-Passage~
+This side passageway continues on into the darkness to the east and
+connects to the main hall to the west.  From what you can tell, peering
+through the shadows, this side passage in turn branches into several
+smaller tunnels, perhaps rooms.  Upon each wall an inscription is
+engraved.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 46757 10 10 5
+D3
+~
+~
+0 -1 46755 10 10 5
+E
+inscription wall engrav~
+@I @I @b@WHonor Guard: guard our fallen brother's rest, guard it
+@I @I well, guard it as well in death
+@I @I as you did in life.@n
+~
+-1
+S
+
+#46757
+East Side-Passage~
+The dark stone hall comes to a four-way junction here, as the east-west
+tunnel is lined by stone doors to the north and south.  The stones are
+covered with dust and cobwebs, making the doors themselves hard to make
+out.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46758 10 10 5
+D1
+~
+~
+0 -1 46760 10 10 5
+D2
+stone~
+stone~
+131 -1 46759 10 10 5
+D3
+~
+~
+0 -1 46756 10 10 5
+-1
+S
+
+#46758
+East Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the south, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D2
+stone~
+stone~
+131 -1 46757 10 10 5
+1021 9 1509949540 3 0
+-1
+S
+
+#46759
+East Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the north, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46757 10 10 5
+1021 9 1509949540 3 0
+-1
+S
+
+#46760
+East Side-Passage~
+The dark stone hall comes to an end here in a large stone slab to the
+east which appears to be a door.  Similar, smaller stones lie to the
+north and south, covered with layers of dust and cobwebs.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46761 10 10 5
+D1
+stone~
+stone~
+131 -1 46763 10 10 5
+D2
+stone~
+stone~
+131 -1 46762 10 10 5
+D3
+~
+~
+0 -1 46757 10 10 5
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+-1
+S
+
+#46761
+East Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the south, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D2
+stone~
+stone~
+131 -1 46760 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1021 9 1509949540 3 0
+-1
+S
+
+#46762
+East Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the north, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46760 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1021 9 1509949540 3 0
+-1
+S
+
+#46763
+East Side-Passage - A Quiet Tomb~
+This stone room is devoid of dust and cobwebs, even though the stale
+draughts of air which you breathe suggests that the room has remained
+undisturbed for many years.  A large stone slab acts as a door to the
+west of this burial chamber, but the chamber's alcove is empty.
+~
+[Lansharra] lieutenant: apparition
+~
+301465604 11 9 0
+D3
+stone~
+stone~
+131 -1 46760 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+A
+enter~
+alcove~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 46802 ) );
+act_notchar( #rrenter, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You carefully enter the darkness of the alcove.
+~
+E
+renter~
+$n enters the darkness of the alcove, disappearing into its shadows.
+~
+E
+rrenter~
+$n appears in the alcove, having stepped up from the west.
+~
+!
+0 0 0
+1024 9 1509949540 3 0
+-1
+S
+
+#46764
+West Side-Passage~
+This side passageway continues on into the darkness to the west and
+connects to the main hall to the east.  From what you can tell, peering
+through the shadows, this side passage in turn branches into several
+smaller tunnels, perhaps rooms.  Upon each wall an inscription is
+engraved.
+~
+inscrip
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 46755 10 10 5
+D3
+~
+~
+0 -1 46765 10 10 5
+E
+inscription wall engrav~
+@I @I @b@WHonor Guard: guard our fair king's rest, guard it
+@I @I well, guard it as well in death
+@I @I as you did in life.@n
+~
+-1
+S
+
+#46765
+West Side-Passage~
+The dark stone hall comes to a four-way junction here, as the east-west
+tunnel is lined by stone doors to the north and south.  The stones are
+covered with dust and cobwebs, making the doors themselves hard to make
+out.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46770 10 10 5
+D1
+~
+~
+0 -1 46764 10 10 5
+D2
+stone~
+stone~
+131 -1 46771 10 10 5
+D3
+~
+~
+0 -1 46766 10 10 5
+-1
+S
+
+#46766
+West Side-Passage~
+The dark stone hall comes to an end here in a large stone slab to the
+west which appears to be a door.  Similar, smaller stones lie to the
+north and south, covered with layers of dust and cobwebs.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46768 10 10 5
+D1
+~
+~
+0 -1 46765 10 10 5
+D2
+stone~
+stone~
+131 -1 46769 10 10 5
+D3
+stone~
+stone~
+131 -1 46767 10 10 5
+E
+stone~
+The ancient blocks of granite stand covered with dust and cobwebs.
+~
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+-1
+S
+
+#46767
+West Side-Passage - A Quiet Tomb~
+This stone room is devoid of dust and cobwebs, even though the stale
+draughts of air which you breathe suggests that the room has remained
+undisturbed for many years.  A large stone slab acts as a door to the
+east of this burial chamber, but the chamber's alcove is empty.
+~
+~
+301465604 11 9 0
+D1
+stone~
+stone~
+131 -1 46766 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+A
+enter~
+alcove~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 46801 ) );
+act_notchar( #rrenter, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You carefully enter the darkness of the alcove.
+~
+E
+renter~
+$n enters the darkness of the alcove and disappears into its shadows.
+~
+E
+rrenter~
+@n appears in the alcove having entered it though the darkness.
+~
+!
+0 0 0
+1024 9 1509949540 3 0
+-1
+S
+
+#46768
+West Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the south, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D2
+stone~
+stone~
+131 -1 46766 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1021 9 1509949540 3 0
+-1
+S
+
+#46769
+West Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the north, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46766 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1021 9 1509949540 3 0
+-1
+S
+
+#46770
+West Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the south, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D2
+stone~
+stone~
+131 -1 46765 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1021 9 1509949540 3 0
+-1
+S
+
+#46771
+West Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the north, a stone slab which leads into a dark hallway.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46765 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1021 9 1509949540 3 0
+-1
+S
+
+#46772
+A Long Dark Hall~
+Even surrounded as you are by solid granite, the weight of the Cairn
+Mountains above seems to press down upon you, weighing the air palpably
+even as the depths of this tomb approach freezing temperatures.  You can
+proceed south toward what appears to be an intersection, or north towards
+a large underground chamber.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46773 10 10 5
+D2
+~
+~
+0 -1 46755 10 10 5
+1362 49 1509949540 -2 0
+26 81 1509949540 -2 0
+-1
+S
+
+#46773
+A Large Dark Chamber~
+This chamber stretches beyond the reach of torchlight to the east and
+west, and the light of its flames barely dance upon the high vaulted
+ceiling.  A dark tunnel leads away from the chamber to the south and a
+large metal door is inset in the north wall.  Cobwebs stream across the
+room, a thick blanket which blocks vision as a dense fog.
+~
+[Kiian] captain should bellow at a random target
+~
+301465604 11 9 0
+D0
+mithril door~
+"mithril door" door~
+131 -1 46774 10 10 5
+D2
+~
+~
+0 -1 46772 10 10 5
+E
+door~
+The metal the door is made from is obviously mithril, its shine so pure
+after so many centuries.
+~
+A
+~
+~
+if( reputation( ch, Khedrun ) > 400 ) {
+  act_tochar( #pass, ch );
+  continue;
+  }
+if( mob_in_room( 1025, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+if( mob_in_room( 1024, room ) ) {
+  act_tochar( #lnope, ch );
+  end;
+  }
+if( mob_in_room( 1021, room ) ) {
+  act_tochar( #gnope, ch );
+  end;
+  }
+continue;
+~
+E
+nope~
+@b@WThe spectre of a dwarf captain steps before you.  It is clear you
+will have to get past it to get to the door.@n
+~
+E
+lnope~
+@b@WAs you approach the door the spectre of a dwarven lieutenant steps
+before you.  It is clear you will have to get past it before you can open
+the door.@n 
+~
+E
+gnope~
+@b@WAs you approach the door the spectre of a dwarven honor guard steps
+befor you.  It is clear that you will have to get past it before you can
+open the door.@n 
+~
+E
+pass~
+In good standing with clan Khedrun, you are allowed to pass.
+~
+!
+8 0 1
+A
+~
+~
+if( reputation( ch, Khedrun ) > 400 ) {
+act_tochar( #pass, ch );
+continue;
+}
+if( mob_in_room( 1025, room ) ) {
+act_tochar( #nope, ch );
+end;
+}
+if( mob_in_room( 1024, room ) ) {
+act_tochar( #lnope, ch );
+end;
+}
+if( mob_in_room( 1021, room ) ) {
+act_tochar( #gnope, ch );
+end;
+}
+continue;
+~
+E
+nope~
+@b@WThe spectre of a dwarf captain steps before you.  It is clear you
+will have to get past it to get to the door.@n
+~
+E
+lnope~
+@b@WAs you approach the door the spectre of a dwarven lieutenant steps
+before you.  It is clear you will have to get past it before you can open
+the door.@n 
+~
+E
+gnope~
+@b@WAs you approach the door the spectre of a dwarven honor guard steps
+befor you.  It is clear that you will have to get past it before you can
+open the door.@n 
+~
+E
+pass~
+In good standing with clan Khedrun, you are allowed to pass.
+~
+!
+3 0 1
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+1025 9 1509949540 3 0
+-1
+S
+
+#46774
+Above a Staircase~
+To the south a great mithril door rises above the cold granite floor,
+leading south toward the Upper Tomb.  A chiseled staircase leads even
+deeper into the mountain tomb below, the darkness making the stair seem
+endless.  The stair starts downward to the north but twists away to the
+east as it fades into shadow.
+~
+~
+301465612 11 9 0
+D2
+mithril door~
+"mithril door"~
+131 -1 46773 10 10 5
+E
+spiral staircase~
+The staircase descends down into the darkness.
+~
+A
+~
+~
+act_tochar( #desc, ch );
+act_notchar( #rdesc, ch );
+transfer( ch, find_room( 46775 ) );
+act_notchar( #rrdesc, ch );
+~
+E
+desc~
+You descend the spiral stair.
+~
+E
+rdesc~
+$n descends the spiral stair.
+~
+E
+rrdesc~
+$n arrives from the spiral stair above.
+~
+!
+0 0 0
+A
+climb descend~
+stair~
+acode( room, 1 );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+closed~
+The lower level is still closed.
+~
+!
+0 0 0
+A
+d down~
+~
+act_tochar( #down, ch );
+~
+E
+down~
+Do you want to jump down into the darkness?  Or possibly climb something
+(like a staircase).
+~
+!
+0 0 0
+-1
+S
+
+#46775
+At the Base of a Staircase~
+A staircase carved into the side of the tomb spirals upward into the
+darkness of the upper level of the tomb, while to the east a large hall
+continues away from the stair.  The ceiling vaults to about 100 feet
+above you in this shadowy, cubical-shaped room.  It is not clear what the
+purpose of this room is, as it is bare of anything save a few sconces on
+the wall.  Perhaps it was the site of a ritual or ceremony, for as you
+listen an echo from across the centuries seems to reach your ears.
+~
+[Greyclaw] climb staircase and climb up should probably work
+[Lansharra] clim down should work
+~
+301465612 11 9 0
+D1
+~
+~
+0 -1 46776 10 10 5
+A
+~
+~
+act_tochar( #desc, ch );
+act_notchar( #rdesc, ch );
+transfer( ch, find_room( 46774 ) );
+act_notchar( #rrdesc, ch );
+~
+E
+desc~
+You ascend the spiral stair.
+~
+E
+rdesc~
+$n ascends the spiral staircase.
+~
+E
+rrdesc~
+$n arrives from below.
+~
+!
+0 0 0
+A
+climb ascend~
+stair up~
+acode( room, 1 );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+!
+0 0 0
+A
+u up~
+~
+act_tochar( #up, ch );
+~
+E
+up~
+Do you want to try to just fly up into the darkness?  Or possibly climb
+something (like a staircase).
+~
+!
+0 0 0
+-1
+S
+
+#46776
+A Long Dark Hall~
+This wide, high-ceilinged hall's hard stone floor is unforgiving beneath
+your feet, resounding an echo for several minutes after every step in the
+air that perhaps has not been disturbed for many years.  To the west you
+can make out a staircase through the darkness, and to the east you see
+the main hall branch into two side tunnels.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 46777 10 10 5
+D3
+~
+~
+0 -1 46775 10 10 5
+1362 17 1509949540 -2 0
+-1
+S
+
+#46777
+A Long Dark Hall - Intersection in the Darkness~
+The high-ceiling main hall of the middle tomb continues to the east and
+west, while smaller tunnels lead north and south.  The unfathomable
+weight of the Cairn Mountains lies directly overhead this far beneath the
+surface, perhaps a thousand feet below the ground.  The air here is
+chill, as is always the case at this depth, but something more strange
+than nature adds to it.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46798 10 10 5
+D1
+~
+~
+0 -1 46792 10 10 5
+D2
+~
+~
+0 -1 46799 10 10 5
+D3
+~
+~
+0 -1 46776 10 10 5
+1362 17 1509949540 -2 0
+1064 9 1509949540 3 0
+1064 9 1509949540 3 0
+1019 9 1509949540 3 0
+1019 9 1509949490 3 0
+-1
+S
+
+#46778
+North Side-Passage~
+The dark stone hall comes to a four-way junction here, as the north-south
+tunnel is lined by stone doors to the east and west.  The stones are
+covered with dust and cobwebs, making the doors themselves hard to make
+out.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46780 10 10 5
+D1
+stone~
+stone~
+131 -1 46790 10 10 5
+D2
+~
+~
+0 -1 46798 10 10 5
+D3
+stone~
+stone~
+131 -1 46791 10 10 5
+-1
+S
+
+#46779
+South Side-Passage~
+The dark stone hall comes to a four-way junction here, as the north-south
+tunnel is lined by stone doors to the east and west.  The stones are
+covered with dust and cobwebs, making the doors themselves hard to make
+out.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46799 10 10 5
+D1
+stone~
+stone~
+131 -1 46782 10 10 5
+D2
+~
+~
+0 -1 46781 10 10 5
+D3
+stone~
+stone~
+131 -1 46783 10 10 5
+-1
+S
+
+#46780
+North Side-Passage~
+The dark stone hall comes to an end here in a large stone slab to the
+north which appears to be a door.  Similar, smaller stones lie to the
+east and west, covered with layers of dust and cobwebs.
+~
+~
+301465604 11 9 0
+D0
+stone~
+stone~
+131 -1 46787 10 10 5
+D1
+stone~
+stone~
+131 -1 46788 10 10 5
+D2
+~
+~
+0 -1 46778 10 10 5
+D3
+stone~
+stone~
+131 -1 46789 10 10 5
+1019 9 1509949540 3 0
+1064 9 1509949540 3 0
+-1
+S
+
+#46781
+South Side-Passage~
+The dark stone hall comes to an end here in a large stone slab to the
+south which appears to be a door.  Similar, smaller stones lie to the
+east and west, covered with layers of dust and cobwebs.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46779 10 10 5
+D1
+stone~
+stone~
+131 -1 46784 10 10 5
+D2
+stone~
+stone~
+131 -1 46786 10 10 5
+D3
+stone~
+stone~
+131 -1 46785 10 10 5
+1019 9 1509949540 3 0
+1064 9 1509949540 3 0
+-1
+S
+
+#46782
+South Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the west, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D3
+stone~
+stone~
+131 -1 46779 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46783
+South Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the east, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D1
+stone~
+stone~
+131 -1 46779 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46784
+South Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the west, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D3
+stone~
+stone~
+131 -1 46781 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46785
+South Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the east, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D1
+stone~
+stone~
+131 -1 46781 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46786
+South Side-Passage - A Quiet Tomb~
+This stone room is devoid of dust and cobwebs, even though the stale
+draughts of air which you breathe suggests that the room has remained
+undisturbed for many years.  A large stone slab acts as a door to the
+north of this burial chamber, but the chamber's alcove is empty.
+~
+~
+301465612 11 9 0
+D0
+stone~
+stone~
+131 -1 46781 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1030 9 1509949540 3 0
+-1
+S
+
+#46787
+North Side-Passage - A Quiet Tomb~
+This stone room is devoid of dust and cobwebs, even though the stale
+draughts of air which you breathe suggests that the room has remained
+undisturbed for many years.  A large stone slab acts as a door to the
+south of this burial chamber, but the chamber's alcove is empty.
+~
+~
+301465612 11 9 0
+D2
+stone~
+stone~
+131 -1 46780 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1030 9 1509949540 3 0
+-1
+S
+
+#46788
+North Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the west, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D3
+stone~
+stone~
+131 -1 46780 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46789
+North Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the east, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D1
+stone~
+stone~
+131 -1 46780 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46790
+North Side-Passage - Small Tomb~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the west, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D3
+stone~
+stone~
+131 -1 46778 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46791
+North Side-Passage - Small Room~
+This small stone room is a cube, about 10 feet to a side.  It is bare,
+save for a small alcove in the wall filled with cobwebs.  The only exit
+lies to the east, a stone slab which leads into a dark hallway.
+~
+~
+301465612 11 9 0
+D1
+stone~
+stone~
+131 -1 46778 10 10 5
+E
+alcove~
+The small alcove set in the wall is about the right size for a dwarf to
+stand upright in.
+~
+1029 9 1509949540 3 0
+-1
+S
+
+#46792
+A Long Dark Hall~
+This wide, tall chamber carved deep beneath the Cairn Mountains is
+oppressively large, as the ceiling is far beyond the reach of your light
+source.  To the east the sides of the hall spread to the north and south,
+as if some larger chamber lies in that direction.  Through the darkness
+to the west you can see an intersection.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 46793 10 10 5
+D3
+~
+~
+0 -1 46777 10 10 5
+1362 17 1509949540 -2 0
+-1
+S
+
+#46793
+A Large Chamber~
+This enormous underground chamber looms in all directions, fading into
+shadow and seemingly infinite in dimensions.  To the east a tall door of
+mithril awaits, a barrier which is not so intangible as the darkness but
+strangely more welcome.  To the west a wide hall leads away from the door.
+~
+~
+301465604 11 9 0
+D1
+mithril door~
+"mithril door" door~
+131 -1 46794 10 10 5
+D3
+~
+~
+0 -1 46792 10 10 5
+A
+~
+~
+if( reputation( ch, Khedrun ) > 400 ) {
+  act_tochar( #pass, ch );
+  continue;
+  }
+if( mob_in_room( 1031, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+if( mob_in_room( 1030, room ) ) {
+  act_tochar( #lnope, ch );
+  end;
+  }
+if( mob_in_room( 1029, room ) ) {
+  act_tochar( #gnope, ch );
+  end;
+  }
+continue;
+~
+E
+nope~
+@b@WAs you approach the mithril door the spectral form of a dwarven
+guardian steps before you.  It is clear you will have to get past it
+before you can reach the door.@n 
+~
+E
+lnope~
+@b@WAs you approach the mithril door the spectral form of a dwarven lord
+steps before you.  It is clear you will have to get past it before you
+can reach the door.@n 
+~
+E
+gnope~
+@b@WAs you approach the mithril door the spectral form of a dwarven
+knight steps before you.  It is clear you will have to get past it before
+you can reach the door.@n 
+~
+E
+pass~
+@b@WWelcome by those of clan Khedrun, you are allowed to pass.@n
+~
+!
+8 0 2
+A
+~
+~
+if( reputation( ch, Khedrun ) > 400 ) {
+act_tochar( #pass, ch );
+continue;
+}
+if( mob_in_room( 1025, room ) ) {
+act_tochar( #nope, ch );
+end;
+}
+if( mob_in_room( 1024, room ) ) {
+act_tochar( #lnope, ch );
+end;
+}
+if( mob_in_room( 1021, room ) ) {
+act_tochar( #gnope, ch );
+end;
+}
+continue;
+~
+E
+nope~
+@b@WThe spectre of a dwarf guardian steps before you.  It is clear you
+will have to get past it to get to the door.@n 
+~
+E
+lnope~
+@b@WAs you approach the door the spectre of a dwarven lord steps before
+you.  It is clear you will have to get past it before you can open the
+door.@n 
+~
+E
+gnope~
+@b@WAs you approach the door the spectre of a dwarven knight steps befor
+you.  It is clear that you will have to get past it before you can open
+the door.@n 
+~
+E
+pass~
+In good standing with clan Khedrun, you are allowed to pass.
+~
+!
+3 0 2
+1031 9 1509949540 3 0
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+1019 9 1509949540 3 0
+-1
+S
+
+#46794
+Above a Staircase~
+You stand above a staircase which spirals down into the dark depths
+below, a pathway to the abyss itself, it looms below like a yawning
+cavern's mouth.  To the west a massive door of mithril shines like a
+beacon, pulling you away from that darkness.  The ceiling above is not
+visible, only seen to the north as it drops below, following the
+staircase.
+~
+~
+301465604 11 9 0
+D3
+mithril door~
+"mithril door"~
+131 -1 46793 10 10 5
+D5
+~
+~
+0 -1 46795 10 10 5
+-1
+S
+
+#46795
+Below a Staircase~
+You stand at the foot of a gargantuan staircase which spirals up into the
+darkness above.  To the south a door of stone awaits, intricately carved
+with the crest of Khedrus.  The scrollwork about the door is impressive,
+not extravagant, as are the few items of decoration which you can see as
+you stand before the lower tombs.  Something has been carved into the
+door beneath the crest.
+~
+turn sconce
+~
+301465612 11 9 0
+D1
+wall~
+wall~
+235 -1 46800 10 10 5
+D2
+door of stone~
+"door of stone"~
+131 -1 46796 10 10 5
+D4
+~
+~
+0 -1 46794 10 10 5
+E
+inscription carving~
+The inscription reads:
+ 
+@I @I @b@WThe Tomb of Harand-Da
+@I @I @b@WWarrior of Khedrus@n
+~
+E
+door~
+The stone has somehow been carved and twisted, by what art you do not
+know.  An entire scene of a battle between dwarves plays across its
+surface.
+~
+A
+turn~
+sconce~
+if( is_open( room, east ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  send_to_room( #closes, find_room( 46800 ) );
+  close( room, east );
+  }
+else {
+  act_tochar( #turn, ch );
+  act_notchar( #rturn, ch );
+  send_to_room( #rrturn, find_room( 46800 ) );
+  open( room, east );
+  }
+~
+E
+turn~
+You turn the sconce and a section of the wall to the east opens.
+~
+E
+rturn~
+$n turns the sconce and a section of the wall to the east opens.
+~
+E
+rrturn~
+A section of the wall to the west opens.
+~
+E
+already~
+Someone has already turned the sconce.
+~
+E
+close~
+You turn the scone and close the secret passage.
+~
+E
+rclose~
+$n turns the sconce and closes a section of the wall to the east.
+~
+E
+closes~
+The western wall closes.
+~
+E
+closed~
+The sconce is stuck.
+~
+!
+0 0 0
+1362 17 1509949540 -2 0
+-1
+S
+
+#46796
+A Granite Tomb~
+From a quick look around there is not much which would lead you to
+believe that this is the final resting place of a great warrior.  No
+mounds of gold sit nearby, no troves of countless treasures adorn the
+walls.  The only adornments at all are a hard block of granite in the
+center of the room and the carving of a great, double-bladed axe in the
+west wall.
+~
+insert axe - steals axe
+overturn block - reveals treasure.
+This should not be an xp mob.
+~
+301465613 11 9 0
+D0
+door of stone~
+"door of stone"~
+131 -1 46795 10 10 5
+E
+axe west~
+The carving is so detailed, so perfect that a real axe of that size would
+probably fit within it perfectly.
+~
+E
+hard block granite~
+A most uncomfortable place to spend the eternal sleep which is death.
+~
+A
+insert~
+axe~
+if( has_obj( 1352, ch ) ) {
+  junk_obj( has_obj( 47, ch ) );
+  act_tochar( #axe, ch );
+  act_notchar( #raxe, ch );
+  end;
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+Nothing you have will fit into the carving.
+~
+E
+raxe~
+$n inserts an axe into the carving and it vanishes from sight.
+~
+E
+axe~
+You insert the massive axe into the carving and it simply vanishes from sight.
+~
+!
+0 0 0
+A
+overturn~
+block stone granite~
+if( mob_in_room( 1033, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+if( !rflag( reset0, room ) ) {
+  act_tochar( #nono, ch );
+  end;
+  }
+act_tochar( #over, ch );
+act_notchar( #rover, ch );
+acode( room, 3 );
+remove_rflag( reset0, room );
+~
+E
+nope~
+@b@WHarand-Da steps before you.  He will not let you defile his resting
+place.@n 
+~
+E
+nono~
+@b@WThe block has already been overturned.@n
+~
+E
+over~
+@b@WYou overturn the stone block and reveal that beneath it lied no small
+amount of treasure.@n 
+~
+E
+rover~
+$n overturns the stone block.@n
+~
+!
+0 0 0
+A
+~
+~
+if( random( 1, 2 ) < 2 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 3 ) < 2 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 4 ) < 2 )
+  if( random( 1, 5 ) < 2 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 6 ) < 2 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 7 ) < 3 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 8 ) < 3 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 9 ) < 3 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 10 ) < 3 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 11 ) < 3 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 12 ) < 3 )
+  obj_to_room( oload( 16 ), room );
+if( random( 1, 13 ) < 3 )
+  obj_to_room( oload( 197 ), room );
+if( random( 1, 14 ) < 3 )
+  obj_to_room( oload( 197 ), room );
+if( random( 1, 15 ) < 3 )
+  obj_to_room( oload( 197 ), room );
+if( random( 1, 16 ) < 3 )
+  obj_to_room( oload( 197 ), room );
+if( random( 1, 17 ) < 3 )
+  obj_to_room( oload( 197 ), room );
+if( random( 0, 200 ) == 7 )
+  obj_to_room( oload( 681 ), room );
+~
+E
+NOTE~
+This is the treasure code.
+~
+E
+crumble~
+Nothing happens.
+~
+!
+0 0 0
+1033 9 1509949540 3 0
+-1
+S
+
+#46798
+North Side-Passage~
+This side passageway continues on into the darkness to the north and
+connects to the main hall to the south.  From what you can tell, peering
+through the shadows, this side passage in turn branches into several
+smaller tunnels, perhaps rooms.  Upon each wall an inscription is
+engraved.
+~
+[Greyclaw] Look wall is awful weird
+[Severus] when the spectre of a dwarf warrior charges, the message satys "dwarven skeleton"
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46778 10 10 5
+D2
+~
+~
+0 -1 46777 10 10 5
+E
+inscription wall engrav~
+@I @I @b@WHonor Guard: guard our fallen brother's rest, guard it
+@I @I well, guard it as well in death
+@I @I as you did in life.@
+~
+-1
+S
+
+#46799
+South Side-Passage~
+This side passageway continues on into the darkness to the south and
+connects to the main hall to the north.  From what you can tell, peering
+through the shadows, this side passage in turn branches into several
+smaller tunnels, perhaps rooms.  Upon each wall an inscription is
+engraved.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 46777 10 10 5
+D2
+~
+~
+0 -1 46779 10 10 5
+E
+inscription wall engrav~
+No description
+@I @I @b@WHonor Guard: guard our fallen brother's rest, guard it
+@I @I well, guard it as well in death
+@I @I as you did in life.@
+~
+-1
+S
+
+#46800
+Room of the Keeper~
+This small room is lit by the warm glow of a burning fire in an alcove to
+the east.  While small, the room appears cozy, furnished with a bearskin
+rug, a solid bed, and a small desk.  On the desk a large open book rests,
+dust thick upon its pages.
+~
+turn sconce
+~
+301469711 11 9 0
+D3
+wall~
+wall~
+235 -1 46795 10 10 5
+E
+desk~
+This desk is short, probably the right size for a dwarf or gnome.
+~
+E
+bed~
+The bed is low the the stone ground, about 5 feet or so in length.
+~
+E
+rug~
+This large, thick bearskin rug must have come from a massive beast indeed.
+~
+E
+book~
+The writing on the pages has faded for the most part, but you can make
+out the phrase "....and thus did Harand-Da save all the...." 
+~
+E
+fire alcove~
+The flames rise and fall endlessly, an eternal flame.
+~
+A
+turn~
+sconce~
+if( is_open( room, west ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  send_to_room( #closes, find_room( 46795 ) );
+  close( room, west );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  send_to_room( #opens, find_room( 46795 ) );
+  open( room, west );
+  }
+~
+E
+close~
+You turn the sconce and close the secret passage.
+~
+E
+rclose~
+$n turns the sconce and the wall to the west closes.
+~
+E
+closes~
+A section in the wall to the east closes.
+~
+E
+open~
+You turn the sconce and open a secret passage in the wall to the west.
+~
+E
+ropen~
+$n turns the sconce and a secret passage opens in the wall to the west.
+~
+E
+opens~
+A secret passage opens in the wall to the east.
+~
+!
+0 0 0
+1034 9 1509949540 3 0
+1362 17 1509949540 -2 0
+-1
+S
+
+#46801
+Inside a Small Alcove~
+The six and a half feet tall alcove is a surprisingly deep insertion into
+the stone wall, enough so that the alcove seems to be constantly shrouded
+in shadow.  This alcove was apparently the used as a burial chamber, as
+the residues of embalming materials are intermixed with cobwebs across
+the stone surface of the walls and floor.  You can leave the alcove to
+the east.
+~
+~
+301465604 11 9 0
+A
+exit~
+alcove~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 46767 ) );
+act_notchar( #rrenter, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You carefully exit the darkness of the alcove.
+~
+E
+renter~
+$n leaves the darkness of the alcove.
+~
+E
+rrenter~
+$n steps down out of the alcove.
+~
+!
+0 0 0
+A
+1 east~
+~
+acode( room, 1 );
+~
+!
+0 0 0
+-1
+S
+
+#46802
+Inside a Small Alcove~
+The six and a half feet tall alcove is a surprisingly deep insertion into
+the stone wall, enough so that the alcove seems to be constantly shrouded
+in shadow.  This alcove was apparently the used as a burial chamber, as
+the residues of embalming materials are intermixed with cobwebs across
+the stone surface of the walls and floor.  You can exit the alcove to the
+west.
+~
+~
+301465604 11 9 0
+A
+leave~
+alcove~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 46763 ) );
+act_notchar( #rrenter, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+enter~
+You exit the darkness of the alcove, stepping down to the west.
+~
+E
+renter~
+$n leaves the alcove, stepping down to the west.
+~
+E
+rrenter~
+No description $n steps down from the alcove.
+~
+!
+0 0 0
+A
+search~
+wall~
+end;
+if( find_skill( ch, searching ) < 2 ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+if( find_skill( ch, searching ) < 6 ) {
+  if( random( 1, 3 ) == 1 ) {
+    act_tochar( #eureka, ch );
+    loop( all_in_room ) {
+      act_tochar( #tumble, rch );
+      act_notchar( #rtumble, rch );
+      transfer( rch, find_room( 46803 ) );
+      act_notchar( #rrtumble, rch );
+      }
+    end;
+    }
+  else {
+    act_tochar( #nope, ch );
+    end;
+    }
+  }
+if( find_skill( ch, searching ) > 5 ) {
+  act_tochar( #eureka, ch );
+  loop( all_in_room ) {
+    act_tochar( #tumble, rch );
+    act_notchar( #rtumble, rch );
+    transfer( rch, find_room( 46803 ) );
+    act_notchar( #rrtumble, rch );
+    }
+  end;
+  }
+end;
+~
+E
+eureka~
+You find a small square button hidden in the wall!!  Unfortunately, in
+finding it, you press it!!
+~
+E
+nope~
+You search the walls of the alcove, but don't find anything.
+~
+E
+tumble~
+The walls of the alcove move and flip, tumbling you head over heels and
+over the east wall!!
+~
+E
+rtumble~
+The walls of the alcove move and flip, tumbling $n head over heels and
+over the east wall!!
+~
+E
+rrtumble~
+The wall to the west rotates, sending $n tumbling in from the east!!
+~
+!
+0 0 0
+A
+w we wes west~
+~
+acode( room, 1 );
+~
+!
+0 0 0
+-1
+S
+
+#46803
+Inside a Small Alcove~
+The six and a half feet tall alcove is a surprisingly deep insertion into
+the stone wall, enough so that the alcove seems to be constantly shrouded
+in shadow.  This alcove was apparently the used as a burial chamber, as
+the residues of embalming materials are intermixed with cobwebs across
+the stone surface of the walls and floor.  You can exit the alcove to the
+east.
+~
+~
+301465604 11 9 0
+A
+search~
+wall~
+if( find_skill( ch, searching ) < 2 ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+if( find_skill( ch, searching ) < 6 ) {
+  if( random( 1, 3 ) == 1 ) {
+    act_tochar( #eureka, ch );
+    loop( all_in_room ) {
+      act_tochar( #tumble, rch );
+      act_notchar( #rtumble, rch );
+      transfer( rch, find_room( 46802 ) );
+      act_notchar( #rrtumble, rch );
+      }
+    end;
+    }
+  else {
+    act_tochar( #nope, ch );
+    end;
+    }
+  }
+if( find_skill( ch, searching ) > 5 ) {
+  act_tochar( #eureka, ch );
+  loop( all_in_room ) {
+    act_tochar( #tumble, rch );
+    act_notchar( #rtumble, rch );
+    transfer( rch, find_room( 46802 ) );
+    act_notchar( #rrtumble, rch );
+    }
+  end;
+  }
+end;
+~
+E
+eureka~
+You find a small square button hidden in the wall!!  Unfortunately, in
+finding it, you press it!!
+~
+E
+nope~
+You search the walls of the alcove, but don't find anything.
+~
+E
+tumble~
+The walls of the alcove move and flip, tumbling you head over heels and
+over the west wall!!
+~
+E
+rtumble~
+The walls of the alcove move and flip, tumbling $n head over heels and
+over the west wall!!
+~
+E
+rrtumble~
+The wall to the east rotates, sending $n tumbling in from the east!!
+~
+!
+0 0 0
+-1
+S
+
+#0
+

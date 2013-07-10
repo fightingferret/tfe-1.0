@@ -1,0 +1,1837 @@
+#AREA
+Renegade Dwarf Warrens~
+Ender~
+renegade dwarves~
+
+10 0
+0
+#ROOMS
+
+#31500
+Testing Grounds.  HardHats Required at all Times~
+Grey moss hangs from the ceiling.  Brown clumps of dead vegitation litter
+the floor.  Your feet squelsh as you walk over the muck scattered
+across the rocks.
+~
+~
+301465612 5 6 0
+D0
+~
+~
+1 -1 31501 10 10 5
+E
+moss grey ceiling~
+none~
+-1
+S
+
+#31501
+Ender's feeble Attempt.~
+Hewn with dwarven picks, the sharp angles of the rocks glint back your
+light at you.  All the vegitation has been cleared away from the center
+of the room.  Standing from the center of the floor is an intricately
+carved stand, with dwarven legends worked into the natural grain of the
+stone.  Atop the stand floats a slowly rotating book encased in a liquid
+flame.  
+~
+~
+301465613 5 6 0
+D0
+~
+~
+0 -1 31502 10 10 5
+D2
+~
+~
+1 -1 31500 10 10 5
+E
+stone legends stand~
+none
+The angles of the cuts are all sharp, witness to the fine 
+handwork of dwarves.  However, the cracks are filled with dust
+as no one has polished the stones in ages.
+~
+E
+book~
+Ideas
+Careful not to singe your fingers, you open the book.
+"Well Greyclaw, or whoever is reading this, I will be doing most
+of my idea spawning during class.  Which means it may 
+APPEAR that I am slacking, when in truth I am creating ideas
+offline.  Add ANY suggestions for this area here.  Please.
+Cave like, renegade dwarves (?) motley shabbey crew.
+sewers beneath, lots of garbage
+pets belonging to dwarves?  possible?
+traps abound, not too nasty, dump salamanders on you?
+Living vines in the walls, pull you through floor occasionally.
+lots of rotting type monster along with dwarves.
+possibly walk into a fight in progress between and regular dwarf?
+general map warren like, not TOO mazish.  couple of 1
+way pitfalls.  find way out.  guarded treasure. (?)
+GUARDED TREASURE???? (slaps self)  how GENERIC.  (bonks head against wall)
+oh well.  add.  please.  (grovels)
+one more.  This whole mud needs a history to it.
+things feel kinda... disconnected.  need legends.  
+I loved the references to clone wars in Starwarz books.  Think I will work
+on something similar.
+
+->I can see vines pulling into cracks in walls and/or floor, but through?
+->rotting monsters and dwarves?
+->Ideas seem good. Will check back later sometime.
+~
+-1
+S
+
+#31502
+Southern Warren~
+Stooping as you weave through the narrow cave, the dominant feature is a
+chasm which opens up to the north.  A narrow rope bridge staked to the
+edge dips out across the chasm, to disappear into the darkness.  
+~
+[Rebekka] this room is called warren?
+~
+301465605 5 6 0
+D0
+~
+~
+0 -1 31503 10 10 5
+D2
+~
+~
+0 -1 2548 10 10 5
+-1
+S
+
+#31503
+South Edge of Chasm~
+You are standing at the edge of a giant chamber.  Hundreds of feet up,
+bats flit in and out between the stalactites.  Forty feet down, you can
+see bones scattered between the giant stalagmites.  An unstable but
+well-kept rope bridge leads to the far side, and a small trickle of water
+can be heard far below you.
+~
+~
+301465605 5 6 0
+D0
+~
+~
+0 -1 31504 10 10 5
+D2
+~
+~
+0 -1 31502 10 10 5
+E
+water~
+The water moves so slowly and is so far below you, it is hard to see
+which way it flows.  The stream goes off to the west, and curves around
+the stalagmites to disappear under you.  
+~
+E
+bridge rope ropes~
+They look secure enough.  Heavily braided fibers form a V shape,
+walkable, but unstable.  
+~
+-1
+S
+
+#31504
+Rope Bridge~
+Looking over the edge, you can see the stalagmites staring straight up at
+you.  They seem sharper from this angle.  Thirty feet to your south, the
+bridge leads to a hole half way up the rock wall.  Forty feet to the
+north, the bridge is anchored in an outcropping of rock.  Hundreds of
+feet above you, huge stalactites point straight at you.  The bridge
+slowly sways under your weight.  Fibers hang down from the bridge.  It
+might be possible to slide down one of them.  However, it would be quite
+hard to climb back up.  
+~
+[Hollie] need a act_tochar for everyone who gets hit by barbed bolt.
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 31506 10 10 5
+D2
+~
+~
+0 -1 31503 10 10 5
+D5
+~
+~
+0 -1 31505 10 10 5
+E
+fibers~
+Unwound by time, several fibers hang down from the massive main rope. 
+They look strong enough to hold you, but climbing back up would be almost
+impossible, as they are smooth strands and not coiled rope.  
+~
+A
+~
+~
+room = find_room( 31522 );
+if( !mob_in_room( 319, room ) ) 
+  end;
+if( random( 0, 10 ) > 4 ) {
+  act_notchar( #Archer_Room, ch );
+  i = dice( 9, 2 );
+  dam_message( ch, i, #Archer_Char );
+  inflict( ch, mob, i, "Archer's bolt" );
+  end;
+  }
+if( random( 0, 10 ) < 6 ) { 
+  if( !rflag( reset0, find_room( 31504 ) ) ) {
+    send_to_room( #Fall_String, find_room( 31505 ) );
+    send_to_room( #Shoot_Bridge, find_room( 31504 ) );
+    transfer_all( find_room( 31504 ), find_room( 31505 ) );
+    loop( all_in_room ) {
+      i = dice( 4, 10 );
+      dam_message( rch, i, #Room_Fall );
+      inflict( rch, mob, i, "Falling" );
+      }
+    }
+  else {
+      remove_rflag( reset0, find_room( 31504 ) );
+      act_room( #hack_rope, ch );
+      }
+    end;
+  }
+act_room( #Archer_Miss, ch );
+~
+E
+hack_rope~
+@b@RA bolt whistles out from the far wall, chopping a rope of the bridge
+nearly in half.
+~
+E
+Archer_Miss~
+@b@RA gleaming bolt flicks through the air above your head!
+~
+E
+Fall_String~
+@b@RSuddenly, the bridge far above you snaps, sending its occupants
+plummeting down toward you!
+~
+E
+Room_Fall~
+The brutal landing on the stalagmites
+~
+E
+Shoot_Bridge~
+@b@RA bolt slices through the bridge's rope, neatly severing it.  The
+half-supported bridge tips and you tumble off.
+
+~
+E
+Archer_Room~
+@b@RA barbed bolt slices the arm of $n!
+~
+E
+Archer_Char~
+The archer's bolt
+~
+!
+1 -1 37
+-1
+S
+
+#31505
+Floor of Chasm~
+Like giant pillars, the stalagmites rise far above your head.  You can
+barely squeeze between them as you pick your way over the uneven ground. 
+A small stream of horrible smelling water flows out from the west and
+disappears underground to the south.  
+~
+~
+301465605 11 6 0
+D3
+~
+~
+0 -1 31517 10 10 5
+E
+water stream~
+The water looks horrible, with bits of junk and trash bobbing in the
+murkey stream.
+~
+-1
+S
+
+#31506
+North Edge of Chasm~
+You are standing at the north edge of a giant open chamber.  It is nearly
+50 feet from the tips of the stalactites above your head to the tips of
+the stalagmites which surround you.  A simple way south appears to be via
+a narrow bridge.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 31507 10 10 5
+D2
+~
+~
+0 -1 31504 10 10 5
+D4
+~
+~
+0 -1 31522 10 10 5
+-1
+S
+
+#31507
+Sitting Area~
+Seven chairs are arranged in a circle around a small wooden table in the
+center of the room.  The table is covered with scratches and marks,
+indicating what seems to be ancient on-the-fly battle plans.  Five foot
+high tunnels through the solid rock lead north and west.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 31511 10 10 5
+D2
+~
+~
+0 -1 31506 10 10 5
+D3
+~
+~
+0 -1 31508 10 10 5
+E
+table~
+A huge wooden slab laid across several rock piles, this table has been
+here for a while.
+~
+317 9 1509949540 3 0
+-1
+S
+
+#31508
+Hallway~
+You are in a north-south hallway, with murals etched into the walls. 
+Several showing dwarves shaking hands with other dwarves have been
+defaced, with the faces of several of the dwarves chipped out of
+existence.  The hallway's murals lead north and south, interrupted by an
+opening to the east.
+~
+The actions south are using the status# in this room.
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 31510 10 10 5
+D1
+~
+~
+0 -1 31507 10 10 5
+D2
+~
+~
+0 -1 31509 10 10 5
+E
+murals etching etchings faces~
+The scratches across several of the dwarves seem more recent.  Also, food
+is smeared across several of the scenes, making them unreadable.  
+~
+317 9 1509949490 3 0
+-1
+S
+
+#31509
+Camera Obscura~
+The first thing to grab your eye is the giant white disk in the middle of
+the room.  You slip a glance at it, and your jaw drops open as you see
+what looks like an antelope bound across its smooth surface.  The rest
+of the room is smooth black rock which seems to absorb all the light. 
+There are several dangling ropes and multi colored levers in the corner
+of the room.  A small button just below the levers also catches your
+eye.  
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 31508 10 10 5
+D5
+trapdoor~
+trapdoor~
+227 -1 31526 10 10 5
+E
+white disk~
+The button probably works in conjunction with the levers.
+~
+E
+rope ropes~
+Leading up through the ceiling and down through the floor, the four ropes
+seem to slide easily up and down.  You give one an experimental tug, and
+the moving pictures in the center of the room blur like you just got
+bashed on the head.  
+~
+E
+white disk table~
+You gaze enthralled at the moving drawings on the floor.  You reach forth
+your hand to touch the moving grasses only to find that the shadow of
+your hand makes them disappear.  Shadow?  You look upwards to see a small
+opening in the top center of the room; The light pouring through the hole
+illuminates the dust floating around the room.  
+~
+A
+pull~
+blue lever~
+if( rflag( status0, room ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  remove_rflag( status0, room );
+  }
+else {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+~
+E
+!r_pull~
+$n tries to pull the blue lever but it does not move any further.
+~
+E
+!pull~
+You cannot pull the lever further.
+~
+E
+r_pull~
+$n pulls the blue lever.
+~
+E
+pull~
+You pull the blue lever.
+~
+!
+0 0 0
+A
+push~
+blue lever~
+if( rflag( status0, room ) ) {
+  act_tochar( #!push, ch );
+  act_notchar( #!r_push, ch );
+  }
+else {
+  act_tochar( #push, ch );
+  act_notchar( #r_push, ch );
+  set_rflag( status0, room );
+  }
+~
+E
+r_push~
+$n pushes the blue lever foreward.
+~
+E
+push~
+You push the blue lever foreward.
+~
+E
+!r_push~
+$n tries to push the blue lever but cannot push it any further.
+~
+E
+!push~
+You cannot push the lever any further.
+~
+!
+0 0 0
+A
+pull~
+red lever~
+if( rflag( status1, room ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  remove_rflag( status1, room );
+  }
+else {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+~
+E
+!r_pull~
+$n tries to pull the red lever but cannot pull it any further.
+~
+E
+!pull~
+You cannot pull the lever any further.
+~
+E
+r_pull~
+$n pulls the red lever.
+~
+E
+pull~
+You pull the red lever.
+~
+!
+0 0 0
+A
+push~
+red lever~
+if( rflag( status1, room ) ) {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  set_rflag( status1, room );
+  }
+~
+E
+!r_pull~
+$n tries to push the red lever but cannot push it any further.
+~
+E
+!pull~
+You cannot push the lever any further.
+~
+E
+r_pull~
+$n pushes the red lever.
+~
+E
+pull~
+You push the red lever.
+~
+!
+0 0 0
+A
+pull~
+green lever~
+if( rflag( status2, room ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  remove_rflag( status2, room );
+  }
+else {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+~
+E
+!r_pull~
+$n tries to pull the green lever but it does not move any further.
+~
+E
+!pull~
+You cannot pull the lever further.
+~
+E
+r_pull~
+$n pulls the green lever.
+~
+E
+pull~
+You pull the green lever.
+~
+!
+0 0 0
+A
+push~
+green lever~
+if( rflag( status2, room ) ) {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  set_rflag( status2, room );
+  }
+~
+E
+!r_pull~
+$n tries to push the green lever but cannot push it any further.
+~
+E
+!pull~
+You cannot push the lever any further.
+~
+E
+r_pull~
+$n pushes the green lever.
+~
+E
+pull~
+You push the green lever.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #char, ch );
+acode( room, 15 );
+continue;
+~
+E
+char~
+As you leave you hear the clicking of the levers resetting themselves.
+
+~
+!
+3 5 32
+A
+1 look~
+blue red green black white levers~
+if( rflag( status0, room ) )
+  act_tochar( "The blue lever is up.", ch );
+else
+  act_tochar( "The blue lever is down.", ch );
+if( rflag( status1, room ) )
+  act_tochar( "The red lever is up.", ch );
+else
+  act_tochar( "The red lever is down.", ch );
+if( rflag( status2, room ) )
+  act_tochar( "The green lever is up.", ch );
+else
+  act_tochar( "The green lever is down.", ch );
+if( rflag( reset0, room ) )
+  act_tochar( "The black lever is up.", ch );
+else
+  act_tochar( "The black lever is down.", ch );
+if( rflag( reset1, room ) )
+  act_tochar( "The white lever is up.", ch );
+else
+  act_tochar( "The white lever is down.", ch );
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+close( room, down );
+~
+!
+1 4 16
+A
+pull~
+white lever~
+if( rflag( reset1, room ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  remove_rflag( reset1, room );
+  }
+else {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+~
+E
+!r_pull~
+$n tries to pull the white lever but it does not move any further.
+~
+E
+!pull~
+You cannot pull the lever further.
+~
+E
+r_pull~
+$n pulls the white lever.
+~
+E
+pull~
+You pull the white lever.
+~
+!
+0 0 0
+A
+push~
+white lever~
+if( rflag( reset1, room ) ) {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  set_rflag( reset1, room );
+  }
+~
+E
+!r_pull~
+$n tries to push the white lever but cannot push it any further.
+~
+E
+!pull~
+You cannot push the lever any further.
+~
+E
+r_pull~
+$n pushes the white lever.
+~
+E
+pull~
+You push the white lever.
+~
+!
+0 0 0
+A
+pull~
+black lever~
+if( rflag( reset0, room ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #r_pull, ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #!pull, ch );
+  act_notchar( #!r_pull, ch );
+  }
+~
+E
+!r_pull~
+$n tries to pull the black lever but it does not move any further.
+~
+E
+!pull~
+You cannot pull the lever further.
+~
+E
+r_pull~
+$n pulls the black lever.
+~
+E
+pull~
+You pull the black lever.
+~
+!
+0 0 0
+A
+push~
+black lever~
+if( rflag( reset0, room ) ) {
+  act_tochar( #!push, ch );
+  act_notchar( #!r_push, ch );
+  }
+else {
+  act_tochar( #push, ch );
+  act_notchar( #r_push, ch );
+  set_rflag( reset0, room );
+  }
+~
+E
+!r_push~
+$n tries to push the black lever but cannot push it any further.
+~
+E
+!push~
+You cannot push the lever any further.
+~
+E
+r_push~
+$n pushes the black lever.
+~
+E
+push~
+You push the black lever.
+~
+!
+0 0 0
+A
+1 push~
+2 button~
+room = find_room( 31508 );
+if( rflag( status0, room ) ) {
+  remove_rflag( status0, room );
+  acode( find_room( 31509 ), 16 );
+  }
+else {
+  if( rflag( status1, room ) ) {
+    remove_rflag( status1, room );
+    acode( find_room( 31509 ), 17 );
+    }
+  else {
+    if( rflag( status2, room ) ) {
+      remove_rflag( status2, room );
+      acode( find_room( 31509 ), 18 );
+      }
+    else {
+      set_rflag( status0, room );
+      set_rflag( status1, room );
+      set_rflag( status2, room );
+      acode( find_room( 31509 ), 14 );
+      }
+    }
+  }
+~
+!
+0 0 0
+A
+resets_levers~
+~
+set_rflag( reset0, room );
+set_rflag( reset1, room );
+set_rflag( reset2, room );
+set_rflag( status0, room );
+set_rflag( status1, room );
+set_rflag( status2, room );
+~
+!
+0 0 0
+A
+int1~
+~
+room = find_room( 31509 );
+send_to_char( #push, ch );
+act_notchar( #r_push, ch );
+if( !rflag( status0, room ) ) {
+  if( !rflag( status1, room ) ) {
+    if( !rflag( reset0, room ) ) {
+      poison( ch );
+      acode( room, 15 );
+      end;
+      }
+    }
+  }
+if( !rflag( status2, room ) ) {
+  if( !rflag( reset1, room ) ) {
+    do_spell( sleep, mob, ch );
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status1, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_room( #trans, ch );
+    open( room, down );
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status0, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    if( random( 1, 10 ) == 1 ) {
+      act_room( #mload, ch );
+      loop( all_in_room ) {
+        mload( 216, room );
+        }
+      acode( room, 15 );
+      end;
+      }
+    }
+  }
+if( !rflag( reset1, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    i = 3d6+6;
+    act_tochar( #ice, ch );
+    act_notchar( #ice1, ch );
+    dam_message( ch, i, "The ice shards" );
+    inflict( ch, mob, i, "ice spears" );
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status0, room ) ) {
+  act_room( #poison, ch );
+  loop( all_in_room ) {
+    poison( rch );
+    }
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( status1, room ) ) {
+  do_spell( mists of sleep, mob, ch );
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( status2, room ) ) {
+  act_room( #nothing, ch );
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( reset0, room ) ) {
+  act_room( #laughter, ch );
+  acode( room, 15 );
+  end;
+  }
+~
+E
+poison~
+@b@GNoxious fumes fill the room almost choking you!@n
+~
+E
+laughter~
+@bA shrill laugh drifts through the thick stone walls to you.@n
+~
+E
+nothing~
+Nothing seems to happen.
+~
+E
+mload~
+@CFrom the cracks in the walls and ceiling several large cobras drop!@n
+~
+E
+ice1~
+@BSuddenly small spears of ice spray down at $n!@n
+~
+E
+ice~
+@BSuddenly small spears of ice spray down at you from above!@n
+~
+E
+trans~
+A trap door opens up in the floor.
+~
+E
+r_push~
+$n pushes the button and...
+~
+E
+push~
+You push the button and...
+~
+!
+0 0 0
+A
+int2~
+~
+room = find_room( 31509 );
+act_tochar( #push, ch );
+act_notchar( #r_push, ch );
+if( !rflag( status0, room ) ) {
+  if( !rflag( status1, room ) ) {
+    if( !rflag( reset0, room ) ) {
+      act_room( #trans, ch );
+      open( room, down );
+      acode( room, 15 );
+      end;
+      }
+    }
+  }
+if( !rflag( status2, room ) ) {
+  if( !rflag( reset1, room ) ) {
+    loop( all_in_room ) {
+      act_tochar( #fire, ch );
+      act_notchar( #fire1, ch );
+      i = 6d6+6;
+      dam_message( rch, i, "The flames" );
+      inflict( rch, mob, i, "flame trap" );
+      }
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status1, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_room( #conhal, ch );
+    loop( all_in_room ) {
+      do_spell( confuse, mob, rch );
+      do_spell( hallucinate, mob, rch );
+      }
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status0, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_tochar( #flame, ch );
+    act_notchar( #flame1, ch );
+    poison( ch );
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( reset1, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    do_spell( chain lightning, mob, ch );
+    act_room( #mload, ch );
+    loop( all_in_room ) {
+      mload( 2511, room );
+      mload( 2511, room );
+      mload( 2511, room );
+      mload( 2511, room );
+      }
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status0, room ) ) {
+  do_spell( mists of sleep, mob, ch );
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( status1, room ) ) {
+  do_spell( locust swarm, mob, ch );
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( status2, room ) ) {
+  loop( all_in_room ) {
+    do_spell( blind, mob, rch );
+    }
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( reset0, room ) ) {
+  loop( all_in_room ) {
+    do_spell( slow, mob, rch );
+    do_spell( web, mob, rch );
+    do_spell( confuse, mob, rch );
+    }
+  acode( room, 15 );
+  end;
+  }
+~
+E
+mload~
+@GA hoard of rats suddenly apear before you.
+~
+E
+flame1~
+Nothing happens.
+~
+E
+flame~
+Nothing happens.
+~
+E
+conhal~
+Nothing happens.
+~
+E
+fire1~
+@b@RFlames envelope $n.
+~
+E
+fire~
+@b@RHuge flames leap from the floor and envelope you.
+~
+E
+trans~
+@bA trap door opens up in the floor.
+~
+E
+r_push~
+$n pushes the button and...
+~
+E
+push~
+You push the button and...
+~
+!
+0 0 0
+A
+int3~
+~
+room = find_room( 31509 );
+act_tochar( #push, ch );
+act_notchar( #r_push, ch );
+if( !rflag( status0, room ) ) {
+  if( !rflag( status1, room ) ) {
+    if( !rflag( reset0, room ) ) {
+      loop( all_in_room ) {
+        i = 6d6+6;
+        dam_message( rch, i, "Burning flames enveloping the room" );
+        inflict( rch, mob, i, "burning death" );
+        }
+      acode( room, 15 );
+      end;
+      }
+    }
+  }
+if( !rflag( status2, room ) ) {
+  if( !rflag( reset1, room ) ) {
+    act_room( #trans, ch );
+    open( room, down );
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status1, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    loop( all_in_room ) {
+      mload( 2511, room );
+      mload( 2511, room );
+      mload( 2511, room );
+      mload( 2511, room );
+      }
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status0, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_tochar( #flame, ch );
+    act_notchar( #flame1, ch );
+    poison( ch );
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( reset1, room ) ) {
+  if( !rflag( reset0, room ) ) {
+    do_spell( chain lightning, mob, ch );
+    loop( all_in_room ) {
+      do_spell( confuse, mob, rch );
+      do_spell( hallucinate, mob, rch );
+      }
+    acode( room, 15 );
+    end;
+    }
+  }
+if( !rflag( status0, room ) ) {
+  do_spell( locust swarm, mob, ch );
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( status1, room ) ) {
+  do_spell( mists of sleep, mob, ch );
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( status2, room ) ) {
+  loop( all_in_room ) {
+    do_spell( slow, mob, rch );
+    do_spell( web, mob, rch );
+    do_spell( confuse, mob, rch );
+    }
+  acode( room, 15 );
+  end;
+  }
+if( !rflag( reset0, room ) ) {
+  loop( all_in_room ) {
+    do_spell( blind, mob, rch );
+    }
+  acode( room, 15 );
+  end;
+  }
+~
+E
+mload~
+@GA hoard of rats suddenly apear before you.
+~
+E
+flame1~
+Nothing happens.
+~
+E
+flame~
+Nothing happens.
+~
+E
+conhal~
+Nothing happens.
+~
+E
+fire1~
+@b@RLeaping flames envelope the room!
+~
+E
+fire~
+@b@RLeaping flames envelope the room!
+~
+E
+trans~
+@bA trap door opens up in the floor.
+~
+E
+r_push~
+$n pushes the button and...
+~
+E
+push~
+You push the button and...
+~
+!
+0 0 0
+-1
+S
+
+#31510
+Hallway~
+The sides of this hallway are covered with marred carvings.  You can just
+make out scenes of dwarves in ferocious battle with angry-looking goblins. 
+For some reason, the faces of the dwarves seem to have been gouged out. 
+The hall appears to widen to the north, and heads south into darkness.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 31527 10 10 5
+D2
+~
+~
+0 -1 31508 10 10 5
+-1
+S
+
+#31511
+Living Quarters~
+Several bedrolls lie scattered around the floor, mingled with several
+half-eaten rabbits.  A crude pebble game lies scattered in the corner. 
+The bedrolls are crawling with lice.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 31520 10 10 5
+D1
+~
+~
+0 -1 31513 10 10 5
+D2
+~
+~
+0 -1 31507 10 10 5
+E
+game~
+A small three by three cross etched in the ground with two shades of
+stones placed inbetween the lines.  
+~
+E
+bedroll bed roll rolls beds~
+The bedrolls seem recently used, as they are cleaner than the rest of the
+room. However, judging from the lice and other vermin crawling around on
+them, you think you should let them stay where they are.  
+~
+317 9 1509949540 3 0
+143 17 1509949540 -2 0
+143 17 1509949540 -2 0
+143 17 1509949540 -2 0
+317 9 1509949540 3 0
+-1
+S
+
+#31512
+Killer Vines~
+The rock walls are coated with the veins of this giant underground vine. 
+The roof is the only soil in sight, and it is kept from collapsing by all
+the interwoven roots threading slowly through it.  
+~
+~
+301465612 5 6 0
+D2
+~
+~
+0 -1 31523 10 10 5
+306 9 1509949540 3 0
+306 9 1509949540 3 0
+-1
+S
+
+#31513
+A Grimy Kitchen~
+Your stomach churns as you step in to what you pray isn't the kitchen. 
+Several gutted rabbits adorn the walls, slowly growing a pinkish fuzz. 
+Along the floor, the ashes from many sputtering fires lie in a heap.
+Looking up, you don't see a vent for smoke, perhaps that is the reason
+why you are coughing.  
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 31514 10 10 5
+D2
+~
+~
+0 -1 31516 10 10 5
+D3
+~
+~
+0 -1 31511 10 10 5
+E
+pinkish fuzz~
+The fuzz is slowly devouring the rabbits.  Actually, it's probably
+enjoying them more than you ever would.  
+~
+E
+rabbits rabbit~
+Underdone, crawling with maggots, and slowly being devoured by a pinkish
+fuzz, these tasty morsels must be what the dwarves live on.  No chance
+are you even touching them, your hand would probably rot off.
+~
+318 9 1509949540 3 0
+35 17 1509949540 -2 0
+-1
+S
+
+#31514
+Bathroom~
+The stench almost floors you as you enter this room.  A small hole in the
+ground of the cave is very evidently the dwarves' bathroom.  Holding your
+nose, you look down the hole to see a long sewer shaft tunnel through the
+solid rock.  
+~
+~
+301465605 11 6 0
+D2
+~
+~
+0 -1 31513 10 10 5
+D5
+~
+~
+0 -1 31515 10 10 5
+317 9 1509949540 3 0
+-1
+S
+
+#31515
+Sewers~
+A glimmer of light shines from far above your head.  All around you, the
+walls are covered with all sorts of decayed slop.  The smell makes you
+nauseous, but leaning against the walls looks inadvisable.  The river of
+slop joins a small underground well here, trickling off towards the west.
+~
+~
+301465613 11 6 0
+D3
+~
+~
+0 -1 31519 10 10 5
+D4
+~
+~
+0 -1 31514 10 10 5
+-1
+S
+
+#31516
+Storage~
+Cluttered with everything imaginable that the dwarves have managed to
+haul in, the rock walls of this room are barely visible beneath all the
+old junk.  Shelves of wood for the fires, and torches for the dark
+tunnels suggest that the dwarves only go shopping once a year.  You kick
+aside the garbage as you make your way into the middle of the room.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 31513 10 10 5
+3005 17 1509949540 -2 0
+3034 17 1509949490 -2 0
+26 17 1509949490 -2 0
+26 17 1509949490 -2 0
+26 17 1509949490 -2 0
+134 17 1509949490 -2 0
+640 17 1509949450 -2 0
+317 9 1509949540 3 0
+639 17 1509949442 -2 0
+-1
+S
+
+#31517
+Southwest Wall~
+As you weave in and out between the stalagmites, you are able to
+determine that the only ways you can move are north or east.  Far above
+you in the mist, bats hang upside down, occasionally splattering the
+rocks and you with guano.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 31518 10 10 5
+D1
+~
+~
+0 -1 31505 10 10 5
+230 9 1509949540 3 0
+-1
+S
+
+#31518
+Under the Cages~
+The sewer widens as it rounds the bend.  For the moment, the polluted
+stream is underground.  The rocks are all splattered with dung, and
+looking up you see why...  you are standing directly under the pet cages
+of the dwarves.  
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 31519 10 10 5
+D2
+~
+~
+0 -1 31517 10 10 5
+E
+1 up~
+Welded into the side of the rocks, the iron grate lets the dung drop on you and the pets stay safely above you.~
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#31519
+Sewer Tunnels~
+Crawling along on your hands and knees, you are thankful that there
+isn't much light.  The walls, ceiling, and floor of this narrow east to
+west sewer shaft are coated with years of build-up.  There would be
+nothing better than jumping in a cool river right now.
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 31515 10 10 5
+D3
+~
+~
+0 -1 31518 10 10 5
+-1
+S
+
+#31520
+Vines~
+The ground is much softer here.  Your feet leave deep impressions in the
+soft soil.  Poking through your footprints, you can see tendrils of white
+underground vines.  To the north, a heavy thicket of vines block your
+path, and what looks like a bar of silver is entangled in the vines. 
+With so little light here, you wonder how the plants can be so healthy.  
+~
+*Closed until evaluated - flor
+~
+301465612 11 6 0
+D2
+~
+~
+0 -1 31511 10 10 5
+E
+silver bar~
+Thoroughly entangled by the vines, you can just glimpse a flash of
+silver behind the vines.  Without clearing the vines away first, you have
+no hope of reaching it. 
+~
+E
+vine vines~
+Poking in and out of the soft soil like some petrified snake, these white
+vines seem to have grown straight through the solid rock.  From the way
+the rock walls are crumbling, you would guess that the vines helped to
+create this soft soil beneath you.  
+~
+A
+clear~
+vines~
+act_tochar( #too, ch );
+end;
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+room = find_room( 31512 );
+transfer( ch, room );
+mob = mob_in_room( 329, room );
+if( mob )
+  attack( mob, ch, 2d2+5, "tentacle" );
+else
+  attack( mload( 329, room ), ch, 2d2+5, "tentacle" );
+~
+E
+damage_char~
+You open your eyes to see your legs encased in a giant green pod, which
+is slowly draining your blood.  You struggle to free yourself, but to no
+avail.  The giant pod
+~
+E
+room~
+Upon disturbing the vines, the ground begins to rustle.  A mound of dirt
+bulges, and a score of whip like vines burst fourth, wrapping around
+$n!
+With a tremendous wrenching, they drag $s legs and body underground.  You
+try to grab $s hand, but in vain.  The vines slowly writhe around,
+smooting out the ground to it's former state.  
+~
+E
+char~
+Upon disturbing the vines, the ground begins to rustle.  A mound of dirt
+bulges, and a score of whip like vines burst fourth, wrapping around your
+body and legs.  With a tremendous wrenching, they drag you under ground! 
+The last you remember before you black out is the surface slowly getting
+farther and farther away.  
+~
+E
+too~
+The vines are much too sharp and thorny to clear at this time.
+~
+!
+0 0 0
+-1
+S
+
+#31521
+Under Cages~
+Under Construction.
+~
+~
+301465613 5 6 0
+D5
+~
+~
+20 -1 31518 10 10 5
+-1
+S
+
+#31522
+Crossbow Overlook~
+At the top of the narrow shaft sits a small hollowed-out area, mostly
+filled with a giant crossbow firmly embedded in the ground.  The small
+hole that the crossbow aims through points directly at the rope bridge. 
+Along the wall are rows and rows of small humanoid-shaped stick figure
+drawings, presumably this crossbowman's victim count.  
+~
+[Kheffiss] I love the stick figure death count :)
+[Arban] where is crossbow?
+~
+301465605 5 6 0
+D5
+~
+~
+0 -1 31506 10 10 5
+319 9 1509949540 3 0
+317 9 1509949540 3 0
+-1
+S
+
+#31523
+Killer Vines~
+This section of tunnel is completely coated with vines and other plants
+growing on all the walls.  The tendrils slowly curl and uncurl from the
+sides of the narrow cave.  Several skeletons of different races lie on
+the floor, cleaned completely of all flesh.  
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 31512 10 10 5
+D4
+~
+~
+0 -1 31524 10 10 5
+E
+skeleton~
+Gleaming white, the ribcages of all the creatures have been crushed
+inwards.  Upon closer examination, you see that small plant fibers are
+slowly sapping the calcium from the bones.  
+~
+306 9 1509949540 3 0
+306 9 1509949540 3 0
+306 9 1509949540 3 0
+-1
+S
+
+#31524
+Killer Vines~
+The walls are solid plant matter, slowly pulsing and dripping green
+goop.  Huge veins run through the walls, filled with what looks like
+bodies of small rodents.  The veins seem to run to the south, feeding the
+center of this colony.  
+~
+~
+301465604 5 6 0
+D2
+~
+~
+0 -1 31525 10 10 5
+D5
+~
+~
+0 -1 31523 10 10 5
+345 9 1509949540 3 0
+345 9 1509949540 3 0
+345 9 1509949540 3 0
+-1
+S
+
+#31525
+Killer Vines~
+All the veins seem to lead to this room.  Half imbedded in the wall is a
+giant pod of some sort.  Digested carcasses continually flow into the
+pod.  The stench is awful, reminding you of the graveyards.  A small
+tunnel dives through the ground directly under the heart.  
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 31524 10 10 5
+D5
+tunnel~
+tunnel~
+0 -1 31519 10 10 5
+A
+1 down~
+~
+if( !mob_in_room( 346, find_room( 31525 ) ) ) {
+  act_room( #open_down, ch );
+  continue;
+  }
+else
+  act_room( #closed_down, ch );
+~
+E
+closed_down~
+@bThere is no chance of sneaking around that mass of vines to jump down
+the hole.  Either kill it, or find another way out.
+~
+E
+open_down~
+Forcing the dead vine out of the way, you manage to clear a small
+opening.  The vines threaten to grow back and close the passage entrance,
+so now would be a good time to jump down it.  
+
+~
+!
+0 0 0
+346 9 1509949540 3 0
+-1
+S
+
+#31526
+Underground Stairwell~
+The smell of dank water pervades your senses and the coolness of the
+walls and floor makes your joints ache.  You hear a hissing to the north,
+and some sort of thumping above you, like footsteps.  There is a door in
+the north wall and a lever on the south wall.  
+
+A sign from Angnier is posted on the door:
+"Back from Holiday, please come in."
+~
+~
+301465612 5 6 0
+D0
+cavern door~
+"cavern door" door~
+131 -1 31281 10 10 5
+D4
+trapdoor~
+trapdoor~
+227 -1 31509 10 10 5
+E
+lever~
+The lever presumably operates the trapdoor above you.
+~
+A
+pull push~
+lever~
+if( is_open( room, up ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  open( room, up );
+  }
+~
+E
+room~
+$n pulls a lever on the wall, opening a trapdoor in the ceiling.
+~
+E
+char~
+You pull the lever, opening a trapdoor in the ceiling.
+~
+E
+already~
+The trapdoor is already open.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+close( room, up );
+~
+!
+1 5 32
+-1
+S
+
+#31527
+Hallway~
+The cold tunnel walls are covered with carvings of dwarves going about
+their work in some mines.  Several appear to be pushing ore carts, while
+others are wielding picks and chopping away at the walls.  The passage
+allows movement to the west and south.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 31510 10 10 5
+D3
+~
+~
+0 -1 31528 10 10 5
+-1
+S
+
+#31528
+Hallway~
+This long tunnel winds through the rock, twisting to find an easy path. 
+To your east you can see the walls covered with carvings, but the walls
+here are clear of decoration.  To the south you can see lights coming
+from a large chamber, and a fire blazing brightly.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 31527 10 10 5
+D2
+~
+~
+0 -1 31529 10 10 5
+317 9 1509949540 3 0
+-1
+S
+
+#31529
+Meeting Room~
+This large chamber is dominated by a giant oak table, as well as several
+dozen sturdy oak chairs.  The west wall contains a large firepit, and a
+warm glow eminates from the crackling fire inside.  Although the room is
+slightly cluttered, it has a cared-for look that has been missing in most
+of this area.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 31528 10 10 5
+D3
+~
+~
+171 -1 31530 10 10 5
+E
+1 west wall firepit~
+A roaring blaze from the firepit keeps this large chamber warm, almost
+too warm.
+~
+A
+douse extinguish pour~
+firepit water~
+if( !mob_in_room( 2259, room ) ) {
+  act_tochar( #pour, ch );
+  act_notchar( #pours, ch );
+  open( room, west );
+  }
+else
+  continue;
+~
+E
+pour~
+You pour some water on the fire, and suddenly a passage to the west appears!
+~
+E
+pours~
+You see $n pour something on the fire, and suddenly a passage appears to the west.
+~
+!
+0 0 0
+2259 9 1509949540 3 0
+3392 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+-1
+S
+
+#31530
+Storage Closet~
+This tiny chamber is stuffed full of large crates.  The small amount of
+bare floor you can see has bits of straw, torn cloth, and animal fur
+sprinkled on its surface.  A small @blever@n appears just inside the room.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+171 -1 31529 10 10 5
+E
+large crate~
+Dozens of crates are packed into this tiny space.  From the markings on
+them, you can surmise that they are comprised primarily of items meant
+for shipment to and from Chiiron.
+~
+E
+floor straw cloth fur~
+The floor is covered with debris from a number of sources: straw from the
+crates, fur from maurading animals, and cloth possibly from those
+accessing this cramped spot.
+~
+A
+pull push~
+lever~
+if( is_open( room, east ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #closes, ch );
+  close( room, east );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #opens, ch );
+  open( room, east );
+  }
+~
+E
+close~
+You move the lever and the door to your east closes.
+~
+E
+closes~
+You see $n fiddle with a lever, and the door to the east closes.
+~
+E
+open~
+You move the lever, and a door appears to your east.
+~
+E
+opens~
+You see $n fiddle with the lever, and a door opens to your east.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #nope, ch );
+act_notchar( #nopes, ch );
+~
+E
+nope~
+There appears to be nothing worthwhile left in the crates.
+~
+E
+nopes~
+You see $n rummage through the crates, then stand, frowning.
+~
+!
+9 0 0
+-1
+S
+
+#0
+

@@ -1,0 +1,3307 @@
+#AREA
+Chiiron~
+???~
+~
+
+0 0
+0
+#ROOMS
+
+#901
+Garnie Lane~
+Off to the north you see the town wall with a small gate inset in it. 
+This allows access to the hills and mountains beyond.  You have heard
+rumors of dragons and goblins in those mountains, but the gate does not
+seem particularly well guarded, so whatever lives there must leave the
+town alone.  To the west lies the @ebank of Chiiron@n and to the east lies a
+@esmall magic shop@n.  To the south you see Garnie lane and further south you
+see the town square.
+~
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 935 10 10 5
+D1
+~
+~
+0 -1 914 10 10 5
+D2
+~
+~
+128 -1 902 10 10 5
+D3
+~
+~
+0 -1 924 10 10 5
+E
+1 south~
+You are a street.
+~
+866 9 1509949540 3 0
+-1
+S
+
+#902
+Garnie Lane~
+This small lane was named after a once great warrior that was born in
+this town.  He struggled against all odds and to his tribute this street
+was named after him.  To the south lies the Town Square.  The lane
+continues off towards the north where you can see the massive northern
+gates rising up over the city walls.
+~
+~
+301465665 1 8 0
+D0
+~
+~
+128 -1 901 10 10 5
+D2
+~
+~
+0 -1 903 10 10 5
+E
+1 south~
+You see the Town Square of Chiiron.
+~
+E
+1 east~
+You see the bunk room
+~
+E
+1 north~
+You see the north gate.
+~
+747 9 1509949540 3 0
+-1
+S
+
+#903
+Village Square~
+This is the center of the village of Chiiron.  The marks of commerce are
+evident in the hoof scars and wheel ruts upon the road-stones.  Firmly
+seated in the intersection is a cylindrical stone @efountain@n, covered
+in a dark, mossy overgrowth.  Contained in the fountain is a
+foul-smelling, effervescent fluid, apparently a byproduct of the moss,
+sunlight and time.  On the side of the fountain is a small @esign@n.  A
+small, wooden chapel is directly south of here, where the occasional
+tolling of the town bell can be heard.  Garnie Lane starts to the north,
+with Trader Road crossing here east to west.
+~
+~
+301465667 1 9 0
+D0
+~
+~
+0 -1 902 10 10 5
+D1
+~
+~
+0 -1 907 10 10 5
+D2
+~
+~
+0 -1 904 10 10 5
+D3
+~
+~
+0 -1 906 10 10 5
+E
+Sign~
+The small sign on the side of the fountain reads 'No Fishing!'.  It has
+obviously been there for many years and you doubt it is too strongly
+enforced.  
+~
+E
+1 west~
+You see Trader Road.
+~
+E
+1 south~
+You see a sheltered shrine glowing over there.
+~
+E
+1 east~
+You see Trader Road.
+~
+E
+1 north~
+You see a street.
+~
+E
+fountain~
+What appears to have once been a glorious centerpiece to the peaceful
+town of Chiiron is now a victim of The Forest Edge's war-town economy. 
+Winged-insects mill about its surface, resting easily upon a thick layer
+foam and a mossy substrate.  It would be in the best interest of any
+passerby to steer clear of this fountain whenever possible.
+~
+A
+~
+~
+send_to_room( #to_room, room );
+~
+E
+to_room~
+Tiny bubbles rise to the surface of the fountain.
+~
+!
+2 100 0
+A
+~
+~
+send_to_room( #to_all, room );
+obj_to_room( oload( 117 ), room );
+~
+E
+to_all~
+A small fish jumps out of the water from the fountain.  It was swimming
+right by the edge of the basin and lands on the stone.  It flips around
+and lands right on the ground!  
+~
+!
+2 5 0
+A
+catch~
+fish~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #wise, ch );
+  end;
+  }
+if( find_stat( ch, dex ) > random( 13, 19 ) ) {
+  send_to_char( #caught, ch );
+  act_notchar( #hascaught, ch );
+  obj_to_char( oload( 117 ), ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  }
+~
+E
+wise~
+The fish in the fountain seem to be wise to what you are up to and are
+all lurking at the bottom of the fountain, out of your reach.  
+~
+E
+hascaught~
+$n reaches into the fountain and catches a fish.
+~
+E
+caught~
+You reach down and snatch a fish from the fountain.
+~
+E
+$n is bending over into the fountain, trying to grab a fish.~
+~
+E
+to_room~
+~
+E
+to_char~
+You attempt to catch a fish from the fountain, but it avoids you.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+With a small splash, a fish jumps in the fountain.
+~
+!
+2 50 0
+A
+1 look~
+weary tired elf~
+if( !is_player( Ch ) )
+  end;
+send_to_char( #desc, ch );
+wait( 2 );
+send_to_char( #intro, ch );
+wait( 2 );
+send_to_char( #advice, ch );
+wait( 2 );
+send_to_char( #advice2, ch );
+~
+E
+desc~
+The elf looks to have fought many a battle.  He has several nasty scars
+long healed over.  Though obviously tired, he appears friendly.  He looks
+as if he would like to talk, maybe you should tell the elf hi.
+~
+E
+advice2~
+The weary elf continues:
+The immortals here have done a wonderful job of providing help files for
+new players such as yourself.  You might consider starting with help
+newbie.  Otherwise, game and wildlife exist out each of the gates,
+although you might consider visiting the armoury or weaponsmith first. 
+Good luck, my friend!
+~
+E
+advice~
+The weary elf says to you:
+I have explored this area for several years now - I might be able to give
+you some useful advice.  If interested ask me for it by typing 'ask elf
+advice'.
+~
+E
+intro~
+An elf warrior looks up from where he is resting.
+~
+!
+0 0 0
+1 17 1509949540 -2 0
+460 9 1509949540 3 0
+747 9 1509949540 3 0
+866 9 1509949540 3 0
+866 9 1509949540 3 0
+1319 17 1509949540 -2 0
+756 137 1509949540 0 0
+-1
+S
+
+#904
+Outside of Temple to Taranth~
+This is a small area of grass outside the chapel which is to the south. 
+The chapel is rather old and could do with being painted.  There is a
+stone slab here which is obviously used for sacrifices.  The trampled
+grass leads you to believe that this is a popular place of worship.  To
+the north lies the town square.  Several large guards stand along the
+walls watching for people who are wanted.
+~
+~
+301465803 1 8 0
+D0
+~
+~
+0 -1 903 10 10 5
+D2
+~
+~
+0 -1 927 10 10 5
+E
+bell~
+The bell is made of brass and supported by a wooden frame allowing it to
+swing freely.  You can see small cracks in it from many years of use. 
+The wooden frame is beginning to rot and undoubtly will need fixing
+soon.  
+~
+E
+stone slab~
+The stone slab is 3x4 feet in size and very worn.  It is clearly used for
+sacrifices as you can see dried blood on the edges of it.
+~
+E
+1 north~
+You see the Town Square.
+~
+A
+~
+~
+send_to_char( #sac, ch ); 
+act_notchar( #issac, ch ); 
+if( doing_quest( ch, 0 ) ) {
+  update_quest( ch, 0 );
+  act_room( #light, ch, obj );
+  }
+junk_obj( obj, 1 );
+~
+E
+light~
+A rabbit skin disappears in a burst of light!
+~
+E
+issac~
+$n sacrifices a rabbit skin to his deity.
+~
+E
+sac~
+You sacrifice a rabbit skin to your deity.
+~
+!
+5 40 0
+A
+~
+~
+if( reputation( ch, secomber ) < 0 ) {
+  act_tochar( #tochar, ch );
+  act_notchar( #notchar, ch );
+  transfer( ch, find_room( 903 ) );
+  act_notchar( #notchar2, ch );
+  }
+continue;
+~
+E
+notchar2~
+$n is pushed out of the temple by several very large guards.
+~
+E
+notchar~
+One of the large guards sees $n and says, "Your type isn't liked by
+Taranth!" and the guards push him back out the door to the north.
+~
+E
+tochar~
+One of the large guards sees you and says, "Your type isn't liked by
+Taranth!" and the guards push you back out the door to the north.
+~
+!
+1 -1 5
+26 17 1509949540 -2 0
+28 17 1509949540 -2 0
+5 17 1509949540 -2 0
+3000 17 1509949450 -2 0
+28 17 1509949540 -2 0
+49 17 1509949540 -2 0
+3014 17 1509949445 -2 0
+-1
+S
+
+#905
+Trader Road~
+You are standing on the main street of Chiiron.  To the north is an
+@ealchemist's shop@n, while to the south you spy a boarded-up shop which
+seems to have been deserted for awhile.  The cobbled road continues east
+to the town square.
+~
+~
+301465673 1 8 0
+D0
+~
+~
+0 -1 923 10 10 5
+D1
+~
+~
+0 -1 916 10 10 5
+D2
+~
+~
+0 -1 930 10 10 5
+D3
+~
+~
+0 -1 937 10 10 5
+E
+1 east~
+You see Trader Road going east.
+~
+-1
+S
+
+#906
+Trader Road~
+You are standing on the main street of Chiiron. To the north and the
+south lie what looks like shops. The road continues west, to the east
+is what looks like the Town Square.
+~
+~
+301465673 1 8 0
+D0
+~
+~
+0 -1 911 10 10 5
+D1
+~
+~
+0 -1 903 10 10 5
+D2
+~
+~
+0 -1 912 10 10 5
+D3
+~
+~
+0 -1 916 10 10 5
+E
+1 west~
+You see the Trader Road.
+~
+E
+1 south~
+You see a local bar called the Fighting Ferret.
+~
+E
+1 east~
+You see the Town Square
+~
+E
+1 north~
+You see the Grocery Shop.
+~
+866 9 1509949540 3 0
+-1
+S
+
+#907
+Trader Road~
+You are standing in the busiest part of Chiiron which means there
+are two people on the road. There are doors to the north and south
+of you. The cobbled road continues east to the eastern gate and
+west to the town square.
+~
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 909 10 10 5
+D1
+gate~
+gate~
+0 -1 908 10 10 5
+D2
+~
+~
+0 -1 910 10 10 5
+D3
+~
+~
+0 -1 903 10 10 5
+E
+1 west~
+You see the Town Square.
+~
+E
+1 south~
+You see the Fur Trading Shop.
+~
+E
+1 east~
+You see the Eastern Gates of Chiiron
+~
+E
+1 north~
+You see the Trading Post.
+~
+414 9 1509949540 3 0
+-1
+S
+
+#908
+East Gate of Chiiron~
+Before you stands the east gate of Chiiron.  It is a simple gate house
+between two towers.  To the north is a staircase leading into one of the
+towers, and to the side of the gate itself, is a @elever@n which looks
+like pushing it or pulling it controls the portcullis.  Main Street runs
+west, and you can see shops down that way on either side.  East, the road
+leads out of Chiiron and into dangers unknown.
+~
+~
+301465665 1 8 0
+D0
+door~
+door~
+135 62 934 10 10 5
+D1
+portcullis~
+gate~
+195 -1 933 10 10 5
+D3
+~
+~
+0 -1 907 10 10 5
+E
+lever~
+The lever's set into the wall here control whether the portcullis is
+opened or closed. 
+~
+E
+1 west~
+You see Trader Road.
+~
+A
+pull~
+lever~
+if( is_open( room, east  ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, east );
+  }
+~
+E
+to_all~
+The portcullis opens with a grinding of gears.
+~
+E
+to_room~
+$n pulls the lever.
+~
+E
+to_char~
+You pull the lever.
+~
+E
+nothing~
+You pull the lever but nothing happens.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( !is_open( room, east ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch, obj );
+  act_room( #to_all, ch, obj );
+  close( room, east );
+  }
+~
+E
+to_all~
+The portcullis drops shut with a loud clang!
+~
+E
+to_room~
+$n pushes the lever.
+~
+E
+to_char~
+You push the lever.
+~
+E
+nothing~
+You push the lever, but nothing happens.
+~
+!
+0 0 0
+866 137 1509949540 3 0
+866 9 1509949540 3 0
+747 137 1509949540 3 0
+-1
+S
+
+#909
+The Trading Post~
+You are standing in a shop with a little bit of everything. There
+is almost anything you could ever want here. It is designed to be
+a one stop shopping place.
+~
+~
+335024215 0 5 0
+D2
+~
+~
+0 -1 907 10 10 5
+E
+1 south~
+You see Trader Road.
+~
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+1013 9 1509949540 3 0
+26 17 1509949540 -1 0
+6 17 1509949510 -1 0
+229 17 1509949540 -1 0
+25 17 1509949540 -1 0
+229 17 1509949490 -1 0
+230 17 1509949510 -1 0
+948 17 1509949470 -1 0
+330 17 1509949540 -1 0
+27 17 1509949465 -1 0
+-1
+S
+
+#910
+Fur Trader's Shop~
+Never before have you seen so many dead animals.  Pelts and furs line the
+shelves, counters and even the floor.  Even though the owner has more
+pelts than he could ever want, the owner still looks eager to buy more.
+~
+~
+335024199 0 5 0
+D0
+~
+~
+0 -1 907 10 10 5
+E
+1 north~
+You see Trader Road.
+~
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+1014 9 1509949540 3 0
+40 17 1509949465 -1 0
+43 17 1509949450 -1 0
+-1
+S
+
+#911
+The Grocery Shop~
+You are in the center of a neatly managed shop that caters to the more
+practical side of the adventure.  Bags and rations line the shelves along
+the wall.  A heavy cabinet has been pushed against one wall in an attempt
+to cover a large crevice in the floor.
+~
+~
+335024135 0 6 0
+D2
+~
+~
+0 -1 906 10 10 5
+D5
+crevice in the floor~
+crevice floor~
+106 -1 985 10 10 5
+E
+1 south~
+You see Trader Road.
+~
+E
+down crevice floor cabinet~
+The floor is littered with small bits of string, food crumbs and
+butcher's paper.  In one corner, you see a large crevice that the grocer
+has pushed a heavy cabinet over to try to block it up.
+~
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+1002 9 1509949540 3 0
+4 17 1509949520 -1 0
+28 17 1509949540 -1 0
+28 17 1509949515 -1 0
+3004 17 1509949540 16 0
+55 17 1509949490 -1 0
+5 17 1509949515 -1 0
+-1
+S
+
+#912
+The Fighting Ferret~
+Every town needs a place to unwind after a long day at work.  This bar
+caters to those adventurers that go out and hunt for a living with
+stuffed animal heads lined above the wall.  There is a joyous mood in the
+air, since the forest has treated them well.  On the right side is a
+stair which lead upstairs to a sparring center.
+~
+~
+335024207 0 6 0
+D0
+~
+~
+0 -1 906 10 10 5
+D2
+~
+~
+0 -1 981 10 10 5
+D4
+~
+~
+0 -1 928 10 10 5
+E
+group men~
+Several residents of Chiiron sit around a small table drinking beer and
+talking of lands near and far.
+~
+E
+1 north~
+You see Trader Road.
+~
+E
+stuffed animal heads wall~
+There seems to be quite a variety of stuffed animal heads adorning the
+wall.  Among them you see a grizzly and even a green dragon head. 
+Whoever managed to hunt all these things down must have been quite
+formidable.
+~
+A
+~
+~
+ch = rand_player( room );
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+The bartender whispers something to $n.
+~
+E
+to_char~
+The bartender leans over the counter and whispers, 'Not meaning to
+intrude, but ye look a bit confused.  Care to ask me anything to help ye
+on yer way?' 
+~
+!
+2 30 0
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+One of the men in the corner peers over his shoulder at $n.
+~
+E
+to_char~
+One of the men in the corner glares at you.
+~
+!
+2 10 0
+A
+ask~
+boulder~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+The bartender whispers something to $n.
+~
+E
+to_char~
+The bartender says, 'That thing?  Don't be ridiculous.  Did ye attempt to
+climb the thing?' 
+~
+!
+0 0 0
+A
+ask~
+waterfall~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+The bartender whispers something to $n.
+~
+E
+to_char~
+The bartender whispers to you, 'Not that I've been listening', but the band
+in the corner there been mutterin' something about a waterfall and caves
+for on half a day.' 
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #all, room );
+~
+E
+all~
+A hushed group of men in the corner discuss a recent expedition.  ' ... 
+caves ...  Not me!  ...  waterfall ...  dang bats ...' 
+~
+!
+2 30 0
+A
+say~
+barkeep bartender~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+The bartender shoots a half-interested glance at $n.
+~
+E
+to_char~
+The bartender glances in your direction.
+~
+!
+0 0 0
+A
+~
+~
+i = random( 1, 6 );
+if( i == 1 )
+  send_to_room( #pennan, room );
+if( i == 2 )
+  send_to_room( #swamp, room );
+if( i == 3 )
+  send_to_room( #rogues, room );
+if( i == 4 )
+  send_to_room( #hobgobs, room );
+if( i == 5 )
+  send_to_room( #gyard, room );
+if( i > 5 )
+  send_to_room( #book, room );
+~
+E
+gyard~
+You overhear someone talking about the old town graveyard, northeast of
+town.  Apparently, some strange things have been going on there lately.
+~
+E
+hobgobs~
+"Yeah...so I'm tryin' to make it through the ol' Greened Way corridor to
+Narak, when I sees a buncha big - I mean big, and nasty, and I MEAN
+nasty, goblins...  they was all over me, I could barely get away from dem... 
+" 
+~
+E
+rogues~
+Someone grumbles about those clanless rogues, who are worse even than
+@bOutcasts@n, and deserve to be hanged.  At least.
+~
+E
+swamp~
+You overhear a bit of conversation between two weary travelers, and
+something about them heading back east past medienne to continue making a
+path through the swamps towards Sos-kul.
+~
+E
+pennan~
+You overhear a bit of a conversation between two farmers, and something
+about them heading back west toward Pennan early tomorrow morning.
+~
+E
+book~
+Did you see that fellow in here the other day?  Said he was writing a
+book and we'd be in it.  Said it'd be called the Taverns of the Realm.
+I bet we rate higher than the Cardinal over in Pennan.
+~
+!
+2 75 0
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+212 9 1509949540 3 0
+23 17 1509949540 -1 1
+24 17 1509949540 -1 1
+912 49 1509949540 -2 0
+912 16 1509949440 -2 0
+28 80 1509949440 -2 0
+1127 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+-1
+S
+
+#914
+The Chiiron Magic Shoppe~
+You are standing in a small room.  There is a small counter in front of
+you.  Behind it are shelves lined with small bottles and bowls.  There
+are small tables lining the other walls and they contain various small
+trinkets, herbs and potions.  There is a small chest in one corner, the
+top is open and it is filled with brown parchment rolled up and tied with
+string.  In the opposite corner is a small end table, on it is a small,
+clear @bbox@n filled with dust.  Above the table is a @bsign@n suspended in mid
+air.  
+~
+~
+335024199 0 5 0
+D3
+~
+~
+0 -1 901 10 10 5
+D4
+~
+~
+0 -1 921 10 10 5
+E
+sign~
+This box contains the remains of the last person who broke the merchandise
+and refused to pay for it.  Consider yourself warned and have a nice day. 
+~
+E
+box~
+You examine a small, clear box carefully.  You notice it is suspended
+in mid air.  Inside is a small pile of gray dust.  You reach for the
+box, but find you cannot touch it.  Something prevents you from getting
+too close to it. 
+~
+E
+1 west~
+You see a small street.
+~
+1000 9 1509949540 3 0
+1020 17 1509949515 -1 0
+1008 17 1509949515 -1 0
+1021 17 1509949515 -1 0
+9 17 1509949540 -1 0
+1025 17 1509949540 -1 0
+1018 17 1509949515 -1 0
+305 17 1509949445 -1 0
+38 17 1509949443 -1 0
+-1
+S
+
+#916
+Trader Road ~
+You are standing on a small road in the middle of the town of Chiiron. 
+To the north lies a @eleather shop@n and to the south a @eweapons shop@n.  The
+road continues to the east and west.  Off to the west you can see the
+town wall after another row of shops.  
+~
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 917 10 10 5
+D1
+~
+~
+0 -1 906 10 10 5
+D2
+~
+~
+0 -1 918 10 10 5
+D3
+~
+~
+0 -1 905 10 10 5
+E
+1 west~
+You see the west gate of chiiron.
+~
+E
+1 south~
+You see a weapon's shop.
+~
+E
+1 east~
+You see Trader Road.
+~
+E
+1 north~
+You see the Chiiron Leather Shop.
+~
+-1
+S
+
+#917
+The Chiiron Leather Shop~
+This place is filled with a variety of different leather goods at
+different stages of completion.  The craftmanship is evident by looking
+at the quality of the merchandise.  On the back wall of the shop is a
+small ladder which obviously leads to a loft above the shop.  
+~
+Now characters can not climb the ladder, only mobs, the only one of which
+that will try is Alslaad.
+~
+335024199 0 5 0
+D2
+~
+~
+0 -1 916 10 10 5
+E
+sign~
+Keepen Sie Fingeren ausen die Merchandise!
+Oilen destroyen das Leather.
+~
+E
+1 south~
+You see Trader Road.
+~
+A
+3 climb~
+3 ladder~
+if( !is_player( ch ) )
+  end;
+if( mob_in_room( 1010, room ) ) {
+  send_to_char( #nope, ch );
+  end;
+  }
+if( is_player( ch ) ) {
+  send_to_char( #climb, ch );
+  act_notchar( #rclimb, ch );
+  transfer( ch, find_room( 936 ) );
+  act_notchar( #arr, ch );
+  loop( followers ) {
+    act_notchar( #f_leave, rch );
+    transfer( rch, find_room( 936 ) );
+    act_notchar( #f_arr, rch );
+    }
+  }
+~
+E
+f_arr~
+$n also climbs up from the ladder.
+~
+E
+f_leave~
+$n also climbs the ladder.
+~
+E
+arr~
+$n climbs up from the ladder.
+~
+E
+nope~
+You do not belong in the loft.  That is Alslaad's home.
+~
+E
+rclimb~
+$n climbs the wooden ladder up to the loft.
+~
+E
+climb~
+You climb the wooden ladder up to the loft.
+~
+!
+0 0 0
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+1010 9 1509949540 3 0
+2001 17 1509949540 -1 0
+2002 17 1509949540 -1 0
+2003 17 1509949515 -1 0
+2020 17 1509949540 -1 0
+2000 17 1509949540 -1 0
+2040 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2022 17 1509949490 -1 0
+2041 17 1509949540 -1 0
+2042 17 1509949490 -1 0
+2080 17 1509949540 -1 0
+2081 17 1509949465 -1 0
+2101 17 1509949490 -1 0
+2121 17 1509949540 -1 0
+2120 17 1509949540 -1 0
+2122 17 1509949490 -1 0
+2180 17 1509949540 -1 0
+2181 17 1509949515 -1 0
+2182 17 1509949465 -1 0
+2123 17 1509949465 -1 0
+2060 17 1509949490 -1 0
+644 17 1509949465 -1 0
+2022 17 1509949490 -1 0
+645 17 1509949465 -1 0
+646 17 1509949465 -1 0
+1109 17 1509949540 -1 0
+488 17 1509949515 -1 0
+-1
+S
+
+#918
+The Chiiron Weapon Shop~
+This place is not stocked with every weapon known, but it has a good 
+selection at reasonable prices. This shop has very few decorations
+or pleasantries. 
+~
+[Rue] set other flag to false
+~
+335024199 0 5 0
+D0
+~
+~
+0 -1 916 10 10 5
+E
+1 north~
+You see Trader Road.
+~
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+1003 9 1509949540 3 0
+3000 17 1509949540 -1 0
+3001 17 1509949490 -1 0
+3002 17 1509949460 -1 0
+3003 17 1509949450 -1 0
+3018 17 1509949540 -1 0
+3019 17 1509949490 -1 0
+3005 17 1509949540 -1 0
+3006 17 1509949460 -1 0
+3007 17 1509949449 -1 0
+3008 17 1509949443 -1 0
+3028 17 1509949470 -1 0
+34 17 1509949540 -1 0
+3034 17 1509949480 -1 0
+890 17 1509949460 -1 0
+3012 17 1509949445 -1 0
+3032 17 1509949450 -1 0
+968 17 1509949445 -1 0
+1056 17 1509949450 -1 0
+1059 17 1509949445 -1 0
+3035 17 1509949450 -1 0
+3104 17 5 -1 0
+-1
+S
+
+#921
+A Laboratory~
+You are standing in a long room filled with bookcases.  The bookcases
+are filled with many books dedicated to the field of magic.  Small desks
+and chairs await the visiting scholar.
+~
+~
+335020097 0 5 0
+D5
+~
+~
+0 -1 914 10 10 5
+-1
+S
+
+#922
+A Small Alley~
+This is a small alley leading into a darker section of town.  You see the
+Alchemist Shop to the south and a vacant lot to the north.  
+~
+~
+301465601 0 6 0
+D0
+~
+~
+0 -1 926 10 10 5
+D1
+~
+~
+0 -1 904 10 10 5
+-1
+S
+
+#923
+The Chiiron Alchemist Shop~
+You see various containers filled with strange liquids, powders and other
+things you'd rather not think about.  Nothing is labeled, and things seem
+to be placed randomly about the room.  You'd better ask for help if you
+plan to actually find what you are looking for.  On the north wall is a
+bookshelf holding various tomes of strange recipes.  
+~
+pick berry reset from 70 until pick fuixed
+~
+335024199 0 5 0
+D2
+~
+~
+0 -1 905 10 10 5
+E
+1 south~
+You see Trader Road.
+~
+A
+~
+~
+if( find_stat( ch, level ) < 5 )
+  end;
+if( !has_quest( ch, 1 ) ) {
+  if( random( 0, 10 ) < 3 ) {
+    if( mob_in_room( 1006, room ) )
+      act_tochar( #mumble, ch );
+    }
+  }
+~
+E
+mumble~
+@b@WAs you enter the shop, you hear the alchemist mumbling about needing a
+feather and not sure who to ask for it.  
+~
+!
+1 -1 4
+A
+custom~
+4 healing potion red green~
+mob = mob_in_room( 1006, room );
+if( !has_quest( ch, 10 ) )
+  tell( mob, ch, #no );
+else {
+  tell( mob, ch, #ch );
+  continue;
+  }
+~
+E
+ch~
+Due to the cause, I will create this potion for you...at a much
+discounted price.
+~
+E
+no~
+You have no need for this potion so I will not waste my time making it
+for you.
+~
+!
+0 0 0
+A
+1 order~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that here.
+~
+!
+0 -1 0
+1006 9 1509949540 3 0
+78 17 1509949540 -1 0
+37 17 1509949540 -1 0
+98 17 1509949490 -1 0
+221 17 1509949540 -1 0
+258 17 1509949540 -1 0
+284 17 1509949490 -1 0
+243 17 1509949540 -1 0
+246 17 1509949465 -1 0
+280 17 1509949510 -1 0
+304 17 1509949465 -1 0
+206 17 1509949465 -1 0
+81 17 1509949540 -1 0
+872 17 1509949490 -1 0
+78 17 1509949540 -1 0
+977 17 1509949490 -1 0
+79 17 1509949490 -1 0
+1182 17 1509949540 -1 0
+1194 17 1509949455 -1 0
+1269 17 1509949490 -1 0
+189 17 1509949465 -1 0
+210 17 1509949465 -1 0
+474 17 1509949540 -1 0
+-1
+S
+
+#924
+Chiiron Savings and Loan~
+This is the fiduciary center of the bustling town of Chiiron.  Merchants
+and townsfolk alike entrust their livelihoods to the impenetrable vaults
+herein.  The walls here are a dark, rich wood from the Alternifolia
+Melealuca trees of the High Mountains.  Woven rugs adorn a cold, solid
+marble floor.  Great pillars support the high ceiling above, on which an
+intricate mosaic of nonsectarian icons can be found.  Several tellers,
+each skilled in the many languages of the area, await your transaction
+from behind brass grating.
+~
+~
+335022181 0 5 0
+D1
+~
+~
+0 -1 901 10 10 5
+E
+vault~
+This door is cleverly recessed into the wall in a way which hides it from
+the casual observer.  Every indication you see leads you to believe this
+door is probably not easily opened.  
+~
+747 137 1509949540 3 0
+866 9 1509949540 3 0
+-1
+S
+
+#925
+Vault Room~
+Empty space.
+~
+~
+301467653 0 6 0
+-1
+S
+
+#926
+Transition Area~
+This spot is a transitionary location between Chiiron and a new city,
+Voaleth.  Feel free to explore Voaleth, and see it grow over the next few
+weeks.  We encourage you to provide feedback on this totally new,
+completely different area, which is considerably more indicitive of the
+type of world we wish to build than Chiiron.  
+~
+~
+301465601 0 6 0
+-1
+S
+
+#927
+Temple of Taranth~
+As you look around the temple, you notice how bare and empty it is. 
+Taranth obviously does not demand sacrifices of wealth.  To the south you
+see a statue of Taranth with a small number of flowers strewn at the base. 
+In the south west corner is a small spiral staircase which winds upwards
+to the bell tower.  In the opposite corner is a large @ecauldron@n
+sitting on some hot coals with some type of soup which smells delicious.
+~
+~
+335020107 0 6 0
+D0
+~
+~
+0 -1 904 10 10 5
+D4
+~
+~
+0 -1 931 10 10 5
+E
+statue~
+The statue of Taranth is meticulously crafted out of granite.  Despite
+the rough stone it is a beautiful peace of work.  Taranth is a tall woman
+with flowing hair.  She is depicted as wearing a loose gown with a belt at
+the waist.  Her face is wrinkled from age, but still extremely
+attractive.  
+~
+A
+kneel pray~
+~
+acode( room, 3 );
+~
+E
+nod~
+The priestess nods in welcome to you.
+~
+E
+quest~
+The priestess walks over to you and tells you, "I see you have sinned -
+get the skin of a rabbit and sacrifice it on the stone to north of here
+to redeem yourself." 
+~
+E
+pray~
+You kneel down and start praying.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #aggr, ch );
+~
+E
+aggr~
+The image of Taranth appears before you and a voice fills your mind ... 
+How @b@RDARE@n you attempt violence in my holy shrine! Begone, ill-doer!
+~
+!
+7 0 0
+A
+~
+~
+send_to_char( #char, ch );
+wait( 1 );
+mob = mob_in_room( 179, room );
+if( !mob )
+  end;
+send_to_char( #nod, ch );
+if( has_quest( ch, 0 ) )
+  end;
+else {
+  tell( mob, ch, #quest );
+  assign_quest( ch, 0 );
+  }
+~
+E
+nod~
+The priestess nods in welcome to you.
+~
+E
+char~
+You kneel upon the ground.
+~
+E
+quest~
+I see you have sinned.  Find the skin of a rabbit and sacrifice it on the
+stone altar to the north of here to redeem yourself.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_room~
+$n climbs up the stairs.
+~
+E
+to_char~
+You climb up the stairs.
+~
+!
+3 0 16
+460 17 1509949540 -2 16
+179 9 1509949540 3 0
+2425 17 1509949540 -2 0
+-1
+S
+
+#928
+The Swordsman's~
+You enter the room and see several warrior-like people practicing their
+skills.  There are several practice dummies, and mock weapons, to protect
+those choosing to spar.
+~
+~
+335024201 0 7 0
+D5
+~
+~
+0 -1 912 10 10 5
+A
+2 list 2 custom~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+This doesn't look like a shop to you at all.  Instead it appears to be a
+training room.  And you doubt the swordman would appreciate you trying to
+buy his equipment.  
+~
+!
+0 0 0
+178 9 1509949540 3 0
+-1
+S
+
+#930
+Deserted Shop~
+The shop looks deserted except there isn't much dust on the floor as if a
+reasonable amount of traffic goes through here.  There is no furniture
+and only a small amount of debris lying around.
+~
+~
+335020105 0 5 0
+D0
+~
+~
+0 -1 905 10 10 5
+D5
+trapdoor~
+trapdoor door~
+131 -1 932 10 10 5
+E
+1 north~
+You see Trader Road.
+~
+A
+2 list~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+The shop looks very deserted and there is no shopkeeper or merchandise to
+be seen.  
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_room~
+$n pulls the brass ring opening the $t $T.
+~
+E
+to_char~
+You pull the brass ring opening the trapdoor.
+~
+!
+8 0 32
+-1
+S
+
+#931
+Bell Tower~
+This is a small tower above the temple.  More a loft than a tower.
+Inside is a large bronze @bbell@n which is rung to announce special
+occasions.  Out a small window to the north you can see into the town
+square and down Garnie Lane.  A small trough and hitching post lie by the
+west wall, providing a spot for you to safely leave your pets.
+~
+~
+335020235 0 6 0
+D5
+~
+~
+0 -1 927 10 10 5
+E
+bell bronze~
+The bell hangs just within your reach.  It is made of bronze and appears
+very heavy.  
+~
+A
+ring strike hit~
+bell~
+if( rflag( reset0, room ) ) {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_area( #to_area, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #no, ch );
+~
+E
+no~
+Out of courtesy, you must wait for the bell's echos to fade before
+ringing it again.
+~
+E
+to_area~
+You hear a bell tolling in the distance.
+~
+E
+to_room~
+$n strikes the bell causing it to ring loudly.
+~
+E
+to_char~
+You strike the bell causing it to ring loudly.
+~
+E
+to_char~
+No description
+new to_room
+~
+E
+to_room~
+No description~
+E
+to_area~
+No description~
+E
+no~
+No description~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You walk down the stairs.
+~
+!
+3 0 32
+A
+blow horn~
+~
+~
+!
+0 0 0
+-1
+S
+
+#932
+The Locksmith's~
+This is a rather small basement which has been converted into a shop of
+sorts.  On the north wall is a large table with a blanket covering it, on
+top of which are an assortment of strange items.  
+~
+~
+335024207 0 5 0
+D4
+trapdoor~
+trapdoor~
+131 -1 930 10 10 5
+A
+~
+~
+room = find_room( 932 );
+open( room, up );
+~
+!
+2 250 0
+195 9 1509949540 3 0
+126 17 1509949515 -1 0
+3028 17 1509949540 -1 0
+127 17 1509949490 -1 0
+133 17 1509949445 -1 0
+128 17 1509949490 -1 0
+3104 17 1509949450 -1 0
+-1
+S
+
+#933
+Before the East Gate of Chiiron~
+To the west stands a stone gate house, flanked by two towers.  Compared
+to some of the great fortresses of the realm, Chiiron is not impressive,
+but it looks like a safe haven, with its single curtain wall stout and
+well-maintained.  A path leads away east, winding through the hills.  It
+looks well worn and should not be too dangerous.  South of here, a small
+path winds its way between the town wall and a range of hills east of
+town.
+~
+~
+301465673 0 6 0
+D0
+~
+~
+0 -1 982 10 10 5
+D1
+~
+~
+0 -1 24006 10 10 5
+D2
+~
+~
+0 -1 40573 10 10 5
+D3
+portcullis~
+gate~
+195 -1 908 10 10 5
+A
+bash knock pound bang~
+portcullis gate west~
+if( !is_open( room, west ) ) {
+  if( reputation( ch, Secomber  ) > 0 ) {
+    act_tochar( #to_char, ch );
+    act_notchar( #to_room, ch );
+    open( room, west );
+    act_room( #to_all, ch );
+    }
+  else {
+    act_tochar( #clan_char, ch );
+    act_notchar( #clan_room, ch );
+    act_room( #clan_all, ch );
+    }
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+clan_all~
+@b@W"You are not welcome here, go back to where you came from!"
+~
+E
+clan_room~
+As $n bangs on the gate a guard comes, looks $m over, and yells,
+~
+E
+clan_char~
+As you bang on the gate a guard comes, looks you over, and yells,
+~
+E
+to_room~
+$n bangs loudly on the portcullis.
+~
+E
+to_all~
+The portcullis clambers open.
+~
+E
+to_char~
+You bang loudly on the portcullis.
+~
+E
+nothing~
+It's hard to do that when the portcullis is already open.
+~
+!
+0 0 2
+-1
+S
+
+#934
+Tower Room~
+You are inside a small tower.  To the south is a heavy door which is
+closed in times of attack.  The tower is rather cramped but has several
+cots used by the watchmen.  An overwhelming sense of peace and
+tranquility fills the room.
+~
+~
+335020111 0 6 0
+D2
+door~
+door~
+135 -1 908 10 10 5
+-1
+S
+
+#935
+North Gate of Chiiron~
+You stand at the northern entrance to Chiiron; a simple gate inset in the
+town wall.  The town wall is made of stone blocks of granite, painfully
+fitted together, scared in one area from the acid breath of a long dead
+dragon.  The scar and the smoke rising from the town bring feelings of
+security and comfort to returning adventurers.  By the side of the gate
+is a large @elever@n.  Perhaps pushing or pulling it will open and
+close the gate.
+~
+~
+301465673 1 6 0
+D0
+gate~
+gate~
+195 -1 25000 10 10 5
+D2
+~
+~
+0 -1 901 10 10 5
+E
+lever~
+You see a large wooden lever that is obviously pulled and pushed to open
+and close the gate.  
+~
+A
+pull~
+lever~
+if( is_open( room, north ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, north );
+  };
+~
+E
+to_all~
+The gate opens with a grinding of gears.
+~
+E
+to_room~
+$n pulls the lever.
+~
+E
+to_char~
+You pull the lever.
+~
+E
+nothing~
+You pull the lever and nothing happens.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( !is_open( room, north ) )
+  send_to_char( #fail, ch );
+else {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  act_room( #all, ch );
+  close( room, north );
+  };
+~
+E
+all~
+The gate to the north grinds closed with a loud CLANG!
+~
+E
+room~
+$n pushes the lever down.
+~
+E
+char~
+You push on the lever.
+~
+E
+fail~
+Nothing happens.
+~
+!
+0 0 0
+747 137 1509949540 3 0
+-1
+S
+
+#936
+Loft Above Leather Shop~
+This is a simple room with a bed in one corner and not much else.  The
+bed is basically a pile of furs which are too worn to be of any value. 
+The floor is made out of wooden planks which creak slightly as you walk
+on them.  
+~
+~
+301469701 0 5 0
+D5
+~
+~
+0 -1 917 10 10 5
+-1
+S
+
+#937
+West Gate of Chiiron~
+Before you stands the west gate of Chiiron, a simple gate house between
+two towers.  To the side of the gate is a @elever@n which looks like it
+controls the gate.  You might want to push it or pull it.  Main street
+runs east, and shops line the Main street runs east, and shops line the
+street on either side.
+~
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 905 10 10 5
+D3
+gate~
+gate~
+195 -1 938 10 10 5
+A
+pull~
+lever~
+if( is_open( room, west ) )
+  act_tochar( #nothing, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  send_to_room( #room, room );
+  open( room, west );
+  }
+~
+E
+room~
+The portcullis opens with a grinding of gears.
+~
+E
+nothing~
+You pull the lever, but nothing happens.
+~
+E
+rpull~
+$n pulls the lever.
+~
+E
+pull~
+You pull the lever.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( !is_open( room, west ) )
+  act_tochar( #nothing, ch );
+else {
+  act_tochar( #to_char, ch );
+  act_notchar( #to_room, ch );
+  send_to_room( #to_all, room );
+close( room, west );
+  }
+~
+E
+nothing~
+You push the lever, but nothing happens.
+~
+E
+to_all~
+The gate drops shut with a loud clang!
+~
+E
+to_room~
+$n pushes the lever.
+~
+E
+to_char~
+You push the lever.
+~
+!
+0 0 0
+866 137 1509949540 3 0
+866 9 1509949540 3 0
+866 9 1509949540 3 0
+747 137 1509949540 3 0
+-1
+S
+
+#938
+Before the Gates of Chiiron~
+The west gate of Chiiron stands off to the east of here, its thick stone
+gatehouse protecting the city from whatever dangers lurk in the
+surrounding forest.  A small dirt path leads off to the south, alongside
+a gentle stream.
+~
+no_mob
+~
+301465608 12 9 0
+D0
+~
+~
+0 -1 40500 10 10 5
+D1
+gate~
+gate~
+195 -1 937 10 10 5
+D2
+~
+~
+0 -1 939 10 10 5
+D3
+~
+~
+0 -1 979 10 10 5
+A
+knock pound bash bang~
+gate portcullis e east~
+if( !is_open( room, east ) ) {
+  if( reputation( ch, Secomber ) > 0 ) {
+    act_tochar( #to_char, ch );
+    act_notchar( #to_room, ch );
+    open( room, east );
+    act_room( #to_all, ch );
+    }
+  else {
+    act_tochar( #clan, ch );
+    act_notchar( #rclan, ch );
+    }
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+rclan~
+The guard looks $n over and says, "Go away, earth scum!"
+~
+E
+clan~
+The guard looks you over and says, "Go away, earth scum!"
+~
+E
+to_all~
+The portcullis clambers open.
+~
+E
+to_room~
+$n bangs loudly on the portcullis.
+~
+E
+to_char~
+You bang loudly on the portcullis.
+~
+E
+nothing~
+It's hard to do that when the portcullis is already open!
+~
+!
+0 0 0
+-1
+S
+
+#939
+By a Shady Brook~
+A brook runs northeast to southwest through this cozy section of the
+forest.  Several leafy trees spread out overhead, giving the entire area
+shade.  A cool breeze blows, and all is at peace.  A small grass-covered
+hill rises gently to the west.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 938 10 10 5
+D2
+~
+~
+0 -1 40515 10 10 5
+D3
+~
+~
+0 -1 940 10 10 5
+880 17 1509949540 -2 0
+-1
+S
+
+#940
+Atop A Knobby Hill~
+You are on a small hill that rises barely above the trees, allowing you
+to catch a glimpse of the Chiiron sky.  A small hole leads down into the
+hill itself while a path meanders down to a shaded brook to the east.  A
+seldom-traveled trail, barely visible, disappears into the thick forest
+to the west.
+~
+~
+301465608 4 9 0
+D0
+~
+~
+0 -1 979 10 10 5
+D1
+~
+~
+0 -1 939 10 10 5
+D2
+~
+~
+0 -1 980 10 10 5
+D3
+~
+~
+0 -1 942 10 10 5
+D5
+~
+~
+0 -1 941 10 10 5
+E
+hole~
+The hole is small and dark, just large enough for a human to squeeze into.
+~
+E
+1 west trail~
+A faint trail leads into the thick woods to the west.
+~
+E
+1 east~
+You see an open area and the walls of Chiiron off to the east.  A
+gatehouse stands close by.
+~
+E
+1 north 1 south~
+You see trees.
+~
+A
+~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You climb down into the hole.
+~
+!
+3 -1 32
+-1
+S
+
+#941
+Inside a Gopher Hole~
+You are in a very small hole, large enough barely to stand in.  It looks
+like this hole was dug here by man, but then abandoned, as bits of fur
+announce that some forest denizen has taken up home here.
+~
+in my opinion, this room doesn't make sense, "a hole dug by a man"
+wouldn't it be a ditch instead of a "tunnelish kind of hole"?  and since
+it is only big enough for a human, is it tube shape(about 2 ft across)? 
+just wondering - D 
+rextra on fur - D
+~
+301465600 0 4 0
+D4
+~
+~
+0 -1 940 10 10 5
+A
+~
+~
+send_to_char( #up, ch );
+continue;
+~
+E
+up~
+You climb up and out of the hole.
+~
+!
+3 -1 16
+622 9 1509949540 3 0
+-1
+S
+
+#942
+Edge of a Dense Forest~
+You are standing at the edge of a thick forest.  A faint trail leads up a
+hill to the east while dense underbrush makes passage south into the
+forest barely passable.  The forest floor does seem to clear out in the
+distance, but you cannot see too far into the trees as they are so
+densely packed.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 940 10 10 5
+D2
+~
+~
+0 -1 943 10 10 5
+755 9 1509949540 3 0
+755 9 1509949540 3 0
+-1
+S
+
+#943
+Faint Path Through a Dense Forest~
+Mighty trees rise high overhead and a dense canopy of leaves blocks sight
+of the sky above.  The trees to the west are even tighter, but there is a
+faint path leading in that direction.  Thick underbrush nearly blocks
+passage north toward the edge of the forest.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 942 10 10 5
+D1
+~
+~
+0 -1 980 10 10 5
+D2
+~
+~
+0 -1 40523 10 10 5
+D3
+~
+~
+0 -1 944 10 10 5
+2509 9 1509949540 3 0
+2509 9 1509949540 3 0
+-1
+S
+
+#944
+Faint Path Through a Dense Forest~
+The trees are very tightly packed here, and the canopy of leaves above
+remains unbroken.  However, you see that the trees seem to disappear,
+forming a clearing to the west, a stark contrast to the life and health
+of the forest around you.  A narrow path leads toward the clearing, and
+back into the forest to the east.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 943 10 10 5
+D3
+~
+~
+0 -1 945 10 10 5
+203 9 1509949540 3 0
+-1
+S
+
+#945
+A Small Clearing~
+The forest clears out, as if the trees purposely avoid this area for some
+strange reason.  A pair of mighty oaks mark somewhat of a doorway into a
+valley to the north and a faint trail leads west toward the sound of a
+rushing river, and to the east a small trail leads into a dense forest.
+~
+north used to be 947. this is on long-term hold
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 944 10 10 5
+D3
+~
+~
+0 -1 946 10 10 5
+A
+~
+~
+send_to_room( #sound, room );
+~
+E
+sound~
+You seem to hear words being chanted, evil words of power no longer
+spoken by mortal tongue, but they seem faint, like a faded memory.  And,
+like leaves on the wind, they soon fade back into the forest.
+~
+!
+2 50 0
+-1
+S
+
+#946
+Before a Raging River~
+A river rages savagely to the west, much too violent to cross.  The water
+rushes and surges about, flowing fast enough to create whitecaps across
+its surface.  A faint trail leads east into the forest.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 945 10 10 5
+D3
+~
+~
+0 -1 37000 10 10 5
+755 9 1509949540 3 0
+755 9 1509949540 3 0
+217 9 1509949540 3 0
+-1
+S
+
+#947
+Entrance to a Small Valley~
+The ground slopes sharply downward and opens up into what appears to be a
+large valley.  The trees and underbrush are thick, but do not make
+passage impossible.  Ahead in the valley you detect a thin fog, while
+there is an unusual clearing to the south.
+~
+south used to be 945
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 948 10 10 5
+D2
+~
+~
+0 -1 945 10 10 5
+-1
+S
+
+#948
+Mouth of a small valley~
+This is the southern mouth of a small valley, as it appears to open up
+broadly to the north.  A thin fog fills the air, meandering like a
+serpent through the boughs and trunks of the large trees.  You can exit
+the valley to the south.  A small trail leads north toward a strange
+pool, and small muddy streams run toward it on both the east and west.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 953 10 10 5
+D1
+~
+~
+0 -1 949 10 10 5
+D2
+~
+~
+0 -1 947 10 10 5
+D3
+~
+~
+0 -1 950 10 10 5
+-1
+S
+
+#949
+mouth of a small valley~
+A muddy stream runs along the valley's edge to the east, flowing
+northwest toward a pool in the center of the valley.  Ferns and moss grow
+in this moist area, as well as some wide-leafed bushes and
+thinly-branched trees.  A small trail to the west leads south and out of
+the valley.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 951 10 10 5
+D3
+~
+~
+0 -1 948 10 10 5
+-1
+S
+
+#950
+Mouth of a small valley~
+A small muddy stream runs down the side of the valley to the west,
+flowing toward a small pool in the center of the valley to the northeast. 
+Tall leafy trees rise proudly in the rich, dark, moist soil.  While
+footing on the loose earth appearcs treacherous, small passable trails
+lead north and south away from this edge of the valley.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 952 10 10 5
+D1
+~
+~
+0 -1 948 10 10 5
+-1
+S
+
+#951
+In a small valley~
+You stand amidst an ecosystem in renewal.  Pines and evergreens ring a
+mystical pool to the west, while ferns and willows grow near the valley
+walls to the east, north, and south.  A river flows into the pool from a
+trickling stream to the south that flows down the hillside.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 959 10 10 5
+D1
+~
+~
+0 -1 954 10 10 5
+D2
+~
+~
+0 -1 949 10 10 5
+D3
+~
+~
+0 -1 953 10 10 5
+-1
+S
+
+#952
+In a small valley~
+You stand at the edge of what seems to be two worlds, one in might, one
+in renewal.  To the east, a gentle pool sends its lifeforce streaming
+about it, fed by four rivers from four corners of the valley.  Tall
+evergreens and pines ring the pool, but to the north, south, and west
+smaller ferns and willows struggle to bring life to the edges of the
+valley, apparently devastated by fire and erosion.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 957 10 10 5
+D1
+~
+~
+0 -1 953 10 10 5
+D2
+~
+~
+0 -1 950 10 10 5
+D3
+~
+~
+0 -1 955 10 10 5
+-1
+S
+
+#953
+Center of a small valley~
+A small, yet strangely clear pool lies in the exact center of the valley,
+with four muddy streams feeding it from the southeast, northeast,
+southwest, and northwest.  Small trails lead away from the pool in all
+compass directions.  While it is obviously not manmade, the valley's
+strange symmetry is curious, as if some being had sculpted it perfectly.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 958 10 10 5
+D1
+~
+~
+0 -1 951 10 10 5
+D2
+~
+~
+0 -1 948 10 10 5
+D3
+~
+~
+0 -1 952 10 10 5
+-1
+S
+
+#954
+A corner of a small valley~
+Steep valley hills nearly box in this moist, fertile corner of the valley. 
+Rich black soil feeds life into several ferns and small trees, several of
+them slender willows.  The only passable trail leads down into the heart
+of the valley to the west.
+~
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 951 10 10 5
+-1
+S
+
+#955
+A corner of a small valley~
+Mud lines the steep hills that surround you, dotted by several fallen
+trees slowly starting to rot.  Small ferns grow underneath, and life
+still abounds, but the life is changing from the tall evergreens and
+pines to slender willows and ferns.  A trail leads into the heart of the
+valley to the east.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 952 10 10 5
+-1
+S
+
+#957
+The edge of a small valley~
+This crude path curves around to the east and south, crossing through the
+mud of a shallow brook flowing toward the center of the valley to the
+southeast.  A few ferns and small willow trees dot the moist area near
+the valley wall, and mosses climb a large stone surface to the northwest,
+disappearing over the rim.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 958 10 10 5
+D2
+~
+~
+0 -1 952 10 10 5
+-1
+S
+
+#958
+The edge of a small valley~
+This gentle trail through the scarce underbrush stands amidst two shallow
+streams, one to the east, on to the west.  To the south a small pool lies
+in the center of the valley, while to the north a strange little glade
+opens up.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 960 10 10 5
+D1
+~
+~
+0 -1 959 10 10 5
+D2
+~
+~
+0 -1 953 10 10 5
+D3
+~
+~
+0 -1 957 10 10 5
+-1
+S
+
+#959
+The edge of a small valley~
+This faint trail bends south and west, crossing a shallow mud-filled
+stream.  The stream flows southwest into a strange circular pool.  To the
+north and west the moss-covered walls of the valley sport sparse
+vegetation, mostly ferns.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 951 10 10 5
+D3
+~
+~
+0 -1 958 10 10 5
+-1
+S
+
+#960
+A small shrine to Cynnis~
+Amidst the untouched perfect nature of this corner of the valley, someone
+has constructed a simple shrine to Cynnis, the goddess of nature.  A
+large tree grows close to a vertical rise that marks the end of the
+valley, a tree larger than all others in the area.  The valley opens up
+to the south.
+~
+is safe... can make it not so
+~
+301465731 3 9 0
+D2
+~
+~
+0 -1 958 10 10 5
+E
+shrine~
+A simple pile of round stones, this shrine has been dedicated to Celeste,
+the goddess of nature.
+~
+E
+tree~
+This tree is huge, and someone has carefully chiseled steps into its
+large trunk, being careful not to damage the tree.  The steps lead around
+the tree and end in the branches above.
+~
+A
+climb~
+tree u up~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 973 ) );
+act_notchar( #rclimbs, ch );
+~
+E
+nope~
+The tree can not be climbed right now.
+~
+E
+rclimb~
+$n clambers up the large tree and over the valley rim.
+~
+E
+climb~
+You clamber up the large tree and over the valley rim.
+~
+E
+rclimbs~
+$n comes climbing up the tree.
+~
+!
+0 0 0
+-1
+S
+
+#973
+The edge of a small cliff~
+You are standing on the edge of a small cliff that overhangs a valley. 
+Trees of all description and size line your vision in all directions.  A
+small trail leads into the trees to the north, and there is a tree to the
+south that can be climbed down.
+~
+what is with this little section? - D
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 978 10 10 5
+A
+climb~
+d down tree~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 960 ) );
+act_notchar( #rclimbs, ch );
+~
+E
+rclimb~
+$n slowly scrambles down the tree.
+~
+E
+climb~
+You slowly scramble down the tree.
+~
+E
+rclimbs~
+$n comes climbing down the tree.
+~
+!
+0 0 0
+-1
+S
+
+#978
+A dense forest~
+Under Construction.
+~
+~
+301465600 0 9 0
+D2
+~
+~
+0 -1 973 10 10 5
+-1
+S
+
+#979
+Edge of the Woods~
+A few young trees mix with thick stands of brush here, the cleared space
+to the east giving way to the thick woods which dominate the area to the
+north and west.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 40512 10 10 5
+D1
+~
+~
+0 -1 938 10 10 5
+D2
+~
+~
+0 -1 940 10 10 5
+755 9 1509949490 3 0
+210 17 1509949465 -2 0
+-1
+S
+
+#980
+A Dense Forest~
+The trees are old and their trunks thick and weathered here.  Little
+light makes its way through the thick forest canopy, and while the
+surrounding area is quiet and still, you sense a great deal of life all
+around you.  You spy a faint trail winding its way through the trees off
+to the north and west.  A small but well-wooded hill rises above you to
+the south.
+~
+~
+301465600 3 7 0
+D0
+~
+~
+0 -1 940 10 10 5
+D1
+~
+~
+0 -1 40515 10 10 5
+D2
+~
+~
+0 -1 40518 10 10 5
+D3
+~
+~
+0 -1 943 10 10 5
+2506 9 1509949490 3 0
+2506 9 1509949540 3 0
+-1
+S
+
+#981
+The Backroom~
+Several wooden stalls line the worn wooden walls of this room, and a few
+round tables are arranged in an uneven pattern about the middle of the
+area.  A thin veil of smoke hovers in the air here, for this is where
+locals come to discuss recent events, and strangers to exchange coin and
+news of the dark and sinister in low, hushed whispers.
+  
+A small @bsign@n adorns the wall beside a dartboard.
+~
+how about a chance of not hitting the board at all, or hitting somebody
+standing in the room accidently if it is crowded - D
+we'll do that in different places :)
+hitting newbies and starting fights is probably not the best of ideas
+[Lirisse] drunk assigns quest before waiting for you to say yes.
+~
+335024193 0 5 0
+D0
+~
+~
+0 -1 912 10 10 5
+E
+dartboard~
+The dartboard has a few small holes in it, but looks relatively new. 
+Three darts with red feathers rest in holders beside the dartboard. 
+There are five scorings areas, 4 concentric rings centered around the
+bullseye.  A small sign beside the dartboard may give hints as to how to
+play.
+  
+NOTE :: Darts are under construction.
+~
+E
+sign~
+The flimsy piece of paper tacked onto the wall reads:
+ 
+To play darts simply type 'play darts'.  Try not to hurt anyone.  The
+scores are totalled for the 3 scores, so keep track amongst your group of
+dart-throwers.  Feel free to place bets, although the house would like a
+10% royalty if you are sober enough to remember.
+  
+NOTE :: darts are under construction.
+~
+A
+play~
+darts~
+act_tochar( #play, ch );
+act_notchar( #rplay, ch );
+if( find_stat( ch, level ) > 90 ) {
+  acode( room, 4 );
+  end;
+  }
+j = 1;
+loop( j < 4 )
+  acode( room, 3 );
+~
+E
+rplay~
+$n grabs three darts from the dart holder and steps back to the line to
+play.
+~
+E
+play~
+You grab the three darts from the dart holder and step back to the line.
+~
+!
+0 0 0
+A
+pay~
+royalty~
+act_tochar( #laugh, ch );
+act_notchar( #rlaugh, ch );
+~
+E
+rlaugh~
+$n tries to pay the barkeep some royalties on $s bets, but the barkeep
+laughs and refuses.  "It was a joke!!" 
+~
+E
+laugh~
+The barkeep refuses your money and laughs.  "It was a joke!!"
+~
+!
+0 0 0
+A
+~
+~
+if( j == 3 ) {
+  act_tochar( #third, ch );
+  act_notchar( #rthird, ch );
+  j = 4;
+  }
+if( j == 2 ) {
+  act_tochar( #second, ch );
+  act_notchar( #rsecond, ch );
+  j = 3;
+  }
+if( j == 1 ) {
+  act_tochar( #first, ch );
+  act_notchar( #rfirst, ch );
+  j = 2;
+  }
+i = random( 1, 50 );
+if( i == 1 ) {
+  act_tochar( #bull, ch );
+  act_notchar( #rbull, ch );
+  }
+else {
+  if( i < 6 ) {
+    act_tochar( #ring1, ch );
+    act_notchar( #rring1, ch );
+    }
+  else {
+    if( i < 16 ) {
+      act_tochar( #ring2, ch );
+      act_notchar( #rring2, ch );
+      }
+    else {
+      if( i < 31 ) {
+        act_tochar( #ring3, ch );
+        act_notchar( #rring3, ch );
+        }
+      else {
+        act_tochar( #ring4, ch );
+        act_notchar( #rring4, ch );
+        }
+      }
+    }
+  }
+~
+E
+rthird~
+$n tosses the third dart.....
+~
+E
+third~
+You toss the third dart.....
+~
+E
+rsecond~
+$n tosses the second dart.....
+~
+E
+second~
+You toss the second dart.....
+~
+E
+rring4~
+$n's toss is a poor one, catching the outermost ring for a measly 1 point.
+~
+E
+ring4~
+Your toss is a poor one, catching the outermost ring for a measly 1 point.
+~
+E
+rring3~
+$n's toss goes off course, hitting the third ring.  Only 3 points.
+~
+E
+ring3~
+Your toss goes off course, hitting the third ring.  Only 3 points.
+~
+E
+rring2~
+$n's toss hits the second ring for 5 points.
+~
+E
+ring2~
+Your toss hits the second ring for 5 points.
+~
+E
+rring1~
+$n's toss hits the first ring!  10 points!
+~
+E
+ring1~
+Your toss hits the first ring!  10 points!
+~
+E
+rbull~
+$n's toss hits the bullseye!!  20 points!!
+~
+E
+bull~
+You hit the bullseye!!  20 points!!
+~
+E
+rfirst~
+$n tosses the first dart.....
+~
+E
+first~
+You toss the first dart.....
+~
+E
+rplay~
+$n grabs three darts from the dart holder and steps back to the line to
+~
+E
+play~
+You grab the three darts from the dart holder and step back to the line.
+~
+E
+notyet~
+The dart game is not yet ready to be played.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+act_tochar( #prepare, ch );
+act_notchar( #rprepare, ch );
+wait( 1 );
+act_notchar( #win, ch );
+~
+E
+prepare~
+Accompanied by a slight pop as air rushes in to fill a sudden void, the
+darts disapear from your hand only to reapear a moment later in the
+bullseye of the dartboard.
+~
+E
+rprepare~
+Accompanied by the pop of air rushing in to fill a sudden void, all three
+darts disapear from $n's hand.
+~
+E
+win~
+Suddenly you notice all three darts are now sticking in the bullseye of
+the dartboard.  Amazing!
+~
+!
+0 0 0
+912 17 1509949540 -2 0
+864 9 1509949540 3 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+1145 17 1509949540 -2 0
+-1
+S
+
+#982
+Field ~
+Carefully tended fields vie with one another for space in the shadow of
+Chiiron's fortified wall.  To the east, the soil becomes more barren,
+with rocky hills rising above the flat, rich soil of the fields.  To the
+south, you spy the East Gate of Chiiron.
+~
+~
+301465609 2 9 0
+D0
+~
+~
+0 -1 983 10 10 5
+D2
+~
+~
+0 -1 933 10 10 5
+-1
+S
+
+#983
+Fields Near Chiiron~
+A series of carefully-tended fields cluster about the base of the town
+wall here, their rows neatly tended by the residents of the small,
+fortified village.  The town wall looms over you to the west, and a
+series of rocky hills and gullies begins off to the east, a few scant
+feet from the edge of the last field.
+~
+~
+301465609 2 9 0
+D0
+~
+~
+0 -1 984 10 10 5
+D2
+~
+~
+0 -1 982 10 10 5
+755 9 1509949540 3 0
+755 9 1509949540 3 0
+-1
+S
+
+#984
+Shallow Brook, Field~
+You stand in a cultivated field in the shadow of the walls of Chiiron.  A
+small stream bisects the area, running north to southeast, leading into a
+rocky gully at the base of a steep hill, and then disappearing from view,
+perhaps flowing into some unseen underground repository.
+~
+~
+301465609 2 9 0
+D0
+~
+~
+0 -1 40511 10 10 5
+D1
+~
+~
+0 -1 26006 10 10 5
+D2
+~
+~
+0 -1 983 10 10 5
+398 17 1509949540 -2 0
+880 17 1509949540 -2 0
+-1
+S
+
+#985
+Beneath the Grocery Shop~
+Under Construction.
+~
+climb/enter wall/crevice/ceiling to get into grocer's shop in Chiiron. 
+--Caer 
+[Slip] rdesc attempt
+~
+335024135 11 5 0
+D2
+~
+~
+0 -1 986 10 10 5
+D4
+~
+~
+106 -1 911 10 10 5
+A
+enter climb~
+ceiling crevice wall~
+send_to_char( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 911 ) );
+~
+E
+climb~
+You grab hold of the rough sides of the cavern wall and hoist yourself up.
+~
+E
+rclimb~
+$n grabs the rough sides of the cavern wall and hoists $mself up and out
+of sight.
+~
+!
+0 0 0
+-1
+S
+
+#986
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 985 10 10 5
+D1
+~
+~
+0 -1 987 10 10 5
+-1
+S
+
+#987
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 988 10 10 5
+D3
+~
+~
+0 -1 986 10 10 5
+-1
+S
+
+#988
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D1
+~
+~
+0 -1 989 10 10 5
+D2
+~
+~
+0 -1 987 10 10 5
+-1
+S
+
+#989
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D2
+~
+~
+0 -1 990 10 10 5
+D3
+~
+~
+0 -1 988 10 10 5
+-1
+S
+
+#990
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 989 10 10 5
+D2
+~
+~
+0 -1 991 10 10 5
+-1
+S
+
+#991
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 990 10 10 5
+D2
+~
+~
+0 -1 992 10 10 5
+-1
+S
+
+#992
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 991 10 10 5
+D1
+~
+~
+0 -1 993 10 10 5
+-1
+S
+
+#993
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D1
+~
+~
+0 -1 994 10 10 5
+D3
+~
+~
+0 -1 992 10 10 5
+-1
+S
+
+#994
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 995 10 10 5
+D3
+~
+~
+0 -1 993 10 10 5
+-1
+S
+
+#995
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D1
+~
+~
+0 -1 996 10 10 5
+D2
+~
+~
+0 -1 994 10 10 5
+-1
+S
+
+#996
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D1
+~
+~
+0 -1 997 10 10 5
+D3
+~
+~
+0 -1 995 10 10 5
+-1
+S
+
+#997
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D2
+~
+~
+0 -1 998 10 10 5
+D3
+~
+~
+0 -1 996 10 10 5
+-1
+S
+
+#998
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 997 10 10 5
+D2
+~
+~
+0 -1 999 10 10 5
+-1
+S
+
+#999
+Sandy Tunnel~
+Under Construction.
+~
+~
+335024135 11 5 0
+D0
+~
+~
+0 -1 998 10 10 5
+D2
+~
+~
+434 -1 685 10 10 5
+-1
+S
+
+#0
+

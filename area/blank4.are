@@ -1,0 +1,4736 @@
+#AREA
+Dark Forest~
+Dragos Ravyl~
+~
+
+0 0
+0
+#ROOMS
+
+#23001
+Dark Forest~
+Very little light reaches down from the trees to the forest floor.  Off
+to the west, you can see faint lights bobbing in the distance.  It might
+be your imagination, but that could be the edge of the forest.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23087 10 10 5
+D3
+~
+~
+0 -1 33253 10 10 5
+E
+lights edge~
+You see lights in the distance to the west.  It looks like maybe it is
+sunlight coming through the trunks of the trees, and appear to be moving
+because the branches sway in the wind.  Or maybe its fairies flitting
+about between the branches.  Or you could be seeing things.
+~
+-1
+S
+
+#23002
+Small Cave~
+This small cave glitters and sparkles as small chunks of quartzite in the
+walls reflect your light back at you.  Many tiny footprints can be seen
+in the dirt floor, but you cannot determine their exact nature.  A small
+opening to the west allows you an exit from the cave.
+~
+[Nezzim] there's no exit south, should fix 'look footprint' to reflect this now.
+~
+301465604 3 9 0
+D3
+~
+~
+202 -1 23082 10 10 5
+E
+dirt floor 1 down footprints~
+The floor is packed dirt; tiny footprints seem to head west.
+~
+E
+opening 1 west exit~
+The opening is small and you might have to squeeze.  However, it does
+appear to be a way out of this cave.
+~
+A
+enter exit crawl~
+hole 1 west entrance opening~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 23082 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 23082 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_arr~
+$n follows out of the bushes too.
+~
+E
+f_leave~
+$n leaves through the cave too.
+~
+E
+arr~
+$n climbs out of the bushes to the east.
+~
+E
+room~
+$n drops to $s hands and knees and scurries out of the cave entrance to
+the west.
+~
+E
+char~
+Crawling on your hands and feet, you exit the cave and find yourself back
+in the forest.
+~
+!
+0 0 0
+A
+~
+~
+send_to_char( #ch, ch );
+~
+E
+ch~
+You can't just walk out, the opening is too small.
+~
+!
+3 0 8
+586 9 1509949540 3 0
+586 9 1509949500 3 0
+-1
+S
+
+#23022
+Dark Forest~
+The heavy underbrush prevents movement other than to the north and west. 
+Even with the little amount of light that the forest provides, it seems
+that the trail to the north splits into several trails, but it is
+impossible to tell which direction those trails take.  The stone wall
+extends to the north and east.  Unfortunately, due to a large patch of
+thornbushes which grows along the wall, you are unable to explore in that
+direction.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23024 10 10 5
+D3
+~
+~
+0 -1 23023 10 10 5
+E
+berry berries~
+Most of the berries are underripe, but a few look as if they are worth
+picking.
+~
+E
+thorn thorns bush bushes thornbushes~
+The thornbushes are very thick and have thorns about half an inch long. 
+Looking carefully, you can see several underripe berries of some type
+hanging from vines.  
+~
+A
+pick get take steal~
+berry berries~
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    if( random( 0, 1 ) == 1 ) {
+      send_to_char( #berry, ch );
+      act_notchar( #gotone, ch );
+      obj_to_char( oload( 243 ), ch );
+      }
+    else {
+      send_to_char( #berry, ch );
+      act_notchar( #gotone, ch );
+      obj_to_char( oload( 258 ), ch );
+      }
+    }
+  else {
+    send_to_char( #char, ch );
+    inflict( ch, mob, 1d2+0, "thorn" );
+    dam_message( ch, 1d2+0, "A thorn from the bush" );
+    act_notchar( #room, ch );
+    }
+  }
+else
+  act_tochar( #no_hands, ch );
+~
+E
+gotone~
+$n reaches into the thornbush and finds a berry.
+~
+E
+berry~
+You reach into the thornbush and pull out a berry.
+~
+E
+char~
+As you reach into the bush to grab a berry, you get pricked by a thorn.
+  
+~
+E
+room~
+$n is pricked by thorns while picking berries.
+ 
+~
+E
+no_hands~
+You have no hands to pick or carry berries.
+~
+!
+0 0 0
+-1
+S
+
+#23023
+Dark Forest~
+The path winds its way to the east and west with no indication of what
+lies at the end of it.  The long row of thornbushes also makes its way to
+the east and west, making movement to the south impossible.  Directly to
+the south is a huge oak tree.  Looking closely, you can see a hole at the
+base of the tree.  Unfortunately, you also see some gruesome bear claw
+markings around the rim of the hole as well.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23022 10 10 5
+D2
+~
+~
+0 -1 23135 10 10 5
+D3
+~
+~
+0 -1 23025 10 10 5
+E
+tree oak huge~
+This tree must have been growing here for hundreds of years in order to
+get as big as it has.  The base of its trunk is over sixty feet wide. 
+The rest of the forest is so thick, that you are unable to see the top of
+this magnificent tree.  
+~
+-1
+S
+
+#23024
+Dark Forest~
+The forest path branches into three directions at this point.  The path
+appears to wind to both the north and west.  To the east, a large stone
+wall extends to the north and south.  Standing here, there appears to be
+no indication of what lies at the end of each separate path.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23085 10 10 5
+D2
+~
+~
+0 -1 23022 10 10 5
+D3
+~
+~
+0 -1 23039 10 10 5
+E
+1 east stone wall~
+The stone wall is actually a huge boulder surrounded by bushes.
+~
+-1
+S
+
+#23025
+Dark Forest~
+This part of the forest seems more sinister for some reason.  For what
+reason you cannot tell.  It feels as if a thousand eyes are watching you,
+but when you look around, nothing is there.  The path continues to the
+east and west, running right alongside a row of thornbushes.  
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23023 10 10 5
+D3
+~
+~
+0 -1 23026 10 10 5
+-1
+S
+
+#23026
+Dark Forest~
+The forest path branches off to the north here, while the main path
+continues to the east and west.  The thornbushes to the south appear to
+be thinning somewhat.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23027 10 10 5
+D1
+~
+~
+0 -1 23025 10 10 5
+D3
+~
+~
+0 -1 23028 10 10 5
+-1
+S
+
+#23027
+Dark Forest~
+The trees here seem to be less threatening, and more light is allowed
+through.  The abundance of small animal tracks here seems to indicate
+that this is a safe place to rest.  A small stream crosses through here
+of which you can partake.
+~
+~
+301465610 3 6 0
+D2
+~
+~
+0 -1 23026 10 10 5
+E
+pool~
+The pool of water looks clean and fresh.  There appears to be enough to
+fill several waterskins.
+~
+755 9 1509949540 3 0
+711 17 1509949450 -2 0
+711 17 1509949450 -2 0
+398 17 1509949540 -2 0
+-1
+S
+
+#23028
+Dark Forest~
+The forest path turns to the south and east here.  A dense forest lies to
+the west and thornbushes extend off to the east.  Fallen trees line the
+path to the north and west as well.  
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23026 10 10 5
+D2
+~
+~
+0 -1 23029 10 10 5
+E
+tree trees fallen~
+The fallen trees have completely blocked off any open path to the north
+and west.  From the claw marks barely evident on the trees, it appears as
+if this was not nature's doing.  
+~
+E
+thorn thorns bush bushes thornbush thornbushes~
+The stone wall which runs both east and south, appears to have been the
+victim of weather and erosion.  Several cracks run up and down the length
+of the wall.  
+~
+-1
+S
+
+#23029
+Dark Forest~
+The path continues to the north and south.  Thornbushes line the sides of
+the trail, prohibiting any movement in those directions.  Scattered
+patches of light strike the forest floor as the trees begin to thin out. 
+To the east comes a strange, thrashing sound.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23028 10 10 5
+D1
+thornbush~
+~
+171 -1 23030 10 10 5
+D2
+~
+~
+0 -1 23088 10 10 5
+586 8 1509949540 3 0
+-1
+S
+
+#23030
+Dark Forest~
+This small clearing in the forest allows movement back to the west.  All
+other directions are blocked by the thick undergrowth tangled among the
+trees.  There is no grass here, as if someone or something moves about
+this area on a regular basis.
+~
+~
+301465600 3 6 0
+D3
+thornbush~
+~
+171 -1 23029 10 10 5
+E
+stump~
+Once a magnificent tree, all that is left is a stump measuring over six
+feet in diameter.  Several small wood chips surround the stump.  You
+could get some idea on the age of the tree if you counted the rings of
+growth.  
+~
+A
+count~
+ring rings~
+send_to_char( #char, ch );
+~
+E
+char~
+You aren't sure, but you think that there are 542 rings.
+~
+!
+0 0 0
+A
+climb~
+stump~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n attempts to climb the stump, but to no avail.
+~
+E
+char~
+You cannot find a purchasing in which to climb the stump.
+~
+!
+0 0 0
+1698 9 1509949500 3 0
+-1
+S
+
+#23031
+Dark Forest~
+The path twists around a large oak tree, with the rest of the forest
+cutting off any attempt at movement to the south and east.  Overhead, a
+raven croaks in some language that you have never heard before.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23033 10 10 5
+D3
+~
+~
+0 -1 23087 10 10 5
+E
+oak tree~
+The path bends around a squat oak tree.  It has dark rough bark, and is
+about six feet thick.  In its branches above you a raven gabbles rudely.
+~
+E
+raven~
+The raven has thick, glossy, black feathers.  It looks at you
+as if you were the thing out of place here, not it.  It croaks
+at you, but is up too high in the tree for you to do anything.
+~
+A
+1 kill attack 1 bash kick punch~
+raven~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+not~
+$n tries to attack the raven but it hops to a branch just out of its
+reach and continues babble contemptuously.
+~
+E
+ch~
+As you leap to attack the raven he hops to a different branch just out of
+your reach.  He screams at you and continues gabbling in his odd tongue.
+~
+!
+0 0 0
+-1
+S
+
+#23033
+Dark Forest~
+Twisting about a fallen log, the path meanders to the south and east. 
+Looking about you can see several small shards of metal on the ground. 
+You can hear a strange croaking off to the south.  
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23035 10 10 5
+D2
+~
+~
+0 -1 23031 10 10 5
+E
+shards~
+Looking at the small shards, you realize two things.
+First, they are of no value to anyone, and second
+they are bits of armour that were splintered off of
+whatever fought here.
+~
+E
+log~
+Lifting up the log, you quickly pull your hand back, as several small
+beetles run out from under the log and disappear into the woods.  Looking
+closely at the log, you can see several worms burrowing through the
+rotting wood.  
+~
+-1
+S
+
+#23035
+Dark Forest~
+Scattered patches of light appear on the forest floor, giving it a
+mottled appearance.  An eerie feeling comes over you, giving you the
+feeling that something is watching you.  Looking about, you can't see
+anything out of the ordinary.  
+~
+~
+301465608 3 6 0
+D2
+~
+~
+0 -1 23036 10 10 5
+D3
+~
+~
+0 -1 23033 10 10 5
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( random( 1, 5 ) == 1 ) {
+  wait( 1 );
+  send_to_room( #eyes, room );
+  }
+~
+E
+eyes~
+You feel the hot gaze of an unfriendly being staring at your back.  You
+whirl to see what it is, but nothing is there.
+~
+!
+1 -1 12
+-1
+S
+
+#23036
+Dark Forest~
+There is a strange smell in the air, but you can't tell where it is
+coming from.  There is a strange moss on some of the trees here, as well
+as some small mushrooms growing at the edge of the path.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23035 10 10 5
+D2
+~
+~
+0 -1 23037 10 10 5
+E
+mushrooms~
+This is obviously from where the smell is coming!  These mushrooms are
+giving off a scent similar to a decaying corpse.  You quickly back away
+from them.  
+~
+E
+moss~
+The trees appear to have a strange moss growing on them.  It is pale
+green and looks as if it were made out of small threads.  
+~
+-1
+S
+
+#23037
+Dark Forest~
+The path twists around a gnarled tree to the north and west.  Underbrush
+prevents movement in any other direction.  The path appears to have been
+slightly eroded from the recent rains.  Of course, travelers such as
+yourself don't help it much either.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23036 10 10 5
+D1
+~
+~
+0 -1 23039 10 10 5
+E
+brush underbrush~
+The underbrush is made up of several small trees, as well as small
+thornbushes and fallen branches.  
+~
+E
+tree gnarled~
+This gnarled tree appears to have been struck by lightning at sometime in
+the past.  Its bark is blackened, and it is twisted into a shape
+resembling a corkscrew.  
+~
+A
+w we west s so south~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+The thick underbrush prevents you from going in that direction.
+~
+!
+0 0 0
+2509 9 1509949540 3 0
+-1
+S
+
+#23038
+Meadow~
+The edge of the meadow ends in a shallow bog.  There is the smell of
+death and decay around here.  Looking about, corpses of small woodland
+creatures litter the landscape.  
+~
+[Mantispid] Maybe keywords for the corpses lying around.  -M
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23040 10 10 5
+A
+~
+~
+if( rflag( status0, room ) ) {
+  if( random( 1, 6 ) < 2 ) {
+    remove_rflag( status0, room );
+    send_to_room( #room, room );
+    mload( 608, room );
+    mload( 608, room );
+    }
+  }
+~
+E
+room~
+You see a movement out of the corner of your eye as something flutters
+towards you.
+~
+E
+char~
+boo
+~
+!
+1 2 4
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  wait( 2 );
+  if( num_mob( 608, room ) < 2 ) {
+    wait( 3 );
+    remove_rflag( reset0, room );
+    send_to_room( #to_char, room );
+    mload( 608, room );
+    }
+  }
+~
+E
+to_char~
+A small creature flies off of one of the corpses and moves towards you.
+~
+!
+1 -1 63
+-1
+S
+
+#23039
+Dark Forest~
+The trees in this part of the forest form a dense unpassable wall to both
+the north and the south.  Small twigs and branches litter the forest
+floor.  The only apparent way for you to go is either to the east or to
+the west.  
+~
+These ash saplings can be used for making hafts, like in the creation of
+a krynite spear.
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23024 10 10 5
+D3
+~
+~
+0 -1 23037 10 10 5
+E
+twig twigs branch branches~
+Some of the twigs and branches littering the forest floor appear to have
+been broken off by to the forces of Nature.  However, some of them appear
+to have claw and bite marks on them, making you wonder about the
+inhabitants of these woods.  
+~
+586 9 1509949540 3 0
+711 17 1509949450 -2 0
+2694 17 1509949457 -2 0
+-1
+S
+
+#23040
+Meadow~
+The fence going around the meadow has been broken, apparently by a large
+creature.  A small path winds its way to the north and south.  Oddly, no
+animal noises come from the south, as if anything that has gone down this
+path has never returned.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23042 10 10 5
+D2
+~
+~
+0 -1 23038 10 10 5
+-1
+S
+
+#23041
+Narrow path~
+Empty space.
+~
+~
+301465604 3 6 0
+D3
+~
+~
+0 -1 23039 10 10 5
+-1
+S
+
+#23042
+Meadow~
+The path through the meadow continues to the south and west.  The fence
+that marks the boundary of the meadow shows signs of neglect.  The
+remains of a shed lie about the area, victim to age and neglect.
+~
+~
+301465608 3 6 0
+D2
+~
+~
+0 -1 23040 10 10 5
+D3
+~
+~
+0 -1 23043 10 10 5
+E
+fence~
+The fence, which used to serve as a border between the meadow and the
+forest, has in recent years failed at its task.  The forest is slowly
+growing into the meadow.  The fence has apparently not been repaired in
+several years.
+~
+E
+shed~
+Searching the remains of the shed, you find small bits and pieces of
+tools.  None of them are in one piece and are therefore quite worthless.
+~
+-1
+S
+
+#23043
+Meadow~
+The meadow path branches off to the north, east, and west.  The meadow is
+filled with short grasses, and it looks as if several different animals
+graze around here.  Along the edge of the meadow to the south, a long
+fence extends to the east and west.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 23044 10 10 5
+D1
+~
+~
+0 -1 23042 10 10 5
+D3
+~
+~
+0 -1 23045 10 10 5
+-1
+S
+
+#23044
+Meadow~
+The forest opens up to reveal a meadow here.  The lush grasses and small
+plants provide food for the small family of deer.  The grasses glow from
+the light reflecting off their leaves.  Several deer are here feeding. 
+The trees form a dense impassable barrier at the edge of the meadow.  
+~
+dont write animals into rdescs
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23054 10 10 5
+D1
+~
+~
+0 -1 23056 10 10 5
+D2
+~
+~
+0 -1 23043 10 10 5
+D3
+~
+~
+0 -1 23119 10 10 5
+E
+deer~
+The deer look up when you approach them, and slowly move away from you. 
+They do not run, but keep an eye on you in case you do anything threatening.
+~
+-1
+S
+
+#23045
+Meadow~
+The meadow ends against a fence with forest on the other side of the
+fence.  The combination of fence and forest prevent you from going to the
+south.  Animal paths lead off to the north, east, and west.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23119 10 10 5
+D1
+~
+~
+0 -1 23043 10 10 5
+D3
+~
+~
+0 -1 23046 10 10 5
+E
+fence~
+The fence to the south is aged and weathered almost to the point of
+ruin.  Whoever put it here has not taken care of in in some time.
+~
+2509 9 1509949540 3 0
+-1
+S
+
+#23046
+Meadow~
+Small birds fly about in the trees marking the edge of the meadow.  A
+dilapidated fence also marks the southern boundary, but from the look of
+things, it will not last much longer.  The meadow continues to the north,
+east, and west.  Off to the west, you can see more trees, signaling the
+end of the meadow.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 23120 10 10 5
+D1
+~
+~
+0 -1 23045 10 10 5
+D3
+~
+~
+0 -1 23047 10 10 5
+E
+fence~
+The aged wooden fence has fallen over, and just barely holds the forest
+back.  Already, some small saplings have intruded into the meadow.
+~
+E
+tree trees~
+The trees making up the forest are a vaariety of oak, maple and elm. 
+Small birds fly back and forth between the branches.
+~
+E
+bird birds~
+The birds make little noise as they fly back and forth.  Looking
+carefully, you can see several small nests in the tops of the trees.
+~
+E
+nest nests.~
+The nests are too far away for you to do any more than look at them.  You
+are unable to see anything else about the nests.
+~
+E
+sapling saplings~
+The young trees have started growing on the near side of the fence.
+~
+586 8 1509949540 3 0
+-1
+S
+
+#23047
+Meadow~
+This is the southwestern corner of the meadow.  A dilapidated fence and
+thick trees mark the southern and western boundaries.  Tall grass grows
+right up to the fence.  Trails lead off to the north and east.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 23048 10 10 5
+D1
+~
+~
+0 -1 23046 10 10 5
+E
+fence~
+This fence has seen better days.  It seems that the fence should have
+already fallen over, and from all apparent looks will do so soon.
+~
+E
+tree trees~
+Looking at the trees, you think that you can see something moving back in
+the woods.  However, there doesn't seem to be any way to get back there.
+~
+755 9 1509949540 3 0
+-1
+S
+
+#23048
+Meadow~
+Along the western edge of the meadow, you can see the meadow extend quite
+far to the east.  Trees and the broken remains of a fence mark the
+western boundary.  The meadow path continues to the north, east, and
+south.
+~
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 23049 10 10 5
+D1
+~
+~
+0 -1 23120 10 10 5
+D2
+~
+~
+0 -1 23047 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#23049
+Meadow~
+The northwestern corner of the meadow barely qualifies as a corner with
+the forest having grown in so much.  Looking beyond some of the trees,
+you can make out the remains of a fence.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 23050 10 10 5
+D2
+~
+~
+0 -1 23048 10 10 5
+E
+tree trees~
+The trees are quite thick here.  There doesn't appear to be any way
+through the trees from here.  Listening carefully, you think that you can
+hear soething moving around back there.
+~
+E
+fence~
+The fence is mostly hidden by the forest, but you can still make out that
+the only reason that it stands is that it is held by by some of the trees.
+~
+-1
+S
+
+#23050
+Meadow~
+The forest opens up to reveal a meadow here.  Lush grass and small
+flowers provide food for many of the forest animals.  It looks like many
+of the small pretty flowers have had their petals eaten off.  Small game
+trails meander throughout the grass.  There is a small gopher hole at
+your feet.
+~
+[Cassiopeia] Your trip wounds Azure. slightly scratched
+[Seltha] 'Your trip wounds Sassticca'  I didn't trip her up, wouldn't trip a friend...
+~
+301465600 2 6 0
+D0
+~
+~
+0 -1 23051 10 10 5
+D1
+~
+~
+0 -1 23052 10 10 5
+D2
+~
+~
+0 -1 23120 10 10 5
+D3
+~
+~
+0 -1 23049 10 10 5
+E
+gopher hole holes~
+The sand around the gopher hole crumbles as you bend over to examine it. 
+A pile of fresh dirt lies to one side.  The pesky little varmint which
+made this must have ducked in when it saw you coming.
+~
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( random( 1, 3 ) == 1 ) {
+  if( !is_mounted( ch ) ) {
+    if( is_player( ch ) ) {
+      send_to_char( #char, ch );
+      act_notchar( #room, ch );
+      i = 1d1+7;
+      dam_message( ch, i, "Your trip" );
+      inflict( ch, mob, i, "Your trip" );
+      }
+    }
+  }
+~
+E
+room~
+$n trips over a hole in the ground.
+ 
+~
+E
+char~
+You trip over a gopher hole and sprain your ankle.
+ 
+~
+!
+1 -1 63
+A
+kick~
+dirt pile~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+else {
+  i = 2d3;
+  dam_message( ch, i, "The gopher's bite" );
+  inflict( ch, mob, i, "The gopher's bite" );
+  act_notchar( #room2, ch );
+  }
+~
+E
+room2~
+As $n kicks at the remaining pile of dirt, a gopherpops up and bites $m.
+~
+E
+char2~
+As you go to kick the remaining dirt, the gopher pops up and bites you.
+~
+E
+room~
+$n kicks the pile of dirt.
+~
+E
+char~
+Your kick scatters most of the dirt around the area.
+~
+!
+0 0 0
+A
+l lo look~
+gopher hole dirt pile~
+if( rflag( reset0, room ) )
+  send_to_char( #char, ch );
+else
+  send_to_char( #char2, ch );
+~
+E
+char2~
+What little sand remains around the gopher hole is now scatter about. 
+The remnants of a pile of fresh dirt still lies to one side, but there is
+no sign of that pesky little varmint.
+~
+E
+char~
+The sand around the gopher hole crumbles as you bend over to examine it. 
+A pile of fresh dirt lies to one side.  The pesky little varmint which
+made this must have ducked in when it saw you coming.
+~
+!
+0 0 0
+-1
+S
+
+#23051
+Dark Forest~
+You are now standing where the meadow and forest path merge together. 
+Gazing to the south, you can see a lush meadow filled with small animals
+and deer.  To the east, a small path leads away into a dark and sinister
+forest which appears devoid of any animal life.  This seems odd due to
+the abundant life you can see to the south.
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23053 10 10 5
+D2
+~
+~
+0 -1 23050 10 10 5
+368 9 1509949540 3 0
+2694 17 1509949457 -2 0
+-1
+S
+
+#23052
+Meadow~
+From here you can see most of the meadow opening up before you.  Thick
+woods block any passage to the north, but all other directions remain
+open to travel.  Looking around, you can tell that some kind of animal
+grazes on the grasses in this meadow.
+~
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 23054 10 10 5
+D2
+~
+~
+0 -1 23119 10 10 5
+D3
+~
+~
+0 -1 23050 10 10 5
+2509 9 1509949540 3 0
+-1
+S
+
+#23053
+Dark Forest~
+You are walking along a path which extends to the east and west.  You can
+not help but be surprised by the lack of any familiar sounds coming
+through the trees.  Instead, you hear nothing but silence.  Not even a
+small breeze seems to disturb this small path.  To the west, you can
+sense a lightening of the trees, but to the east, the trees encroach upon
+the path.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23061 10 10 5
+D3
+~
+~
+0 -1 23051 10 10 5
+-1
+S
+
+#23054
+Meadow~
+This is the northeastern corner of the meadow.  Thick forest prevents you
+from continuing to either the north or east.  Small tracks dot the
+landscape as if some creature was on the run from another that was
+chasing it.  The larger tracks appear to be some kind of feline.
+~
+[Mantispid] Maybe the feline tracks should have some keywords.. -M
+~
+301465604 3 6 0
+D2
+~
+~
+0 -1 23044 10 10 5
+D3
+~
+~
+0 -1 23052 10 10 5
+-1
+S
+
+#23056
+Dark Forest~
+The forest path continues to the east and west.  To the east, the forest
+gets darker and more sinister, but to the west, the forest opens up into
+a bright meadow.  A small growl within the trees to the north catches
+your attention.
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23058 10 10 5
+D3
+~
+~
+0 -1 23044 10 10 5
+A
+l lo look~
+tree trees forest attention growl n north~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  send_to_char( #char, ch );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+nope~
+A quick glance into the forest to the north reveals nothing.
+~
+E
+char~
+Peering into the trees to the north, you can make out the image of a lion
+cowering behind a tree just off the path.  Noticing it has an audience,
+it bounds off into the forest with its tail between its legs.
+~
+!
+0 0 0
+A
+listen~
+growl~
+act_tochar( #hear_it, ch );
+act_notchar( #rhear_it, ch );
+~
+E
+hear_it~
+The growl is deep and throaty with a deep rumble to it.
+~
+E
+rhear_it~
+$n tilt's $s head as if listening to something.
+~
+!
+0 0 0
+586 8 1509949540 3 0
+-1
+S
+
+#23058
+Dark Forest~
+Although the path through the trees in this area has become bigger, the
+forest remains dark and sinister.  The screech of forest animals can be
+heard echoing off the dark foliage above.  A small path extends to the
+west, and a larger path stretches off to the north and south.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23060 10 10 5
+D2
+~
+~
+0 -1 23068 10 10 5
+D3
+~
+~
+0 -1 23056 10 10 5
+E
+hole~
+As you peer into the hole the gopher squeakes loudly at you.  This small
+hole leads to the gophers underground laberinth.  
+~
+E
+gopher hole holes~
+You see a hole in the ground that is about seven inches across.
+~
+-1
+S
+
+#23059
+Dark Forest~
+As you come closer to the figure standing along the side of the path, you
+can clearly see it isn't a man at all.  Instead, it appears to be an iron
+golem of some sort.  However, he appears to be stuck with one hand held
+in the air and the other holding an axe which is wedged into a stump.  To
+the east, you can see small, red shack off of the main path.  To the
+west, the path continues through the dark forest.
+~
+[Mantispid] Tinman needs some keywords. -M
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23062 10 10 5
+D3
+~
+~
+0 -1 23061 10 10 5
+586 8 1509949540 3 0
+-1
+S
+
+#23060
+Dark Forest~
+The path you are walking on continues to the north and south.  Peering
+towards the north, you can see a bend in the path with a small, red shack
+along the edge of it.  To the south, the sounds of scurrying animals and
+flitting birds belies the darkness which envelopes the forest.
+~
+~
+301465612 3 6 0
+D0
+~
+~
+0 -1 23062 10 10 5
+D2
+~
+~
+0 -1 23058 10 10 5
+E
+gopher holes~
+You try too peer into the hole but all you see is darkness.
+~
+-1
+S
+
+#23061
+Dark Forest~
+Out of the corner of your eye, you can make out the image of a man
+hanging somewhere between the trees to the north.  However, you realize
+that it must be the rumors about this forest which are making you jumpy. 
+Along the path to the east, you can see the silhouette of a man who
+appears to be waving.  The path continues to the east and west through
+this abandoned area.
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23059 10 10 5
+D3
+~
+~
+0 -1 23053 10 10 5
+-1
+S
+
+#23062
+Dark Forest~
+A small rundown shack stands just off the path to the north.  However,
+everything has become overgrown in this area and you are unable to see
+any path to it.  To the west, you can see the silhouette of a man who
+appears to be waving.  The path continues to the south and west through
+the forest.
+~
+[Mantispid] Shack should have some keywords.. so should the overgrowth.. like 'vegetation', 'plants', etc.  -M
+[Faide] You can't look at the small shack mentioned in this room and the one south of here.
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 23060 10 10 5
+D3
+~
+~
+0 -1 23059 10 10 5
+-1
+S
+
+#23063
+Edge of Dark Forest~
+Trees have completely overgrown the area where the path narrows and
+trails into the forest before you.  As you approach the tree line, you
+notice a conspicuous absence of normal forest activity.  No raucous bird
+calls pierce the air, no underbrush rustles as small animals scurry
+about, which makes the urge to turn around and go back almost
+overwhelming.
+~
+~
+301465608 3 6 0
+D0
+~
+~
+0 -1 23065 10 10 5
+D2
+~
+~
+0 -1 23064 10 10 5
+246 17 1509949465 -2 0
+-1
+S
+
+#23064
+Dark Forest~
+The forest begins to encroach upon the path here, making it impossible to
+continue to the south.  A large cylindrical stone stands off of the end
+of the path, and faint writing can be seen on it.  The forest clears
+somewhat to the east and west allowing you to continue in those two
+directions.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23063 10 10 5
+D1
+~
+~
+0 -1 23069 10 10 5
+D3
+~
+~
+0 -1 23068 10 10 5
+E
+stone~
+This stone stands almost 6' high and has obviously been carved with
+precision.  As you clear away the moss and debris that litter it, you see
+a message scrawled across it.  Odd decorations adorn the large stone from
+the base to the top.
+~
+E
+message~
+The forest and castle were built by DRAGOS with the assistance of Caer,
+Merlin, Azikiar, Vulcan and Derna.  Have fun storming the castles!
+~
+A
+touch~
+cylindrical stone marking markings~
+send_to_char( #char, ch );
+inflict(ch, mob, 3d2+1, "flash of white energy" );
+dam_message( ch, 3d2+1, "The flash of white energy" );
+act_notchar( #room, ch );
+~
+E
+room~
+$n reaches towards the cylindrical stone and is hit by a flash of white
+energy.
+  
+~
+E
+char~
+As you reach to touch the cylindrical stone, a flash of white energy
+jumps out at you.
+  
+~
+!
+0 0 0
+415 17 1509949490 -2 0
+-1
+S
+
+#23065
+Narrow Path~
+The path continues north and south through the hills here.  As you get
+closer to the forest, more and more trees crowd the path and you trip and
+stumble over half buried roots and foliage.  To your west, you can see
+the dark forest which continues in front of you to the south.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 23066 10 10 5
+D2
+~
+~
+0 -1 23063 10 10 5
+-1
+S
+
+#23066
+Narrow Path~
+A long narrow path winds its way through plush hills and tall grass. 
+Ruts in the path indicate that this was once perhaps a fairly major
+trading route.  However, weeds and vines have now overgrown most of the
+path.  To the west, a dark forest rises high above you.  A path winds its
+way through the tall grass to the east and towards the dark forest which
+looms before you to the south.
+~
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 23133 10 10 5
+D2
+~
+~
+0 -1 23065 10 10 5
+-1
+S
+
+#23067
+Narrow Path~
+To the north, a small bridge crosses a river which flows momentarily from
+east to west before traveling south again.  Walking along the path, you
+notice the beauty which encompasses the area all around you.  Between the
+rolling hills, the rushing river to the east and the forest to the south,
+you wonder why you need to rush anywhere at all.  The path winds its way
+through the tall grass to the north and east.
+~
+~
+301465608 4 6 0
+D0
+~
+~
+0 -1 23122 10 10 5
+D1
+~
+~
+0 -1 23134 10 10 5
+E
+odd~
+Sticking out beneath the gate house, you see a pair of feet with red ruby
+slippers on them.  
+~
+A
+get take~
+ruby slippers~
+if( !has_obj( 424, ch ) ) {
+  if( !obj_in_room( 424, find_room( 23067 ) ) ) {
+    obj_to_char( oload( 424 ), ch );
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    wait( 3 );
+    send_to_room( #all, room );
+    }
+  }
+else
+send_to_char( #fail, ch );
+~
+E
+fail~
+You do not any of those here.
+~
+E
+all~
+Out of the corner of your eye, you notice the two feet shrivel up and
+disappear.  
+~
+E
+room~
+$n bends over and grabs a pair of red ruby slippers off of two feet
+sticking out beneath the gate house.  
+~
+E
+char~
+You remove a pair of red ruby slippers from the two feet sticking out
+beneath the gate house.  
+~
+!
+0 0 0
+A
+l lo loo look~
+gate house~
+if( !has_obj( 424, ch ) ) {
+  if( !obj_in_room( 424, room ) )
+    send_to_char( #char, ch );
+  }
+else
+send_to_char( #gate, ch );
+~
+E
+gate~
+This small fortress seems out of place at the edge of the forest.  A
+large gate stands before you with a lever to the side.  
+~
+E
+char~
+This small fortress seems out of place at the edge of the forest.  Gazing
+down at the base, you notice something odd sticking out.
+~
+!
+0 -1 0
+132 9 1509949540 3 0
+-1
+S
+
+#23068
+Dark Forest~
+The huge trees here loom above you oppressively as you squeeze your way
+through them.  The forest clears somewhat to the north and to the east
+making travelling easier.  A faint path also starts to form to the
+south.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23058 10 10 5
+D1
+~
+~
+0 -1 23064 10 10 5
+D2
+~
+~
+0 -1 23082 10 10 5
+-1
+S
+
+#23069
+Dark Forest~
+The forest continues here without break, and the trees seem to be getting
+larger as you continue.  As you look up, you can only barely make out the
+tops of some of them gently swaying in the breeze.  
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23071 10 10 5
+D2
+~
+~
+0 -1 23072 10 10 5
+D3
+~
+~
+0 -1 23064 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#23071
+Dark Forest~
+A small area has been cleared away here and you see the first sign of
+habitation in this forest.  Looking at the stumps of some of the trees,
+you notice that the ax marks on a few of them still look fairly fresh,
+perhaps even within the last twenty four hours or so.  Off in the
+distance, the sound of running water can be heard.  
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23167 10 10 5
+D3
+~
+~
+0 -1 23069 10 10 5
+-1
+S
+
+#23072
+Small Path~
+A small path winds its way through the trees here, and the signs of
+habitation increase as you realize the path is manmade.  Off to the east,
+you think you can make out the form of some sort of structure.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23069 10 10 5
+D1
+~
+~
+0 -1 23077 10 10 5
+-1
+S
+
+#23074
+Dark Forest~
+A small stream cuts through the forest here, and you notice small prints
+of many animals who have stopped here to drink.  The trees are still
+growing to gargantuan sizes, but you can still probably make it through
+to the north or to the west.  
+~
+[Seltha] 'north' or 'west'.... exits 'east' and 'west'
+[Paks] it says you can still probably make it through to the north or the west,,should it be to the east or the west?
+~
+301465604 3 6 0
+D1
+~
+~
+0 -1 23075 10 10 5
+D3
+~
+~
+0 -1 23167 10 10 5
+398 17 1509949540 -2 0
+415 17 1509949540 -2 0
+-1
+S
+
+#23075
+Dark Forest~
+The trees crowd together very closely here, forming a natural niche,
+which looks like it would be a perfect place to camp for the night.  A
+large number of flies buzz around a dark lump buried underneath some
+leaves off to the side, and a dark mist fills the spaces between the
+trees to the north.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 40000 10 10 5
+D3
+~
+~
+0 -1 23074 10 10 5
+E
+tag~
+Cleaning off the gunk on the tag, you see the word Toto inscribed upon
+it.  
+~
+E
+lump~
+Looking at the lump closer, you see it is the corpse of a small dog.  A
+small metal tag glimmers on its collar.  
+~
+A
+get take steal grab~
+dog 3 tags~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n bends over a buried animal, and turns several shades of green.
+~
+E
+char~
+Bending over the deceased canine, you are overtaken by nauseous fumes.
+~
+!
+0 0 0
+A
+north~
+~
+send_to_char( #nope, ch );
+act_notchar( #o-nope, ch );
+continue;
+~
+E
+nope~
+You pass into the mists to the north.
+~
+E
+o-nope~
+$n passes into the mists to the north.
+~
+!
+0 0 0
+-1
+S
+
+#23077
+Small Path~
+The trees have been cleared away from this area almost completely.  This
+accounts for the widening of the small path, which now branches off to
+the south and continues east.  The structure to the east is now visible
+as a small delapidated log cabin, with a small plume of smoke rising from
+its chimney.  
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23079 10 10 5
+D2
+~
+~
+0 -1 23080 10 10 5
+D3
+~
+~
+0 -1 23072 10 10 5
+-1
+S
+
+#23078
+Small Cave~
+You seem to have entered into a narrow section within a garden maze
+formed of dense hedges.  Many tiny footprints can be seen in the dirt
+floor, but you cannot determine their exact nature.  A small break in the
+hedge looks like it would allow you a way out of this section of the maze
+if you entered it.
+~
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 23083 10 10 5
+D3
+~
+~
+234 -1 33260 10 10 5
+A
+1 north 1 east 1 west~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that, you'd walk headlong into a hedge!
+~
+!
+0 0 0
+A
+enter crawl go~
+hedge break hole 1 west~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+wait( 1 );
+transfer( ch, find_room( 33260 ) );
+if( rflag( reset0, find_room( 33260 ) ) )
+  remove_rflag( reset0, find_room( 33260 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  act_tochar( #f_enter, rch );
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 33260 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+char~
+You crouch down and crawl through the break in the western hedge.
+~
+E
+room~
+$n crouches down and crawls through the break in the western hedge.
+~
+E
+arr~
+$n comes crawling through the base of the hedge to the east.
+~
+E
+f_enter~
+You follow $n out.
+~
+E
+f_leave~
+$n also crawls under the hedge.
+~
+E
+f_arr~
+$n is the next to crawl out.
+~
+!
+0 0 0
+-1
+S
+
+#23079
+Near a Log Cabin~
+A small log cabin, which has seen better days, stands here.  Large gaps
+between the logs and a sagging roof indicate the slip-shod construction
+of the place.  A small outhouse stands off to the east side, and stacked
+against the west wall is a large amount of cut wood.  Olive green
+curtains flutter in the wind from a partially open window.
+~
+[Owl Caller] Woodman's Axe should be Woodsman's Axe at the Log Cabin
+~
+301465600 3 6 0
+D1
+cabin door~
+"cabin door"~
+131 -1 23121 10 10 5
+D2
+~
+~
+0 -1 23081 10 10 5
+D3
+~
+~
+0 -1 23077 10 10 5
+E
+outhouse~
+You can smell the distinctly unpleasant aroma wafting from the direction
+of the outhouse better than you can see it.
+~
+E
+wood~
+A large pile of freshly cut wood is stacked against the west wall of the
+cabin.  Although you don't see anybody, whomever lives here is obviously
+ready for winter.
+~
+-1
+S
+
+#23080
+Corn Field~
+This area has been completely cleared away, and a rather scraggly corn
+field planted.  From its condition, it's obvious that no one has attended
+it in quite awhile, as weeds grow in profusion through the crooked rows. 
+Off to the east, the field continues and a large unmoving figure can be
+seen standing amongst the rows.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23077 10 10 5
+D1
+~
+~
+0 -1 23081 10 10 5
+-1
+S
+
+#23081
+Dark Forest~
+The small corn field continues here, surrounded by trees to all sides
+except for the west and north.  The figure you spotted earlier turns out,
+merely to be a raggedy looking scarecrow.
+~
+second sentence not a sentence
+dont write mobs that can be killed into rdescs
+kiian
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23079 10 10 5
+D3
+~
+~
+0 -1 23080 10 10 5
+E
+Scarecrow~
+A sad looking scarecrow, with a raggedy old hat perched up on it's head,
+and straw leaking from it's chest.  
+~
+652 9 1509949540 3 0
+189 17 1509949465 -2 0
+-1
+S
+
+#23082
+Dark Forest~
+The faint path continues to the south here, and you begin to stumble more
+often as the trees block off most of the light, making it harder to see. 
+A large clump of strangely shaped bushes with strikingly orange flowers,
+catches your eye.  The bushes line a stone wall to the east.  
+~
+[Lansharra] footprints
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23068 10 10 5
+D1
+~
+~
+202 -1 23002 10 10 5
+D2
+~
+~
+0 -1 23085 10 10 5
+E
+stone wall~
+You see that the wall of stone is in fact a large boulder which stands
+behind the row of bushes along this section of the forest.  
+~
+E
+bushes~
+As you get closer to inspect the bushes, you notice foot prints
+travelling off to the east.  You cannot tell exactly what made them.
+~
+E
+foot print prints ground cave~
+An even closer examination reveals a small cave entrance behind the
+bushes.  
+~
+E
+boulder 1 east~
+The wall of stone is in fact a huge boulder.  It rises behind a row of
+bushes.
+~
+E
+6 flowers~
+The flowers are a striking shade of orange that blends to a soft
+orange-red in the center.  Each bloom has five petals and blossoms to a
+size of about four inches across.
+~
+A
+crawl enter~
+bush e ea eas east cave hole~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 23002 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+act_tochar( #f_enter, rch );
+  act_notchar( #f_leave, rch );
+  transfer( rch, find_room( 23002 ) );
+  act_notchar( #f_arr, rch );
+  }
+~
+E
+f_enter~
+Crawling on your knees through the bushes to the east, you find yourself
+in a small cave.
+~
+E
+f_arr~
+$n also enters from the opening.
+~
+E
+f_leave~
+$n also enters the bushes.
+~
+E
+arr~
+$n enters the small opening to the cave, and wipes the dust off $s body.
+~
+E
+room~
+$n falls to $s knees and disappears into the bushes.
+~
+E
+char~
+Crawling on your knees through the bushes to the east, you find yourself
+in a small cave.  
+~
+!
+0 0 0
+A
+e ea eas east~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+In your attempt to go east, you fall into several bushes with large,
+orange flowers.  
+~
+!
+0 1 0
+A
+cli clim climb~
+boulder wall stone~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n attempts to scale the rock wall, but comes sliding back down.
+~
+E
+char~
+The boulder is too steep and too slippery to climb.
+~
+!
+0 0 0
+A
+push move~
+wall boulder~
+send_to_char( #hehe, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n presses $s puny muscles up against the massive rock.
+~
+E
+hehe~
+The boulder is much much too big to move.
+~
+!
+0 0 0
+586 9 1509949540 3 0
+-1
+S
+
+#23083
+Cave~
+The hedge maze continues onward for a ways north and south.  As you look
+about, you see many small nests within the dense tangles of shrubbery. 
+Some of the tiny footprints are more distinct here, and you notice that
+they look to be human shaped, but only an inch or so in length.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 23078 10 10 5
+D2
+~
+~
+0 -1 23084 10 10 5
+E
+nests~
+Peering closer at one of the nests you see it is no ordinary bird's nest. 
+Inside is a pile of neatly woven grass matting, which is probably used as
+a bed.  Many small, shiny objects lie scattered throughout the hole.
+~
+A
+1 east 1 west~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that, you'd walk headlong into the hedge.
+~
+!
+0 0 0
+-1
+S
+
+#23084
+Cave~
+The hedge arches overhead forming a sheltered tunnel of sorts here.  Many
+small multi-colored rings are suspended from the branches overhead,
+reaching various heights.  The solus geals obviously use them for some
+sort of entertaining obstacle course.  A large circle has been inscribed
+upon the floor, and looks as if it is the site of some sort of ritual.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 23083 10 10 5
+D1
+~
+~
+0 -1 23086 10 10 5
+E
+circle~
+The circle is about 4 feet in diamater and is carved into the stone
+floor.  It has been outlined in gold and silver.  
+~
+A
+~
+~
+room = find_room( 23086 );
+mob = mob_in_room( 545, room );
+if( !rand_player( room ) ) {
+  if( mob ) {
+    junk_mob( mob );
+    set_rflag( reset0, room );
+    }
+  }
+continue;
+~
+!
+3 0 1
+A
+get take grab steal~
+ring multi-colored~
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    if( random( 1, 50 ) == 3 ) {
+      send_to_char( #char, ch );
+      act_notchar( #room, ch );
+      if( is_player( ch ) )
+        obj_to_char( oload( 5005 ), ch );
+      }
+    else {
+      send_to_char( #nope, ch );
+      act_notchar( #sorry, ch );
+      }
+    }
+  else {
+    send_to_char( #nope, ch );
+    act_notchar( #sorry, ch );
+    }
+  }
+else
+  act_tochar( #no_hands, ch );
+~
+E
+sorry~
+$n jumps up and down, vainly reaching for one of the rings which hangs
+from the ceiling.
+~
+E
+nope~
+You are unable to reach the rings.
+~
+E
+room~
+$n jumps up and grabs a ring.
+~
+E
+char~
+Jumping as high as you can, you grab one of the rings dangling from the
+ceiling.
+~
+E
+no_hands~
+You don't have the hands to reach or carry a ring in.
+~
+!
+0 0 0
+A
+1 south 1 west~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that, you'd walk headlong into the hedge.
+~
+!
+0 0 0
+467 9 1509949540 3 0
+467 9 1509949540 3 0
+-1
+S
+
+#23085
+Dark Forest~
+High above you, the trees grow closer together, blocking any chance of
+sunlight you may use.  A stone wall lines the path to the east.  Along
+the wall, roses bushes grow in every increasing numbers.  To the west,
+the trees and underbrush are thicker and prevent further exploration. 
+The path continues to the north and south.
+~
+~
+301465608 3 6 0
+D0
+~
+~
+0 -1 23082 10 10 5
+D2
+~
+~
+0 -1 23024 10 10 5
+E
+1 east stone wall~
+The stone wall is actually a huge boulder surrounded by bushes.
+~
+E
+rose roses thorn bush bushes thornbush thornbushes~
+Deep within the bushes, large roses bloom despite the lack of sunlight in
+this dark forest.
+~
+A
+pick get take steal~
+rose roses~
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    if( random( 0, 1 ) == 1 ) {
+      send_to_char( #rose, ch );
+      act_notchar( #gotone, ch );
+      obj_to_char( oload( 545 ), ch );
+      }
+    else {
+      send_to_char( #char, ch );
+      inflict( ch, mob, 1d2+0, "thorn" );
+      dam_message( ch, 1d2+0, "A thorn from the bush" );
+      act_notchar( #room, ch );
+      }
+    }
+  else {
+    send_to_char( #char, ch );
+    inflict( ch, mob, 1d2+0, "thorn" );
+    dam_message( ch, 1d2+0, "A thorn from the bush" );
+    act_notchar( #room, ch );
+    }
+  }
+else
+  act_tochar( #no_hands, ch );
+~
+E
+room~
+$n is pricked by thorns while picking roses.
+  
+~
+E
+char~
+As you reach into the bush to grab a rose, you get pricked by a thorn.
+  
+~
+E
+gotone~
+$n reaches into the thornbush and finds a rose.
+~
+E
+rose~
+You reach into the thornbush and pull out a rose.
+~
+E
+no_hands~
+You have no hands to pick or carry a rose.
+~
+!
+0 0 0
+586 8 1509949540 3 0
+-1
+S
+
+#23086
+Pool Room~
+Entering this nook of the garden maze, the first thing you notice is the
+huge natural pool, which domniates most of this area.  The leaves of the
+hedges are covered in a strange lichen that emits a soft glow.  Small
+ripples disturb the stillness of the pool, but there is neither wind or
+movement to disturb the calm.
+~
+~
+301465613 0 6 0
+D3
+~
+~
+0 -1 23084 10 10 5
+E
+Pool~
+A crystal clear pool, whose sandy bottom can be clearly seen.  Nothing
+visible can be seen moving around in it, but the ripples on the waters
+surface are obviously being caused by something.  
+~
+A
+~
+~
+if( mob_in_room( 545, room ) )
+  end;
+if( rflag( reset0, find_room( 23086 ) ) ) {
+  remove_rflag( reset0, room );
+  wait( 1 );
+  send_to_room( #room, room );
+  wait( 1 );
+  send_to_room( #room2, room );
+  wait( 1 );
+  send_to_room( #room3, room );
+  wait( 1 );
+  send_to_room( #room4, room );
+  wait( 1 );
+  mload( 545, find_room( 23086 ) );
+  }
+~
+E
+room4~
+You see a gray ooze gurgle its way to the top of the water.  You've heard
+many stories about these ferocious creatures.  You had better make your
+escape now, while you have a chance.
+~
+E
+room3~
+In a shower of water, a glimmering creature spring forth from the depths
+of the pool.
+~
+E
+room2~
+Beneath the water, a form begins to take shape.
+~
+E
+room~
+The ripples in the pool become more active.
+~
+!
+1 -1 63
+A
+1 look~
+pool water~
+if( rflag( reset0, room ) || mob_in_room( 545, room ) ) 
+  act_tochar( #murky, ch );
+else
+  act_tochar( #clear, ch );
+~
+E
+murky~
+A murk-filled pool whose depths swirl with unnatural currents.  A gray
+film seems to be coalescing on top of the pool, even as you watch.
+~
+E
+clear~
+A crystal clear pool, whose sandy bottom can be clearly seen.  Nothing
+visible can be seen moving around in it.
+~
+!
+0 0 0
+A
+1 north 1 east 1 south~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't do that, you'd walk headlong into the hedge!
+~
+!
+0 0 0
+1513 17 1509949540 -2 0
+-1
+S
+
+#23087
+Dark Forest~
+The forest path continues to the east and west.  As far as can be seen,
+the forest seems to have no end.  Listening carefully, you hear some
+small forest animals making noise, but are unable to see any of them.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 23031 10 10 5
+D3
+~
+~
+0 -1 23001 10 10 5
+A
+listen hear~
+~
+act_tochar( #rust, ch );
+~
+E
+rust~
+You hear rustling coming from the forest around you.  It sounds to be
+small creatures sneaking around avoiding your notice.  It might be the
+harmless squirrel or mouse, or maybe its the sprites sneaking up on you.
+~
+!
+0 0 0
+586 9 1509949540 3 0
+-1
+S
+
+#23088
+Dark Forest~
+The path continues both to the south and north.  To the north, it appears
+to get darker and more sinister, whereas to the south the forest seems to
+allow more light through.  Here, there is a fairly even mixture of light
+and dark, friendly and sinister.  Thornbushes line the path preventing
+any movement to the east or west.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23029 10 10 5
+D2
+~
+~
+0 -1 23089 10 10 5
+E
+thorn thorns bush bushes thornbushes~
+The bushes are short and thick.  Their vines have many small, sharp
+thorns which glisten slightly in the light.  
+~
+A
+e ea east w we west~
+~
+if( !is_player(ch ))
+   end;
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+i = dice(1,2);
+dam_message(ch, i, "The thorns on the vine" ); 
+inflict( ch, mob, i, "The thorns on the vine" );
+~
+E
+room~
+@b@R$n tries to go through the thornbushes, but is hurt by the vines and
+returns to the main path.  
+  
+~
+E
+char~
+You try and go through the thornbushes, only to be stuck by several of
+the vines.  
+ 
+~
+!
+0 0 0
+-1
+S
+
+#23089
+Dark Forest~
+The forest is getting lighter, and you are able to see more.  The path
+takes a sharp turn, continuing to the north and west.  Small, scraggy
+rock protrusions more or less line the path, preventing normal movement
+in any other direction.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 23088 10 10 5
+D3
+~
+~
+0 -1 23090 10 10 5
+-1
+S
+
+#23090
+Dark Forest~
+The forest is noticeably less dense than to the north.  Huge rocks and
+boulders dot the landscape to the west and south.  To the east, a path
+continues into the dark forest.  Looking at the rocks, you can see a
+three foot wide passage carved into the stone, heading down.
+~
+~
+301465608 3 6 0
+D1
+~
+~
+0 -1 23089 10 10 5
+D5
+~
+~
+0 -1 23091 10 10 5
+A
+~
+~
+if( is_mounted( ch ) )
+  send_to_char( #char, ch );
+else
+  continue;
+~
+E
+char~
+You can't do that while mounted!
+~
+!
+3 5 32
+-1
+S
+
+#23091
+Hidden Trail~
+Rocks and boulders lie strewn across this area amidst the forest.  A set
+of steps heading up are carved into one such boulder.  To the south, a
+thin trail winds its way between trees and stone.  Apparently, this is
+where the dark forest ends and the woods begin, or would that be the
+other way around.  A winding stream finds its way through the forest to
+the north.  A small path of stones leads across its swift, cold waters.
+~
+[Bowen] ana
+[Jemasze] apparently?
+~
+301465600 5 6 0
+D0
+~
+~
+234 -1 51753 10 10 5
+D2
+~
+~
+0 -1 23092 10 10 5
+D4
+~
+~
+0 -1 23090 10 10 5
+A
+cross~
+stream north gully~
+act_tochar( #cross, ch );
+act_notchar( #rcross, ch );
+transfer( ch, find_room( 51753 ) );
+act_notchar( #arrive, ch );
+~
+E
+cross~
+You cross the stream to the north.
+~
+E
+rcross~
+$n crosses the stream to the north.
+~
+E
+arrive~
+$n arrives, having crossed the stream to the south.
+~
+!
+0 0 0
+2693 17 1509949460 -2 0
+-1
+S
+
+#23092
+Hidden Trail~
+You carefully pick your way through the rocks which jut up or across the
+path heading through the woods which surround the forest.  All around
+you, the sounds of birds and animals echo through the trees.  The trail
+you are walking on continues to the north and south.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23091 10 10 5
+D2
+~
+~
+0 -1 23093 10 10 5
+-1
+S
+
+#23093
+Hidden Trail~
+Hard packed dirt absorbs your footsteps as you meander through the woods
+which mark the edge of the forest on a hidden trail.  Skirting rocks and
+roots, you wind your way along the trail which continues to the north and
+south.  Birds flit overhead through the treetops.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23092 10 10 5
+D2
+~
+~
+0 -1 23094 10 10 5
+-1
+S
+
+#23094
+Hidden Trail~
+Unobserved earlier, you notice a ledge above you to the east.  Beyond
+that ledge, the dark forest beckons you to your death.  Unfortunately,
+huge rocks and boulders block any chance of reaching that ledge. 
+Luckily, a treacherous path has been created which parallels the ledge
+heading to the north and south.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23093 10 10 5
+D2
+~
+~
+0 -1 23095 10 10 5
+-1
+S
+
+#23095
+Hidden Trail~
+All around you, you notice that trees and plant life are barely peeping
+over the huge boulders which dominate this area.  Looking to the north,
+the trees become larger and stronger.  While to the south, the ground
+becomes harder and more desolate.  A small trail winds daintily through
+the boulders, heading west for clearer ground.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23094 10 10 5
+D3
+~
+~
+0 -1 23129 10 10 5
+-1
+S
+
+#23096
+Hidden Trail~
+Large boulders lie straddling the path here.  Although plantlife seems to
+be non-existent, you can see signs of a small animals in the dirt.  Beyond
+the ravine to the east, you can see large trees reaching for the sky. 
+The path continues to the west to circumvent the huge boulders which
+permeate this area.  Along the south path, only dirt and rocks mark the
+territory.
+~
+~
+301465600 5 6 0
+D2
+~
+~
+0 -1 23097 10 10 5
+D3
+~
+~
+0 -1 23130 10 10 5
+196 9 1509949540 3 0
+-1
+S
+
+#23097
+Hidden Trail~
+Winding through the boulders and jagged rocks which jut from the
+sun-baked ground, the path seems to head in a direct line from north to
+south.  Peering to the south, you can detect a small trail branching off
+to the west.  To the north, you can clearly see the outline of trees in
+the distance.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 23096 10 10 5
+D2
+~
+~
+0 -1 23098 10 10 5
+-1
+S
+
+#23098
+Hidden Trail~
+Here the trail branches with the main trail heading north and south,
+becoming even more desolate, while the trail to the west seems to carry a
+hint of evil along it.  Something about it, a smell, a slight taste in
+the air, you aren't quite sure.  Around you, large rocks hinder any
+wandering from the path.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 23097 10 10 5
+D2
+~
+~
+0 -1 23099 10 10 5
+D3
+trail~
+trail~
+0 -1 23103 10 10 5
+2693 17 1509949460 -2 0
+-1
+S
+
+#23099
+Hidden Trail~
+Cracks line the path which winds its way through the boulders to the
+north.  To the north, a small path can be seen which heads off to the
+west.  Otherwise, the hidden, dirt path continues to the east rounding a
+large boulder which blocks any passage to the south.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 23098 10 10 5
+D1
+~
+~
+0 -1 23127 10 10 5
+-1
+S
+
+#23100
+Hidden Trail~
+Large rocks and boulders tower over you on the edges of a rough trail
+which heads north and south.  To the north, the dirt path disappears
+around a large boulder.  To the south, the dirt path just seems to
+disappear...
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 23128 10 10 5
+D2
+~
+~
+0 -1 23101 10 10 5
+-1
+S
+
+#23101
+Hidden Trail~
+The dirt path is barely even a path anymore.  Due to the enormous amounts
+of crumbling rock and wind blown sand, the path is disguised somewhat. 
+Upon closer inspection however, you can see remnants of the path continue
+to the north or to the south, where you can see the edge of a cliff.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 23100 10 10 5
+D2
+~
+~
+0 -1 23102 10 10 5
+2693 17 1509949460 -2 0
+-1
+S
+
+#23102
+Hidden Trail~
+You are standing at the edge of a steep cliff.  Looking out over the
+edge, you can see a vast swamp with a tiny village in the center.  There
+is a narrow path leading down the cliff which doesn't look too dangerous. 
+To the north, a small trail leads through jagged rocks and protusions.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 23101 10 10 5
+D5
+"cliff passage"~
+"cliff passage"~
+0 -1 31101 10 10 5
+-1
+S
+
+#23103
+Hidden Trail~
+The trail continues to the east and west.  Rocks and boulders still jut
+out from the path, but it is starting to get a little darker and more
+barren.  You can't tell if it is a trick of the light, or if it is
+something more sinister.  Peering to the east, you can see the faint
+outline of a path heading north and south.
+~
+~
+301465600 5 6 0
+D1
+trail~
+trail~
+0 -1 23098 10 10 5
+D3
+~
+~
+0 -1 23104 10 10 5
+-1
+S
+
+#23104
+Hidden Trail~
+The trail continues to the east and west.  Medium size rocks line the
+path on either side of the path.  Beyond the rocks, even larger boulders
+lie scatter about.  To the south, you can only see empty air beyond the
+rocks.  A cool breeze wafts in from the west.
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 23103 10 10 5
+D3
+~
+~
+0 -1 23105 10 10 5
+196 9 1509949540 3 0
+-1
+S
+
+#23105
+Edge of Chasm~
+Pausing for a moment, you suddenly realize how much the boulders are
+changing sizes here.  To the east, the rocks and boulders are about five
+to ten feet tall.  However, to the west, the rocks and boulders become
+enormously large, towering over the trail which winds through them.  As
+you progress west, the sense of an ominous presence increases.
+~
+~
+301465612 5 9 0
+D1
+~
+~
+0 -1 23104 10 10 5
+D3
+~
+~
+0 -1 23106 10 10 5
+-1
+S
+
+#23106
+Chasm Trail~
+The rock walls extend far above you.  If you didn't know better, you
+would say that you were standing at the edge of a big chasm.  To the
+east, you can see the rock walls becoming smaller, so that they are just
+normal sized boulders.  To the south and west, narrow trails lead away
+between two rock walls.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23105 10 10 5
+D2
+trail~
+trail~
+0 -1 23148 10 10 5
+D3
+~
+~
+0 -1 23107 10 10 5
+-1
+S
+
+#23107
+Chasm Trail~
+You are standing at an intersection within the chasm which branches in
+each cardinal direction.  The ground slopes down to the north, south and
+west from here into shadows formed by the towering rock walls.  The
+darkness seems to envelope you, cradling you within its arms.
+~
+[Orb] Purple worm goes here.
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23158 10 10 5
+D1
+~
+~
+0 -1 23106 10 10 5
+D2
+trail~
+trail~
+0 -1 23145 10 10 5
+D3
+trail~
+trail~
+0 -1 23108 10 10 5
+A
+~
+~
+mob = mob_in_room( 740, find_room( 23146 ) );
+if( mob )
+  junk_mob( mob );
+~
+!
+1 -1 63
+-1
+S
+
+#23108
+Chasm Trail~
+You are standing at the bottom of an incline which rises to the east
+towards an intersection.  To the north, the path through this chasm
+appears to bend once again to the west.  High above you, the rock walls
+seem to reach for the sky, creating massive shadows along the floor.
+~
+for a purple worm this is kinda wimpy damage
+really could use an mset long that is vivid and states the hugeness of the worm
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23144 10 10 5
+D1
+~
+~
+0 -1 23107 10 10 5
+-1
+S
+
+#23109
+Chasm Trail~
+You are walking along a path through the chasm which now curves to the
+north and west.  You feel somewhat disoriented down here at the bottom of
+cliffs which rise on either side of the trail.  Perhaps you should take a
+moment to gather your senses before you get completely lost in this maze.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23143 10 10 5
+D3
+~
+~
+0 -1 23110 10 10 5
+-1
+S
+
+#23110
+Chasm Trail~
+You become somewhat frustrated as you walk along this trail which winds
+its way through the rocky chasm.  In fact, you almost come to believe
+that this is a giant maze and not really a natural chasm created by
+Mother Nature.  Looking to the east and south reveals that the trail
+curves once again around the corner.
+~
+if you copy a mob please finish it
+straight 12 stats don't really fit
+~
+301465604 5 6 0
+D1
+~
+~
+0 -1 23109 10 10 5
+D2
+~
+~
+0 -1 23111 10 10 5
+739 9 1509949540 3 0
+739 9 1509949540 3 0
+-1
+S
+
+#23111
+Chasm Trail~
+The trail bends to the north and east here where a river must have flowed
+through creating this chasm a long, long time ago.  To the east, you can
+see an intersection, but to the north, the trail disappears into the
+darkness.  Standing still momentarily, you can here a clicking sound
+echoing from the north.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23110 10 10 5
+D1
+~
+~
+0 -1 23157 10 10 5
+-1
+S
+
+#23112
+Chasm Trail~
+Pausing momentarily, you realize that you have come to the top of a slope
+which extends down to the north.  The trail vanishes into darkness to the
+north, but you can catch a hint of safety to the west.  Oddly, you are
+amazed at the lack of flora and fauna here.
+~
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23137 10 10 5
+D3
+~
+~
+0 -1 23113 10 10 5
+-1
+S
+
+#23113
+Chasm Trail~
+Walking along the path which extends to the east and west, you tilt your
+head back and look up at the tops of the huge rock walls which stand
+stoically above you.  Created by huge rocks and boulders, they tower high
+above you.  Your sixth sense warns you that you are standing at the
+entrance to a huge chasm to the east.
+~
+~
+301465604 5 6 0
+D1
+~
+~
+0 -1 23112 10 10 5
+D3
+~
+~
+0 -1 23114 10 10 5
+-1
+S
+
+#23114
+Hidden Trail~
+A large, flat rock has fallen across the path here.  Although it is no
+problem scurrying over it, the idea that it could happen again is
+somewhat unsettling.  Unfortunately, even at this high vantage point, the
+rock walls created by boulders are still unclimbable on either side of
+the path wich extends away to the east and west.  To the west, you can
+see the thin traces of a fog.
+~
+~
+301465604 5 6 0
+D1
+~
+~
+0 -1 23113 10 10 5
+D3
+~
+~
+0 -1 23115 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+continue;
+~
+E
+room~
+You clamber over the stone and continue along the path.
+  
+~
+E
+char~
+You clamber over the stone and continue along the path.
+  
+~
+!
+3 -1 63
+196 9 1509949540 3 0
+-1
+S
+
+#23115
+Hidden Trail~
+The rocks and boulders create walls which tower over you.  To the east,
+these walls continue, but to the west, the wall breaks up into smaller
+boulders along the path.  A waining fog seems to float through the
+passage created by the rocks on a breeze which eminates from the west
+before fading away altogether to the east, where a giant slab of rock
+appears to have fallen across the trail.
+~
+[Lansharra] emanates
+~
+301465612 5 6 0
+D1
+~
+~
+0 -1 23114 10 10 5
+D3
+~
+~
+0 -1 23116 10 10 5
+-1
+S
+
+#23116
+Hidden Trail~
+The fog continues to get thicker to the west, and through it, you believe
+that you can see the path taking a turn to the north.  The fog thins out
+to the east as the trail winds away from you.  The rocks along the path
+are becoming noticeably different in size.  Along the path to the west,
+the rocks appear to be virtually nonexistent, and to the east, they are
+becoming rather large.
+~
+~
+301465604 5 6 0
+D1
+~
+~
+0 -1 23115 10 10 5
+D3
+~
+~
+0 -1 23117 10 10 5
+A
+~
+~
+if( random(0, 5) > 2)
+  act_tochar( #char, ch );
+~
+E
+char~
+The cold of the mist makes you shiver uncontrollably.
+~
+!
+1 -1 63
+A
+~
+~
+act_tochar( #char, ch );
+~
+E
+char~
+The fog swirls around you.
+~
+!
+2 2 0
+-1
+S
+
+#23117
+Hidden Trail~
+Coming to a bend in the trail, you pause to catch your breath.  The smell
+of death and decay is very strong to the north.  The fog shows no signs
+of lifting and is making it difficult to see the path which extends to
+the north and east.  Dirt and gravel lie on either side of the path
+amongst a scattering of rocks among a spattering of grass.  To the east,
+large boulders and rock jut from the ground.
+~
+west is 43008
+~
+301465604 5 6 0
+D0
+~
+~
+0 -1 23118 10 10 5
+D1
+~
+~
+0 -1 23116 10 10 5
+D3
+~
+~
+42 -1 43008 10 10 5
+A
+smell~
+~
+act_tochar( #smell, ch );
+act_tochar( #smell2, ch );
+~
+E
+smell2~
+$n gags at the smell in the air.
+~
+E
+smell~
+The stench of death is not too powerful here, but it seems stronger as
+you go north.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #west, ch );
+act_notchar( #rwest, ch );
+wait( 1 );
+act_tochar( #go, ch );
+act_notchar( #rgo, ch );
+~
+E
+west~
+@eAs you try to move westward, you feel a deep chill pass through your
+body.  A tiny sprite seemingly made of ice pops out and considers you.
+She is quite obviously irritated.
+~
+E
+rwest~
+@eAs $n tries to move westward, $e shudders convulsively.  A tiny sprite
+seemingly made of ice materializes before you and considers you.  She is
+quite obviously irritated.
+~
+E
+go~
+@eThe tiny sprite sets her hands on her hips and stamps her little foot
+in annoyance.
+
+@I@C"Orb says you can't come in yet!  Shoo!"@n
+
+@eThe sprite sticks her tongue out at you, then promptly disappears.
+~
+E
+rgo~
+@eThe tiny sprite sets her hands on her hips and stamps her little foot
+in annoyance.
+
+@I@C"Orb says you can't come in yet!  Shoo!"@n
+
+@eThe sprite sticks her tongue out at $n, then promptly disappears.
+~
+!
+3 0 8
+755 9 1509949540 3 0
+-1
+S
+
+#23118
+Hidden Trail~
+The fog is very thick here.  You can still make out objects in the fog,
+but it is distorting their shape and location.  In fact, you can just
+make out what appears to be a steel gate looming out of the mist.  The
+smell of evil and death is even more apparent than before.  The dark
+trail continues to the north and south.
+~
+~
+301465612 3 6 0
+D0
+~
+~
+0 -1 9000 10 10 5
+D2
+~
+~
+0 -1 23117 10 10 5
+E
+monster~
+Looking closer, the monster is nothing more than a stump covered in moss. 
+The fog was playing tricks on you.
+~
+E
+steel gate~
+The fog is distorting both distance and shape, but you can barely see a
+large steel gate to the north.  From here you can tell that it is closed.
+~
+E
+objects~
+You jump back as your mind tells you that the objects seem like monsters
+looming out of the fog.
+~
+A
+smell~
+~
+act_tochar( #smell, ch );
+act_notchar( #smell2, ch );
+~
+E
+n wrinkles $s nose in disgust.~
+~
+E
+smell2~
+~
+E
+smell~
+The air is redolent with decay.  But there is another odor, not easily
+identified, that makes you a bit uneasy.
+~
+!
+0 0 0
+-1
+S
+
+#23119
+Meadow~
+The meadow extends in all directions.  The sun shines down on the field
+and the grasses sway in the gentle breeze.  Animal tracks lead off in all
+directions, but even an inexperienced eye can tell that most of them are
+too old to follow.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 23052 10 10 5
+D1
+~
+~
+0 -1 23044 10 10 5
+D2
+~
+~
+0 -1 23045 10 10 5
+D3
+~
+~
+0 -1 23120 10 10 5
+-1
+S
+
+#23120
+Meadow~
+Near the center of the meadow, you can see clearly in all directions.  It
+appears that, for the most part, the meadow is surrounded by trees on all
+sides.  Various paths lead to the north, south, east, and west.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 23050 10 10 5
+D1
+~
+~
+0 -1 23119 10 10 5
+D2
+~
+~
+0 -1 23046 10 10 5
+D3
+~
+~
+0 -1 23048 10 10 5
+-1
+S
+
+#23121
+Log Cabin~
+You are standing within the ramshackle cabin which appears to just be a
+one room hut held together by sheer will power.  The logs are beyond
+warped and rotted out, they are mere splinters in many places and
+probably house several colonies of termites.  The room is cluttered with
+forest scavengings such as animal bones and skins.  A small iron pot
+hangs above a cold fireplace.  Gazing up, you notice cobwebs stretching
+across the rafters.  Aside from the window next to the door, the only
+exit is to the west.
+~
+MAD HERMIT WAS RESETTING AT 0%
+MADE IT 10% ....
+Greyclaw
+terrain was forest, made it inside
+was dinosaur, made it ogre
+kiian
+[Mantispid] This room nees a LOT of keywords.. bones, skins, pot, fireplace, etc.. -M
+[Zot] there are a bunch of things you would think you could look at or do something with that you can't.  (cobwebs, iron pot, window, rafters, logs)
+[Heliodora] second sentence needs some work :P hopefully you've got vnums *grin*
+~
+335020036 0 5 0
+D3
+cabin door~
+"cabin door"~
+131 -1 23079 10 10 5
+81 17 1509949465 -2 0
+339 9 1509949450 3 0
+-1
+S
+
+#23122
+Small Bridge~
+You are standing on a bridge which stretches over a river which rushes
+beneath you.  Gazing to the west, you see the river bend to the north,
+while to the east, it bends back to the south.  To the north and south, a
+well-traveled path extends through the hills.  Way off to the west, you
+can see the outskirts of a large city.
+~
+~
+301465608 4 7 0
+D0
+~
+~
+0 -1 23123 10 10 5
+D2
+~
+~
+0 -1 23067 10 10 5
+-1
+S
+
+#23123
+Before the Bridge~
+To the south, a small bridge crosses a swift river which flows quickly to
+the east.  Grassy hills and thick forest surround this area.  Although
+the main trail extends to the north and south, a small trail which edges
+the river, disappears to the west.
+~
+To the south, a small bridge crosses a river which flows momentarily from
+east to west before traveling north again.  All around you are numerous
+hills edged by forests on all sides.  Wild animals frolick in the tall
+grass to the east.  Although the main trail extends to the north and
+south, a small trail which edges the river, disappears to the west.
+~
+301465608 4 9 0
+D0
+~
+~
+0 -1 23124 10 10 5
+D2
+~
+~
+0 -1 23122 10 10 5
+D3
+~
+~
+0 -1 240 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#23124
+Narrow Path~
+To the north, the path begins its climb up one of the hills which pervade
+the area.  To the south, the path leads away to a forest which looms on
+the horizon.  From the west, a wind carries the smells of civilization
+from a distant place.  Along the edge of the path, the grass has now
+grown above your head in some places.
+~
+~
+301465604 4 9 0
+D0
+~
+~
+0 -1 23125 10 10 5
+D2
+~
+~
+0 -1 23123 10 10 5
+D3
+~
+~
+0 -1 247 10 10 5
+-1
+S
+
+#23125
+Narrow Path~
+Standing upon one of countless hills, you once again take in the majestic
+beauty which nature has created.  Numerous animals frolick in the tall
+grass to the east.  To the west, a river rushes to the east towards sites
+unknown.  The path you are traveling on continues down the sides of the
+hill to the north and east.
+~
+[Jain] Should'tthe path be south and east not norht and east?
+~
+301465604 4 9 0
+D1
+~
+~
+0 -1 23132 10 10 5
+D2
+~
+~
+0 -1 23124 10 10 5
+D3
+~
+~
+0 -1 246 10 10 5
+-1
+S
+
+#23126
+Narrow Path~
+The path you are traveling upon winds its way between several hills
+before disappearing around hills to the north and east.  Tall grass lines
+the path along each side.  The rolling hills block your view from down
+here as they rise to meet the sky all around you.
+~
+you are...ick
+try not to use.  "A path leads west, climbing a hillside ..." etc
+.
+I did NOT write this room.  
+~
+301465612 4 9 0
+D0
+~
+~
+0 -1 233 10 10 5
+D1
+~
+~
+0 -1 23131 10 10 5
+D3
+~
+~
+0 -1 245 10 10 5
+-1
+S
+
+#23127
+Hidden Trail~
+You clamber over huge rocks which jut up at all angles.  Although you
+wouldn't actually call this trail around the boulder a path, you would
+fair better not to wander from it.  The path continues to the south
+around the boulder or to the west where a dirt path heads north.
+~
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 23128 10 10 5
+D3
+~
+~
+0 -1 23099 10 10 5
+-1
+S
+
+#23128
+Hidden Trail~
+You find yourself skirting a huge boulder which has planted itself in the
+middle of the path.  Although too large and slippery to climb, it
+provides great shade during the day for resting.  To the north, the trail
+winds its way around a humongous boulder which has fallen onto the main
+dirt path.  To the west, the trail connects to the dirt path again.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 23127 10 10 5
+D3
+~
+~
+0 -1 23100 10 10 5
+-1
+S
+
+#23129
+Hidden Trail~
+Boulders have encroached upon this area so much, that you must squeeze
+through the narrow opening to the south.  Otherwise, you can retreat to
+the dirt path which continues to the east.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23095 10 10 5
+D2
+~
+~
+0 -1 23130 10 10 5
+-1
+S
+
+#23130
+Hidden Trail~
+You are walking upon a small trail which winds its way around a huge
+boulder.  Other boulders also lie nearby, creating only a small opening
+to the north.  The dirt path continues to east, heading south.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23129 10 10 5
+D1
+~
+~
+0 -1 23096 10 10 5
+-1
+S
+
+#23131
+Narrow Path~
+Winding your way through the hills, you gaze out to the east where you
+catch a glimpse of the forest edge.  The dark outline surrounds the hills
+on all sides.  The path continues to the south and west through the tall
+grass which grows increasingly closer, making your travel somewhat
+tedious as the path becomes noticeably narrower.
+~
+why a path on this side of the hills, and the other side? since this is now being converted to terrain, might want to nix this path and just have the path run along one side of the hills...
+.
+I did not write this room.
+~
+301465604 4 9 0
+D2
+~
+~
+0 -1 23132 10 10 5
+D3
+~
+~
+0 -1 23126 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#23132
+Narrow Path~
+Walking through the valley of the hills which stretch out in all
+directions, you follow a trail which is lined by tall grass.  The path
+you are on continues its way along the valley to the north.  However, to
+the west, the path makes its climb over one of the many hills.
+~
+~
+301465604 4 9 0
+D0
+~
+~
+0 -1 23131 10 10 5
+D3
+~
+~
+0 -1 23125 10 10 5
+-1
+S
+
+#23133
+Narrow Path~
+The narrow path squeezes its way through the encroaching grass which
+grows all around you.  Looking carefully, you can see the imprints of a
+wild animal along the edge of the grass.  The path extends to the north
+and west through the grass and hills.  To the south, a huge forest rises
+into the sky.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 23134 10 10 5
+D3
+~
+~
+0 -1 23066 10 10 5
+-1
+S
+
+#23134
+Narrow Path~
+Tall grass grows all along the path here.  Far to the east and south, you
+can see the faint outlines of a dark forest looming on the horizon.  The
+path you are walking on winds its way through the grass to the south and
+west.  The sounds of the river echo from the west, and a dark mist lies
+to the east.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 23133 10 10 5
+D3
+~
+~
+0 -1 23067 10 10 5
+E
+mist dark~
+The mist to the east is too dark to penetrate, though it does give you
+chills.
+~
+-1
+S
+
+#23135
+Bear Den~
+A small little den has been dug underneath the base of the tree.  Within,
+you find small piles of discarded animal bones.  It would seem that the
+bear who lives here has a healthy appetite.  The only exit is through the
+hole you entered.  To the south, you can hear the grunting of an
+extremely large and dangerous animal.
+~
+~
+301465600 0 7 0
+D0
+~
+~
+0 -1 23023 10 10 5
+D2
+~
+~
+0 -1 23136 10 10 5
+415 17 1509949540 -2 0
+-1
+S
+
+#23136
+Bear Den~
+The rank smell of dead carcasses and musky fur pervades this cozy little
+den.  All around the room, many claw marks and bear scents mark this area
+as a bear's territory.  The only exit is back to the north.
+~
+Reset lowered substantially so players don't reeat same mob over and
+over, as they have been doing.  (His XP isn't protected.
+Made this inside 
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 23135 10 10 5
+2502 9 1509949450 3 0
+-1
+S
+
+#23137
+Chasm Trail~
+You have stumbled across a three-way intersection.  To the north and
+east, the trail appears to be swallowed by the darkness, while to the
+south, the trail slopes upward slightly.  You pause to listen for a
+moment.  The only thing you can hear is the sound of your breathe.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23139 10 10 5
+D1
+~
+~
+0 -1 23138 10 10 5
+D2
+~
+~
+0 -1 23112 10 10 5
+A
+~
+~
+wait( 1 );
+if( mob_in_room( 740, room ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( mob_in_room( 403, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 403, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 623, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 623, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 645, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 645, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 646, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 646, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 647, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 647, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  }
+~
+E
+room~
+A griffon swoops down and attacks your horse.
+~
+!
+1 0 7
+-1
+S
+
+#23138
+Chasm Trail~
+The surrounding darkness seems to swallow you.  Walking along, you begin
+to shiver uncontrollably from the cold.  Perhaps you should hurry along
+to the east or west to find a safehaven from this miserable area.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23140 10 10 5
+D3
+~
+~
+0 -1 23137 10 10 5
+202 9 1509949540 3 0
+-1
+S
+
+#23139
+Chasm Trail~
+The trail through the rock walls bends here to the east and south.  As
+you look around, you are struck with a feeling of terror.  All you can
+see are shadows, which cling to the walls and ground.  The shadows seem
+to be gnawing at your psyche, controlling you.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23141 10 10 5
+D2
+~
+~
+0 -1 23137 10 10 5
+-1
+S
+
+#23140
+Chasm Trail~
+The trail continues to wind its way through the rock walls which seem to
+enclose you from the outside world.  Goosebumps rise on your skin, due to
+the frigid temperatures down here where the sun can't reach.  The trail
+curves to the north and west from here.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23160 10 10 5
+D3
+~
+~
+0 -1 23138 10 10 5
+-1
+S
+
+#23141
+Chasm Trail~
+You have walked into yet another twist in this endless chasm.  The path
+curves to the north and west.  You feel overwhelmed by the depth of this
+chasm which seems to wind on forever.  Perhaps you should think twice
+before wandering any further.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23142 10 10 5
+D3
+~
+~
+0 -1 23139 10 10 5
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+You can feel somebody or something watching from above.  Unfortunately, a
+quick glance up reveals nothing.
+~
+!
+2 0 0
+-1
+S
+
+#23142
+Chasm Trail~
+Winding through the chasm, you become disoriented momentarily.  You
+realize that each twist and turn could bring you closer to your death. 
+Perhaps you should retreat the way you came.  The path extends to the
+east and south through the towering rock walls.  To the east, the path
+narrows somewhat.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23165 10 10 5
+D2
+~
+~
+0 -1 23141 10 10 5
+-1
+S
+
+#23143
+Chasm Trail~
+As you walk along the bend in the trail, you get the overwhelming
+sensation that you've been walking in circles.  This chasm appears to
+wind in neverending circles through the rock walls.  Even the shadows
+which cling to the wall don't appear to have moved as the light from the
+sky shifts from east to west.  The trail curves to the east and south.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23144 10 10 5
+D2
+~
+~
+0 -1 23109 10 10 5
+-1
+S
+
+#23144
+Chasm Trail~
+You shiver uncontrollably as you pass through a cold draft which clings
+to the ground.  Looking to the south and west, you see that the trail
+bends out of sight in both directions.  You realize that you are in an
+endless maze which twists and turns at every opportunity.
+~
+~
+301465612 5 9 0
+D2
+~
+~
+0 -1 23108 10 10 5
+D3
+~
+~
+0 -1 23143 10 10 5
+-1
+S
+
+#23145
+Chasm Trail~
+Your footsteps echo throughout the chasm as you walk along this trail
+carved into the rock walls.  High above you, the cliffs rise to meet the
+sky.  To the north, the ground slopes up to a four way intersection,
+while to the south and west, the trail extends into darkness.
+~
+~
+301465612 5 9 0
+D0
+~
+~
+0 -1 23107 10 10 5
+D2
+~
+~
+0 -1 23146 10 10 5
+D3
+~
+~
+0 -1 23147 10 10 5
+-1
+S
+
+#23146
+Chasm Trail~
+You have come to a dead end in the chasm.  Surrounding you on three sides
+are high rock walls which cast enormous shadows across the area.  High
+above, you can see a large nest on a ledge.  Unfortunately, the rock is
+too steep to try and climb.  The only exit is back to the north.
+~
+[Severus] when attacking me (not horse): The griffon rears back on its hindquarters and slashes at a horse with ...
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23145 10 10 5
+A
+~
+~
+wait( 1 );
+if( mob_in_room( 740, room ) )
+  end;
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( mob_in_room( 403, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 403, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 623, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 623, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 645, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 645, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 646, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 646, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  if( mob_in_room( 647, room ) ) {     
+    mob = mload( 740, room );
+    send_to_room( #room, room );
+    ch = mob_in_room( 647, room );
+    attack( mob, ch, 3d3, "extended claws" );
+    }
+  }
+~
+E
+room~
+A griffon swoops down from the rocky cliff and attacks the horse.
+~
+!
+1 -1 63
+-1
+S
+
+#23147
+Chasm Trail~
+Small rocks and gravel crunch beneath your feet as you walk along this
+path.  Enclosed by high rock walls, you appear somewhat dwarfish in
+comparison.  The path you are on continues to the east and west.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23145 10 10 5
+D3
+~
+~
+0 -1 23157 10 10 5
+-1
+S
+
+#23148
+Chasm Trail~
+Walking along the rock path, you can't help but notice the ground sloping
+gently to the east where it turns around a bend.  To the north, you can
+see an intersection between the rock walls.  All around you, the cold
+walls of the chasm rise to meet the sky.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23106 10 10 5
+D1
+~
+~
+0 -1 23149 10 10 5
+-1
+S
+
+#23149
+Chasm Trail~
+The trail through the chasm winds its way between the rock walls.  To the
+south and west, the path extends to meet yet another turn in this endless
+maze.  Your senses become hampered due to the cold and darkness of the
+chasm floor.  Perhaps you should find the exit and soon.
+~
+~
+301465612 5 9 0
+D2
+~
+~
+0 -1 23150 10 10 5
+D3
+~
+~
+0 -1 23148 10 10 5
+-1
+S
+
+#23150
+Chasm Trail~
+You are standing at the corner of another twist in the chasm trail.  To
+the north, you see that the path curves ahead.  To the west, a cave
+stands ominously before you.  The cave appears to be nothing other than a
+tunnel formed from two cliff walls coming together.  Unfortunately, the
+cave entrance is cloaked in shadows, preventing you from seeing what
+dangers may lie in that direction.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23149 10 10 5
+D3
+~
+~
+0 -1 23151 10 10 5
+-1
+S
+
+#23151
+Cave Tunnel~
+You are standing within the entrance to a cave along the chasm floor.  To
+the east, the chasm maze continues around a bend to the north.  To the
+south, the cave disappears into utter darkness.  You can smell death and
+decay emanating from somewhere within the cave.
+~
+~
+301465604 5 5 0
+D1
+~
+~
+0 -1 23150 10 10 5
+D2
+~
+~
+0 -1 23152 10 10 5
+739 9 1509949540 3 0
+-1
+S
+
+#23152
+Cave Tunnel~
+The cave tunnel curves to the north and west here.  To the north, you can
+see the entrance to the cave, as well as the chasm floor beyond that.  To
+the west, you can feel the darkness pulling at you, drawing you into its
+open maw.  The smell wafting from the west is unbelievable.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23151 10 10 5
+D3
+~
+~
+0 -1 23153 10 10 5
+-1
+S
+
+#23153
+Cave Tunnel~
+You are walking along a cave tunnel that is exceedingly dark.  To the
+east and west, the tunnel continues through the neverending darkness
+which seems to permeate this area.  From the west, you can distinctly
+smell something rotting.  Perhaps you should run while you can.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23152 10 10 5
+D3
+~
+~
+0 -1 23154 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+continue;
+~
+E
+char~
+You hear a deep growl coming from the west.
+~
+!
+1 3 8
+-1
+S
+
+#23154
+Cave Tunnel~
+You find yourself standing in a small cavern within the cave tunnel.  A
+bed of rocks and pebbles lies against the north wall.  The smell of death
+and decay is virtually overwhelming.  The tunnel continues to the east
+and west through the darkness.
+~
+terrain needs to be set, sizes as well
+seems like he should wander or something so he's not tank-and-sleepable
+players tend to fear the umber hulk, judging from chat...hehe -kiian
+[Severus] An umber hulk's iron-like claws is blocked by your shield. (should be ARE)
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23153 10 10 5
+D3
+~
+~
+0 -1 23155 10 10 5
+A
+search examine take get 1 look~
+bed rock rocks pebble pebbles~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n searches through the bed of rocks, but finds nothing of interest there.
+~
+E
+char~
+You search through the bed of rocks, but find nothing of interest there.
+~
+!
+0 0 0
+A
+~
+~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n runs to the edge of the cave and spews chunks.
+~
+E
+char~
+Overwhelmed by the stench, you run to the side of the cave and throw up.
+~
+!
+2 0 0
+419 17 1509949540 -2 0
+742 9 1509949540 3 0
+-1
+S
+
+#23155
+Cave Tunnel~
+Not surprisingly, you stumble upon yet another turn in the chasm trail,
+although this time you are within a cave of some sort.  To the north, you
+can see the mouth of the cave.  To the east, the cave tunnel appears to
+be swallowed by the darkness.  The smell from the east is even stronger
+now.  Perhaps you should flee now, while you still can.
+~
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23156 10 10 5
+D1
+~
+~
+0 -1 23154 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+continue;
+~
+E
+char~
+You hear a deep growl coming from the east.
+~
+!
+1 2 4
+-1
+S
+
+#23156
+Cave Tunnel~
+You are standing at the entrance to a cave which opens out into the chasm
+floor to the north.  Within the cave, darkness plays tricks on your
+corneas.  You can also smell what seems like a decaying animal from deep
+within the cave.  The relative safety of the chasm appears somewhat
+inviting afterall.
+~
+~
+301465604 5 5 0
+D0
+~
+~
+0 -1 23157 10 10 5
+D2
+~
+~
+0 -1 23155 10 10 5
+-1
+S
+
+#23157
+Chasm Trail~
+You are standing at a three-way intersection in the rocky chasm.  To the
+south, the trail enters a cave caused by the rock walls coming together
+about twenty feet up.  To the east and west, the trail continues through
+the shadows cast from the cliffs which hang overhead.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23147 10 10 5
+D2
+~
+~
+0 -1 23156 10 10 5
+D3
+~
+~
+0 -1 23111 10 10 5
+745 9 1509949540 3 0
+-1
+S
+
+#23158
+Chasm Trail~
+Gazing up to view the tops of the rock walls, you begin to shiver.  The
+temperature has dropped here due to the lack of sunlight.  You are unable
+to see any sort of vegetation.  The trail continues to the north and
+south.  To the south, you can see a large intersection.
+~
+temperature
+~
+301465612 5 9 0
+D0
+~
+~
+0 -1 23159 10 10 5
+D2
+~
+~
+0 -1 23107 10 10 5
+-1
+S
+
+#23159
+Chasm Trail~
+You are standing at a bend which appears to have been formed by Mother
+Nature.  Due to the darkness formed by heavy shadows, you cannot see what
+lies down the path to the west or south.  You can see a small hole set
+into the corner, close to the ground.
+~
+~
+301465604 5 9 0
+D2
+~
+~
+0 -1 23158 10 10 5
+D3
+~
+~
+0 -1 23162 10 10 5
+E
+hole~
+Peering into the dark hole, you realize that there must be a lair in
+there of some sort.
+~
+A
+enter~
+hole~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n foolishly attempts to climb into the hole although it is way to small
+for $m.
+~
+E
+char~
+You find that you are way too big to fit into the hole.
+~
+!
+0 0 0
+202 9 1509949540 3 0
+-1
+S
+
+#23160
+Chasm Trail~
+Once again, you find yourself at another bend in the trail which wanders
+through rock walls.  You feel like you are wandering through an endless
+chasm.  The trail continues into the shadows to the east and south.  Just
+above your head, you can see a paper nest set in a nook in the wall.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23161 10 10 5
+D2
+~
+~
+0 -1 23140 10 10 5
+E
+nest~
+Made of paper, you can see several holes near the bottom where the wasps
+may enter and leave.
+~
+A
+break hit damage search examine take get steal~
+nest~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n attempts to reach the wasp nest, but it is out of $s reach.
+~
+E
+char~
+The wasp nest is too high for you to reach.
+~
+!
+0 0 0
+744 9 1509949540 3 0
+744 9 1509949540 3 0
+744 9 1509949540 3 0
+744 9 1509949490 3 0
+-1
+S
+
+#23161
+Chasm Trail~
+Above you, the rock walls appear to come together to form an arch above
+you.  You wonder if you are heading into the mouth of a cave.  You can't
+be sure of anything in this kind of darkness.  The trail continues to the
+east and west.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23162 10 10 5
+D3
+~
+~
+0 -1 23160 10 10 5
+-1
+S
+
+#23162
+Chasm Trail~
+Standing at yet another intersection within this maze of a chasm, you
+pause to peruse the cliff walls that tower over you.  A gasp escapes your
+lips as you admire the heights of those walls.  Surprisingly, you can see
+your breathe.  You hadn't realized how could it was down here on the rock
+floor of the chasm.  The trail beneath the rock walls extends to the
+north, east and west.
+~
+[Patryn] in room Chasm trail with exits n e w the word cold i could
+[Kayla] You hadn't realized how could it was down here on the rock floor of the chasm
+~
+301465604 5 9 0
+D0
+~
+~
+0 -1 23163 10 10 5
+D1
+~
+~
+0 -1 23159 10 10 5
+D3
+~
+~
+0 -1 23161 10 10 5
+-1
+S
+
+#23163
+Chasm Trail~
+The trail bends in its usual fashion to the west and south.  Rock and
+dirt crunch under your footsteps as you wander aimlessly through the maze
+created by the hands of Mother Nature.  Gazing in either direction
+reveals only darkness.
+~
+~
+301465604 5 9 0
+D2
+~
+~
+0 -1 23162 10 10 5
+D3
+~
+~
+0 -1 23164 10 10 5
+78 17 1509949540 -2 0
+-1
+S
+
+#23164
+Chasm Trail~
+You are walking along the bottom of a chasm which extends to the east and
+west.  To the west, you can see only a narrow passage between two rock
+outcroppings.  To the east, the path comes to a bend in this infernal
+maze.  Around you, you can feel the shadows begin to constrict.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23163 10 10 5
+D3
+~
+~
+0 -1 23165 10 10 5
+-1
+S
+
+#23165
+Chasm Trail~
+The trail narrows here somewhat as you squeeze between the rock walls
+which hover over you.  To the east and west, the trail opens back up,
+although it is too dark down here to see where they go.
+~
+~
+301465604 5 9 0
+D1
+~
+~
+0 -1 23164 10 10 5
+D3
+~
+~
+0 -1 23142 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+continue;
+~
+E
+char~
+You squeeze between the rock walls to follow the trail.
+ 
+~
+!
+3 -1 63
+202 9 1509949540 3 0
+-1
+S
+
+#23166
+Purple worm's stomach~
+The inside of the worm, hard as it may seem, smells worse than the
+outside.  Half-full with semi-digested debris and stomach-acid, it is
+hard going.  The only reference points in this morass are the walls of
+the great worm's stomach.  Perhaps you could hack your way through the
+stomach lining to free yourself.
+~
+~
+335020036 0 6 0
+A
+1 kill cut slash hit hack~
+lining wall stomach purple worm~
+if( random( 1, 10 ) < 3 ) {
+  act_tochar( #cut, ch );
+  act_notchar( #cut2, ch );
+  if( mob_in_room( 743, find_room( 23106 ) ) ) {
+    transfer( ch, find_room( 23106 ) );
+    act_notchar( #arr, ch );
+    }
+  if( mob_in_room( 743, find_room( 23107 ) ) ) {
+    transfer( ch, find_room( 23107 ) );
+    act_notchar( #arr, ch );
+    }
+  if( mob_in_room( 743, find_room( 23108 ) ) ) {
+    transfer( ch, find_room( 23108 ) );
+    act_notchar( #arr, ch );
+    }
+  if( mob_in_room( 743, find_room( 23148 ) ) ) {
+    transfer( ch, find_room( 23148 ) );
+    act_notchar( #arr, ch );
+    }
+  }
+else {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  }
+~
+E
+arr~
+$n climbs out of a hole in the worm's stomach.
+~
+E
+room~
+$n slashes at the stomach lining of the purple worm.
+~
+E
+char~
+You slash at the stomach lining of the purple worm.
+~
+E
+cut2~
+$n cuts through the worm's stomach wall, providing a way out.
+~
+E
+cut~
+You manage to cut open the stomach wall wide enough to escape the worm's
+stomach!
+~
+!
+0 0 0
+A
+~
+~
+wait( 2 );
+if( char_in_room( ch, find_room( 23166 ) ) ) {
+  dam_message( ch, 2d2+2, "stomach acid" );
+  inflict( ch, mob, 2d2+2, "stomach acid" );
+  }
+wait( 2 );
+if( char_in_room( ch, find_room( 23166 ) ) ) {
+  dam_message( ch, 2d2+2, "stomach acid" );
+  inflict( ch, mob, 2d2+2, "stomach acid" );
+  }
+wait( 2 );
+if( char_in_room( ch, find_room( 23166 ) ) ) {
+  dam_message( ch, 2d2+2, "stomach acid" );
+  inflict( ch, mob, 2d2+2, "stomach acid" );
+  }
+wait( 2 );
+if( char_in_room( ch, find_room( 23166 ) ) ) {
+  dam_message( ch, 2d2+2, "stomach acid" );
+  inflict( ch, mob, 2d2+2, "stomach acid" );
+  }
+acode( find_room( 23166 ), 3 );
+~
+!
+0 1000 0
+A
+~
+~
+if( char_in_room( ch, find_room( 23166 ) ) )
+  acode( find_room( 23166 ), 2 );
+~
+!
+0 0 0
+-1
+S
+
+#23167
+Dark Forest~
+The area here is thick with vegetation and heavy undergrowth.  The trees
+here are fairly young, and the sun can reach down to the earth, resulting
+in thick and hard-to-pass pathways to the east and west.  Off in the
+distance, the sound of running water can be heard.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 23074 10 10 5
+D3
+~
+~
+0 -1 23071 10 10 5
+-1
+S
+
+#0
+

@@ -1,0 +1,6686 @@
+#AREA
+Caverns of Voaleth~
+Kreel~
+~
+
+0 0
+0
+#ROOMS
+
+#37500
+Narrow Tunnel~
+In the narrow, suffocating confines of this tunnel, breathing is
+difficult.  The stone is spongy and cold, swept with a thin coat of moss. 
+To the west a broad fissure, large enough for an ogre to enter, opens
+into a larger cave.  To the east, the narrow tunnel grows very dark.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37502 10 10 5
+D3
+~
+~
+0 -1 20042 10 10 5
+E
+fissure crack~
+A large fissure in the west wall leads to a larger, lighted cavern.
+~
+E
+stone rock~
+The walls here are made of soft, porous limestone, which runs in clean,
+parallel strata to the east and west.
+~
+-1
+S
+
+#37501
+Under Construction~
+Under Construction.
+~
+~
+301465601 0 9 0
+-1
+S
+
+#37502
+Narrow Tunnel~
+The walls press in tightly as the constricting tunnel continues.  The
+stone here is mottled, as this is the meeting point of two rock types. 
+To the west are limestones and shales, while to the east is hard granite. 
+The tunnel continues to the east where there is only darkness, or to the
+west where, amid a nebulous field of black, is a slash of light.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37503 10 10 5
+D3
+~
+~
+0 -1 37500 10 10 5
+E
+slash light~
+To the west, a crack of light shows through a wall of darkness.
+~
+E
+limestone shale point granite~
+Two types of stone - shale and granite - meet here in mottled red-black. 
+The soft, porous limestone stretches off to the west while the granite
+heads east.
+~
+-1
+S
+
+#37503
+Pitted Tunnel~
+The stone here is rough--pitted and pockmarked with deep gouges that
+plunge into the very rock.  To the east, the tunnel intersects with
+larger cavern.  To the west, the narrow tunnel stretches out and is
+swallowed by darkness.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37504 10 10 5
+D3
+~
+~
+0 -1 37502 10 10 5
+E
+pockmark pockmarks pit pits hole holes gouge gouges~
+The holes, all four inches across, extend deep into the rock.
+~
+1118 9 1509949540 3 0
+1118 9 1509949540 3 0
+1118 137 1509949540 3 0
+-1
+S
+
+#37504
+Enormous Cavern~
+This huge cavern stretches in all directions, the walls and ceiling lost
+in darkness.  A forest of stalagmites soars, stretching to meet
+stalactites forty feet high.  Moisture drips from the ceiling like rain,
+and from the east comes the sound of running water.  To the west, set in
+the stone, is a narrow fissure leading back into the wall.
+~
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 37505 10 10 5
+D1
+~
+~
+0 -1 37542 10 10 5
+D2
+~
+~
+0 -1 37547 10 10 5
+D3
+~
+~
+0 -1 37503 10 10 5
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites as large as these, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+fissure crack~
+The fissure is large enough for an ogre to enter.  It burrows deep into
+the dark recesses of the cavern wall.
+~
+-1
+S
+
+#37505
+East of Black Stalagmite~
+The stalagmites grow close together here like bars of a massive stone
+cage.  The condensation in this cave is thick; moisture glistens on the
+red-brown pillars of stone.  The cavern stretches in all directions. 
+From the east comes the sound of running water.  To the west, a titanic
+black stalagmite towers over all others.  Stalagmites stand to the north
+and south.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37535 10 10 5
+D1
+~
+~
+0 -1 37541 10 10 5
+D2
+~
+~
+0 -1 37504 10 10 5
+D3
+~
+~
+0 -1 37506 10 10 5
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+black~
+To the west, an enormous black stalagmite and a stalactite have grown
+together in a single column, soaring upward to the cavern's dark ceiling.
+~
+1120 9 1509949540 3 0
+-1
+S
+
+#37506
+Black Stalagmite~
+A mountainous black stalagmite looms over the dim cavern, reaching so
+high its summit cannot be seen.  The sound of running water comes faintly
+from the distant east, though the louder sound here is that of dripping. 
+Fat droplets of water fall onto the stalagmites, building them inexorably
+higher.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37534 10 10 5
+D1
+~
+~
+0 -1 37505 10 10 5
+D3
+~
+~
+0 -1 37507 10 10 5
+E
+black mountain mountainous stalagmite~
+This huge stalagmite is as black as a moonless night and soars to the
+upper reaches of this monstrous subterranean cavern.  The stalagmite is
+fully as broad as a building.  Its surface is rough and pitted.
+~
+A
+climb~
+black stalagmite up~
+if( find_skill( ch, climb ) > random( 3, 5 ) ) {
+  send_to_char( #yeschar, ch );
+  act_notchar( #yesroom, ch );
+  transfer( ch, find_room( 37510 ) );
+  act_notchar( #arrive, ch, obj, mob );
+  }
+else {
+  send_to_char( #nochar, ch );
+  act_notchar( #noroom, ch );
+  }
+~
+E
+yeschar~
+The climb is long and difficult, but you finally manage to pull yourself
+half-way up the towering black stalagmite.
+~
+E
+yesroom~
+$n grips the massive black stalagmite and slowly ascends, disappearing in
+the darkness.
+~
+E
+nochar~
+You grip the black stalagmite and start upward, but slip and go sliding
+back down to the stone floor.
+~
+E
+noroom~
+$n starts to climb the black stalagmite, but slips and comes sliding back
+down.
+~
+E
+arrive~
+$n comes climbing up the stalagmite.
+~
+!
+0 0 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37507
+Cavern Tunnel~
+A broad stone tunnel leads west into darkness.  Although to the east
+stalagmites rise in a thick forest of stone, there are few here.  The
+floor is quite damp.  Green slime runs down the walls.  High above, wispy
+patches of moss cling to the walls and ceiling.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37506 10 10 5
+D3
+~
+~
+0 -1 37508 10 10 5
+E
+moss luminescent~
+Having no natural light source, colonies of subterranean moss have
+developed the ability to produce their own light.
+~
+E
+slime green~
+The slime is a gelatinous, acidic plant growth that slowly consumes the
+stone to which it clings.
+~
+561 9 1509949540 3 0
+81 17 1509949540 -2 0
+-1
+S
+
+#37508
+Cavern Tunnel~
+Water runs in sinewy tendrils from pores in the stone walls, feeding a
+murky puddle, which covers the floor.  The puddle seem to be running
+westward, where the sound of falling water echoes softly and steadily.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37507 10 10 5
+D3
+~
+~
+0 -1 37509 10 10 5
+E
+pores walls wall pore~
+The walls of this tunnel are softer and more porous than those of the
+rest of the cave, allowing groundwater to seep through and to congeal on
+the floor.
+~
+E
+puddle water~
+Water, which runs in tendrils from thousands of pores in the stone
+wall, form a murky puddle, two inches deep, which flows to the west.
+~
+-1
+S
+
+#37509
+Tunnel's End~
+Moss, growing in clumps on rock outcroppings, drips with the water that
+flows quietly from the walls.  The floor is entirely covered with water,
+which gathers and flows down into a gaping sinkhole in the rock.  To the
+east, a long, broad tunnel leads into darkness.
+~
+~
+301465613 11 9 0
+D1
+~
+~
+0 -1 37508 10 10 5
+D5
+~
+~
+0 -1 37521 10 10 5
+E
+sinkhole sink hole gaping~
+A gaping sinkhole disappears into the stone floor.  Water pours into the
+hole around its perimeter, forming a perfect, circular waterfall.
+~
+E
+moss clumps~
+Luminescent moss gives some, however little, light to the tunnel.
+~
+-1
+S
+
+#37510
+On the Stalagmite~
+At one time, this would have been the point at which the stalagmite
+and stalactite touched.  However, the formation is so old it is now a
+single column, reaching up to the ceiling.  The air up here is damp;
+the handholds are slick and precarious.
+~
+~
+301465604 5 9 0
+D4
+~
+~
+0 -1 37511 10 10 5
+A
+climb~
+down~
+act_tochar( #down, ch );
+act_notchar( #rdown, ch );
+transfer( ch, find_room( 37506 ) );
+act_notchar( #arrive, ch, obj, mob );
+~
+E
+arrive~
+$n comes climbing down the stalagmite.
+~
+E
+down~
+You climb down the massive stalagmite.
+~
+E
+rdown~
+$n goes climbing down the stalagmite.
+~
+!
+0 0 0
+A
+entering room~
+~
+if( random( 1, 6 ) < 4 ) {
+  act_tochar( #slip, ch );
+  act_notchar( #slipnot, ch );
+  transfer( ch, find_room( 37506 ) );
+  dam_message( ch, 1d4, "The fall" );
+  inflict( ch, mob, 1d4, "lack of balance" );
+   interpret( ch, "+sit");
+  continue;
+  }
+else
+  act_tochar( #almost, ch );
+continue;
+~
+E
+almost~
+Your hands slip on the wet stone, but you catch yourself before you fall.
+~
+E
+slip~
+Your hands loose grip of the slippery stone, and you go sliding to the
+floor below.
+~
+E
+slipnot~
+$n loses $s grip on the slippery stone and plummets downward.
+~
+!
+1 0 48
+-1
+S
+
+#37511
+Ceiling of the Cavern~
+This is the place where the massive stalactite column meets the ceiling,
+spreading out intro a ridged stone fan.  The air is still and dry.  The
+column leads straight down to the cavern floor.  To the north, a rock
+ledge reaches outward.
+~
+[Sha-Gaal] How the hell can I sleep hanging to a stalagmite.  Have GC make a no_rest flag.
+[Chien-Nang] intro should be into
+~
+301465601 11 5 0
+D5
+~
+~
+0 -1 37510 10 10 5
+E
+ledge rock~
+Protruding from the cavern's north wall, a rock ledge reaches outward
+toward this massive black stalactite, but between the stalactite and
+ledge are three feet of empty, cold, cavernous air.
+~
+E
+stalactite stalagmite~
+A stalagmite and its corresponding stalactite have grown together to form
+a single, black column reaching over a hundred feet from floor to ceiling. 
+Its ridged and pitted surface provides many handholds.
+~
+A
+jump leap~
+ledge gap across north n~
+send_to_char( #jump, ch );
+act_notchar( #notjump, ch );
+ transfer( ch, find_room( 37512 ) );
+~
+E
+jump~
+You hold your breath and hurl your entire body forward.  Your chest
+smashes into the rock ledge, forcing out your air, but you manage pull
+yourself to the safety of the ledge.
+~
+E
+notjump~
+$n leaps across the airy gap, and with some struggle manages to pull
+$mself onto the rock ledge.
+~
+!
+0 0 0
+A
+north~
+~
+if( can_fly( ch ) ) {
+  send_to_char( #flynorth, ch );
+  act_notchar( #flynot, ch );
+  transfer( ch, find_room( 37512 ) );
+  }
+else
+  send_to_char( #nogo, ch );
+~
+E
+flynorth~
+You fly northward to the rock ledge.
+~
+E
+flynot~
+$n flies north to the rock ledge.
+~
+E
+nogo~
+You'll have to find another way to reach the rock ledge.
+~
+!
+0 0 0
+-1
+S
+
+#37512
+Rock Ledge~
+The narrow rock ledge leads eastward, clinging precariously to the cavern
+wall.  The ledge is slippery with eons of mineral deposition.  To the
+south, a massive black stalactite leads to the cavern floor, while to the
+west the ledge drops away abruptly.
+~
+~
+301465604 5 5 0
+D1
+~
+~
+0 -1 37513 10 10 5
+E
+black stalactite~
+Across a three-foot gap to the south is the hulking mass of an enormous
+black stalactite, gripping the ceiling with a broad stone web and
+plunging to the floor, a hundred feet below.
+~
+E
+gap~
+The gap between this stone ledge and the black stalactite is three feet
+of nowhere to go but down.
+~
+A
+leap jump~
+south s across black stalagmite gap~
+send_to_char( #jump, ch );
+act_notchar( #jumpnot, ch );
+transfer( ch, find_room( 37511 ) );
+~
+E
+jump~
+You take a deep breath and jump the empty gap.  Your body slams against
+the massive black stalagmite.  You wrap your arms around it and hold fast.
+~
+E
+jumpnot~
+$n leaps across the gap and slams against the stalagmite, holding tightly.
+~
+!
+0 0 0
+A
+south s~
+~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flynot, ch );
+  transfer( ch, find_room( 37511 ) );
+  }
+else
+  send_to_char( #nosouth, ch );
+~
+E
+fly~
+You fly south to the top of the massive black stalagmite.
+~
+E
+flynot~
+$n flies south.
+~
+E
+nosouth~
+You cannot walk across the broad gap.
+~
+!
+0 0 0
+81 17 1509949540 -2 0
+1123 137 1509949540 3 0
+-1
+S
+
+#37513
+Rock Ledge~
+The rock ledge becomes very narrow, demanding full concentration on the
+task of maintaining balance.  More than a hundred feet below, the
+stalagmites on the cavern floor are gruesome spikes, awaiting anyone
+clumsy enough to fall.  The stone in the wall here is somewhat loose. 
+The ledge continues east and west.
+~
+~
+301465604 5 5 0
+D1
+~
+~
+0 -1 37514 10 10 5
+D3
+~
+~
+0 -1 37512 10 10 5
+E
+stalagmites~
+Those stalagmites look awfully sharp.
+~
+E
+stone wall~
+The stone on the north wall has broken away in several places, leaving
+loose, protruding jags of stone.
+~
+A
+entering room~
+~
+if( !can_fly( ch ) ) {
+  send_to_char( #slip, ch );
+  act_notchar( #slipnot, ch );
+}
+else
+  continue;
+~
+E
+slip~
+As you strafe the dizzying ledge, your back pressed tightly against the
+cold stone wall, a piece of the ledge breaks loose beneath your foot.  It
+takes the rocks a long, long time to hit the floor below.
+~
+E
+slipnot~
+A piece of the ledge breaks loose beneath $s foot, nearly sending $m
+over the edge.
+~
+!
+1 0 10
+A
+get take pry~
+jags stone rocks~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  remove_rflag( reset0, room );
+  if( random( 1, 10 ) > 7 ) {
+    send_to_char( #get, ch );
+    act_notchar( #rget, ch );
+    obj_to_char( oload( 1552 ), ch );
+    end;
+    }
+  else
+    send_to_char( #no, ch );
+  }
+~
+E
+already~
+It looks as though the loose stones have already been pried away.
+~
+E
+get~
+You work at the loose stones until a block of granite breaks away in your
+hand.
+~
+E
+rget~
+$n works at the rocky north wall until a block of granite
+breaks away in $s hand.
+~
+E
+no~
+You heave at the stones, but they will not budge.
+~
+!
+0 0 0
+-1
+S
+
+#37514
+Rock Ledge~
+The ledge has narrowed into a mere ribbon reaching east and west along
+the cavern wall.  The floor is a long way down.  To the east a dark
+recess gapes in the stone.  To the west there is only darkness.
+~
+~
+301465604 5 5 0
+D1
+~
+~
+0 -1 37515 10 10 5
+D3
+~
+~
+0 -1 37513 10 10 5
+E
+ledge ribbon~
+The ledge here is insanely thin, so much so that the foot of any humanoid
+would not fit on the ledge entirely.  It heads west to a somewhat broader
+ledge and east to a large stone outcropping.
+~
+-1
+S
+
+#37515
+Rock Outcropping~
+This broad stone platform stretches out into the damp, cool air above the
+enormous cavern.  Northward is a wide cave mouth, deepset and very dark. 
+To the west, a narrow ledge hugs the wall.  To the east, the rock drops
+away abruptly, leaving nothing but air between the ceiling and the floor.
+~
+~
+301465604 4 5 0
+D0
+~
+~
+0 -1 37516 10 10 5
+D3
+~
+~
+0 -1 37514 10 10 5
+E
+gap~
+The gap is perhaps fifteen feet across, and there is not enough room on
+this platform to get a running start.
+~
+E
+cave mouth~
+This gaping cave mouth leads into complete darkness.  An occasional
+shriek drifts from the mouth like a chilling wind.
+~
+E
+narrow ledge~
+A narrow ledge clings to the north wall high above the cavern floor.  It
+leads westward.
+~
+1120 9 1509949540 3 0
+1120 9 1509949540 3 0
+-1
+S
+
+#37516
+Inside Cave~
+Screeches drift wraith-like from the murky depth of this cave.  To the
+east, muddy green slime rings the entrance to another, smaller branch of
+the cave.  The broader tunnel heads north, into darkness.  To the south,
+a broad opening leads outside to a rock outcropping.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 37517 10 10 5
+D1
+~
+~
+0 -1 37518 10 10 5
+D2
+~
+~
+0 -1 37515 10 10 5
+E
+mud green slime~
+The slime here is thin, but becomes quite thick to the east, ringing the
+entrance to a small cave.
+~
+-1
+S
+
+#37517
+Narrow Cave~
+Raking screeches are loud, here, and seem to come from all directions. 
+The walls are smooth and dry, and they are slashed with hundreds of long,
+razor-thin scratches.  Far to the south is a broad opening, while to the
+north the tunnel continues.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 37519 10 10 5
+D2
+~
+~
+0 -1 37516 10 10 5
+E
+scratch scratches razor-like~
+The scratches are not deep, but deep enough considering the near-
+impenetrable hardness of this stone.
+~
+1123 9 1509949540 3 0
+-1
+S
+
+#37518
+Slime-Covered Cave~
+Slime runs down the walls in thick, seething cords, and drips from the
+ceiling into the oozing, gelatinous mound of slime on the floor.  The
+biting air stinks of acid.  To the west, a small opening rejoins the
+cave's larger portion.
+~
+~
+301465604 11 5 0
+D3
+~
+~
+0 -1 37516 10 10 5
+E
+slime mound acid~
+The yellow-green slime is a gelatinous, acidic plant life that slowly
+consumes the stone upon which it grows.
+~
+1122 9 1509949540 3 0
+-1
+S
+
+#37519
+Narrow Cave~
+A hellish screech comes from the west, and is so loud it seems capable of
+shattering stone.  Blood and bone fragments litter the floor, some of it
+gruesomely fresh.  An overpowering stench stings the eyes and nose.  The
+foul cave stretches to the south and west.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 37517 10 10 5
+D3
+~
+~
+0 -1 37520 10 10 5
+E
+blood bone fragments fragment~
+While some of these blood stains are dried, some of the fragments bare
+white, others are fresh--wet blood and bone with torn flesh still
+clinging to it.
+~
+210 17 1509949540 -2 0
+-1
+S
+
+#37520
+Cavern of Mangled Corpses~
+Whatever lives here is large.  Disembowled ogres lie strewn about like
+dicarded dolls, their blood staining the rocks black.  A fetid, rotting
+stench clings thickly to the air - the smell of decay, of rotting
+entrails.  A pile of bare, grinning skulls is piled against the north
+wall.  A gaping maw in the stone leads eastward.
+~
+[Mantispid] you should be able to use 'move skulls' for a command to open the north.
+~
+301465612 11 8 0
+D0
+skull-covered door~
+door~
+171 -1 37556 10 10 5
+D1
+~
+~
+0 -1 37519 10 10 5
+E
+ogres bodies corpses dolls~
+These ogres are freshly dead, steam still rising from their fetid innards. 
+Their faces are sickly and twisted in terror and agony.  One of them
+seems to be clutching something in his cold fist.
+~
+E
+fist hand cold~
+The ogre's clenched, dead hand is wrapped into a tight fist, as if
+desperately holding something.
+~
+E
+bar~
+A horizontal stone bars runs across the room, high on the walls.  Its
+surface is rough and scarred with thousands of deep scratches.
+~
+E
+skulls pile skull~
+Crushed, fleshless skulls are hapharzardly piled against the north wall. 
+The skulls are in varied states of abuse, from cracked to mutilated.
+~
+A
+search~
+skulls pile skull~
+if( is_open( room, north ) )
+  send_to_char( #already, ch );
+else {
+  send_to_char( #open, ch );
+  act_notchar( #opennot, ch );
+  open( room, north );
+  }
+~
+E
+already~
+The door is already open.
+~
+E
+open~
+Trying to move the skulls, you find they are all fastened together. 
+Giving them a light tug, they swing away from the wall, opening a door to
+the north.
+~
+E
+opennot~
+While searching the pile of skulls, $n pulls on them, and they come away
+from the wall, revealing a door to the north.
+~
+!
+9 0 0
+A
+open~
+hand fist~
+if( rflag( reset0, room ) ) {
+  send_to_char( #cord, ch );
+  obj_to_room( oload( 803 ), room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nocord, ch );
+~
+E
+cord~
+You pry open the cold, dead hand to find the ogre had been tightly
+clutching an old, worn silk ribbon.
+~
+E
+nocord~
+The hand is already open, and empty.
+~
+!
+0 0 0
+A
+open~
+door~
+send_to_char( #fool, ch );
+~
+E
+fool~
+You don't see that here.
+~
+!
+0 0 0
+A
+look~
+hand~
+if( rflag( reset0, room ) )
+continue;
+else
+send_to_char( #open, ch );
+~
+E
+open~
+The ogre's hand is open and empty, its dead fingers bent like claws.
+~
+!
+0 0 0
+-1
+S
+
+#37521
+Sinkhole~
+Water pours from above and splashes into a gathering pool.  This entire
+cave is flooded with water, shimmering darkly into the shadows.  A slimy,
+moss-covered opening leads upward, while the cave itself begins to the
+east.
+~
+~
+301465605 13 5 0
+D1
+~
+~
+0 -1 37522 10 10 5
+D4
+~
+~
+0 -1 37509 10 10 5
+E
+pool gathering water~
+A four-foot-deep pool of dark water floods the cave as it pours in
+through the gaping sinkhole above.
+~
+E
+opening slimy moss-covered~
+The sinkhole is smooth and slimy, but not so high that its edges are
+above reach.
+~
+1127 9 1509949540 3 0
+1127 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37522
+Flooded Cave Junction~
+Luminescent moss encroaches upon the rough stone walls and plunges into
+the calm, shimmering water.  The cave branches off to the south, or
+continues eastward.  To the west a faint column of light shines from
+above.
+~
+~
+301465604 13 5 0
+D1
+~
+~
+0 -1 37523 10 10 5
+D2
+~
+~
+0 -1 37524 10 10 5
+D3
+~
+~
+0 -1 37521 10 10 5
+E
+moss luminescent~
+The luminescent moss glows faintly, shedding a soft white light.
+~
+3219 17 1509949540 -2 0
+-1
+S
+
+#37523
+Flooded Cave~
+The water-choked cave continues east and west; both directions are dark. 
+The moss on the walls thins out somewhat, revealing bare stone.  The dark
+water feels strangely warm, given the coolness of the cave.
+~
+~
+301465604 13 5 0
+D1
+~
+~
+0 -1 37525 10 10 5
+D3
+~
+~
+0 -1 37522 10 10 5
+E
+moss~
+The moss clings in threadbare strands, showing patches of the
+stone wall upon which it grows.
+~
+E
+paintings painting drawing faint~
+This faded painting show a circle of small humanoids gathered around
+an indisinct object, with a nebulous shape lying at their feet.
+~
+A
+move~
+moss~
+if( rflag( reset0, room ) ) {
+  send_to_char( #move, ch );
+  act_notchar( #movenot, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+move~
+You pull aside the spongy moss, revealing faint, age-worn cave paintings.
+~
+E
+movenot~
+$pulls aside the threadbare curtain of moss, uncovering ancient, faded
+cave paintings.
+~
+E
+nope~
+The moss has already been pulled aside, revealing old, faded cave
+paintings.
+~
+!
+0 0 0
+1127 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37524
+Flooded Cave~
+The luminescent moss here is thick and slimy, and surprisingly
+bright, its white-green light strong enough to throw dim shadows on
+on the rough rock ceiling.  The eerily-lighted cave leads south.  To
+the north is a junction.
+~
+~
+301465605 13 5 0
+D0
+~
+~
+0 -1 37522 10 10 5
+D2
+~
+~
+0 -1 37531 10 10 5
+E
+moss luminescent~
+The moss here is quite thick and is bright enough to light the tunnel
+with no external light sources.
+~
+1127 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37525
+Flooded Cave~
+The cavern grows quieter, if that is possible, and the luminescent
+moss has all but disappeared, revealing bare stone.  The walls are
+rough-hewn and covered with faint drawings.  The cave bends
+north and west.
+~
+~
+301465604 13 5 0
+D0
+~
+~
+0 -1 37526 10 10 5
+D3
+~
+~
+0 -1 37523 10 10 5
+E
+faint drawings drawing paintings painting~
+The paintings here have faded too much to be recognized.  One shape
+might be a humanoid of some sort.
+~
+1128 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37526
+Painted Cave~
+The winding, flooded cave turns east and south; either direction is
+is very dark.  The wall paintings here are more distinct and artful,
+covering the entire cave in an intricate mural.
+~
+~
+301465604 13 5 0
+D1
+~
+~
+0 -1 37527 10 10 5
+D2
+~
+~
+0 -1 37525 10 10 5
+E
+mural paintings painting drawings drawing~
+Although much of the mural has been faded, the easternmost part of
+it distinctly shows a group of small humanoids with staffs battling a
+legion of metal-clad ogres.
+~
+3219 17 1509949540 -2 0
+-1
+S
+
+#37527
+Cave Junction~
+The network of tunnels branches in three directions.  The floor slopes
+upward to the east and south, shallowing out the water to no more
+than three inches.  Far to the south is some sort of light source, 
+faint at this distance.
+~
+~
+301465612 11 5 0
+D1
+~
+~
+0 -1 37533 10 10 5
+D2
+~
+~
+0 -1 37528 10 10 5
+D3
+~
+~
+0 -1 37526 10 10 5
+E
+light source~
+The source of the light is too far away to be made out, but it gives 
+off a dull red glow that seems to pulsate.
+~
+-1
+S
+
+#37528
+Sloping Tunnel~
+The cave narrows and the walls and ceiling smooth out.  Someone has
+etched uniform lines in the wall to give the tunnel the appearance of
+of having been constructed of brick.  The wall in several places is
+ornamented with flowery, twisting runes.  The tunnel heads north and
+south.  To the south is a strong red light.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 37527 10 10 5
+D2
+~
+~
+0 -1 37529 10 10 5
+E
+wall walls brick bricks lines line etch etchings~
+Carefully carved bevelled lines give the wall the appearance of
+having been constructed of brick, although it is clearly solid rock.
+~
+E
+runes rune~
+Flowery, twisting runes speckle the wall from floor to ceiling.  The
+language they represent is undecipherable.
+~
+-1
+S
+
+#37529
+Ornate Hall~
+This hallway is expertly constructed.  The stone walls and ceiling have
+been smoothed and shimmer like polished garnet.  Toward the ceiling, the
+stone has been sculpted into the shape of elegant buttresses, seemingly
+holding the entire weight of the cavern.  The floor slopes upward to the
+south, toward a coruscating red light.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 37528 10 10 5
+D2
+~
+~
+0 -1 37530 10 10 5
+E
+wall ceiling walls~
+The tactic of carving the solid stone to look like brick continues 
+here, although the stone is polished like a gem.
+~
+E
+buttresses buttress~
+These buttresses are carved of stone, and seem to have no purpose
+other than decoration.
+~
+E
+red light~
+A blood-red, undulating light emanates from the room to the south.
+As the light pulsates, the air grows alternately warm and cold.
+~
+A
+south s~
+~
+if( find_stat( ch, level ) < 5 ) {
+  send_to_char( #wimp, ch );
+  act_notchar( #wimpnot, ch );
+  interpret( ch, "north" );
+  }
+else
+  continue;
+~
+E
+wimp~
+You try to step forward.  The red light lashes out, enveloping you,
+penetrating you, probing your mind and body for weakness.  It is slowly
+consuming you.  You flee north in terror.
+~
+E
+wimpnot~
+$n starts to go southward, then freezes, held fast.  Red light
+envelopes $m, $e writhes in a silent howl of pain.  Finally $e breaks
+free and flees north in terror.
+~
+!
+3 0 4
+-1
+S
+
+#37530
+Shimmering Altar~
+Stone benches have been carved from the walls of this perfectly circular
+room, at the center of which is a smooth stone altar in the shape of a
+bowl standing on three stout, stone legs.  The interior of the bowl is
+stained black, and the entire structure glows.  On the south wall is a
+massive painting of a knife cutting a palm, the blood dripping in
+glistening rivulets.
+~
+[Mantispid] You should be able to ask the ghost about Arradar
+~
+301466757 0 5 0
+D0
+~
+~
+0 -1 37529 10 10 5
+E
+bench benches~
+The stone benches are smooth and highly polished.  They form a
+half-circle around the room, centering on the stone altar.
+~
+E
+altar~
+The stone altar bleeds a deep, shifting red light that consumes the
+the entire stone room.
+~
+E
+bowl~
+The exterior of the bowl is polished white stone, while the  
+interior is stained the deepest black.  The bowl is roughly eighteen
+inches across.
+~
+E
+stain stains black~
+Whatever stained the interior of the bowl was a liquid, as the stains
+run in thin lines down the outside of the bowl as if it had 
+overflowed.
+~
+A
+cut slice~
+palm hand~
+if( mob_in_room( 1133, room ) ) {
+  mob = mob_in_room( 1133, room );
+  if( is_fighting( mob ) )
+    end;
+  else {
+    act_tochar( #rage, ch );
+    act_notchar( #rrage, ch );
+    attack( mob, ch, 2d8, "vengeful strike" );
+    }
+  }
+else {
+  obj = obj_in_room( 364, room );
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    if( obj ) {
+      act_tochar( #fill, ch );
+      act_notchar( #rfill, ch );
+      if( find_stat( ch, align ) == 2 )
+        i = random( 0, 3 );
+      if( find_stat( ch, align ) == 1 )
+        i = random( 2, 5 );
+      if( find_stat( ch, align ) == 0 )
+        i = random( 1, 4 );
+      if( i < 3 ) {
+        obj_to_room( oload( 68 ), room );
+        act_tochar( #potion, ch );
+        act_notchar( #rpot, ch );
+        }
+      if( i > 3 ) {
+        obj_to_room( oload( 662 ), room );
+        act_tochar( #potion, ch );
+        act_notchar( #rpot, ch );
+        }
+      if( i == 3 )
+        act_tochar( #nothing, ch );
+      }
+    else {
+      act_tochar( #no_altar, ch );
+      end;
+      }
+    }
+  else
+    act_tochar( #no_power, ch );
+  }
+~
+E
+rage~
+The guardian quivers with rage at your impudence.
+~
+E
+fill~
+Stepping toward the altar, you cut a line down your palm and it begins to
+drip with blood.  You drip the blood from your palm into the bowl on the
+altar.
+~
+E
+no_altar~
+There is no altar here!
+~
+E
+no_power~
+The altar's power has been called upon too recently.
+~
+E
+potion~
+A potion fades into existence at the base of the altar.
+~
+E
+nothing~
+The blood from your palm flows freely, but nothing happens.
+~
+E
+rrage~
+The guardian leaps to confront $n as $e attempted to approach the altar!!
+~
+E
+rfill~
+$n cuts a slit on $s palm and approaches the altar.
+~
+E
+rpot~
+A potion fades into existence at the base of the altar.
+~
+E
+CREDIT~
+code by phule
+~
+!
+0 0 0
+1133 137 1509949540 3 0
+364 17 1509949540 -2 0
+-1
+S
+
+#37531
+Flooded Cave~
+Water drips quietly into the cold, still pool as the cave bends eastward. 
+Tendrils of moss cling to the ceiling, hanging like wet hair and almost
+touching the surface of the water.  Another flooded tunnel leads west.
+~
+~
+301465605 13 5 0
+D0
+~
+~
+0 -1 37524 10 10 5
+D1
+~
+~
+0 -1 37532 10 10 5
+D3
+~
+~
+0 -1 37674 10 10 5
+E
+moss tendrils hair~
+The moss has grown so thick and wet it has grown away from the
+wall and has formed long, slimy strings.
+~
+E
+pictogram~
+In this faded, ancient picture drawn on the ceiling, dozens of mangled,
+twisted bodies lie alongside robed figures with arcs of lightning
+radiating from their bodies.  In the center of all this is an enormous
+palm with a slash through its flesh.  Dark globules of blood drip from
+the cut.
+~
+A
+pull~
+moss~
+if( rflag( reset0, room ) ) {
+  send_to_char( #pic, ch );
+  act_notchar( #picnot, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+pic~
+You pull away the slimy moss, uncovering a gruesome pictogram.
+~
+E
+picnot~
+$n pulls the moss from the ceiling, uncovering a faded pictogram.
+~
+E
+nope~
+The moss has already been pulled down.
+~
+!
+0 0 0
+1128 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37532
+Luminous Cavern~
+Moss, shedding pallid green-white light, consumes this flooded cavern.
+The only sound is a steady drip-drip, echoing softly.  A patch of
+moss on the north wall bulges slightly.  To the west, the cavern 
+narrows and leads into darkness.
+~
+~
+301465605 13 5 0
+D3
+~
+~
+0 -1 37531 10 10 5
+E
+patch moss bulge~
+A heavy clump of moss bulges noticeably on the north wall.  There
+seems to be the faintest trace of blue behind moss.
+~
+E
+brick blue~
+A solid blue brick is set in the wall, protruding noticeably.
+~
+E
+hole~
+Water drips from the cold, slimy stone that frames the hole in the east
+wall.  Although dark and cavernous, the hole is far too small to enter.
+~
+A
+push~
+blue brick stone~
+if( rflag( reset0, room ) ) {
+  if( mob_in_room( 1130, room ) ) {
+    send_to_char( #nope, ch );
+    end;
+    }
+  else {
+    send_to_char( #eels, ch );
+    act_notchar( #eelsnot, ch );
+    mload( 1130, room );
+    mload( 1130, room );
+    remove_rflag( reset0, room );
+    }
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+eels~
+You push the blue brick.  As it sinks into the wall, a hole opens up in
+the east wall.  Water gushes in, carrying in several white streaks.  You
+have uncovered an eel nest!
+~
+E
+eelsnot~
+$n pushes on the blue stone.  As it sinks into the wall, a hole opens up
+in the east wall.  Water gushes in, carrying with it several white
+streaks.
+~
+E
+nope~
+You push the stone, but nothing happens.
+~
+!
+0 0 0
+1130 137 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37533
+Abandoned Workroom~
+A low-slung stone worktable dominates this chamber.  The floor here
+is completely dry, as the room stands above the flooding water.  A
+rotted wooden cabinet hangs on the wall, its doors in splintered
+shambles.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 37555 10 10 5
+D3
+~
+~
+0 -1 37527 10 10 5
+E
+worktable table~
+The table is rough, but sturdy, and constructed entirely of stone.  
+It lies bare, as it has surely been for years.
+~
+E
+wooden cabinet~
+The cabinet must have been sturdy and impenetrable at one time, but is
+now a feeble hulk.  The doors hang loosely, clinging to their rust-eaten
+hinges.
+~
+1131 137 1509949540 3 0
+-1
+S
+
+#37534
+Enormous Cavern~
+A cluster of stalagmites form a natural ring of stone here, in the center
+of which is the large, misshapen stone bust of an ogre.  To the south, a
+massive black stalagmite rises toward the ceiling.  The cave wall stands
+in the distant north.  To the west is the cavern's west wall, and
+eastward lies darkness.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37545 10 10 5
+D1
+~
+~
+0 -1 37535 10 10 5
+D2
+~
+~
+0 -1 37506 10 10 5
+E
+ring cluster stone circle~
+Several smallish, closely grown stalagmites form a half-circle, in the
+center if which is a misshapen statue.
+~
+E
+statue bust stone ogre misshapen~
+The ugly, twisted ogric face looks passively to the east, seeming not to
+notice the layer of slime and moss that has grown over it.  There is a
+tiny protrusion at the jawline.
+~
+E
+mouth jaw protrusion jawline~
+Why, yes, the mouth on this statue is hinged, a stone rod piercing the
+jaw to hold the lower jaw in place.
+~
+E
+massive black stalagmite~
+To the south, an enormous black stalagmite and a stalactite have grown
+together in a single column, soaring upward to the cavern's dark ceiling.
+~
+A
+open~
+jaw mouth~
+if( rflag( reset0, room ) ) {
+  send_to_char( #slime, ch );
+  act_notchar( #slimenot, ch );
+  obj_to_room( oload( 14 ), room );
+  mload( 1141, room );
+  remove_rflag( reset0, room );
+}
+else
+  send_to_char( #nope, ch );
+~
+E
+slime~
+The jaw opens with a stone grating.  Your hand recoils as a tiny black
+ooze crawls out, groping for the warmth of your flesh.  As the ooze
+inches forward, it drags out a silver coin, which clatters to the floor.
+~
+E
+slimenot~
+$n opens the jaw with a stony grating, then recoils.  You see a tiny,
+black, amorphous ooze crawl slowly from the statue's cavernous mouth.  As
+the ooze inches forward, it drags out a silver coin, which clatters to
+the floor.
+~
+E
+nope~
+The mouth is already open.
+~
+!
+0 0 0
+A
+search~
+mouth~
+if( rflag( reset0, room ) ) {
+  interpret( ch, "open mouth" );
+  end;
+  }
+else
+  send_to_char( #empty, ch );
+~
+E
+empty~
+You peer into the gaping stone mouth but find nothing.
+~
+!
+0 0 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37535
+Among the Stalagmites~
+The cavern extends in all directions.  The sound of rushing water comes
+from the east, while the cave's wall towers in the north.  Stalagmites
+drip with yellow-green slime, and the ground glistens with a slick
+amalgam of water and slime.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37544 10 10 5
+D1
+~
+~
+0 -1 37540 10 10 5
+D2
+~
+~
+0 -1 37505 10 10 5
+D3
+~
+~
+0 -1 37534 10 10 5
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+slime yellow-green amalgam~
+The slime is a gelatinous, acidic plant growth that slowly consumes the
+stone to which it clings.
+~
+-1
+S
+
+#37537
+Enormous Cavern~
+Under Construction.
+~
+~
+301465601 0 9 0
+D0
+~
+~
+0 -1 37538 10 10 5
+D2
+~
+~
+0 -1 37539 10 10 5
+-1
+S
+
+#37538
+Enormous Cavern~
+Under Construction.
+~
+~
+301465601 0 9 0
+D2
+~
+~
+0 -1 37537 10 10 5
+-1
+S
+
+#37539
+Enormous Cavern~
+Under Construction.
+~
+~
+301465601 0 9 0
+D0
+~
+~
+0 -1 37537 10 10 5
+-1
+S
+
+#37540
+Bank of River Hurgrot~
+To the east, the River Hurgrot slides sinuously along the mossy stone
+bank.  On the floor, stalagmites and surrounding rocks, fungal slime
+grows in massive colonies.  To the west is a dark forest of stalagmites,
+and to the north is more riverbank.  A row of closely grown stalagmites
+prevents exit to the south.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37543 10 10 5
+D1
+~
+~
+0 -1 37618 10 10 5
+D3
+~
+~
+0 -1 37535 10 10 5
+E
+wall row~
+The stalagmites here have grown so closely they have formed a wall,
+dashing any hopes of going south.
+~
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+fungal slime fungus fungi~
+The slime is a gelatinous, acidic plant growth that slowly consumes the
+stone to which it clings.
+~
+-1
+S
+
+#37541
+Bank of River Hurgrot~
+A fine, powdery mist rises from the seething, churning river on its long
+voyage through the stone cavern.  Going north here is impossible, as a
+row of stalagmites form an impenetrable stone wall.  Southward the
+riverbank continues toward a finger of rock that juts into the river.
+~
+~
+301465605 11 9 0
+D1
+~
+~
+0 -1 37617 10 10 5
+D2
+~
+~
+0 -1 37542 10 10 5
+D3
+~
+~
+0 -1 37505 10 10 5
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+row wall~
+The stalagmites here have grown so closely they have formed a wall,
+dashing any hopes of going north.
+~
+E
+finger~
+Barely noticeable to the south is a narrow finger of rock, which
+protrudes into the River Hurgrot.
+~
+561 9 1509949540 3 0
+-1
+S
+
+#37542
+Bank of River Hurgrot~
+The raging River Hurgrot churns to the east, while to the west a grove of
+stalagmites rises sharply.  To the south, the river bends around a
+jutting finger of rock.  A fine mist condenses here on the cool
+stalagmites, forming sinuous rivulets of water that wind and twist along
+the stalagmites' ridged surfaces.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37541 10 10 5
+D1
+~
+~
+0 -1 37616 10 10 5
+D2
+~
+~
+0 -1 37546 10 10 5
+D3
+~
+~
+0 -1 37504 10 10 5
+E
+fine mist sinuous rivulets water~
+Mist rises from the River Hurgrot, churning angrily over massive
+underwater boulders.  The mist condenses quickly in the cool air and
+forms thin lines of water on the surrounding stone.
+~
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites as large as these, as surface water
+sifts through the earth, gathering minerals, and finally penetrates the
+cavern ceiling.
+~
+78 17 1509949540 -2 0
+1120 9 1509949540 3 0
+1120 9 1509949540 3 0
+-1
+S
+
+#37543
+Bank of River Hurgrot~
+The rocky bank slopes eastward to the edge of the mighty River Hurgrot,
+which pours from the a low, broad tunnel in the cavern's north wall.  The
+thunderous rush of the river drowns all other noise as it echoes off the
+stones and stalagmites of the cave's deepest recesses.  On the bank,
+here, someone has constructed an ornate pile of stone.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37619 10 10 5
+D2
+~
+~
+0 -1 37540 10 10 5
+D3
+~
+~
+0 -1 37544 10 10 5
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+pile ornate~
+Someone took some time building this mound.  The stones, though not
+mortared, are fitted uniformly.  The pile stands perhaps three foot high. 
+A polished, engraved stone lies atop the mound.
+~
+E
+stone polished engraved graving~
+Nurgurt
+Rest well, beloved companion.
+~
+E
+north wall~
+The massive north wall is an unbreaking slab of granite, rising
+powerfully to the dark ceiling.
+~
+E
+tunnel~
+This is the stone mouth through which the River Hurgrot enters this
+massive cavern.
+~
+A
+move search lift~
+pile mound stone stones~
+if( rflag( reset0, room ) ) {
+  send_to_char( #dog, ch );
+  act_notchar( #room, ch );
+  mload( 1138, room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #notdog, ch );
+~
+E
+dog~
+You pull aside a few stones, revealing the old, bleached-white bones of a
+dog.  Oddly, the bones are moving and barking.
+~
+E
+notdog~
+You lift the top few stones, and although the mound is hollow, you find
+nothing inside.
+~
+E
+room~
+$n uncovers the stone mound...a skeletal dog pokes its head up and growls!
+~
+!
+0 0 0
+-1
+S
+
+#37544
+Cavern of Voaleth - North Wall~
+Where the floor meets the cavern's northern wall, a pile of slime has
+gathered to over four feet high.  To the east, the sound of rushing water
+is strong.  Stalagmites grow to the south and west like stone trees.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37543 10 10 5
+D2
+~
+~
+0 -1 37535 10 10 5
+D3
+~
+~
+0 -1 37545 10 10 5
+E
+north wall~
+The massive north wall is an unbreaking slab of granite, rising
+powerfully to the dark ceiling.
+~
+E
+pile slime~
+A pile of fungal slime, feeding off the stone, has prospered here, having
+grown more than four feet high.  The pile quivers a little.
+~
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+A
+move search~
+slime pile mound~
+if( rflag( reset0, room ) ) {
+  send_to_char( #slug, ch );
+  act_notchar( #notchar, ch );
+  mload( 1139, room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #noslug, ch );
+~
+E
+slug~
+You shove your hands into the seething mound of yellow-green slime and
+pull it aside, revealing a large, slime-covered slug.
+~
+E
+notchar~
+$n buries $s hands deep in the slime, uncovering a large slug.
+~
+E
+noslug~
+You rummage through the rancid pile of slime, but find nothing.
+~
+!
+0 0 0
+1120 9 1509949540 3 0
+81 17 1509949540 -2 0
+-1
+S
+
+#37545
+Cavern of Voaleth - Northwest Corner~
+This is the northwest corner of an enormous cave.  The walls here are
+thick with a coat of slime, and the slimy floor feels like pudding.  The
+cavern's north wall rises like a mountain.  To the south is an odd ring
+of stalagmites.  To the east, the forest of stalagmites continues
+unabated.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37544 10 10 5
+D2
+~
+~
+0 -1 37534 10 10 5
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water
+sifts through the earth, gathering minerals, and finally penetrates
+the cavern ceiling.
+~
+E
+ring~
+Barely visible in the darkness to the south is a half-circle of
+ten-foot-high stalagmites.
+~
+-1
+S
+
+#37546
+Caverns of Voaleth~
+The river has pulled away to the east, although the ground here is damp
+and slimy.  The cavern's south wall rises to the ceiling, cowled in
+darkness.  Stalagmites continue to the west, and to the east a jutting
+finger of rock rejoins the river.  The south wall is covered by a thick,
+swollen curtain of moss, and slats of mossy limestone litter the damp,
+rocky floor.
+~
+south
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37542 10 10 5
+D1
+~
+~
+0 -1 37548 10 10 5
+D2
+curtain of moss~
+~
+187 -1 37559 10 10 5
+D3
+~
+~
+0 -1 37547 10 10 5
+E
+wall south~
+The south wall is hard and solid, and made rough by pits and cracks and
+stone outcroppings.  It stretches to the ceiling and is lost in the
+shadows.
+~
+E
+finger jutting~
+To the east, a narrow, moss-covered finger of rock - just large enough to
+be stood upon - protrudes into the River Hurgrot.
+~
+E
+limestone limestones slat slats~
+The limestone slats are softer and more porous than the hard granite from
+which this cavern was formed.  They lie in scattered piles, seemingly
+with no pattern in their placement.
+~
+E
+moss blanket~
+A thick, heavy layer of moss, tangled and slimy, covers the south wall. 
+Toward the base of the wall, barely noticeable, threads of moss sway as
+if by a light breeze.
+~
+A
+move lift search~
+limestone slats slat stone limestones stones~
+if( rflag( reset0, room ) ) {
+  send_to_char( #yep, ch );
+  mload( 1118, room );
+  mload( 1118, room );
+  mload( 1118, room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+yep~
+You lift the spongy, moss-covered stones, uncovering several large, white
+worms.
+~
+E
+nope~
+You lift the spongy, moss-covered stones, but find nothing.
+~
+!
+0 0 0
+A
+move lift search open~
+moss blanket~
+if( !is_open( room, south ) ) {
+  send_to_char( #open, ch );
+  act_notchar( #opennot, ch );
+  open( room, south );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+open~
+You pull aside the thick blanket of moss, revealing a cavern opening in
+the south wall.
+~
+E
+opennot~
+$n pulls back the heavy curtain of moss, revealing a cavern opening in
+the south wall.
+~
+E
+already~
+The moss has already been pushed aside, revealing a cavern opening in the
+south wall.
+~
+!
+0 0 0
+561 9 1509949540 3 0
+-1
+S
+
+#37547
+Caverns of Voaleth - Southwest Corner~
+Luminescent moss covers the walls here, the southwest corner of this
+enormous cavern.  To the north, stalagmites reach toward the
+dark-shrouded ceiling, and from the east comes the sound of moving water. 
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37504 10 10 5
+D1
+~
+~
+0 -1 37546 10 10 5
+E
+luminescent moss~
+Growing in thick, heavy clumps, the moss glows with its own light.  A
+mossy patch near the floor looks as if it has been peeled away from the
+wall.
+~
+E
+stalagmite stalagmites~
+Eons are required to form stalagmites this large, as surface water sifts
+through the earth, gathering minerals, and finally penetrates the cavern
+ceiling.
+~
+E
+niche~
+A small, dark niche leads into the stone.  Faint, and cowled in shadows,
+a slight shimmer comes from the darkness.
+~
+A
+search look~
+niche~
+if( rflag( reset0, room ) ) {
+  interpret( ch, "move moss" );
+  end;
+  }
+else
+  if( rflag( reset1, room ) ) {
+  i = 1d8;
+  if( i == 1 ) {
+    send_to_char( #aqua, ch );
+    obj_to_room( oload( 983 ), room );
+    }
+  if( i == 2 ) {
+    send_to_char( #cap, ch );
+    obj_to_room( oload( 2080 ), room );
+    }
+  if( i == 3 ) {
+    send_to_char( #gloves, ch );
+    obj_to_room( oload( 2101 ), room );
+    }
+  if( i == 4 ) {
+    send_to_char( #aqua, ch );
+    obj_to_room( oload( 1039 ), room );
+    }
+  if( i == 5 ) {
+    send_to_char( #coin, ch );
+    obj_to_room( oload( 14 ), room );
+    }
+  if( i > 5 )
+    send_to_char( #nada, ch );
+  remove_rflag( reset1, room );
+  }
+else
+  send_to_char( #nada, ch );
+~
+E
+aqua~
+You scoop your hand through the dark niche, pulling a sea green gem onto
+the floor.
+~
+E
+cap~
+You scoop your hand through the dark niche, pulling a soft leather cap
+onto the floor.
+~
+E
+gloves~
+You scoop your hand through the dark niche, pulling a pair of soft
+leather gloves onto the floor.
+~
+E
+coin~
+You scoop your hand through the dark niche, pulling a shiny silver coin
+onto the floor.
+~
+E
+nada~
+You scoop your hand through the dark niche, but find nothing.
+~
+!
+0 0 0
+A
+search move get~
+moss~
+if( rflag( reset0, room ) ) {
+  send_to_char( #niche, ch );
+  act_room( #rat, ch );
+  mload( 1137, room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+niche~
+The moss pulls away easily, revealing a dark niche in the stone.
+~
+E
+rat~
+A rat leaps from the darkness!
+~
+E
+already~
+The moss has already been pulled aside, revealing a niche in the wall.
+~
+!
+0 0 0
+78 17 1509949540 -2 0
+1120 9 1509949540 3 0
+-1
+S
+
+#37548
+Rock Finger in River Hurgrot~
+The river comes in from the north and winds eastward around this narrow
+finger of rock to disappear into a gaping maw in the cavern's south wall. 
+To the east is a massive, low wooden bridge spanning the powerful river.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37616 10 10 5
+D1
+~
+~
+0 -1 37583 10 10 5
+D3
+~
+~
+0 -1 37546 10 10 5
+E
+bridge~
+A low, wooden bridge spans the churning river Hurgrot.  The wood is
+light-colored and straight, suggesting the bridge was just built.
+~
+-1
+S
+
+#37555
+Empty Living Quarters~
+Whoever once resided here has not been here for a long time.  Rotted,
+age-eaten wooden frames are all that remain of what were once ten small
+beds.  Empty, rusted sconces cling pleadingly to the wall where torches
+once hung.  To the north is a simple workroom.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 37533 10 10 5
+E
+beds frames bed frame~
+The wooden bed-frames are warped and useless.  The slightest
+touch would break them.
+~
+E
+sconces sconce~
+Ten sconces hang evenly spaced along the room's four walls.  The
+sconces are ancient and empty, and many hang loosely by a single
+bolt.
+~
+1132 137 1509949540 3 0
+-1
+S
+
+#37556
+Noisy Chamber~
+The screeching is loud enough here to damage eardrums, and here is the
+source of the noise - a counter-weighed lever fitted with an enormous
+metal bar which swings over a piece of slate, scraping it as it passes. 
+This chamber is quite small, and poorly constructed, the stone having
+been chipped away sloppily.  To the south, a small door leads into a
+larger chamber.  A wooden door stands in the north wall.
+~
+~
+301465604 0 5 0
+D0
+heavy oak door~
+north n oak door~
+407 -1 37557 7 10 5
+D2
+small wooden door~
+south s~
+171 -1 37520 4 10 5
+E
+wooden door~
+Two doors, one to the north and one to the south, adorn this room.  The
+door to the north is windowless, heavy, and make of oak.  The door to the
+south is small and flimsy, and looks as if it could be pushed open.
+~
+E
+lever machine bar slate weight metal~
+This is an ingenious contraption.  Shaped like a child's swing, it
+supports a wooden lever, counter-balanced with a heavy bag of stones. 
+The metal rod swings lengthwise across a heavy slate, producing a
+head-shaking screech.  An intricate latticework of weights and pulleys
+then swings the back across the slate for another screech.  However, the
+machine slows down with every pass.
+~
+A
+say '~
+10 discontent~
+if( is_open( room, north ) )
+  send_to_char( #nope, ch );
+else {
+  if( mob_in_room( 1125, find_room( 37557 ) ) ) {
+    send_to_char( #yup, ch );
+    act_notchar( #yupnot, ch );
+    unlock( room, north );
+    open( room, north );
+    }
+  else {
+    send_to_char( #noone, ch );
+    act_notchar( #nooner, ch );
+    }
+  }
+~
+E
+nope~
+You speak the strange words.  Nothing happens.
+~
+E
+yup~
+You speak the strange words.  At first it seems nothing has happened,
+then you hear a metallic rattle in the door to the north.  It swings wide
+open to reveal a small room.  A voice shouts, "Get in here, Durst!"
+~
+E
+yupnot~
+$n speaks the stranges words.  Seconds pass before the door rattles a
+little, then swings wide open.  A voice shouts, "Get in here, Durst!" 
+~
+E
+noone~
+You speak the word 'discontent' and wait for a moment, but nothing
+happens.
+~
+E
+nooner~
+$n says the word 'discontent,' but nothing seems to happen.
+~
+!
+0 0 0
+A
+push open~
+south s door~
+if( is_open( room, south ) )
+  send_to_char( #already, ch );
+else {
+  send_to_char( #open, ch );
+  act_notchar( #opennot, ch );
+  open( room, south );
+}
+~
+E
+already~
+The door to the south is already open.
+~
+E
+open~
+You open the door to the south.
+~
+E
+opennot~
+$n opens the door to the south.
+~
+!
+0 0 0
+A
+knock kick bash bang pound hit~
+n north door~
+if( is_open( room, north ) )
+  send_to_char( #already, ch );
+else {
+  if( mob_in_room( 1125, find_room( 37557 ) ) ) {
+    send_to_char( #wham, ch );
+    act_notchar( #whamnot, ch );
+    }
+  else {
+    send_to_char( #nothing, ch );
+    act_notchar( #nothr, ch );
+    }
+  }
+~
+E
+already~
+The heavy door to the north is already open.
+~
+E
+wham~
+WHAM!
+A voice comes from behind the door, "What's the password!"
+~
+E
+whamnot~
+$n pounds against the door with a heavy thud.  A voice comes from behind the door,
+"What's the password!" 
+~
+E
+nothing~
+You brutalize the heavy wooden door, but nothing happens.
+~
+E
+nothr~
+$n pounds against the heavy door, but nothing happens.
+~
+!
+0 0 0
+1126 9 1509949540 3 0
+-1
+S
+
+#37557
+Thieves' Hideout~
+This room reeks of unwashed bodies.  A low, heavy wooden table sits
+against one wall, abutted by three chairs.  Mounds of dirty plates and
+half-eaten food, stinking of rot, lie atop the table.  Three dishevelled
+straw mats lie on the floor, and a small shelf is fitted on the east wall. 
+On the west wall is a large sign; a heavy oak door fitted with massive
+bar leads to the south.
+~
+[Kreel] There is a way to open the door.  Mortals who say they're trapped
+aren't looking hard enough.
+~
+301465604 0 5 0
+D2
+heavy oak door~
+heavy oak door s south~
+407 -1 37556 7 10 5
+E
+table chairs chair~
+The wooden table and chairs are simple and well-constructed.
+~
+E
+food piles plates rot~
+Putrid mounds of discarded food - chicken bones, apple cores, beef stew -
+and smeared, unwashed plates lie atop the table, making the room smell
+like an outhouse.
+~
+E
+sign~
+Plan For Perfect Hideout, by Gurfred Parwater.
+- Find large bat and kill it.
+- Confiscate lair from said bat.
+- Perpetuate screeching through clever design.
+- Enjoy wealth, safe from frightened townspeople.
+~
+E
+mats straw beds~
+Someone has slept in these beds recently, having scattered the straw
+across the cave's dirty stone floor.
+~
+E
+oak door bar south~
+A stout oak door stands on the south wall.  It is extraordinarily heavy,
+probably designed to deaden the sound from outside.  A heavy wooden bar
+stands upright, designed to fall, locking look the door, when the door is
+closed.
+~
+E
+shelf~
+A simple wooden shelf, bare and dusty, hangs on the north wall.
+~
+A
+move lift~
+latch bar lock~
+if( is_open( room, south ) )
+  send_to_char( #open, ch );
+else {
+  send_to_char( #lift, ch );
+  act_notchar( #liftnot, ch );
+  unlock( room, south );
+}
+~
+E
+open~
+The door is already unlocked and open.
+~
+E
+lift~
+You lift the heavy bar, unlocking the door.
+~
+E
+liftnot~
+$n lifts the heavy oak slab that bars the door.
+~
+!
+0 0 0
+A
+unlock~
+box strongbox~
+if( !mob_in_room( 1125, room ) )
+  continue;
+else {
+  mob = mob_in_room( 1125, room );
+  attack( mob, ch, 2d4, "right hand" );
+  }
+~
+!
+0 0 0
+A
+look~
+south door bar~
+if( !is_locked( room, south ) )
+  continue;
+else
+  send_to_char( #locked, ch );
+~
+E
+locked~
+The door to the south is closed and locked with a heavy, wooden bar.
+~
+!
+0 0 0
+1124 137 1509949540 3 0
+1125 137 1509949540 3 0
+692 49 1509949540 -2 0
+14 81 1509949540 -2 0
+14 81 1509949540 -2 0
+14 81 1509949485 -2 0
+2 81 1509949455 -2 0
+713 81 8 -2 0
+68 81 1509949480 -2 0
+2080 81 1509949465 -2 0
+2103 81 1509949452 -2 0
+874 81 1509949455 -2 0
+1124 9 1509949540 3 0
+-1
+S
+
+#37559
+Cylindrical Chamber~
+This stone chamber, dark and slimy, is nearly cylindrical.  The ceiling
+is perhaps fifteen feet high, hung with thick tendrils of moss that sway
+slightly.  A cold wind comes from above, where the chamber slopes sharply
+to a lightless opening.  To the north is a circular opening, covered with
+a curtain of moss.
+~
+~
+301465612 11 6 0
+D0
+curtain of moss~
+~
+187 -1 37546 10 10 5
+D4
+~
+~
+0 -1 37560 10 10 5
+E
+moss tendrils tendril~
+The luminescent moss is very thick here, growing in heavy clumps on the
+walls and in thick strands on the ceiling.  The hanging moss sways
+gently, stirred by a soft wind.
+~
+E
+opening~
+On the north wall is a broad, circular opening in the stone.  It is
+almost entirely covered on the outside by a heavy curtain of moss.
+~
+E
+slope up~
+On the east wall a ramp of stone slopes sharply upward.  The slope is
+certainly too sharp to walk upright, but the stone is very rough and
+looks as though it might provide some handholds.
+~
+A
+move lift search open~
+moss~
+if( !is_open( room, north ) ) {
+  send_to_char( #open, ch );
+  act_notchar( #opennot, ch );
+  open( room, north );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+open~
+You pull the heavy moss aside, opening the cavern to the north.
+~
+E
+opennot~
+$n pulls the heavy curtain of moss aside, opening the cavern to the north.
+~
+E
+already~
+The moss has already been pulled aside.
+~
+!
+0 0 0
+-1
+S
+
+#37560
+Dark Cavern~
+Dark, mottled patches stain the floor and walls, which are scarred with
+deep cuts.  The cavern is dark and silent, the air cools as a chilling
+breeze sweeps through with a low, airy moan.  The low cavern disappears
+into the darkness to the east.  It also slopes sharply downward to
+another cavern.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 37561 10 10 5
+D5
+~
+~
+0 -1 37559 10 10 5
+E
+stains stain patch patches~
+A dark liquid has stained parts of the floor walls nearly black.  The
+stains intermingle with the granite, creating a swirling, mottled amalgam
+of red and black stone.
+~
+E
+walls cuts scratches wall cut scratch~
+Deep, angry scratches, perhaps half an inch deep and narrow as a blade,
+run horizontally across the walls.
+~
+E
+slope~
+The cavern floor drops away to the west, sloping almost straight down to
+another chamber.  The stone is rough, and if navigated carefully should
+provide adequate footholds.
+~
+561 9 1509949540 3 0
+-1
+S
+
+#37561
+Cave Bend~
+The ceiling here is barely as tall as an ogre.  The smooth, wet walls
+glow softly with luminscent moss.  A fine, watery mist hangs here,
+stirred gently by a faint breeze.  The air is cool.  The cave bends to
+the south and west.
+~
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 37562 10 10 5
+D3
+~
+~
+0 -1 37560 10 10 5
+E
+slime~
+The slime is gray-green and runs down the walls, slowly consuming the
+stone upon which it grows.
+~
+E
+mist~
+It is strange to find so much moisture this far underground, and yet a
+fine mist hangs in the air, tickling the face and cooling the lungs.  The
+mist seems to be thicker to the south.
+~
+561 9 1509949540 3 0
+561 9 1509949540 3 0
+-1
+S
+
+#37562
+Damp Tunnel~
+Water drips from the ceiling in soft, glistening droplets and runs down
+the walls in spidery tendrils.  This narrow tunnel is choked with moss.
+The tunnel bends northward, and a soft, but noticeable breeze comes from
+the east.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37561 10 10 5
+D1
+~
+~
+0 -1 37563 10 10 5
+E
+slime~
+Gray-green slime has gathered in an oozing mass on the floor, slowly
+dissolving the stone it touches.  The slime does not seem to have an
+effect on flesh or clothing.
+~
+E
+water~
+The moisture here is so thick it has turned into water, running down the
+walls and across the floor, glistening darkly on the deep red granite.
+~
+E
+moss~
+The moss grows away from the walls and ceiling to form a tangled, green
+web that stretches from wall to wall and makes moving difficult.
+~
+-1
+S
+
+#37563
+Damp Tunnel~
+This long, dark tunnel stretches east and west.  Moisture gathers on the
+ceiling and drips heavily into puddles on the floor.  The stone walls can
+barely be seen, as they are hidden by an encroaching layer of moss.  From
+the east comes the sound of falling water.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37564 10 10 5
+D3
+~
+~
+0 -1 37562 10 10 5
+E
+moss~
+Moss coats the walls, ceiling, and floor, and hangs down to form a web
+that chokes the entire cavern.
+~
+E
+puddle puddles~
+Slime and water run together to form strange, multi-layered piles in
+which the relatively light water floats atop the denser slime.
+~
+A
+listen hear~
+water falling waterfall~
+send_to_char( #water, ch );
+~
+E
+water~
+Although it is muffled, the sound of powerfully falling water comes from
+the east.
+~
+!
+0 0 0
+561 9 1509949540 3 0
+-1
+S
+
+#37564
+Cave Junction~
+The cave branches into three directions.  Darkness lies to the east and
+west, and to the south is a shimmer of light.  The moisture here is thick
+and cold, the feathery mist swirling with a whisper of wind.  To the
+south is the thunderous sound of falling water.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37565 10 10 5
+D2
+~
+~
+0 -1 37566 10 10 5
+D3
+~
+~
+0 -1 37563 10 10 5
+E
+mist moisture~
+Amid the tangled moss and encroaching slime hangs a soft mist that clings
+to the walls in tiny, glistening droplets.  It seems to be rolling out
+from the cavern to the south.
+~
+E
+light sliver~
+A soft, white light shines through the darkness in the cavern to the
+south.
+~
+A
+listen hear~
+water falling waterfall~
+send_to_char( #water, ch );
+~
+E
+water~
+The sound of a waterfall is very strong to the south.  It resonates from
+the stone walls, and fills the cavern with a watery sigh.
+~
+!
+0 0 0
+-1
+S
+
+#37565
+Bend in Tunnel~
+This narrow tunnel curves south and west.  Stacked in the northeast
+corner is a fetid pile of discarded food - slivers of meat, pieces of
+fruit, and leaves with tiny bites taken from their edges.  From the west
+come mist and the sound of falling water.
+~
+~
+301465604 11 5 0
+D2
+~
+~
+0 -1 37567 10 10 5
+D3
+~
+~
+0 -1 37564 10 10 5
+E
+food pile~
+A three-foot-high pile of discarded food and plants lies here, stinking
+up the entire cavern.  The food seems to be mostly of the vegetable
+variety, with a few slivers of rotten, worm-eaten meat tossed in.
+~
+E
+moss~
+The moss here is thick, clinging to the walls in cords that run from the
+floor to the ceiling.  The glowing moss gives, albeit little, light to
+the otherwise dark cave.
+~
+A
+search move examine~
+pile food~
+if( rflag( reset0, room ) ) {
+  send_to_char( #yuk, ch );
+  act_notchar( #yuknot, ch );
+  mload( 1148, room );
+  mload( 1148, room );
+  mload( 1148, room );
+  mload( 1148, room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nope, ch );
+~
+E
+yuk~
+You plunge your hands into the fetid pile, recoiling to find it crawling
+with giant maggots.
+~
+E
+yuknot~
+$n plunges $s hands into the fetid pile of disarded food, recoiling to
+find it crawling with giant maggots.
+~
+E
+nope~
+You rummage through the slimy, fetid pile but find nothing.
+~
+!
+0 0 0
+-1
+S
+
+#37566
+Cavern of Falling Water~
+This cavern is filled with an unnatural light.  A powerful waterfall
+plummets through a broad opening in the high ceiling of this cavern and
+runs down the south wall, to disappear into another broad opening.  This
+entire cavern is filled with moss and huge plants with wide, glossy
+leaves.  The mist is so thick it is almost blinding.  The area looks to
+have been cultivated, with fruit-bearing plants growing in stone pots.  A
+shaft of soft, pallid light shines through the opening on the ceiling. 
+The only exit is north, where the cave looks very dark.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 37564 10 10 5
+E
+waterfall water~
+The waterfall is more than fifteen feet across and barrels through a
+broad opening on the cavern ceiling, runs along the south wall, and
+disappears into another opening in the floor.  Occassionally there are
+faint, metallic flashes in the water.
+~
+E
+flash metal flashes metallic~
+As the water churns through the cavern, it seems to be carrying some
+metal along with it, as tiny glints shine through, hurling past at high
+speed.
+~
+E
+opening openings~
+The openings are misshapen, and are probably not man-made.  They are
+slightly broader than the waterfall.  The water falls through the opening
+on the ceiling and falls into the opening on the floor.
+~
+E
+plant plants~
+The plants here grow in enormous stone pots, their huge, glossy leaves
+stretching toward the shaft of light that comes through the opening on
+the ceiling along with the water.
+~
+E
+light~
+There seems to be no source of the bright, warming light which fills this
+cavern.  It was obviously placed here to feed the cultivated, potted
+plants that fill this cavern.
+~
+A
+get search~
+waterfall water coin metal~
+mob = mob_in_room( 561, room );
+if( mob ) {
+  act_room( #anger, ch );
+  attack( mob, ch, 1d8, "raking claw" );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+i = 1d20;
+  if( i < 5 ) {
+    send_to_char( #copper, ch );
+    act_notchar( #copnot, ch );
+    obj_to_char( oload( 943 ), ch );
+    end;
+    }
+  if( i < 7 ) {
+    send_to_char( #silver, ch );
+    act_notchar( #silvnot, ch );
+    obj_to_char( oload( 932 ), ch );
+    end;
+    }
+  if( i == 8 ) {
+    send_to_char( #gold, ch );
+    act_notchar( #goldnot, ch );
+    obj_to_char( oload( 927 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #nada, ch );
+    act_notchar( #nadanot, ch );
+    }
+  }
+else
+  send_to_char( #nada, ch );
+~
+E
+copper~
+You stick your hands into the icy water.  Suddenly a small, heavy object
+crashes into your palm.  You have snared a piece of copper ore.
+~
+E
+copnot~
+$n sticks $s hand into the rushing water, then after a second jumps with
+a start and pulls back, holding up a piece of copper ore.
+~
+E
+silver~
+You stick your hands into the icy water.  Suddenly a small, heavy object
+crashes into your palm.  You have snared a piece of silver ore.
+~
+E
+silvnot~
+$n pushes $s hand into the rushing water, then jumps back with a start,
+holding aloft a piece of silver ore.
+~
+E
+gold~
+You stick your hands into the icy water.  After a second, a small, heavy
+object crashes into your palm.  You have snared a piece of gold ore!
+~
+E
+goldnot~
+$n pushes $s hands into the rushing water, and after a second leaps back
+with a start, holding aloft a piece of gold ore.
+~
+E
+nada~
+You stick your hands in the icy water.  You wait, but catch nothing.
+~
+E
+nadanot~
+$n pushes $s hands in the icy water, and $e waits, but finds nothing.
+~
+E
+anger~
+A homonculous hisses and bares his claws.
+~
+!
+0 0 0
+A
+pick~
+plant tomato~
+if( obj_in_room( 851, room ) )
+  continue;
+else
+  send_to_char( #no, ch );
+~
+E
+no~
+There is no fruit left on the vines.
+~
+!
+0 0 0
+851 17 1509949540 -2 0
+851 17 1509949540 -2 0
+561 137 1509949540 3 0
+1327 17 1509949540 -2 0
+-1
+S
+
+#37567
+Silent Tunnel~
+A faint, whispering breeze drifts from the darkness to the north.  A thin
+layer of cold, dark water slides along the walls and gathers on the
+clammy floor.  This cavern is very quiet, the silence broken only by the
+irregular splash of dropping water.  The cavern heads north and south.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37565 10 10 5
+D2
+~
+~
+0 -1 37568 10 10 5
+E
+water~
+Against the blood-red granite walls, the water is very thick, shimmering
+faintly in the soft luminscent glow given off by the moss that grows here.
+~
+561 9 1509949540 3 0
+-1
+S
+
+#37568
+Cavern Junction~
+Where three branches of the tunnel come together, massive bronze faces
+adorn the walls, looking directly at all who pass.  The tunnel here is
+bare stone, without a trace of moss.  The air is cold.  The tunnel heads
+to the north, south, and east.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37567 10 10 5
+D1
+~
+~
+0 -1 37569 10 10 5
+D2
+~
+~
+0 -1 37570 10 10 5
+E
+bronze faces~
+These are the depictions of an unknown race, if it even exits at all. 
+The bronze faces are long, perhaps five feet, are narrow with high cheek
+bones and small, beady eyes.  Needle-like fangs protrude from the lipless
+mouthes.
+~
+-1
+S
+
+#37569
+Granite Statue~
+The ceiling in this chamber is a head taller than any ogre.  In the
+center of the room is a massive stone statue of a grotesque homonculous,
+its enormous wings spread, its fanged mouth open and dripping gore.  The
+walls here are smooth stone, carved with inch-high runes in a perfect
+circle mid-way between the ceiling and floor.  The only exit is west.
+~
+~
+301465604 11 5 0
+D3
+~
+~
+0 -1 37568 10 10 5
+E
+statue~
+Eight feet tall, and even wider with the wingspan, this enormous stone
+statue shows a slathering homonculous in the throes of ecstasy.  Its
+broad face is thrown back, its eyes closed, its fanged mouth open in a
+silent howl.  Like its wings, its arms are extended fully, its clawed
+fingers hooked.
+~
+E
+mouth~
+Open fully, the stone mouth is like a bowl.
+~
+E
+runes~
+Generally circular, these runes are twisted and elegant and dizzyingly
+complex.  They run side-by-side in a circle around the room.  The
+language is unknown.
+~
+A
+search examine~
+bowl mouth~
+if( rflag( reset0, room ) ) {
+  send_to_char( #get, ch );
+  act_notchar( #getnot, ch );
+  obj_to_char( oload( 14 ), ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nada, ch );
+~
+E
+get~
+You feel around the inside of the giant homonculous's gaping mouth. 
+Feeling something, you grab quickly and pull away.  You have found a
+silver coin.
+~
+E
+getnot~
+$n feels around the inside of the statue's gaping mouth, then pulls away
+quickly, holding up a silver coin.
+~
+E
+nada~
+You feel inside the statue's giant mouth, but find nothing.
+~
+!
+0 0 0
+1149 169 1509949540 3 0
+561 73 1509949540 3 0
+561 73 1509949540 3 0
+-1
+S
+
+#37570
+Cylindrical Chamber~
+This chamber is a perfect, polished cylinder, which soars upward into
+total blackness.  Someone has carved staggered handholds in the south
+wall.  A penetrating, freakish chill drifts from above and wraps the room
+in an icy grip.  The chamber exits to the north, where it narrows out.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37568 10 10 5
+D4
+~
+~
+0 -1 37571 10 10 5
+E
+handholds holds holes gouges~
+The handholds are several inches deep, and are wide enough for a very
+large creature to use.  They move straight up the cavern's south wall to
+the darkness above.
+~
+-1
+S
+
+#37571
+Chilling Cavern~
+In the floor a gaping hole fitted with handholds leads downward.  The air
+here is cold and still; this tunnel is quiet.  The stone is smooth and
+dry, etched with runic carvings.  Long, narrow tunnels head west and
+south.
+~
+~
+301465612 11 5 0
+D2
+~
+~
+0 -1 37580 10 10 5
+D3
+~
+~
+0 -1 37572 10 10 5
+D5
+~
+~
+0 -1 37570 10 10 5
+E
+hole opening shaft chamber~
+A gaping hole in the floor leads downward.  The walls of the hole would
+be too smooth to climb if not for the many handholds carved in the stone.
+~
+E
+runes carvings etchings rune carving etching~
+These elegant runes are undecipherable.  They cover the entire wall,
+from floor to ceiling, and are generally circular in nature.  Some seem
+to represent blowing wind.
+~
+-1
+S
+
+#37572
+Bend in the Tunnel~
+An enormous etching - a clawed hand with wickedly bent fingers -
+dominates the west wall of this cavern.  Around the hand are circular
+runes in an undecipherable language.  The air here is cold, with tiny
+flecks of frost appearing on the stone.  The cave branches east and south.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37571 10 10 5
+D2
+~
+~
+0 -1 37573 10 10 5
+E
+etching hand~
+This six-foot-carving shows a humanoid hand with long, thin fingers and
+spidery veins crawling up through its flesh.  Its fingers are bent to
+show long, thin fingernails that glimmer like silver.
+~
+E
+fingernail finger silver fingernails~
+Upon closer inspection it is obvious that these fingernails not only
+shine like silver, they are silver - silver pieces, in fact, set into the
+stone.  It looks as if one of them is a little loose.
+~
+E
+runes~
+Intricate runes circle the massive hand here, each rune different from
+the other and none of them recognizeable.
+~
+E
+frost~
+Frost brushes this stone, leaving little more than a slight trace of gray
+on the stone.  However, to the south the frost looks thicker.
+~
+A
+get pry take~
+nail fingernail silver~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) < 6 ) {
+    send_to_char( #get, ch );
+    act_notchar( #getnot, ch );
+    obj_to_char( oload( 14 ), ch );
+    }
+  else
+    send_to_char( #nada, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #nada, ch );
+~
+E
+get~
+You dig into the wall, and manage to pry loose a silver piece.
+~
+E
+getnot~
+$n digs into the wall, managing to pry loose a the silver piece.
+~
+E
+nada~
+You dig into the wall, but are unable to budge the silver piece.
+~
+!
+0 0 0
+1151 9 1509949540 3 0
+-1
+S
+
+#37573
+Winding Tunnel~
+Where the tunnel turns north and west, a light layer of frost has
+encroached on the stone, dusting it with soft white.  The frost is
+particularly thick on the south wall, where almost no stone can be seen. 
+The tunnel heads north to another junction, or to the west, where the
+frost looks even thicker.
+~
+~
+301465612 11 5 0
+D0
+~
+~
+0 -1 37572 10 10 5
+D2
+ice wall~
+~
+251 -1 37582 10 10 5
+D3
+~
+~
+0 -1 37574 10 10 5
+E
+1 south frost wall~
+The frost on the south wall is quite thick, completely covering the stone. 
+Behind the outer layer of permafrost, there are several dark patches,
+perhaps underlying stone or ice.
+~
+E
+ice sheet~
+A sheet of ice completely seals the entrance to the dark cavern to the
+south.
+~
+A
+move~
+frost~
+if( rflag( reset0, room ) ) {
+  send_to_char( #uncov, ch );
+  act_notchar( #uncovnot, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+uncov~
+You brush aside the thick layer of out frost, revealing a solid sheet of
+ice.  The sheet is sealing off a smaller chamber to the south.  Behind
+the ice you can see dark, motionless shapes.
+~
+E
+uncovnot~
+$n brushes away the thick layer of frost on the south wall, revealing a
+thin sheet of ice, which seals off a small chamber.
+~
+E
+already~
+The frost has already been moved aside.
+~
+!
+0 0 0
+A
+break bash kick punch hit~
+ice wall sheet~
+if( !is_open( room, south ) ) {
+  send_to_char( #break, ch );
+  act_notchar( #breaknot, ch );
+  open( room, south );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #done, ch );
+~
+E
+break~
+Your powerful blow shatters the thin ice, uncovering a small, icy chamber
+to the south.
+~
+E
+breaknot~
+$n strikes the thin sheet of ice, shattering it easily and opening a
+small chamber to the south.
+~
+E
+done~
+The wall of ice has already been broken.  The chamber to the south is
+open.
+~
+!
+0 0 0
+1151 9 1509949540 3 0
+-1
+S
+
+#37574
+Frost-Covered Tunnel~
+The frost here is perhaps an inch thick and totally covers the stone
+walls and ceiling.  The air is very cold; breath steams quickly and
+dissipates in coiling tendrils.  The tunnel stretches east and west. 
+From the west comes a chilling wind.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37573 10 10 5
+D3
+~
+~
+0 -1 37575 10 10 5
+E
+frost~
+This frost is quite thick and solid, more like ice than snow.  It is
+almost pure white, covering any trace of the brown-red granite beneath.
+~
+1151 9 1509949540 3 0
+-1
+S
+
+#37575
+Icy Cavern~
+Sheets of blue-white, glistening ice cling to the walls, and thick, heavy
+icicles hang from the ceiling.  Breath becomes thick, rolling clouds of
+steam that rise then disappear.  The tunnel turns east and south.  A
+strong, biting wind comes from the south, carrying with it a low,
+resonating moan.
+~
+~
+301467660 11 5 0
+D1
+~
+~
+0 -1 37574 10 10 5
+D2
+~
+~
+0 -1 37576 10 10 5
+E
+ice~
+The ice is a thin, solid sheet, dusted with a layer of frost.  It seems
+to have been forming here for some time.
+~
+E
+icicles~
+The ceiling is spiked with icicles, some as small as sewing needles,
+others as large as dwarves.  The raking wind that comes through this
+tunnel rattles a few of the smaller icicles.
+~
+A
+entering room~
+~
+wait( 1 );
+if( random( 1, 3 ) == 1 )
+  send_to_char( #ice, ch );
+~
+E
+ice~
+A fierce wind blasts in from the south, rattling the icicles on the
+ceiling.  One - the size of a dwarf - creaks and sways dangerously.
+~
+!
+1 0 6
+-1
+S
+
+#37576
+Ascending Tunnel~
+This chamber is narrow, barely wider than shoulder-width to an ogre.  It
+heads straight upward into the cold darkness.  Icy handholds have been
+gouged into the east wall.  On the west wall, someone has carved
+intricate runes into the ice.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37575 10 10 5
+D4
+~
+~
+0 -1 37577 10 10 5
+E
+handholds~
+The handholds form a ladder, carved into the ice, which heads straight up.
+~
+E
+runes rune~
+These runes are large - a foot across in some cases.  They are
+unrecognizable, however some seem to represent ice or wind.
+~
+1152 1161 1509949540 3 0
+-1
+S
+
+#37577
+Ascending Tunnel~
+This ice-clogged chamber moves straight up and down.  The handholds
+carved into the wall are clotted with ice, making the hold precarious. 
+It is a long way down.  A cold wind comes from above, echoing off the
+shimmering blue-white ice like a sigh.
+~
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 37578 10 10 5
+D5
+~
+~
+0 -1 37576 10 10 5
+E
+handholds~
+These handholds have been worn down and are now slicker than frozen silk
+on a grease-covered sheet of ice.
+~
+-1
+S
+
+#37578
+Freezing Antechamber~
+A dark, icy shaft plummets downward here, its cavernous opening
+surrounded by a circular handrail.  Icicles cling to the handrail, as
+they do the ceiling.  Thick, heavy cords of ice run up the walls and
+spread across the ceiling like buttresses.  The icy, raking wind is
+strong here, coming from the arch to the east, which seems to lead to a
+larger room.
+~
+[Griffin Tgar] When you try and check tells by typing 't' it sets off the
+acode in the room for no damage :P 
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 37579 10 10 5
+D5
+~
+~
+0 -1 37577 10 10 5
+E
+shaft~
+A narrow hole in the floor leads straight down in the form of an icy,
+precarious shaft.  The hole is surrounded by an ice-covered handrail.
+~
+E
+ice~
+It is hard to tell whether this room has a stone foundation or whether it
+has always been solid ice.  Icicles dangle from the ceiling; the floors
+and walls are covered with heavy sheets of ice; breath seems to turn to
+ice and hit the ground immediately.
+~
+E
+arch east~
+An elegant, rune-covered arch has been carved into the east wall.  It
+leads to a larger room.
+~
+A
+time~
+~
+loop( all_in_room ) {
+  if( !is_player( rch ) )
+    end;
+  if( has_obj( 843, rch ) )
+    send_to_char( #prot, rch );
+  else {
+    if( random( 12, 18 ) > find_stat( rch, con ) ) {
+      send_to_char( #cold, rch );
+      dam_message( rch, 2d4, "The biting chill" );
+      inflict( rch, rch, 2d4, "freezing to death" );
+      }
+    else
+      send_to_char( #conprot, rch );
+    }
+  }
+~
+E
+prot~
+A biting wind rakes your body, but your heavy winter cloak protects you.
+~
+E
+cold~
+A biting wind rakes your body, seeping into your blood and bones.
+~
+E
+conprot~
+A biting wind rakes your body, but you are sturdy enough to brush off the
+cold.
+~
+!
+2 1000 34
+1152 1161 1509949540 3 0
+1152 1161 1509949540 3 0
+-1
+S
+
+#37579
+The Throne of Ice~
+This enormous room is circular and covered with large, twisting runes. 
+Against the north wall sits a throne of ice, simple in design, blocky
+with the back and armrests of equal height.  A blistering wind tears
+through this room, seeming to sweep up from all directions, swirling tiny
+motes of frost and ice in the bitter air.
+~
+~
+301465604 11 8 0
+D3
+~
+~
+0 -1 37578 10 10 5
+E
+throne~
+The back and armrests of this throne are the same height - four feet. 
+The throne looks to have been carved from a single piece of ice or stone
+covered in ice.  It is plain, with no carvings or runes.
+~
+E
+runes~
+These runes are fully as large as an ogre's head.  They are delicate and
+intricate, carved expertly in the pure-white ice.
+~
+A
+~
+~
+if( mob_in_room( 1153, room ) )
+  act_room( #chill, ch, obj, mob );
+~
+E
+chill~
+@CThe icy figure stands and says in a rattling, cold voice that drifts
+from beneath the heavy folds of its hood, "You have disturbed my
+peace."@n 
+~
+!
+1 0 10
+1153 1193 1509949540 3 0
+1151 73 1509949540 3 0
+-1
+S
+
+#37580
+Gouged Cavern~
+In this long, dark cave dark, 18-inch-high niches gouge the stone walls. 
+There are perhaps fifty of the niches staggered about the walls with no
+apparent pattern.  Etched in the remaining areas of bare wall are small,
+twisted runes and crude pictures.  The cave heads north and south.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37571 10 10 5
+D2
+~
+~
+0 -1 37581 10 10 5
+E
+niche gouge niches gouges holes hole~
+The niches are 18" high, eight inches deep and shaped like
+quarter-spheres.  Their insides are heavily scratched.
+~
+E
+runes pictures run picture~
+The cave decorations here can be broken into two categories - runes and
+graffiti.  The runes are elegant and complex, carved into the stone with
+meticulous care.  The graffiti is drawn on with chalk or dyes, and
+represents, for the most part, body parts and acts of cruelty.
+~
+1149 9 1509949540 3 0
+561 9 1509949540 3 0
+-1
+S
+
+#37581
+Large Niches~
+This cavern is circular, with smooth walls set with a dozen large niches,
+perhaps three feet high.  The niches are set evenly around the walls,
+centering on a five-foot niche set in the wall at the far south.  This
+chamber is cold and dark, and thins out to the north, where it becomes a
+narrow tunnel.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 37580 10 10 5
+E
+niches niche~
+These dome-backed, quarter-circular niches are three feet high and are
+carved into the wall at measured intervals.  There are eleven of the
+three-foot niches, all looking on a five-foot niche carved into the south
+wall, immediately opposite the entrance to the north.
+~
+1149 9 1509949540 3 0
+1150 9 1509949540 3 0
+-1
+S
+
+#37582
+Gruesome Cavern~
+This tiny, dome-like chamber is entirely coated with ice.  Huge,
+misshapen blocks of ice and stone lie strewn about, and leaning against
+those blocks are the blue, frozen corpses of three humans.  Their eyes
+are wide open as if in horror, and their mouths and nostrils are stuffed
+with ice.
+~
+[Fenlyn] deleted winter cloak (843) reset for level problems
+~
+301465604 11 5 0
+D0
+ice wall~
+~
+251 -1 37573 10 10 5
+E
+blocks~
+These blocks are heavy and made of ice-covered stone, and seem to occur
+naturally.
+~
+E
+bodies corpses humans body corpse human~
+Aside from being frozen, the bodies are otherwise unharmed.  Their
+clothes are in good repair, their flesh is unscratched.  The horrified
+expression on each of their faces is even more chilling than the cold
+that killed them.
+~
+A
+break shatter kick punch bash strike~
+ice wall 1 north~
+if( !is_open( room, north ) ) {
+  send_to_char( #break, ch );
+  act_notchar( #breaknot, ch );
+  open( room, north );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #done, ch );
+~
+E
+break~
+You powerful strike shatters the ice, opening the cavern to the north.
+~
+E
+breaknot~
+$n delivers a swift strike to the thin sheet of ice, shattering it and
+opening the cavern to the north.
+~
+E
+done~
+The ice wall to the north has already been broken.
+~
+!
+0 0 0
+1151 1161 1509949540 3 0
+1151 137 1509949540 3 0
+-1
+S
+
+#37583
+Bridge Over the Hurgrot~
+This broad, stout wooden bridge sprawls across the churning waters of the
+River Hurgrot.  The wood looks new and straight as if the bridge has only
+recently been constructed.  To the east and west are the vast caverns of
+Voaleth.  To the north the river winds into the dark distance, and the
+south the river runs into a wide tunnel in the cavern's south wall.
+Only a brave soul would actually try to jump into the water.
+~
+[Rue] connects to  71621
+~
+301465612 11 9 0
+D1
+~
+~
+0 -1 37596 10 10 5
+D3
+~
+~
+0 -1 37548 10 10 5
+E
+south opening tunnel~
+The River Hurgrot disappears through a low, broad tunnel in the south
+wall.  From deep within the tunnel comes the sound of falling water.
+~
+E
+wood bridge~
+The bridge is strong and wide, spanning the broad expanse of the River
+Hurgot.  The wood is light and new, suggesting the brige has only
+recently been built.
+~
+A
+jump climb~
+1 down river water~
+act_tochar( #jump, ch );
+act_notchar( #jumps, ch );
+room = find_room( 71621 );
+transfer( ch, room );
+act_tochar( #splash, ch );
+act_notchar( #splashes, ch );
+~
+E
+jump~
+You jump into the darkness, and plunge into the water!
+~
+E
+jumps~
+You see $n leap into the darkness and plunge into the river!
+~
+E
+splash~
+You splash into the water!
+~
+E
+splashes~
+$n comes splashing into the river with you!
+~
+!
+0 0 0
+-1
+S
+
+#37584
+In the River Hurgrot~
+The River Hurgrot rages in from the west then bends southward on its path
+through the dark caverns of Voaleth.  The water here is rough and dark,
+the surface churning into an icy spray that dissiapates to condense on
+the rocky riverbank.  To the east is the riverbank, while to the west the
+river continues.  To the south the water passes beneath a low, broad
+bridge.
+~
+[Merior] connect down to tunnels (71621-ish) 
+[Merior] change command to work when open
+~
+301465604 8 9 0
+D0
+~
+~
+0 -1 37585 10 10 5
+D1
+~
+~
+0 -1 37595 10 10 5
+D3
+~
+~
+0 -1 37616 10 10 5
+E
+riverbank bank~
+A sloping riverbank lies to the east, covered with water and moss.  The
+way there looks treacherous, but could probably be managed.
+~
+A
+1 south~
+~
+if( find_skill( ch, swimming ) > 3 ) {
+  act_tochar( #swim, ch );
+  act_notchar( #swims, ch );
+  room = find_room( 71621 );
+  transfer( ch, find_room( 71621 ) );
+  act_notchar( #arrives, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nope~
+You don't swim well enough to venture downstream.
+~
+E
+swim~
+You swim downstream towards the south.
+~
+E
+swims~
+You see $n swim downstream towards the south.
+~
+E
+arrives~
+$n arrives from the north.
+~
+!
+0 0 0
+324 17 1509949540 -2 0
+-1
+S
+
+#37585
+East Bank of the River Hurgrot~
+To the west the River Hurgrot rages through the icy caverns.  A powdery
+mist rises from the foamy rapids; water condenses on the rocky bank to
+form a slick, glistening sheen.  To the east lies an enormous granite
+boulder.  To the north the riverbank continues, and to the south the
+river bends eastward.
+~
+[Cheliene] need an is_fighting check for this mob.  He does his loading the fish filet even while being murdered.
+[Rue] 
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37586 10 10 5
+D2
+~
+~
+0 -1 37584 10 10 5
+D3
+~
+~
+0 -1 37617 10 10 5
+E
+boulder~
+A boulder, standing more than twelve feet high, lies to the east,
+blocking movement in that direction.
+~
+A
+time~
+none~
+if( !mob_in_room( 1234, room ) )
+  end;
+if( is_fighting( mob_in_room( 1234, room ) ) )
+  end;
+else {
+  if( obj_in_room( 720, room ) )
+    end;
+  else {
+    send_to_room( #catch, room );
+    obj_to_room( oload( 720 ), room );
+    }
+  }
+~
+E
+catch~
+The goblin fisherman bolts upright, grasping for the fishing line
+attached to his toe.  His jaw set, he drags in a large, white fish.  He
+then leaps on the fish, cuts off its head, skins and guts it, then drops
+a raw fish fillet at his side on the bank.
+~
+!
+2 700 0
+A
+1 get take~
+1 fish fillet~
+if( !mob_in_room( 1234, room ) )
+  continue;
+else {
+  if( !obj_in_room( 720, room ) )
+    send_to_char( #no, ch );
+  else {
+    send_to_char( #attack, ch );
+    act_notchar( #rattack, ch );
+    victim = ch;
+    mob = mob_in_room( 1234, room );
+    attack_weapon( mob, victim, 1d7, "punch" );
+    }
+  }
+~
+E
+attack~
+As you reach for the fish fillet, the fisherman's eyes go wide.  He
+attacks.
+~
+E
+rattack~
+$n reaches out to take a fish fillet.  The goblin fisherman's eyes go
+wide, and he attacks.
+~
+E
+no~
+There is no such object here.
+~
+!
+0 0 0
+1234 9 1509949540 3 0
+-1
+S
+
+#37586
+East Bank of the River Hurgrot~
+The water-slicked rocky shore plunges toward the raging currents of the
+River Hurgrot, which runs north-south through the caverns of Voaleth. 
+Boulders and heavy granite slabs, perhaps the remnants of a cave-in,
+litter the floor.  A thick, healthy coat of gray-green moss, its spidery
+veins glistening with cold mist, cover much of the rock.  To the west is
+the river, and to the east are the dark reaches of this enormous cavern. 
+To the south the riverbank continues.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37587 10 10 5
+D1
+~
+~
+0 -1 37593 10 10 5
+D2
+~
+~
+0 -1 37585 10 10 5
+D3
+~
+~
+0 -1 37618 10 10 5
+E
+slabs boulders cave-in~
+Massive boulders and slabs of granite, which must weigh more than a
+thousand pounds a piece, lie on the floor.  Their scattered placement
+suggests they were placed there by a cave-in.
+~
+E
+moss~
+Thick, heavy moss clings to the stone, feeding off the moisture that
+coats the rock.
+~
+561 9 1509949540 3 0
+-1
+S
+
+#37587
+East Bank of the River Hurgrot~
+To the west, the river Hurgrot flows from a broad arch in the north
+cavern wall.  To the north stands the cavern wall itself - a cold,
+soaring slab of granite, chipped, pock-marked, and touched here and there
+with moss.  To the east are the dark, sprawling caverns, and to the south
+the riverbank continues.
+~
+[Peacrickle] River to the west but I can't drink from it?  Excuse me?
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37592 10 10 5
+D2
+~
+~
+0 -1 37586 10 10 5
+D3
+~
+~
+0 -1 37619 10 10 5
+E
+wall~
+The north wall is a high, impenetrable slab of granite.  It soars toward
+the ceiling and is lost in darkness.
+~
+1120 9 1509949540 3 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37589
+Unstable Alcove~
+A deep, rocky groan passes through the stone walls as the very foundation
+of this part of the cavern shifts.  The rock here seems unstable; each
+deafening groan is accompanied by a shower of falling rock and dust.  An
+enormous pile of rock lies here, remnant it would seem of a rock-slide. 
+The only exit is to the east.
+~
+[Ssleestaq] should have some creapy message if someone tries to "get
+hand" possibilities are...nice and icky 
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37590 10 10 5
+E
+pile rock~
+A large, uneven pile of fallen rocks has gathered on the floor.  The pile
+stand three feet high, and is comprised of stones of all sizes.
+~
+A
+search move~
+pile rock boulder~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  remove_rflag( reset0, room );
+  send_to_char( #hand, ch );
+  act_notchar( #rhand, ch );
+  }
+~
+E
+hand~
+You move the rocks that are small enough to lift.  A gray shape leaps
+from the rock!  Looking closer, you see it is a human hand, probably
+belonging to someone who was crushed by the rockslide.
+~
+E
+already~
+The rocks have already been pulled aside, revealing a gray, dead human
+hand, which sticks up through the pile.
+~
+E
+rhand~
+$n moves aside several of the small boulders, then leaps away $e uncovers
+a dead human hand.
+~
+!
+0 0 0
+A
+look examine search~
+hand~
+if( rflag( reset0, room ) ) {
+  send_to_char( #not, ch );
+  end;
+  }
+else {
+  if( !rflag( reset1, room ) ) {
+    send_to_char( #no, ch );
+    end;
+    }
+  else {
+    send_to_char( #ring, ch );
+    end;
+    }
+  }
+~
+E
+no~
+The gray, lifeless hand is totally empty, the cold flesh rotting away.
+~
+E
+ring~
+On the third finger of the dead hand is an old, brass ring.
+~
+E
+not~
+You don't see that here.
+~
+!
+0 0 0
+A
+1 get take~
+ring~
+if( rflag( reset0, room ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  if( !rflag( reset1, room ) ) {
+    send_to_char( #already, ch );
+    end;
+    }
+  else {
+    remove_rflag( reset1, room );
+    send_to_char( #take, ch );
+    act_notchar( #rtake, ch );
+    obj_to_char( oload( 32 ), ch );
+    end;
+    }
+  }
+~
+E
+already~
+You don't see a ring.
+~
+E
+take~
+Straining, you tear the brass ring away from the cold, dead hand.
+~
+E
+rtake~
+$n pulls a brass ring from the finger of the cold, dead hand.
+~
+!
+0 0 0
+-1
+S
+
+#37590
+Narrow Hall in the Caverns~
+This is a kind of narrow hallway within the caverns of Voaleth.  To the
+north rises a massive stone wall, and to the east is a stone outcropping
+that blocks movement in that direction.  To the west is a narrow tunnel
+heading into the stone.  The air here is cold and still.  Rocks litter
+the ground and rubble falls in clumps from crevices on the wall.  To the
+south, the cavern stretches off into the darkness.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37591 10 10 5
+D3
+~
+~
+0 -1 37589 10 10 5
+E
+east outcropping~
+A tall, sloping outcropping of stone protrudes from the north wall,
+blocking passage to the east.  The stone is rough and old, pitted with
+age.
+~
+E
+rubble rocks~
+Rocks have broken from the walls and now cover the floor.
+~
+-1
+S
+
+#37591
+Caverns of Voaleth~
+To the west rises a rough, age-worn wall.  Its red-black granite surface
+is scarred with deep pits.  The stone is folded and rough, sharp jags of
+stone jut out like spikes.  The floor here is covered with a thick layer
+of dust and debris.  To the east and south is darkness, though in the
+distance to the north another wall rises mountainously.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37590 10 10 5
+D1
+~
+~
+0 -1 37598 10 10 5
+D2
+~
+~
+0 -1 37592 10 10 5
+E
+pits~
+Deep pits, dark and deeply shadowed, scar the west wall.
+~
+E
+jags spikes~
+The west wall is covered with rough fingers of stone that protrude like
+spikes.
+~
+1120 9 1509949540 3 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37592
+Caverns of Voaleth~
+The cavern heads north and west around a massive, rough corner of solid
+granite.  The stone is dark and pitted and toward the floor is flecked
+with wispy traces of subterranean moss.  To the east and south are the
+dark, vast reaches of the caverns of Voaleth.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37591 10 10 5
+D1
+~
+~
+0 -1 37599 10 10 5
+D2
+~
+~
+0 -1 37593 10 10 5
+D3
+~
+~
+0 -1 37587 10 10 5
+E
+moss~
+The moss that grows here is thin and spidery.  It emits a faint, milky
+white light.
+~
+78 17 1509949540 -2 0
+-1
+S
+
+#37593
+Caverns of Voaleth~
+Boulders and fragments of broken stalagmites litter the floor amid a
+thick layer of rubble and dust.  The air here is cold and damp, filled
+with a soft, glistening mist that seems to roll in from the west.  In all
+directions lies darkness, though from the west comes the sound of a
+rushing river.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37592 10 10 5
+D1
+~
+~
+0 -1 37600 10 10 5
+D2
+~
+~
+0 -1 37594 10 10 5
+D3
+~
+~
+0 -1 37586 10 10 5
+E
+stalagmites rubble dust~
+The floor is covered with a powdery layer of thick dust and fragments of
+broken stalagmites.
+~
+78 17 1509949540 -2 0
+-1
+S
+
+#37594
+Caverns of Voaleth~
+The sound of rushing water fills the air, echoing off the rocks and
+carrying into the shadowy distance.  A massive granite boulder lies to
+the west, preventing movement in that direction.  To the north and east
+lie only darkness, though to the south the sound of a rushing river is
+quite strong.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37593 10 10 5
+D1
+~
+~
+0 -1 37601 10 10 5
+D2
+~
+~
+0 -1 37595 10 10 5
+E
+boulder west~
+A twelve-foot-high granite boulder blocks the way to the west.
+~
+81 17 1509949540 -2 0
+-1
+S
+
+#37595
+East Bank of the River Hurgrot~
+To the west the sinuous, powerful River Hurgrot churns through the rock,
+its waves lapping the bank and coating the cold stone with a sheen of icy
+water.  The floor here is slick and wet, the water nearly freezing in the
+cold depths of the Caverns of Voaleth.  To the east is a massive pile of
+rock, which looks to be the remnant of an ancient cave-in.  To the south
+is a stout wooden bridge, and to the north the darkness stretches on
+endlessly.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37594 10 10 5
+D2
+~
+~
+0 -1 37596 10 10 5
+D3
+~
+~
+0 -1 37584 10 10 5
+E
+river hurgrot~
+The broad, twisting river heads to the west, then bends north again.  The
+water looks rough, crashing violently against dark boulders that jut from
+the surface.
+~
+E
+pile rocks cave-in~
+To the east is a large pile of stone, loosely jumbled and poorly sorted. 
+The pile looks to be the remnant of a cave-in.
+~
+1120 9 1509949540 3 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37596
+Before A Large Bridge~
+To the west, a large, broad bridge reaches across the powerful waters of
+the River Hurgrot.  To the east are the sprawling, dark caverns of
+Voaleth, and to the north the cavern floor extends into darkness.  The
+air here is cold, powdered with a feathery mist that comes from the
+raging river.  To the south is the cavern wall.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37595 10 10 5
+D1
+~
+~
+0 -1 37603 10 10 5
+D3
+~
+~
+0 -1 37583 10 10 5
+E
+wall south~
+The wall is made of granite and reaches upward to the dark reaches
+of the cavern ceiling.
+~
+E
+bridge~
+A stout wooden bridge heads west over the River Hurgrot.
+~
+561 9 1509949540 3 0
+-1
+S
+
+#37597
+Caverns of Voaleth - North Wall~
+The dry, ancient stone has given way here, piling the floor with dust and
+large, jagged boulders.  To the west is a large granite outcropping,
+which juts from the north wall, preventing movement to the west.  the
+north wall is deeply gouged with cavernous holes where the fallen
+boulders were once lodged.  The mottled walls are brown-red, the color of
+dried blood, and soar upward to the enshrouding darkness.  To the east
+and south is darkness.
+~
+[Ssleestaq] holes yearn to be looked in.
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37604 10 10 5
+D2
+~
+~
+0 -1 37598 10 10 5
+E
+boulders floor~
+The floor of this dark cavern is coated with a layer of rubble, boulders
+and dust.
+~
+E
+granite outcropping~
+To the west, a massive, folded granite protrusion stands like a small
+mountain.  Its pitted surface is rippled with deep reds and browns.
+~
+E
+gouges wall~
+Dislodged boulders have left large, gaping holes in the stone wall.  The
+holes are broad and deep, filled with the powdery dust of crushed stone.
+~
+1120 9 1509949540 3 0
+-1
+S
+
+#37598
+The Caverns of Voaleth~
+The dry air is still and quiet, and the oppressive darkness stretches in
+all directions.  A spongy layer of dull green moss covers the floor,
+crawling over the many granite slabs and boulders that lie here.  From
+far to the south and west comes the sibilant whisper of rushing water.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37597 10 10 5
+D1
+~
+~
+0 -1 37605 10 10 5
+D2
+~
+~
+0 -1 37599 10 10 5
+D3
+~
+~
+0 -1 37591 10 10 5
+E
+moss boulders slabs~
+Dark, thick green moss covers the rocks that lie scattered across the
+floor.
+~
+-1
+S
+
+#37599
+Caverns of Voaleth~
+A light, soft breeze floats in from the west carrying the faint scent of
+water.  The air is cool and touched with a feathery mist that clings to
+the surrounding rock.  Darkness lies on all sides, though from the
+distant west comes the sound of rushing water.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37598 10 10 5
+D1
+~
+~
+0 -1 37606 10 10 5
+D2
+~
+~
+0 -1 37600 10 10 5
+D3
+~
+~
+0 -1 37592 10 10 5
+561 9 1509949540 3 0
+81 17 1509949540 -2 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37600
+Caverns of Voaleth~
+Sharp, foot-high stalagmites jut from a pile of rubble on the rocky floor. 
+A heavy groan passes through the surrounding rock, jarring the dust and
+shaking loose a few pebbles from the ceiling, high above in the darkness. 
+From the distant west comes the sound of rushing water.  In the darkness
+to the east rises a massive wall.  The cavern heads in all directions.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37599 10 10 5
+D1
+~
+~
+0 -1 37607 10 10 5
+D2
+~
+~
+0 -1 37601 10 10 5
+D3
+~
+~
+0 -1 37593 10 10 5
+E
+stalagmites~
+These small stalagmites have seen much abuse - their surfaces are
+chipped, their tips are broken.  The stalagmites stick up through a layer
+of cobblestones and dust.
+~
+A
+~
+~
+send_to_room( #fall, room );
+~
+E
+fall~
+As a groan passes through the stone, you are showered with pebbles.
+~
+!
+2 400 0
+78 17 1509949540 -2 0
+-1
+S
+
+#37601
+Spiraling Stalagmite~
+A red-brown stalagmite fifteen feet high stands here, standing starkly
+alone on the bare, flat rock floor.  Someone has carved the exterior of
+the stalagmite into a spiral, the chisel marks still showing.  The cavern
+stretches in all directions, and from the west comes the sound of moving
+water.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37600 10 10 5
+D1
+~
+~
+0 -1 37608 10 10 5
+D2
+~
+~
+0 -1 37602 10 10 5
+D3
+~
+~
+0 -1 37594 10 10 5
+E
+spiral stalagmite~
+This stalagmite is narrow and sinuous, its surface chiselled to an
+elegant spiral and its tip honed to a sharp point.  The stalagmite stands
+fifteen feet high and seems utterly alone in the dark, flat surroundings
+of this massive cavern.
+~
+A
+climb~
+up stalagmite~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 37673 ) );
+  room = find_room( 37673 );
+  act_notchar( #arrive, ch );
+  }
+else {
+  if( find_skill( ch, climb ) > random( 2, 5 ) ) {
+    send_to_char( #cl, ch );
+    act_notchar( #rcl, ch );
+    transfer( ch, find_room( 37673 ) );
+    act_notchar( #arr, ch );
+    }
+  else {
+    send_to_char( #no, ch );
+    act_notchar( #rno, ch );
+    }
+  }
+~
+E
+fly~
+You fly upward.
+~
+E
+rfly~
+$n flies upward.
+~
+E
+arrive~
+$n comes flying up from below.
+~
+E
+cl~
+You grab the spiraling surface and climb up.
+~
+E
+rcl~
+$n climbs the spiraling stalagmite.
+~
+E
+arr~
+$n comes climbing up from below.
+~
+E
+no~
+You try to climb the stalagmite, but come sliding back down.
+~
+E
+rno~
+$n tries to climb the stalagmite, but comes sliding back down.
+~
+!
+0 0 0
+561 9 1509949540 3 0
+1120 9 1509949540 3 0
+1120 9 1509949540 3 0
+-1
+S
+
+#37602
+East of a Fallen Boulder~
+A sort of trail moves between scattered rubble and jumbled piles of rock. 
+To the east are several small piles of rock, all of roughly the same
+size, suggesting the piles were made by hand.  West is blocked by a
+massive mound of rock.  In the darkness to the north rises a large,
+spiraling stalagmite.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37601 10 10 5
+D1
+~
+~
+0 -1 37609 10 10 5
+D2
+~
+~
+0 -1 37603 10 10 5
+E
+rubble pile rock~
+The piles of rock that dot this floor are rough, but of even heights,
+suggesting they were made by hand.  A vague path has been cleared through
+the rubble, easing the passage to the north and south.
+~
+E
+west mound~
+Remnant of an ancient cave-in, a massve pile of stone blocks the passage
+west.  The mound stands eight feet high.
+~
+E
+north stalagmite spiraled~
+The thin, blade-like line of a narrow, spiraling stalagmite emerges from
+the darkness to the north.
+~
+-1
+S
+
+#37603
+Caverns of Voaleth - South Wall~
+Flecked with wispy patches of luminescent moss, a massive granite wall
+rises to the south.  The age-eaten wall, rocky and pock-marked, rises so
+high into the darkness its top cannot be seen.  The floor is touched with
+a light, slick layer of murky slime.  The caverns of Voaleth stretch to
+the north and east.  From the west comes the sound of a rushing river.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37602 10 10 5
+D1
+~
+~
+0 -1 37610 10 10 5
+D3
+~
+~
+0 -1 37596 10 10 5
+E
+wall~
+The south wall sparkles with patches of softly glowing luminescent moss. 
+The ancient stone is rough, having borne the passage of eons.
+~
+E
+slime floor~
+A thin sheen of cavern slime has built up here where the cold rocks are
+damp with the mist that floats in from the west.
+~
+-1
+S
+
+#37604
+Caverns of Voaleth - North Wall~
+The red-brown mottled north wall is folded and rippled, as if subjected
+to great heat and pressure.  The floor and walls are buckled and rough,
+and pools of glistening water gather in the low places.  Tendrils of cold
+water trickle from holes in the north wall, the water spilling across the
+floor with a soft splash.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37613 10 10 5
+D2
+~
+~
+0 -1 37605 10 10 5
+D3
+~
+~
+0 -1 37597 10 10 5
+E
+north wall~
+The granite wall has been bent and folded, the mottled surface now warped. 
+Only great heat and pressure could have bent the entire wall this way.
+~
+E
+water pools~
+Tendrils of groundwater enter through small holes eroded in the walls. 
+The trickles spill down the wall and cover the floor, gathering into
+small, dark pools.
+~
+78 17 1509949540 -2 0
+-1
+S
+
+#37605
+Caverns of Voaleth~
+Puddles of dark water gather in pits on the debris-scattered floor.  The
+surface of the water is yellow-green and slick with a light layer of
+slime.  Tiny stalagmites jut from the floor, their tips broken off and
+their surfaces pitted.  A deep groan echoes through the darkest reaches
+of the caverns, and small rocks dislodge and tumble down the walls.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37604 10 10 5
+D1
+~
+~
+0 -1 37612 10 10 5
+D2
+~
+~
+0 -1 37606 10 10 5
+D3
+~
+~
+0 -1 37598 10 10 5
+E
+puddles pits~
+The floor has been chipped and broken by falling rocks, leaving small
+pits where groundwater has accumulated into dark puddles.
+~
+E
+stalagmites~
+These tiny stalagmites have been battered by the passage of time - their
+points broken and their surfaces damaged.
+~
+561 9 1509949540 3 0
+561 9 1509949540 3 0
+-1
+S
+
+#37606
+North of A Massive Rockslide~
+A deep groan passes through the shifting stone, dislodging cobbles that
+tumble and bounce down the massive rockslide to the south.  The air is
+cold and still and smells faintly of mildew and dying vegetation.  Dead
+patches of moss, brown and wispy, cling to the surrounding rock.  The
+caverns head to the north, east and west.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37605 10 10 5
+D1
+~
+~
+0 -1 37611 10 10 5
+D3
+~
+~
+0 -1 37599 10 10 5
+E
+rockslide~
+A mountain of fallen stone stands over 50 feet high and blocks passage to
+the south.
+~
+E
+moss patches~
+The brown, spidery remains of once-thick moss lies here, clinging
+desperately to the jagged rocks.
+~
+-1
+S
+
+#37607
+Caverns of Voaleth - East Wall~
+The path to the north is blocked by a large, massive rockslide.  A dark
+cavern wall rises to the east, though the walls looks like the remnant of
+an ancient rockslide, rather than a solid slab of rock.  From the west
+comes a soft, light breeze, accompanied by the faintest touch of cool
+moisture.  The caverns of Voaleth stretch to the south and west.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37608 10 10 5
+D3
+~
+~
+0 -1 37600 10 10 5
+E
+rockslide~
+An enormous rockslide has dumped hundreds of tons of stone directly in
+the path to the north, blocking any movement in that direction.
+~
+E
+wall east~
+The wall to the east is not a wall in the traditional sense.  It is a
+massive blockade of fallen rock, soaring toward the shadow-wrapped
+ceiling.  Thirty feet from the floor, though, is a large, dark recess.
+~
+E
+recess~
+Set into the jagged pile of stone, a dark recess is barely visible in the
+shadows.
+~
+A
+climb~
+rockslide rock wall up~
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 37671 ) );
+  room = find_room( 37671 );
+  act_notchar( #arrive, ch );
+  }
+else {
+  if( find_skill( ch, climb ) > random( 3, 7 ) ) {
+    send_to_char( #cl, ch );
+    act_notchar( #rcl, ch );
+    transfer( ch, find_room( 37671 ) );
+    act_notchar( #arr, ch );
+    }
+  else {
+    send_to_char( #no, ch );
+    act_notchar( #rno, ch );
+    }
+  }
+~
+E
+fly~
+You fly up.
+~
+E
+rfly~
+$n flies upward.
+~
+E
+arrive~
+$n comes flying up from below.
+~
+E
+cl~
+You grab the rocky surface and climb up.
+~
+E
+rcl~
+$n climbs the massive rockslide.
+~
+E
+arr~
+$n climb up from below.
+~
+E
+no~
+You try to climb the rockslide, but come sliding back down.
+~
+E
+rno~
+$n tries to climb the rockslide but comes sliding back down.
+~
+!
+0 0 0
+-1
+S
+
+#37608
+Caverns of Voaleth - East Wall~
+The east wall of this cavern looks as if it was formed by an enormous
+cave-in.  The wall is rocky and sharply angled, and comprised from
+thousands upon thousands of massive boulders rather than a solid slab of
+rock.  The caverns of Voaleth stretch to the west and south.  The east
+wall continues northward.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37607 10 10 5
+D2
+~
+~
+0 -1 37609 10 10 5
+D3
+~
+~
+0 -1 37601 10 10 5
+E
+wall~
+The cavern's east wall is not so much a wall as an insurmountable tower
+of fallen rock.  Its surface is rough, formed of thousands of rocks that
+must have piled up during an incredible rockslide.
+~
+1120 9 1509949540 3 0
+-1
+S
+
+#37609
+Caverns of Voaleth~
+Lying to the northeast is the east wall of this massive cavern, though to
+the immediate east is a narrow tunnel leading back into the stone. 
+Rising in the darkness to the south is a massive stone wall, flickering
+with thousands of green specks where luminescent moss grows in dark
+niches.  In the icy air to the north and west is darkness.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37608 10 10 5
+D1
+~
+~
+0 -1 37614 10 10 5
+D2
+~
+~
+0 -1 37610 10 10 5
+D3
+~
+~
+0 -1 37602 10 10 5
+E
+wall~
+Rising monolithically in the darkness to the northeast, the east wall of
+this cavern heads northward and disappears in the shadows.
+~
+E
+east tunnel~
+A broad opening to the east leads into a tunnel that winds its way into
+the stone.
+~
+E
+moss south flecks niche~
+Patches of moss on the south wall flicker in the darkness like thousands
+of faint, green fireflies.
+~
+561 9 1509949540 3 0
+-1
+S
+
+#37610
+Caverns of Voaleth - South Wall~
+This dark, quiet corner in the caverns of Voaleth is formed where the
+cavern's south wall meets a high, jagged rock outcropping.  At the floor
+of the cavern wall are a series of dark pits and loose piles of rock.  To
+the north and west are darkness and silence.
+~
+~
+301465605 11 9 0
+D0
+~
+~
+0 -1 37609 10 10 5
+D3
+~
+~
+0 -1 37603 10 10 5
+E
+outcropping~
+To the east is a high, jagged slab of folded granite that protrudes from
+the cavern's south wall.  The slab is ancient and worn, and it is large
+enough to prevent movement to the east.
+~
+E
+pits~
+These pits look naturally formed - the chisel marks still visible around
+their stony edges.
+~
+E
+piles~
+Alongside the many pits in the cavern's south wall are loose piles of
+stone.
+~
+A
+search~
+pits~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #no, ch );
+  act_notchar( #rno, ch );
+  end;
+  }
+else {
+  remove_rflag( reset0, room );
+  i = 1d10;
+  if( i < 4 ) {
+    send_to_char( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_room( oload( 78 ), room );
+    obj_to_room( oload( 78 ), room );
+    if( random( 1, 10 ) < 3 )
+      obj_to_room( oload( 14 ), room );
+    if( random( 1, 10 ) < 2 )
+      obj_to_room( oload( 14 ), room );
+    if( random( 1, 10 ) < 4 )
+      obj_to_room( oload( 81 ), room );
+    }
+  else {
+    send_to_char( #no, ch );
+    act_notchar( #rno, ch );
+    end;
+    }
+  }
+~
+E
+no~
+You search the small pits but find nothing.
+~
+E
+rno~
+$n searches the small pits, but appears to find nothing.
+~
+E
+find~
+You sweep your hand through the small pits, pulling several objects onto
+the floor.
+~
+E
+rfind~
+$n sticks $s hands in the small pits, then pulls out several objects.
+~
+!
+0 0 0
+561 9 1509949540 3 0
+81 17 1509949540 -2 0
+-1
+S
+
+#37611
+Caverns of Voaleth - Dark Corner~
+The south wall of this cavern is not a solid slab of stone, but rather an
+enormous, sloping rockslide that soars to the dark, shadowy ceiling of
+this vaulted cavern.  Rubble bounces down the wall as the deep, groaning
+rock shifts under its own weight.  Toward the bottom of the south wall
+are several large granite slabs.  The cavern stretches to the north and
+west.
+~
+Okay, to the south is a secret door, but I'm disabling it until the
+massive lake is finished.
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37612 10 10 5
+D2
+~
+~
+235 -1 37651 10 10 5
+D3
+~
+~
+0 -1 37606 10 10 5
+E
+slabs~
+Several massive slabs of granite lean against the wall toward the floor.
+~
+A
+move lift~
+slabs rocks stones granite~
+if( is_open( room, south ) ) {
+send_to_char( #already, ch );
+end;
+}
+else {
+send_to_char( #open, ch );
+act_notchar( #ropen, ch );
+open( room, south );
+end;
+}
+~
+E
+already~
+The stones have already been cleared away, revealing a narrow tunnel
+leading behind the massive rockslide.
+~
+E
+open~
+You pull aside the granite slabs, revealing a tunnel that heads behind
+the massive rockslide.
+~
+E
+ropen~
+$n pulls aside the granite slabs, opening a tunnel to the south.
+~
+!
+0 0 0
+A
+1 south~
+~
+if( !is_open( room, south ) ) {
+  send_to_char( #no, ch );
+  end;
+  }
+else {
+  send_to_char( #grem, ch );
+  close( room, south );
+  end;
+  }
+~
+E
+no~
+There is no exit in that direction.
+~
+E
+grem~
+As you start to move south, a tiny gremlin pokes its head out of the
+darkness.  "Go away!" he titters.  "This area isn't open yet!" He then
+storms between your feet, grabs several slabs of stone, and seals himself
+back in the cavern.  You hear his sullen grumble fade away.
+~
+!
+0 0 0
+-1
+S
+
+#37612
+Caverns of Voaleth~
+Water flows down the wall from a long, narrow gash high on the cavern
+wall.  The wall glistens dark red, the water glimmering as it wraps
+itself around stone and moss.  A wide, dark pool gathers on the floor,
+the soft splashing echoing in the distant reaches of these large, cold
+caverns.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37613 10 10 5
+D2
+~
+~
+0 -1 37611 10 10 5
+D3
+~
+~
+0 -1 37605 10 10 5
+E
+gash wall~
+It looks as though the wall has cracked wide open, leaving a long, narrow
+gash through which drains a steady, powerful flow of dark water.  The
+water spills down the wall and gathers in a large pool on the floor.
+~
+E
+pool~
+A large, dark pool, its surface rippling as a stream of water splashes
+into it, entirely covers the floor.
+~
+A
+search~
+pool water~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #no, ch );
+  act_notchar( #rno, ch );
+  end;
+  }
+else {
+  remove_rflag( reset0, room );
+  send_to_char( #bite, ch );
+  act_notchar( #rbite, ch );
+  i = 1d7;
+  dam_message( ch, i, "The needle-like bite" );
+  inflict( ch, mob, i, "a baby serpent" );
+  act_room( #emerge, ch );
+  mob_in_room( mload( 1232, room ), room );
+  victim = ch;
+  mob = mob_in_room( 1232, room );
+  attack( mob, victim, 1d7, "fanged bite" );
+  }
+~
+E
+no~
+You plunge your hands into the dark water and search for a while, but
+find nothing.
+~
+E
+rno~
+$n rummages through the dark water, but seems to find nothing.
+~
+E
+bite~
+You plunge your hands into the dark water.  You rummage around for a
+while, when you feel something slither across your skin.  Suddenly your
+hand erupts in pain!
+~
+E
+rbite~
+$n plunges $s hand in the dark water.  Suddenly $e
+withdraws with a yelp of pain!
+~
+E
+emerge~
+A small, dark blue serpent surfaces, coiled to strike.
+~
+!
+0 0 0
+-1
+S
+
+#37613
+Caverns of Voaleth - Northeast Corner~
+Deep folds run from the floor to the high, shadowy reaches of this quiet
+cavern.  Tiny flecks of dust drift through the cold, still air - the dust
+broken from dislodged rocks and deep gouges in the wall.  The floor is
+littered with heavy slabs of moss-covered granite.  The cavern heads to
+the west and south.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37612 10 10 5
+D3
+~
+~
+0 -1 37604 10 10 5
+E
+gouges wall~
+This wall has seen some abuse.  Its surface is rough, with massive,
+jagged chunks ripped from the very stone.
+~
+E
+slabs granite~
+Slabs of granite, possibly broken from the wall itself, cover the floor.
+~
+1120 9 1509949540 3 0
+-1
+S
+
+#37614
+Narrow Cavern~
+This tight, narrow tunnel winds around an enormous stone outcropping on
+the south cavern wall.  The air here is cold and very still, the silence
+broken only by the soft, regular dripping of water.  The narrow tunnel
+turns to the south, and to the west opens up into the massive caverns of
+Voaleth.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37615 10 10 5
+D3
+~
+~
+0 -1 37609 10 10 5
+E
+outcropping~
+To the south is the edge of a large outcropping that juts from the south
+cavern wall.  This path winds around the outcropping and heads southward.
+~
+81 17 1509949540 -2 0
+-1
+S
+
+#37615
+Dead End in Cavern~
+Rivulets of dark groundwater leak from holes in the three walls that form
+this narrow enclave.  The water trickles through soft pads of moss then
+coats the floor with a thin layer of water and slime.  On the floor is a
+large, dark hole.  The tunnel heads toward a bend to the north.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37614 10 10 5
+D5
+~
+~
+0 -1 37670 10 10 5
+E
+groundwater water holes~
+A steady stream of groundwater has eroded holes into the cavern wall,
+allowing narrow threads of dark water to leak through and splash across
+the stone floor.
+~
+E
+moss slime~
+The floor here is slick with a glistening sheen of slime and thick, green
+moss.
+~
+E
+hole~
+A large, gaping hole in the floor leads down into darkness.
+~
+-1
+S
+
+#37616
+Middle of the River Hurgrot~
+The River Hurgrot churns powerfully, the raging, dark water smashing into
+a foam against massive granite boulders that jut from surface.  A icy
+mist hangs in the air, coating the shores and filling your lungs with a
+permeating chill.  The river flows in from the north, and here bends
+eastward.  Rising in the darkness to the south is a wooden bridge.  To
+the west is a rocky riverbank, and to the immediate south is a finger of
+rock which juts in from the west shore.
+~
+~
+301465604 8 9 0
+D0
+~
+~
+0 -1 37617 10 10 5
+D1
+~
+~
+0 -1 37584 10 10 5
+D2
+~
+~
+0 -1 37548 10 10 5
+D3
+~
+~
+0 -1 37542 10 10 5
+E
+boulders granite~
+Dark boulders, glistening with moisture, protrude from the foamy water.
+~
+324 17 1509949540 -2 0
+-1
+S
+
+#37617
+In the River Hurgrot~
+Thick fingers of rock, their tips glistening black, jut from the churning
+surface of the River Hurgrot.  The river comes in from the north,
+breaking and foaming along its course.  To the east and west are the
+rocky riverbanks.  To the south the river continues, and far to the north
+rises the massive north wall of the cavern.
+~
+~
+301465604 8 9 0
+D0
+~
+~
+0 -1 37618 10 10 5
+D1
+~
+~
+0 -1 37585 10 10 5
+D2
+~
+~
+0 -1 37616 10 10 5
+D3
+~
+~
+0 -1 37541 10 10 5
+E
+riverbanks~
+The to the east and west are the slick, slanted banks of the River
+Hurgrot.  The banks glisten with a sheen of icy water.
+~
+324 17 1509949540 -2 0
+-1
+S
+
+#37618
+In the River Hurgrot~
+The deafening roar of the River Hurgrot fills the air, echoing off the
+cold stone and resonating in your ears.  The river plows through the
+caverns of Voaleth, tearing away stone as it moves and coating the
+surrounding rock with mist.  To the east and west are the mossy
+riverbanks.  In the distance to the north rises the massive cavern wall.
+~
+~
+301465604 8 9 0
+D0
+~
+~
+0 -1 37619 10 10 5
+D1
+~
+~
+0 -1 37586 10 10 5
+D2
+~
+~
+0 -1 37617 10 10 5
+D3
+~
+~
+0 -1 37540 10 10 5
+324 17 1509949540 -2 0
+-1
+S
+
+#37619
+In the River Hurgrot~
+The River Hurgrot flows into the cavern through a massive, arched opening
+in the north wall.  The river sounds like thunder echoing into the
+darkness.  Mist rises as the water whips itself into a spray against the
+towering stones that jut from the surface.  To the east and west are
+rocky riverbanks, and to the south the river continues.
+~
+~
+301465604 8 9 0
+D1
+~
+~
+0 -1 37587 10 10 5
+D2
+~
+~
+0 -1 37618 10 10 5
+D3
+~
+~
+0 -1 37543 10 10 5
+E
+opening tunnel arch north~
+The river flows in from an enormous opening in the north cavern wall.
+~
+324 17 1509949540 -2 0
+-1
+S
+
+#37620
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37621 10 10 5
+-1
+S
+
+#37621
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37625 10 10 5
+D2
+~
+~
+0 -1 37622 10 10 5
+D3
+~
+~
+0 -1 37620 10 10 5
+-1
+S
+
+#37622
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+Lake shore
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37621 10 10 5
+D1
+~
+~
+0 -1 37624 10 10 5
+D2
+~
+~
+0 -1 37623 10 10 5
+-1
+S
+
+#37623
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+Lake Shore
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37622 10 10 5
+D2
+~
+~
+0 -1 37628 10 10 5
+-1
+S
+
+#37624
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+lake Shore
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37625 10 10 5
+D3
+~
+~
+0 -1 37622 10 10 5
+-1
+S
+
+#37625
+Northwest Shore of an Underground lake~
+Under Construction.
+~
+Lake shore
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37626 10 10 5
+D2
+~
+~
+0 -1 37624 10 10 5
+D3
+~
+~
+0 -1 37621 10 10 5
+-1
+S
+
+#37626
+North Shore of an Underground Lake~
+Under Construction.
+~
+Lake Shore
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37661 10 10 5
+D1
+~
+~
+0 -1 37648 10 10 5
+D3
+~
+~
+0 -1 37625 10 10 5
+-1
+S
+
+#37628
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37623 10 10 5
+D1
+~
+~
+0 -1 37629 10 10 5
+-1
+S
+
+#37629
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37630 10 10 5
+D3
+~
+~
+0 -1 37628 10 10 5
+-1
+S
+
+#37630
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37629 10 10 5
+D1
+~
+~
+0 -1 37631 10 10 5
+-1
+S
+
+#37631
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37632 10 10 5
+D3
+~
+~
+0 -1 37630 10 10 5
+-1
+S
+
+#37632
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37633 10 10 5
+D3
+~
+~
+0 -1 37631 10 10 5
+-1
+S
+
+#37633
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37632 10 10 5
+D1
+~
+~
+0 -1 37634 10 10 5
+-1
+S
+
+#37634
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37635 10 10 5
+D3
+~
+~
+0 -1 37633 10 10 5
+-1
+S
+
+#37635
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37636 10 10 5
+D3
+~
+~
+0 -1 37634 10 10 5
+-1
+S
+
+#37636
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37637 10 10 5
+D2
+~
+~
+0 -1 37635 10 10 5
+-1
+S
+
+#37637
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37638 10 10 5
+D3
+~
+~
+0 -1 37636 10 10 5
+-1
+S
+
+#37638
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37639 10 10 5
+D2
+~
+~
+0 -1 37637 10 10 5
+-1
+S
+
+#37639
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37640 10 10 5
+D2
+~
+~
+0 -1 37638 10 10 5
+D3
+~
+~
+0 -1 37649 10 10 5
+-1
+S
+
+#37640
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37641 10 10 5
+D3
+~
+~
+0 -1 37639 10 10 5
+-1
+S
+
+#37641
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37640 10 10 5
+D3
+~
+~
+0 -1 37642 10 10 5
+-1
+S
+
+#37642
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37643 10 10 5
+D1
+~
+~
+0 -1 37641 10 10 5
+-1
+S
+
+#37643
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37644 10 10 5
+D2
+~
+~
+0 -1 37642 10 10 5
+-1
+S
+
+#37644
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37643 10 10 5
+D3
+~
+~
+0 -1 37645 10 10 5
+-1
+S
+
+#37645
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37644 10 10 5
+D3
+~
+~
+0 -1 37646 10 10 5
+-1
+S
+
+#37646
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37645 10 10 5
+D2
+~
+~
+0 -1 37647 10 10 5
+-1
+S
+
+#37647
+North Shore of an Underground Lake~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37646 10 10 5
+D3
+~
+~
+0 -1 37648 10 10 5
+-1
+S
+
+#37648
+North Shore of An Underground Lake~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37647 10 10 5
+D3
+~
+~
+0 -1 37626 10 10 5
+-1
+S
+
+#37649
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+Dock
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37639 10 10 5
+D3
+~
+~
+0 -1 37650 10 10 5
+-1
+S
+
+#37650
+Rock Finger in River Hurgrot~
+Under Construction.
+~
+Dock
+Diving action to underground caverns.
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37649 10 10 5
+-1
+S
+
+#37651
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+235 -1 37611 10 10 5
+D1
+~
+~
+0 -1 37652 10 10 5
+-1
+S
+
+#37652
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37653 10 10 5
+D3
+~
+~
+0 -1 37651 10 10 5
+-1
+S
+
+#37653
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37654 10 10 5
+D2
+~
+~
+0 -1 37652 10 10 5
+-1
+S
+
+#37654
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37655 10 10 5
+D3
+~
+~
+0 -1 37653 10 10 5
+-1
+S
+
+#37655
+Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37654 10 10 5
+D2
+~
+~
+0 -1 37656 10 10 5
+-1
+S
+
+#37656
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37655 10 10 5
+D1
+~
+~
+0 -1 37657 10 10 5
+-1
+S
+
+#37657
+Slope in a Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D3
+~
+~
+0 -1 37656 10 10 5
+D4
+~
+~
+0 -1 37662 10 10 5
+-1
+S
+
+#37658
+Slope in a Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D3
+~
+~
+0 -1 37659 10 10 5
+D4
+~
+~
+0 -1 37669 10 10 5
+-1
+S
+
+#37659
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37658 10 10 5
+D2
+~
+~
+0 -1 37660 10 10 5
+-1
+S
+
+#37660
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37659 10 10 5
+D3
+~
+~
+0 -1 37661 10 10 5
+-1
+S
+
+#37661
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37660 10 10 5
+D2
+~
+~
+0 -1 37626 10 10 5
+-1
+S
+
+#37662
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37663 10 10 5
+D5
+~
+~
+0 -1 37657 10 10 5
+-1
+S
+
+#37663
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37664 10 10 5
+D2
+~
+~
+0 -1 37662 10 10 5
+-1
+S
+
+#37664
+Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37665 10 10 5
+D3
+~
+~
+0 -1 37663 10 10 5
+-1
+S
+
+#37665
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D2
+~
+~
+0 -1 37666 10 10 5
+D3
+~
+~
+0 -1 37664 10 10 5
+-1
+S
+
+#37666
+Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37665 10 10 5
+D2
+~
+~
+0 -1 37667 10 10 5
+-1
+S
+
+#37667
+Narrow, Winding Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 37666 10 10 5
+D3
+~
+~
+0 -1 37668 10 10 5
+-1
+S
+
+#37668
+Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37667 10 10 5
+D3
+~
+~
+0 -1 37669 10 10 5
+-1
+S
+
+#37669
+Slope in a Narrow Tunnel~
+Under Construction.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37668 10 10 5
+D5
+~
+~
+0 -1 37658 10 10 5
+-1
+S
+
+#37670
+Dark Hole in the Cavern Floor~
+The mossy rock walls are slick as water trickles in from above and slides
+down the glistening stone.  This large hole is bare and smooth, clear of
+debris.  A large opening leads upward to the floor of the massive caverns
+of Voaleth.
+~
+~
+301465604 11 9 0
+D4
+~
+~
+0 -1 37615 10 10 5
+1056 9 1509949540 3 0
+-1
+S
+
+#37671
+On the Rockslide~
+The floor sprawls out thirty feet below, and all around is darkness. 
+Rubble comes bouncing down the enormous rockslide and goes crashing
+against the floor, smashing into dust.  Above, the rockslide becomes far
+too steep to climb, though several large, jagged rocks provide handholds
+for the climb down.  To the east is a gaping alcove dug into the
+rockslide.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 37672 10 10 5
+E
+alcove~
+To the east a dark, cavernous alcove stands stark and lightless, hewn
+from the very rockslide.  It is too dark to see inside.
+~
+A
+climb~
+down~
+send_to_char( #down, ch );
+act_notchar( #rdown, ch );
+transfer( ch, find_room( 37607 ) );
+act_notchar( #arrive, ch );
+~
+E
+down~
+You climb down to the cavern floor.
+~
+E
+rdown~
+$n climbs down the cavern floor.
+~
+E
+arrive~
+$n comes climbing down from above.
+~
+!
+0 0 0
+A
+~
+~
+if( can_fly( ch ) )
+  continue;
+else {
+  if( random( 1, 10 ) < 3 ) {
+    send_to_char( #slip, ch );
+    act_notchar( #rslip, ch );
+    transfer( ch, find_room( 37607 ) );
+    i = 1d6;
+    dam_message( ch, i, "The rocky fall" );
+    inflict( ch, mob, i, "lack of climbing ability" );
+    act_notchar( #arrive, ch );
+    }
+  }
+~
+E
+slip~
+The stone beneath you breaks free, and you go sliding down to the floor.
+~
+E
+rslip~
+The stones beneath $n break free, sending $m to the floor.
+~
+E
+arrive~
+$n comes sliding down the wall and lands in a heap.
+~
+!
+1 0 2
+-1
+S
+
+#37672
+Darkened Alcove~
+A rotten, fetid stench, rising from sickening piles of goo around the
+floor and in the corners, assails your nostrils.  This massive alcove is
+rough and dirty, the walls smeared with feces and the floor covered with
+rocks.  A pile of scattered hay against the north wall looks as if it
+might serve as someone's bed.  To the west is an opening, leading down a
+rockslide to the floor of this cavern.
+~
+~
+301465604 11 5 0
+D3
+~
+~
+0 -1 37671 10 10 5
+E
+goo piles~
+Yellow-brown rancid piles fill the air with a nauseating stench.
+~
+E
+bed straw~
+A mat of straw, now scattered and nearly useless, lies to the north.  It
+looks as if it might be a bed.
+~
+1233 9 1509949540 3 0
+-1
+S
+
+#37673
+Atop a Spiraling Stalagmite~
+The tip of this stalagmite has been honed to a needle-like point, just as
+the rest of the stalagmite has been carved into the shape of a spiral. 
+The air up here is cool and still, and darkness stretches in all
+directions.  From far to the west comes the sound of rushing water.  The
+stalagmite heads down to the cavern floor.
+~
+~
+301465604 11 5 0
+E
+tip~
+The tip has been honed to a fine point, and might make a good weapon.
+~
+A
+climb~
+down~
+send_to_char( #down, ch );
+act_notchar( #rdown, ch );
+transfer( ch, find_room( 37601 ) );
+act_notchar( #arr, ch );
+~
+E
+down~
+You climb down.
+~
+E
+rdown~
+$n climbs down to the cavern floor.
+~
+E
+arr~
+$n comes climbing down.
+~
+!
+0 0 0
+A
+get break take~
+tip point spiral stone stalagmite granite~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+else {
+  remove_rflag( reset0, room );
+  if( random( 1, 20 ) == 20 ) {
+    send_to_char( #get, ch );
+    act_notchar( #getr, ch );
+    obj_to_char( oload( 1591 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #break, ch );
+    act_notchar( #rbreak, ch );
+    end;
+    }
+  }
+~
+E
+already~
+The tip looks as if it has already been broken away.
+~
+E
+get~
+You work at the stone until it breaks away, leaving you with a piece of
+spiraled granite.
+~
+E
+getr~
+$n breaks away a piece of spiraled granite.
+~
+E
+break~
+You work at the stone, but the narrow granite shatters, worthless.
+~
+E
+rbreak~
+$n tries to get a piece of granite, but breaks it in the process.
+~
+!
+0 0 0
+1141 137 1509949540 3 0
+1141 137 1509949540 3 0
+-1
+S
+
+#37674
+Flooded Cave~
+The still, cold waters of the flooded cave are interrupted only by the
+constant dripping of water from the cavern ceiling.  Moss grows
+abundantly, hanging down nearly in front of your face.  The flooded
+tunnel continues east and south.  The stones on the western side of the
+cave look a little different from the rest of the area.
+~
+[Rue] entrance to 71609
+~
+301465605 13 9 0
+D1
+~
+~
+0 -1 37531 10 10 5
+D2
+~
+~
+0 -1 37675 10 10 5
+D3
+stacked stone~
+~
+203 -1 71609 10 10 5
+E
+moss~
+A thick curtain of moss hangs down over the west wall.  Behind it, the
+stones almost appear stacked, rather than solid.
+~
+E
+stones stacked behind~
+As you look closer you realize you could easily move the stones to open a
+small tunnel.
+~
+A
+move take~
+rocks stacks stones~
+if( !is_open( room, west ) ) {
+  act_tochar( #door, ch );
+  act_notchar( #isdoor, ch );
+  open( room, west );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+door~
+You move the rocks and find that you can travel west into a watery area.
+~
+E
+isdoor~
+You see $n move the rocks, creating a passage west.
+~
+E
+open~
+The way west is already open
+~
+!
+0 0 0
+1128 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#37675
+Flooded Cave~
+This moss-covered cavern tunnel is flooded with murky, cold water.  The
+walls are covered with variations, slight indentations and bumps which
+throw off your perception of depth and distance.  The flooded tunnel
+leads north.
+~
+~
+301465605 13 9 0
+D0
+~
+~
+0 -1 37674 10 10 5
+1127 9 1509949540 3 0
+1127 9 1509949540 3 0
+3219 17 1509949540 -2 0
+-1
+S
+
+#0
+

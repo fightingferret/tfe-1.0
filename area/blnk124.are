@@ -1,0 +1,2571 @@
+#AREA
+Barbarian Camp~
+Olah~
+barbarian camp~
+
+45 0
+0
+#ROOMS
+
+#66000
+By a Bonfire~
+Great warmth emanates all around the vicinity as a large @Ybonfire@n
+blazes wildly.  Suffocating gray smoke fills the sky above and forms
+familiar cloud-like patterns.  Down below, small piles of twigs lie
+scattered upon the barren ground.  A few embers occasionally brush
+against your face, lightly stinging it.  This is perhaps the heart of the
+settlement, where the inhabitants gather daily.
+~
+~
+301465601 2 8 0
+D0
+~
+~
+0 -1 66005 10 10 5
+D1
+~
+~
+0 -1 66004 10 10 5
+D2
+~
+~
+0 -1 66001 10 10 5
+D3
+~
+~
+0 -1 66010 10 10 5
+E
+corpse~
+The corpse is blackened beyond most recognition.  However, it does appear
+to be the remains of a barbarian.  Perhaps it was burnt as part of some
+sacrifice during a ceremony, or perhaps it was cooked for food, but left
+too long in the fire.
+~
+E
+twigs ground~
+The twigs are thin and mostly burnt.  Most likely, they used up their
+usefulness feeding the bonfire.
+~
+A
+throw toss~
+frozen corpse barbarian warrior~
+if( has_obj( 2699, ch ) ) {
+  obj = has_obj( 2699, ch );
+  act_tochar( #sac, ch, obj, mob );
+  act_notchar( #nsac, ch, obj, mob );
+  wait( 2 );
+  act_room( #ash, ch, obj, mob );
+  junk_obj( obj, 1 );
+  obj_to_room( oload( 2682 ), room );
+  }
+else {
+  continue;
+  act_tochar( #nada, ch );
+  }
+~
+E
+sac~
+You throw $p into the @Ybonfire@n.
+~
+E
+nsac~
+$n throws $p into the @Ybonfire@n.
+~
+E
+ash~
+$p becomes consumed by the @Rf@n@Yl@n@Ra@n@Ym@n@Re@n@Ys@n;
+its ashes softly falling into a pile on the ground.
+~
+E
+nada~
+You do not have that item.
+~
+!
+0 0 0
+2709 17 1509949540 -2 0
+-1
+S
+
+#66001
+South of a Bonfire~
+A soft, wintry breeze passes by you.  Littering the lightly frosted
+ground are some remains of reindeer, most likely from previous hunts. 
+Two moderately-sized deerskin tents stand east and west from here.  A
+strong, pungent odor seems to be originating from the larger, more
+thickly-covered deerskin tent to the south.  To the north is a blazing
+bonfire.
+~
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 66000 10 10 5
+D1
+tent flap~
+tent flap east~
+131 -1 66003 10 10 5
+D2
+furred tent flap~
+furred tent flap south~
+131 -1 66006 10 10 5
+D3
+tent flap~
+tent flap west~
+131 -1 66002 10 10 5
+E
+moderately-sized deerskin tent thickly-covered~
+Thick brown skin from reindeer cover the rectangular tents, providing
+some protection from the harsh, cold climate.  Four wooden poles firmly
+planted in the frozen ground support the each tent.
+~
+-1
+S
+
+#66002
+Inside a Tent~
+Thick brown reindeer hides carpet the floor of this tent.  Chunks of meat
+and half-empty glass bottles lie scattered about, as though someone had
+been here recently and did not bother to clean up.  A stack of dirty
+clothes has accumulated in a corner of the room.  You can head back out
+by leaving eastward.
+~
+[Merior] parchment - has been slain and its corpse sacrificed?
+[Lansharra] barbarian warrior - human?
+~
+301465604 0 5 0
+D1
+tent flap~
+tent flap east~
+131 -1 66001 10 10 5
+E
+clothes stack corner~
+The stack consists of mainly filthy, thick jackets and leggings.  Judging
+from how soiled they are, the clothes must have been sitting there for at
+least weeks.
+~
+E
+thick brown reindeer hides carpet floor~
+The reindeer skins which cover the floor are brown and faded.  They are
+surprisingly still soft, though, providing a good spot to sit down and
+relax.
+~
+A
+~
+stack dirty clothes~
+if( rflag( reset2, room ) ) {
+  remove_rflag( reset2, room );
+  obj_to_char( oload( 2700 ), ch );
+  act_tochar( #parch, ch );
+  act_notchar( #nparch, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+parch~
+You search the stack of dirty clothes and find something.
+~
+E
+nparch~
+$n searches the stack of clothes and gets something.
+~
+E
+nada~
+You search the stack, but find nothing of use.
+~
+!
+9 0 0
+1864 9 1509949540 3 0
+-1
+S
+
+#66003
+Inside a Tent~
+Several reindeer skins carpet the floor of this bare tent.  On top of
+them are half-eaten chunks of meat and empty waterskins.  The four wooden
+poles that give this tent support appear worn and fragile, as evidenced
+by the wooden chips which lie on the ground.  You can go back out by
+leaving westward.
+~
+~
+301465604 0 5 0
+D3
+tent flap~
+tent flap west~
+131 -1 66001 10 10 5
+E
+floor reindeer skins~
+The reindeer skins which cover the floor are brown and faded.  They are
+surprisingly still soft, though, providing a good spot to sit down and
+relax.
+~
+E
+wooden poles~
+The poles stand about twelve feet high, but wobble when the wind from the
+outside beats against the tent.  Quite a few holes have formed in them,
+perhaps from termites or some other creature gnawing on them.
+~
+A
+search take~
+reindeer skins floor wooden poles chips~
+act_tochar( #fake, ch );
+act_notchar( #nfake, ch );
+~
+E
+fake~
+You search around, but can't find anything of great interest.
+~
+E
+nfake~
+$n searches around the tent, but comes up with nothing.
+~
+!
+0 0 0
+1864 9 1509949540 3 0
+-1
+S
+
+#66004
+East of a Bonfire~
+It is quite warm here due to the bonfire to the west.  You can actually
+see some soil as parts of the icy ground have melted away.  Heading west
+would lead to the center of a camp.  To the east lies a cleared path,
+away from this pleasant warmth.
+~
+[Merior] why does knife glow?
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 66013 10 10 5
+D3
+~
+~
+0 -1 66000 10 10 5
+E
+soil~
+The soil, peeking its way from the melting snow and ice, appears brown
+and soggy.  Perhaps something could grow on it had the climate not been
+so harsh.
+~
+1865 9 1509949540 3 0
+-1
+S
+
+#66005
+North of a Bonfire~
+A wooden flagpole lies here, entrenched in the soggy soil.  Surrounding
+the flagpole are large footprints and empty broken bottles.  To the east
+and west are deerskin tents.  To the south is a brightly burning bonfire. 
+To the north, a narrow walkway has been cleared.
+~
+~
+301465600 2 7 0
+D0
+~
+~
+0 -1 66011 10 10 5
+D1
+tent flap~
+tent flap east~
+131 -1 66009 10 10 5
+D2
+~
+~
+0 -1 66000 10 10 5
+D3
+tent flap~
+tent flap west~
+131 -1 66007 10 10 5
+E
+deerskin tents~
+Thick brown skin from reindeer cover the rectangular tents, providing
+some protection from the harsh, cold climate.  Four wooden poles firmly
+planted into the frozen ground support each tent.
+~
+E
+wooden flag pole~
+The wooden pole stretches 20 feet into the air.  The flag is made of
+animal skin, and as it waves in the air, you can see an emblem of a
+@csilver@n-colored lightning bolt.
+~
+A
+~
+~
+send_to_room( #wave, room );
+~
+E
+wave~
+The flag waves vigorously in the air above.
+~
+!
+2 800 0
+210 17 1509949540 -2 0
+-1
+S
+
+#66006
+Inside a Tent~
+This tent is a little larger and warmer than the others.  The first thing
+that comes to your attention is the strong, rotten stench, making you
+wonder how anyone could remain here for too long.  Dried @Rblood@n droplets
+stain the floor.  Lying disheveled and in total disarray are the
+butchered remains of several creatures.  A towering stack of wolf,
+reindeer, and aurochs skin stands in one corner, but appears ready to
+topple over at any moment.  You can go back out by leaving northward.
+~
+[Merior] other barbarians could have some skins at real low repop too
+made it so barbarians can now pop them and the skins can be sold to
+Briddle on the path here, too
+[Jyhad] aurochs
+~
+301465604 0 6 0
+D0
+furred tent flap~
+furred tent flap north~
+131 -1 66001 10 10 5
+E
+towering stack corner~
+The stack contains freshly skinned animals, with occasional @Rblood@n
+dripping down the many layers.  Gray wolf skin, brown reindeer skin, and
+white aurochs skin have been violently disemboweled and tossed carelessly
+into the pile.
+~
+A
+~
+towering stack corner~
+act_tochar( #nada, ch );
+~
+E
+nada~
+You start to search through the towering stack of skins, but think better
+of it -- don't want the stack to fall on top of you now do we?
+~
+!
+9 0 0
+1866 9 1509949540 3 0
+949 49 1509949540 -1 0
+2761 81 1509949444 -1 0
+41 81 1509949450 -1 0
+1482 81 1509949450 -1 0
+-1
+S
+
+#66007
+Inside a Tent~
+Several enormous fur wraps carpet the floor.  Nestled on top and between
+them are many empty and half-empty waterskins of mead.  A few bowls and
+spoons lie scattered about.  @rBlood-stained@n leggings and sleeves are
+stacked in a huge pile in a corner of the cramped tent.  You can go back
+out by leaving eastward.
+~
+[Merior] i presume parchment is used for something... will wait and see
+parchment is invitation to give to guard to enter stone building
+[Merior] also, resilience name is not best - but i'm awful thinking of
+names ;) 
+~
+301465604 0 5 0
+D1
+tent flap~
+tent flap east~
+131 -1 66005 10 10 5
+E
+fur wraps floor~
+Many fur wraps cover the floor, making it pretty comfortable to rest here. 
+The fur is a dark shade of brown and exceptionally soft.
+~
+E
+huge pile~
+The pile stands almost five feet high in the air and smells pretty
+wretched.  Layers upon layers of dirty sleeves and leggings have gathered
+there -- over quite some time it seems.
+~
+E
+few bowls spoons~
+Scattered about, the grayish stone bowls remain uncleaned.  Several mud
+clumps stain the rims of the bowls.
+~
+A
+search~
+fur wraps floor leggings sleeves huge pile corner~
+act_tochar( #fake, ch );
+act_notchar( #nfake, ch );
+~
+E
+fake~
+You search around, but can't find anything of interest.
+~
+E
+nfake~
+$n searches around the tent, but comes up with nothing.
+~
+!
+0 0 0
+A
+search~
+bowls~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( random( 3, 10 ) == 7 ) {
+    act_tochar( #bowl, ch );
+    act_notchar( #nbowl, ch );
+    obj_to_char( oload( 158 ), ch );
+    }
+  else
+    act_tochar( #nada, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+bowl~
+You search the tent and come up with a bowl in reasonable condition.
+~
+E
+nbowl~
+$n searches the tent and finds a bowl in nice condition.
+~
+E
+nada~
+You look around, but see no bowl worth taking.
+~
+!
+0 0 0
+1864 9 1509949540 3 0
+-1
+S
+
+#66008
+Prisoner Chamber~
+Made from rough, cut stone blocks, this chamber is extremely small. 
+Barely four feet wide, rusty iron chains and sets of shackles hang
+loosely from the walls.  A layer of rotten hay covers the floor and has
+been pushed into the shape of a small pallet.  A crude iron brazier is
+mounted to the south wall, providing the chamber with barely enough
+illumination to see by.
+~
+~
+301465604 0 9 0
+D2
+stone block~
+stone block~
+203 -1 66066 10 10 5
+E
+rusty chains set shackles~
+Hanging from the wall are several lengths of iron chains.  Many of the
+chains are half-eaten through with rust.  Fastened to the ends of some of
+the chains are thick but crude shackles.
+~
+E
+rotten hay floor pallet~
+Covering the floor is a layer of hay.  Dirty and damp, the hay has begun
+to rot and has a peculiar smell to it.  Some of the hay has been gathered
+into a pallet and looks to have been recently slept in.
+~
+A
+~
+~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #step, ch );
+  act_notchar( #rstep, ch );
+set_rflag( reset0, find_room( 66008 ) );
+remove_rflag( reset0, find_room( 66066 ) );
+  continue;
+  }
+else
+  continue;
+~
+E
+step~
+As you walk through the threshold, you feel something crunch beneath your
+foot.
+~
+E
+rstep~
+You hear the crunch of stone beneath $n's foot as $e walks though the
+threshold.
+~
+E
+close~
+A block of stone rises from the ground, sealing off the chamber.
+~
+!
+3 0 4
+894 9 1509949540 3 0
+-1
+S
+
+#66009
+Inside a Tent~
+This tent is rather narrow and sparsely furnished.  Several wolf skins
+carpet the floor, providing some warmth to the tent.  Empty stone bowls
+and half-empty glass bottles are gathered in one corner.  Lingering in
+that corner is the unmistakable smell of stale alcohol.  A flat circular
+stone serving as a table rests at another corner, with dirty parchments
+arranged on top of it.  You can go out by heading westward.
+~
+~
+301465604 0 5 0
+D3
+tent flap~
+tent flap west~
+131 -1 66005 10 10 5
+E
+dirty parchments~
+Alcohol seems to have been spilled on the parchments, making it difficult
+to make out all of the sketches.  Some of the drawings show great battles
+with fearsome beasts, while others depict people dancing and frolicking
+around a fire.
+~
+E
+flat circular stone table~
+The stone is gray and carved into an uneven cylinder.  It's about four
+feet in diameter, with alcohol staining the edges.
+~
+E
+wolf skins carpet floor~
+The wolf skins are pretty wide, and its gray color is somewhat faded due
+to constant treading by whomever lives here.  The fur is still thick and
+appealing, however.
+~
+E
+stone bowls glass bottles~
+Cluttered in the corner, the grayish stone bowls lie uncleaned.  Several
+dried mud clumps stain the rims of the bowls.  The strong smell of
+alcohol can be detected from the glass bottles which have only been
+partially drunk.
+~
+A
+search~
+wolf skins floor table dirty parchments~
+act_tochar( #fake, ch );
+act_notchar( #nfake, ch );
+~
+E
+fake~
+You search around, but find nothing of great interest.
+~
+E
+nfake~
+$n searches around the tent, but comes up with nothing.
+~
+!
+0 0 0
+A
+search~
+stone bowls~
+if( rflag( reset2, room ) ) {
+  remove_rflag( reset2, room );
+  if( random( 1, 7 ) == 7 ) {
+    act_tochar( #bowl, ch );
+    act_notchar( #nbowl, ch );
+    obj_to_char( oload( 158 ), ch );
+    }
+  else
+    act_tochar( #nada, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+bowl~
+You search the corner, and come up with a bowl in nice condition.
+~
+E
+nbowl~
+$n searches the corner and gets a bowl.
+~
+E
+nada~
+You look around, but see no bowls worth getting.
+~
+!
+0 0 0
+A
+search~
+glass bottles~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  if( random( 1, 7 ) == 7 ) {
+    act_tochar( #bott, ch );
+    act_notchar( #nbott, ch );
+    obj_to_char( oload( 24 ), ch );
+    }
+  else
+    act_tochar( #nada, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+bott~
+You search the corner and take a glass bottle.
+~
+E
+nbott~
+$n searches the corner and takes a glass bottle.
+~
+E
+nada~
+You look around, but see no bottle worth taking.
+~
+!
+0 0 0
+1864 9 1509949540 3 0
+-1
+S
+
+#66010
+West of a Bonfire~
+Newly cleaned laundry hangs between two wooden poles here, giving off a
+distinct but pleasant scent.  Ever so gently, the garments sway back and
+forth along the clothesline.  The bonfire to the east seems to provide
+just enough heat to dry the clothes.  The view to the west is
+awe-inspiring, offering a panoramic view of the snow-peaked mountains. 
+Two tents are north and south of you, but you see no apparent way to
+enter them from here.
+~
+[Jyhad] can I search the twigs?
+[Jyhad] argh, wrong room :P
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 66000 10 10 5
+E
+tents~
+Thick brown deerskin cover the rectangular tents, providing some
+protection from the harsh, cold climate.  Four wooden poles planted
+firmly in the frozen ground support each tent.
+~
+E
+clothes clothesline garments laundry~
+Furred armor, leggings, and sleeves hang to dry upon a rope made from the
+gut of some animal.  The clothes are still damp, and some @rred blood@n
+stains still remain, despite the washing.
+~
+E
+bonfire fire~
+The bonfire blazes wildly to the east of you, generating enough heat to
+warm the area.  Smoke clouds seem to pour from it, and some of it escapes
+into your eyes and nose.
+~
+E
+view snow-peaked mountains~
+The view is magnificent to behold.  You can gaze many mountains, capped
+in ivory white.  They soar into the heavens and dwarf everything else
+around it.  A thick fog resides below the mountains, obstructing any view
+of things below.
+~
+A
+get grab take~
+laundry clothes garments~
+act_tochar( #fake, ch );
+~
+E
+fake~
+You start to grab the clothes, but decide they're still too cold and wet
+to be of use.
+~
+!
+0 0 0
+1863 9 1509949540 3 0
+-1
+S
+
+#66011
+In Front of a Strange Tent~
+To the north of you lies an odd-looking tent made of hides of many
+different creatures.  The ground here is totally free of any ice or snow. 
+Many feet of snow have been shovelled into thick piles to the east and
+west, making it difficult to head in those directions.  The rest of the
+camp lies south of here.
+~
+[Merior] why spread ashes? not open tent? odd choice of words
+It's part of thing you need to figure out in order for tent to open
+need to spread ashes of the slain barbarian so the shaman will let you in
+hint to use spread in color in dirty parchment in one of the tents
+~
+301465600 2 6 0
+D0
+tent flap~
+flap north~
+219 -1 66012 10 10 5
+D2
+~
+~
+0 -1 66005 10 10 5
+E
+strange odd-looking tent north~
+This medium-sized tent has several drawings depicting strange events
+along its exterior.  One image is of a person being struck by lightning
+from the heavens.  The next image is of a person kneeling down and
+sacrificing a body into a large fire.  The last image is of the body
+emerging from the fire and floating in mid-air.  The words 'Ashes to
+ashes' are scrawled at the top.
+~
+A
+spread throw toss~
+ashes north n tent pile~
+if( is_open( room, north ) )
+  act_tochar( #open, ch );
+else
+  if( has_obj( 2682, ch ) ) {
+  obj = has_obj( 2682, ch );
+  junk_obj( obj, 1 );
+  act_tochar( #ash, ch );
+  act_notchar( #nash, ch );
+  wait( 2 );
+  send_to_room( #fly, room );
+  wait( 2 );
+  send_to_room( #clear, room );
+  open( room, north );
+  }
+else {
+  continue;
+  act_tochar( #nada, ch );
+  }
+~
+E
+open~
+The tent flap to the north is already open.
+~
+E
+ash~
+You carefully spread the pile of ashes before the odd-looking tent.
+~
+E
+nash~
+$n carefully spreads the pile of ashes before the odd-looking tent.
+~
+E
+clear~
+The odd-looking tent's flap mysteriously opens!
+~
+E
+nada~
+You do not have that item.
+~
+E
+fly~
+The ashes rise into the air and gently dissolve into nothingness.
+~
+!
+0 0 0
+A
+open~
+odd-looking tent north n~
+if( !is_open( room, north ) )
+  act_tochar( #cant, ch );
+else
+  act_tochar( #nada, ch );
+~
+E
+cant~
+You attempt to open the odd-looking tent's flap, but a magical barrier
+seems to prevent you from doing so.
+~
+E
+nada~
+The odd-looking tent's flap is already open.
+~
+!
+0 0 0
+-1
+S
+
+#66012
+Inside a Strange Tent~
+The intoxicating smell of burning incense engulfs this room.  Standing
+menacingly at the center is an altar to some barbarian god.  Piles of
+herbs, potions, and parchments lie in disarray at one corner of the tent. 
+A pile of thick deerskin clutters another corner, perhaps providing a
+place to sleep for this tent's inhabitant.  You can head out by opening
+the tent flap to the south.
+~
+~
+301465604 0 5 0
+D2
+tent flap~
+tent flap south~
+219 -1 66011 10 10 5
+E
+altar god statue~
+The altar contains a bowl filled with burning incense and a silver statue
+of a powerfully-built, bearded man.  He is wearing a horned helm and is
+wielding a thickly-bladed battle axe.  In his other hand is a lightning
+bolt, positioned as though he is ready to hurl it at someone.
+~
+E
+pile thick deerskin~
+The pile is stacked about a foot high and consists of soft deerskin.  It
+looks rather comfortable and inviting.
+~
+A
+get take~
+burning inc ince incen incens incense~
+act_tochar( #pain, ch );
+act_notchar( #npain, ch );
+dam_message( ch, 3d5+40, "The statue's chop" );
+inflict( ch, mob, 3d5+40, "The statue's chop" );
+if( rflag( reset2, room ) ) {
+  remove_rflag( reset2, room );
+  i = random( 1, 10 );
+  if( i == 2 ) {
+    act_tochar( #get, ch );
+    act_notchar( #nget, ch );
+    obj_to_char( oload( 1065 ), ch );
+    end;
+    }
+  if( i == 5 ) {
+    act_tochar( #get, ch );
+    act_notchar( #nget, ch );
+    obj_to_char( oload( 1047 ), ch );
+    end;
+    }
+  if( i == 8 ) {
+    act_tochar( #get, ch );
+    act_notchar( #nget, ch );
+    obj_to_char( oload( 1058 ), ch );
+    end;
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nnada, ch );
+    }
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+pain~
+As you try to grab the incense from the altar, the statue comes alive and
+attacks your hand.
+~
+E
+npain~
+As $n attempts to grab the incense from the altar, the statue comes alive
+and attacks $n's hand.
+~
+E
+get~
+You manage to get a stick of incense from the altar.
+~
+E
+nget~
+$n manages to get a stick of incense from the altar.
+~
+E
+nada~
+You are unable to get the incense.
+~
+E
+nnada~
+$n appears unable to get the incense.
+~
+!
+0 0 0
+A
+open~
+south s tent flap~
+if( !is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+open~
+You open the tent flap to the south.
+~
+E
+nopen~
+$n opens the tent flap to the south.
+~
+E
+nada~
+The tent flap is already open.
+~
+!
+0 0 0
+1867 9 1509949540 3 0
+-1
+S
+
+#66013
+Frozen Path~
+Snow and ice have been cleared to form a trail heading east and west. 
+The massive, 25 foot high mounds of snow to the north and south of you
+loom precariously, threatening to bury you in it at any second.  You
+might want to continue on quickly.
+~
+[Merior] you want this corpse to be gettable every reset?
+yep, need to throw it in the bonfire to get ashes to spread in front of
+the shaman's tent to kill him each reset 
+~
+301465600 2 6 0
+D1
+~
+~
+0 -1 66014 10 10 5
+D3
+~
+~
+0 -1 66004 10 10 5
+E
+massive mounds snow~
+Trying to avoid the falling ice, you almost miss noticing what appears to
+be a frozen arm sticking out of the snow mound.  The snow must have
+buried the hapless person within it during a recent avalanche.
+~
+A
+~
+~
+loop( all_in_room ) {
+  act_tochar( #ice, rch );
+  dam_message( rch, 2d5+5, "The falling ice" );
+  inflict( rch, mob, 2d5+5, "The falling ice" );
+  }
+~
+E
+ice~
+The snow mounds begin to tremble.
+~
+!
+2 750 0
+A
+dig get~
+arm snow mounds~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  obj_to_room( oload( 2699 ), room );
+  act_tochar( #cor, ch );
+  act_notchar( #ncor, ch );
+  }
+else {
+  act_tochar( #nada, ch );
+  act_notchar( #nnada, ch );
+  }
+~
+E
+cor~
+You carefully dig through the snow and discover a frozen corpse.
+~
+E
+ncor~
+$n digs through the snow and uncovers a frozen corpse.
+~
+E
+nada~
+You dig through the snow, but can't seem to clear enough of it.
+~
+E
+nnada~
+$n digs through the snow, but seems unable to clear enough of it.
+~
+!
+0 0 0
+1602 17 1509949515 -2 0
+-1
+S
+
+#66014
+Frozen Path~
+The ground is mostly frozen here.  You can make out some footprints,
+suggesting that some creatures have passed by often.  Towering mountains
+loom to the south, while thick mounds of snow lie north of you.  The
+frozen trail continues west, while the path to the east is blocked by a
+heap of solid ice.
+~
+~
+301465600 2 6 0
+D1
+heap of ice~
+heap ice east~
+251 -1 66058 10 10 5
+D3
+~
+~
+0 -1 66013 10 10 5
+E
+thick mounds snow~
+The snow has been dug and dumped into several mounds of snow to the north. 
+The mounds rise 25 feet into the air, dwarfing your presence.
+~
+E
+towering mountains~
+The mountains seem larger from this vantage point.  Their snow-capped
+peaks and triangular shape form a ridge-like pattern, like white-tipped
+spears piercing across the landscape.
+~
+E
+footprints~
+Several footprints the size of a large human, and many little hoofprints
+can be barely noticed along the frozen ground.
+~
+A
+dig~
+heap solid ice east e~
+if( !is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, east );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+open~
+After a lot of effort, you manage to clear the heap of ice.
+~
+E
+nopen~
+$n manages to dig a path eastward.
+~
+E
+nada~
+The heap of ice has already been cleared.
+~
+!
+0 0 0
+A
+l look~
+heap solid ice east e~
+if( !is_open( room, east ) )
+  act_tochar( #block, ch );
+else
+  act_tochar( #clear, ch );
+~
+E
+block~
+The pile of ice seems to have formed instantaneously there.  With enough
+effort, you might be able to clear it and continue onward.
+~
+E
+clear~
+The heap of ice has been cleared, allowing passage eastward.
+~
+!
+0 0 0
+-1
+S
+
+#66040
+In Front of a Stone Edifice~
+To the north of you stands a large, ancient, gray-stoned building which
+seems to protrude from the mountains to the far north of you.  It is
+rectangular in shape, and its top is covered in snow.  A giant,
+boulder-like object seems to serve as the entrance.  Two leafless bushes
+covered in icicles are positioned before the entrance, as though guarding
+it.  The snow has been cleared into a large mound to your west,
+preventing further passage there.
+~
+[Rebekka] one person having parchment should let whole group in
+~
+301465600 2 8 0
+D0
+stone door~
+stone door north~
+211 -1 66062 10 10 5
+D1
+~
+~
+0 -1 66042 10 10 5
+D2
+~
+~
+0 -1 66058 10 10 5
+E
+giant boulder-like object entrance~
+The giant boulder stands about 10 feet high and looks very thick and
+solid.  There seems to be no keyhole nor any obvious way to open it.
+~
+E
+large ancient gray-stoned building~
+This building spans most of your view of the north.  It seems to be
+constructed out of a dull gray stone which strangely, has not eroded much
+despite the harsh weather.
+~
+E
+leafless bushes~
+Two bushes sit in front of the building's entrance.  You can see the
+light-brown of the wood encased within two inches of ice.  The bushes are
+surprisingly tall, about four feet high, and probably grow berries during
+the warmer time of the year.
+~
+E
+large mound~
+The entrance to the building has been cleared of snow, and someone must
+have cleared the snow into a large mound to the west.  The mound stands
+over 15 feet high, too high dig through.
+~
+A
+~
+0~
+if( mob_in_room( 1900, room ) )
+  act_tochar( #stop, ch );
+else continue;
+~
+E
+stop~
+The guard will not let you pass unless you have an invitation.
+~
+!
+3 0 1
+A
+open move push~
+giant boulder-like object entrance north n~
+if( !is_open( room, north ) ) {
+  if( find_stat( ch, str ) > 19 ) {
+    act_tochar( #open, ch );
+    act_notchar( #nopen, ch );
+    open( room, north );
+    }
+  else {
+    act_tochar( #cant, ch );
+    act_notchar( #ncant, ch );
+    }
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+open~
+You strain with all your @cmight@n, finally managing to push open the
+entrance.
+~
+E
+nopen~
+$n strains with all $s @cmight@n, finally able to muscle open the
+entrance.
+~
+E
+cant~
+You strain with all your might, but are unable to open the entrance.
+~
+E
+ncant~
+$n strains with all $s might, but is unable to open the entrance.
+~
+E
+nada~
+The entrance to the stone building is already open.
+~
+!
+0 0 0
+1900 9 1509949540 3 0
+-1
+S
+
+#66042
+A Frozen Clearing~
+A few partially frozen tree logs lie haphazardly here.  Placed on top of
+them are what appears to be freshly cut tree limbs.  A large boulder that
+is remarkably cleared of snow rests beside the wood, offering you a place
+to rest your aching muscles while examining your surroundings.  The view
+to the east is breath taking.  You can see the mountain tops and peering
+below it, is a partially frozen stream.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 66052 10 10 5
+D3
+~
+~
+0 -1 66040 10 10 5
+E
+freshly cut tree limbs logs~
+The tree limbs rest in a neat pile.  Judging by the lack of ice on their
+thick brown bark, these branches have been recently chopped.  Someone
+must have brought them since no trees can be seen anywhere near here.
+~
+E
+view~
+The mountain tops form a ridge-like pattern, like snow-tipped triangles. 
+Gazing below them, you see a rippling stream that from this distance,
+looks like a silver worm wrapping the base of the mountains.
+~
+1863 9 1509949540 3 0
+2535 17 1509949540 -2 0
+-1
+S
+
+#66052
+A Frozen Clearing~
+The air here is paper thin, making it difficult to breathe.  All around
+is a treeless, icy wonderland.  The ground is blanketed in a brilliant
+white, although a few frozen twigs have poked their way to the surface. 
+Thick sheets of cold air swirl around lifting with them loose pieces of
+snow, thus making it almost impossible to see your own feet.
+~
+[Lansharra] hmm...does the wind do damage? it ought to :P
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66042 10 10 5
+D1
+~
+~
+0 -1 66067 10 10 5
+D2
+~
+~
+0 -1 66061 10 10 5
+D3
+~
+~
+0 -1 66058 10 10 5
+E
+frozen twigs~
+These twigs have been frozen within two inches of clear ice.  They're
+probably from some bush or other plant that grows here, when or if it's
+not so cold.
+~
+A
+~
+~
+send_to_room( #arc, room );
+~
+E
+arc~
+The arctic winds pound against your face and body.
+~
+!
+2 900 0
+1865 9 1509949540 3 0
+-1
+S
+
+#66055
+A Frozen Clearing~
+The chilly air continues to numb your face.  Fierce winds have created
+many hills of snow all around you.  A snowy patch that's a little higher
+than the others appears to be covering something.  You can see the
+snow-white peaks of the mountains filling the horizon to the west and
+south of you.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66058 10 10 5
+D1
+~
+~
+0 -1 66061 10 10 5
+E
+snowy patch~
+Upon closer inspection, you notice the frozen skull of a cow-like
+creature, most likely that of an auroch which roam these areas.  A few
+sharp cuts can be detected.  It's obvious whoever killed it is skilled at
+hunting them.
+~
+E
+peaks mountains horizon west w south s~
+The mountains appear rather small across the distant horizon, like
+upside-down cones frosted with gleaming-white cream.
+~
+A
+take search get~
+frozen skull cow-like patch~
+act_tochar( #fake, ch );
+act_notchar( #nfake, ch );
+~
+E
+fake~
+You attempt to take the frozen skull, but it seems to be buried too deep
+within the snow.
+~
+E
+nfake~
+$n attempts to take the frozen skull but fails.
+~
+!
+0 0 0
+1865 9 1509949540 3 0
+-1
+S
+
+#66058
+A Frozen Clearing~
+Small, ice-covered twigs litter the snowy ground.  A few of them hit your
+knees as the powerful winds carry them into the air.  To the distant
+north stands a building constructed out of grayish stone.  A large heap
+of ice blocks passage to the west.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66040 10 10 5
+D1
+~
+~
+0 -1 66052 10 10 5
+D2
+~
+~
+0 -1 66055 10 10 5
+D3
+heap of ice~
+heap ice west~
+251 -1 66014 10 10 5
+E
+distant grayish stone building~
+You can make out a building far north of you.  Its outline is a
+distinctive rectangular shape and its color a dull gray.
+~
+E
+small ice-covered twigs snowy ground~
+These twigs have been frozen within two inches of clear ice.  They're
+probably from some bush or other plant that grows here, when or if it's
+not so cold.
+~
+A
+dig~
+large heap ice west w~
+if( !is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, west );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+open~
+After a lot of effort, you manage to clear the heap.
+~
+E
+nopen~
+$n manages to clear a path westward.
+~
+E
+nada~
+The heap of ice has already been cleared.
+~
+!
+0 0 0
+A
+l look~
+large heap ice west w~
+if( is_open( room, west ) )
+  act_tochar( #clear, ch );
+else
+  act_tochar( #block, ch );
+~
+E
+clear~
+The large heap of ice has been cleared, allowing passage westward.
+~
+E
+block~
+A tall, partially frozen heap of ice obstructs movement westward.  With
+enough effort, however, you might be able to dig through it to see if
+anything lies beyond the heap.
+~
+!
+0 0 0
+1602 17 1509949540 -2 0
+-1
+S
+
+#66061
+A Frozen Clearing~
+You notice that you have to breathe in deeper as it has become arduous to
+stay conscious here.  Scattered along the milky-white ground are frozen
+pebbles and some tracks in the snow the size of a large human.  You can
+see very little else save for more snow to the east, north, and west of
+you.  To the south, however, you can glimpse magnificent mountain peaks.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66052 10 10 5
+D1
+~
+~
+0 -1 66068 10 10 5
+D3
+~
+~
+0 -1 66055 10 10 5
+E
+tracks ground~
+The tracks are almost two feet long and a few inches deep.  They bear
+remarkable resemblance to those of a large human.  It's likely someone
+has passed by here recently.
+~
+E
+mountain peaks~
+The mountains appear rather small across the distant horizon, like
+upside-down cones frosted with gleaming-white cream.
+~
+1602 17 1509949540 -2 0
+-1
+S
+
+#66062
+Inside a Meeting Hall~
+The warmth in here offers a refreshing respite from the arctic air
+outside.  The floors are carpeted with thick brown deer skins.  Banners
+with the silver lightning bolt emblem painted on them hang from the
+rafters above you.  A large, round wooden table sits prominently at the
+center of the room.  You can continue through the archways to the north,
+east, and west; or head south to the chill of the outside.
+~
+~
+301465612 0 7 0
+D0
+~
+~
+0 -1 66063 10 10 5
+D1
+~
+~
+0 -1 66065 10 10 5
+D2
+stone door~
+stone door south~
+211 -1 66040 10 10 5
+D3
+~
+~
+0 -1 66064 10 10 5
+E
+large round wooden table center~
+The polished table appears to be able to fit eight large humans around it. 
+Scattered upon its smooth surface are various parchments and scrolls, as
+well as bits of meat and mostly empty bottles of beer.  Displayed across
+the middle of the table is an elaborately painted map of the surrounding
+areas.
+~
+E
+banners rafters~
+The @Yyellow@n banners droop down about five feet.  They still look new,
+their color unfaded.  Not a single tear nor scratch can be detected.  The
+silver lightning bolts painted on the banners seem to glow, as if on
+their own...
+~
+E
+floors thick brown deer skins~
+The reindeer skins which cover the floor are brown and faded.  They are
+surprisingly still soft, providing comfort when walking or resting upon
+them.
+~
+E
+map~
+The map spans half of the table's length and width.  Made of animal hide,
+it details most of the surrounding area.  The northern and western
+mountain range, the deep eastern valley, and a large cylindrical tower at
+the south surround the stone building, which is painted at the center.
+~
+A
+open pull~
+south s stone door~
+if( !is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+open~
+You pull real hard and manage to open the stone door to the south.
+~
+E
+nopen~
+$n manages to open the stone door to the south.
+~
+E
+nada~
+The stone door is already open.
+~
+!
+0 0 0
+2714 17 1509949540 -2 0
+-1
+S
+
+#66063
+Inside a Meeting Hall~
+The northern section of the hall is perhaps the grandest.  Carpeting the
+floor are gray wolf skins lined with silk.  A magnificent tapestry
+depicting an enormous, bearded man with @mcrimson@n eyes hangs on the
+northern wall.  Two torches bracket this tapestry.  Lifeless heads of
+reindeer, aurochs, and wolves are mounted on the western and eastern
+walls.  Dangling from the ceiling are silver beads in the shape of
+lightning bolts.  Thick, silvery wolf skins cover a large couch which
+rests at the center of the room upon a sloped platform.  You can leave
+through the archway to the south.
+~
+~
+301465605 0 6 0
+D0
+tapestry~
+tapestry north~
+235 -1 66066 10 10 5
+D2
+~
+~
+0 -1 66062 10 10 5
+E
+magnificent tapestry enormous bearded man crimson eyes~
+The woven design of the man is exceedingly realistic, as though the image
+is staring straight at you.  You think you see it moving a little, as
+though it is covering something behind it.
+~
+A
+move~
+magnificent tapestry~
+if( !is_open( room, north ) ) {
+  if( !mob_in_room( 1869, room ) ) {
+    act_tochar( #move, ch );
+    act_notchar( #nmove, ch );
+    open( room, north );
+    }
+  else
+    act_tochar( #cant, ch );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+move~
+You move the tapestry aside, revealing a secret passage.
+~
+E
+nmove~
+$n moves the tapestry aside, revealing a secret passage.
+~
+E
+nada~
+The tapestry has already been moved.
+~
+E
+cant~
+You think about moving the tapestry but realize the chief will detect you
+if he sees the tapestry moving.
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 1869, room ) )
+  act_tochar( #cant, ch );
+else
+  continue;
+~
+E
+cant~
+The barbarian chief is blocking your way north.
+~
+!
+3 0 1
+1869 9 1509949540 3 0
+2711 17 1509949540 -2 0
+-1
+S
+
+#66064
+Inside a Meeting Hall~
+The western section of the hall is neatly furnished.  Lining the northern
+and southern walls are fine tapestries which depict the barbarians in
+various states of defeating an immense white dragon.  The floors are
+carpeted in thick brown deer skins, and a few couches covered with gray
+wolf skins are placed on top of them.  You can leave through the archway
+to the east.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 66062 10 10 5
+E
+fine tapestries~
+One tapestry depicts several barbarians luring a fearsome-looking dragon
+away from its den while a couple of barbarians are on top of it, chopping
+at the dragon's neck.  Another tapestry shows the dragon chewing on a
+barbarian while stepping on a few others.  A third tapestry shows @csilver@n
+bolts of lightning from the heavens striking down the dragon.  The last
+tapestry shows the barbarians celebrating, carrying the corpse of the
+dragon above their heads.
+~
+E
+floors thick brown deer skins~
+The reindeer skins which cover the floor are brown and faded.  They are
+surprisingly still soft, providing comfort when walking or resting upon
+them.
+~
+1868 9 1509949540 3 0
+2710 17 1509949540 -2 0
+2710 17 1509949540 -2 0
+-1
+S
+
+#66065
+Inside a Meeting Hall~
+The eastern section of the hall is not as tidy as the rest of the
+building.  Dust and cobwebs have crept up in the corners of the room. 
+The thick brown deerskins that carpet the floor are wet and crinkled. 
+Hanging upon the northern and southern walls are tapestries which depict
+proud-looking, bearded men.  Two couches covered in gray wolf skin have
+been placed at the center of the room.  You can leave through the archway
+to the west.
+~
+~
+301465604 0 6 0
+D3
+~
+~
+0 -1 66062 10 10 5
+E
+tapestries proud-looking bearded men~
+These tapestries present some bearded men in various poses.  One shows a
+muscular man with thick, bushy eyebrows waving an axe over his head in a
+victory pose.  Another shows a @yyellow@n-bearded man stomping his foot
+on a slain auroch.  A third shows an @rauburn@n-haired, @bblue@n-eyed man
+pointing at something to his west.  The last one shows a @ggreen@n-eyed,
+hulking man screaming in celebration.
+~
+1868 9 1509949540 3 0
+2710 17 1509949540 -2 0
+2710 17 1509949540 -2 0
+-1
+S
+
+#66066
+A Barbarian Treasure Room~
+You are in what appears to be the barbarians' storage room.  The air is
+thick and warm here from an undiscernable source.  Fine silk and many
+hand-woven tapestries are stacked in a neat pile at the corner of the
+room.  Round wooden barrels, most likely containing alcohol, rest against
+the damp, stone walls.  The back of a tapestry hangs on the southern wall.
+~
+~
+301465604 0 6 0
+D0
+stone block~
+stone block~
+203 -1 66008 10 10 5
+D2
+tapestry~
+tapestry south~
+235 -1 66063 10 10 5
+E
+fine silk hand-woven pile~
+The tapestries and silk have been neatly organized into a pile in the
+corner.  The silk feels smooth and delicate, while the tapestries are
+exquisite.  Most of them depict muscular men, wild animals, and
+picturesque landscapes.
+~
+E
+tapestry~
+You can tell the tapestry has been well-crafted, even from its back, by
+the skilled needlework and unblemished colors.
+~
+E
+stone walls~
+The walls are moist and humid.  When touched, they seem to give off heat,
+but from no apparent source.
+~
+A
+move~
+tapestry south s~
+if( !is_open( room, south ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #nmove, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #nada, ch );
+~
+E
+move~
+You move the tapestry to the south.
+~
+E
+nmove~
+$n moves the tapestry to the south.
+~
+E
+nada~
+The tapestry has already been moved.
+~
+!
+0 0 0
+A
+inspect~
+A closed furred wooden chest~
+i = random( 3, 9 );
+if( find_skill( ch, inspect ) > i ) {
+  act_tochar( #disc, ch );
+  act_notchar( #ndisc, ch );
+  }
+else
+  act_tochar( #fail, ch );
+~
+E
+disc~
+You carefully inspect the chest and discover a small wire beneath the
+keywhole which serves as a trap.
+~
+E
+ndisc~
+$n carefully inspects the chest, and signals to everyone that it's
+trapped.
+~
+E
+fail~
+You see nothing unusual.
+~
+!
+0 0 0
+A
+untrap disarm~
+A closed furred wooden chest~
+if( rflag( reset0, room ) ) {
+  i = random( 4, 12 );
+  act_tochar( #try, ch );
+  act_notchar( #ntry, ch );
+  if( find_skill( ch, untrap ) > i ) {
+    remove_rflag( reset0, room );
+    act_tochar( #done, ch );
+    act_notchar( #ndone, ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #nfail, ch );
+    act_room( #hurt, ch );
+    loop( all_in_room ) {
+      if( is_player( rch ) ) {
+        dam_message( rch, 3d5+40, "A sharp, poison-tipped dart" );
+        inflict( rch, mob, 3d5+40, "sharp, poison-tipped dart" );
+        poison( rch );
+        }
+      }
+    }
+  }
+else
+  act_tochar( #noneed, ch );
+~
+E
+try~
+You cautiously attempt to untrap the chest.
+~
+E
+ntry~
+$n cautiously attempts to untrap the chest.
+~
+E
+done~
+You successfully untrap the chest!
+~
+E
+ndone~
+$n successfully untraps the chest!
+~
+E
+fail~
+You leap back realizing you accidentally set off the trap!
+~
+E
+nfail~
+$n leaps back in terror!
+~
+E
+hurt~
+@RSharp, poison-tipped darts start flying out of the chest!@n
+~
+E
+noneed~
+The trap has already been disarmed.
+~
+!
+0 0 0
+A
+pick unlock~
+A closed furred wooden chest~
+if( rflag( reset0, room ) ) {
+  act_tochar( #try, ch );
+  act_notchar( #ntry, ch );
+  act_tochar( #dumb, ch );
+  act_room( #hurt, ch );
+  loop( all_in_room ) {
+    if( is_player( rch ) ) {
+      dam_message( rch, 3d5+40, "A sharp, poison-tipped dart" );
+      inflict( rch, mob, 3d5+40, "sharp, poison-tipped darts" );
+      poison( rch );
+      }
+    }
+  }
+else
+  continue;
+~
+E
+try~
+You attempt to pick open the chest.
+~
+E
+ntry~
+$n attempts to pick open the chest.
+~
+E
+dumb~
+Suddenly you realize that the chest is still trapped!
+~
+E
+hurt~
+@RSharp, poison-tipped darts start flying out of the chest!@n
+~
+!
+0 0 0
+A
+1 look~
+round barrels~
+if( rflag( reset0, find_room( 66008 ) ) )
+  act_tochar( #no, ch );
+else
+  act_tochar( #desc, ch );
+~
+E
+no~
+The barrels look like they can contain many liters of alcohol.  A few
+drops of it drip from the spout near the base of the barrels, leaving a
+small puddle there.
+~
+E
+desc~
+The barrels look like they can contain many liters of alcohol.  A few
+drops of it drip from the spout near the base of the barrels, leaving a
+small puddle there.  Behind one of the barrels, against the north wall,
+there is a notch in the stone.
+~
+!
+0 0 0
+A
+1 look~
+1 north notch~
+if( rflag( reset0, find_room( 66008 ) ) )
+  continue;
+else
+  act_tochar( #desc, ch );
+~
+E
+desc~
+Along the north wall, behind one of the barrels, there is a notch in the
+stone.  The small, stony divot looks to be depressible.
+~
+!
+0 0 0
+A
+touch depress press~
+notch stone divot~
+if( rflag( reset0, find_room( 66008 ) ) )
+continue;
+else {
+act_tochar( #press, ch );
+act_notchar( #rpress, ch );
+wait( 2 );
+open( room, north );
+send_to_room( #open, room );
+send_to_room( #open2, find_room( 66008 ) );
+}
+~
+E
+press~
+You press your hand upon the notch in the stone and it sinks into the
+wall.
+~
+E
+rpress~
+$n presses $s hand against the northern wall.
+~
+E
+open~
+A stone block sinks into the floor, revealing a hidden chamber to the
+north.
+~
+E
+open2~
+A way opens up to the south as one of the stone blocks in the wall sinks
+into the ground.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset2, find_room( 66008 ) ) ) {
+  remove_rflag( reset2, room );
+  wait( 2 );
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 66008 ) );
+  close( room, north );
+  }
+~
+E
+close~
+A block of stone rises to seal off the chamber.
+~
+!
+1 0 1
+2679 49 1509949540 -2 0
+2675 81 1509949444 -2 0
+16 81 1509949465 -2 0
+2 81 1509949480 -2 0
+2 81 1509949480 -2 0
+2 81 1509949480 -2 0
+2 81 1509949480 -2 0
+2 81 1509949480 -2 0
+2 81 1509949480 -2 0
+2 81 1509949480 -2 0
+1 65 1509949540 -2 0
+1 65 1509949490 -2 0
+3130 81 1509949444 -2 0
+-1
+S
+
+#66067
+A Frozen Clearing~
+You are in a snow-covered clearing.  The only visible objects on the
+ground besides snow and ice are some pebbles and an occasional frozen
+twig.  The freezing winds continue to beat against your face and body. 
+Overlooking the view to the north are mountains that penetrate deeply
+through the clouds.  To the west and south is a frozen clearing.  To the
+east, a treacherous passage heads downward.
+~
+~
+301465600 2 8 0
+D2
+~
+~
+0 -1 66068 10 10 5
+D3
+~
+~
+0 -1 66052 10 10 5
+D5
+~
+~
+0 -1 66069 10 10 5
+E
+frozen twig~
+These twigs have been frozen within two inches of clear ice.  They're
+probably from some bush or other plant that grows here, when or if it's
+not so cold.
+~
+E
+view mountains~
+The mountains stretch high into the heavens.  Their tops look as though
+they're piercing through the clouds.
+~
+A
+~
+~
+act_tochar( #down, ch );
+act_notchar( #ndown, ch );
+continue;
+~
+E
+down~
+You carefully make your way down the passage.
+~
+E
+ndown~
+$n carefully heads down the passage.
+~
+!
+3 0 32
+1602 17 1509949540 -2 0
+-1
+S
+
+#66068
+A Frozen Clearing~
+It's a little difficult to maintain your footing here, as the ground is
+slick with many patches of ice.  The only sounds you hear are the echoing
+of the blistering winds and your own heavy breathing.  To the east and
+south of you is a mountain skyline, offering a picturesque view of the
+land below.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66067 10 10 5
+D3
+~
+~
+0 -1 66061 10 10 5
+E
+mountain skyline~
+The mountains appear rather small across the distant horizon, like
+upside-down cones frosted with gleaming-white cream.
+~
+1865 9 1509949540 3 0
+-1
+S
+
+#66069
+A Frozen Slope~
+You struggle to maintain your balance along the narrowed, frozen slope. 
+The air is thin, making you spend more time to catch your breath.  This
+offers an excuse to take in the view around you.  The mountain skylines
+encompass most of the northern and southern horizons.  Looking up, you
+see a frozen clearing.  The frozen slope widens a little downward.
+~
+~
+335020040 5 9 0
+D4
+~
+~
+0 -1 66067 10 10 5
+D5
+~
+~
+0 -1 66070 10 10 5
+E
+view mountain skylines~
+Snow-peaked mountains span all of your view of the north and south.  They
+form a ridge-like pattern, like spear tips laced with white cream ripping
+through the heavens.
+~
+A
+~
+~
+act_tochar( #leave, ch );
+act_notchar( #nleave, ch );
+continue;
+~
+E
+leave~
+You carefully make your way downward.
+~
+E
+nleave~
+$n carefully makes $s way downward.
+~
+!
+3 0 32
+A
+~
+~
+i = random( 4, 10 );
+if( find_stat( ch, dex ) > i ) {
+  act_tochar( #leave, ch );
+  act_notchar( #nleave, ch );
+  continue;
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  transfer( ch, find_room( 66070 ) );
+  dam_message( ch, 3d5+10, "the fall" );
+  inflict( ch, mob, 3d5+10, "falling down" );
+  }
+~
+E
+leave~
+You cautiously make your way up the slope.
+~
+E
+nleave~
+$n cautiously makes $s way up the slope.
+~
+E
+fail~
+You try to go up the slope, but suddenly lose your footing.
+~
+E
+nfail~
+$n tries to go up the slope, but suddenly loses $s footing.
+~
+!
+3 0 16
+A
+sleep~
+~
+act_tochar( #cant, ch );
+~
+E
+cant~
+It's too dangerous to be sleeping on the slope.
+~
+!
+0 0 0
+-1
+S
+
+#66070
+A Frozen Trail~
+The ground is glistening white, as though glazed with smooth, cold
+frosting.  Lining the sides of the trail are some frozen bushes.  The
+trail leads further up, along a dangerous-looking slope.  It also
+continues eastward into more open space.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 66071 10 10 5
+D4
+~
+~
+0 -1 66069 10 10 5
+E
+sides frozen bushes~
+The branches of the bushes are encased within an inch of ice.  Wild
+berries possibly grow on them during warmer times.
+~
+A
+~
+~
+act_tochar( #up, ch );
+act_notchar( #nup, ch );
+continue;
+~
+E
+up~
+You carefully make your way up the slope.
+~
+E
+nup~
+$n carefully makes $s way up the slope.
+~
+!
+3 0 16
+-1
+S
+
+#66071
+A Frozen Trail~
+The path is relatively level here, making it somewhat easier to traverse
+the frozen trail.  Part of the ground has melted around a dying campfire,
+its smoke rising faintly into the air.  Snowdrifts as tall as an ogre
+have accumulated to the south of you, while the north overlooks
+snow-capped mountains.  The trail extends westward, as well as sloping
+down a partially frozen incline.
+~
+~
+301469696 5 9 0
+D3
+~
+~
+0 -1 66070 10 10 5
+D5
+~
+~
+0 -1 66072 10 10 5
+E
+snowdrifts~
+Piled high and thick, the snowdrifts resemble white stalagmites.  Judging
+by their height, the snowdrifts have been accumulating for quite some
+time.
+~
+E
+snow-capped mountains~
+The snow-capped mountains spanning the northern horizon is breath taking
+to behold.  They form a ridge-like pattern, like cream-covered spear tips
+ripping through the heavens.
+~
+1357 17 1509949540 -2 0
+1952 9 1509949540 3 0
+-1
+S
+
+#66072
+A Partially Frozen Slope~
+Ice patches scattered randomly across the slope make passage a little
+precarious.  The path is relatively wide, however, allowing you to avoid
+the slippery ice patches and maintain more sure footing in the softer
+snow.  You can make out faint smoke rising from something at the top of
+the slope.  You can trudge up to find the source of the smoke, or descend
+the slick slope.
+~
+~
+301465600 5 9 0
+D4
+~
+~
+0 -1 66071 10 10 5
+D5
+~
+~
+0 -1 66073 10 10 5
+E
+slippery ice patches~
+The ice patches vary from being only a few feet wide to six or so feet
+wide.  They are clear enough for you to see your own reflection.
+~
+-1
+S
+
+#66073
+A Partially Frozen Slope~
+You have reached the base of a partially frozen slope along the cliff. 
+Working your way along the slope may prove rather messy.  Some melted
+snow and ice have mixed with the brown soil to form muddy puddles against
+the sloped path.  You can make your way up the slope, or climb down and
+off the cliff.
+~
+down to 66074
+~
+301465600 4 9 0
+D4
+~
+~
+0 -1 66072 10 10 5
+E
+muddy puddles~
+The puddles are a dark-brown color.  They are scattered all along the
+slope making it difficult to continue without getting yourself dirty.
+~
+A
+climb~
+down d~
+i = random( 0, 4 );
+if( find_skill( ch, climb ) > i ) {
+  act_tochar( #down, ch );
+  act_notchar( #ndown, ch );
+  transfer( ch, find_room( 66074 ) );
+  act_notchar( #arri, ch );
+  loop( followers ) {
+    if( is_player( rch ) ) {
+      transfer( rch, find_room( 66074 ) );
+      act_notchar( #arri, rch );
+      }
+    }
+  }
+else {
+  act_tochar( #hurt, ch );
+  act_notchar( #nhurt, ch );
+  transfer( ch, find_room( 66074 ) );
+  dam_message( ch, 3d5+40, "The fall" );
+  inflict( ch, mob, 3d5+40, "falling down a cliff" );
+  }
+~
+E
+down~
+You carefully climb down the cliff.
+~
+E
+ndown~
+$n carefully climbs down the cliff.
+~
+E
+arri~
+$n arrives from above.
+~
+E
+hurt~
+You attempt to climb down the cliff, but lose your grip and fall!
+~
+E
+nhurt~
+$n attempts to climb down the cliff, but loses $s grip
+and falls down!
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #mud, ch );
+act_notchar( #nmud, ch );
+continue;
+~
+E
+mud~
+Mud splatters all over your clothing as you head up.
+~
+E
+nmud~
+$n gets dirtier as $e continues onward.
+~
+!
+3 0 16
+-1
+S
+
+#66074
+A Narrow Trail~
+The trail comes to an abrupt end northward, as majestic snow-capped
+mountains fill the horizon in that direction.  The ground is lightly
+frosted and a soft, chilly breeze passes by you.  The edge of the valley
+lies to the east, while the steep cliff blocks the entire area west of
+you.  You can head back south along the trail.
+~
+up to 66073
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 66075 10 10 5
+E
+magnificent snow-capped mountains north n~
+The grand, snow-peaked mountains span the entire view of the north.  They
+form a ridge-like pattern, and their peaks resemble white-spear tips
+piercing through the clouds.
+~
+E
+edge valley east e~
+The bright green valley below appears to reach its end as a winding river
+at the base of the mountain range serves as the border.
+~
+E
+steep cliff west w~
+The enormous cliff towers over you.  You notice a few rocks that appear
+securely sunken into the cliff.  They can perhaps allow someone brave
+enough to scale it.
+~
+A
+climb~
+up u cliff~
+i = random( 1, 5 );
+if( find_skill( ch, climb ) > i ) {
+  act_tochar( #up, ch );
+  act_notchar( #nup, ch );
+  transfer( ch, find_room( 66073 ) );
+  act_notchar( #arri, ch );
+  loop( followers ) {
+    if( is_player( rch ) ) {
+      transfer( rch, find_room( 66073 ) );
+      act_notchar( #arri, rch );
+      }
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  }
+~
+E
+up~
+You grab onto a rock on the cliff and make your way up.
+~
+E
+nup~
+$n grabs onto a rock on the cliff and makes $s way up.
+~
+E
+arri~
+$n arrives from below.
+~
+E
+fail~
+You fail to climb up the cliff.
+~
+E
+nfail~
+$n tries to climb up the cliff, but fails.
+~
+!
+0 0 0
+-1
+S
+
+#66075
+A Narrow Trail~
+The chilly northern winds caressing your head and body feel like soft
+whispering from the snow-capped mountains to the very distant north. 
+Light traces of snow on the ground can now be detected.  The cliff to the
+west of you seems to have also begun to accumulate some snow.  You can
+continue north or south along the trail.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66074 10 10 5
+D2
+~
+~
+0 -1 66076 10 10 5
+E
+snow-capped mountains north n~
+The mountains are barely visible from here.  You can still make out their
+white peaks forming a magnificent view of the distant northern horizon.
+~
+E
+light traces ground~
+A thin layer of gleaming white snow partially covers the hardened ground.
+~
+E
+cliff west w~
+Several white specks against the cliff can be seen, making the cliff look
+like it's decorated in white paint spots.
+~
+-1
+S
+
+#66076
+A Narrow Trail~
+As the wind picks up and brushes against your body, you notice how cold
+it is here.  A few twigs and rocks disseminated across the ground get
+carried off by the wind, rolling southward as the wind apparently
+originates from the north.  Off to the east, most of the valley can be
+viewed.  You can head north into the cold winds; or travel westward along
+the rocky trail.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 66075 10 10 5
+D3
+~
+~
+0 -1 66077 10 10 5
+E
+twigs rocks~
+Brown twigs broken from dead bushes and small rocks the size of a baby
+human's thumb have been randomly dispersed along the trail by the chilly
+winds.
+~
+E
+east e valley~
+You can see the lush green tops of trees and other plants winding their
+way down to the east of you.  The tremendous depth of the valley makes
+travel along the trail tricky and a little dangerous.
+~
+474 17 1509949540 -2 0
+-1
+S
+
+#66077
+A Narrow Trail~
+The path winds its way around the side of the cliff.  Directly beside the
+cliff lie a few twigs which have fallen from above.  Pebbles and rocks
+cover most of the dirt trail, although a few bushes have managed to grow
+on the otherwise infertile ground.  You can carefully continue south or
+east along the trail.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 66076 10 10 5
+D2
+~
+~
+0 -1 66078 10 10 5
+E
+cliff~
+The cliff towers directly above you.  Placed a little above your reach is
+what appears to be a large nest.  The nest rests firmly on a large branch
+which hangs against the cliff.
+~
+E
+twigs~
+The twigs are blackish-brown and very thin.
+~
+E
+bushes~
+The bushes are leafless, but surprisingly large.  Perhaps they can bear
+wild berries during more suitable seasons.
+~
+E
+pebbles rocks~
+Brown, dust-covered rocks and pebbles about the size of a small button
+lie randomly scattered along the trail.
+~
+-1
+S
+
+#66078
+A Rocky Trail~
+This obviously little-used trail is comprised mainly of dust and pebbles,
+mostly from the fallen pieces of the cliff to the west.  A deep valley
+spans the view to the east, making travel along the path somewhat
+dangerous.  The trail continues northward and narrows a bit southward.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 66077 10 10 5
+D2
+~
+~
+0 -1 66079 10 10 5
+E
+deep valley east e~
+You can see verdant peaks of trees and other plants wind down the valley
+to the east of you.  The great depth of the valley makes travel eastward
+improbable.
+~
+E
+cliff west w~
+An occasional brown pebble from the cliff beside this path gently rolls
+down.  The cliff stretches too high for you to determine its peak.
+~
+78 17 1509949540 -2 0
+-1
+S
+
+#66079
+A Rocky Trail~
+The path beside the cliff is narrow and rocky.  A soft breeze brushes
+against you from the east.  Overlooking that direction is a lush green
+valley.  You make certain that your footing is solid and sure, for one
+false step could mean disaster.  A massive, gray tower looms in the
+distant south, while the trail continues northward.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 66078 10 10 5
+D2
+~
+~
+0 -1 27568 10 10 5
+E
+east e lush green valley~
+You can see the verdant peaks of trees and other plants wind down the
+valley to the east of you.  The depth of the valley makes travel eastward
+improbable.
+~
+E
+massive gray tower~
+The gray tower rises high in the air and narrows at its peak.
+~
+E
+cliff~
+The cliff towers everything to the east of you.  Its light brown color
+appear faded due to many years of erosion.
+~
+-1
+S
+
+#0
+

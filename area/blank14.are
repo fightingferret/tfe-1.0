@@ -1,0 +1,6746 @@
+#AREA
+Warlock Coven Mines~
+Gramp, Caer, Merior~
+Warlock Coven Mines~
+
+35 0
+0
+#ROOMS
+
+#31250
+Decrepit Mine Entrance~
+You are standing in the entrance of a decrepit old mine.  The walls are
+roughly cut and thick black tar seeps in the many cracks.  The wooden
+struts holding back the ceiling are rotted and falling apart.  From time
+to time, you can hear strange noises coming from deep within the mine. 
+The tunnel continues downward to the east, or you can exit the mine by
+heading west.
+~
+no_mob
+~
+335020044 0 5 0
+D3
+~
+~
+0 -1 31279 10 10 5
+D5
+~
+~
+0 -1 31251 10 10 5
+A
+3 listen~
+~
+send_to_char( #sounds, ch );
+~
+E
+sounds~
+Straining your ears you can make out the sounds of heavy footsteps nearby.
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, level ) < 16 )
+  act_tochar( #wind, ch );
+continue;
+~
+E
+wind~
+You could have swore you heard a voice in the wind speak,
+"You are too inexperienced to be in here."
+~
+!
+1 1 2
+A
+~
+~
+if( find_Stat( ch, level ) < 20 ) 
+act_tochar( #danger, ch );
+~
+E
+danger~
+As you approach the mine entrance, you sense a great peril, indeed, one
+that threatens to squash your puny mortal frame without thought or effort. 
+Return here when you are more experienced.
+~
+!
+1 -1 8
+-1
+S
+
+#31251
+Decrepit Mine Tunnel~
+The walls of the tunnel are roughly cut and thick black tar seeps in the
+many cracks.  The wooden struts holding back the ceiling are rotted and
+falling apart.  There is a noticably large crack in the ceiling here. 
+The tunnel continues to the east and west.  
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 31252 10 10 5
+D4
+~
+~
+0 -1 31250 10 10 5
+E
+pool floor down ground~
+There is a pool of tar directly below the crack in the ceiling.
+~
+E
+drip blob crack tar ceiling up~
+The tar pooled up in the crack is dripping onto the ground.
+~
+431 9 1509949540 3 0
+2745 17 1509949455 -2 0
+-1
+S
+
+#31252
+Decrepit Mine Tunnel~
+A wide tunnel stretches into the darkness, allowing you to move freely in
+any direction but south.  Broken cobwebs barely attached to the walls
+indicate that someone - or something - has passed this way recently.  To
+the south, bits of rotting timber have been carelessly hammered together,
+forming a small wooden shed.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31255 10 10 5
+D1
+~
+~
+0 -1 31254 10 10 5
+D2
+shed door~
+'shed door' door~
+131 -1 31253 10 10 5
+D3
+~
+~
+0 -1 31251 10 10 5
+E
+broken cobweb~
+Giant cobwebs are barely attached to the walls here; a large gap has been
+created in the center, showing where others have recently passed.  Dead
+insects as well as unrecognizable bits of meat are caught in the strands.
+~
+E
+timber rotting wooden shed~
+Various sized bits of rotting timber have been barely hammered together
+to form a structure to your south.  A flimsy door prevents you from
+seeing inside the structure.
+~
+431 9 1509949540 3 0
+431 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31253
+Tiny Wooden Shed~
+There are storage bins and cabinets all along the walls of this small
+shed.  The walls are made of wood, but have been covered with brown clay. 
+Here and there, patches of the clay have worn off, exposing the rotted
+wood underneath.  Mining equipment can be found scattered about the room.
+~
+~
+301465612 0 6 0
+D0
+shed door~
+shed door~
+131 -1 31252 10 10 5
+D2
+Wall~
+Wall~
+235 -1 31257 10 10 5
+E
+walls 1 south clay~
+On the south wall you notice a patch of the clay that differs from the
+rest of the wall.
+~
+E
+1 south~
+The wall looks odd.. it's as if it's not natural.
+~
+E
+patches~
+This particular patch of clay seems discolored and somewhat softer then
+the rest of the wall.
+~
+E
+bins cabinets~
+Searching through the bins and cabinets, you find more old, rusty mining
+equipment.  
+~
+E
+equipment mining~
+Various pickaxes, lanterns, and other such items are strewn about the
+floor.  All of it is so old and rusted that it would be of no use to you
+at all.
+~
+E
+wood rotted rotting~
+Odd bits of wood have been carelessly hammered together to form the walls
+of this flimsy shed.
+~
+A
+pull yank tug~
+3 chain~
+if( !rflag( reset0, room ) ) {
+  if( !is_open( room, south ) ) {
+    send_to_char( #pulling, ch );
+    act_notchar( #ispulling, ch );
+    send_to_room( #noise, room );
+    open( room, south );
+    }
+  else
+    send_to_char( #already, ch );
+  }
+else
+  send_to_char( #nochain, ch );
+~
+E
+noise~
+The wall groans slightly as it moves.
+~
+E
+nochain~
+You don't see that here.
+~
+E
+ispulling~
+$n pulls a chain and the south wall slides up into the rock.
+~
+E
+pulling~
+You pull the chain and notice the south wall slide up into the rock.
+~
+E
+already~
+The wall has already been opened.
+~
+!
+0 0 0
+A
+push punch hit bash kick~
+3 patch 3 clay~
+if( rflag( reset0, room ) ) {
+  send_to_char( #punch, ch );
+  act_notchar( #punching, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #holeopen, ch );
+~
+E
+punching~
+$n punches a hole in the wall revealing a hidden chain.
+~
+E
+punch~
+You punch the soft patch of clay revealing a hidden chain.
+~
+E
+holeopen~
+The patch of clay has already been broken.
+~
+!
+0 0 0
+A
+1 look~
+3 chain~
+if( !rflag( reset0, room ) )
+  send_to_char( #chain, ch );
+else
+  send_to_char( #nochain, ch );
+~
+E
+chain~
+The chain is buried in the wall behind what used to be a patch of clay. 
+It appears to be firmly attached to something further up, but what you
+cannot see.  
+~
+E
+nochain~
+You don't see that here.
+~
+!
+0 0 0
+-1
+S
+
+#31254
+Decrepit Mine Tunnel~
+Jagged wooden struts hold the low mine ceiling in place, making it
+difficult if not dangerous to move along this east-west shaft.  Water has
+formed in several small pools, but there is no visible source for the
+fluid.  There is no breeze at all: the water is completely still and
+very, very cold.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 31256 10 10 5
+D3
+~
+~
+0 -1 31252 10 10 5
+E
+pool water~
+The icy black water has a strange, mineral smell.
+~
+E
+jagged wooden struts~
+These pieces of wood have seen better days, their rough edges stand ready
+to snag anyone who gets too close.  It looks as if they might collapse at
+any moment.
+~
+431 9 1509949540 3 0
+1388 17 1509949540 -2 0
+-1
+S
+
+#31255
+Decrepit Mine Tunnel~
+A small pile of broken rocks lies on the ground near the eastern wall of
+this portion of the tunnel.  Each rock is almost identical in shape and
+color, and does not seem to have fallen from the nearby stones. 
+Conversely, the ground under the western wall is quite clean.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31263 10 10 5
+D2
+~
+~
+0 -1 31252 10 10 5
+E
+rock eastern wall pile~
+Each rock appears to be the same size, or close to it: three inches long,
+and about an inch wide, with smooth, rounded edges.  Upon closer
+examination, they show signs of having been shaped.
+~
+E
+1 western floor~
+The surface of the western wall is quite smooth, and the nearby floor
+free of debris.
+~
+A
+get take grab~
+rock stone~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You start to take a small stone as a souvenir, but decide that it is just
+worthless rubbish and leave it on the ground, the mystery of its origin
+forgotten.
+~
+!
+0 0 0
+-1
+S
+
+#31256
+Decrepit Mine Tunnel~
+Passages wide enough for a troll to move comfortably stretch out to the
+north and west; a very narrow tunnel leads eastward.  The mine wall to
+the south is dark and cold, gouges made from sharp objects pit its
+surface.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31260 10 10 5
+D1
+~
+~
+577 -1 31259 10 10 5
+D3
+~
+~
+0 -1 31254 10 10 5
+E
+south wall gouge~
+Deep gouges mar the south wall of the tunnel.  The dark rock is covered
+with holes made by a pick or other sharp object.
+~
+431 9 1509949540 3 0
+431 9 1509949540 3 0
+2745 17 1509949455 -2 0
+-1
+S
+
+#31257
+Hidden Tool Cache~
+This small room seems to be in better condition then the main part of the
+shed.  The floor is clean and walls bear a full coat of clay.  The room
+is empty except for a single cabinet against the south wall and a chain
+hanging from the ceiling.
+~
+~
+301465612 0 6 0
+D0
+wall~
+~
+235 -1 31253 10 10 5
+E
+chain~
+The chain is identical to the one on the other side of the wall.
+~
+E
+cabinet~
+This small cabinet is bare of anything but a coat of dust.
+~
+E
+wall clay~
+A thick coat of brown clay covers the walls in this tiny room.
+~
+A
+pull yank tug~
+3 chain~
+if( !is_open( room, north ) ) {
+  send_to_char( #pulling, ch );
+  act_notchar( #ispulling, ch );
+  send_to_room( #noise, room );
+  open( room, north );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+noise~
+The wall groans slightly as it moves.
+~
+E
+ispulling~
+$n pulls a chain and the north wall slides up into the rock.
+~
+E
+pulling~
+You pull the chain and notice the north wall slide up into the rock.
+~
+E
+already~
+The wall has already been opened.
+~
+!
+0 0 0
+418 49 1509949540 -2 0
+9 81 5 -2 0
+26 81 1509949445 -2 0
+229 81 1509949445 -2 0
+-1
+S
+
+#31259
+Cave Worm Lair~
+This small chamber is barely large enough to stand up in.  The walls are
+streaked with dirt and show signs of previous mining.  An unpleasant
+smell emanates from the north, though it is too dark to see what lies
+that far away.
+~
+~
+301465612 0 5 0
+D0
+~
+~
+0 -1 31261 10 10 5
+D3
+passageway~
+passageway~
+577 -1 31256 10 10 5
+E
+walls dirt~
+The dark tunnel wall to the south are streaked with dirt and pitted with
+holes made by picks or similar mining instruments.  Loose stones lie to
+the west and east, formed by a massive cave-in.
+~
+A
+~
+~
+wait( 1 );
+act_tochar( #westcollapse, ch );
+close( room, west );
+  i = 4d8+2;
+  dam_message( ch, i, "the falling debris" );
+  inflict( ch, mob, i, "falling debris" );
+send_to_room( #eastcollapse, find_room( 31256 ) );
+~
+E
+area~
+@b@WYou hear a low rumbling sound from somewhere nearby.
+~
+E
+eastcollapse~
+@b@WWith a loud *CRASH* the east passage collapses.
+~
+E
+westcollapse~
+@b@WWith a loud *CRASH* the west passage collapses, sealing off the exit.
+~
+!
+1 1 10
+A
+dig~
+3 shovel 3 walls 3 hole~
+send_to_char( #where, ch );
+~
+E
+where~
+Where do you want to dig?
+~
+!
+0 0 0
+A
+dig~
+1 south 1 west 1 east 1 up 1 down~
+send_to_char( #nothing, ch );
+~
+E
+nothing~
+That wall is too hard to dig.
+~
+!
+0 0 544829301
+A
+1 look~
+1 south 1 up 1 down~
+send_to_char( #notsuitable, ch );
+~
+E
+notsuitable~
+This wall is hard as rock.  Perhaps that's because it IS rock.
+~
+!
+0 0 0
+A
+1 look~
+1 west 1 east~
+act_tochar( #fallen, ch );
+~
+E
+fallen~
+Large chunks of stone have fallen off the wall, making passage in that
+direction impossible.
+~
+!
+0 0 0
+-1
+S
+
+#31260
+Decrepit Mine Tunnel~
+The tunnel is quite narrow here, as a large chunk of granite on the west
+wall intrudes upon the passageway.  Aged timbers hold loosened stones at
+bay, but cracks in their structures make it unclear how long the ceiling
+will remain above your head.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31262 10 10 5
+D1
+~
+~
+227 -1 31261 10 10 5
+D2
+~
+~
+0 -1 31256 10 10 5
+E
+large chunk granite west~
+A large chunk of grayish granite protrudes from the west wall.  Its
+mottled surface is quite rough, and looks as if it might snag your
+clothing if you get too close.
+~
+E
+aged timbers stone crack ceiling~
+The low ceiling is held up by several aged timbers.  A large crack seems
+to run through each of these pieces of wood, making their usefulness
+questionable.  It looks as if any moment the timbers may give way and the
+stones come rumbling down.
+~
+A
+1 look~
+1 east 3 hole~
+if( is_open( room, east ) )
+  send_to_char( #hole, ch );
+else
+  send_to_char( #nothing, ch );
+~
+E
+hole~
+There is a newly dug hole in the east wall just big enough to crawl through.
+~
+E
+nothing~
+You don't see that here.
+~
+!
+0 0 0
+A
+3 crawl 3 enter~
+1 east 3 hole~
+end;
+if( !rflag( reset1, room ) ) {
+  send_to_char( #enter, ch );
+  act_notchar( #leave, ch );
+  transfer( ch, find_room( 31261 ) );
+  act_notchar( #isentering, ch );
+  }
+else
+  send_to_char( #nothing, ch );
+~
+E
+isentering~
+$n enters the room from a small hole in the west wall.
+~
+E
+leave~
+$n squeezes through the small hole in the east wall.
+~
+E
+enter~
+You barely manage to squeeze through the small hole.
+~
+E
+nothing~
+There is nothing you can enter by that name.
+~
+!
+0 0 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31261
+Cave Worm Lair~
+The stone walls here are covered with small scratches; corresponding
+chips litter the floor below.  A pungent scent fills the air and clings
+to the walls.  A large wheelbarrow takes up most of the space, making
+movement in any direction other then south very difficult.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+171 -1 31288 10 10 5
+D2
+~
+~
+0 -1 31259 10 10 5
+D3
+~
+~
+227 -1 31260 10 10 5
+E
+wheelbarrow~
+A large metal wheelbarrow blocks your movement in any direction other
+then south.  Portions of it are rusted, and it has no wheels along its
+bottom.
+~
+A
+push move turn lift~
+5 wheelbarrow~
+if( mob_in_room( 433, room ) )
+  send_to_char( #notnow, ch );
+else {
+  if( rflag( reset0, room ) ) {
+    send_to_char( #lifting, ch );
+    act_notchar( #islifting, ch );
+    obj_to_char( oload( 1489 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else
+    send_to_char( #already, ch );
+  }
+~
+E
+notnow~
+You cant do that while the worm is sitting on it!
+~
+E
+already~
+The wheelbarrow is already rightside up.
+~
+E
+islifting~
+$n turns the wheelbarrow rightside up revealing a shovel that was hidden
+beneath it.
+~
+E
+lifting~
+Turning the wheelbarrow rightside up reveals a shovel that was hidden
+beneath it.  
+~
+!
+0 0 0
+A
+1 look~
+under 5 wheelbarrow~
+if( rflag( reset0, room ) )
+  send_to_char( #looking, ch );
+else
+  send_to_char( #already, ch );
+~
+E
+looking~
+The aged wheelbarrow is lying upside down on the ground.  It is impossible
+to tell what's underneath of it.
+~
+E
+already~
+The wheel barrow has been turned upright.  There is nothing in it.
+~
+!
+0 0 0
+A
+dig~
+1 west~
+if( !rflag( reset1, room ) ) {
+  send_to_char( #already, ch );
+  end;
+  }
+if( !has_obj( 1489, ch ) ) {
+  send_to_char( #noshovel, ch );
+  act_notchar( #hasnoshovel, ch );
+  end;
+  }
+send_to_char( #digging, ch );
+act_notchar( #isdigging, ch );
+wait( 2 );
+send_to_char( #dug, ch );
+act_notchar( #isdug, ch );
+remove_rflag( reset1, room );
+remove_rflag( reset1, find_room( 31260 ) );
+send_to_room( #holeopen, find_room( 31260 ) );
+open( room, west );
+~
+E
+holeopen~
+You see a hole suddenly open up in the east wall!
+~
+E
+isdug~
+$n finally manages to dig a hole large enough for all to crawl through.
+~
+E
+dug~
+You finally manage to dig a hole large enough to crawl through.
+~
+E
+hasnoshovel~
+$n tries to dig through the west wall with $s hands, but soon gives up.
+~
+E
+noshovel~
+You try to dig with your hands, but soon realize it is hopeless.
+~
+E
+already~
+There is already a hole dug there.
+~
+E
+isdigging~
+$n starts digging in the west wall with $s shovel...
+~
+E
+digging~
+Using your shovel you begin the lengthy process of digging your way out...
+~
+!
+0 0 0
+A
+3 crawl 3 enter~
+1 west 3 hole~
+if( rflag( reset1, room ) )
+  send_to_char( #nohole, ch );
+else {
+  send_to_char( #entering, ch );
+  act_notchar( #isleaving, ch );
+  transfer( ch, find_room( 31260 ) );
+  act_notchar( #isentering, ch );
+  }
+~
+E
+isentering~
+$n enters the room from a small hole in the east wall.
+~
+E
+isleaving~
+$n squeezes through the small hole in the west wall.
+~
+E
+entering~
+You barely manage to squeeze through the small hole.
+~
+E
+nohole~
+There is nothing you can enter by that name.
+~
+!
+0 0 0
+A
+1 look~
+3 hole~
+if( !rflag( reset1, room ) )
+  send_to_char( #hole, ch );
+else
+  send_to_char( #nothing, ch );
+~
+E
+hole~
+There is a newly dug hole in the west wall just big enough to crawl through.
+~
+E
+nothing~
+You dont see that here.
+~
+!
+0 0 0
+A
+1 look~
+1 west 3 walls~
+if( is_open( room, west ) ) 
+  send_to_char( #hole, ch );
+else
+  send_to_char( #nohole, ch );
+~
+E
+nohole~
+The rock on the west wall appears to be somewhat loosened.
+~
+E
+hole~
+There is a newly dug hole in the west wall just big enough to crawl through.
+~
+!
+0 0 0
+A
+dig~
+3 shovel 3 walls 3 hole~
+send_to_char( #where, ch );
+~
+E
+where~
+Where do you want to dig?
+~
+!
+0 0 0
+A
+dig~
+1 north 1 east 1 up 1 down~
+send_to_char( #nothing, ch );
+~
+E
+nothing~
+That wall is too hard to dig.
+~
+!
+0 0 544829301
+A
+1 look~
+1 north 1 east 1 up 1 down~
+send_to_char( #notsuitable, ch );
+~
+E
+notsuitable~
+This wall is hard as rock.  Perhaps that's because it IS rock.
+~
+!
+0 0 0
+A
+1 open~
+1 east~
+if( !is_open( room, east ) ) {
+  if( mob_in_room( 433, room ) )
+    send_to_char( #mob, ch );
+  else {
+    send_to_char( #ok, ch );
+    open( room, east );
+    }
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+already~
+It's already open.
+~
+E
+ok~
+Ok.
+~
+E
+mob~
+The Cave Worm shifts its long body just enough to prevent you from
+opening it.
+~
+!
+0 0 0
+433 9 1509949540 3 0
+2745 17 1509949465 -2 0
+-1
+S
+
+#31262
+Decrepit Mine Tunnel~
+This portion of the tunnel slopes gradually downhill from south to north. 
+Small bits of stone crunch under your feet, and slowly roll down the
+slope.  The walls are dry and cold, their pitted surfaces provide
+finger-sized crannies for investigation.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31266 10 10 5
+D2
+~
+~
+0 -1 31260 10 10 5
+E
+wall pitt cranny~
+Finger-sized holes line the east and west walls.  Just bigger then the
+tip of a pick, they could provide a spot to hide small objects.
+~
+A
+search~
+hole cranny~
+if( rflag( reset0, room ) && is_player( ch ) ) {
+  remove_rflag( reset0, room );
+  if( find_skill( ch, searching ) > random( 5, 8 ) ) {
+    i = random( 0, 5 );
+    act_tochar( #found, ch );
+    act_notchar( #hefound, ch );
+    if( i == 1 )
+      obj_to_char( oload( 38 ), ch );
+    if( i == 2 )
+      obj_to_char( oload( 1007 ), ch );
+    if( i == 3 )
+      obj_to_char( oload( 1029 ), ch );
+    if( i == 0 )
+      obj_to_char( oload( 1469 ), ch );
+    if( i == 4 )
+      obj_to_char( oload( 1155 ), ch );
+    if( i == 5 )
+      obj_to_char( oload( 94 ), ch );
+    }
+  else
+    {
+  act_tochar( #nope, ch );
+  end;
+  }
+}
+else
+act_tochar( #nope, ch );
+~
+E
+found~
+You seem to have found something in the hole!
+~
+E
+hefound~
+$n smiles and pulls something out of the hole!
+~
+E
+nope~
+You search the holes, but find them empty.
+~
+!
+0 0 0
+-1
+S
+
+#31263
+Decrepit Mine Tunnel~
+The ground here slopes sharply down from the south to the north; small
+pebbles underfoot make passage quite precarious.  The tunnel walls are
+slightly bulging, almost as if an overweight ogre pushed them out as he
+squeezed through.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31264 10 10 5
+D2
+~
+~
+0 -1 31255 10 10 5
+431 9 1509949540 3 0
+-1
+S
+
+#31264
+Decrepit Mine Tunnel Shaft~
+This portion of the tunnel is dominated by a rectangular-looking shaft
+which leads down deep into the heart of the mine.  There appear to be two
+ways down: a small lift as well as some rusted iron rungs attached to the
+east wall of the shaft.  A single rope for operating the lift is attached
+to a pulley on the ceiling.
+~
+||look lift||pull rope||climb lift||
+[Merior] add an action to take the lift - move whole group at once
+~
+301465604 0 7 0
+D2
+~
+~
+0 -1 31263 10 10 5
+D5
+~
+~
+0 -1 31265 10 10 5
+E
+ladder iron rungs~
+The ladder is crudely fashioned of iron and although quite rusty, it
+appears to be capable of supporting your weight.
+~
+E
+pulley~
+A battered wooden cog with a rope strung through it.  It looks sturdy
+enough to still operate.  
+~
+E
+rope~
+The rope is used for raising and lowering the lift.
+~
+A
+1 look~
+wheelbarrow lift~
+if( !rflag( status0, find_room( 31272 ) ) )
+  send_to_char( #isdown, ch );
+else
+  send_to_char( #isup, ch );
+~
+E
+isup~
+This is a rickety old lift, constructed out of rotten planks and frayed
+rope.  It is big enough to carry a wheelbarrow although you don't think
+it is strong enough anymore.
+~
+E
+isdown~
+The lift is currently far down the bottom of the shaft.
+~
+!
+0 0 0
+A
+pull yank tug~
+rope~
+if( !rflag( status0, find_room( 31272 ) ) ) {
+set_rflag( status0, find_room( 31272 ) );
+  send_to_char( #isdown_char, ch );
+  act_notchar( #isdown_room, ch );
+  send_to_room( #isdown_all1, room );
+  send_to_room( #isdown_all2, find_room( 31265 ) );
+send_to_room( #down, find_room( 31395 ) );
+  room = find_room( 31272 );
+  send_to_room( #isdown_all3, room );
+  }
+else {
+remove_rflag( status0, find_room( 31272 ) );
+  send_to_char( #isup_char, ch );
+  act_notchar( #isup_room, ch );
+  send_to_room( #isup_all1, room );
+send_to_room( #up, find_room( 31395 ) );
+  send_to_room( #isup_all2, find_room( 31265 ) );
+  room = find_room( 31272 );
+  send_to_room( #isup_all3, room );
+  }
+~
+E
+isup_all3~
+The lift has arrived.
+~
+E
+isup_all2~
+The lift moves past you going down, someone must be pulling on the rope.
+~
+E
+isup_all1~
+The lift begins to move down the shaft and before long disappears from view.
+~
+E
+isup_room~
+$n pulls on the lift rope.
+~
+E
+isup_char~
+You pull the rope.
+~
+E
+isdown_all3~
+The lift begins to move up the shaft and before long disappears from view.
+~
+E
+isdown_all2~
+The lift moves past you going up, someone must be pulling on the rope.
+~
+E
+isdown_all1~
+The lift has arrived.
+~
+E
+isdown_room~
+$n pulls on the rope and you notice the lift slowely rise up from the
+bottom of the shaft.
+~
+E
+isdown_char~
+You see an ore lift rise from the mine shaft as you pull on the rope.
+~
+E
+down~
+The ore lift moves down the mine shaft!
+~
+E
+up~
+The ore lift moves up the mine shaft!
+~
+!
+0 0 0
+A
+climb get enter~
+onto ore lift~
+if( rflag( status0, find_room( 31272 ) ) ) {
+  act_tochar( #enter, ch );
+  act_notchar( #renter, ch );
+  transfer( ch, find_room( 31395 ) );
+  loop( followers ) {
+    act_tochar( #follow, rch );
+    act_notchar( #rfollow, rch );
+    transfer( rch, find_room( 31395 ) );
+    act_notchar( #arrives, rch );
+    }
+  }
+else
+act_tochar( #nothere, ch );
+~
+E
+enter~
+You climb onto the rickety ore lift.
+~
+E
+renter~
+$n climbs up onto the ore lift.
+~
+E
+follow~
+You follow your leader up onto the ore lift.
+~
+E
+rfollow~
+$n follows and climbs up onto the ore lift.
+~
+E
+arrives~
+$n climbs up onto the ore lift.
+~
+E
+nothere~
+The ore lift isn't here to climb onto.
+~
+!
+0 0 0
+-1
+S
+
+#31265
+Decrepit Mine Tunnel Shaft~
+This narrow shaft leads up to the main level of the mine, or down into
+darkness.  Narrow iron rungs are placed about three feet apart along the
+east wall of the shaft, allowing for careful movement up or down.  Bits
+of loose earth line the shaft walls, the dry dust makes it difficult to
+breathe.
+~
+no_mob
+~
+301465612 0 6 0
+D4
+~
+~
+0 -1 31264 10 10 5
+D5
+~
+~
+0 -1 31272 10 10 5
+E
+narrow iron rung~
+The eastern wall of the shaft has been made into a form of ladder.  Iron
+rungs have been hammered into the side of the shaft about three feet
+apart, making it quite a jump for a small adventurer to move up or down.
+~
+E
+bits earth walls~
+The shaft walls are quite dry, and are lined with earth rather then rocks. 
+It would be quite easy to dislodge the earth, but you might cause the
+shaft itself to collapse.
+~
+-1
+S
+
+#31266
+Decrepit Mine Tunnel~
+The eastern wall of the tunnel is almost completely covered with rotting
+timbers; only bits of stone can be seen.  The western wall is almost the
+opposite: only a few thin planks cross the solid stone wall.  The ground
+slopes sharply down as it moves from south to north, making it necessary
+to move slowly and carefully to avoid falling.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31267 10 10 5
+D2
+~
+~
+0 -1 31262 10 10 5
+E
+thin planks west~
+Only three slender planks serve to brace the western portion of the
+tunnel.  These boards are quite new, and still smell faintly of the
+icalah tree from which they were hewn.
+~
+E
+rotting timbers stone east~
+The eastern wall is obscured by the mass of rotting timbers used to shore
+it.  You can only see a few bits of stone peeking out.
+~
+431 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31267
+Decrepit Mine Tunnel Shaft~
+Only a few feet of solid ground remain here to stand or rest upon: the
+rest of the space is taken up by a shaft which leads further down into
+the mine.  Iron rungs attached to the wall can be used to climb down.  A
+lone pulley is attached to the ceiling just above the shaft entrance.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 31266 10 10 5
+D5
+~
+~
+0 -1 31268 10 10 5
+E
+pulley~
+A battered wooden cog that has broken and can no longer function.
+~
+E
+ladder iron rungs~
+The ladder is crudely fashioned of iron and although quite rusty, if
+appears to be capable of supporting your weight.
+~
+-1
+S
+
+#31268
+Decrepit Mine Tunnel Shaft~
+There appears to be a small opening to your west, though it is mostly
+obscured by a giant spider web.  Otherwise, you can travel through the
+dark shaft either up or down, should you in fact trust the stability of
+the rusted iron rungs which have been hammered into the hard rock of the
+mine.
+~
+~
+301465612 0 7 0
+D3
+web~
+web~
+0 -1 31270 10 10 5
+D4
+~
+~
+0 -1 31267 10 10 5
+D5
+~
+~
+0 -1 31269 10 10 5
+E
+ladder rung iron rusted~
+Iron rungs have been hammered into the sides of the shaft, spaced apart
+just enough for a halfling to need to stretch to reach between them. 
+These rungs appear to have been here quite a while; their surfaces are
+heavily rusted.
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  act_tochar( #web, ch );
+  act_notchar( #isweb, ch );
+  }
+else
+  continue;
+~
+E
+isweb~
+$n tries to walk through a giant spider web in the west wall.
+~
+E
+web~
+You try to enter the opening, but are blocked by a giant spider web.
+~
+!
+3 3 8
+A
+cast~
+fireball~
+if( find_skill( ch, fireball ) >= 1 ) {
+  if( rflag( reset0, room ) ) {
+    act_tochar( #light, ch );
+    act_notchar( #islight, ch );
+    remove_rflag( reset0, room );
+    remove_rflag( reset0, find_room( 31270 ) );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #NOT, ch );
+~
+E
+nothing~
+The web has already been destroyed.
+~
+E
+islight~
+The web bursts into flames as $n casts fireball, completely disintegrating it.
+~
+E
+light~
+The web bursts into flames as you cast fireball, completely disintegrating it.
+~
+E
+NOT~
+You don't have the ability to cast that.
+~
+E
+cast~
+What do you want to cast that on?
+~
+!
+0 0 0
+A
+1 look~
+web~
+if( rflag( reset0, room ) )
+  act_tochar( #web, ch );
+else
+  act_tochar( #noweb, ch );
+~
+E
+noweb~
+The web has been completely destroyed by a fire.
+~
+E
+web~
+The web is large enough to entangle an Ogre.  The strands of silk are as
+big around as your wrist and covered with a clear sticky substance.  
+~
+!
+0 0 0
+A
+1 look~
+6 strands~
+if( rflag( reset0, room ) )
+  act_tochar( #strand, ch );
+else
+  act_tochar( #nostrand, ch );
+~
+E
+nostrand~
+The web has been completely destroyed by a fire.
+~
+E
+strand~
+While examining the silk strands, you notice a section of the web that
+has been repaired.  It seems to have suffered some fire damage.
+~
+!
+0 0 0
+A
+cut hack slash break~
+webs stands~
+if( rflag( reset0, room ) ) {
+  act_tochar( #nocut, ch );
+  act_notchar( #isnocut, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+The web has been completely destroyed by fire.
+~
+E
+isnocut~
+$n tries to cut through the strands and finds them too strong to break.
+~
+E
+nocut~
+There is no way you can cut through the strands of silk.
+~
+!
+0 0 0
+-1
+S
+
+#31269
+Decrepit Mine Tunnel Shaft~
+A dark shaft leads upwards here, towards the main level of the mine; this
+lower portion of tunnel leads only to your north.  The broken remains of
+a small lift lie scattered about on the ground, no longer functional. 
+Iron rungs tacked to the east wall lead up into the shaft.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31278 10 10 5
+D4
+~
+~
+0 -1 31268 10 10 5
+E
+wheelbarrow lift~
+Pieces of rotten planks and bits of frayed rope are all that is left
+of this once proud lift.  It was once used to raise wheelbarrows loaded
+with ore up to the top of the shaft.
+~
+E
+iron rung ladder~
+Small bands of iron have been attached to the eastern wall of the shaft,
+providing the only viable means of ascent.
+~
+-1
+S
+
+#31270
+Giant Spider Cave~
+The ceiling here reaches high above you.  It is too dark to see anything
+up there.  Scattered about the floor of this cave are rotting sacs of
+silk most about the size of an average human.  To the east an exit back
+into the mine shaft is entirely covered by a giant spider web.
+~
+~
+301465612 0 6 0
+D1
+~
+~
+0 -1 31268 10 10 5
+D4
+~
+~
+0 -1 31289 10 10 5
+E
+silk sacs~
+Pulling apart one of the sacks you find the carcass of an elderly gnome. 
+He must have stumbled into the spiders web and been caught.  You can
+pretty well guess the rest of the sacks contain similar examples.  
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  act_tochar( #web, ch );
+  act_notchar( #isweb, ch );
+  }
+else
+  continue;
+~
+E
+isweb~
+$n tries to leave but is blocked by a giant spider web covering the exit.
+~
+E
+web~
+You try to leave but a giant spider web blocks your way.
+~
+!
+3 1 2
+A
+cast~
+fireball~
+if( rflag( reset0, room ) ) {
+  act_tochar( #light, ch );
+  act_notchar( #islight, ch );
+  remove_rflag( reset0, room );
+  remove_rflag( reset0, find_room( 31268 ) );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+The web has already been destroyed.
+~
+E
+islight~
+The web bursts into flames as $n ignites it, completely disintegrating it.
+~
+E
+light~
+The web bursts into flames as you ignite it, completely disintegrating it.
+~
+!
+0 0 0
+A
+look~
+web~
+if( rflag( reset0, room ) )
+  act_tochar( #web, ch );
+else
+  act_tochar( #noweb, ch );
+~
+E
+noweb~
+The web has been completely destroyed by a fire.
+~
+E
+web~
+The web is large enough to entangle an Ogre.  The strands of silk are as
+big around as your wrist and covered with a clear sticky substance.  
+~
+!
+0 0 0
+A
+1 look~
+6 strands~
+if( rflag( reset0, room ) )
+  act_tochar( #strand, ch );
+else
+  act_tochar( #nostrand, ch );
+~
+E
+nostrand~
+The web has been compleately destroyed by a fire.
+~
+E
+strand~
+While examining the silk strands, you notice a section of the web that
+has been repaired.  It seems to have suffered some fire damage.
+~
+!
+0 0 0
+A
+cut hack slash break~
+web 6 strands~
+if( rflag( reset0, room ) ) {
+  act_tochar( #nocut, ch );
+  act_notchar( #isnocut, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+The web has been compleately destroyed by fire.
+~
+E
+isnocut~
+$n tries to cut through the strands and finds them too strong to break.
+~
+E
+nocut~
+There is no way you can cut through the strands of silk.
+~
+!
+0 0 0
+A
+~
+~
+wait( 2 );
+if( !char_in_room( ch, room ) )
+  end;
+room = find_room( 31289 );
+mob = mob_in_room( 434, room );
+if( !mob )
+  end;
+if( rand_player( room ) )
+  end;
+do_spell( web, mob, ch );
+act_tochar( #taken, ch );
+act_notchar( #istaken, ch );
+transfer( ch, room );
+attack( mob, ch, 5d6+10, "bite" );
+~
+E
+istaken~
+@b@WSuddenly from high up in the ceiling a giant spider seizes $n and
+carries $m up into its lair!
+~
+E
+taken~
+@b@WSuddenly from high up in the ceiling a giant spider seizes you and
+carries you up into its lair!
+~
+!
+1 3 8
+474 17 1509949540 -2 0
+-1
+S
+
+#31272
+Decrepit Mine Tunnel Shaft~
+Above you rises a shaft which leads to the upper mine level.  A tunnel
+leads north into the darkness of the second level.  A small lift for
+moving ore appears to be still functional, and rungs tacked to the east
+wall lead up into the shaft.  On the west wall is a slightly frayed rope
+is attached to a small pulley.
+~
+||look lift||pull rope||enter climb lift||
+[Merior] add using lift up action for group
+(copied acode from above, but havent fixed either)
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31273 10 10 5
+D4
+~
+~
+0 -1 31265 10 10 5
+E
+ladder iron rungs~
+The ladder is crudely fashioned of iron and although quite rusty, it
+appears to be capable of supporting your weight.
+~
+A
+1 look~
+wheelbarrow lift~
+if( !rflag( status0, room ) )
+  send_to_char( #isdown, ch );
+else
+  send_to_char( #isup, ch );
+~
+E
+isup~
+The lift is currently far up the shaft and mostly out of sight.
+~
+E
+isdown~
+This is a rickety old lift, constructed out of rotten planks and frayed
+rope.  It is big enough to carry a wheelbarrow although you dont think it
+is strong enough anymore.  
+~
+!
+0 0 0
+A
+pull~
+rope~
+if( rflag( status0, find_room( 31272 ) ) ) {
+  remove_rflag( status0, room );
+  send_to_char( #isdown_char, ch );
+  act_notchar( #isdown_room, ch );
+  send_to_room( #isdown_all1, room );
+  send_to_room( #isdown_all2, find_room( 31265 ) );
+send_to_room( #down, find_room( 31395 ) );
+  room = find_room( 31264 );
+  send_to_room( #isdown_all3, room );
+  }
+else {
+  send_to_char( #isup_char, ch );
+  act_notchar( #isup_room, ch );
+  send_to_room( #isup_all1, room );
+  send_to_room( #isup_all2, find_room( 31265 ) );
+send_to_room( #up, find_room( 31395 ) );
+  set_rflag( status0, find_room( 31272 ) );
+  send_to_room( #isup_all3, find_room( 31264 ) );
+  }
+~
+E
+isdown_char~
+As you pull down on the rope, you can seen the lift descend from the
+shaft above.
+~
+E
+isdown_room~
+$n pulls down on the rope.  Soon, you can seen a lift descend from the
+shaft above.
+~
+E
+isdown_all1~
+The lift has arrived.
+~
+E
+isdown_all2~
+An ore lift goes soaring by, up to the top of the shaft.
+~
+E
+isdown_all3~
+The lift disappears from sight and ascends up the mining shaft.
+~
+E
+isup_char~
+You pull on the rope.
+~
+E
+isup_room~
+$n pulls on the rope.
+~
+E
+isup_all1~
+The ore lift lurches and begins to ascend up the mine shaft.
+~
+E
+isup_all2~
+The ore lift goes soaring up the mine shaft, past you.
+~
+E
+isup_all3~
+An ore lift arrives from below.
+~
+E
+up~
+The ore lift goes zooming down to the bottom of the shaft.
+~
+E
+down~
+The ore lift goes zooming up to the top of the shaft.
+~
+!
+0 0 0
+A
+enter climb jump~
+ore lift~
+if( !rflag( status0, find_room( 31272 ) ) ) {
+  act_tochar( #enter, ch );
+  act_notchar( #renter, ch );
+  transfer( ch, find_room( 31395 ) );
+  loop( followers ) {
+    act_tochar( #follow, rch );
+    act_notchar( #rfollow, rch );
+    transfer( rch, find_room( 31395 ) );
+    act_notchar( #arrives, rch );
+    }
+  }
+else
+act_tochar( #nothere, ch );
+~
+E
+arrives~
+$n climbs onto the ore lift.
+~
+E
+enter~
+You leap onto the ore lift.
+~
+E
+renter~
+$n leaps up onto the ore lift.
+~
+E
+follow~
+You follow $n up onto the rickety wooden ore lift.
+~
+E
+rfollow~
+$n also jumps up onto the ore lift.
+~
+E
+nothere~
+There is no ore cart here to climb onto.
+~
+!
+0 0 0
+-1
+S
+
+#31273
+Decrepit Mine Tunnel~
+The air here is quite cool and damp, and a soft breeze stirs gently
+around your face.  A few stagnant puddles of water are scattered about
+the surface of the ground.  The tunnel walls show traces of reddish dust,
+remnants of the ore vein that was dug out of here.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31274 10 10 5
+D2
+~
+~
+0 -1 31272 10 10 5
+E
+water puddle~
+The puddles are shallow and contain dark, icy water.  A slightly oily
+smell seems to rise from their surfaces.
+~
+E
+wall ore reddish dust~
+The gouged walls are lightly covered with a fine reddish dust.  The
+heaviest concentrations of the dust appear near the deep gouge running
+along the east wall.
+~
+431 9 1509949540 3 0
+-1
+S
+
+#31274
+Decrepit Mine Tunnel~
+The tunnel forms a horizontal 'T' here, with branches to the north,
+south, and west.  Dark streaks on the walls indicate where rich veins of
+ore once was found; now only their outline remains.  A few picks lie
+against the eastern wall, as if the owner had planned to return to the
+task at hand.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31275 10 10 5
+D2
+~
+~
+0 -1 31273 10 10 5
+D3
+~
+~
+0 -1 31282 10 10 5
+E
+pick eastern wall~
+Three picks lie propped up against the eastern wall of the tunnel. 
+Although they show heavy signs of use, they still appear to be functional.
+~
+E
+dark streaks veins ore outline~
+Dark streaks on the walls show the remains of once-rich veins of ore
+found in this portion of the tunnel.  You can now only see the outline;
+no signs of ore remain.
+~
+A
+get take grab~
+picks tools~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The picks are too worthless to bother taking.
+~
+!
+0 0 0
+431 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31275
+Decrepit Mine Tunnel End~
+The tunnel ends abruptly to the north here: from the rough appearance and
+remaining ore of the north wall, you surmise that the digging was
+abruptly stopped here although the rock still looks loaded with ore.  A
+narrow tunnel leading east looks just large enough to crawl through and
+resembles those used for circulation rather then traffic.  
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 31276 10 10 5
+D2
+~
+~
+0 -1 31274 10 10 5
+E
+wall tunnel vein ore rock~
+A large vein of a dark red ore runs parallel to the ground.  Only a
+fraction of it appears to have removed; small bits have been chipped away
+here and there, in no apparent order.
+~
+2745 17 1509949455 -2 0
+-1
+S
+
+#31276
+Decrepit Mine Tunnel Vent~
+This narrow passage barely allows you to move from east to west.  The
+rock of the walls and ceiling is not timbered here, and rockslides appear
+all too probable; in fact, the dirt on the northern wall is especially
+loose.  Looking east and west you can see where it opens into the tunnels
+beyond.
+~
+[Merior] made no.mob since it is so tiny
+~
+301465612 0 9 0
+D1
+~
+~
+0 -1 31277 10 10 5
+D3
+~
+~
+0 -1 31275 10 10 5
+E
+dirt 1 northern wall~
+It looks as if, with the correct tool, you could dig into the mixture of
+earth and rock.
+~
+A
+dig~
+1 north dirt wall~
+if( rflag( reset0, room ) ) {
+  if( has_obj( 1489, ch ) ) {
+    send_to_char( #dig, ch );
+    act_notchar( #isdigging, ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    send_to_char( #noshovel, ch );
+    act_notchar( #hasnoshovel, ch );
+    }
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+already~
+There is already a hole dug there.
+~
+E
+hasnoshovel~
+$n tries digging with $s hands, but soon gives up.
+~
+E
+noshovel~
+You try to dig with your hands, but soon realize it is hopeless.
+~
+E
+isdigging~
+$n digs a hole in the north wall, just large enough to crawl through.
+~
+E
+dig~
+Digging with your shovel in the north wall you find the entrance to the
+secret tunnel the dwarf spoke of.  You have made a hole large enough to
+crawl through.  
+~
+!
+0 0 0
+A
+3 crawl 3 enter~
+hole~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #enter, ch );
+  act_notchar( #leaving, ch );
+  transfer( ch, find_room( 31286 ) );
+  act_notchar( #entering, ch );
+  }
+else
+  send_to_char( #nohole, ch );
+~
+E
+nohole~
+There is nothing you can enter by that name.
+~
+E
+entering~
+$n pops into the room from a hole in the south wall.
+~
+E
+leaving~
+$n crawls through a hole in the north wall and is gone.
+~
+E
+enter~
+You crawl into the newly dug hole.
+~
+!
+0 0 0
+-1
+S
+
+#31277
+Decrepit Mine Tunnel End~
+The main tunnel dead-ends to the north; you can move easily to the south
+or try to squeeze into a ventilation shaft to your west.  Work in this
+portion of the mine appears to have halted before the ore was completely
+played out; a thick vein of a dark black mineral bisects the east wall,
+seemingly untouched in earlier mining efforts.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 31278 10 10 5
+D3
+~
+~
+0 -1 31276 10 10 5
+E
+east wall vein black mineral~
+The eastern wall of the tunnel has a thick vein of a a black mineral
+running from top to bottom, bisecting the area.  Only a few small chips
+show any signs of mining activity in this area.
+~
+-1
+S
+
+#31278
+Decrepit Mine Tunnel~
+The ground in this area of the tunnel is deeply scarred with rough-edged
+holes about the size of the head of a large pick-axe.  The walls also
+reflect the seemingly random hits made by a similar tool.  Large chunks
+of dark brown rock lie scattered about on the ground, just about the size
+and shape of the many holes.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31277 10 10 5
+D2
+~
+~
+0 -1 31269 10 10 5
+E
+ground hole wall rock~
+It appears that someone went wild with a pick-axe in this portion of the
+mine.  Large gouges appear on the ground and walls; the missing pieces of
+rock lie scattered about, unwanted.
+~
+431 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31279
+Before the Decrepit Mine~
+You stand before the entrance to a very old mine.  Beams of old rotting
+wood are set on three sides of a hole cut into the mountainside.  An
+ominous sign is nailed to a beam warning you to keep out.  Just north
+of you stands a cottage.  Smoke billowing out of its chimney suggests
+that someone may be home.  
+~
+~
+301465608 3 9 0
+D0
+cottage door~
+'cottage door' door~
+131 -1 31280 10 10 5
+D1
+~
+~
+0 -1 31250 10 10 5
+D3
+~
+~
+0 -1 21142 10 10 5
+E
+sign~
+The sign is a wooden board with the words "KEEP OUT" painted across it.
+~
+A
+~
+~
+send_to_char( #close, ch );
+wait( 1 );
+close( room, north );
+~
+E
+close~
+You politely close the door behind you as you leave.
+~
+!
+1 2 4
+-1
+S
+
+#31280
+Gimnod's Cottage~
+This small, and simple cottage reflects the tastes of its only
+resident.  A bear skin rug is spread out before a brick fireplace and on
+the rug a large wooden rocking chair.  A few cupboards are all that hang
+on the walls above a tiny table.  Tucked away in one corner is a cot,
+presumably where the owner sleeps.  
+~
+Gimnod given ringmail as he's not a protected mob.  Give him chainmail
+and you get campers next door, every hour on the hour.
+Kiian
+~
+335020045 0 5 0
+D2
+cottage door~
+'cottage door' door~
+131 -1 31279 10 10 5
+E
+bear skin rug~
+The fur looks like it once belonged to a large grizzly bear.
+~
+E
+fire area fireplace~
+A small stack of sticks and ashes lie in a pile here.  For the most part,
+the fire has gone completely cold, although if you look hard enough, you
+can find a few last remnants of light and warmth.  The sticks are
+arranged in a circular pattern, with ash, burned tinder and other things
+within it.
+~
+432 9 1509949540 3 0
+357 17 1509949540 -2 0
+-1
+S
+
+#31281
+Angnier's Place~
+The red embers in this smithy's pit cast a warm glow on the shelves of
+molds, hammers, tongs and other blacksmithing tools.  There is a bucket
+of water in one corner used to cool the metal, and a huge iron anvil sits
+before the stone-lined pit.  The bellows sit atop the low wall
+surrounding the fire, and a pair of work gloves has been thrown atop it.
+~
+~
+301469702 3 9 0
+D2
+cavern door~
+"cavern door" door~
+131 -1 31526 10 10 5
+A
+list~
+~
+if( mob_in_room( 441, room ) ) {
+  act_notchar( #room, ch );
+  act_room( #text, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+Angnier is not around right now.
+~
+E
+text~
+Angnier replies,
+"I dont have anything handy to sell you.  I can however, make a number of
+different weapons out of a special ore found in a mine east of the
+Northern Sea.  It's called Krynite and is purple in color.  If you find
+some, bring it here and I will make you a weapon.  It will be very
+powerful, and so will require you to be very experienced to wield it." 
+~
+E
+room~
+$n asks the dwarf about items he might have for sale.
+
+~
+!
+0 0 0
+A
+2 custom custum~
+~
+if( mob_in_room( 441, room ) )
+  continue;
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+Angnier is not around right now.
+~
+!
+0 0 0
+A
+~
+~
+if( !mob_in_room( 441, room ) )
+  end;
+act_tochar( #char, ch );
+wait( 5 );
+mob = mob_in_room( 441, room );
+if( !mob )
+  end;
+if( is_fighting( mob ) )
+  end;
+if( !char_in_room( ch, room ) )
+  end;
+act_tochar( #charok, ch );
+~
+E
+charok~
+Seeing that you mean no harm, Angnier relaxes slightly and puts his
+weapon away.
+~
+E
+char~
+Startled by your entrance, Angnier glares at you and draws his weapon.
+~
+!
+1 -1 4
+441 9 1509949540 3 0
+-1
+S
+
+#31282
+Before the Great Iron Door~
+The short passage ends here abruptly.  Traces of reddish iron ore dot the
+walls, but what strikes you is a small patch of of a blue mineral near
+the ceiling on the west wall.  On the north wall is a great iron door
+which covers the entire passageway.
+~
+[Merior] leaving the door here for now in case it pops up somewhere else
+[Nereus] May want to add an acode for attempting to pry the ore out?
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 31274 10 10 5
+E
+great iron door~
+Standing over 8 feet tall and 6 feet wide, it is truly an impressive
+sight.  You dig out some dirt along the side of it to see how thick it
+is, but cannot seem to dig far enough.  It must be awfully thick
+indeed!  
+~
+E
+patch blue ore~
+The patch has a bluish glow to it, nothing like metal ore you've ever
+seen before.
+~
+A
+open push pull bash~
+1 north iron door~
+send_to_char( #noway, ch );
+act_notchar( #noway_room, ch );
+~
+E
+noway_room~
+$n tries to manipulate the iron door to no avail.
+~
+E
+noway~
+The door is totally unaffected by your efforts.
+~
+!
+0 0 0
+A
+1 north~
+~
+send_to_char( #noway, ch );
+~
+E
+noway~
+The great iron door is closed.
+~
+!
+0 0 0
+872 17 1509949490 -2 0
+-1
+S
+
+#31283
+Before the Great Iron Door~
+You are on the eastern side of tall, iron door.  This massive slab of
+iron has rusted and pitted with years of guarding what lies behind it,
+though it stands strong and impenetrable.  The brownish-grey stone near
+the door is scratched and gouged, as if the great door had been dragged
+open and been closed again several times.  On the handle of the old door
+is an amazingly intricate knot of a white glowing material.
+~
+[Orb] Crystal Golems west
+[Orb] Need to set level to 40 once this is open.
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31284 10 10 5
+D3
+great iron door~
+great iron door~
+131 -1 31396 10 10 5
+E
+great iron door~
+Standing over eight feet tall, this massive iron door is rusted and
+pitted with age.  The handle of the door is covered by an intricate knot.
+~
+E
+knot~
+The glowing white knot binds the door handle fast.  It seems to writhe
+and move with a life of its own.
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  act_tochar( #nope, ch );
+  act_notchar( #rnope, ch );
+  do_spell( lightning bolt, ch, ch );
+  }
+else
+continue;
+~
+E
+nope~
+As you grasp the knot-covered handle, an arc of energy leaps from the
+glowing mass of cords!
+~
+E
+rnope~
+As $n grasps the knot-covered handle, an arc of energy leaps from the
+glowing mass of cords.
+~
+E
+open~
+You open the great iron door to the west.
+~
+E
+ropen~
+$n opens the great iron door to the west.
+~
+!
+8 0 8
+A
+unravel untie~
+knot~
+if( rflag( reset0, room ) ) {
+  if( find_stat( ch, level ) >= 90 ) {
+    if( find_skill( ch, identify ) > 5 ) {
+      act_tochar( #yep, ch );
+      act_notchar( #ryep, ch );
+      remove_rflag( reset0, room );
+      wait( 1 );
+      act_room( #bye, ch );
+      obj_to_room( oload( 2972 ), room );
+      }
+    else {
+      act_tochar( #nope, ch );
+      act_notchar( #rnope, ch );
+      }
+    }
+  else {
+    act_tochar( #nope, ch );
+    act_notchar( #rnope, ch );
+    }
+  }
+else
+  act_tochar( #done, ch );
+~
+E
+nope~
+You attempt to unravel the knot but you are unable to follow the
+intricate weave of the cords.
+~
+E
+rnope~
+$n peers at the knot for a moment before falling back in confusion.
+~
+E
+yep~
+You study the knot quietly for a time.  After a moment's thought, you
+touch a single strand of the knot and follow its path through the mass of
+cords.
+~
+E
+ryep~
+$n studies the knot quietly.  After a moment's thought, $e touches a
+single strand of the knot and follows its path through the mass of cords.
+~
+E
+bye~
+The knot glows brightly for a moment, then unravels and falls to the
+floor.
+~
+E
+done~
+The knot has already been unraveled.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+act_room( #close, ch );
+close( room, west );
+set_rflag( reset0, room );
+wait( 1 );
+send_to_room( #knot, room );
+~
+E
+close~
+The great iron door swings shut with a loud grating noise.
+~
+E
+knot~
+@eA mass of brightly glowing cords winks into existence, wrapping
+themselves tightly around the door handle.
+~
+!
+1 0 8
+-1
+S
+
+#31284
+New Mine Tunnel~
+This crudely carved out chamber is twenty feet high in places.  To the
+south you can just make out a great iron door, while the way to the north
+appears clear.  To the east is a small hole which is just big enough for
+an ogre to crawl into, assuming he isn't too overweight.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31287 10 10 5
+D1
+~
+~
+0 -1 31285 10 10 5
+D2
+~
+~
+0 -1 31283 10 10 5
+A
+~
+~
+send_to_char( #climb, ch );
+act_notchar( #isclimbing, ch );
+continue;
+~
+E
+isclimbing~
+$n clambers up the east wall and enters the secret tunnel.
+~
+E
+climb~
+You clamber up the east wall and enter the secret tunnel.
+
+~
+!
+3 1 2
+A
+~
+~
+send_to_char( #climb, ch );
+act_notchar( #isclimbing, ch );
+~
+E
+isclimbing~
+$n climbs down the wall from the secret tunnel.
+~
+E
+climb~
+You climb down the wall from the secret tunnel.
+~
+!
+1 3 8
+-1
+S
+
+#31285
+Secret Tunnel~
+This narrow tunnel affords little room for rest or a change of direction. 
+Jagged bits of stone jut into the passageway, snagging your clothing as
+you try to move.  Although the narrow passage heads both east and west,
+you cannot tell what lies in the darkness beyond.
+~
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 31286 10 10 5
+D3
+~
+~
+0 -1 31284 10 10 5
+-1
+S
+
+#31286
+Secret Tunnel~
+This narrow tunnel is barely large enough for an ogre to squeeze into. 
+You can tell it is possible to crawl west, or possibly enter an even
+smaller-looking air vent to the south.  The ground near the north wall is
+littered with bits of stone which have fallen from the tunnel wall.
+~
+crawled through a hole to get here - needs to be sorted out
+[Merior] ahh... it's always open to the south, while have to dig from the south to get here - make it match
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 31276 10 10 5
+D3
+~
+~
+0 -1 31285 10 10 5
+E
+bits stone ground north~
+Bits of stone have accumulated at the base of the north wall, their rough
+surfaces and dark colors almost camouflaged by the ground beneath them.
+~
+-1
+S
+
+#31287
+New Mine Tunnel Shaft~
+A very steep slope to the north leads down to yet another level of the
+mine.  The corridors are made of the same stone and wood buttress design
+used elsewhere in the upper regions of the mine.  The timbers look
+relatively solid here, as if they had been put in fairly recently.
+~
+~
+301465612 0 6 0
+D2
+~
+~
+0 -1 31284 10 10 5
+D5
+~
+~
+0 -1 31290 10 10 5
+E
+wood timber stone corridor wall~
+The walls show no signs of the valuable minerals mined from here, but are
+merely made of solid rock.  Pine beams are placed at regular intervals
+to prevent a cave-in.
+~
+-1
+S
+
+#31288
+Cave Worms Treasure~
+The area is just a long cavern filled with broken bits of bones and a few
+of the other treasures hoarded by the Worm.  
+~
+~
+301465604 0 6 0
+D3
+~
+~
+171 -1 31261 10 10 5
+E
+west tunnel hole~
+A small hole remains in the wall to the west.  Perhaps you could crawl
+through it.
+~
+A
+crawl~
+west hole tunnel~
+act_tochar( #crawl, ch );
+act_notchar( #rcrawl, ch );
+transfer( ch, find_room( 31261 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  act_tochar( #crawl, rch );
+  act_notchar( #rcrawl, rch );
+  transfer( rch, find_room( 31261 ) );
+  act_notchar( #arrive, ch );
+  }
+~
+E
+crawl~
+You crawl through the tunnel.
+~
+E
+rcrawl~
+$n crawls into a tunnel in the west wall.
+~
+E
+arrive~
+$n comes crawling out of a tunnel in the east wall.
+~
+!
+0 0 0
+180 17 1509949490 -2 0
+180 17 1509949490 -2 0
+180 17 1509949490 -2 0
+-1
+S
+
+#31289
+Giant Spider's Lair~
+You appear to have entered a giant spider's lair.  Gray-white spider
+webbing covers the area, thick as a blanket of snow.  There are many silk
+pods here, housing the unfortunate victims of the deadly arachnid.
+~
+~
+301465612 0 6 0
+D5
+~
+~
+0 -1 31270 10 10 5
+E
+silk pod~
+The pods are of various sizes, ranging from that just bigger then a
+halfling to one even larger then a troll.  You can barely make out an
+occasional appendage sticking out through the sticky mess.
+~
+E
+webbing~
+A giant mass of gray-white web covers the entire area.  It is quite
+sticky to the touch, and has many bits of rotting meat attached to its
+surface.
+~
+434 9 1509949540 3 0
+-1
+S
+
+#31290
+New Mine Tunnel Shaft~
+A loud noise emanates from below you, and your feet vibrate softly as the
+earth seems to shake.  The slope of this passage is nearly vertical now,
+making walking a chore.  A slender hand-rail made of iron hammered into
+the sides of the shaft provides a small amount of stability in this
+vertical shaft.
+~
+~
+301465604 0 6 0
+D4
+~
+~
+0 -1 31287 10 10 5
+D5
+~
+~
+0 -1 31291 10 10 5
+E
+slender hand-rail iron~
+A new-looking hand-rail of smooth iron has been hammered into the sides
+of the shaft.  Clutching it, you might have enough support to venture up
+or down the shaft.
+~
+-1
+S
+
+#31291
+New Mine Tunnel Shaft~
+A tunnel heads north from here, a faint light showing that it stretches
+far into the distance.  A wide shaft leads up, an iron rail providing
+something to grip while moving up the sloping passage.  The air down here
+is quite cool and dry, no traces of water mar the rocky ground underfoot.
+~
+up to stone golems
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31292 10 10 5
+D4
+~
+~
+0 -1 31290 10 10 5
+-1
+S
+
+#31292
+New Mine Tunnel~
+Torches line the walls in this portion of the tunnel, affording a
+reasonably clear view of a long tunnel to the north, as well as a
+dead-end to the south.  A smaller branch of the tunnel leads west from
+here, but the lack of light in that direction makes it impossible to see
+what lies ahead.  A dual iron track seems to begin here and lead north as
+far as the eye can see.
+~
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 31293 10 10 5
+D2
+~
+~
+0 -1 31291 10 10 5
+D3
+~
+~
+0 -1 31324 10 10 5
+E
+iron track~
+A track just wide enough for an ore cart begins here and heads north as
+far as the eye can see.
+~
+E
+torch wall~
+Large torches ablaze with light are spaced several feet apart along the
+walls.
+~
+435 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31293
+New Mine Tunnel~
+The main tunnel contines north and south, marked by iron tracks along the
+ground.  The tunnel itself is quite wide, and torches are placed at
+regular intervals making your own light source unnecessary.  A thick vein
+of iron ore on the western wall indicates that work must not be completed
+in this area.
+~
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 31294 10 10 5
+D2
+~
+~
+0 -1 31292 10 10 5
+E
+iron track~
+A track just wide enough for an ore cart heads north and south as far as
+the eye can see.
+~
+E
+vein iron ore~
+A thick vein of iron runs along the western wall, parallel to the ground. 
+It shows no signs of mining having been done to it.
+~
+E
+torch~
+Large torches ablaze with light are spaced several feet apart along the
+walls.
+~
+79 17 1509949450 -2 0
+-1
+S
+
+#31294
+New Mine Tunnel~
+Torches have been placed every few feet apart along the corridor, making
+this tunnel seem bright and almost cheery.  An iron track on the ground
+provides a runway for the ore carts, but is an obstacle to be avoided by
+your feet.  To the east lies a small, unlit branch of the tunnel.
+~
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 31295 10 10 5
+D1
+~
+~
+0 -1 31329 10 10 5
+D2
+~
+~
+0 -1 31293 10 10 5
+E
+torch~
+Large torches ablaze with light are spaced several feet apart along the
+walls.
+~
+E
+iron track~
+A track just wide enough for an ore cart heads north and south as far as
+the eye can see.
+~
+435 9 1509949540 3 0
+-1
+S
+
+#31295
+New Mine Tunnel~
+The light from the many torches along this wide tunnel is provided by
+dozens of torches.  A relatively warm breeze wafts gently in from the
+west, making this portion of the corridor a pleasant spot for a rest.  A
+small branch of the tunnel leads west into darkness.  
+~
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 31296 10 10 5
+D2
+~
+~
+0 -1 31294 10 10 5
+D3
+~
+~
+0 -1 31334 10 10 5
+E
+torch~
+Large torches ablaze with light are spaced several feet apart along the
+walls.
+~
+435 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31296
+New Mine Tunnel~
+A pair of iron tracks runs along the center of the tunnel, metal shining
+in the light cast by the numerous torches affixed to the rough walls. 
+The tunnel seems to stretch endlessly to the north and south, and there
+is no indication which way leads to the exit or which way will take you
+deeper into the maze of corridors.
+~
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 31297 10 10 5
+D2
+~
+~
+0 -1 31295 10 10 5
+E
+torch~
+Large torches ablaze with light are spaced several feet apart along the
+walls.
+~
+E
+iron track~
+A track just wide enough for an ore cart heads north and south as far as
+the eye can see.
+~
+435 9 1509949540 3 0
+-1
+S
+
+#31297
+New Mine Tunnel~
+The north-south track appears to be broken here: a gap of several inches
+separates two of its lengths.  Various odd-looking tools and bits of
+metal lie to the west side of the track, possibly placed there to be used
+in its repair.
+~
+[Merior] add actions to fool with the bits, but not get anything useful
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 31298 10 10 5
+D1
+~
+~
+0 -1 31338 10 10 5
+D2
+~
+~
+0 -1 31296 10 10 5
+E
+tool metal~
+A pile of tools as well as some spare bits of metal lies on the ground
+near the tracks.  Although you recognize a few of them, most are unlike
+those you have ever seen before.
+~
+E
+track~
+A track just wide enough for an ore cart heads north and south as far as
+the eye can see.  This portion of the track is broken.
+~
+A
+get take grab~
+metal tools bits~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You reach to examine the tools, but are unable to determine exactly what
+they are.  Some mysterious force prevents you from actually handling them.
+~
+!
+0 0 0
+-1
+S
+
+#31298
+New Mine Tunnel~
+A broken ore cart partially blocks movement in this portion of the
+corridor.  You forcing you to hug its dusty surface in order to move. 
+The way is clear into a small, dark tunnel to the west, or you can just
+squeeze by it and proceed north or south.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 31299 10 10 5
+D2
+~
+~
+0 -1 31297 10 10 5
+D3
+~
+~
+0 -1 31341 10 10 5
+E
+ore cart~
+This cart has certainly seen better days.  Its dusty surface hides gashes
+and signs of heavy use, but cannot disguise the broken wheels and
+torn-off handle. 
+~
+435 9 1509949540 3 0
+-1
+S
+
+#31299
+New Mine Tunnel~
+This well-lit tunnel takes a 90 degree turn here, leading to the east and
+south.  The iron tracks curve awkwardly, as if the builders were not
+experienced in making them.  Loose dirt lies between the tracks, though
+no digging tool is evident.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 31300 10 10 5
+D2
+~
+~
+0 -1 31298 10 10 5
+E
+torch~
+Large torches ablaze with light are spaced several feet apart along the
+walls.
+~
+E
+iron track~
+A track just wide enough for an ore cart heads east and south as far as
+the eye can see.
+~
+E
+loose dirt~
+Loose black dirt lies tossed about the cart tracks.
+~
+435 9 1509949540 3 0
+435 9 1509949540 3 0
+-1
+S
+
+#31300
+New Mine Tunnel~
+This wide east-west portion of the mine tunnel is extremely well-lit,
+torches placed along the walls every few feet.  A double track of iron
+runs along the ground, wide enough to carry the ore carts used to move
+materials about the mines.
+~
+[Nereus] Extras: look [ track iron ]
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 31301 10 10 5
+D3
+~
+~
+0 -1 31299 10 10 5
+E
+iron track~
+A track just wide enough for an ore cart heads east and west as far as
+the eye can see.
+~
+474 17 1509949540 -2 0
+-1
+S
+
+#31301
+New Mine Tunnel~
+The main branch of the tunnel continues east and west here, but a narrow
+corridor heads north into darkness.  A pair of iron tracks stretches
+through the passage, metal gleaming in the torchlight.  Off to the south
+of the track stands a broken ore cart, crushed by a giant foot of some
+sort.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 31346 10 10 5
+D1
+~
+~
+0 -1 31302 10 10 5
+D3
+~
+~
+0 -1 31300 10 10 5
+E
+broken ore cart~
+What was once an ordinary ore cart now lies shattered.  An indentation
+the size and shape of a giant foot lies in its center; the creature who
+must have made it must be giant indeed.
+~
+E
+track iron metal gleaming~
+A track just wide enough for an ore cart heads east and west as far as
+the eye can see.
+~
+-1
+S
+
+#31302
+New Mine Tunnel~
+This wide passage leads east to a dark shaft and west to an expanse of
+well-lit tunnel.  A dual iron track runs along the ground, its origin to
+the east quite clear.  The north and south walls are almost completely
+covered with timbers, their surfaces marred by numerous scratches and
+gouges.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 31303 10 10 5
+D3
+~
+~
+0 -1 31301 10 10 5
+E
+track iron dual~
+A track just wide enough for an ore cart heads west as far as the eye can
+see.  To the east, it appears to disappear into a shaft.
+~
+E
+walls timbers scratches gouges surfaces~
+Battered timbers cover the northern and southern walls here.  Their
+marred surfaces show signs of damage, possibly from the loading and
+unloading of ore carts.
+~
+-1
+S
+
+#31303
+New Mine Tunnel Shaft~
+A large tunnel leads east here, its ground covered by a set of iron
+tracks.  The ceiling opens up on a dark shaft, with no apparent means of
+climbing it.  The ore carts come to a stop here and are suddenly launched
+straight up the shaft.  Conversely, carts appear from above, landing with
+a clank and continuing west on the tracks.  There appears to be no
+mechanism to explain the workings of this lift.
+~
+~
+301465636 0 7 0
+D3
+~
+~
+0 -1 31302 10 10 5
+D4
+~
+~
+0 -1 31304 10 10 5
+E
+ore cart shaft~
+Ore carts almost the size of the shaft move about on their own accord, no
+source of power visible.  They seem to alternate, as one moves down the
+shaft and west, while the next comes from the west, pauses, then moves up.
+~
+E
+iron track~
+A track just wide enough for an ore cart heads west as far as the eye can
+see.
+~
+A
+1 up climb~
+~
+send_to_char( #noway, ch );
+~
+E
+noway~
+Try as you might, you cannot find a way to climb up the shaft.
+~
+!
+0 4 0
+A
+ride enter~
+lift ore cart~
+act_tochar( #char, ch );
+wait( 2 );
+act_tochar( #char2, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31304 ) );
+transfer( ch, find_room( 31305 ) );
+transfer( ch, find_room( 31306 ) );
+act_notchar( #arr, ch );
+~
+E
+room~
+$n climbs into the waiting ore cart and is hurled up into the shaft along
+with it.  
+~
+E
+char2~
+Suddenly you are hurled up into the shaft along with the cart.
+~
+E
+char~
+You wait until the next ore cart stops so you can climb into it.
+~
+E
+arr~
+$n is hurled up from the shaft in an ore cart.
+~
+!
+0 0 0
+435 9 1509949540 3 0
+-1
+S
+
+#31304
+New Mine Tunnel Shaft~
+The dark walls of the shaft seem to flash by you as the cart moves on.
+~
+~
+301465636 0 6 0
+D4
+~
+~
+0 -1 31305 10 10 5
+D5
+~
+~
+0 -1 31303 10 10 5
+-1
+S
+
+#31305
+New Mine Tunnel Shaft~
+The dark walls of the shaft seem to flash by you as the cart moves on.
+~
+~
+301465636 0 6 0
+D4
+~
+~
+0 -1 31306 10 10 5
+D5
+~
+~
+0 -1 31304 10 10 5
+-1
+S
+
+#31306
+New Mine Tunnel Shaft~
+To the east you can see a set of iron tracks leading through a wide
+tunnel, dark walls surround you in all other directions.  A dark shaft
+just larger than an ore cart heads down, with no visible handholds. 
+Carts periodically come from the east, stop and head down the shaft, but
+you can see nothing powering them.  Just as often, a cart appears
+from below and heads off down the track to the east.
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 31307 10 10 5
+D5
+~
+~
+0 -1 31305 10 10 5
+E
+shaft~
+A dark shaft leads below into the depths of the mines.
+~
+E
+iron track~
+A dual iron track runs east through the tunnel as far as the eye can see.
+~
+A
+~
+~
+send_to_char( #char, ch );
+~
+E
+char~
+Jumping into the shaft with nothing to hold on to would be hazardous to
+your health.
+~
+!
+3 5 32
+A
+jump~
+shaft 1 down~
+send_to_char( #jump, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31303 ) );
+i = 1d50+100;
+dam_message( ch, i, "the fall" );
+inflict( ch, mob, i, "falling down a shaft" );
+~
+E
+room~
+$n jumps into the shaft!
+~
+E
+damage~
+@b@Rthe fall
+~
+E
+jump~
+You leap into the shaft, having no regard for your health, and land with a
+crash at the bottom.
+~
+!
+0 0 0
+A
+ride enter~
+lift ore cart~
+act_tochar( #char, ch );
+wait( 2 );
+act_notchar( #room, ch );
+act_tochar( #char2, ch );
+transfer( ch, find_room( 31305 ) );
+transfer( ch, find_room( 31304 ) );
+transfer( ch, find_room( 31303 ) );
+act_notchar( #arr, ch );
+~
+E
+room~
+$n climbs into the waiting ore cart and both of them
+disappear down the shaft.
+~
+E
+char2~
+Suddenly you and the cart are dropped down into the shaft.
+~
+E
+char~
+You wait until the next ore cart stops and climb into it.
+~
+E
+arr~
+$n drops into the room, down the shaft, in an ore cart.
+~
+!
+0 0 0
+-1
+S
+
+#31307
+New Mine Tunnel~
+To your west, you can see a dark shaft which leads down to a lower part
+of the mine.  Iron tracks run along the ground, providing a track for the
+ore carts to run.  On the south wall are several brightly lit torches; a
+large hole has been cut into the north wall, and you can just make out a
+passage in that direction.
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 31308 10 10 5
+D1
+~
+~
+0 -1 31309 10 10 5
+D3
+~
+~
+0 -1 31306 10 10 5
+E
+iron track~
+A dual iron track runs east and west though the tunnel, just the right
+size to provide a track for the ore carts.
+~
+-1
+S
+
+#31308
+Slave Detention Block~
+A large hole to your south leads into the mining tunnels.  The walls on
+your east and west are smooth and cold, and show no signs of desirable
+mineral content.  A faint odor of death and decay slowly wafts through
+the air, coming from the darkness to your north.
+~
+~
+301465613 0 6 0
+D0
+~
+~
+0 -1 31310 10 10 5
+D2
+~
+~
+0 -1 31307 10 10 5
+-1
+S
+
+#31309
+New Mine Tunnel~
+The iron tracks continue east and west here, however something out of
+place catches your eye.  A large archway fills the tunnel to the east. 
+It is decorated with many odd glyphs and runes, the meanings of which you
+cannot decipher.  
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 31323 10 10 5
+D3
+~
+~
+0 -1 31307 10 10 5
+E
+archway 1 east~
+It looks very odd in the middle of this mining tunnel.  Its not possible
+that it has been erected simply to hold up the ceiling.  
+~
+E
+odd glyphs runes~
+The runes are completely foreign to you.
+~
+E
+iron track~
+A dual iron track runs east and west though the tunnel, just the right
+size to provide a track for the ore carts.
+~
+A
+~
+~
+act_tochar( #charcom, ch );
+if( has_obj( 362, ch ) )
+  continue;
+else {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  i = 1d25+200;
+  dam_message( ch, i, "the lightning bolt" );
+  inflict( ch, mob, i, "magical barrier" );
+  }
+~
+E
+charcom~
+@b@WYou feel your body tingle as you pass through the arch.
+
+~
+E
+char~
+@b@BYou hear the loud *CRACK* of lightning and are pushed back by it.
+~
+E
+room~
+@b@BYou hear the loud *CRACK* of lightning and watch as $n is pushed back
+by the bolt.
+~
+!
+3 1 2
+474 17 1509949540 -2 0
+-1
+S
+
+#31310
+Slave Detention Block~
+To your east is a long, narrow corridor filled with small cells barred by
+iron doors.  A dark hallway leads south towards the portions of the
+tunnel which are actively mined.  On the west wall is a hook containing a
+ring of keys.
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 31311 10 10 5
+D2
+~
+~
+0 -1 31308 10 10 5
+E
+west wall ring keys~
+A giant piece of iron has been hammered into a circle.  Six giant iron
+keys have been attached to the ring.
+~
+A
+take get grab~
+keyring key ring iron~
+i = 5d6;
+dam_message( ch, i, "a strange force coming from the keys" );
+inflict( ch, mob, i, "a strange force" );
+~
+E
+nope~
+As you reach to take the key, you jump back.
+~
+!
+0 0 0
+442 9 1509949540 3 0
+361 17 1509949540 -1 0
+442 9 1509949540 3 0
+-1
+S
+
+#31311
+Slave Detention Block~
+A narrow corridor stretches east and west.  To your north and south are
+small cells barred by iron doors.  You can see similar doors to your
+east; to your west is a small dark area.
+~
+~
+301465605 0 6 0
+D0
+cell door~
+'cell door' door~
+407 361 31312 10 10 5
+D1
+~
+~
+0 -1 31314 10 10 5
+D2
+cell door~
+'cell door' door~
+407 361 31313 10 10 5
+D3
+~
+~
+0 -1 31310 10 10 5
+-1
+S
+
+#31312
+Slave Detention Cell~
+This tiny cell is barely large enough for a troll to squeeze into, and
+one certainly couldn't stand comfortably in this tiny space.  The walls
+are hard and smoothed, though tiny scratches about the width of
+fingernails appear sprinkled about the dark rock.
+~
+~
+301465612 0 6 0
+D2
+'cell door' door~
+'cell door' door~
+407 361 31311 10 10 5
+-1
+S
+
+#31313
+Slave Detention Cell~
+This cell is dismal and dirty, much as you would imagine a prison cell
+to look like.
+~
+~
+301465612 0 6 0
+D0
+'cell door' door~
+'cell door' door~
+407 361 31311 10 10 5
+-1
+S
+
+#31314
+Slave Detention Block~
+You stand in the corridor of a detention block.  Cell doors lie to the
+north and south.  
+~
+~
+301465605 0 6 0
+D0
+cell door~
+'cell door' door~
+407 361 31315 10 10 5
+D1
+~
+~
+0 -1 31317 10 10 5
+D2
+cell door~
+'cell door' door~
+407 361 31316 10 10 5
+D3
+~
+~
+0 -1 31311 10 10 5
+442 9 1509949540 3 0
+-1
+S
+
+#31315
+Slave Detention Cell~
+This cell is dismal and dirty, much as you would imagine a prison cell
+to look like.
+~
+~
+301465612 0 6 0
+D2
+cell door~
+'cell door' door~
+407 361 31314 10 10 5
+-1
+S
+
+#31316
+Slave Detention Cell~
+This cell is dismal and dirty, much as you would imagine a prison cell
+to look like.
+~
+~
+301465612 0 6 0
+D0
+cell door~
+'cell door' door~
+407 361 31314 10 10 5
+474 17 1509949540 -2 0
+-1
+S
+
+#31317
+Slave Detention Block~
+A corridor of stone extends to the east and west.  Cell doors branch off
+of it to the north and south.  The ground is littered with a light
+scattering of stone chips and broken chain links.  It obviosuly looks
+like that some type of struggle took place here.
+~
+*H
+~
+301465605 0 6 0
+D0
+cell door~
+'cell door' door~
+407 3256 31318 10 10 5
+D1
+~
+~
+0 -1 31320 10 10 5
+D2
+cell door~
+'cell door' door~
+407 361 31319 10 10 5
+D3
+~
+~
+0 -1 31314 10 10 5
+E
+1 north cell door lock iron~
+The cell door to the north is made of iron.  It has a thick, wieldy lock
+with runes inscribed around it.  The locking mechanism itself appears to
+be crooked or bent.  The surface of the lock itself has several designs
+on it, including a fireball, raindrop, and a lightning bolt.
+~
+-1
+S
+
+#31318
+Slave Detention Cell~
+Within the small, cramped confines of this stone cell is a pallet of
+straw.  Moisture drips from the rough walls while motes of dust and bits
+of straw drift about on a pale breeze.  Towards the back of the chamber
+a foot-wide hole has been dug.  A large, iron lock is set into the cell
+door in the south wall.
+~
+*trainer, please dont alter.
+~
+301465612 0 6 0
+D2
+cell door~
+'cell door' door~
+407 3256 31317 10 10 5
+E
+foot-wide hole~
+Towards the back of the cell, a hole that is a foot in diameter, has been
+dug into the floor.  The hole is completely filled with an odorific,
+brown substance best not named.
+~
+E
+straw pallet~
+Inside the cell, upon the cold stone floor, lies a pallet of straw.  The
+straw is very old and looks to be moldering.
+~
+E
+1 south door cell lock~
+The cell door to the south is made of iron.  It has a thick, wieldy lock
+with runes inscribed around it.
+~
+2205 9 1509949540 3 0
+-1
+S
+
+#31319
+Slave Detention Cell~
+This cell is dismal and dirty, much as you would imagine a prison cell
+to look like.
+~
+~
+301465612 0 6 0
+D0
+cell door~
+'cell door' door~
+407 361 31317 10 10 5
+-1
+S
+
+#31320
+Slave Detention Block~
+You reached the end of the detention block.  Cell doors lie to the north
+and south.  The cool damp of the walls makes your joints ache a bit.  To
+the north you hear the sound of a dwarven voice singing sadly to itself,
+and you hear a shuffling noise.  The smell here is sour, like rotting
+meat.  
+~
+~
+301465605 0 6 0
+D0
+cell door~
+'cell door' door~
+407 361 31321 10 10 5
+D2
+cell door~
+'cell door' door~
+407 361 31322 10 10 5
+D3
+~
+~
+0 -1 31317 10 10 5
+-1
+S
+
+#31321
+Slave Detention Cell~
+This cell is dismal and dirty, much as you would imagine a prison cell
+to look like.
+~
+[Gabrielle] Isn't grimmace supposed to be grimace?
+[Fyli] Grunnod says when I come back 'Thanks for comming' instead of coming.
+~
+301465612 0 6 0
+D2
+cell door~
+'cell door' door~
+407 361 31320 10 10 5
+446 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31322
+Slave Detention Cell~
+This cell is dismal and dirty, much as you would imagine a prison cell
+to look like.
+~
+~
+301465612 0 6 0
+D0
+cell door~
+'cell door' door~
+407 361 31320 10 10 5
+385 49 1509949540 -2 0
+362 81 1509949540 -2 0
+-1
+S
+
+#31323
+New Mine Tunnel~
+The iron tracks continue east and west here, however something out of
+place catches your eye.  A large archway fills the tunnel to the west. 
+It is decorated with many odd glyphs and runes, the meanings of which you
+cannot decipher.  
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 31348 10 10 5
+D3
+~
+~
+0 -1 31309 10 10 5
+E
+archway 1 west~
+It looks very odd in the middle of this mining tunnel.  Its not possible
+that it has been erected simply to hold up the ceiling.  
+~
+E
+iron track~
+A dual iron track runs east and west though the tunnel, just the right
+size to provide a track for the ore carts.
+~
+A
+~
+~
+act_tochar( #charcom, ch );
+if( has_obj( 362, ch ) )
+  continue;
+else {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  i = 1d25+200;
+  dam_message( ch, i, "the lightning bolt" );
+  inflict_shock( ch, mob, i, "magical barrier" );
+  }
+~
+E
+charcom~
+@b@WYou feel your body tingle as you pass through the arch.
+
+~
+E
+char~
+@b@BYou hear the loud *CRACK* of lightning and are pushed back by it.
+~
+E
+room~
+@b@BYou hear the loud *CRACK* of lightning and watch as $n is pushed back
+by the bolt.
+~
+!
+3 3 8
+-1
+S
+
+#31324
+New Mine Tunnel~
+It is very cold and dry in this narrow tunnel.  To the east you can see
+the faint light of a large corridor; it is far too dark to the west to
+see what lies in that direction.  The rough walls have been crudely cut,
+as if by giant hammers or picks.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 31292 10 10 5
+D3
+~
+~
+0 -1 31325 10 10 5
+-1
+S
+
+#31325
+New Mine Tunnel~
+To the south stands an expanse of gray stone, thus far untouched by the
+mining efforts.  Slender corridors lead to the north, east, and west,
+where you can see nothing but blackness.  A faint dripping can be heard
+just to your north.
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 31337 10 10 5
+D1
+~
+~
+0 -1 31324 10 10 5
+D3
+~
+~
+0 -1 31326 10 10 5
+78 17 1509949450 -2 0
+-1
+S
+
+#31326
+New Mine Tunnel~
+The north and south walls here are only about three feet apart, and show
+signs of heavy mining.  A curved vein of blue ore along the north wall
+has had several large chunks removed, but enough ore remains for further
+mining to be worthwhile.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 31325 10 10 5
+D3
+~
+~
+0 -1 31327 10 10 5
+E
+blue vein ore 1 north wall~
+The dark blue mineral has only been partially removed from the northern
+wall of the tunnel.
+~
+-1
+S
+
+#31327
+New Mine Tunnel~
+The tunnel takes a 90 degree turn here, allowing movement to the east and
+north.  A rich vein of ore still remains along the outer wall, and a
+nearby cart rests empty ready to cart away the mineral.  Several
+discarded tools lie by the side of the mining cart.
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 31328 10 10 5
+D1
+~
+~
+0 -1 31326 10 10 5
+E
+empty mining cart~
+A decrepit, but still functional cart stands empty and ready to carry ore.
+~
+E
+ore vein rich outer wall~
+The blue-black vein of ore on the wall has barely been touched.  Much of
+the valuable mineral remains to be mined.
+~
+E
+mining tools discarded~
+Picks and shovels as well as a rope lie by the side of the cart, ready to
+be grabbed for future work.
+~
+A
+get take grab~
+tools pick rope axe~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You seem to be unable to steal the equipment.
+~
+!
+0 0 0
+-1
+S
+
+#31328
+New Mine Tunnel~
+The tunnel is quite narrow to the north here; it appears to widen towards
+the south.  Newly harvested timbers are used to shore up the low ceiling,
+and the smell of the pine trees from which they were cut is still strong. 
+Bits of cloth cling to the rough wood, not surprising due to the slender
+passageway.
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 31340 10 10 5
+D2
+~
+~
+0 -1 31327 10 10 5
+E
+cloth rough wood~
+The rough timbers seem to have snagged several bits of cloth from the
+miner's apparel.  Bright fragments of red, blue, and green stand in stark
+contrast the the dull colors of the mine.
+~
+E
+harvested timbers newly ceiling~
+The low ceiling is kept from crashing down by half a dozen newly
+harvested pine timbers.  Their pungent scent is still noticeable, even in
+the still tunnel air.
+~
+-1
+S
+
+#31329
+New Mine Tunnel~
+It is cold and very dark in this narrow tunnel.  The walls have been
+crudely cut, as if by giant hammers or picks.  To the west you can see
+the light of the main corridor, though it is dark here.  The shadow you
+cast falls upon the uneven ground, making you appear much larger then
+usuual and quite misshapen.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 31330 10 10 5
+D3
+~
+~
+0 -1 31294 10 10 5
+E
+walls~
+The walls have huge gashes at seemingly random intervals, their rough
+surfaces quite sharp and dangerous.
+~
+-1
+S
+
+#31330
+New Mine Tunnel~
+The floor of this portion of the tunnel slopes gradually down as it heads
+from west to east.  Small pebbles have congregated in an indentation in
+the eastern floor, as movement and gravity have forced them to seek a
+safe haven.
+~
+[Merior] add once a repop action to get pebble with appropriate messages
+[Merior] with a very low repop for something valuable instead
+[Celine] small pebble or tiger's eye gem found here.
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 31331 10 10 5
+D3
+~
+~
+0 -1 31329 10 10 5
+E
+pebble hole indentation~
+An oval indentation, about the size of a green dragon's egg in
+circumference, lies in the eastern portion of the flooring.  It is almost
+completely filled with small pebbles.
+~
+A
+search~
+stones pile~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) > 2 ) {
+    remove_rflag( reset0, room );
+    act_tochar( #get, ch );
+    act_notchar( #rget, ch );
+    obj_to_char( oload( 78 ), ch );
+    }
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #stuff, ch );
+    act_notchar( #rstuff, ch );
+    obj_to_char( oload( 3150 ), ch );
+    }
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #rnope, ch );
+  }
+~
+E
+get~
+You reach down to search through the pile of small rocks and pick up a
+nice looking pebble.
+~
+E
+rget~
+$n reaches down to search through the pile of small rocks and picks up a
+nice looking pebble.
+~
+E
+stuff~
+You reach down to search through the pile of small rocks and find a
+small golden brown gem!
+~
+E
+rstuff~
+$n reaches down to search through the pile of small rocks and is
+astonished to find a small golden brown gem!
+~
+E
+nope~
+You reach down and search through the small pile of pebbles but find
+nothing of value.
+~
+E
+rnope~
+$n reaches down and searches through the small pile of pebbles but finds
+nothing of value.
+~
+!
+0 0 0
+-1
+S
+
+#31331
+New Mine Tunnel~
+This branch of the mine tunnel snakes through the darkness, affording
+careful movement to the south and west.  Bits of broken tools lie
+scattered on the floor here, and a large chunk of very hard rock juts out
+into the passageway.
+~
+~
+301465604 0 7 0
+D2
+~
+~
+0 -1 31332 10 10 5
+D3
+~
+~
+0 -1 31330 10 10 5
+E
+broken tool floor~
+Broken bits of metal are strewn about on the floor, carelessly left for
+anyone to walk upon.  They are far too mangled to be used, and have no
+value whatsoever.
+~
+E
+rock large chunk hard~
+A large chunk of blackened rock juts into the passageway here.  Its
+surface appears to have been burned, giving it an unnaturally dark color.
+~
+A
+get take grab~
+broken tools~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The tools are far too mangled to be worth taking.
+~
+!
+0 0 0
+-1
+S
+
+#31332
+New Mine Tunnel~
+The narrow tunnel curves here, allowing movement to the east and north. 
+All along the west wall you can see a partially depleted vein of rich
+blue ore.  The southern wall is covered with the soot created by lanterns
+and candles, and it is impossible to determine if it contains any
+valuable ore.
+~
+[Merior] add a cleaning wall action that low randomly repops something small and sensible
+[Merior] message should still indicate wall is mostly dirty
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 31331 10 10 5
+D1
+~
+~
+0 -1 31333 10 10 5
+E
+southern western wall ore soot~
+The western wall shows signs of a partially-mined vein of ore which
+disappears under a heavy coat of soot as it turns to join the southern
+wall.
+~
+-1
+S
+
+#31333
+New Mine Tunnel~
+The tunnel dead-ends here, allowing movement only to the west.  A pile of
+timbers lies stacked against the wall, ready to be used for shoring.  A
+pile of mining tools lies by the planks, their metal surfaces lightly
+covered with dirt and dust.
+~
+~
+301465604 0 7 0
+D3
+~
+~
+0 -1 31332 10 10 5
+E
+timber wood plank~
+Half a dozen large sheets of freshly cut timber are stacked against the
+wall, ready to be used for shoring up the mine walls.
+~
+E
+tools metal~
+Several pick-axes as well as a shovel and some hammers lie by the side of
+the tunnel.  The caked dirt on the shows they have been used previously,
+but the covering of dust dates their use.
+~
+A
+get take grab~
+tools hammer shovel pick axe~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You look at the condition of the tools and decide not to bother taking any.
+~
+!
+0 0 0
+435 9 1509949540 3 0
+-1
+S
+
+#31334
+New Mine Tunnel~
+A faint light comes from the east, allowing you to make out the various
+bumps, nooks, and crannies in the northern and southern tunnel walls. 
+The west is quite dark, but a slight, warm breeze seems to come from that
+direction.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 31295 10 10 5
+D3
+~
+~
+0 -1 31335 10 10 5
+-1
+S
+
+#31335
+New Mine Tunnel~
+The narrow tunnel twists here, allowing movement through the dark to the
+east or towards the north and the brightness of a small campfire.  A
+slight, warm breeze moves towards you from the north, carrying with it
+the scent of burning wood.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 31336 10 10 5
+D1
+~
+~
+0 -1 31334 10 10 5
+-1
+S
+
+#31336
+New Mine Tunnel~
+The tunnel dead-ends here in a very narrow area; you can move only to the
+south towards the main tunnel.  A small fire-pit covers the ground, wood
+still lit and faintly glowing.  The heat it emits is warm, and makes the
+air in the rest of the tunnel seem frigid in comparison.  Despite the
+fact that the logs are burning brightly, the fire never seems to diminish.
+~
+[Nereus] There's a campfire underground in an enclosed mine, which causes
+several problems; smoke doesn't have anywhere to ventilate.  Breathable
+oxygen soon vanishes.  Perhaps you could make more obvious notes that
+this fire is magical.
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 31335 10 10 5
+435 9 1509949540 3 0
+2689 17 1509949540 -2 0
+-1
+S
+
+#31337
+New Mine Tunnel~
+This branch of the tunnel comes to an abrupt end.  Traces of a bluish ore
+coupled with several discarded tools suggest that this area is still
+being worked.  A small puddle on the ground slowly grows as water seeps
+in from a tiny crack in the western wall.
+~
+[Celine] Reset a pool to drink from?
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 31325 10 10 5
+E
+tool~
+Three pick-axes as well as a battered shovel rest against the western
+wall.
+~
+E
+puddle water~
+This small pool of icy water lies close to the western wall, water slowly
+filling it from a small crack.
+~
+E
+crack tiny west wall~
+Small drops of water seep from a crack in the western wall and ooze into
+a puddle on the ground.
+~
+A
+take get grab~
+tool pick axe shovel~
+act_tochar( #nope, ch );
+~
+E
+nope~
+As you reach to take the tool, your conscience gets the better of you,
+and you decide to leave them there for the workers.
+~
+!
+0 0 0
+435 9 1509949540 3 0
+-1
+S
+
+#31338
+New Mine Tunnel~
+This narrow branch of the mine tunnel leads east to darkness and west
+towards the light of the main corridor.  The north wall is quite smooth,
+almost as if someone had taken great pains to polish it, while the rock
+on the southern wall is quite rough.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 31339 10 10 5
+D3
+~
+~
+0 -1 31297 10 10 5
+E
+smooth north wall polish~
+The gray rock of the northern wall is extraordinarily smooth, as if it
+had been polished by a giant piece of sandpaper.
+~
+79 17 1509949450 -2 0
+-1
+S
+
+#31339
+New Mine Tunnel~
+A large chunk of ore has been removed from the east wall, as if plans had
+been made to continue excavation in that direction, but had ceased
+unexpectedly.  Bits of rock litter the nearby ground, their color
+matching that of the surrounding tunnel.
+~
+~
+301465604 0 9 0
+D3
+~
+~
+0 -1 31338 10 10 5
+E
+ore chunk east wall~
+A huge chunk of rock has been removed from the eastern wall of the tunnel. 
+The most obvious reason for its disappearance is preparation for
+extending the tunnel east.
+~
+E
+rock litter bits~
+Bits of gray rock, the same color as the surrounding walls, lie almost
+invisible on the nearby ground.
+~
+435 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31340
+New Mine Tunnel~
+This particular branch of the mine dead-ends here; movement is possible
+only back to the south.  There is very little wooden bracing used here,
+and the stone walls have only minor traces of mining activity.  Several
+burned out torches lie discarded on the ground.
+~
+~
+301465604 0 7 0
+D2
+~
+~
+0 -1 31328 10 10 5
+A
+take get grab~
+torch~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The torches are far too burnt out to bother taking.
+~
+!
+0 0 0
+435 9 1509949540 3 0
+-1
+S
+
+#31341
+New Mine Tunnel~
+To the east you can see some light and a broken-down ore cart.  This
+narrow passage also goes to the east, where darkness hides what lies
+ahead.  The ore on both of the walls here seems to have been removed;
+only earth and rock remain.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 31298 10 10 5
+D3
+~
+~
+0 -1 31342 10 10 5
+-1
+S
+
+#31342
+New Mine Tunnel~
+The tunnel takes a sharp, 90 degree turn here, forming an 'L' shaped
+passage.  A large chunk of a very hard mineral juts out of the northeast
+corner of the tunnel, its dark green surface smooth and cold.  The
+contrasting southwest corner seems to bulge out slightly as if in an
+attempt to make the corridor uniformly wide.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31343 10 10 5
+D1
+~
+~
+0 -1 31341 10 10 5
+E
+chunk green dark surface~
+A large chunk of a very dark green mineral juts out from the northeast
+corner of the tunnel, making that corner of the wall something to be
+avoided.  Its surface is slightly mottled; different hues of green swirl
+about its surface.
+~
+-1
+S
+
+#31343
+New Mine Tunnel~
+The branching tunnel is quite wide here, and allows easy movement to the
+north, west, and south.  A single burned-out torch has been affixed to
+the eastern wall, the slightly charred timbers nearby evidence to a minor
+accident.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31344 10 10 5
+D2
+~
+~
+0 -1 31342 10 10 5
+D3
+~
+~
+0 -1 31345 10 10 5
+E
+torch charred timbers~
+It appears that the torch attached to the eastern wall once caught the
+near-by timbers on fire.  They are slightly scorched; any more burning
+could have meant a serious underground fire.
+~
+-1
+S
+
+#31344
+New Mine Tunnel~
+This small area seems to have been scooped out of the surrounding rock,
+providing a small place to rest before returning to the south and the
+mines.  A wooden bench has been placed against the wall, rickety but
+sufficient to provide a spot to rest your tired bones.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 31343 10 10 5
+435 9 1509949540 3 0
+2234 17 1509949540 -2 0
+-1
+S
+
+#31345
+New Mine Tunnel~
+This very small passage dead-ends here, allowing you to only return to
+the eastern tunnel.  The walls show very little sign of mining activity
+to this point; likely efforts will continue here in the future.  A thin
+vein of a silvery mineral runs along the western wall, glittering even in
+the faintest of lights.
+~
+~
+301465604 0 7 0
+D1
+~
+~
+0 -1 31343 10 10 5
+E
+silvery mineral western wall vein~
+This thin vein of silvery mineral is different from those which surround
+it.  It seems to glimmer without the presence of any light.
+~
+435 9 1509949540 3 0
+-1
+S
+
+#31346
+New Mine Tunnel~
+The tunnel here is quite cool; the rocks on the east and west walls are
+ice-cold to your touch, but very dry.  A faint light shines in from the
+south, hits the oddly shaped rocks which jut from the walls, and and then
+casts strange shadows upon the rocky ground.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31347 10 10 5
+D2
+~
+~
+0 -1 31301 10 10 5
+-1
+S
+
+#31347
+New Mine Tunnel~
+The tunnel dead-ends here at a wall made primarily of dark brown rock. 
+Dark red-brown earth appears in large splotches on the rock, giving it an
+appearance like a face covered with giant freckles.  The east and west
+walls are primarily made of the same dark earth, and show little signs of
+precious minerals.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 31346 10 10 5
+E
+red-brown splotches wall rock~
+Dried earth stuck to the wall here seems to have been splattered, forming
+large blotches of color.
+~
+435 9 1509949540 3 0
+-1
+S
+
+#31348
+New Mine Tunnel~
+The tunnel slopes sharpely upwards here, while to the west it continues. 
+An ore car has been tossed to the side of the tracks, appearently it is
+no longer functional.  Torches along the walls keep this part of the mine
+well lit.  
+~
+~
+301465605 0 6 0
+D3
+~
+~
+0 -1 31323 10 10 5
+D4
+~
+~
+0 -1 31349 10 10 5
+E
+ore cart~
+A huge dent in the side of the car suggest that a boulder crashed into
+it, rendering it useless.  
+~
+2745 17 1509949460 -2 0
+-1
+S
+
+#31349
+New Mine Tunnel~
+To the east the tunnel ends and you can see a valley open up on the other
+side, while to the west it slopes sharpely downwards further into the
+mine.  Torches along the walls keep this part of the mine well lit.  
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 31350 10 10 5
+D5
+~
+~
+0 -1 31348 10 10 5
+-1
+S
+
+#31350
+New Mine Entrance~
+To the west, the ridge of a great mountain peak can be seen rising high up
+into the sky.  The iron tracks lead into a large hole dug out of its
+side, and continue east towards a high stone wall.  Passage to the north
+and south is prevented by a thick forest of trees.  
+~
+~
+301465608 2 9 0
+D1
+~
+~
+0 -1 31351 10 10 5
+D3
+~
+~
+0 -1 31349 10 10 5
+-1
+S
+
+#31351
+Before The Gate~
+The iron tracks lead west and to the east through an open gate in a huge
+stone wall, while to the north and south you can just make out a worn
+path running along side the wall.
+~
+[Callum] Stone gargoyle has no desc.
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31352 10 10 5
+D1
+~
+~
+0 -1 31367 10 10 5
+D2
+~
+~
+0 -1 31366 10 10 5
+D3
+~
+~
+0 -1 31350 10 10 5
+A
+~
+~
+mob = mob_in_room( 483, room );
+if( obj_in_room( 421, room ) ){
+  mob = mload( 483, room );
+  junk_obj( obj_in_room( 421, room ) );
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+attack( mob, ch, 4d4+5, "stone claw" );
+attack( mob, ch, 4d4+5, "stone claw" );
+attack( mob, ch, 6d6+10, "spiked horn" );
+}
+continue;
+~
+E
+char~
+As you try to pass by, the gargoyle comes to life and attacks you.
+~
+E
+room~
+@b@WAs $n tries to pass the gate, the gargoyle comes to life and attacks!@n
+~
+!
+3 0 2
+A
+dig excavate~
+ground dirt down beneath gargoyle wings stone guardian~
+if( rflag( reset2, room ) ) {
+  act_tochar( #dig, ch );
+  act_notchar( #rdig, ch );
+  obj_to_char( oload( 3383 ), ch );
+  remove_rflag( reset2, room );
+  }
+else
+  act_tochar( #none, ch );
+~
+E
+dig~
+You dig beneath the watchful gaze of the gargoyle and find a silver urn!
+~
+E
+rdig~
+$n digs and digs until $e finds something!
+~
+E
+none~
+You dig and dig, but the ground has already been dug through.  Whatever
+was here has likely been removed.
+~
+!
+0 0 0
+421 17 1509949540 -2 0
+-1
+S
+
+#31352
+West Of Stone Wall~
+A stone wall 20 feet high rises to the east of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+[Callum] mostely should be mostly.
+~
+301465608 2 9 0
+D0
+~
+~
+0 -1 31353 10 10 5
+D2
+~
+~
+0 -1 31351 10 10 5
+-1
+S
+
+#31353
+West Of Stone Wall~
+A stone wall 20 feet high rises to the east of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31354 10 10 5
+D2
+~
+~
+0 -1 31352 10 10 5
+-1
+S
+
+#31354
+Northwest Of Stone Wall~
+You are standing near a corner of a huge stone wall which extends far to
+the east and south.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 31355 10 10 5
+D2
+~
+~
+0 -1 31353 10 10 5
+-1
+S
+
+#31355
+North Of Stone Wall~
+A stone wall 20 feet high rises to the south of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 31356 10 10 5
+D3
+~
+~
+0 -1 31354 10 10 5
+-1
+S
+
+#31356
+North Of Stone Wall~
+A stone wall 20 feet high rises to the south of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 31357 10 10 5
+D3
+~
+~
+0 -1 31355 10 10 5
+-1
+S
+
+#31357
+Northeast Of Stone Wall~
+You are standing near a corner of a huge stone wall which extends far to
+the west and south.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 31358 10 10 5
+D3
+~
+~
+0 -1 31356 10 10 5
+-1
+S
+
+#31358
+East Of Stone Wall~
+A stone wall 20 feet high rises to the west of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31357 10 10 5
+D2
+~
+~
+0 -1 31359 10 10 5
+-1
+S
+
+#31359
+East Of Stone Wall~
+A stone wall 20 feet high rises to the west of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31358 10 10 5
+D2
+~
+~
+0 -1 31360 10 10 5
+-1
+S
+
+#31360
+East Of Stone Wall~
+A stone wall 20 feet high rises to the west of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31359 10 10 5
+D2
+~
+~
+0 -1 31361 10 10 5
+-1
+S
+
+#31361
+East Of Stone Wall~
+A stone wall 20 feet high rises to the west of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31360 10 10 5
+D2
+~
+~
+0 -1 31362 10 10 5
+-1
+S
+
+#31362
+Southeast Of Stone Wall~
+You are standing near a corner of a huge stone wall which extends far to
+the west and north.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31361 10 10 5
+D3
+~
+~
+0 -1 31363 10 10 5
+-1
+S
+
+#31363
+South Of Stone Wall~
+A stone wall 20 feet high rises to the north of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 31362 10 10 5
+D3
+~
+~
+0 -1 31364 10 10 5
+-1
+S
+
+#31364
+South Of Stone Wall~
+A stone wall 20 feet high rises to the north of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 31363 10 10 5
+D3
+~
+~
+0 -1 31365 10 10 5
+-1
+S
+
+#31365
+Southwest Of Stone Wall~
+You are standing near a corner of a huge stone wall which extends far to
+the east and north.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 31366 10 10 5
+D1
+~
+~
+0 -1 31364 10 10 5
+-1
+S
+
+#31366
+West Of Stone Wall~
+A stone wall 20 feet high rises to the east of you.  The path you are
+standing on looks mostely overgrown and probably hasn't been used since
+the wall was constructed.  
+~
+~
+301465608 2 9 0
+D0
+~
+~
+0 -1 31351 10 10 5
+D2
+~
+~
+0 -1 31365 10 10 5
+-1
+S
+
+#31367
+Warlock Complex - Courtyard~
+The tracks go westward through a gate leading out of the complex, and a
+bit east of here you can make out where they end.  There is a shabby
+looking building to the south and a ways north of here a large, much
+nicer building.  
+~
+~
+301465608 1 8 0
+D0
+~
+~
+0 -1 31374 10 10 5
+D1
+~
+~
+0 -1 31370 10 10 5
+D2
+door~
+door~
+131 -1 31368 10 10 5
+D3
+~
+~
+0 -1 31351 10 10 5
+E
+big barrel~
+A large, brown barrel with iron bandings.
+~
+-1
+S
+
+#31368
+Warlock Complex - Slave Quarters~
+This room is sparse and dingy.  Cots lining the walls and a table in the
+center of the room are all that occupy it.  There are two doors, one to
+the north and one to the east.  
+~
+~
+301465604 0 6 0
+D0
+door~
+door~
+131 -1 31367 10 10 5
+D1
+door~
+door~
+131 -1 31369 10 10 5
+448 9 1509949540 3 0
+-1
+S
+
+#31369
+Golem Construction Area~
+You are greeted by the harsh crack of a whip and the agonized groans of
+several slaves working to lift a large chunk of heavy dark rock at least
+30 feet in the air...  with only one pulley.  The smell of sweat and
+blood here nearly makes you gag, and you find it hard to believe anyone
+can ever work under these conditions.  There is a huge unfinished golem
+here, surrounded by scaffolding and ropes.  He appears to be made out of
+Krynite, and you feel slightly queasy at the thought of having to face a
+monster of that size and type.  
+~
+[Callum] 'torchure' should be 'torture' on the dwarves.
+~
+301465601 1 8 0
+D0
+~
+~
+0 -1 31370 10 10 5
+D3
+door~
+door~
+131 -1 31368 10 10 5
+448 9 1509949540 3 0
+448 9 1509949540 3 0
+486 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31370
+Warlock Complex - Ore Depository~
+The tracks end near the high stone wall to your east.  This must be where
+the ore is taken off the carts.  You see a group of dwarven slaves
+working here under the demanding eyes of the slavedriver.  You notice
+some of the slaves moving the ore into the chamber to the south.  
+~
+[Rebekka] slave torture
+~
+301465601 1 8 0
+D2
+~
+~
+0 -1 31369 10 10 5
+D3
+~
+~
+0 -1 31367 10 10 5
+448 9 1509949540 3 0
+448 9 1509949540 3 0
+486 9 1509949540 3 0
+2745 17 1509949490 -2 0
+-1
+S
+
+#31371
+Warlock Abode - Stairwell~
+You try to step on the extreme edges of the stairs to keep the wooden
+planks from squeaking.  The stairs are worn in the middle from many feet
+tramping up and down them.
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 31372 10 10 5
+D4
+~
+~
+0 -1 31375 10 10 5
+-1
+S
+
+#31372
+Warlock Abode - Library~
+The shelves in this room run from floor to ceiling and along all the
+walls.  Glancing at the titles of the few books closest to you, you are
+sure this is not only a room for study and quiet contemplation, but also
+amusement.  
+~
+~
+301465605 0 6 0
+D2
+~
+~
+0 -1 31371 10 10 5
+D3
+~
+~
+0 -1 31373 10 10 5
+E
+shelves~
+These sturdy shelves are built into the walls and are filled to capacity
+with books.  
+~
+E
+necrophelia techniques modern practitioners~
+You open the book and read:
+    
+"Acquisition of corpses may or may not be a difficult chore for
+necropheliacs.  In some smaller towns where few deaths occur, it may be
+possible to persuade the local graveyard officials to give over any
+corpses they may have awaiting burial.  These officials make only a
+pittance from the performance of their duties, and most will gladly take
+your gold to augment this meagre income.  Another option is to find a
+person who is pleasing to your appetites and kill him or her yourself,
+and some procedures for this are outlined for you in Chapter 28." 
+~
+E
+their pain your pleasure~
+You open the book and read:
+  
+"Perhaps the most common misconception amongst the sadists is that
+inflicting pain upon a victim drains the torturer of his emotions.  This
+is simply not true.  Great emotion can be experienced by the torturer,
+leading him to ecstasies and fantastic pleasures.  To give mercy to our
+victim is to forfeit delights that are unknown to the weaker beings of
+compassionate nature." 
+~
+E
+titles books~
+You tilt your head sideways and scan the titles of the books closest to
+you.  You see books on anatomy and mathematics, as well as titles such as
+"Their Pain for Your Pleasure" and "Necrophilia Techniques for Modern
+Practitioners." These titles catch your interest and you would like to
+look at them more.  
+~
+485 9 1509949540 3 0
+485 9 1509949540 3 0
+-1
+S
+
+#31373
+Warlock Abode - Foyer~
+This large room features a tapestry of the warlock coat-of-arms hung on
+the north wall.  A low bench is placed against the east wall near the
+doorway, although what someone could possibly waiting for in this house
+is unknown to you.  
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 31372 10 10 5
+D2
+door~
+door~
+131 -1 31374 10 10 5
+E
+tapestry~
+This woven hanging is about 20 feet long and 10 feet high.  It is a
+tasteful burgundy color, with the warlock symbol woven in gold.  
+~
+E
+symbol~
+The warlock symbol is a huge fist clenched tightly by a lightningbolt. 
+You aren't sure if this is represents their power over the elements or
+their love of power itself.  
+~
+-1
+S
+
+#31374
+Warlock Complex - Courtyard~
+A large two-story building stands here.  To the east you can see one wall
+of the L-shaped structure, and to the north is the front door.  You see
+lights flickering inside the windows on both floors, and every now and
+then you hear raised voices, laughter and the sound of doors.  The stone
+path splits and runs around a white marble fountain.  
+~
+~
+301465600 1 8 0
+D0
+door~
+door~
+131 -1 31373 10 10 5
+D2
+~
+~
+0 -1 31367 10 10 5
+1 17 1509949540 -2 0
+-1
+S
+
+#31375
+Warlock Abode - Gameroom~
+Here at the top of the stairs you see couches and books scattered with
+equal abandon.  This obviously a lounge for resident and visiting
+warlocks.  A few dirty dishes rest on the coffeetable, and a pair of
+dirty socks is draped over the back of one of the couches.  A stairs lead
+back down to the first floor.  
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 31376 10 10 5
+D5
+~
+~
+0 -1 31371 10 10 5
+-1
+S
+
+#31376
+Warlock Abode - Upstairs Hallway~
+Small lamps decorate the walls here, lighting the narrow hallway and
+creating frightening shadows.  There are doors to the east and north of
+you.  
+~
+~
+301465605 0 6 0
+D0
+bloodstained door~
+'bloodstained door'~
+131 -1 31379 10 10 5
+D1
+hide door~
+'hide door'~
+131 -1 31378 10 10 5
+D2
+~
+~
+0 -1 31375 10 10 5
+D3
+~
+~
+0 -1 31377 10 10 5
+E
+hide door~
+This door seems to be wood covered over with some sort of hide, sewn to
+give it a quilted look.  Upon closer inspection, you see that it is made
+of human, elf and dwarf skin.  
+~
+E
+bloodstained door~
+The heavy wooden door has bloody handprints soaked into the grain.  You
+see splatters of blood near the bottom.  
+~
+-1
+S
+
+#31377
+Warlock Abode - Upstairs Hallway~
+It smells faintly of soap and wood polish on this end of the hallway. 
+There are closed doors to the north and south of you.
+~
+~
+301465613 0 6 0
+D0
+iron and wood door~
+'iron and wood door'~
+131 -1 31380 10 10 5
+D1
+~
+~
+0 -1 31376 10 10 5
+D2
+iron-banded door~
+'iron-banded door' iron banded door~
+407 391 31381 10 10 5
+E
+iron wood door~
+It's a heavy door of wood with iron bands running across it.
+~
+-1
+S
+
+#31378
+Warlock Abode - Bedroom~
+You have entered a small bedroom.  As you look around, you grow
+increasingly aware of the hideous nature of the inhabitants of this
+house.  There is a large lamp made of humanoid bones in the corner. 
+Several skulls are tacked up to the wall, some with party hats or
+sunglasses and leis on them.  You see symbols painted on the walls in a
+dark red-brown paint...  or is it blood?  
+~
+~
+301465605 0 6 0
+D3
+hide door~
+'hide door'~
+131 -1 31376 10 10 5
+E
+symbol paint blood~
+A small scattering of voodoo symbols decorates the wall here, appearantly
+painted in blood.  In the middle of one wall is a huge happy face, also
+painted in blood.  
+~
+E
+skulls hats sunglasses leis~
+You can't believe your eyes.  The skulls hanging here are elven, dwarf
+and human, and someone has made them look ridiculous.  One skull has a
+pointed hat that says "Happy Birthday" on it, another has a bright pink
+party lei draped around it.  These people are sick!  
+~
+E
+lamp bones~
+This tall floor lamp isn't lit, but you can clearly see the thighbones
+and vertebrea of humans or humanoid creatures that form the structure of
+it.  
+~
+E
+hide door~
+This door seems to be wood covered over with some sort of hide, sewn to
+give it a quilted look.  Upon closer inspection, you see that it is made
+of human, elf and dwarf skin.  
+~
+485 9 1509949540 3 0
+-1
+S
+
+#31379
+Warlock Abode - Laboratory~
+You have entered a dimly lit room.  You can see the dark forms of
+nail-beds, human racks and other torture equipment.  There are large
+drains in the floor to catch any blood that spills, and along one wall is
+a row of heavily padded chairs for any viewers that may be present.  
+~
+~
+301465605 0 6 0
+D2
+bloodstained door~
+'bloodstained door'~
+131 -1 31376 10 10 5
+E
+chairs~
+Four large chairs sit here against the wall.  Next to each chair is a
+small table, each one holding a towel, pitcher of water, drinking glass,
+and bottle of lubricant jelly.  
+~
+E
+human racks~
+This is a huge machine to help pull arms and legs out of their sockets. 
+This is not something you want to try at home.  
+~
+E
+nails beds~
+A bed of nails sits here.  You can see bloodstains all along the wooden
+legs of this device, and you see that some of the nails are bent
+slightly.  
+~
+E
+drains~
+A large drain is placed on each end of the room.  Each one is matted with
+dried and caked blood and gnarled hair.  
+~
+E
+bloodstained door~
+The heavy wooden door has bloody handprints soaked into the grain.  You
+see splatters of blood near the bottom.  
+~
+485 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31380
+Warlock Abode - Bedroom~
+This large bedroom holds a large oak bed and several small tables and
+bric-a-brac.  You see carved wooden animals on one table, a chess board
+on another.  The owner of this room obviously is a person of refinement
+and taste.  
+~
+~
+301465605 0 6 0
+D2
+iron and wood door~
+'iron and wood door'~
+131 -1 31377 10 10 5
+E
+animals carved wooden~
+M'gao wood has been carved into elaborate totems and real-looking
+animals.  You wonder if the owner purchased these on his travels.  
+~
+E
+chess board~
+A beautifully-carved chess board is set up here.  It is made of inlaid
+wood, and the pieces are wearing small replicas of armor of silver and
+gold.  
+~
+E
+iron wood door~
+It's a heavy door of wood with iron bands running across it.
+~
+A
+smash break~
+pawns~
+if( rflag( reset0, room ) ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_room( oload( 391 ), room );
+  remove_rflag( reset0, room );
+  }
+else
+  send_to_char( #already, ch );
+~
+E
+already~
+The pawn is already smashed into little pieces.
+~
+E
+room~
+$n smashes one of the pawns on the chessboard, sending pieces of it
+along with a key all over.
+~
+E
+char~
+You smash the pawn, sending pieces of it in all directions.  Along with
+the debris, a key falls to the floor.  
+~
+!
+0 0 0
+A
+1 look search examine~
+pieces pawns rooks knights bishops queens kings~
+if( rflag( reset0, room ) )
+  send_to_char( #char, ch );
+else
+  send_to_char( #already, ch );
+~
+E
+already~
+You notice nothing odd about the chess pieces, other than that one of the
+pawns has been smashed to pieces.  
+~
+E
+char~
+Examining the chess pieces further you see that one of the pawn's
+armor plates is peculiarly offset, unlike any of the others.
+~
+!
+0 0 0
+A
+open~
+pawns~
+if( rflag( reset0, room ) )
+  send_to_char( #nope, ch );
+else
+  send_to_char( #already, ch );
+~
+E
+already~
+The pawn has already been smashed open.
+~
+E
+nope~
+You are unable to force it open.
+~
+!
+0 0 0
+485 9 1509949540 3 0
+-1
+S
+
+#31381
+Warlock Abode - Office~
+A large desk occupies the center of the room which is carpeted with a
+plush red rug.  Decorative skulls and humanoid bones adorn the walls. 
+One of the walls is covered by a large bookshelf, filled with books.  In
+one corner, behind the desk a man-sized mirror sits against the wall.  
+~
+[Fyli] look mirror : reflexion should be reflection.
+~
+301465605 0 6 0
+D0
+iron-banded door~
+'iron-banded door' iron banded door~
+407 391 31377 10 10 5
+E
+mirror~
+This is a strange mirror indeed, for as you look into it, you see
+darkness and not your reflexion as you would expect to see.  
+~
+A
+enter~
+mirror~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31382 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n steps out of a mirror into the room.
+~
+E
+room~
+$n steps into the large mirror and vanishes.
+~
+E
+char~
+As you enter the mirror, you are struck by a dizzying array of lights and
+flashes.
+~
+!
+0 0 0
+A
+1 look search examine~
+bookshelf shelf~
+if( rflag( reset0, room ) ) {
+  act_tochar( #char, ch );
+  act_notchar( #room, ch );
+  obj_to_room( oload( 412 ), room );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+Your search of the bookshelf turns up nothing.
+~
+E
+room~
+A piece of paper falls to the floor from the bookshelf $n was rummaging
+through.
+~
+E
+char~
+While searching the books on the shelf, a piece of paper falls from one
+of them and drops to the floor.
+~
+!
+0 0 0
+A
+touch push~
+mirror~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n reaches out to touch the mirror and quickly pulls it back as it seems
+to pass right through.
+~
+E
+char~
+Your hand passes right through the glass and you quickly pull it back.
+~
+!
+0 0 0
+442 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31382
+Warlock Abode - Maze Entrance~
+The walls of this small room are bare.  A doorway leads to the north and
+a man-sized mirror stands in one corner.  
+~
+~
+301465636 0 6 0
+D0
+~
+~
+0 -1 31383 10 10 5
+E
+mirror~
+This is a strange mirror indeed, for as you look into it, you see
+darkness and not your reflexion as you would expct to see.  
+~
+A
+enter~
+mirror~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31381 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n steps out of a mirror into the room.
+~
+E
+room~
+$n steps into the large mirror and vanishes.
+~
+E
+char~
+As you enter the mirror, you are struck by a dizzying array of lights and
+flashes.
+~
+!
+0 0 0
+-1
+S
+
+#31383
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  The south exit does however seem
+clearer than all the others.  
+~
+~
+301465636 0 6 0
+D2
+~
+~
+0 -1 31382 10 10 5
+A
+1 west~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31388 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 north 1 east~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31384
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 west~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31390 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 north 1 east 1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31385
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familiar fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  The north exit does however seem
+clearer than all the others.  
+~
+~
+301465636 0 6 0
+D0
+~
+~
+0 -1 31392 10 10 5
+A
+1 west~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31383 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 east 1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31386
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 north~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31389 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 west 1 east 1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31387
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 east~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31384 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 west 1 north 1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31388
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31391 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 west 1 north 1 east~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31389
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 east~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31385 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 west 1 north 1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31390
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 south~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31386 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 west 1 north 1 east~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31391
+Warlock Abode - Maze~
+The ceiling of this room is painted with a large star, much like that of
+a compass, with the familier fist and lightning bolt in the center. 
+Exits lead in all directions, or at least seem to.  You cannot be sure
+with all the mirrors around the room.  
+~
+~
+301465636 0 6 0
+A
+1 north~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31387 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n appears from one of the mirrors.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+A
+1 west 1 south 1 east~
+~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31351 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n suddenly appears from out of nowhere.
+~
+E
+room~
+$n passes through one of the mirrors, but you cant be sure which one.
+~
+E
+char~
+You pass through the mirror...
+~
+!
+0 0 0
+-1
+S
+
+#31392
+Warlock Abode - Maze Entrance~
+The walls of this small room are bare.  A doorway leads to the north and
+a man-sized mirror stands in one corner.  
+~
+[Fyli] a doorway to the south, maybe?
+~
+301465636 0 6 0
+D2
+~
+~
+0 -1 31385 10 10 5
+A
+enter~
+mirror~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+room = find_room( 31393 );
+rch = rand_player( room );
+transfer( ch, room );
+act_notchar( #arr, ch );
+mob = mob_in_room( 480, room );
+if( !rch ) {
+  if( mob ) {
+    act_tochar( #bellow, ch );
+    attack_weapon( mob, ch, 2d5+5, "punch" );
+    attack_weapon( mob, ch, 2d5+5, "punch" );
+    attack_weapon( mob, ch, 2d5+5, "punch" );
+    }
+  }
+~
+E
+bellow~
+As you enter the room, the chief leaps up from what he was doing and says,
+
+@b@W"What have we here? How did you get.. Never mind, you're dead.."
+
+~
+E
+arr~
+$n steps out of a mirror into the room.
+~
+E
+room~
+$n steps into the large mirror and vanishes.
+~
+E
+char~
+As you enter the mirror, you are struck by a dizzying array of lights and
+flashes.
+~
+!
+0 0 0
+-1
+S
+
+#31393
+Warlock Abode - Chief's Hideout~
+Your eyes take a moment to adjust to the dim light in this room.  One
+lone reading lamp is lit, its light bouncing softly off of the dark green
+walls and maroon carpet.  You see a large picture of a fist holding a
+lightning bolt on the wall here, and an enormous wooden desk.  This must
+be the chieftain's REAL office.  
+~
+~
+301465604 0 6 0
+D3
+hidden panel~
+"hidden panel" panel~
+171 -1 31394 10 10 5
+E
+1 west walls dark green~
+A panel on the wall looks as if it may be hiding something.
+~
+E
+panel~
+The panel is a secret door!
+~
+A
+enter~
+mirror~
+act_tochar( #char, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 31392 ) );
+act_notchar( #arr, ch );
+~
+E
+arr~
+$n steps out of a mirror into the room.
+~
+E
+room~
+$n steps into the large mirror and vanishes.
+~
+E
+char~
+As you enter the mirror, you are struck by a dizzying array of lights and
+flashes.
+~
+!
+0 0 0
+480 9 1509949540 3 0
+474 17 1509949540 -2 0
+-1
+S
+
+#31394
+Warlock Abode - Chief's Hidden Room~
+The dim light from the next room filters in, ennabling you to see only a
+little of this room.  Bare walls of light-colored wooden planks run from
+floor to ceiling and you see darkly-stained wood flooring.  You can see
+where shelving once hung, leaving nail holes with the sides chipped.  It
+looks like the shelves were ripped out in a hurry and by someone who is
+unhandy with carpentry.  
+~
+This room could use some treasure!
+~
+301465604 0 6 0
+D1
+hidden panel~
+"hidden panel" panel~
+171 -1 31393 10 10 5
+E
+bare walls planks~
+It is obvious that that something quite unusual took place in this room. 
+The walls have been ripped apart in places, leaving some of the planking
+loose.
+~
+A
+3 inspect~
+A closed battered iron chest~
+if( rflag( reset0, room ) )
+if( find_skill( ch, inspect ) > random( 3, 11 ) )
+  act_tochar( #trap, ch );
+else
+  act_tochar( #notrap, ch );
+else
+act_tochar( #nothing, ch );
+~
+E
+trap~
+Around the battered chest's locking mechanism, you see a small, magical
+trap.  It looks quite powerful.
+~
+E
+notrap~
+You see nothing unusual.
+~
+E
+nothing~
+The magical trap on the battered chest's lock has already been sprung.
+~
+!
+0 0 0
+A
+3 untrap~
+A closed battered iron chest~
+i = random( 5, 10 );
+if( find_skill( ch, untrap ) > random( 2, 9 ) ) { 
+  remove_rflag( reset0, room );
+  act_tochar( #success, ch );
+  }
+else { 
+  act_tochar( #failure, ch );
+act_notchar( #rfail, ch );
+  act_room( #fade, ch );
+  transfer_all( find_room( 31394 ), find_room( 31250 ) );
+  }
+~
+E
+success~
+You are rewarded with a *snip* as you successfully disarm the trap.
+~
+E
+failure~
+You feel rather than hear the trap on the chest go off!
+~
+E
+fade~
+@MThe world about you fades out of existence.@n
+~
+E
+rfail~
+$n blanches as $e triggers the trap on the chest accidently.
+~
+!
+0 0 0
+A
+pick~
+A closed battered iron chest~
+if( rflag( reset0, room ) ) { 
+  act_tochar( #ouch, ch );
+act_notchar( #rouch, ch );
+act_room( #fade, ch );
+transfer_all( find_room( 31394 ), find_room( 31250 ) );
+  }
+else
+  continue;
+~
+E
+ouch~
+You trigger a trap on the chest.
+~
+E
+rouch~
+$n blanches as $e triggers the trap on the chest!@n
+~
+E
+fade~
+@MThe world about you fades out of existence.@n
+~
+!
+0 0 0
+2215 49 1509949540 -2 0
+3 65 1509949540 -2 0
+2839 81 1509949450 -2 0
+8 65 1509949540 -2 0
+8 65 1509949540 -2 0
+1 65 1509949540 -2 0
+0 65 1509949540 -2 0
+2871 81 1509949441 -2 0
+-1
+S
+
+#31395
+On an Ore Lift~
+Sturdier than you first expected, this lift was constructed to carry ore
+up and down the mining shaft.  The wooden planks forming the bottom of
+the lift are covered with detritus and scuff marks.  Outside the lift but
+still within reach, you can see a long, frayed rope.
+~
+||pull rope||exit lift|| ||#3 -&- #4 called in #2|| 
+~
+301465604 0 9 0
+E
+frayed long rope~
+A old rope made from twined horse hands hands down the length of the
+mining shaft.  By tugging on the rope, it looks like the ore lift can be
+moved up and down the shaft.
+~
+E
+plank scuff mark detritus~
+The bottom of the lift is formed by a number of worn and battered planks
+of wood.  Bits of rock, ore, and scraps of leather litter the scarred
+surface of the wood.
+~
+A
+exit get climb~
+off out lift ore~
+if( !rflag( status0, find_room( 31272 ) ) ) {
+  act_tochar( #exit, ch );
+  act_notchar( #rexxit, ch );
+  transfer( ch, find_room( 31272 ) );
+  loop( followers ) {
+    act_tochar( #follow, rch );
+    act_notchar( #rfollow, rch );
+    transfer( rch, find_room( 31272 ) );
+    act_notchar( #arrive, rch );
+    }
+  }
+else {
+  act_tochar( #exit, ch );
+  act_notchar( #rexxit, ch );
+  transfer( ch, find_room( 31264 ) );
+  act_notchar( #arrive, ch, obj, mob );
+  loop( followers ) {
+    act_tochar( #exit, rch );
+    act_notchar( #rexxit, rch );
+    transfer( rch, find_room( 31264 ) );
+    act_notchar( #rfollow, rch );
+    }
+  }
+~
+E
+exit~
+You grab the edge of the lift and jump off.
+~
+E
+rexxit~
+$n jumps off the ore lift, while it is stopped.
+~
+E
+follow~
+You also decide that now is a good time to get off the lift.
+~
+E
+rfollow~
+$n also gets off the lift.
+~
+E
+arrive~
+$n gets off the ore lift.
+~
+!
+0 0 0
+A
+pull tug~
+frayed rope~
+if( !rflag( status0, find_room( 31272 ) ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  acode( find_room( 31395 ), 3 );
+  }
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  acode( find_room( 31395 ), 4 );
+  }
+~
+E
+pull~
+You pull the frayed rope and start the ore lift moving.
+~
+E
+rpull~
+$n pulls the frayed rope and starts the ore lift moving.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+act_room( #up, ch );
+send_to_room( #goingup, find_room( 31265 ) );
+wait( 1 );
+act_room( #arrives, ch );
+send_to_room( #arrives, find_room( 31264 ) );
+set_rflag( status0, find_room( 31272 ) );
+~
+E
+up~
+The ore lift lurches and begins moving upward.
+~
+E
+goingup~
+The rickety ore lift goes soaring upward past you.
+~
+E
+arrives~
+The ore lift arrives at the top of the mining shaft.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+act_room( #down, ch );
+send_to_room( #goingdown, find_room( 31265 ) );
+wait( 1 );
+act_room( #arrives, ch );
+send_to_room( #arrives, find_room( 31272 ) );
+set_rflag( status0, find_room( 31272 ) );
+~
+E
+down~
+The ore lift starts its way down the mine shaft.
+~
+E
+goingdown~
+A rickety wooden ore lift descends down the mine shaft, passing you.
+~
+E
+arrives~
+The ore lift arrives at the bottom of the mine shaft.
+~
+!
+0 0 0
+-1
+S
+
+#31396
+Beyond the Great Iron Door~
+This wide tunnel burrows its twisting way through solid rock.  The drab
+brownish-grey rock of the mines is shot through in various places with
+veins of pure white quartz.  The floor of the tunnel is littered with
+jagged pieces of stone, most likely hewn out of the tunnel walls.  The
+ceiling of the tunnel is relatively high, just a touch higher than a tall
+ogre could reach.  Set into the eastern wall is a massive door of pitted
+iron.
+~
+[Nereus] Extras: look [ jagged stone floor ]
+[Nereus] Extras: look [ vein pure white quartz ]
+~
+301465604 0 9 0
+D1
+great iron door~
+great iron door~
+131 -1 31283 10 10 5
+D3
+~
+~
+0 -1 31397 10 10 5
+E
+door iron~
+This tall, thick door is made of crudely wrought iron.  It is pitted and
+rusted with age, yet still stands firm.
+~
+-1
+S
+
+#31397
+New Mine Tunnel~
+This tunnel has been roughly hewn out of the brownish-grey stone.  All
+along the walls and ceiling, the rock has been gouged and hewn away
+inexpertly, shattering the stone around it.  Small slivers of quartz
+litter the floor, along with larger chunks of brown rock.  Along the
+western wall of the chamber, a vein of violet ore spreads its spidery
+lines through the pure white of a large quartz deposit, mingling violet
+and alabaster in a lovely, random pattern through the dull brown rock.
+~
+~
+301596676 0 9 0
+D1
+~
+~
+0 -1 31396 10 10 5
+D2
+~
+~
+0 -1 31398 10 10 5
+E
+west wall violet ore quartz~
+The western wall is a perfect example of nature's beauty.  A deposit of
+the purest white quartz dominates the wall, while spidery veins of violet
+ore sprawl through it in a random pattern of lines.  The pale
+bluish-purple ore fades in and out of the quartz before fading away
+entirely near the south end of the wall.
+~
+-1
+S
+
+#31398
+New Mine Tunnel~
+The monotony of the drab, greyish brown stone is broken along the western
+wall by a brilliant blaze of white quartz threaded through with a few
+gossamer strands of violet ore.  A large hole has been gouged out of the
+lovely quartz.  All around the three foot wide hole, white quartz has
+been marred and shattered by the clumsy excavation.  The floor of this
+section of the mine is curiously mounded up with a myriad of rock shards,
+chunks of quartz, and just plain dirt.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31397 10 10 5
+D2
+~
+~
+0 -1 31399 10 10 5
+-1
+S
+
+#31399
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31398 10 10 5
+D3
+~
+~
+0 -1 31400 10 10 5
+-1
+S
+
+#31400
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 31399 10 10 5
+D3
+~
+~
+0 -1 31401 10 10 5
+-1
+S
+
+#31401
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31402 10 10 5
+D1
+~
+~
+0 -1 31400 10 10 5
+D2
+~
+~
+0 -1 31403 10 10 5
+D3
+~
+~
+0 -1 31404 10 10 5
+-1
+S
+
+#31402
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 31401 10 10 5
+-1
+S
+
+#31403
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31401 10 10 5
+-1
+S
+
+#31404
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 31401 10 10 5
+D2
+~
+~
+0 -1 31405 10 10 5
+D3
+~
+~
+0 -1 31406 10 10 5
+-1
+S
+
+#31405
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31404 10 10 5
+-1
+S
+
+#31406
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31407 10 10 5
+D1
+~
+~
+0 -1 31404 10 10 5
+-1
+S
+
+#31407
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31408 10 10 5
+D2
+~
+~
+0 -1 31406 10 10 5
+-1
+S
+
+#31408
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31410 10 10 5
+D1
+~
+~
+0 -1 31409 10 10 5
+D2
+~
+~
+0 -1 31407 10 10 5
+D3
+~
+~
+0 -1 31411 10 10 5
+-1
+S
+
+#31409
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D3
+~
+~
+0 -1 31408 10 10 5
+-1
+S
+
+#31410
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 31408 10 10 5
+-1
+S
+
+#31411
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 31408 10 10 5
+D3
+~
+~
+0 -1 31412 10 10 5
+-1
+S
+
+#31412
+Before the Great Iron Door~
+Under Construction.
+~
+~
+301465604 0 9 0
+D0
+~
+~
+0 -1 31413 10 10 5
+D1
+~
+~
+0 -1 31411 10 10 5
+-1
+S
+
+#31413
+Surrounded by Quartz~
+Under Construction.
+~
+~
+301596676 0 7 0
+D2
+~
+~
+0 -1 31412 10 10 5
+-1
+S
+
+#0
+

@@ -1,0 +1,1283 @@
+#AREA
+Voaleth Tunnel~
+Merior~
+Voaleth Tunnel~
+
+5 0
+0
+#ROOMS
+
+#71600
+Dusty Basement~
+You find yourself in a small, dusty room.  Old cartons are stacked
+against the northern wall, their wooden sides battered.  The floor has a
+thick coat of the same grey dust, though a sprinkling of footprints
+litter the surface.
+~
+[Merior] need search to get in
+[Starshine] a couple more rats in the tunnels perhaps?  or cobwebs that
+load spiders when searched/gotten?
+~
+301596748 1 5 0
+D1
+crack~
+~
+235 -1 71601 10 10 5
+D4
+trap door~
+~
+171 -1 20006 10 10 5
+E
+floor footprint surface~
+By examining the footprints, you notice that they all seem to be pointed
+either towards the east or from it, as if something lay in that direction.
+~
+E
+1 northern wall carton~
+Dozens of old cartons are stacked against the northern wall.  They are
+slowly rotting, and their contents are spilling onto the ground.  You can
+see broken glass in several of them, as well as moth-eaten bits of woolen
+clothing.  Nothing seems to be of any use.
+~
+E
+1 east~
+Three of the walls in this chamber are plain and unadorned.  The eastern
+wall has a large crack which runs along its surface.
+~
+A
+search inspect~
+crack wall east~
+if( !is_open( room, east ) ) {
+  if( find_skill( ch, searching ) > 0 ) {
+    act_tochar( #door, ch );
+    act_notchar( #isdoor, ch );
+    open( room, east );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+door~
+The crack seems to be a door, and you open it!
+~
+E
+isdoor~
+$n inspects the crack carefully, and then reveals that it is a door!
+~
+E
+nothing~
+You see nothing unusual to the east, but a long crack.
+~
+E
+open~
+The crack has already revealed itself to be a door.
+~
+!
+0 0 0
+A
+look~
+1 east crack~
+if( is_open( room, east ) )
+act_tochar( #open, ch );
+else
+act_tochar( #closed, ch );
+~
+E
+open~
+The crack to the east has already been opened.
+~
+E
+closed~
+The crack looks a bit unusual.  Perhaps if you were to look at it more
+carefully?
+~
+!
+0 0 0
+A
+search~
+carton~
+act_tochar( #nothing, ch );
+~
+E
+nothing~
+You find nothing in the cartons that are worth taking.
+~
+!
+0 0 0
+-1
+S
+
+#71601
+Dark Tunnel~
+This dusty tunnel leads east into darkness.  The walls to your north and
+south are black and cold, slightly bumpy to the touch.  The wall to your
+west has a long, perpendicular crack running near the northern edge.  A
+thin coat of dust covers the ground.
+~
+[Starshine] close crack?
+[Merior] crack cant be closed
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71602 10 10 5
+D3
+~
+~
+235 -1 71600 10 10 5
+E
+dust coat ground~
+You can see several footprints in the dust leading both east and west.
+~
+E
+1 northern 1 southern wall~
+The northern and southern walls are made of the same black mineral as
+much of Voaleth cavern, and their surfaces are slightly mottled.  The
+western wall seems to be made of a different type of rock, and has a
+large crack running from top to bottom.
+~
+A
+search inspect~
+1 west crack~
+if( !is_open( room, west ) ) {
+  if( find_skill( ch, searching ) > 0 ) {
+    act_tochar( #door, ch );
+    act_notchar( #isdoor, ch );
+    open( room, west );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+door~
+You find that the crack in the western wall is really a door, and open it!
+~
+E
+isdoor~
+You see $n inspect the crack in the western wall, then suddenly it
+becomes an open door.
+~
+E
+nothing~
+You see nothing unusual about the western wall.
+~
+E
+open~
+The way to the west is already clear.
+~
+!
+0 0 0
+A
+1 look~
+1 west crack~
+if( is_open( room, west ) )
+  act_tochar( #open, ch );
+else act_tochar( #closed, ch );
+~
+E
+open~
+The crack to the west has already been pried open.
+~
+E
+closed~
+The crack appears a bit unusual.  Perhaps if you looked more closely at
+it?
+~
+!
+0 0 0
+2160 9 1509949540 3 0
+-1
+S
+
+#71602
+Dark Tunnel~
+A smell of decay lingers in the still air, your movement doing little to
+dispel the stink.  You can move either towards the east or the west; no
+landmarks or light serve to indicate what lies in either direction.  Far
+above you is the slight hum of a city, though you cannot make out
+individual sounds.
+~
+[Starshine] should rat be skinnable?  how about zombies/skeletons?
+[Merior] rats arent for treasure, will stick something small on dead guys
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71603 10 10 5
+D3
+~
+~
+0 -1 71601 10 10 5
+A
+listen~
+humming city sound~
+act_tochar( #hear, ch );
+~
+E
+hear~
+You can barely hear what appears to be the muffled sound of footsteps far
+above your head.  Every now and then a slightly louder sound similar to
+that made by a shout can be discerned, but you cannot make out individual
+words.
+~
+!
+0 0 0
+2160 9 1509949540 3 0
+-1
+S
+
+#71603
+Dark Tunnel - Battle Scene~
+You can smell something putrid off to the east, much like the odor of a
+rotting corpse.  The southern wall of the tunnel here is covered with
+small nicks and dark splotches.  A branch of the tunnel heads towards the
+north, but it appears to less well-kept than the east-west branch.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71622 10 10 5
+D1
+~
+~
+0 -1 71604 10 10 5
+D3
+~
+~
+0 -1 71602 10 10 5
+E
+1 southern nick splotches~
+The wall to your south is covered with dozens of small nicks as well as
+many small splotches of a red-brown material.  It appears that some sort
+of sword fight may have taken place nearby, these being typical remnants
+of such activity.
+~
+293 9 1509949540 3 0
+-1
+S
+
+#71604
+Dark Tunnel - Dead Rat~
+The rotting corpse of a large rat lies here, covered with flies and
+maggots.  The smell emanating from the body is quite overwhelming, making
+your stay here less then desirable.  You can either move west or south;
+no marks on the tunnel indicate what lies in either direction.
+~
+[Starshine] with corpse in room, is it necessary to spend so much time in
+room desc on it?  Perhaps describe the tunnel here instead...?
+[Starshine] hmm...i think the corpse decomposes...
+~
+301596676 1 5 0
+D2
+~
+~
+0 -1 71605 10 10 5
+D3
+~
+~
+0 -1 71603 10 10 5
+3094 17 1509949540 -2 0
+-1
+S
+
+#71605
+Dark Tunnel - Gouged Area~
+The odor of death and decay is quite strong here, and clearly is coming
+from somewhere to the north.  A slight breeze wafts in from that
+direction, bringing more of the noxious smell.  The western wall of the
+tunnel is gouged here at about sword-height for an ogre or troll, as if
+one passed by just a bit too closely.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71604 10 10 5
+D1
+~
+~
+0 -1 71606 10 10 5
+E
+1 western wall gouge~
+A gouge of about four inches in length lies in the western wall.  It is
+just high enough above the ground that it looks suspiciously like one
+made by the sword of a passing ogre rushing by.
+~
+2161 9 1509949540 3 0
+-1
+S
+
+#71606
+Dark Tunnel - Rough Ground~
+The tunnel walls are quite narrow here, barely leaving enough room for a
+troll to move from east to west (or the reverse, of course).  The ground
+is rough here, as if those who built the tunnel didn't take the time or
+effort to finish their job.
+~
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71607 10 10 5
+D3
+~
+~
+0 -1 71605 10 10 5
+E
+ground~
+The dark stone of the tunnel floor is quite rough, gouges from digging
+tools are quite evident.
+~
+-1
+S
+
+#71607
+Dark Tunnel~
+The tunnel walls take a sharp turn here, forcing you to move either north
+or south.  Jagged bits of rock stick out of the northeast corner, ready
+to impale anyone getting too close.  A matching indentation on the
+southwest corner indicates just how much passersby have tried to avoid
+being hurt.
+~
+[Starshine] entry action to occasionally hurt people?
+[Merior] don't really wanna hurt newbies
+~
+301596676 1 5 0
+D2
+~
+~
+0 -1 71608 10 10 5
+D3
+~
+~
+0 -1 71606 10 10 5
+E
+jagged bit northeast southwest~
+The northeast corner of the tunnel is covered with long, jagged bits of
+sharp stone.  The opposite corner is smooth and indented, allowing
+travellers to keep away from injury.
+~
+-1
+S
+
+#71608
+Dark Tunnel~
+This tunnel twists and turns, its source and destination impossible to
+determine.  The top of the tunnel is obscured by darkness; no light seems
+to be able to penetrate it.  An occasional drop of moisture lands on your
+face, coming from somewhere far above you.
+~
+~
+301596676 1 8 0
+D0
+~
+~
+0 -1 71607 10 10 5
+D1
+~
+~
+0 -1 71609 10 10 5
+E
+1 up top roof ceiling~
+It is too dark above you to see anything.
+~
+2161 9 1509949540 3 0
+-1
+S
+
+#71609
+Dark Tunnel - Damp Spot~
+The ground here is covered by a large, shallow puddle of stagnant water. 
+To your east the tunnel wall appears to be composed of a number of small,
+stacked stones, rather than the solid rock found on the northern wall.
+~
+[Merior] entrance into watery fish east (37674) 
+[Starshine] delete extra 1 since acode 3 repeats it?
+~
+301596676 1 5 0
+D1
+~
+~
+203 -1 37674 10 10 5
+D2
+~
+~
+0 -1 71610 10 10 5
+D3
+~
+~
+0 -1 71608 10 10 5
+E
+1 east stacked stone~
+The stacked stones to the east look as if they could be moved.
+~
+E
+1 northern~
+The northern wall appears to be made of a solid piece of black rock.  Its
+surface is quite cold and dry.
+~
+A
+move~
+stacked stone~
+if( !is_open( room, east ) ) {
+  act_tochar( #door, ch );
+  act_notchar( #isdoor, ch );
+  open( room, east );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+door~
+You move the rocks and find that you can travel east into a watery area.
+~
+E
+isdoor~
+You see $n move the rocks, creating a passage east.
+~
+E
+open~
+The way east has already been cleared.
+~
+!
+0 0 0
+A
+~
+~
+if( random( 0, 4 ) == 3 )
+act_tochar( #wet, ch );
+~
+E
+wet~
+The water from the pool @bsplashes@n you, soaking your feet!
+~
+!
+1 0 14
+A
+1 look search~
+1 east stacked stone~
+if( is_open( room, east ) )
+  act_tochar( #open, ch );
+else
+  act_tochar( #closed, ch );
+~
+E
+open~
+The stones to the east have been cleared and you can move freely in that
+direction.
+~
+E
+closed~
+The stacked stones to the east look as if they can be moved.
+~
+!
+0 0 0
+3095 17 1509949540 -2 25
+-1
+S
+
+#71610
+Dark Tunnel - Pitted Area~
+A small pile of tiny rocks lies against the western wall of the tunnel
+here, seemingly matching holes that appear in the side of the western
+wall.  The black mineral of the walls is hard and cold, edges rough as if
+they had been magically ripped out of the earth.
+~
+[Merior] random get pebble action
+[Starshine] add pile to acode 1 target?
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71609 10 10 5
+D2
+~
+~
+0 -1 71611 10 10 5
+E
+1 western wall hole rock mineral~
+The western wall of the tunnel here is pitted with small, rough holes. 
+Bits of rock that appear to be the same size lie underneath.
+~
+A
+get take grab~
+pebble rock~
+if( rflag( reset0, room ) ) {
+  if( is_player( ch ) ) {
+    if( random( 0, 5 ) == 4 ) {
+      act_tochar( #gets, ch );
+      act_notchar( #rocks, ch );
+      obj_to_char( oload( 78 ), ch );
+      end;
+      }
+    }
+  }
+act_tochar( #nope, ch );
+~
+E
+gets~
+You reach down and pick up a small pebble.
+~
+E
+rocks~
+You see $n reach down and grab a small pebble.
+~
+E
+nope~
+You see nothing of interest.
+~
+!
+0 0 0
+-1
+S
+
+#71611
+Dark Tunnel - Polished Rock~
+The floor is quite slick here, the black marble-like rock polished to a
+high sheen.  The walls are also highly polished; the onyx reflects any
+light which hits it.  You cannot see what lies ahead either to the north
+or east, nor do any sounds give any indication of which way to venture.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71610 10 10 5
+D1
+~
+~
+0 -1 71612 10 10 5
+E
+floor black rock walls~
+The floor and walls of this portion of the tunnel are highly polished and
+will reflect any light source.
+~
+2160 9 1509949540 3 0
+-1
+S
+
+#71612
+Dark Tunnel~
+The walls to your north and south are quite close here, and you can feel
+the rough gouges in their surfaces.  The floor also is quite rough, as if
+this passage had been created somewhat recently, and had not yet been
+worn smooth.  Embedded in several of the slashes are bits of lighter
+colored rock.
+~
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71613 10 10 5
+D3
+~
+~
+0 -1 71611 10 10 5
+E
+walls rough gouge rock floor~
+The dark rock of the cavern has been roughly hewn to make room for this
+portion of the tunnel.  You can see bits of lighter rock almost hidden in
+the deep gouges.
+~
+A
+get dig~
+wall gouge rock bit~
+act_tochar( #nope, ch );
+act_notchar( #digs, ch );
+~
+E
+nope~
+You dig at the rocks, but are not able to dislodge any worth taking.
+~
+E
+digs~
+You see $n dig at the rocks, but not take any.
+~
+!
+0 0 0
+2161 9 1509949540 3 0
+293 9 1509949540 3 0
+-1
+S
+
+#71613
+Dark Tunnel - Construction Area~
+This tunnel wends its way in the dark, providing a home for rats and
+other denizens of the quiet dark.  It appears that work is still being
+done in this area; several tools are piled against the southern wall.  A
+large chunk of rock appears to have been removed from the eastern wall;
+only a deep hole remains.
+~
+[Merior] low repop geode in hole
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71614 10 10 5
+D3
+~
+~
+0 -1 71612 10 10 5
+E
+1 southern wall tools~
+Half a dozen pickaxes and a shovel lie against the southern wall.
+~
+E
+1 eastern chunk rock hole~
+A large gap in the eastern wall indicates that some extension of the
+tunnel has been begun, but the hole is not large enough to enter.
+~
+A
+get take grab~
+pickaxe shovel tool~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You start to reach for the tools, but some strange force seems to prevent
+you from taking someone else's property.
+~
+!
+0 0 0
+A
+search~
+hole~
+if( rflag( reset0, room ) ) {
+  if( random( 0, 20 ) == 15 ) {
+    if( is_player( ch ) ) {
+      act_tochar( #find, ch );
+      act_notchar( #finds, ch );
+      obj_to_char( oload( 925 ), ch );
+      end;
+      }
+    }
+  }
+act_tochar( #nope, ch );
+act_notchar( #empty, ch );
+~
+E
+find~
+You have found something in the hole!
+~
+E
+finds~
+$n has found something in the hole!
+~
+E
+nope~
+You reach around in the hole, but find nothing.
+~
+E
+empty~
+$n searches around, but finds nothing in the hole.
+~
+!
+0 0 0
+-1
+S
+
+#71614
+Dark Tunnel - Giant Boulder~
+A large green rock extends southwards into the tunnel, making the
+passageway quite narrow.  The wall to your west is also partially
+obscured by the same, giant boulder.  You can just barely squeeze by the
+rock, and move either south or east.
+~
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71615 10 10 5
+D2
+~
+~
+0 -1 71613 10 10 5
+E
+1 north green rock boulder~
+This large rock extends almost the full height of the tunnel, and is such
+a dark green it almost appears black in the limited light.
+~
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+You squeeze your way past the boulder and move on.
+~
+!
+3 0 6
+-1
+S
+
+#71615
+Dark Tunnel - Sandstone Deposit~
+A patch of the northern wall is made of a light gray sandstone, and shows
+signs of wear and tear.  Numerous scratches and dents mark where
+travellers have bumped into its soft surface.  A streak of dark red
+crosses much of the southern wall just about waist height.
+~
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71616 10 10 5
+D3
+~
+~
+0 -1 71614 10 10 5
+E
+dark red streak sandstone scratch dent~
+The light gray sandstone is pitted by gouges and dents made by those
+passing through its realm.  A dark red streak much the color of dried
+blood runs parallel to the ground about waist height.
+~
+293 9 1509949540 3 0
+-1
+S
+
+#71616
+Dark Tunnel - Low Ceiling~
+The ceiling dips low in the center of this area, barely providing enough
+room for an ogre to stand upright.  Its surface can be seen clearly by
+even a gnome to be roughly hewn out of the rock.  Light pieces of almost
+white granite protrude from its surface, giving it a freckled appearance.
+~
+[Starshine] entry code - large races stoop into room?
+frankly too lazy to add this
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71617 10 10 5
+D3
+~
+~
+0 -1 71615 10 10 5
+E
+1 up ceiling granite rock~
+Small bits of granite protrude out of the dark ceiling, their color
+providing some relief from the gloom in the tunnel.
+~
+A
+get dig~
+bits granite ceiling~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The bits of rock aren't worth taking.
+~
+!
+0 0 0
+2161 9 1509949540 3 0
+-1
+S
+
+#71617
+Dark Tunnel - Sloping Ground~
+The ground here dips a bit as it heads from east to west, creating a
+reasonably sharp slope.  Anyone moving east will have to labor just a bit
+to leave this area, while anyone heading west will quickly find
+themselves there.  A quick glance at the dark walls and the chilly air
+make this not an entirely poor idea.
+~
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71618 10 10 5
+D3
+~
+~
+0 -1 71616 10 10 5
+E
+wall dark~
+The dark black walls are quite smooth and very chilly.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+As you move west, you find the slope makes you move very quickly.
+~
+E
+~
+No description.
+~
+!
+3 0 8
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+You labor slowly as you move to go up the steep slope.
+~
+!
+3 0 2
+A
+~
+~
+act_tochar( #cold, ch );
+~
+E
+cold~
+A cold rush of air chills you to the bones.
+~
+!
+2 500 0
+-1
+S
+
+#71618
+Dark Tunnel - Cracked Wall~
+You can hear the faint sound of running water here, but it is difficult
+to determine the direction from which it is coming.  A tiny crack in the
+eastern wall allows a minute trickle of water to enter the tunnel and
+form a small pool on the ground, but whether that is the direction of the
+underground stream you cannot be sure.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71619 10 10 5
+D3
+~
+~
+0 -1 71617 10 10 5
+E
+1 east crack trickle water~
+A small crack in the eastern wall starts just a few inches above the
+ground, and appears to continue into the earth.  A small trickle of water
+comes through the crack, and pools on the ground.
+~
+A
+search inspect~
+crack~
+act_tochar( #nope, ch );
+~
+E
+nope~
+There is nothing interesting in the crack.
+~
+!
+0 0 0
+1388 17 1509949540 -2 25
+2160 9 1509949540 3 0
+-1
+S
+
+#71619
+Dark Tunnel~
+The tunnel takes a sharp, 90-degree turn here, allowing you to move
+either east or south.  You can clearly hear the sound of moving water to
+your east; silence greets you to the south.  The walls are slick and
+moist, and the air is very humid.
+~
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71620 10 10 5
+D2
+~
+~
+0 -1 71618 10 10 5
+E
+wall~
+The dark walls are slick with condensed moisture.
+~
+-1
+S
+
+#71620
+Edge of the Tunnel~
+To your east is the fast-moving River Hurgrot, to the west you see
+darkness.  The rock at your feet is dark and wet, and quite slippery. 
+The walls show signs of hasty hewing; gashes chopped against the grain of
+the rock are rough, and nothing has been done to make them smoother.
+~
+[Rhen] maybe look river
+[Starshine] entry code to occasionally make people slip (sit)?
+[Starshine] should people know this is the river hurgrot?
+~
+301596676 1 5 0
+D1
+~
+~
+0 -1 71621 10 10 5
+D3
+~
+~
+0 -1 71619 10 10 5
+E
+1 down rock ground~
+The black rock at your feet is slick with moisture, making movement
+tricky.
+~
+E
+walls gashes~
+The northern and southern walls are of the same dark rock as most of the
+city of Voaleth.  Deep gashes show where they have been carved from solid
+rock to form the tunnel.
+~
+2160 9 1509949540 3 0
+-1
+S
+
+#71621
+In the River Hurgrot~
+The icy waters of the river surge around you as you strive to keep your
+balance.  You can return to the relative dryness and safety of the tunnel
+to your west, or try to climb up onto a bridge just above your head.  You
+might might also be able to swim north against the heavy current; large
+rocks to your south make movement in that direction impossible.  The bank
+to your east is very steep and slippery.
+~
+[Merior] action to go up to 37583 - under bridge
+action to swim upstream getting you to 37584
+[Starshine] acode 1 swim: ...struggle upstream.
+nope - you need to swim to go north
+[Starshine] add acode north - need swim, or just do acode 1?
+~
+301596684 6 9 0
+D3
+~
+~
+0 -1 71620 10 10 5
+E
+bridge~
+You can see a bridge just a little above your head.  It appears low
+enough that you might be able to climb up to it.
+~
+E
+1 north upstream~
+The waters to your north are dark and tumultuous, but you might be able
+to enter them if you can swim very well.
+~
+A
+swim~
+1 north upstream~
+if( find_skill( ch, swimming ) > 3 ) {
+  act_tochar( #swim, ch );
+  act_notchar( #swims, ch );
+  room = find_room( 37584 );
+  transfer( ch, find_room( 37584 ) );
+  act_notchar( #arrives, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+swim~
+You swim against the current, and struggling move upstream.
+~
+E
+swims~
+You see $n jump into the water and swim upstream and out of sight.
+~
+E
+nope~
+You cannot swim well enough to brave the water.
+~
+E
+arrives~
+You see $n come swimming out from under the bridge.
+~
+!
+0 0 0
+A
+climb~
+1 up bridge~
+if( find_skill( ch, climb ) > 3 ) {
+  act_tochar( #climb, ch );
+  act_notchar( #climbs, ch );
+  room = find_room( 37583 );
+  transfer( ch, find_room( 37583 ) );
+  act_notchar( #arrives, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+climb~
+You grab hold of the edge of the bridge and carefully pull yourself up.
+~
+E
+climbs~
+You see $n grab hold of the edge of the bridge and disappear from sight.
+~
+E
+nope~
+You cannot climb well enough to reach the bridge.
+~
+E
+arrives~
+You see $n come climbing up out of the water.
+~
+!
+0 0 0
+A
+1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The bank is too steep to climb out in that direction.
+~
+!
+0 0 0
+-1
+S
+
+#71622
+Hastily-Built Tunnel~
+This tunnel appears to have been built very hastily.  Its sides are very
+rough, splinters of rock showing which way the grain lies.  The ground is
+covered with bits of rock of the same dark color as the walls.  On the
+eastern wall you can see a streak of blood-red rock which grows wider as
+the tunnel heads north.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71623 10 10 5
+D2
+~
+~
+0 -1 71603 10 10 5
+E
+1 east blood-red rock~
+Most of the eastern wall is covered with a strange, blood-red rock.
+~
+E
+ground rock~
+Rough, dark rock with lighter veins of gray running through it line the
+walls.  Small fragments of the same rock litter the near-by ground.
+~
+A
+~
+~
+act_tochar( #ouch, ch );
+~
+E
+ouch~
+The rough rock pulls at your clothes as you squeeze by.
+~
+!
+1 0 5
+A
+get take~
+rock~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The bits of rock are not worth taking.
+~
+!
+0 0 0
+-1
+S
+
+#71623
+Hastily-Built Tunnel~
+A wide strip of blood-red rock covers much of the eastern wall of the
+tunnel, though it narrows as it heads to the north.  The western wall is
+of a solid black color, and shows signs of having been roughly hewn from
+solid rock.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71624 10 10 5
+D2
+~
+~
+0 -1 71622 10 10 5
+E
+1 eastern blood-red rock~
+Most of the eastern wall is covered with a strange, blood-red rock.
+~
+E
+1 western black rough~
+The western wall is made of a black mineral.  Rough gashes show where a
+passage was forced.
+~
+-1
+S
+
+#71624
+Hastily-Built Tunnel~
+Several broken tools line the passage here, their broken bodies heaped
+upon a pile of mined rocks.  A large, almost magenta, stone in the
+western wall protrudes into the corridor, with several picks still
+embedded in its hard interior.  A small streak of blood-red stone appears
+on the southern end of the eastern wall, and heads further south into
+darkness.
+~
+~
+301596676 1 5 0
+D0
+~
+~
+0 -1 71625 10 10 5
+D2
+~
+~
+0 -1 71623 10 10 5
+E
+broken tool~
+Tools used in making this tunnel seem to have been broken and just left
+here, abandoned.  They are no longer of any use.
+~
+E
+1 western magenta large stone~
+A large magenta-colored stone lies within the western wall.  It seems to
+have grabbed and kept several picks that tried to destroy its integrity.
+~
+A
+get take grab search~
+tool pick~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You seem to be unable to take any of the tools.
+~
+!
+0 0 0
+2161 9 1509949540 3 0
+-1
+S
+
+#71625
+End of Tunnel~
+To the south extends a long, dark tunnel.  Rough bits of rock surround
+you on all other sides, the black mineral peppered with bits of silvery
+rock.  The ceiling above you is quite low, and seems to be made of a
+slightly different material.
+~
+[Merior] room 20086 is up
+[Starshine] should up be closeable, so people can hide this entrance?
+~
+301596676 1 5 0
+D2
+~
+~
+0 -1 71624 10 10 5
+D4
+~
+~
+235 -1 20086 10 10 5
+E
+rough rock walls black silvery~
+The primarily black rock which forms the Voaleth cavern is sprinkled here
+with a light silvery mineral.  The walls are quite rough, as if the
+excavator didn't care to take the time to finish off this passage.
+~
+A
+push move~
+1 up rock ceiling~
+if( !is_open( room, up ) ) {
+  act_tochar( #door, ch );
+  act_notchar( #isdoor, ch );
+  open( room, up );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #closing, ch );
+  close( room, up );
+  }
+~
+E
+door~
+You shove, and successfully move the stone above you, creating a passage
+up.
+~
+E
+isdoor~
+You see $n push on the stone above you, and create a passage up.
+~
+E
+open~
+You move the stone, closing off the passgae.
+~
+E
+closing~
+You see $n close move the rock and block the passage.
+~
+!
+0 0 0
+A
+1 look search examine~
+1 up ceiling~
+if( is_open( room, up ) )
+  act_tochar( #open, ch );
+else
+  act_tochar( #closed, ch );
+~
+E
+open~
+It appears that the rock has been pushed aside and you can move up.
+~
+E
+closed~
+The ceiling, although the same black color as the rock, shows a faint
+tracing of white in a strange square shape.  Perhaps it could be moved.
+~
+!
+0 0 0
+2160 9 1509949540 3 0
+-1
+S
+
+#71626
+Nothing~
+Under Construction.
+~
+~
+301596676 1 9 0
+-1
+S
+
+#0
+

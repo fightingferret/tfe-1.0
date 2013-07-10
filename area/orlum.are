@@ -1,0 +1,4985 @@
+#AREA
+Orlumber~
+Fenlyn, Rue~
+~
+
+0 0
+3
+#ROOMS
+
+#33500
+A Small tunnel~
+~
+[Fenlyn] Area links here
+[Fenlyn] slipping = silly
+[Fenlyn] rewrite
+~
+301465669 0 7 0
+D1
+~
+~
+0 -1 33501 10 10 5
+D4
+~
+~
+0 -1 76556 10 10 5
+-1
+S
+
+#33501
+A Large Tunnel~
+~
+[Fenlyn] what the heck is this secret wall here and why?
+[Fenlyn] I deleted the door
+[Fenlyn] room seems "out of place"
+[Fenlyn] why rotting crap along tunnel to city?
+[Fenlyn] statue tunnel maybe?
+~
+301465669 0 7 0
+D1
+~
+~
+0 -1 33503 10 10 5
+D3
+~
+~
+0 -1 33500 10 10 5
+E
+corpses~
+The corpses of many different woodland animals are stacked here against
+the wall.  They appear to have been placed there on purpose from the
+manner in which they are stacked.  You can also detect a very small crack
+in the wall to the south, it's covered by most of the corpses.  
+~
+E
+crack~
+The crack runs up the south wall of the tunnel, to a height of about six
+feet, west three feet, and back down to the floor of the tunnel.  
+~
+E
+wall~
+The wall appears to have a faint outline of a door on it.  There is no
+visibile handle or keyhole though, perhaps it is just a trick of the eye
+helped by your light.  
+~
+-1
+S
+
+#33502
+Jailer's Office~
+Carved from the living rock of the cavern, the jailer's office is a cozy
+little room.  A small desk, along with a chair sit nearby the gate that
+leads into the prisoner's cell.  The walls are bare, except for one
+painting of a gnome that graces the northern wall.  To the south is the
+iron gate that leads to the cell, while to the east you can head towards
+the Home Guard's office.
+~
+~
+301465701 0 7 0
+D1
+~
+~
+0 -1 33505 10 10 5
+D2
+iron door~
+iron door~
+471 -1 33504 10 10 5
+E
+wall~
+You can faintly see the outline of a door on the north wall.  However
+there is no visibile handle or keyhole.  Perhaps it is only your
+imagination.  
+~
+E
+iron gate~
+This iron gate is made out of a number of solid iron bars, weilded to two
+more bars at an angle.  It looks very secure, and has a large lock
+attached to it.  
+~
+-1
+S
+
+#33503
+Before the Gates of Orlumbor~
+~
+[Fenlyn] door locked?
+make pretty
+bells and such on it
+[Fenlyn] gate is_door, no_open.  code?
+[Fenlyn] needs to be grand room
+[Fenlyn] after all sorts of noises someone should just push gate open.
+~
+301465669 0 7 0
+D1
+gates~
+gates~
+131 -1 33506 10 10 5
+D3
+~
+~
+0 -1 33501 10 10 5
+E
+heads~
+Many heands of ogres and goblins have been nailed to the north wall of
+this tunnel.  Several of the heads look fresh, as if an attempt was
+recently made to take the city.
+~
+E
+gates~
+The gates protecting this city are made out of highly polished, solid
+steel, and weigh many tons.  The gates are given an artistic quality by
+engraved scenes of past triumphs both in warfare and in commerce.
+~
+A
+bash knock bang~
+gates~
+if( is_open( room, east ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  wait( 1 );
+  if( reputation( ch, Thorstag ) > 0 ) {
+    act_tochar( #char, ch );
+    act_notchar( #not_char, ch );
+    wait( 1 );
+    send_to_room( #bells, find_room( 33506 ) );
+    wait( 1 );
+    send_to_room( #inside, room );
+    send_to_room( #inside, find_room( 33506 ) );
+    open( room, east );
+    }
+  else {
+    send_to_char( #clan_char, ch );
+    act_notchar( #clan_room, ch );
+    }
+  }
+~
+E
+clan_room~
+A guardsman looks $n over and notes that $e is not in good relations with
+the city and denies $m entry.
+~
+E
+clan_char~
+A guardsman looks you over and notes that you're not in good relations
+with the city and denies you entry.
+~
+E
+inside~
+The gates swing open silently.
+~
+E
+not_char~
+A guardsman looks $n over and signals someone for the gates to be opened.
+~
+E
+to_room~
+$n knocks firmly on the gates.
+~
+E
+to_char~
+You knock firmly on the gates.
+~
+E
+nothing~
+It would be easier to knock on the gates if they were closed.
+~
+E
+char~
+A guardsman looks you over and signals someone for the gates to be opened.
+~
+E
+bells~
+Very loud whistles squeal in the air followed by several ringing bells. 
+After a moment of silence, a deep rumbling comes from the gates.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, east ) ) {
+  act_room( #outside, ch );
+  close( room, east );
+  send_to_room( #inside, find_room( 33506 ) );
+  continue;
+  }
+else
+  continue;
+~
+E
+outside~
+You watch as the gates silently swing shut.
+~
+E
+inside~
+You watch as the gates silently swing shut.
+~
+!
+3 3 8
+-1
+S
+
+#33504
+Jail Cell~
+The cell here is quite spartan.  The walls are bare, and have been
+recently painted a sickly pink color.  The floor is smooth, the stone
+probably worn down by the pacing of bored inmates.  A thick gate made of
+iron set into the north wall provides the only means of exit.
+~
+[Fenlyn] trigger needs to be set to random when activated
+~
+301465717 0 7 0
+D0
+iron gate~
+iron gate~
+471 -1 33502 10 10 5
+E
+iron gate~
+This iron gate is made out of a number of solid iron bars, weilded to two
+more bars at an angle.  It looks very secure, and has a large lock
+attached to it.  
+~
+A
+~
+~
+ch = rand_char( room );
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+act_notchar( #to_all, ch );
+transfer( ch, find_room( 33503 ) );
+~
+E
+to_all~
+$n is let out of the Jail Cell, and released.
+~
+E
+to_room~
+A Guardsman unlocks the iron gate, walks in, and addresses $n, 'You
+will be released outside of our city now, but if you come back and
+try that again we won't be so polite to you.'
+~
+E
+to_char~
+A Guardsman unlocks the iron gate, walks in, and addresses you, 'You
+will be released outside of our city now, but if you come back and
+try that again we won't be so polite to you.'
+~
+!
+0 25 0
+-1
+S
+
+#33505
+Home Guard's Office~
+Carved into the cavern wall, this curved chamber houses the Home Guard. 
+Near the entrance sits a large desk, set so as to have a clear view of
+those who enter.  A weapons rack and Home Guard uniforms hang along the
+south wall in a iron cage.  In the west wall is carved a small archway,
+leading to another chamber beyond.  To the east a small tunnelway exits
+out into the Marketplace.
+~
+add desk mob, looks up and says stuff sometimes
+~
+301465669 0 7 0
+D1
+~
+~
+0 -1 33507 10 10 5
+D3
+~
+~
+0 -1 33502 10 10 5
+-1
+S
+
+#33506
+Inside the Gates of Orlumber~
+A large flagstone courtyard sits behind a large and ornate set of steel
+gates to the west.  A worn flagstone road leads north, alongside the wall
+of the cavern.  To the south, another larger road heads towards a
+bustling marketplace.  The steel gates almost totally cover the large
+tunnel that leads out of the open cavern.  A large wall with a tile mural
+blocks movement to the east.
+~
+~
+301465669 1 7 0
+D0
+~
+~
+0 -1 33508 10 10 5
+D2
+~
+~
+0 -1 33507 10 10 5
+D3
+gates~
+gates~
+131 -1 33503 10 10 5
+E
+gates~
+The gates protecting this city are made out of highly polished, solid
+steel and weigh many tons.  Numerous carvings and engravings have been
+etched into the gates, giving them an artistic quality.
+~
+A
+pull~
+lever~
+if( is_open( room, west ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, west );
+  }
+~
+E
+to_all~
+Several bells ring from atop the gates and deep low rumbling sound
+accompanies a loud clanking sound.
+
+After the noise ceases, the gates swing open in a silent hush.
+~
+E
+to_room~
+$n pulls the lever and a loud array of machinery can be heard.
+~
+E
+to_char~
+You pull the lever and a loud array of machinery can be heard.
+~
+E
+nothing~
+You pull the lever but nothing happens.
+~
+!
+0 0 0
+A
+push~
+lever~
+if( !is_open( room, west ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  close( room, west );
+  }
+~
+E
+to_all~
+The gates silently swing shut.
+~
+E
+to_room~
+As $n pushes the lever, a loud array of machinery can be heard.  Several
+bells ring from atop the gates and deep low rumbling sound accompanies a
+large clanking sound.
+
+After the noise ceases, the gates swing closed in a silent hush.
+~
+E
+to_char~
+As you push the lever, a faint hum of machinery can be heard.  Several
+bells ring from atop the gates and a deep low rumbling sound accompanies
+a large clanking sound.
+
+After the noise ceases, the gates swing closed in a silent hush.
+~
+E
+nothing~
+You push the lever but nothing happens.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, west ) ) {
+  act_room( #closes, ch );
+  close( room, west );
+  send_to_room( #closes, find_room( 33503 ) );
+  continue;
+  }
+else
+  continue;
+~
+E
+closes~
+You watch as the gates silently swing shut.
+~
+!
+3 0 5
+-1
+S
+
+#33507
+West Market Entrance~
+The wide road turns north and east, heading into a marketplace to the
+east, and a small courtyard to the north.  A wide tunnel has been carved
+out of the cavern wall to the west, leading into a small office. 
+Flanking the entrance to the east are two massive brick pillars.  Atop
+each sits a small granite bowl, water spilling down its side and
+trickling down the pillars into a small pool.  The sound of the water is
+soothing, and the air is cool and pleasantly damp.  Heavy red flagstones
+pave the marketplace, and supporting heavy traffic.
+~
+add trickling water code
+[Nereus] supporting-support
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33506 10 10 5
+D1
+~
+~
+0 -1 33520 10 10 5
+D3
+~
+~
+0 -1 33505 10 10 5
+E
+sign~
+The sign reads...
+.               HOME GUARD HEADQUARTERS
+.                    Protectors of
+.                      Orlumbor
+~
+-1
+S
+
+#33508
+Pyrope Street~
+The flagstone road heads north and south, running between the cavern wall
+to the west, and a row of homes to the east.  The large home to the east
+is old and weatherworn, its wooden shingles warped and split with age. 
+One of the windows has been boarded up, and weeds grow in the yard.  Just
+to the south is a large open area, and what looks to be a massive steel
+gate.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33511 10 10 5
+D1
+door~
+door~
+131 -1 33510 10 10 5
+D2
+~
+~
+0 -1 33506 10 10 5
+-1
+S
+
+#33510
+A Citizen's Dwelling~
+~
+~
+301465669 1 6 0
+D3
+door~
+door~
+131 -1 33508 10 10 5
+-1
+S
+
+#33511
+Pyrope Street~
+The worn and bumpy flagstone road leads north and south between the
+cavern wall and the row of houses to the east.  A short brick wall
+separates the The house to the east from the road, and the wall has seen
+better days.  Loose bricks in the wall threaten to collapse it, and an
+old and bent iron gate rests against it at an angle.  You can follow the
+road north or south.
+~
+decapitalize The house
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33514 10 10 5
+D1
+door~
+door~
+131 -1 33513 10 10 5
+D2
+~
+~
+0 -1 33508 10 10 5
+-1
+S
+
+#33513
+A Citizen's Dwelling~
+~
+repetitive
+~
+301465669 1 6 0
+D3
+door~
+door~
+131 -1 33511 10 10 5
+-1
+S
+
+#33514
+Pyrope Street~
+The street runs parallel to the cavern wall that defines its western edge. 
+A row of run-down buildings runs alongside the street to the east.  To
+your immediate east sits a sagging wooden structure that serves as
+somebody's home.  The small yard in front of the home is overgrown and
+full of weeds.  The road leads north towards a curve and south by more
+houses.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33518 10 10 5
+D1
+door~
+door~
+131 -1 33516 10 10 5
+D2
+~
+~
+0 -1 33511 10 10 5
+-1
+S
+
+#33516
+A Citizen's Dwelling~
+~
+~
+301465669 1 6 0
+D3
+door~
+door~
+131 -1 33514 10 10 5
+-1
+S
+
+#33518
+Intersection of Beryl Road and Pyrope Street~
+Beryl Road curves along the base of the cave wall, meeting with Pyrope
+Street to the south.  Pyrope heads south, wending its way past the houses
+of some of the inhabitants of Orlumber to the east.  The cavern wall
+shoots straight up here, ultimately curving back on itself and showing
+the open sky above you.  To the east you can see a wide bridge that
+arches over a small stream that runs behind the houses.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33519 10 10 5
+D2
+~
+~
+0 -1 33514 10 10 5
+-1
+S
+
+#33519
+Beryl Road - Arched Bridge Over a Small Stream~
+A small bridge arches over a small stream that cuts through the stone
+floor of the cavern.  The stream burbles merrily as its heads southward
+underneath the bridge.  The water appears to come from a split in the
+cavern wall to the north and spilling into a small pool just to the north
+of the bridge.  Just to the west Beryl Road curves to the south,
+following the curve of the cavern wall.  You can follow Beryl Road east,
+also.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33609 10 10 5
+D3
+~
+~
+0 -1 33518 10 10 5
+A
+~
+~
+act_tochar( #leave, ch );
+transfer( ch, find_room( 33609 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  end;
+  }
+~
+E
+leave~
+You continue east across the arched bridge.
+~
+E
+arr~
+$n arrives from the bridge to the west.
+~
+!
+3 0 2
+A
+~
+~
+act_tochar( #leave, ch );
+transfer( ch, find_room( 33518 ) );
+act_notchar( #arr, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  end;
+  }
+~
+E
+leave~
+You continue west across the arched bridge.
+~
+E
+arr~
+$n arrives from the bridge to the east.
+~
+!
+3 0 8
+A
+~
+~
+send_to_room( #water, room );
+~
+E
+water~
+The sound of a gently flowing stream comes from underneath the arched
+bridge.
+~
+!
+4 75 0
+-1
+S
+
+#33520
+The Marketplace~
+The open shopping plaza known simply as the Marketplace spreads out
+towards the east.  The wide flagstone paved courtyard is bounded by many
+different styles of buldings, and luxurious trees are planted so as to
+break up the monotony of the open space.  To the north sits a small shop
+with ornate windows, occasional puffs of steam issuing from pipes in the
+roof.  A stone building of large proportions rests firmly to the south, a
+clean white smoke bursting in gouts from the stack on its roof.
+~
+[Rue] metal armor south
+[Rue] alchemists north
+[Nereus] flagstone-paved
+[Nereus] buldings
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33521 10 10 5
+D1
+~
+~
+0 -1 33534 10 10 5
+D2
+~
+~
+0 -1 33522 10 10 5
+D3
+~
+~
+0 -1 33507 10 10 5
+E
+large sign~
+On the large sign is written...
+*********************************
+*   Nasoj's House of Alchemy    *
+*    Open all day and night     *
+* for all your Alchemical needs *
+*********************************
+~
+-1
+S
+
+#33521
+Alchemist's Shop~
+A thick tangle of gleaming metal pipes and long glass tubes sit over
+small heating fires and cooling baths.  An occasional gust of steam
+issues from a crack in the piping, releasing a sweet smell.  The back of
+the shop is quite cluttered, but the waiting area and the counter are
+spotless.  An open door leads south and out to the marketplace.
+~
+~
+301467717 1 6 0
+D2
+~
+~
+0 -1 33520 10 10 5
+-1
+S
+
+#33522
+Metal Armor~
+A hot forge burns white hot, as white smoke is sucked silently up a
+chimney.  Several suits of metal armor hang on fitting dummies near the
+back of the shop.  The floor is hard-packed dirt that is covered with a
+thin layer of ash.  The stone walls seem to radiate heat, making this an
+uncomfortable room to be in.  You can head out towards the marketplace to
+the north.
+~
+~
+301469765 1 6 0
+D0
+~
+~
+0 -1 33520 10 10 5
+-1
+S
+
+#33525
+A Citizen's Dwelling~
+You are standing in a small house, it only has one room.  A small stove
+sits over in the corner, you can feel the heat radiating from it.  A
+couple of beds are pushed against the west wall, all clean and neatly
+made, but worn.  A large table sits in the center of the room, surrounded
+by many chairs.  This is obviously the home of one of the many gnome
+laborers and his family that you have seen walking around this city.  A
+door in the east wall leads out to Calantar's Way.  
+~
+~
+301465669 1 6 0
+-1
+S
+
+#33526
+Iriaebor Street - Cul-de-Sac~
+A quiet and gently curving cul-de-sac ends the private and secluded
+cobbled walkway.  A brick wall curves around the dead end, covered with
+ivy that barely hides the sharp iron spikes that top it.  A heavy iron
+gate is set into the wall to the north, and peeking through the gate
+shows that there is a lush garden beyond.  Aside from going through the
+gate, south is the only direction you can travel.
+~
+[Rue] one of the two noble families e
+[Rue] needs walkway, wall, ivy, spikes, gate, garden
+~
+301465669 1 6 0
+D0
+ornate wrought-iron gate~
+ornate wrought-iron gate~
+71 -1 33642 10 10 5
+D2
+~
+~
+0 -1 33529 10 10 5
+-1
+S
+
+#33527
+A Citizen's Dwelling~
+This small, one room, cottage is home to one of the many gnome laborers
+that live in Orlumbor and his family.  There are a few cots pushed up
+against the west wall, and a large table dominates the center of this
+room.  A few cheap wooden toys are scattered about the floor, making it
+dangerous to walk around if your not paying attention.  The doorway to
+the east leads back out to Calantar's Way.  The residence of this cottage
+will not appreciate your presence should they catch you here.  
+~
+~
+301465669 1 6 0
+D1
+door~
+door~
+131 -1 33526 10 10 5
+-1
+S
+
+#33529
+Iriaebor Street~
+A large iron gate is set into the brick wall to the west.  Just beyond
+the gate is a large arbor, covered in purple wisteria.  The road here is
+cobblestone, with green grass and small clumps of mints growing in the
+spaces between the stones.  The ivy covered brick wall also blocks you to
+the south, bordering the cobbled walkway.  The road heads north just a
+little bit further, ending in a quiet cul-de-sac.
+~
+[Rue] guarded gate
+[Rue] one of the two noble families west
+[Rue] needs gate, wall, arbor( wisteria ), road (cobbles ), grass mints
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33526 10 10 5
+D1
+door~
+door~
+128 -1 33531 10 10 5
+D3
+ornate wrought-iron gate~
+ornate wrought-iron gate~
+67 -1 33640 10 10 5
+-1
+S
+
+#33530
+A Citizen's Dwelling~
+You are standing in a small house, it only has one room.  A small stove
+sits over in the corner, you can feel the heat radiating from it.  A
+couple of beds are pushed against the west wall, all clean and neatly
+made, but worn.  A large table sits in the center of the room, surrounded
+by many chairs.  This is obviously the home of one of the many gnome
+laborers and his family that you have seen walking around this city.  A
+door in the east wall leads out to Calantar's Way.  
+~
+~
+301465669 1 6 0
+D1
+door~
+door~
+131 -1 33529 10 10 5
+-1
+S
+
+#33531
+Iriaebor Street~
+The quiet cobbled street curves gently here, skirting by a small park
+just to the east.  Brick walls covered with a heavy blanket of ivy follow
+the walk along its northern and southern sides.  Off a ways to the west
+an iron gate interrupts the wall, and a large building can be seen beyond
+that.
+~
+[Rue] small park to east
+[Rue] park street wall ivy gate building
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33641 10 10 5
+D2
+~
+~
+0 -1 33533 10 10 5
+D3
+door~
+door~
+128 -1 33529 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d, heading into a small park.@n
+~
+!
+3 0 2
+-1
+S
+
+#33532
+South-West Intersection~
+~
+~
+301465669 1 6 0
+-1
+S
+
+#33533
+Intersection of Iriaebor and Calantor's Way~
+The cobbled walkway curves north and east, following the ivy covered
+cavern wall.  To the north, the street continues alongside the wall,
+opening to the east into a small park.  The cobbled street runs to the
+east also, slipping between the cave wall and the brick wall to the north. 
+Sprigs of mint grow between the cobbles, releasing a pleasant scent into
+the air.
+~
+[Rue] sprig of peppermint
+[Rue] walkway ivy park mint
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33531 10 10 5
+D1
+~
+~
+0 -1 33574 10 10 5
+-1
+S
+
+#33534
+The Marketplace~
+Just to the north sits a small but quaint building with fanciful
+stained-glass windows.  The stained oak door is wide open, inviting you
+inside.  The open plaza is paved with flagstones and planted with large
+trees and smaller shrubs.  Just to the northeast is a small and quiet
+pond.  To the south an open-faced building rests, the smell of wax coming
+from steaming vats in plain view.  You can head either east or west along
+the plaza.
+~
+[Rue] jewelry north
+[Rue] leather shop south
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33535 10 10 5
+D1
+~
+~
+0 -1 33537 10 10 5
+D2
+~
+~
+0 -1 33536 10 10 5
+D3
+~
+~
+0 -1 33520 10 10 5
+-1
+S
+
+#33535
+Jewelry Store~
+This room is full of glass cases which contain many different types of
+gems.  Examples of the settings available can be seen in some of the
+cases.  In the back corner is a well lit table, with all sorts of crystal
+lenses, picks and tiny hammers.  A scale sits nearby and a thick pile of
+polishing rags.  You can leave the shop by heading south out the open
+doorway.
+~
+[Rue] make many types of rings, necklaces, etc
+i should add several kinds of wedding rings
+~
+301469765 1 6 0
+D2
+~
+~
+0 -1 33534 10 10 5
+2201 9 1509949540 3 0
+-1
+S
+
+#33536
+Polonskie's Leather Lodge~
+The old wooden floor is scarred and stained in this small shop.  Various
+leather forms, and a large cauldron filled with boiling wax take up much
+of the space inside.  A stack of tanned leather sits in the back, as well
+as spools of leather thongs.  A good assortment of tongs and other
+implements are scattered around the back of the shop.  To the north you
+can head towards the marketplace.
+~
+[Rue] leather armor ONLY
+[Rue] YES he is neutral evil
+~
+301469765 1 6 0
+D0
+~
+~
+0 -1 33534 10 10 5
+E
+box~
+The box is a large iron one, and sits in the middle of the table.  A big
+padlock is lying next to the box, unlocked with the hasp open.  The lid
+is open on the box and inside you can see many silver, gold, and platinum
+coins.  Stealing from this box would probably be a bad idea.  
+~
+2200 137 1509949540 3 0
+-1
+S
+
+#33537
+The Marketplace~
+The calm blue waters of a small pond splash quietly along the grassy
+shoreline just to the north of the plaza.  The pond rests in a shallow
+hollow, and willow trees dot the shoreline, their long wispy branches
+trailing into the waters.  A wooden pier heads north out into the lake. 
+Just to the south, a smaller street cuts off the main Marketplace plaza,
+and under a archway.  You can see several shops that line the road in
+that direction, and the area appears to be much more upscale.  The main
+plaza heads east and west towards more shops.
+~
+[Rue] small pond to the north
+add willow trees
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33661 10 10 5
+D1
+~
+~
+0 -1 33540 10 10 5
+D2
+~
+~
+0 -1 33539 10 10 5
+D3
+~
+~
+0 -1 33534 10 10 5
+-1
+S
+
+#33539
+Intersection of Merchant's Lane and the Marketplace~
+Heading south from the busy marketplace, this quiet tree lined lane heads
+into a small shopping district.  From its looks, and the lack of
+commoners, you would surmise this to be a wealthier part of town.  The
+lane is paved with brick, and lined with flowering trees along each side
+of the road.  To enter the lane you would pass under a large wrought-iron
+archway, decorated with a creeping rose bush that dangles its flowered
+vines from the arch.
+~
+[Rue] have permanent guard troops here..making sure to keep riff raff out
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33537 10 10 5
+D2
+~
+~
+0 -1 33563 10 10 5
+-1
+S
+
+#33540
+The Marketplace~
+Several bronze statues decorate the plaza here, set on pedastals that
+place them high above the shoppers.  A small two-story tower sits behind
+a row of shrubs to the north, its stout walls broken only by the open
+doorway and several small leaded-glass windows.  The smell of food wafts
+in from the gingerbread style building to the south.  To the northwest
+you can see a small willow-lined pond with a small pier jutting out into
+it.  The open plaza continues east and west.
+~
+[Rue] food south
+[Rue] wizard north
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33541 10 10 5
+D1
+~
+~
+0 -1 33543 10 10 5
+D2
+~
+~
+0 -1 33542 10 10 5
+D3
+~
+~
+0 -1 33537 10 10 5
+-1
+S
+
+#33541
+Emalan's House of Wonder~
+The counter of this store is very close to the door, giving you very
+little space in which to peruse the merchandise.  Row after row of glass
+shelves line the back of the store, and are covered with many bottles and
+vials.  On a desk in one corner you see a large number of feather pens,
+and a stack of brown scroll paper that appears to be blank.  Above the
+desk hang several purple balls of light hover in the air.  An open
+doorway leads south out into the marketplace.
+~
+~
+301465669 1 6 0
+D2
+~
+~
+0 -1 33540 10 10 5
+A
+steal grab~
+staff scroll parchment~
+send_to_char( #thief1, ch );
+dam_message( ch, 50, #squeeze );
+inflict( ch, mob, 50, #squeeze );
+send_to_char( #thief2, ch );
+act_notchar( #room, ch );
+~
+E
+squeeze~
+The hand SQUEEZES and
+~
+E
+room~
+You watch as $n reaches towards a magic item sitting out, suddenly a
+large, luminescent hand forms around $s chest!  You ear a loud, booming
+voice in your ears, 'Though shalt not steal from Dinores!'.  The hand
+suddenly disappears.
+   
+~
+E
+thief2~
+The hand losens it's grip and you begin to breath again.
+   
+~
+E
+thief1~
+As you reach out for the object a large luminescent hand forms around
+your chest and begins to squeeze, you can't breath!  A voice booms in
+your ears, 'Though shalt not steal from Dinores!'.
+  
+~
+!
+0 0 0
+-1
+S
+
+#33542
+Food Store~
+This clean establishment smells of fresh meat.  Several carcasses hang
+from iron hooks that hang on an rail that leads into the back of the shop. 
+Several large butcherblock tables are arranged carefully behind the
+counter, and a dazzling array of sharp knifes and cleavers are proudly
+displayed along the wall within easy reach of the tables.  You can head
+north and out into the marketplace.
+~
+~
+301469765 1 6 0
+D0
+~
+~
+0 -1 33540 10 10 5
+-1
+S
+
+#33543
+The Marketplace~
+The open plaza narrows as it sneaks between two buildings here.  To the
+south end of the plaza is a wooden shingled building decorated with
+wind-chimes.  To the north is a thick-walled and stout building with
+large doors flung open to the marketplace.  Heavy red flagstones provide
+solid footing between the seemingly randomly planted trees.  The plaza
+continues to the west and to the east past a crumbled building.
+~
+[Rue] weapons north
+[Rue] general store south
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33544 10 10 5
+D1
+~
+~
+0 -1 33546 10 10 5
+D2
+~
+~
+0 -1 33545 10 10 5
+D3
+~
+~
+0 -1 33540 10 10 5
+-1
+S
+
+#33544
+Weapons by Pantell~
+This is one of the cleanest shops you have ever seen.  Weapons hang from
+racks in neat rows, displayed proudly and highly polished.  The waxed and
+polished wood floor practically gleams, reflecting the bright metals of
+the wepaons.  Several small tabbards of the Home Guard hang from wooden
+dowls in the back of the shop.  The heavy stone walls are clean and dust
+free, with obviously used sets of weapons and old shields hanging as
+decorations.  To the south you can head out the wide doorway.
+~
+[Rue] finish mob
+~
+301469765 1 6 0
+D2
+~
+~
+0 -1 33543 10 10 5
+2189 137 1509949540 3 0
+-1
+S
+
+#33545
+General Store~
+The plain wooden walls of this store are hung with lanterns, bags and
+other implements necessary to the intrepid adventurer.  Unopened crates
+fill the back of the store, and barrels filled with torches and flasks of
+oil sit within easy reach.  Despite the variety of merchandise, the store
+is comfortable to shop in.  You can head to the marketplace through the
+doorway to the north.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33543 10 10 5
+-1
+S
+
+#33546
+The Marketplace~
+To the north of the marketplace sits the rubble of a large stone building. 
+The rubble has been cleaned up somewhat, so that the stones and broken
+timbers rest off the plaza walkway.  To the south, a wooden door sits in
+the middle of an imposing stone wall topped by thick, outwardly directed
+iron spikes.  A small hedge also runs along the foot of the wall,
+softening the harshness of its appearance.  You can walk along the
+tree-dotted marketplace towards the west, or head east past a large and
+imposing bulding.
+~
+[Rue] rewrite room to fit new store south
+rewrite north code for new code
+[Rue] rubble ( timbers stone ) hedge trees
+[Rue] spikes
+~
+301465669 1 6 0
+D0
+pile of rubble~
+pile rubble~
+138 -1 33547 10 10 5
+D1
+~
+~
+0 -1 33549 10 10 5
+D2
+wooden door~
+wooden door~
+131 -1 33680 10 10 5
+D3
+~
+~
+0 -1 33543 10 10 5
+A
+move clear~
+rubble~
+if( !is_open( room, north ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #ncmove, ch );
+  open( room, north );
+  }
+else
+  act_tochar( #fail, ch );
+~
+E
+move~
+You clear away enough rubble to allow passage to the north.
+~
+E
+ncmove~
+$n clears away enough rubble to allow passage to the north.
+~
+E
+fail~
+There is already a path leading to the north.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #leaves, ch );
+act_notchar( #ncleaves, ch );
+transfer( ch, find_room( 33547 ) );
+act_tochar( #rubble, ch );
+act_notchar( #arr, ch );
+if( !is_follower( ch ) )
+  act_notchar( #rubble, ch );
+close( room, north );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+leaves~
+You leave north.
+~
+E
+ncleaves~
+$n leaves north.
+~
+E
+arr~
+$n arrives from the south.
+~
+E
+rubble~
+The rubble falls back into place blocking the path to the south.
+~
+!
+3 0 1
+-1
+S
+
+#33547
+A Narrow Alley~
+This dark and dingy street is more like an alley than a road.  Shattered
+buildings line the alley, smashed by tons of rock.  their walls listing
+at dangerous angles.  Rocks and debris litters the pathway between the
+ruined buildings, leading north towards more of the same, and south
+towards a large pile of rubble.
+~
+[Fenlyn] code done
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33619 10 10 5
+D2
+pile of rubble~
+pile rubble~
+138 -1 33546 10 10 5
+A
+clear move~
+rubble~
+if( !is_open( room, south ) ) {
+  act_tochar( #clear, ch );
+  act_notchar( #ncclear, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #fail, ch );
+~
+E
+clear~
+You clear some of the rubble out of the way allowing for passage to the
+south.
+~
+E
+ncclear~
+$n clears some of the rubble out of the way creating a passage to the south.
+~
+E
+fail~
+A path to the south has already been cleared in the rubble.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #leaves, ch );
+act_notchar( #ncleaves, ch );
+transfer( ch, find_room( 33546 ) );
+act_tochar( #rubble, ch );
+act_notchar( #arr, ch );
+if( !is_follower( ch ) )
+  act_notchar( #rubble, ch );
+close( room, south );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+leaves~
+You leave south.
+~
+E
+ncleaves~
+$n leaves south.
+~
+E
+rubble~
+The rubble falls back into place blocking the path to the south.
+~
+E
+arr~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#33549
+East Entrance of the Marketplace~
+Dominating the area is a large red-brick archway spanning the wide
+walkway.  Ivy grows up and around the arch, thick leaves and green
+foliage inviting you to pass beneath the arch and into the market.  To
+the north a large building sits, thick stone walls with no windows or
+other openings.  A large trellis has been attached to the wall, and
+several small vines are beginning to grow on it.  To the south sits a
+rather large and imposing building made of polished black granite.  You
+can head west towards the marketplace or east towards an open plaza
+before a huge temple.
+~
+bank south, warehouse wall north.
+[Rue] code for going under the arch east
+[Rue] archway ivy stone building, trellis vines granite( black bank )
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33552 10 10 5
+D2
+~
+~
+0 -1 33551 10 10 5
+D3
+~
+~
+0 -1 33546 10 10 5
+-1
+S
+
+#33551
+Bank~
+Marble pillars are reflected in a polished granite floor.  The ceiling
+soars quite high, while all noise echo around in the largely empty
+waiting area of the bank.  Behind thick steel bars sits several
+attendants, ready to assist you in your banking needs.  An open set of
+double doors leads out to the north.
+~
+[Rue] pillars floor ceiling steel bars attendants
+~
+301467717 1 6 0
+D0
+~
+~
+0 -1 33549 10 10 5
+-1
+S
+
+#33552
+Open Courtyard - West of the Marketplace~
+An open courtyard of slate flagstones spreads out before you.  To the
+east, the open plaza continues, leading up to a massive brownstone
+building that appears to be a temple of some sort.  The irregular and
+polished slate creates a natural feel to the courtyard, and makes it a
+pleasant place to wander.  Just to the west you see the entrance arch of
+a busy marketplace.
+~
+[Rue] code for going under the arch
+[Rue] courtyard flagstones brownstone ( temple ) archway
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33555 10 10 5
+D3
+~
+~
+0 -1 33549 10 10 5
+-1
+S
+
+#33555
+Before a Great Church - Open Courtyard~
+A large open plaza spreads out before you, its large slate flagstones
+polished to a high shine.  The smooth black stones reflect the massive
+brownstone temple to the east, its faint outline wavering in the slightly
+uneven surface.  The plaza stretches off to the west, leading towards a
+busy marketplace far in the distance.  A brick archway leads south into a
+small lane, and another path leads off to the north between two large
+statues.  A large stairway leads into the temple to the east.
+~
+[Rue] flagstones brownstone temple archway statues
+[Rue] stairway
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33556 10 10 5
+D1
+door~
+door~
+577 -1 33558 10 10 5
+D2
+~
+~
+0 -1 33557 10 10 5
+D3
+~
+~
+0 -1 33552 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t up the stairs to the $d.@n
+~
+!
+3 0 2
+-1
+S
+
+#33556
+North Industry Lane - By the Statues~
+Two massive bronze statues seated on impressive granite dais's flank the
+brick-paved lane.  The statues show signs of damage and wear, but are
+still quite impressive.  The cavern wall follows the lane northward,
+curving over the lane and arching high above you.  To the north the lane
+continues towards a few large buildings along the west side of the road. 
+To the south a large courtyard opens up.
+~
+[Orb] Hmm, dais' would be possesive?  Maybe daises?  Whatever the plural is.
+[Rue] fix last sentence
+[Rue] statues dais brick lane wall buildings courtyard
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33596 10 10 5
+D2
+~
+~
+0 -1 33555 10 10 5
+-1
+S
+
+#33557
+Industry Lane - Under the Eastern Archway~
+A large brick archway spans the cobbled road.  A beautiful wisteria
+climbs over the arch, displaying flowers that drape down into the archway. 
+The cobbled lane leads south, skirting between the cavern wall to the
+east and a long row of brick buildings on the west.  To the north is a
+large and open plaza.
+~
+[Rue] archway wisteria flowers lane wall buildings plaza
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33555 10 10 5
+D2
+~
+~
+0 -1 33583 10 10 5
+-1
+S
+
+#33558
+Temple of Orlumbin~
+The high walls of this temple soar high above you, coming together in
+several flying arches.  Thousands of shining gems encrust the walls, and
+reflecting the light from the many hanging lanterns.  The dazzling
+display of light dances across the walls and floor, giving the room a
+colorful and ethereal quality.  A small doorway leads east into a small
+room, and larger doors are set into the north and south walls.  A huge
+set of open doors provides exit to the west, leading to a long stairway.
+~
+[Rue] add extras for lanterns ( nice ones )
+[Rue] add code for people who try and steal gems
+[Nereus] reflecting-reflect
+~
+301465669 0 6 0
+D0
+northern oak door~
+northern oak door~
+471 -1 33559 10 10 5
+D1
+'church door' door~
+'church door' door~
+0 -1 33561 10 10 5
+D2
+southern oak door~
+southern oak door~
+471 -1 33560 10 10 5
+D3
+'church door' door~
+'church door' door~
+577 -1 33555 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t down the long stairway.@n
+~
+!
+3 0 8
+-1
+S
+
+#33559
+Priest's Chamber~
+This priest's chamber is barren, its empty brown walls devoid of any
+ornamentation.  A single gem hangs from an iron chain, glowing faintly
+giving the room a soft light.  The floor is worn, and in poor repair,
+highlighting the drabness of the chamber as a whole.
+~
+~
+301465669 1 6 0
+D2
+oak door~
+oak door~
+471 -1 33558 10 10 5
+-1
+S
+
+#33560
+Church Storage Room~
+Small crates and assorted cleaning tools are scattered about this room. 
+The walls are simple brownstone, and the room is quite cluttered with
+boxes and old crates.  The only light in the room comes from a small gem
+that hangs from an iron chain.  The gem glows with a pale light that
+barely illuminates the room.  A small oak door leads north.
+~
+[Rue] add code for searching boxes....most are empty but might find a
+tallow candle 
+~
+301465669 1 6 0
+D0
+oak door~
+~
+471 -1 33558 10 10 5
+-1
+S
+
+#33561
+Gem-Encrusted Altar~
+This smallish chamber has plain and unadorned brownstone walls.  In stark
+contrast to the plain walls, a large altar shines against the far wall. 
+Several candles flicker as they melt upon the altar, their light dancing
+across the gems with a supernatural glow.  A soft pillow sits in front of
+the altar, to allow you to kneel in more comfort.  A small door leads
+west and out of the room.
+~
+~
+301465669 1 6 0
+D3
+~
+~
+0 -1 33558 10 10 5
+-1
+S
+
+#33563
+Merchant's Lane~
+A quaint and comfortable tree lined lane heads south from the busy
+marketplace.  A carefully crafted and well kept brick pathway winds
+between the trees, leading between the rows of shops.  The sweet smells
+of a bakery waft in from the comfortable looking shop to the east, and to
+the west many shiny trinkets sit in the window of the well lit store.  To
+the south the lane continues for some distance.  To the north an iron
+archway spans the lane.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33539 10 10 5
+D1
+~
+~
+0 -1 33567 10 10 5
+D2
+~
+~
+0 -1 33566 10 10 5
+D3
+~
+~
+0 -1 33564 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou push open the swinging doors and $t $d.@n
+~
+!
+3 0 2
+-1
+S
+
+#33564
+Toy Store~
+Colorful shelves line the walls and other items hang from strings
+attached to hooks on the ceiling.  The shelves are crammed with all
+manner of toys, tastefully displayed.  A thick glass-topped counter sits
+towards the back of the shop.  An open doorway leads east and out of the
+shop.
+~
+~
+301465671 1 6 0
+D1
+~
+~
+0 -1 33563 10 10 5
+2197 9 1509949540 3 0
+-1
+S
+
+#33566
+Merchant's Lane~
+The tree lined lane leads north and south between rows of brick and wood
+buildings.  To the west a building with green painted shutters overlooks
+the brick paved street.  Trees line the walkway, giving shade during the
+day and a more intimate feel to the space.  To the north and to the south
+you see more shops.
+~
+[Rue] fur shop west
+[Rue] clothes store e
+[Rue] trees buildings/shops
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33563 10 10 5
+D1
+~
+~
+0 -1 33569 10 10 5
+D2
+~
+~
+0 -1 33570 10 10 5
+D3
+~
+~
+0 -1 33568 10 10 5
+-1
+S
+
+#33567
+Fohlburg's Pastries~
+Warm woods and several indoor plants make this a comfortable little shop. 
+The warm smell of fresh pastries fills the air, and the thick scent of a
+strong coffee brewing in the back.  The brightly tiled floor gleams,
+while samples of the various confections available sit under a glass
+cover.  A shuttered doorway leads west and out to the street.
+~
+~
+301465671 1 6 0
+D3
+~
+~
+0 -1 33563 10 10 5
+E
+tiled floor~
+Yellow and green ceramic tiles are arranged in pleasing patterns on the
+floor.  The tiles appear to be cleaned regularly and shine as brightly as
+the day they were installed.
+~
+E
+doorway shuttered~
+Small green latticed doors hang on strong hinges in the doorway.  They
+swing back and forth soundlessly when somebody walks through them.
+~
+A
+~
+~
+send_to_room( #aroma, room );
+~
+E
+aroma~
+@YThe pleasing scent of fresh coffee wafts in from the behind the
+counter.@n 
+~
+!
+2 100 0
+A
+look~
+glass cover pastries~
+interpret( ch, "list" );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou push the swinging door aside as you $t $d and go outside.@n
+~
+!
+3 0 8
+2194 9 1509949540 3 0
+29 17 1509949540 -1 0
+30 17 1509949540 -1 0
+2704 17 1509949540 -1 0
+2707 17 1509949540 -1 0
+30 17 1509949540 -1 0
+2708 17 1509949540 -1 0
+-1
+S
+
+#33568
+Applebaum's Fine Furs~
+Light varnished woods panel the walls of this comfortable shop.  Several
+bearskin rugs are arranged carefully on the floor, interspersed among the
+chairs and racks of clothing.  Set against the south wall is a counter
+that runs across the shop.  Behind the counter you can see a small
+workshop where the custom items are made.  You can leave the shop through
+the doorway to the east.
+~
+[Rue] red-fox fur coat....silver fox fur stole....
+[Rue] fur-lined cape
+[Rue] higg soft boots with fur trim
+[Rue] fur-trimmed gloves
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33566 10 10 5
+E
+panels walls~
+The rich color of the varnished wood reflects light while retaining the
+style of wood.  The panels are thick, and the varnish has brought out the
+contrasts in the wood.
+~
+E
+counter~
+The counter is crafted of varnished pine boards.  The top appears to be
+several heavy planks that have been sanded smooth and laquered.
+~
+E
+racks~
+The racks prouly display items that are for sale.  Examples of the fine
+work that Applebaum's is known for.
+~
+2214 9 1509949540 3 0
+-1
+S
+
+#33569
+Duleman's Clothing~
+Rows of clothing hang in decorative wooden racks along the walls, the
+smell of laundered cloth wafts gently through the air.  A comfortable
+chair sits alongside one wall, and a full-length mirror hangs nearby.  On
+a large table behind the counter sit various sewing implements.  An open
+doorway leads west and out of the clothing shop.
+~
+[Rue] stylish cloak
+[Rue] custom-fit shoes
+[Rue] wedding clothes
+~
+301465669 1 6 0
+D3
+~
+~
+0 -1 33566 10 10 5
+A
+1 look~
+mirror~
+act_tochar( #self, ch );
+~
+E
+self~
+@GYou gaze lovingly at yourself in the mirror.@n
+~
+!
+0 0 0
+2215 9 1509949540 3 0
+-1
+S
+
+#33570
+Merchant's Lane~
+A clean brick street leads north towards a long row of shops and stores. 
+To the south is a small intersection with another street, and a statue of
+a gnome.  Trees line the street, growing in neat rows along the sides of
+the brick pathway.  To the east a nicely decorated brick building sits,
+the smell of good food coming from within.  Just to the west is a small
+park.
+~
+[Rue] gate to south, another classist society
+[Rue] small park to west
+[Rue] brick street shops stores statue trees building
+[Rue] needs smell acode for food
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33566 10 10 5
+D1
+~
+~
+0 -1 33572 10 10 5
+D2
+~
+~
+0 -1 33573 10 10 5
+D3
+~
+~
+0 -1 33641 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d into a small park.@n
+~
+!
+3 0 8
+-1
+S
+
+#33571
+Empty Room~
+Under Construction.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33570 10 10 5
+-1
+S
+
+#33572
+Grigotsky's Bistro~
+This building is brightly lit and has many small tables inside.  A
+waitress flits from table to table taking orders and re-filling wine
+glasses.
+~
+like the idea of this place, maybe expand it [Rue] upscale foods [Rue]
+add your smarmy waiter from old goblins to here, make wine, and fancy
+meals servable 
+[Rue] make this a waiting room, you need a reservation..make it a part of a quest perhaps
+[Rue] or you bribe the maitr-d
+~
+301465669 1 6 0
+D3
+~
+~
+0 -1 33570 10 10 5
+-1
+S
+
+#33573
+Intersection of Calantor's Way and Merchant's Lane~
+The cobbled stone street continues along heading to the east and west.  A
+small brick-paved loop merges with Calantor's Way, joining it with a
+north running street that is also paved with brick.  Set into the center
+of the loop is a bronze statue of a gnome, surrounded by a green splay of
+grass.  To the south, the cavern wall begins again, covered with ivy and
+running alongside the cobbled street.
+~
+[Rue] street loop statue grass ivy wall
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33570 10 10 5
+D1
+~
+~
+0 -1 33575 10 10 5
+D3
+~
+~
+0 -1 33574 10 10 5
+-1
+S
+
+#33574
+Calantor's Way~
+An ivy covered brick wall lines the street along its north side, tucking
+the cobbled path between itself and the ivy covered cavern walls. 
+Heading in an east and west direction, you see the cobbled stone turns to
+the north just ahead to the west.  Just to the east is another
+intersection, and a small statue in the midst of the loop in the road.
+~
+[Rue] needs climb code to transfer to room 33641
+[Rue] wall ivy cavern walkway (cobbled) statue
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 33573 10 10 5
+D3
+~
+~
+0 -1 33533 10 10 5
+-1
+S
+
+#33575
+Calantor's Way~
+The cobbled street continues to run east and west, however, it widens to
+the south, forming a broad cul-de-sac that is bounded by a ivy-covered
+wall.  A brick wall also runs along the north side of the road, providing
+a nice place for a thick carpet of ivy to grow.  Off to the west you can
+see that this street intersects with another.
+~
+[Rue] calantor's residence to south
+[Rue] street ivy ( wall ) brick
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33576 10 10 5
+D2
+~
+~
+0 -1 33630 10 10 5
+D3
+~
+~
+0 -1 33573 10 10 5
+-1
+S
+
+#33576
+Calantor's Way~
+A high brick wall lines the street to the north, making this a cozy
+walkway between it and the cavern wall.  The smooth-cobbled road runs
+east and west, meandering between the ivy growing on the wall and the
+cavern sides.  The smells of cooking food waft over the fence to the
+north.
+~
+[Rue] action for rest noise, smells
+[Rue] extras for wall and ivy etc
+[Rue] ae for smelling
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 33577 10 10 5
+D3
+~
+~
+0 -1 33575 10 10 5
+-1
+S
+
+#33577
+Calantor's Way~
+This quiet street is tucked between the stone cavern wall and a high
+brick fence to the north.  Ivy climbs the cavern wall, softening the
+look, as well as growing on the brick wall.  The cobbled street is in
+great condition, the stones almost polished to a high-shine.  The street
+leads west and east.
+~
+[Rue] extras for ivy, fence, cavern wall brick, cobblestones
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 33578 10 10 5
+D3
+~
+~
+0 -1 33576 10 10 5
+-1
+S
+
+#33578
+Calantor's Way - Park Entrance~
+The well-worn and ancient cobblestone road ducks through a high stone
+arch, quickly changing into a sparkling white gravel walkway that
+meanders through the park.  A stone fence sits to each side of the
+archway, offering itself as a break between the park to the east and the
+busy street to the west.  The scents of freshly cut grass and flowers
+mingles and wafts through the air, enticing you to spend some time in the
+park.
+~
+[Rue] nice entrance
+[Rue] need action for scents..at least
+description redone
+[Rue] fence archway
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 33579 10 10 5
+D3
+~
+~
+0 -1 33577 10 10 5
+E
+cobblestone~
+The old cobbles of the walk run along the side of the cave wall in an
+east and west path.  Their edges are worn and rounded, showing their age.
+~
+E
+gravel walkway white~
+Starting where the cobbled walk ends, a gravel pathway meanders into the
+park eastward.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d under the archway.@n
+~
+!
+3 0 2
+-1
+S
+
+#33579
+Worker's Park - By the West Arch~
+The winding gravel pathway slides between the cut grass on each side, and
+the occasional well-groomed thistle patch.  Large topiaries, shaped into
+various figures, grow along the gently rolling park grounds.  Just to the
+west a large archway interrupts the stone wall running to from the north
+to the south.  Beyond the archway the path becomes a cobbled road
+bustling with people on the move.  The path splits to the east and the
+south as well as heading under the arch.
+~
+[Rue] arch to the west [Rue] extras for path, grass, thistle-patches,
+topiaries ( figures ) archway road 
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 33580 10 10 5
+D2
+~
+~
+0 -1 33632 10 10 5
+D3
+~
+~
+0 -1 33578 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t out under the archway to the west.@n
+~
+!
+3 0 8
+-1
+S
+
+#33580
+Worker's Park - By the North Gate~
+Ivy climbs up the broad northern archway to the Worker's Park.  The
+ancient stone is still beautiful, and provides a wonderful separation
+between the working class buildings to the north.  The cobblestone
+walkway enters the park and slowly fades out in a fan shape as it is
+taken over by a white gravel path that leads to the east and west.  Green
+grass covers the gently rolling landscape.
+~
+[Rue] nice park entrance
+archway between here and north
+[Rue] ivy archway walkway path( white gravel ) grass
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33581 10 10 5
+D1
+~
+~
+0 -1 33633 10 10 5
+D3
+~
+~
+0 -1 33579 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d under the arch and out of the park.@n
+~
+!
+3 0 1
+-1
+S
+
+#33581
+Industry Lane - Before the Park Arch~
+The cobbled walk known as Industry Lane runs parallel to the cavern wall
+to the east.  A large brick building flanks the street to the west, its
+large double doors open to the street.  An ivy covered archway spans the
+cobbled walk, leading into a large park that sits under the area of the
+cavern that is open to the sky.  To the north, a row of well-kept brick
+homes line the eastern side of the Lane.
+~
+[Rue] Door west needs sliding door mechanism that is intricate and annoying
+[Rue] walkway cavern wall  brick building doors ivy archway homes
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33582 10 10 5
+D2
+~
+~
+0 -1 33580 10 10 5
+D3
+set of double doors~
+set  double doors~
+131 -1 33586 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d under the arch and into a park.@n
+~
+!
+3 0 4
+-1
+S
+
+#33582
+Industry Lane~
+The ancient cobblestone walk runs north and south, following alongside
+the cavern wall to the east.  A large brick building is set back from the
+street to the west, separated from the street by a high stone wall and an
+ornate iron gate.  To the south, the cobblestone walk continues,
+ultimately leading to a large archway that you see in the distance.  The
+row of brick houses continues alongside the lane towards the north.
+~
+[Rue] cobbled walk, building,
+[Rue] archway houses
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33583 10 10 5
+D2
+~
+~
+0 -1 33581 10 10 5
+D3
+iron gate~
+~
+67 -1 33636 10 10 5
+-1
+S
+
+#33583
+Industry Lane - Guard Station~
+Old and worn cobblestones pave the lane, giving it an uneven but easy to
+travel surface.  To the west, a rather large and distinguished looking
+brick building sits amid a lush garden.  The steep cavern wall rises to
+the east of the lane, shadowing it from the sky above.  Towards the south
+the lane continues past more brick houses.  A large archway spans the
+lane towards the north.
+~
+[Rue] this street houses 'rich commoners'
+add you walk into a lush garden acode
+to the west of course
+[Rue] cobblestones building garden cavern wall houses archway
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 33557 10 10 5
+D2
+~
+~
+0 -1 33582 10 10 5
+D3
+~
+~
+0 -1 33637 10 10 5
+-1
+S
+
+#33586
+Greenskeeper's Workshop~
+This cluttered workshop is filled with the detritus of ages of collecting. 
+Broken tool handles, rusted rakes, and other garden tools that 'might be
+useful someday' are stacked in piles, leaning against the walls and
+thrown on the floor.  From the looks of things some of the back corners
+of the shop haven't been reached by anything other than rats for ages.
+~
+[Rue] greenskeepers area
+~
+301465669 1 6 0
+D1
+set of double doors~
+set double doors~
+131 -1 33581 10 10 5
+-1
+S
+
+#33596
+North Industry Lane~
+The wide brick lane leads north and south alongside the cavern wall.  A
+large stone warehouse sits astride the lane, looming high above you, its
+walls nearly touching the cavern walls as they soar up and over the lane. 
+The building shows signs of repair, the stones that make up its upper
+walls being a much different color.  To the north the lane continues just
+a little further, coming to an end in front of another large building. 
+Southward, the lane continues towards two massive statues.
+~
+[Rue] grain guards
+[Rue] extras for lane/brick, warehouse stone, statues/massive
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33598 10 10 5
+D2
+~
+~
+0 -1 33556 10 10 5
+D3
+~
+~
+0 -1 33597 10 10 5
+-1
+S
+
+#33597
+Grain Storage~
+This huge building is piled high with all types of grains: wheat, corn,
+millet and many others.  Thick wooden walls and gates seperate the
+grains, and provide entry into the various storage chambers.  Dust fills
+the air, and covers everything.  A set of heavy doors leads to the east.
+~
+[Rue] reset cats, and grain-keeper who prevents people from playing with
+the grain.
+cat might be a little mean
+[Rue] grain/wheat/corn/millet, wooden walls/gates, dust
+[Rue] ae for random coughing from dust
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33596 10 10 5
+364 137 1509949540 3 0
+-1
+S
+
+#33598
+North Industry Lane - Dead End~
+The brick-paved lane ends in a semicircle here, butting up against the
+cave wall towards the northeast, and a large stone building to the west. 
+The cave wall is split by several large cracks here, testament to the
+time of the collapse of the Great Dome.  The lane itself shows signs of
+repair in places, newer bricks replacing those that must have been
+shattered in the cataclysm.  An overpowering smell of tallow comes from
+the building to the west, as do great gouts of steam.
+~
+[Rue] add smells and steam acodes
+[Rue] extras for stone building, cave wall, cracks lane/bricks
+[Rue] ae for sniff/smell
+~
+301465669 1 6 0
+D2
+~
+~
+0 -1 33596 10 10 5
+D3
+~
+~
+0 -1 33599 10 10 5
+-1
+S
+
+#33599
+Tallow Factory~
+Steam and heat greet you as you enter this building.  Huge bronze kettles
+boil with animal fats as part of the rendering process.  The steam makes
+vision difficult, and almost takes your breath away as it invades your
+lungs.  Several platforms rise above the kettles, providing a place to
+survey the process from.  Cooling kettles, and crates clutter the
+factory, as well as coal and woods used to heat the kettles.
+~
+[Rue] finish mobs in here
+[Rue] add acodes for: searching crates: you find nothing
+[Rue] add random acodes for: steam, stoking the fires, pouring hot tallow into cooling kettle
+extras done
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33598 10 10 5
+E
+bronze kettles~
+Huge bronze kettles heat over hot fires, their contents bubbling and
+boiling.  Each kettle is suspended by heavy chains run along a network of
+lines high above the floor of the factory.  The kettles themselves are
+old and stained by fire and burnt tallow.
+~
+E
+platforms~
+Made from thick timbers crossed with planks, these platforms give the
+workers good positions to view the contents of each of the kettles.
+~
+E
+crates~
+The crates are made of wood, and oblong in shape.  They are about six
+inches deep and wide, and two feet long.  Small ropes are attached to the
+ends and serve as handles.
+~
+E
+coal wood~
+Piles of low-grade coal and chopped wood are stacked near the burning
+fires that heat the kettles.  The coal is poor quality, and useless for
+anything other than a low-heat fire.  The wood is not quite dry, and
+looks as though it would burn slowly.
+~
+2072 9 1509949540 3 0
+2073 9 1509949540 3 0
+-1
+S
+
+#33600
+Nameless Street~
+Under Construction.
+~
+~
+301465669 1 6 0
+D2
+~
+~
+0 -1 33598 10 10 5
+-1
+S
+
+#33601
+Empty Room~
+Under Construction.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33600 10 10 5
+-1
+S
+
+#33602
+North-East Intersection~
+Under Construction.
+~
+~
+301465669 1 6 0
+-1
+S
+
+#33603
+Boareskyr Road~
+Under Construction.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33602 10 10 5
+-1
+S
+
+#33604
+Boareskyr Road~
+Under Construction.
+~
+~
+301465669 1 6 0
+-1
+S
+
+#33605
+Intersection of Beryl Road and a Narrow Alley~
+Simple flagstones make up the road here, worn and damaged from years of
+use and neglect.  The road runs east and west alongside the cavern wall
+to the north.  Just to the south a narrow alleyway runs between a
+destroyed brick building and another boarded up building on the east. 
+The road runs off quite a distance to the west, but appears to be blocked
+by rubble to the east.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33659 10 10 5
+D2
+~
+~
+0 -1 33625 10 10 5
+D3
+~
+~
+0 -1 33606 10 10 5
+-1
+S
+
+#33606
+Beryl Road~
+Running alongside the cavern wall the long road jogs slightly with the
+natural curve of the wall.  Worn flagstones attest to the age of this
+road, the stone worn in places by the passage of heavy wagons and
+countless feet.  Just to the south, a shattered building wall stands
+defiantly, refusing to collapse.  Beyond the wall you can see a heap of
+bricks.  all that remains of a once large and proud structure.  You can
+follow the road to the east or west.
+~
+[Rue] add climbing wall code that the wall is too dangerous to climb
+the wall to the south
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33605 10 10 5
+D3
+~
+~
+0 -1 33607 10 10 5
+-1
+S
+
+#33607
+Beryl Road~
+The worn road slips between the cavern wall to the north and a large
+building to the south.  Just to the west you can see what appears to be
+an intersection along the road that meets with another street coming in
+from the south.  Ivy climbs up the cavern wall, growing up to quite a
+distance, before dropping its vines back down over the road.  You can
+follow the road either east or west.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33606 10 10 5
+D3
+~
+~
+0 -1 33608 10 10 5
+-1
+S
+
+#33608
+Intersection of Beryl Road and Olivine Avenue~
+Two worn roads intersect here, a large road heading east and west, while
+another wide avenue heads to the south.  To your north the wall of the
+cavern curves up and opens towards the sky.  The intersection is quite
+worn, the flagstones cracked and pitted from age and traffic.  You can
+follow Beryl Road east or west, or head south down Olivine Avenue.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33607 10 10 5
+D2
+~
+~
+0 -1 33610 10 10 5
+D3
+~
+~
+0 -1 33609 10 10 5
+-1
+S
+
+#33609
+Beryl Road~
+Clouds of black smoke belch from the building to the south, and even from
+the road you can feel heat coming from inside.  The worn out flagstone
+road cuts between the building and the cavern wall, which is covered in
+black soot.  Thankfully, most of the smoke seems to be naturally drawn
+out of the open top of the cavern.  You can follow the road west or head
+east towards an intersection.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33608 10 10 5
+D3
+~
+~
+0 -1 33519 10 10 5
+-1
+S
+
+#33610
+Olivine Avenue~
+The worn road sits between two rather large buildings.  To the west a
+large building belches out thick clouds of smoke that rush skyward and
+out of the open cavern.  The ground is covered in a red dust that appears
+to billow out of the building to the west occasionally.  Another large
+building rises to the east, but is much more quiet in nature.  You can
+follow the road to the south or head towards an intersection to the north.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33608 10 10 5
+D1
+~
+~
+0 -1 33612 10 10 5
+D2
+~
+~
+0 -1 33613 10 10 5
+D3
+~
+~
+0 -1 33611 10 10 5
+-1
+S
+
+#33611
+Brickworks~
+Clouds of reddish dust boil through the hot air, swirling about as the
+heated air rises.  The sounds of raging fires burn deep within the guts
+of the large building, firing the kilns that heat and dry the bricks. 
+Empty and half-full crates sit near stacks of completed bricks.  In the
+center of the room is a huge hole in the ground, from which an endless
+stream of buckets filled with red clay seem to be coming.  To the east
+you can exit the brickworks.
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33610 10 10 5
+-1
+S
+
+#33612
+Common House~
+The dirty floor is covered in a sticky layer of red clay that seems to
+have been tracked in from the west.  Seven cots line the north and south
+walls respectively, each neatly made with crisp and clean sheets.  Along
+the east wall sits a large table with several chairs pushed underneath it. 
+A sturdy wooden staircase heads up towards the second floor.  There is a
+heavy ash door on the west wall.
+~
+~
+301465669 1 6 0
+D3
+~
+~
+0 -1 33610 10 10 5
+D4
+~
+~
+0 -1 33660 10 10 5
+-1
+S
+
+#33613
+Olivine Avenue~
+The road comes to a dead end herem curving into a sweeping cul-de-sac
+boarded on the east and west by large buildings.  To the south is a dense
+row of stately willw trees, lazily dragging their drooping branches on
+the ground.  To the north, the worn flagstone road heads towards an
+intersection near the cavern wall.
+~
+[Rue] this area needs to be finished
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33610 10 10 5
+D1
+~
+~
+0 -1 33657 10 10 5
+D2
+~
+~
+0 -1 33672 10 10 5
+D3
+~
+~
+0 -1 33614 10 10 5
+-1
+S
+
+#33614
+Open place for clan house or shop for a certain clan~
+~
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33613 10 10 5
+-1
+S
+
+#33615
+Empty Room~
+Under Construction.
+~
+~
+301465669 1 6 0
+-1
+S
+
+#33619
+A Narrow Alley~
+Two crumbling buildings stand on each side of the narrow walk.  The doors
+of each are missing, and despite the extensive damage the walls appear to
+be somewhat stable.  The building to the west is made mostly of wood, and
+it looks like the roof has caved in.  The eastern building is a built of
+a solid and dark brick, and appears to have fared better than the other
+buildings in the area.  The narrow alley leads north and south.
+~
+[Rue] add walking into hole in west building ae
+[Fenlyn] but there is no mention of gaping hole here
+[Fenlyn] will add it anyways
+[Fenlyn] hole code done
+nice
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33622 10 10 5
+D1
+~
+~
+0 -1 33621 10 10 5
+D2
+~
+~
+0 -1 33547 10 10 5
+D3
+~
+~
+0 -1 33620 10 10 5
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You gingerly step into the caved in building, being careful not to
+disturb the fragile walls.
+~
+!
+3 0 8
+-1
+S
+
+#33620
+Shattered Remains of a House~
+Splintered timbers and cracked planks fill most of the space inside this
+shattered building.  Large stones and boulders lay inside the crumpled
+walls, most likely the cause of the destruction of this building.  It
+looks as thought every inch of the place has been stripped of everything
+of value, as nothing but bare wood and rusty nails remain.  You can walk
+through a gaping hole in the east wall and out into the alley.
+~
+[Rue] add walking out message
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33619 10 10 5
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You step out into the street through the large hole in the building.
+~
+!
+3 0 2
+-1
+S
+
+#33621
+Flophouse~
+The dark stone walls of this bleak building give it a somber and
+depressing air.  Stinking piles of cloth and straw are scattered about
+the room, apparantly beds of some sort.  The air reeks of sweat, and a
+clinging dust covers most every surface.  It is difficult to find a clear
+space on the floor to walk, as it appears quite a few people call this
+home at one time or another.  An open doorway leads out into the alley to
+the west.
+~
+~
+301465669 1 6 0
+D3
+~
+~
+0 -1 33619 10 10 5
+-1
+S
+
+#33622
+A Narrow Alley~
+To the east a burned out shell of a house sits, its walls blackened by
+fire.  Empty windows and doors stare out onto the alley, unblinking and
+sightless.  The brick walls hold deep rifts of ash within, and burnt
+timbers lay about like shattered bones.  To the west of the alley a small
+home appears to have come through much of the cataclysm unscathed,
+however huge boulders and wreckage from the surrounding buildings litter
+the area around the building.  To the alley continues to the north and
+south.
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33625 10 10 5
+D1
+~
+~
+0 -1 33624 10 10 5
+D2
+~
+~
+0 -1 33619 10 10 5
+D3
+~
+~
+0 -1 33623 10 10 5
+-1
+S
+
+#33623
+Abandoned Building~
+The inside of this building is totally devasted: It appears that
+everything inside was burnt up into a fine ash in a violent conflagration
+of some sort.  The walls appear solid, as does the roof, however the
+building appears to have been left alone ever since the Cataclysm.  A
+door leads out towards the alley to the east.
+~
+[Rue] add ghostly sounds and occasional 'warnings' of a haunt of some
+sort...nothing will ever come of it..but they should be increasingly
+scary.
+~
+301465669 1 6 0
+D1
+~
+~
+0 -1 33622 10 10 5
+-1
+S
+
+#33624
+Burnt Out Brick Building~
+Barren and scarred walls lean tenously inward, threatening to collapse at
+the slightest provocation.  Thick rifts of rubble-strewn ash cover the
+ground, hiding hazards and making movement dangerous.  Charred timbers,
+the remnants of the roof and floor joists, litter the ground and lean
+against the walls.  An open doorway leads out to the alleyway to the west.
+~
+[Rue] just scare people here
+~
+301465669 1 6 0
+D3
+~
+~
+0 -1 33622 10 10 5
+-1
+S
+
+#33625
+A Narrow Alley~
+Large piles of shattered brick mingle with heavy stones making the alley
+even narrower here.  Much of the brick appears to be from the destroyed
+building to the west, which has collapsed into the street.  Sitting next
+to the alley on the east side is a rather large and impressive structure. 
+Its windows have been boarded up, as has its door.  Despite this, and the
+obvious fire damage, the building appears in decent shape.  The alley
+merges out onto a street to the north, and continues to wind its way
+through the rubble to the south.
+~
+[Rue] bricks are unsteady, moving to the west you need climb
+[Rue] add boarded up door to the east
+[Fenlyn] door added
+[Fenlyn] door codes done.
+[Fenlyn] bricks code done
+acode 1 from room east should be tacked onto acode 1 here
+[Fenlyn] Okay, I'm confused.  What?
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 33605 10 10 5
+D1
+boarded up door~
+boarded door~
+407 -1 33626 10 10 5
+D2
+~
+~
+0 -1 33622 10 10 5
+D3
+~
+~
+0 -1 33658 10 10 5
+A
+~
+~
+if( find_skill( ch, climb ) >= 1 ) {
+  act_tochar( #climb, ch );
+  continue;
+  }
+else {
+  act_tochar( #fail, ch );
+  end;
+  }
+~
+E
+climb~
+You climb up onto the rubble.
+~
+E
+fail~
+You try to climb the rubble but realize that you aren't able to.
+~
+!
+3 0 8
+A
+~
+~
+act_tochar( #knock, ch );
+act_notchar( #ncknock, ch );
+wait( 1 );
+if( class( ch ) == thief ) {
+  mob = mob_in_room( 2042, find_room( 33626 ) );
+  if( mob ) {
+    if( players_room( find_room( 33626 ) ) >= 1 )
+      act_room( #shopclosed, ch );
+    else {
+      if( is_locked( room, east ) ) {
+        act_room( #unlock, ch );
+        unlock( room, east );
+        }
+      send_to_room( #opens, room );
+      open( room, east );
+      }
+    }
+  else
+    act_tochar( #noanswer, ch );
+  }
+else
+  act_tochar( #noanswer, ch );
+~
+E
+shopclosed~
+A voice from the other side of the door says:
+@I@I"Nobody's home right now.  Go away."
+~
+E
+unlock~
+You hear some sort of sliding mechanism being moved from behind the door.
+~
+E
+opens~
+A shady figure opens the door and allows you to enter.
+~
+E
+noanswer~
+There is no answer.
+~
+E
+knock~
+You knock on the boarded up door to the east.
+~
+E
+ncknock~
+$n knocks on the boarded up door to the east.
+~
+!
+13 0 2
+A
+~
+~
+if( players_room( find_room( 33626 ) ) >= 1 ) {
+  act_tochar( #slam, ch );
+  close( room, east );
+  lock( room, east );
+  }
+else
+  continue;
+~
+E
+slam~
+As you step towards the boarded up door, it slams shut followed by the
+sound of it locking.
+~
+!
+3 0 2
+A
+~
+~
+if( is_open( room, east ) ) {
+  act_tochar( #closes, ch );
+  act_notchar( #nccloses, ch );
+  lock( room, east );
+  close( room, east );
+  }
+~
+E
+closes~
+The boarded up door slams behind you and makes a locking sound.
+~
+E
+nccloses~
+The boarded up door slams behind $n and makes a locking sound.
+~
+!
+1 0 2
+-1
+S
+
+#33626
+Inside the Boarded-Up Building~
+Peeling wallpaper and scuffed floors are all that remains of what once
+must have been the home of a wealthy person.  The windows are covered by
+planks of wood, and the staircase that once lead upstairs is now crushed
+by a huge boulder that must have smashed through the roof.  The entire
+ceiling is gone, as is the roof, leaving only the walls standing.
+~
+down is 33656
+[Rue] add knockout code ( hit from behind by a blackjack ) for those that try and kill this mob
+[Rue] they dump you in alley less certain items...
+[Fenlyn] costs a little extra if you aren't a thief and you somehow make
+it in here to ask the question.
+[Fenlyn] code is pretty airtight, but people can still slip through the
+cracks unintentionally because of the waits.
+~
+301465669 1 6 0
+D3
+boarded up door~
+boarded door~
+407 -1 33625 10 10 5
+D5
+hidden trapdoor~
+hidden trapdoor~
+203 -1 33656 10 10 5
+A
+~
+~
+if( class( ch ) != thief ) {
+  act_tochar( #thievesonly, ch );
+  wait( 1 );
+  transfer( ch, find_room( 33625 ) );
+  }
+if( is_open( room, west ) ) {
+  close( room, west );
+  lock( room, west );
+  send_to_room( #rcloses, room );
+  send_to_room( #closes, find_room( 33625 ) );
+  }
+~
+E
+thievesonly~
+The shady gnome looks at you angrily and says:
+@I@I"We don't serve your kind here!  You'll have to find someplace else
+@I@Ito go."
+~
+E
+rcloses~
+The shady gnome closes the door and slides a locking mechanism into place
+as you enter.
+~
+E
+closes~
+The boarded up door is closed and locked from the other side.
+~
+!
+1 0 8
+A
+unlock~
+door boarded 1 west~
+if( is_locked( room, west ) ) {
+  unlock( room, west );
+  act_tochar( #unlock, ch );
+  act_notchar( #ncunlock, ch );
+  send_to_room( #runlock, find_room( 33625 ) );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+unlock~
+You slide the door's locking mechanism out of place.
+~
+E
+ncunlock~
+$n slides the door's locking mechanism out of place.
+~
+E
+runlock~
+You hear some sort of sliding mechanism being moved from behind the door.
+~
+E
+already~
+The door is already unlocked.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( find_room( 33626 ), down ) ) {
+  send_to_room( #close, find_room( 33626 ) );
+  close( find_room( 33626 ), down );
+  send_to_room( #close, find_room( 33656 ) );
+  }
+~
+E
+close~
+The trapdoor closes with a thump.
+~
+E
+ncclose~
+No description~
+E
+closed~
+No description~
+!
+1 0 32
+A
+~
+~
+if( players_room( find_room( 33656 ) ) >= 1 ) {
+  tell( mob_in_room( 2042, room ), ch, #noway );
+  end;
+  }
+else
+  continue;
+~
+E
+noway~
+You can't go down there right now.  The shopkeeper is busy with another
+customer.
+~
+!
+3 0 32
+A
+~
+shady gnome~
+act_tochar( "test", ch );
+~
+!
+7 0 0
+A
+look~
+boarded door 1 west~
+if( is_locked( room, west ) )
+  act_tochar( #locked, ch );
+else
+  act_tochar( #unlocked, ch );
+~
+E
+locked~
+The boarded up door appears to be secured by a sliding wooden rail.
+~
+E
+unlocked~
+The boarded up door is unsecured from its latching mechanism.
+~
+!
+0 0 0
+2042 137 1509949540 3 0
+-1
+S
+
+#33629
+Nameless Street~
+Under Construction.
+There is a creaky wooden door to the west.
+~
+~
+301467719 1 9 0
+D3
+creaky wooden door~
+creaky wooden door~
+391 62 33557 10 10 5
+-1
+S
+
+#33630
+Cul de Sac~
+A thick and imposing brick wall follows the curve of the cul-de-sac to
+the south.  A thick and ornate iron gate is centered on the wall,
+providing entrance when open.  The gate itself is hinged to an imposing
+brick wall, covered in ivy and topped with sharp iron spikes.  Two small
+trees bloom with fragrant flowers alongside the wall.
+~
+Calantor's home is to the south.  he is a corrupt gnome official, sucking
+money from everything he can.
+calantor is his title ( kinda the mayor-for life )
+[Rue] add extras for everything ;)
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33575 10 10 5
+D2
+~
+~
+0 -1 33666 10 10 5
+-1
+S
+
+#33632
+Worker's Park - By a Fountain~
+The immaculate white gravel path wraps itself around a large, gurgling
+fountain.  Rimming the base of the fountain, nestled in the cool shadows,
+a small hedgerow keeps you at a respectable distance from the edge of the
+stone pond that the fountain's waters cascade into.  A small bench sits
+under the reaching branches of a citrus tree bursting with scented
+flowers.  After circling the fountain, the pathway wanders north and off
+to the east as well.  The wall of the cave wraps itself around this
+corner of the park to the south and west, hiding behind a green and white
+blanket of ivy.
+~
+[Rue] extras done
+[Rue] add flowers to be picked maybe?
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33579 10 10 5
+D1
+~
+~
+0 -1 33634 10 10 5
+E
+tree citrus~
+There are no fruits on this tree as yet, but the fragrant blooms spread
+their fresh scent through the park.  The tree is small, only about ten
+feet tall, but its thick green foliage has been pruned into an almost
+perfect sphere.
+~
+E
+path white gravel~
+The path loops around the fountain before splitting off to the east and
+north.  Small bits of white gravel are carefully laid down to form a
+path that meanders lazily along the rolling hills.
+~
+E
+hedgerow~
+A thick hedgerow circles around the fountain.  The small and compact
+bushes are pruned to form a continous band of greenery around the
+fountain's exterior rim.
+~
+E
+flowers~
+The small flowers on the tree are star-shaped and no larger than a baby
+gnome's little toe.  The flowers are white, with long stamens.
+~
+E
+statue~
+It is a life-sized statue of a gnome.  The statue stands with its arms
+akimbo, and water pours from his open mouth.  The statue carved of
+marble, and is a gleaming white.  It stands on a small island in the
+middle of the fountain.
+~
+E
+ivy blanket wall cave~
+The spade-shaped leaves of the thick blanket of ivy point downwards.  The
+wall of the cavern wraps itself around the corner of the park here,
+soaring high above you.
+~
+A
+~
+~
+send_to_room( #sounds, room );
+~
+E
+sounds~
+@GThe soothing sounds of splashing water come from the fountain, helping
+to relax you.@n 
+~
+!
+2 100 0
+A
+catch grab~
+fish goldfish fishes~
+act_tochar( #wise, ch );
+act_notchar( #rmwise, ch );
+~
+E
+wise~
+@GAs you lean over the pool, the fish swim away beyond your reach.@n 
+~
+E
+rmwise~
+@G$n leans over the pond, scaring all the fish away.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #jump, room );
+~
+E
+jump~
+@GYA small fish splashes against the surface of the pool, disappearing
+beneath the water quickly.@n
+~
+!
+2 50 0
+3230 17 1509949540 -2 0
+-1
+S
+
+#33633
+Worker's Park - Curving Path~
+The cave wall soars up above your head along the northern and eastern l
+The white gravel path curves south and west here, avoiding a slight bulge
+in the cavern wall to the northeast.  A thick mass of ivy grows from the
+park's green hills and climbs the rough cave wall.  To the northwest you
+see one of the grand archways that feed into the park.
+~
+[Rue] fix first sentence
+[Rue] extras done
+~
+301465665 1 9 0
+D2
+~
+~
+0 -1 33635 10 10 5
+D3
+~
+~
+0 -1 33580 10 10 5
+E
+cave wall north n east east e~
+The steep wall climbs high above you, the rough stone providing purchase
+for ivy and other small plants to grow on.
+~
+E
+path white gravel~
+The white gravel pathway follows the gentle curve of the cavern wall. 
+Made up of crushed white stone, the pathway marks a white swath across
+the green grass on either side.
+~
+E
+ivy mass~
+Thick growth of healthy ivy climbs up the cavern wall.  The spade-shaped
+leaves gently sway in the breeze.
+~
+E
+archway~
+You can barely see the graceful curve of the brick archway.  Ivy grows
+over the brick.
+~
+-1
+S
+
+#33634
+Worker's Park - Topiary Garden~
+The gently rolling park grounds create an atmosphere that is relaxed and
+peaceful.  At the top of each slight rise sit large, well trimmed topiary
+figures.  The gravel pathway wanders between the rises, going towards one
+figure, then another as it winds its way to the east and west.  To the
+west the pathway climbs a rise, leading to a large fountain.  Ivy climbs
+the cave wall that rises to the south.
+~
+[Rue] occasional action for something flitting outside your vision
+[Rue] extras done
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 33635 10 10 5
+D3
+~
+~
+0 -1 33632 10 10 5
+E
+topiary figures~
+The topiary figures are small bushes trimmed into the shapes of small
+animals and humanoid shapes.  They are carefully tended, and are
+masterworks of the topiary craft.
+~
+E
+gravel pathway~
+The path is made up of crushed white stone spread out in a deep bed that
+is about four feet wide.  The path winds between the gentle slopes of the
+park, heading generally east and west.
+~
+E
+cave wall south s ivy~
+The rough stone wall climbs high up above you to the south.  Ivy grows
+along the lower portion, creating a cascade of greenery.  You can see the
+sky high above you, and one of the more noticeable rock outcroppings
+that remain of what used to be the cavern dome.
+~
+-1
+S
+
+#33635
+Worker's Park - Southeast Corner~
+Set between the rolling slopes of the park and the curving wall of the
+cavern, the white gravel pathway leads to the north and west.  Unlike the
+rest of the park, the topiaries and thistle beds have been torn apart
+here.  The grass dies in patches, and the thick carpet of ivy along the
+walls browns in areas.  The remains of a broken bench are strewn about
+the grounds, and the stripped remains of a fruit tree stand like a
+skeleton on one of the taller rises.
+~
+[Rue] extras done
+[Rue] needs exit east fixed to new standards
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33633 10 10 5
+D1
+ivy~
+ivy~
+235 -1 33643 10 10 5
+D3
+~
+~
+0 -1 33634 10 10 5
+E
+curving wall~
+The rough stone wall curves here, creating the southeastern 'corner' of
+the crater.  The wall soars high above you, reaching up towards the open
+sky above.  Dying ivy strands hang down from the wall, although some
+still struggle to live.
+~
+E
+broken bench remains~
+What remains of a small wooden bench is scattered around the area.  The
+splintered boards look like they were gnawed on by something.
+~
+E
+topiaries~
+It is apparant that these topiaries were once magnificent, but now they
+are drying up and slowly dying.  One appears to have once been shaped
+like a squirrel or other small mammal.
+~
+E
+ivy carpet~
+The thick curtain of ivy hangs down from the cavern wall.  Although thick
+and lush, it is dying in places.
+~
+E
+grass patches~
+The otherwise green grass is covered in little brown splotches where it
+has died.  There is no obvious reason that the grass is dying.
+~
+E
+thistle beds~
+The once proud displays of thistles are now dug up and ruined.  The dried
+and dead plants are strewn about the beds carelessly.
+~
+E
+skeletal tree fruit~
+A few sad blooms try to grow on the feeble fruit tree.  The bark has been
+shredded and the limbs are almost totally devoid of leaves.
+~
+E
+white gravel~
+Thw white gravel pathway curves between the gentle slopes as it heads
+north and west.  The pathway is made up of small bits of crushed white
+rock.
+~
+A
+move open~
+ivy~
+if( !is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ncopen, ch );
+  open( room, east );
+  send_to_room( #ropen, find_room( 33634 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #ncclose, ch );
+  close( room, east );
+  send_to_room( #rclose, find_room( 33634 ) );
+  }
+~
+E
+open~
+You move the ivy revealing a secret passage to the east.
+~
+E
+ncopen~
+$n moves the ivy out of the way revealing a secret passage to the east.
+~
+E
+close~
+You carefully move the ivy back over the secret passage entrance.
+~
+E
+ncclose~
+$n carefully moves the ivy back over the secret passage entrance.
+~
+E
+ropen~
+Someone on the other side has moved the ivy away from the passage opening.
+~
+E
+rclose~
+Someone on the other side has placed the ivy back over the passage
+opening.
+~
+!
+0 0 0
+1992 9 1509949540 3 0
+-1
+S
+
+#33636
+Comfortable Garden~
+Swaying willow trees shade this yard, while a tiny fountain gurgles
+gently in one corner.  A curving pathway leads indirectly to the plain
+front door of the brick building.  Soft, green grass carpets the ground,
+except beneath the willows, where a bed of baby's breath seems to fare
+better in the shade.  High stone walls encircle the yard, overgrown with
+ivy and flowering vines of various sorts.  Set into the stone wall is a
+heavy iron gate, ornately wrought and emblazoned with a crest.
+~
+[Rue] this yard is well tended
+[Rue] willows fountain pathway building grass baby's breath walls ivy vines gate crest
+~
+301465665 1 9 0
+D1
+wrought iron gate~
+wrought iron gate~
+67 -1 33582 10 10 5
+D3
+front door~
+front door~
+391 -1 33638 10 10 5
+-1
+S
+
+#33637
+Garden Before a Brick House~
+Lush trees and well-kept bushes line the stone pathway that leads to the
+ornate front door of the brick building to the west.  Shuttered windows
+flank the door, and also look down from above on the second floor.  A
+small iron bench sits under one of the trees, providing a place to relax
+and enjoy the garden.  A gate leads east and out of the garden.
+~
+needs key
+[Rue] bushes pathway door building windows bench gate
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 33583 10 10 5
+D3
+front door~
+front door~
+135 -1 33662 10 10 5
+-1
+S
+
+#33638
+Lavish Entryway~
+Heavy tapestries and gilded mirrors hang along the walls of this cramped
+but stylish entry.  A dark-stained cherry wood stairway climbs up towards
+the second floor, curving gently as it rises.  The floor is white-veined
+black marble tile, and thick rugs cover much of it.  A small coatrack
+sits quietly to the side of the door.  Two open doorways lead out of the
+room, one to the south, they other to the west.  You can go out the front
+door to the east.
+~
+[Rue] tapestries mirrors stairway floor coatrack
+~
+301465665 1 5 0
+D1
+front door~
+front door~
+391 -1 33636 10 10 5
+D2
+~
+~
+0 -1 33669 10 10 5
+D3
+~
+~
+0 -1 33670 10 10 5
+D4
+~
+~
+0 -1 33639 10 10 5
+-1
+S
+
+#33639
+Second-story Landing~
+For all the clutter of the downstairs, this area is almost empty of
+decoration.  A single mirror with a plain frame hangs crookedly along the
+wall of the landing.  A plain red strip of carpet leads from the stairs
+towards a solid oak door.  A stairway leads down towards the first floor.
+~
+[Rue] mirror carpet
+~
+301465665 1 9 0
+D3
+oak door~
+oak door~
+131 -1 33671 10 10 5
+D5
+~
+~
+0 -1 33638 10 10 5
+-1
+S
+
+#33640
+Entrance to a Grand Estate~
+You are on a packed gravel walkway that curves gently beneath trees and
+leads towards a large building to the west.  The walkway is lined with
+stands of quaking aspen trees, their leaves flashing brilliantly in the
+breeze.  Just to the east is a large brick fence bisected by an ornate
+iron gate.  A thick carpet of low-cut green grass spreads out beneath the
+shade of the trees.
+~
+~
+301465669 1 9 0
+D1
+ornate wrought-iron gate~
+ornate wrought-iron gate~
+67 -1 33529 10 10 5
+D3
+~
+~
+0 -1 33673 10 10 5
+-1
+S
+
+#33641
+Small Park~
+Soft greeen grass and several large trees grace this small park.  An ivy
+covered brick wall runs the length of the park along its south side.  A
+quiet and walled-in walkway heads off to the west.  To the east a brick
+paved lane heads north and south.  A comfortable bench sits in the shadow
+of a brick and wooden buiilding to the north.
+~
+[Rue] brick wall to south
+[Rue] cobbled path to the west
+[Rue] add code for climbing over the wall
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 33570 10 10 5
+D3
+~
+~
+0 -1 33531 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d, out of the park and onto a cobbled lane.@n
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t $d, heading out of the park and into a brick-paved road.@n
+~
+!
+3 0 2
+3240 17 1509949540 -2 0
+-1
+S
+
+#33642
+Iriaebor Street - Cul-de-Sac~
+Under Construction.
+~
+~
+301465669 1 9 0
+D2
+ornate wrought-iron gate~
+~
+71 -1 33526 10 10 5
+-1
+S
+
+#33643
+Small Tunnel - Behind the Ivy~
+You are in a tiny cave, with barely enough room to move inside.  A steep
+tunnel dives down, looking like it might be a tight squeeze.  The curved
+walls have been scratched out of the hard stone.  Dust and pebbles litter
+the floor, making footing dangerous.  To the west a thick blanket of ivy
+hangs down, covering the tiny mouth of the cave.
+~
+[Rue] ae for crawling down
+[Rue] ae for opening the ivy
+[Rue] add code for 'squeezing into' the cave down
+[Fenlyn] done
+~
+301465676 11 3 0
+D3
+~
+~
+235 -1 33635 10 10 5
+D5
+~
+~
+0 -1 33644 10 10 5
+A
+move~
+ivy~
+if( !is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ncopen, ch );
+  open( room, west );
+  send_to_room( #ropen, find_room( 33635 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #ncclose, ch );
+  close( room, west );
+  send_to_room( #rclose, find_room( 33635 ) );
+  }
+~
+E
+open~
+You move the ivy away revealing the exit from the passage.
+~
+E
+ncopen~
+$n moves the ivy away revealing the exit from the passage.
+~
+E
+ropen~
+The ivy is moved from the other side revealing a secret passage to the
+east.
+~
+E
+close~
+You move the ivy over the passage opening blocking access to the secret
+passage.
+~
+E
+ncclose~
+$n moves the ivy over the passage opening blocking access to the secret
+passage.
+~
+E
+rclose~
+The ivy is moved back over the passage opening from the other side.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #crawl, ch );
+~
+E
+crawl~
+The tunnel is way too steep to just walk down.  Perhaps crawling or
+climbing down would work better.
+~
+!
+3 0 32
+A
+climb crawl~
+1 down~
+act_tochar( #climb, ch );
+act_notchar( #ncclimb, ch );
+transfer( ch, find_room( 33644 ) );
+act_notchar( #arr, ch );
+~
+E
+climb~
+You squeeze yourself into the tunnel while climbing down.
+~
+E
+ncclimb~
+$n squeezes $mself into the tunnel while climbing down.
+~
+E
+arr~
+$n arrives from the tight tunnel above.
+~
+!
+0 0 0
+1992 137 1509949540 3 0
+-1
+S
+
+#33644
+Sloping Tunnel~
+The dark and sloping tunnel leads up and towards the east.  The ground is
+slick, covered with dust and dirt.  The walls are rough stone, that tug
+at you as you squeeze through the tunnel.  You can try and crawl up the
+tunnel, into a slightly wider cave, or you can push on into the dark
+tunnel.
+~
+[Rue] ae for crawling up
+[Fenlyn] done
+~
+301465668 11 3 0
+D1
+~
+~
+0 -1 33645 10 10 5
+D4
+~
+~
+0 -1 33643 10 10 5
+A
+climb crawl~
+tunnel 1 up~
+act_tochar( #climb, ch );
+act_notchar( #ncclimb, ch );
+transfer( ch, find_room( 33643 ) );
+act_notchar( #arr, ch );
+~
+E
+climb~
+You squeeze into the tunnel as you climb up it.
+~
+E
+ncclimb~
+$n squeezes into the tunnel as $e climbs up it.
+~
+E
+arr~
+$n arrives from the tight tunnel below.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You can't just walk straight up.  Try climbing or crawling up the tunnel.
+~
+!
+3 0 16
+1992 9 1509949540 3 0
+-1
+S
+
+#33645
+Winding Tunnel~
+The cramped tunnel splits in several directions here.  A steep tunnel
+delves deeper into the rock, while a crude staircase of tiny proportions
+climbs upward.  Another tunnel leads west up a slight slope.  The air is
+stale, and the weight of the stone above is oppressive.  Some deep
+scratches in the stone stand out along the south wall.
+~
+[Rue] ae for dust ..about 10% chance as you go through
+[Rue] add code for 'lowering' yourself into the tunnel
+[Fenlyn] done
+~
+301465668 11 3 0
+D3
+~
+~
+0 -1 33644 10 10 5
+D4
+~
+~
+0 -1 33647 10 10 5
+D5
+~
+~
+0 -1 33646 10 10 5
+A
+~
+~
+act_tochar( #lower, ch );
+continue;
+~
+E
+lower~
+You lower yourself into the dark tunnel.
+~
+!
+3 0 32
+A
+~
+~
+if( random( 1, 10 ) == 6 ) {
+  act_tochar( #dust1, ch );
+  act_notchar( #dust2, ch );
+  }
+continue;
+~
+E
+dust1~
+As you climb up the wall, you loosen a bit of dirt and rock which
+promptly fall down the shaft.
+~
+E
+dust2~
+As $n climbs up the wall, $e loosens some dirt and rock which fall down the dark shaft.
+~
+!
+3 0 16
+1992 9 1509949540 3 0
+-1
+S
+
+#33646
+Tunnel Spiraling Downwards~
+The tunnel spins downward into the darkness below you.  Rough stone and
+many small ledges provide plenty of hand and footholds for you in
+climbing up or down.  The tunnel twists and turns several time as it
+leads up and down.  At several points it looks like the squeeze will be a
+tight one.  From below you hear the sound of dripping water echoing
+through the tunnel.
+~
+[Rue] add dripping sound code
+[Fenlyn] done
+~
+301465668 11 3 0
+D4
+~
+~
+0 -1 33645 10 10 5
+D5
+~
+~
+0 -1 33649 10 10 5
+A
+~
+~
+act_tochar( #dripping, ch );
+~
+E
+dripping~
+A faint dripping sound echoes from below.
+~
+!
+2 200 0
+-1
+S
+
+#33647
+Steep Chimney Tunnel~
+The tight and twisted tunnel leads almost straight up.  Cramped and
+rough, the tunnel provides plenty of handholds for you to clamber up or
+down.  Dust sifts slowly down from above, indicating that these tunnels
+may not be entirely stable.  Just above you appears to be a larger
+chamber of some sort, and below is a small tunnel.
+~
+[Rue] add chamber up
+[Rue] dust and pebbles fall on
+[Rue] people as they crawl up...load pebble once per reset
+~
+301465668 11 3 0
+D4
+~
+~
+0 -1 33648 10 10 5
+D5
+~
+~
+0 -1 33645 10 10 5
+A
+~
+~
+if( random( 1, 10 ) == 7 ) {
+  act_tochar( #dust1, ch );
+  act_notchar( #dust2, ch );
+  }
+continue;
+~
+E
+dust1~
+As you climb down, you kick up some dirt which falls into the darkness
+below.
+~
+E
+dust2~
+As $n climbs down, $e kicks up some dirt which falls into the darkness
+below.
+~
+!
+3 0 32
+A
+~
+~
+if( random( 1, 6 ) == 3 ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #peb1, ch );
+    act_notchar( #peb2, ch );
+    obj_to_char( oload( 78 ), ch );
+    }
+  else {
+    act_tochar( #dust1, ch );
+    act_notchar( #dust2, ch );
+    }
+  }
+continue;
+~
+E
+peb1~
+As you climb up, a few pebbles and dirt fall down below.  Suprisingly,
+one of them lands right in your hand.
+~
+E
+peb2~
+As $n climbs up, many pebbles fall down the tunnel's walls, and one of
+them lands right in $s hand.
+~
+E
+dust1~
+As you climb up, a bunch of dirt and dust falls down the tunnel shaft.
+~
+E
+dust2~
+As $n climbs up, a bunch of dirt and dust falls down the tunnel shaft.
+~
+!
+3 0 16
+-1
+S
+
+#33648
+Dark Chamber~
+A sickening smell fills the room, probably coming from the rotting pile
+of fruits and rags sitting in one corner.  This chamber is much wider
+than the tunnel below, but still just big enough for a gnome sized
+creature.  The walls are rough, as is the large crack that leads down
+into a dark tunnel.
+~
+[Rue] add search prog for glass gem...or crummy armor items
+~
+301465668 11 3 0
+D5
+~
+~
+0 -1 33647 10 10 5
+1992 9 1509949540 3 0
+1992 9 1509949540 3 0
+-1
+S
+
+#33649
+Damp and Cramped Tunnel~
+Water trickles down the south wall of this tunnel.  A slick green moss
+covers the wall, as well as the floor in places.  Aside from where the
+water puddles, the floor is covered with a thick layer of dust.  Hundreds
+of tiny footprints track across the dust, leading in all directions.  The
+damp tunnel continues to the east.
+~
+[Rue] water trickles down wall...maybe reset water
+[Fenlyn] done
+~
+301465668 11 3 0
+D1
+~
+~
+0 -1 33650 10 10 5
+D4
+~
+~
+0 -1 33646 10 10 5
+A
+~
+~
+act_tochar( #trickle, ch );
+~
+E
+trickle~
+A bit of water seems to be trickling down the south wall.
+~
+!
+2 200 0
+-1
+S
+
+#33650
+Damp and Cramped Tunnel~
+A thick layer of dust carpets the tunnel floor, with hundreds of tiny
+sets of footprints leading in every direction.  The tunnel dips slightly
+towards its east side, where it leads to another tunnel branching off
+downwards.  To the west the dusty tunnel continues, and the sounds of
+trickling water can be heard.
+~
+[Rue] water trickling from west
+[Fenlyn] done
+~
+301465668 11 3 0
+D3
+~
+~
+0 -1 33649 10 10 5
+D5
+~
+~
+0 -1 33651 10 10 5
+A
+~
+~
+act_tochar( #trickle, ch );
+~
+E
+trickle~
+The sound of trickling water echoes from the west.
+~
+!
+2 200 0
+1992 9 1509949540 3 0
+-1
+S
+
+#33651
+Steep Tunnel~
+The tunnel turns into an almost vertical shaft as it winds its way
+through the bowels of the earth.  The tunnel walls are quite rough,
+snagging your clothes and tearing at you as you pass through.  From
+below, hollow echoing sounds bounce up the jagged tunnel.  Above you you
+can see a the tunnel exits into another tunnel that appears a little
+larger.
+~
+[Rue] add chance of damage from scratching of walls..minor 1-5 damage dependent on dex for percentage of each type
+[Fenlyn] done
+[Fenlyn] I think
+~
+301465668 11 3 0
+D4
+~
+~
+0 -1 33650 10 10 5
+D5
+~
+~
+0 -1 33652 10 10 5
+A
+~
+~
+if( find_stat( ch, dex ) <= random( 12, 18 ) ) {
+  i = 1d5+1;
+  dam_message( ch, i, "The jagged wall" );
+  inflict( mob, ch, i, "a lethal laceration" );
+  }
+continue;
+~
+!
+1 0 48
+A
+~
+~
+acode( room, 1 );
+continue;
+~
+!
+3 0 48
+1992 9 1509949540 3 0
+-1
+S
+
+#33652
+Flooded Tunnel~
+Chill water fills the tunnel to half its height.  The water is dark, and
+you are unable to tell if there is anything in it.  Water trickles down
+the walls, making them slick and dangerous to climb.  Along the west end
+of the room a small tunnel leads up.  To the east the water-filled tunnel
+continues.
+~
+[Rue] ae for entering room, cold water
+[Fenlyn] done
+~
+301465668 13 3 0
+D1
+~
+~
+0 -1 33653 10 10 5
+D4
+~
+~
+0 -1 33651 10 10 5
+A
+~
+~
+act_tochar( #wade, ch );
+continue;
+~
+E
+wade~
+A cold chill tingles your spine as you take a few steps in the cold water.
+~
+!
+1 0 18
+-1
+S
+
+#33653
+Flooded Tunnel~
+The deep water reaches halfway up the walls of this twisted tunnel.  The
+sounds of the water lapping against the sides of the tunnel echo about as
+your movement disturbs it.  To the west, the water-filled tunnel
+continues, while just to your east you see a stone shelf that leads out
+of the water.
+~
+[Rue] ae for entering from west
+[Rue] ae for climbing out of the water
+[Fenlyn] done
+~
+301465668 13 3 0
+D1
+~
+~
+0 -1 33654 10 10 5
+D3
+~
+~
+0 -1 33652 10 10 5
+A
+~
+~
+act_tochar( #leavee, ch );
+act_notchar( #ncleavee, ch );
+continue;
+~
+E
+leavee~
+You step out of the water onto the shelf.
+~
+E
+ncleavee~
+$n steps out of the water onto the shelf.
+~
+!
+3 0 2
+A
+~
+~
+act_tochar( #leavew, ch );
+continue;
+~
+E
+leavew~
+A cold chill tingles up your spine as you wade through the icy water.
+~
+!
+1 0 8
+-1
+S
+
+#33654
+Dark Tunnel~
+Water laps quietly against the small stone ledge you are on.  The ledge
+is only a few inches wide, but handholds allow you to easily keep your
+balance.  The tunnel expands further east, quickly turning into a dusty
+floored warren.  To the west, a water-filled tunnel leads into darkness.
+~
+~
+301465668 11 3 0
+D1
+~
+~
+0 -1 33655 10 10 5
+D3
+~
+~
+0 -1 33653 10 10 5
+1992 9 1509949540 3 0
+-1
+S
+
+#33655
+Dusty Warren~
+A thick layer of dust covers the floor of this little cave.  Stacks of
+torn clothes, rags, rotten food and other refuse cover the floor in
+little heaps.  Amongst the heaps of garbage, several small nests have
+been dug.  The room reeks of rot and mold, the smell assaulting your
+senses.  A small tunnel leads out of the warren to the west.
+~
+~
+301465668 11 3 0
+D3
+~
+~
+0 -1 33654 10 10 5
+430 9 1509949540 3 0
+-1
+S
+
+#33656
+Hidden Shop~
+This basement room is decorated with all manner of fineries.  Expensive
+wallpaper covers the upper portion of the walls, while rich oak wainscot
+runs about the room about five feet high.  A Crystal chandelier glows
+with magical light, giving the room a relaxed feel.  Several glass
+cabinets with books in them line one wall behind the low counter.  Behind
+the counter sits a comfortable chair.  Busts of various gnomes rest on
+marble pedestals in the corners, and fine oil paintings hang gracefully
+from a picture rail that also rims the room.  A fine staircase carved
+from oak climb up towards a barely visible trapdoor.
+~
+up is 33626
+[Rue] make room really fancy
+[Rue] add exit code for the mob letting players out.  bell rings when somebody wants in from above....
+should be no_magic
+[Rue] thief shop....only lets theives in
+add look up
+~
+301469799 1 9 0
+D4
+trapdoor~
+trapdoor~
+203 -1 33626 10 10 5
+A
+~
+~
+acode( find_room( 33626 ), 3 );
+~
+!
+1 0 16
+A
+open~
+trapdoor~
+if( is_open( room, up ) )
+  act_tochar( #isopen, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ncopen, ch );
+  send_to_room( #ropen, find_room( 33626 ) );
+  open( room, up );
+  }
+~
+E
+isopen~
+The trapdoor is already wide open.
+~
+E
+open~
+You open the trapdoor at the top of the staircase.
+~
+E
+ncopen~
+$n opens the trapdoor at the top of the staircase.
+~
+E
+ropen~
+The hidden trapdoor is opened from below.
+~
+!
+0 0 0
+-1
+S
+
+#33657
+Common House~
+Under Construction.
+~
+~
+301465669 1 9 0
+D3
+~
+~
+0 -1 33613 10 10 5
+-1
+S
+
+#33658
+Piles of Broken brick~
+HIgh mounds and shattered piles of brick cover this whole area.  What
+once must have been an impressive brick building is now just a huge pile
+of cracked and shattered brick.  Intermingled with the brick are huge
+stones that must have assisted in the demise of the building.  The only
+wall that remains standing lines the road just to the north.  To the west
+you see the back of a building that appears to have avoided the fate of
+the houses on this alley.
+~
+[Rue] climb down to the east...bricks are unsteady [Rue] add search
+through brick....most likely will find a midge that will leap to attack!
+[Fenlyn] codes except for search done
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 33625 10 10 5
+A
+~
+~
+act_tochar( #leave, ch );
+continue;
+~
+E
+leave~
+You climb down the mound of rubble.
+~
+!
+3 0 2
+A
+climb~
+north wall~
+act_tochar( #dangerwillrobinson, ch );
+~
+E
+dangerwillrobinson~
+The wall to the north is entirely too dangerous looking to climb.
+~
+!
+0 0 0
+A
+north~
+~
+acode( room, 2 );
+~
+!
+0 0 1
+-1
+S
+
+#33659
+Dead End on Beryl Road~
+The hard packed dirt road ends here in a deep pile of rubble and stone. 
+Huge blocks of stone and piles of rubble litter the road, as it appears
+nobody has even tried to clean up the mess here.  Ivy has begun to grow
+over the stones, and hangs off them in a thick and tangled mass of vines. 
+The cracked and splintered cave wall looms above you to the north,
+running alongside the northern edge of the road as it makes its way
+eastward.
+~
+[Rue] might add area of midges up on the rubble
+~
+301465669 1 9 0
+D3
+~
+~
+0 -1 33605 10 10 5
+-1
+S
+
+#33660
+Common House - Second Floor~
+The old wooden floor is quite scuffed and worn.  Several galvanized tubs
+sit around the room, filled with steaming and murky water.  Next to each
+is a small table built into the wall.  Windows built high on the walls
+look out to the west, while skylights let in more light during the day. 
+A wooden staircase leads down.
+~
+~
+301465669 1 9 0
+D5
+~
+~
+0 -1 33612 10 10 5
+-1
+S
+
+#33661
+Small Pier on the Lake~
+This carefully crafted wooden dock sits far out into the middle of the
+pond.  High rails prevent you from falling off, while still allowing you
+a view out onto the calm, blue waters.  Out here it is calm, the willows
+that rim the pond almost encircle you, and you are isolated from the
+bustle of the town.  A small sign is posted on the rail here.  You can
+head south, back along the pier towards the marketplace.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 33672 10 10 5
+D2
+~
+~
+0 -1 33537 10 10 5
+-1
+S
+
+#33662
+Entry Room in the Brick House~
+The entry to the brick house is a large and open room.  Along the north
+wall a stairway climbs up towards the second floor, a decorative carpet
+cushioning the stairs.  Resting against the wall next to the door is a
+small side-table make of oak.  A large painting dominates the south wall,
+sticking out like a sore thumb against the striped wallpaper.  A solid
+oak door is set into the east wall.  An open doorway leads west into
+another room of the house.
+~
+needs side-table object
+extras for painting stairs carpet wallpaper west and door
+acode for creaking stairs if you head up
+~
+301465665 1 6 0
+D1
+front door~
+front door~
+135 -1 33637 10 10 5
+D3
+~
+~
+0 -1 33664 10 10 5
+D4
+~
+~
+0 -1 33663 10 10 5
+-1
+S
+
+#33663
+The Sitting Room in the Brick House~
+This cozy room is furnished with all sorts of cushiony and fanciful
+furniture.  Every inch of the walls is taken up with paintings,
+memoribilia(sp?) and decorative wallpaper.  There is so much furniture
+and junk in here that it is difficult to find a place to walk.  Two large
+windows face east, towards the wall of the cavern and a garden below.  An
+ornate set of stairs leads down.  To the west is a dark oak door.
+~
+fix mermor
+needs key
+acode for creaking stairs if you walk down
+needs object furniture
+can go nuts with extras
+~
+301465665 1 5 0
+D3
+oaken door~
+oaken door~
+135 -1 33665 10 10 5
+D5
+~
+~
+0 -1 33662 10 10 5
+-1
+S
+
+#33664
+Kitchen in the Brick House~
+Cabinets line the north wall, while a heavy iron stove is set next to a
+long marble countertop.  The wall near the stove is covered in decorative
+tiles depicting various farm animals.  Inside the cabinets are dishes and
+glasses arranged in neat little rows.  A small window along the west wall
+is ajar, letting in a cooling breeze.  An open doorway leads east into
+another room of the house.
+~
+cabinet and stove objects..maybe dishes and glasses
+extras for window and looking east
+acode for creaking noises from above if mob is in room upstairs
+vnum 33665
+~
+301465665 1 5 0
+D1
+~
+~
+0 -1 33662 10 10 5
+-1
+S
+
+#33665
+Bedroom in the Brick House~
+This bedroom is a cluttered mess.  Clothes have been thrown haphazardly
+about the room, and piles of old bed sheets are thrown in the corner. 
+Several paintings hang at odd angles on the dirty walls, and dust covers
+the surface of most everything.  A shuttered window looks westward.  To
+the east is a oaken door.
+~
+piles of clothes, sheets, paintings window
+~
+301465665 1 5 0
+D1
+oaken door~
+oaken door~
+135 -1 33663 10 10 5
+-1
+S
+
+#33666
+yard-walkway~
+Under Construction.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33630 10 10 5
+D2
+~
+~
+0 -1 33667 10 10 5
+-1
+S
+
+#33667
+Before the Calantor's  Residence~
+Under Construction.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33666 10 10 5
+D2
+~
+~
+0 -1 33668 10 10 5
+-1
+S
+
+#33668
+Entry Hall of the Calantor's residence~
+Under Construction.
+~
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33667 10 10 5
+-1
+S
+
+#33669
+Kitchen~
+A large brick fireplace dominates the kitchen, a large black pot hanging
+over the ashes of the fire.  The worn old floor shows the scars of years
+of use, and the counters are cluttered with the remains of half eaten
+meals.  A small oval window looks out towards the back of another
+building to the west.  An open doorway leads northward.
+~
+[Rue] fireplace pot floor counters window
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 33638 10 10 5
+-1
+S
+
+#33670
+Smokey Den~
+The scent of pipe-smoke hangs heavily in the air of this dark room. 
+Thick cushioned couches and over-stuffed high back chairs sit in a
+semi-circle, while little side-tables have been positioned almost
+randomly about the room.  The floor is heavily carpeted, with several
+intricately patterned rugs competing for attention.  A glowing gem hangs
+in the midst of a crystal chandelier, its feeble light struggling against
+the thickly decorated chamber.  Several ashtrays are heaped with ashes,
+and several pipe cleaners sit in twisted heaps near each.  The windows
+are covered with slatted wooden shutters.  An open doorway leads out to
+the east.
+~
+[Rue] smell acode
+[Rue] couches tables carpet rugs gem( chandelier ) ashtrays windows
+~
+301465665 1 5 0
+D1
+~
+~
+0 -1 33638 10 10 5
+-1
+S
+
+#33671
+Bedroom~
+This room is a specimen of cleanliness, everything seems to be in its
+place.  The bed is freshly made, and the white sheets are tucked in
+tightly.  Fluffed pillows sit comfortably at the head of the bed, while a
+folded woolen blanket sits at the foot.  Lace curtains hang in the open
+windows, gently blowing in the breeze.  A soft carpet graces the floor,
+cushioning your feet.  An oak door leads east and out of the room.
+~
+[Rue] bed sheets pillows blanket curtains carpet
+~
+301465665 1 9 0
+D1
+oak door~
+oak door~
+131 -1 33639 10 10 5
+-1
+S
+
+#33672
+In the Lake~
+The cold and deep blue water of the pond stretches out before you.  Just
+to the south is a wooden pier, that you could probably climb onto.  To
+the east and west steep banks and tangled willow trees prevent exit from
+the lake.  To the north, the bank is sloped enough that you could easily
+climb out of the pond and between the willows to that side.
+~
+~
+301465669 6 9 0
+D0
+~
+~
+0 -1 33613 10 10 5
+D2
+~
+~
+0 -1 33661 10 10 5
+-1
+S
+
+#33673
+Before a Grand Estate~
+A massive and expensively decorated brick building rises high above you
+to the west.  Wooden shutters grace the sides of the windows, while a
+black-laquered set of double doors provides an entrance to the building. 
+The building appears to be only two-stories high, but spreads out in a
+gentle curve far to the north and south.  Well-trimmed hedges flank the
+sides of the building, and between the windows taller junipers grow high
+into the air.  A gravel path loops around a small fountain in front of
+the building, eventually heading east down a tree-lined lane.
+~
+add door westr
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 33640 10 10 5
+D3
+~
+~
+0 -1 33674 10 10 5
+-1
+S
+
+#33674
+Inside the Entrance Hall~
+The floor is a polished white marble veined with gold, and the walls
+above the dark oak wainscot are covered in plush velvet.  A massive
+chandelier of light-blue crystal hangs down from above, Huge gilded
+mirrors hang from both sides of the hall, reflecting the light and
+generally disorienting you.  A carved granite stairway curves gracefully
+upwards, disappearing into the blinding light of the chandelier.  To the
+west the entrance hall continues, and to the east a set of black double
+doors exits the building.
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 33673 10 10 5
+D3
+~
+~
+0 -1 33676 10 10 5
+D4
+~
+~
+0 -1 33675 10 10 5
+-1
+S
+
+#33675
+Landing Above the Entrance Hall~
+A thick red carpet covers much of the floor of the landing.  The walls
+are sheathed in a layer of white marble topped with a running rail of
+black granite.  Several carved busts sit on pedastals at the back of the
+landing, staring with open eyes at all who ascend the stairs.  Portraits
+dominate the wall facing the staircase, making the general feeling one of
+being watched.  You can head down the massive staircase or head west
+towards several doors in a hallway.
+~
+~
+301465669 1 9 0
+D3
+~
+~
+0 -1 33677 10 10 5
+D5
+~
+~
+0 -1 33674 10 10 5
+-1
+S
+
+#33676
+Inside the Entrance Hall~
+Under Construction.
+~
+~
+301465669 1 9 0
+D1
+~
+~
+0 -1 33674 10 10 5
+-1
+S
+
+#33677
+Upstairs Hallway - In Front of the Mirror~
+Mounted on the west wall, and taking up almost the entire wall is a
+massive gilded mirror.  The edges are beveled, and the frame is thick
+wood inlayed with gold and carved into fanciful decoration.  The position
+of the mirror seems to elongate the hall, as well as allowing you to see
+yourself as you walk down the hallway.  To the north and south are two
+dark oaken doors.  You can head towards the stairway to the east.
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 33678 10 10 5
+D1
+~
+~
+0 -1 33675 10 10 5
+D2
+~
+~
+0 -1 33679 10 10 5
+-1
+S
+
+#33678
+North Bedroom~
+The stark white walls of the room stand out from beneath the heavy
+tapestries that hang from the ceiling.  In the middle of the room is a
+large canopy bed, covered by a dark shroud of thick black cloth.  Against
+the east wall sits a wooden armoire, carved with intricate scenes of
+pastoral bliss.  On each side of the bed are small windows that look
+outside.  A heavy oak door leads south.
+~
+~
+301465669 1 9 0
+D2
+~
+~
+0 -1 33677 10 10 5
+-1
+S
+
+#33679
+South Bedroom~
+~
+~
+301465669 1 9 0
+D0
+~
+~
+0 -1 33677 10 10 5
+-1
+S
+
+#33680
+Osidia's Toy Shop~
+~
+[Rue] finish mob
+~
+301465669 1 9 0
+D0
+wooden door~
+wooden door~
+131 -1 33546 10 10 5
+E
+glowing blue sign~
+@W************* Osidia's Enchanted Toys *************@n
+
+@yPlease be aware that all the toys within this shop
+have been made with the utmost care.  Each carries
+an enchant placed on them by me which have faded in
+time.  I take no responsibilty for bodily damaged
+caused by them! BUYER BEWARE!!@n
+
+@WOsidia Quickfoot
+- Shop Owner
+~
+2079 9 1509949540 3 0
+2992 17 1509949515 -1 0
+2997 17 1509949515 -1 0
+2998 17 1509949515 -1 0
+3145 17 1509949515 -1 0
+3144 17 1509949515 -1 0
+3143 17 1509949515 -1 0
+3142 17 1509949515 -1 0
+3141 17 1509949515 -1 0
+3140 17 1509949515 -1 0
+3139 17 1509949515 -1 0
+3036 17 1509949515 -1 0
+-1
+S
+
+#0
+

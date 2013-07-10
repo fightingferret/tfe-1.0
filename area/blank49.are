@@ -1,0 +1,2543 @@
+#AREA
+Cardinal Magics Tower~
+Derna~
+~
+
+0 0
+3
+#ROOMS
+
+#40750
+Entrance Chamber~
+The room is dimly lit by black candles resting in candelabras in the two
+far corners.  Two uncomfortable-looking straight backed chairs sit on
+either side of a small table by the east side of the room.  The walls are
+covered by large tapestries in rich colors.  The ceiling is high above
+head, and supported by buttresses that climb the walls, coming to a peak
+at the highest point in the ceiling.  Two exits lead from this room, one
+to the south and out of the tower, and one to the north, leading into the
+main part of the tower.
+~
+~
+301465601 0 5 0
+D0
+door~
+door~
+135 695 40751 10 10 5
+D2
+door~
+door~
+131 -1 40752 10 10 5
+E
+candles candelabras corners~
+Two ornate candelabras stand in the corners, casting dim light in the
+room from the black candles in them.
+~
+E
+table 1 east~
+A small table covered with a black cloth sits against the east wall. 
+Sitting on either side of it are chairs with straight back, covered in a
+fine layer of dust.  Neither look to have been used in some time;
+probably because they are as uncomfortable as they look.
+~
+E
+tapestries walls~
+The walls are covered with heavy tapestries depicting great wizards in
+battle with curious and powerful beasts.  Great conflagrations of magical
+fire and crackling energy cover the landscape and figures in the picture.
+~
+A
+pick~
+1 north door~
+if( mob_in_room( 830, room ) ) {
+  act_tochar( #ch, ch );
+  act_notchar( #not, ch );
+  wait( 1 );
+  transfer( ch, find_room( 40752 ) );
+  }
+~
+E
+ch~
+One of the door guards grabs your hand and twists it behind your back. 
+He declares, "Such thieving activities will not be tolerated in the
+Tower!" 
+
+With out further ado he tosses you out the southern exit.
+~
+E
+not~
+You see $n bend to pick the lock of the northern exit when suddenly one
+of the guards leaps over and twists their arm behind their back.  The
+guard declares,"Such thieving activities will not be tolerated in the
+Tower!" 
+
+Without further ado, the guard tosses $n out the southern door.
+~
+!
+0 0 0
+829 9 1509949540 3 0
+1832 17 100 5 0
+695 17 100 -1 0
+1841 17 1509949540 -2 0
+1841 17 1509949540 -2 0
+830 9 1509949540 3 0
+648 17 1509949540 5 0
+1797 17 1509949540 5 0
+1089 17 1509949540 16 0
+618 17 1509949540 6 0
+854 17 1509949540 7 0
+830 9 1509949540 3 0
+1797 17 1509949540 5 0
+1089 17 1509949540 16 0
+618 17 1509949540 6 0
+854 17 1509949540 7 0
+648 17 1509949540 5 0
+-1
+S
+
+#40751
+Central Chamber~
+This room is round, following the curve of the tower, and the ceiling is
+high.  The walls stone and heavily engraved with fantastic carvings of
+angels and daemons.  The flat ceiling is supported by four broad pillars,
+which are also heavily carved.  A huge crystal ball sits by one pillar,
+resting in a gilded stand.  In the center of the room, between all the
+pillars, is a patch of bare earth surrounded by a stone ring.  Four exits
+leave from the room, a door to the south, north and west, and a stairway
+leading up to the east.
+~
+fiery needs more of a name - 'fiery door'?
+~
+301465601 0 8 0
+D0
+Shimmering~
+Shimmering~
+131 -1 40755 10 10 5
+D1
+~
+~
+0 -1 40754 10 10 5
+D2
+door~
+door~
+135 -1 40750 10 10 5
+D3
+Firey Door~
+Fiery~
+131 -1 40753 10 10 5
+E
+1 north~
+A door leads away to the north, bluish colors shimmering in waves across
+its surface.
+~
+E
+1 west~
+To the west you see a fiery red colored door, various shades of red
+flickering across its surface.
+~
+E
+1 east stairway~
+An arched doorway exits the room to the east, leading to a stairway.
+~
+E
+1 south~
+The door to the entrance room is to the south.
+~
+E
+walls pillars carvings~
+A battle rages on the walls and ceiling.  Daemons climb up from the floor
+on the walls and pillars, while angels descend from the ceiling to battle
+them in the carvings.  You glance about again in wonder as you realize
+the carvings seem to actually move and change slowly.
+~
+E
+crystal ball gilded stand~
+A cloudy, inky black and ivory white glow comes from the insides of the
+ball.  It hurts your head to look at the ball for too long.  Just before
+you have to look away, you see yourself standing before a wizard in a
+room full of light.
+~
+E
+ring stone earth dirt~
+The center of the room is bare dirt, about 1 foot above the surrounding
+floor.  It is contained by a ring of stone, like a flower bed with no
+flowers.  The dirt seems to move randomly, as if something below the
+surface disturbs it.
+~
+A
+enter~
+stone ring earth dirt~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+wait( 2 );
+act_tochar( #suff, ch );
+act_notchar( #sufnot, ch );
+i = 10d6+10;
+inflict( ch, mob, i, "suffocating crush of earth" );
+dam_message( ch, i, "suffocating crush of earth" );
+transfer( ch, find_room( 40792 ) );
+~
+E
+ch~
+As you step on the bare dirt, a tendril wraps around your leg,
+and begins to drag you down into the earth.
+~
+E
+not~
+You see $n step on the dirt in the stone ring in the center of the room,
+when suddenly a tendril leaps out and wrpas around his foot.  It begins
+to pull him under ground level.
+~
+E
+suff~
+The ground swallows you and you feel the crush of earth suffocating you.
+~
+E
+sufnot~
+You see $n grimace and cry out in pain as the earth crushes in around him.
+~
+!
+0 0 0
+A
+1 north~
+~
+if( players_room( find_room( 40755 ) ) == 0 )
+  junk_mob( mob_in_room( 832, find_room( 40755 ) ) );
+continue;
+~
+!
+0 -1 0
+A
+knock bash hit~
+door 1 south~
+if( is_open( room, south ) == 0 ) {
+  act_tochar( #ch, ch );
+  act_notchar( #not, ch );
+  interpret( mob_in_room( 829, find_room( 40750 )), "unlock n" );
+  interpret( mob_in_room( 829, find_room( 40750 )), "open n" );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+ch~
+You knock on the door to the south.
+~
+E
+not~
+$n knock on the door to the south.
+~
+E
+open~
+The door is already open.
+~
+!
+0 0 0
+-1
+S
+
+#40752
+Tower Entrance~
+A small clearing allows the sky to look down at this area.  Before you
+stands the entrance to the tower, a huge, heavy wooden door.  On it is a
+symbolic picture of the cardinal elements of magic: fire, water, air, and
+earth.  An impassable wall of rock sits to the south, blocking travel and
+view.  To the east and west the path wanders off into the trees.
+~
+~
+301465601 3 9 0
+D0
+door~
+door~
+131 -1 40750 10 10 5
+D1
+~
+~
+0 -1 40765 10 10 5
+D3
+~
+~
+0 -1 40766 10 10 5
+E
+door entrance picture cardinal elements~
+The door is heavy and thick, made of a dark wood.  It is bound in iron
+bands, and shimmers with a magical light.  Set in the center of the door
+is a wheel shaped object that is divided into quarters.  The quarters
+depict water, fire, air and earth, with fire and water in opposition and
+similarly with air and earth.  The quartes blend with their neighbors,
+and all come together to blend in the middle.  The very center of the
+wheel is a perfect balance of all four magics.  This is the theory of
+magic that this tower studies and promotes.
+~
+E
+tower~
+The tower stands before you, an impressive edifice built of seemingly
+seamless black stone, reaching high into the sky.  Far, far above you
+can see open windows, way up at the top.  Other than the windows the only
+entrance you can see is the door just in front of to the north.
+~
+E
+wall rock~
+To the south with its bottom screened by a few trees you see a wall of
+rock It has a sheer face and look to be quite impassable to all but the
+birds of the sky.
+~
+E
+1 east 1 west path forest trees~
+To the east and west around the tower you see the dark forest.  A small
+path heads from beneath one direction of the forest, past the towers
+door, and on into the forest in the other direction.
+~
+-1
+S
+
+#40753
+Fire magics furnace.~
+Heat blasts you as you enter the room.  A great fire rages in a furnace
+on the north side of the room.  You see strange flickerings in the flames
+in the furnace.  The walls and ceiling are bare stone, covered with soot
+from the fire.
+~
+maybe add 2-3 puzzles that characters have to solve in order to get to
+the custom spots?
+ie each gauntlet has a series of tests to pass, right now it seems too short
+could make a send_to_char, continue action for a blast of heat as player enters the room
+[Merior] obviously not finished
+~
+301465601 0 7 0
+D1
+Fiery~
+Fiery~
+131 -1 40751 10 10 5
+A
+~
+~
+send_to_room( #blast, room );
+loop( all_in_room ) {
+  i = 3d5+10;
+  dam_message( rch, i, "the furnace fires" );
+  inflict( rch, mob, i, "the furnace fires" );
+  }
+~
+E
+blast~
+Raging flames blast from the furnace and sear the room with their heat!
+~
+!
+2 100 0
+A
+~
+~
+act_tochar( #blast, ch );
+continue;
+~
+E
+blast~
+Your flesh is seared by the heat of the air in this room.
+~
+!
+1 0 2
+2134 137 1509949540 3 0
+-1
+S
+
+#40754
+Stairway.~
+You stand at the base of a wide stairway.  Glossy black stone steps with
+intricate carvings lead upward with a fine white railing to guide your
+hand.  The stairs sweep around the outside of the tower and circle beyond
+your sight.  An archway to the east opens out into a large room in the
+interior of the tower.
+~
+~
+301465601 0 5 0
+D3
+~
+~
+0 -1 40751 10 10 5
+D4
+~
+~
+0 -1 40757 10 10 5
+-1
+S
+
+#40755
+Fountain.~
+A wide pool of water separates you from the north side of the room.  A
+spray of water splashes up from the center of the pool in a fountain
+display.  Small water sprites and other magical water creatures cavort
+about in the water.  The exit from the room is the shimmering blue door
+to the south.
+~
+[Merior] which side is far side? does it matter?
+[Merior] looks like you can go north too
+[Merior] friend response doesnt seem to do much
+[Merior] need to clean up war response
+[Merior] fight others enter.. dont attack
+[Merior] blinking never seems to work here...
+~
+301465601 0 5 0
+D0
+~
+~
+0 -1 40756 10 10 5
+D2
+Shimmering~
+Shimmering~
+131 -1 40751 10 10 5
+E
+pool fountain 1 north~
+The northern end of the room is completely blocked off by a wide pool of
+sparkling water.  A fountain sprays water up toward the high ceiling, and
+lights beneath the surface cast a glinting display across the room.  You
+can't see the northern end of the room past the pool.
+~
+A
+1 north~
+~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+As you try to step north and cross the pool, a dozen tiny water
+elementals grab you and deposit you back where you were.
+
+~
+E
+not~
+You see $n try to proceed north across the pool, but a dozen tiny water
+elementals grab $n and deposit them back where they were in the room.
+
+~
+!
+0 0 1
+A
+cast~
+blink 'blink 'blink'~
+if( class( ch ) == mage ) {
+  if( find_skill( ch, blink ) > 0 )
+    if( !rflag( reset1, room ) )
+    transfer( ch, find_room( 40756 ));
+  else
+    act_tochar( #denied, ch );
+  else
+    continue;
+  }
+else
+  act_tochar( #spell, ch );
+~
+E
+spell~
+You don't know that spell.
+~
+E
+denied~
+The sprites and naiads disturb your concentration by whispering in your
+ears and pulling your hair.  They will not let you cast the spell to get
+across the pool.
+~
+!
+0 0 0
+A
+enter~
+pool fountain~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+As you try to step north and cross the pool, a dozen tiny water
+elementals grab you and deposit you back where you were.
+
+~
+E
+not~
+You see $n try to proceed north across the pool, but a dozen tiny water
+elementals grab $n and deposit them back where they were in the room.
+
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+You hear the tittering laugh of a tiny water sprite.  You look about and
+see it fluttering around your head.  Perhaps its flirting with you.
+~
+!
+2 200 0
+A
+1 look~
+sprite~
+if( !mob_in_room( 832, room ) ) {
+mob = mload( 832, room );
+  act_tochar( #ch, ch );
+  act_notchar( #not, ch );
+  act_tochar( #what, ch );
+  }
+else
+  continue;
+~
+E
+ch~
+When you pay attention to the little creature it comes flying up to you. 
+It titters happily and alights on your shoulder.
+
+
+~
+E
+not~
+You see $n getting the attention of one of the water sprites.  It goes to
+$n with a tittering laugh.
+~
+E
+what~
+The sprite whispers in your ear,"What do you seek here?  Do you seek to
+peacefully make customed @Rarmor@n, or do you wish to make @Rwar@n?" 
+The sprite continues, "We will not let you pass if you are not a friend."
+
+~
+!
+0 0 0
+A
+~
+~
+if( players_room( room ) > 0 ) {
+  junk_mob( mob_in_room( 834, room ) );
+  junk_mob( mob_in_room( 834, room ) );
+  junk_mob( mob_in_room( 834, room ) );
+  junk_mob( mob_in_room( 834, room ) );
+  junk_mob( mob_in_room( 832, room ) );
+  junk_mob( mob_in_room( 832, room ) );
+  junk_mob( mob_in_room( 832, room ) );
+  junk_mob( mob_in_room( 832, room ) );
+  }
+~
+!
+1 0 5
+832 9 1509949540 3 0
+-1
+S
+
+#40756
+Water magics fountain.~
+Lights from under the waters surface swim in your vision, reflected about
+by the burbling fountain.  The air is moist and steamy, and water coats
+the walls and floor, making it slick footing.  Across the fountain to the
+south you see the exit from the room, a shimmering blue door.
+~
+electrum ringmail is customed here
+rdesc maybe somenthing about not being able to see the walls, or what the fountain looks like (ie desc the room a bit more
+[Merior] water's
+[Merior] making footing slick
+~
+301465601 0 5 0
+D2
+~
+~
+0 -1 40755 10 10 5
+E
+lights fountain~
+Lights under the surface of the fountain cause reflections across the
+room.  The fountain bubbles high above the surface of the water, causing
+splashing and ripples across the pool.  Water elementals flit about in
+the waves, and cavort about in the humid air in the room.
+~
+E
+1 south shimmering blue door~
+The exit from the room is across the pool to the south, a blue door with
+water colors rippling across its surface.
+~
+A
+enter 1 south~
+~
+act_tochar( #ch, ch  );
+act_notchar( #not, ch );
+junk_mob( mob_in_room( 832, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 832, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 832, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 832, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 834, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 834, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 834, find_room( 40755 ) ) );
+junk_mob( mob_in_room( 834, find_room( 40755 ) ) );
+transfer( ch, find_room( 40755 ) );
+~
+E
+ch~
+As you try to enter the pool to cross to the south exit, the water
+elementals playing in the pool grab you and lift you across to the other
+side.  You arrive with out getting a drop of water on you.
+
+~
+E
+not~
+You see $n try to enter the pool to cross to the southern exit, but the
+water elemtals lift $n across the water and deposit them on the other
+side with out getting a drop of water on them.
+
+~
+!
+0 0 0
+-1
+S
+
+#40757
+Top of stairs.~
+The stairway ends on a landing high up in the tower.  The ceiling extends
+far above you though, with sheer walls and no way to climb higher.  Far,
+far above you can see a balcony leading into a central room, way up at
+the peak of the tower.  You can see no physical way to reach it.  An
+archway leads to the west from the landing into a hallway in the center
+of the tower.
+~
+~
+301465601 0 5 0
+D3
+~
+~
+0 -1 40759 10 10 5
+D4
+~
+~
+0 -1 40758 10 10 5
+D5
+~
+~
+0 -1 40754 10 10 5
+A
+cast~
+blink 'blink 'blink'~
+if( class( ch ) == mage ) {
+  if( find_skill( ch, blink ) > 0 )
+    transfer( ch, find_room( 40758 ));
+  else
+    continue;
+  }
+else
+  act_tochar( #spell, ch );
+~
+E
+spell~
+You don't know that spell.
+~
+!
+0 0 0
+A
+1 up~
+~
+act_tochar( #ch, ch );
+~
+E
+ch~
+You see no way to physically climb to the top of the tower.
+~
+!
+0 0 0
+A
+climb~
+1 up tower~
+act_tochar( #ch, ch );
+~
+E
+ch~
+You see no way to physically climb to the top of the tower.
+~
+!
+0 0 0
+-1
+S
+
+#40758
+Air magics tower.~
+This room is in the top of the tower.  It is open on all sides to wide
+and tall window, letting in the elements.  In the center of the room
+there is a stone table, marked with colorful glyphs and runic symbols. 
+Above the table the air is wildly disturbed, as if nearly transparent
+creature writhe about there.  You see the surrounding landscape through
+the wide windows with a high vantage point.  The two exits from the room
+are the windows, and back down to the staircase landing far below.
+~
+electrum chain customed here
+[Merior] need to do custom
+~
+301465601 0 5 0
+D5
+~
+~
+0 -1 40757 10 10 5
+E
+windows~
+All around you, wide open windows let in the outside air, and provide a
+breathtaking view of the lands around the tower.  Just around the tower,
+you see the thick, dark forest that surrounds the tower's grounds. 
+Beyond that you see flat fields and rolling hills, leading to mountainous
+areas.
+~
+E
+stone table air disturbed transparent creatures~
+In the middle of the room rests a table made of a light colored stone. 
+It is covered in magical symbols, carved and painted on.  Above the
+table, you see the air move about wildly, almost a whirlwind.  In the
+whirlwind, you see small figures, gaseous in appearence, some kind of air
+elementals.
+~
+A
+enter exit~
+windows~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+wait( 1 );
+i = 6d6+10;
+dam_message( ch, i, "the fall" );
+inflict( ch, mob, i, "the fall"  );
+transfer( ch, find_room( 40767 ) );
+~
+E
+ch~
+You foolishly step out the window and find youself falling towards the
+ground.
+~
+E
+not~
+You see $n step out the window and fall screaming towards the ground.
+~
+!
+0 0 0
+A
+1 down~
+~
+act_tochar( #ch, ch );
+~
+E
+ch~
+You can not go down from here by natural means unless you mean to take a
+long fall...
+~
+!
+0 0 0
+A
+cast~
+blink 'blink 'blink'~
+if( class( ch ) == mage ) {
+  if( find_skill( ch, blink ) > 0 )
+    transfer( ch, find_room( 40757 ) );
+  else
+    continue;
+  }
+else
+  act_tochar( #spell, ch );
+~
+E
+spell~
+You don't know that spell.
+~
+!
+0 0 0
+1456 137 1509949540 3 0
+-1
+S
+
+#40759
+Hall.~
+Rich, colorful tapestries cover much of the stone walls to the north and
+south.  Almost hidden behind the hangings are two doors, one in the north
+wall and one in the south.  The hall continues east to a stairway and
+west further into the tower's interior.
+~
+[Merior] not much of a description
+~
+301465601 0 5 0
+D0
+door~
+door~
+131 -1 40761 10 10 5
+D1
+~
+~
+0 -1 40757 10 10 5
+D2
+door~
+door~
+131 -1 40762 10 10 5
+D3
+~
+~
+0 -1 40760 10 10 5
+E
+tapestries hangings walls north south~
+Brightly colored tapestries depicting great conflagrations of the
+elements cover the walls.  An earthquake splits the earth and lava flows
+from volcanoes in one, hurricane winds and tornados plague the landscape
+in another.  A raging fire devours forest and plains, and tidal waves and
+flooding rains destroy another scene.  Framed by strong timbers in each
+wall is a door, both of which are overlapped be the hangings.
+~
+-1
+S
+
+#40760
+Hall.~
+A hallway extends to the east from here, passing two sets of doors on the
+north and south walls, the first set here and the second farther down the
+hall.  Set in a small alcove in the west wall is a sculpture of a
+beautiful woman mounted on a unicorn.  A pair of decorative ferns rest on
+either side of the sculpture.
+~
+~
+301465601 0 5 0
+D0
+door~
+door~
+131 -1 40763 10 10 5
+D1
+~
+~
+0 -1 40759 10 10 5
+D2
+door~
+door~
+131 -1 40764 10 10 5
+E
+woman sculpture unicorn alcove~
+The sculpture is about four feet tall, made of a glistening white stone. 
+It is a beautiful carving of a ravishing woman seated demurely on the
+back of a prancing unicorn.
+~
+E
+plant plants~
+Two large ferns stand to either side of the alcove.  They add a bit of
+garnish to the decorative sculpture.
+~
+A
+get grab take~
+sculpture woman unicorn~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+The sculpture is much to heavy to move, much less lift.
+~
+E
+not~
+You see $n bend over and try to pick up the sculpture, but only grunt in
+effort and fail to even move it.
+~
+!
+0 0 0
+A
+get grab take~
+plant plants~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+The tall plant is set in a huge pot, the combined weight just too heavy
+for you to lift.
+~
+E
+not~
+You see $n attempt to take one of the plants, but fail with a grunt and a sigh.
+~
+!
+0 0 0
+-1
+S
+
+#40761
+Water tank room.~
+Three tanks of water dominate the room.  Two smaller ones sit on two
+tables, containing exotic fish and strange eel-like creatures.  The third
+is much larger, and has a rubber ducky floating in it.  The walls are
+covered in shimmering blue wall hangings, which move and glint like a
+lake in the sunshine.  The only exit is the door to the south.
+~
+[Merior] something reset in here?
+~
+301465601 0 5 0
+D2
+door~
+door~
+131 -1 40759 10 10 5
+E
+shimmering blue wall hangings~
+The walls are covered in hangings which depict a watery surface, making
+to room appear to be surrounded by a lake.
+~
+E
+tanks~
+The smaller two tanks contain fish swimming about in a swirl of seaweed. 
+The larger tank is about man-sized and floating about on its surface is
+surface is a small rubber ducky.
+~
+A
+get grab take~
+fish eels tank rubber ducky~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+A strange field of energy prevents you from approaching any of the tanks.
+~
+E
+not~
+You see $n try to go closer to one of the tanks, but is rebuffed by an
+invisible field.
+~
+!
+0 0 0
+-1
+S
+
+#40762
+Airy bedroom.~
+Hanging halfway between floor and ceiling is a cloth hammock, decorated
+in frilly lace.  The walls are bare stone, with no decorations and the
+stones in the wall tightly sealed, but you still feel a cool breeze
+blowing about the room.  Riding on the tide of air are tiny air creatures
+which tug at you hair and clothes playfully.
+~
+[Merior] dont really understand this room
+~
+301465601 0 5 0
+D0
+door~
+door~
+131 -1 40759 10 10 5
+E
+creatures~
+Creatures almost too translucent to see, and some completely invisible,
+fly about the room and tug at you playfully.  The only reason you notice
+them is the tugging at your clothes.  Otherwise you would never have
+noticed them.
+~
+E
+hammock~
+A brightly colored and lace covered sleeping mat suspended halfway
+between the floor and the ceiling.
+~
+A
+kill~
+creatures~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+As you leap to attack the creatures, they disappear into nothing, leaving
+you with nothing to attack.
+~
+E
+not~
+You see $n leap to attack something in the air, but stop suddenly when
+realizing that there is suddenly nothing to attack.
+~
+!
+0 0 0
+-1
+S
+
+#40763
+Fiery bedroom.~
+This room is decorated with wild, colorful tapestries on the walls. 
+There is a bed in one corner and a nightstand next to it.  A table sits
+in another corner, with scrolls and papers scattered about its surface,
+and a crystal ball sitting on a golden stand.
+~
+[Merior] use objects for bed, etc.
+~
+301465601 0 5 0
+D2
+door~
+door~
+131 -1 40760 10 10 5
+E
+table scrolls papers crystal ball~
+The table is cluttered with various magical items and reagents, and
+papers and scrolls are scattered about with no apparent rhyme or reason.
+~
+E
+tapestries walls~
+The tapestries are pictures of fire elementals and dragons gadding about
+in a lake of fire.  It looks as if the resident of the room has a
+fixation with flames...
+~
+A
+get grab take~
+papers scrolls crystal ball~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+i = 1d35;
+dam_message( ch, i, "energy field" );
+inflict( ch, mob, i, "energy field" );
+~
+E
+ch~
+A field of energy prevents you from getting near the table.  Obviously,
+the resident of the room doesn't want his property tampered with.
+~
+E
+not~
+You see $n try to get some items from the table, but is prevented from
+doing so by an invisible field.
+~
+!
+0 0 0
+-1
+S
+
+#40764
+Earth bedroom.~
+In one corner of the room you see a pile of dirt in a box.  The dirt is
+packed down and in it you see body prints, as if someone had been laying
+on it.  Dirt is scattered about on the floor, and muddy smudges coat the
+walls.  The only exit is the door to the north.
+~
+action for box?
+[Merior] what happens when you dig?
+~
+301465601 0 5 0
+D0
+door~
+door~
+131 -1 40760 10 10 5
+E
+pile dirt box~
+A box of dirt sits in one corner, the dirt matted down and covered in
+what appears to be body prints.  Could the resident of the room actually
+sleep in bare earth?
+~
+A
+dig search~
+box dirt~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+You root around in the dirt of the box, and feel something slimy moving
+around beneath the surface of the dirt.
+~
+E
+not~
+You see $n rooting around in the box, and see $m suddenly start in
+surprise.
+~
+!
+0 0 0
+-1
+S
+
+#40765
+Wooded Path~
+The trees about here grow thickly together in the west, but thin out
+toward the east and north.  The ground cover of sharp bladed grass grows
+similarly, thick beneath the forest to the west but thinning to clumps as
+the ground changes from a dark soil to a more sandy ground.  A path leads
+to the west through the trees, and turns to the north, wandering off and
+disappearing into the sand.  Standing impressively above the trees to the
+northwest is a tower, its spire pointing high into the sky.  To the east
+and south, a rock wall stands blocking travel and view to the land beyond.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40767 10 10 5
+D3
+~
+~
+0 -1 40752 10 10 5
+E
+trees 1 east 1 north~
+The forest begins to thin out to the west and north as the soil beings to
+appear sandy.  The path leads off to the north from here in the sand.
+~
+E
+1 east 1 south rock wall~
+A ridge of stone curves around from the east to the south and runs away
+into the forest to the west.  It looks completely sheer and impossible to
+climb.
+~
+E
+tower Tower~
+A huge tower points toward the sky to the northwest, its spire high up in the sky.
+~
+-1
+S
+
+#40766
+Muddy Path~
+A small path wanders through the forest beneath the dark trees.  The
+light is very dim, the sky completely blocked out by the branches looming
+above.  You see the path wander off to the north and east from here.  To
+the east you see that the forest begins to thin out, while to the south a
+wall of stone and to the west a deep morass of mud block your progress in
+those directions.
+~
+no_mob
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 40787 10 10 5
+D1
+~
+~
+0 -1 40752 10 10 5
+E
+wall stone 1 south~
+A sheer wall of dark stone stands to the south blocking passage in that direction.
+~
+A
+1 west~
+~
+act_tochar( #mud, ch );
+~
+E
+mud~
+You sink to almost your knee your first step into the mud.  You think
+better of walking west and turn back.
+~
+!
+0 0 0
+-1
+S
+
+#40767
+Grassy clearing~
+Thick shrubs and sparse, sharp bladed grasses grow in clumps in the sandy
+soil of this area.  A tall tower stands dominating the view to the west,
+its base obscured by a screen of shrubbery.  High above you can see
+windows up by the tower's peak.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 40768 10 10 5
+D2
+~
+~
+0 -1 40765 10 10 5
+E
+shrubs grasses soil~
+The sandy soil grudgingly allows some thin, weary shrubs and thick
+bladed, waxy-leaved grasses to cling to the ground here.
+~
+E
+Tower tower~
+A great tower stands to the west, standing tall and pointing high into
+the sky.  Craning your neck to look up at its high spire, you can see a
+set of wide windows looking out over the land.
+~
+-1
+S
+
+#40768
+Crossing Paths~
+The ground here is all sand, broken up by an occasional patch of scrubby
+weeds and grasses.  Far off to the south you see that the ground is more
+rocky, while to the west darker soil allows more plants to grow.  To the
+east and north the desert-like conditions continue.  To the west you see
+the huge tower dominating the skyline.  You wonder at the odd diversity
+of climate that presents itself in the area, forest and mountains turning
+directly to desert.
+~
+no mob
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 40769 10 10 5
+D2
+~
+~
+0 -1 40771 10 10 5
+D3
+~
+~
+0 -1 40767 10 10 5
+E
+tower 1 west~
+The spire of a great tower pokes high above the land to the west from here.
+~
+A
+east~
+~
+send_to_char( #wall, ch );
+~
+E
+wall~
+Your passage east is blocked by a shimmering wall of magic.  Through the
+wall you see glimpses of sheer cliffs of stone.  The area almost seems to
+be carved out of the mountain.
+~
+!
+0 0 0
+-1
+S
+
+#40769
+Desert~
+Small bushes and an occasional small prickly plant dot the landscape.  A
+hot gusty wind blows through the area, carrying gritty sand clouds and
+obscuring your vision.  In all directions, the desert terrain continues. 
+Dunes of sand obscure your vision in all directions, making it difficult
+to tell which way is which.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40773 10 10 5
+D2
+~
+~
+0 -1 40768 10 10 5
+A
+e east w west~
+~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+You wander over the dune, and then another with the hot sun blazing down
+on you, when suddenly you realize that you see your own tracks in the
+sand in front of you.
+~
+E
+not~
+$n leads you over a dune, and then another, and wanders around under the
+hot sun until $e suddenly stops and looks at the ground in disgust.  You
+see your own tracks in the sand ahead of you.
+~
+!
+0 0 0
+-1
+S
+
+#40771
+Rocky Ground~
+Lines of stacked stones, shaped into rectangles and pyramids line the
+path as it wanders through sand covered stone.  A hot wind blows out of
+the north, carrying the dry, gritty air of the desert.
+~
+[Merior] pyramids,
+[Merior] confusing description
+[Merior] is this gonna be close to narak?
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40768 10 10 5
+D2
+~
+~
+0 -1 40777 10 10 5
+-1
+S
+
+#40773
+Desert~
+All around you large dunes of sand dominate the landscape.  No plants of
+any type are visible, just blowing sand.  To the west, north, and south
+the dunes continue.  To the east, through the shimmering distortion of
+heat, a sheer rock wall grows out of the desert into a tall mountain.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40775 10 10 5
+D2
+~
+~
+0 -1 40769 10 10 5
+D3
+~
+~
+0 -1 40774 10 10 5
+E
+east rock face mountain~
+No description
+The mountains block all passage to the east with a shear wall of dark stone.
+~
+E
+1 east rock wall face mountain~
+A mountain's rock face sprouts out of the flat sandy desert and blocks
+any passage east.
+~
+A
+1 north~
+~
+i = random( 0, 21 );
+j = find_stat( ch, dex );
+if( i > j ) {
+  transfer( ch, find_room( 40775 ) );
+  act_tochar( #ch, ch );
+  act_notchar( #not, ch );
+  transfer( ch, find_room( 40794 ) );
+  }
+else
+  continue;
+~
+E
+ch~
+@YYou stumble in the loose sand and fall down the slope into the pit.@n
+~
+E
+not~
+You see $n stumble in the loose sand and fall into the pit.
+~
+!
+0 0 0
+-1
+S
+
+#40774
+Desert~
+The sand beneath your feet continues to the east and north, but to the
+west and southwest scrubby plants and small trees begin to group closer
+together and the dirt to darken to sandy soil.  Past the vegetation to
+the southwest is an immense tower, reaching up into the sky.
+~
+[Merior] why cant we  move southwest then?
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40776 10 10 5
+D1
+~
+~
+0 -1 40773 10 10 5
+-1
+S
+
+#40775
+Edge of a Pit~
+Yawning beneath your feet is a huge circular pit in the sand.  The sides
+slope steeply down to the bottom, where it is too dark to see detail from
+above.  To the southwest you see the tower looking over the landscape
+across the sand.  To the east and north the mountains form a sheer rock
+wall, impassable to all but the winged.
+~
+no_mob
+~
+301465608 3 9 0
+D2
+~
+~
+0 -1 40773 10 10 5
+D3
+~
+~
+0 -1 40776 10 10 5
+D5
+~
+~
+0 -1 40794 10 10 5
+E
+pit~
+No description~
+E
+pitcha Mobs don't hunt you down to kill you, but I think they should *grin*~
+No description~
+E
+pit~
+A pit of sand lies here, sloping steeply down to a deep hole out of the light.
+~
+-1
+S
+
+#40776
+Desert~
+The ground is bare sand, with a few scrubby brushes to break up the
+monotony.  Scattered about in the sand are bits of white rock.  Walls of
+stone hem in this area, surrounding you in impassable walls to the west
+and north.  Off to the east, you see an occasional cloud of wind blown
+sand in the air.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 40775 10 10 5
+D2
+~
+~
+0 -1 40774 10 10 5
+E
+walls stone 1 west 1 north~
+The mountains ring in the area, passing to the west and north, and
+continuing around to the far east, almost beyond vision.
+~
+E
+white rock bits~
+As you look closer at the white bits you realize that they are pieces of
+bone, crunched beyond recognition of its previous owner.
+~
+E
+walls stone~
+The mountains block your way to the north and west with seamless walls of stone.
+~
+A
+1 east~
+~
+i = random( 0, 21 );
+j = find_stat( ch, dex );
+if( i > j ) {
+  transfer( ch, find_room( 40775 ) );
+  act_tochar( #ch, ch );
+  act_notchar( #not, ch );
+  transfer( ch, find_room( 40794 ) );
+  }
+else
+  continue;
+~
+E
+ch~
+@YYou stumble in the loose sand and fall down the slope into the pit.@n
+~
+E
+not~
+You see $n stumble in the loose sand and fall into the pit.
+~
+!
+0 -1 0
+895 9 1509949540 3 0
+895 9 1509949540 3 0
+895 9 1509949540 3 0
+-1
+S
+
+#40777
+Stone Circle~
+This area opens up to a wide flat plateau of cracked and split stone. 
+Huge stones, weathered from wind and rain, stand as silent witness to
+your passing.  They are scattered about in places, but in some they seem
+arranged, as if in a grand pattern.  In the very center of the rock
+strewn field stands a series of rectangularly shaped stones, stacked in
+odd patterns.  They form a vague ring around a stone table.  To the east
+and south, sheer rock faces show through a shimmer of powerful magic. 
+The north and east are open and paths lead off in those directions.
+~
+Make unstable random rift
+[Merior] rock-strewn
+[Merior] need some extras
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40771 10 10 5
+D3
+~
+~
+0 -1 40778 10 10 5
+-1
+S
+
+#40778
+Rocky Ground~
+Piles of rocks and huge boulders scatter the area, resting on the
+weathered and split rock that you travel across.  A stiff wind buffets
+you as the updraft in the canyon to the south blasts over the cliff.  A
+wide vista of mountainous terrain greets your eyes in that direction,
+snow-topped mountains and deep valleys.  A trail of sorts passes between
+the piles of stone, leading from east to west.  A wall of rock stands
+blocking the way north, a sheer and seamless stone.  You can see that it
+ends somewhere to the east.
+~
+[Merior] first sentence is awkward
+[Merior] snow-topped mountain phrase doesnt fit right
+[Merior] need some extras here
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 40777 10 10 5
+D3
+~
+~
+0 -1 40779 10 10 5
+-1
+S
+
+#40779
+Path Crossing~
+Before you to the north, standing high in the sky, you see the spire of a
+huge tower.  The base is obscured by a sheer rock wall which runs from
+east to west as far as you can see.  The path you stand on splits three
+ways to the east, west, and south.  To the west and east, the path
+wanders between boulders and outcroppings of rock and passes beyond your
+sight.  To the south, the path goes through the gate and off down into a
+ravine.
+~
+[Merior] guards always stick together?
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 40778 10 10 5
+D2
+~
+~
+0 -1 40780 10 10 5
+D3
+~
+~
+0 -1 40781 10 10 5
+E
+wall rock 1 north~
+A rock wall blocks the way to the north.  It is a sheer face, with no
+visible seams or handholds for climbing.
+~
+A
+get take grab move~
+sign post~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+The sign is well mounted on a sturdy post.  It easily resists any
+attempts at moving it, and for your efforts you get a splinter in your
+finger.
+~
+E
+not~
+You see $n try to move the sign, but only succeed in getting a splinter
+in $s finger.
+~
+!
+0 0 0
+1211 17 100 -2 0
+879 41 1509949540 3 0
+618 17 1509949540 6 0
+854 17 1509949540 7 0
+1797 17 1509949540 5 0
+648 17 1509949540 5 0
+1089 17 1509949540 16 0
+879 73 1509949540 3 0
+618 17 1509949540 6 0
+854 17 1509949540 7 0
+648 17 1509949540 5 0
+1089 17 1509949540 16 0
+1797 17 1509949540 5 0
+879 73 1509949540 3 0
+618 17 1509949540 6 0
+854 17 1509949540 7 0
+648 17 1509949540 5 0
+1089 17 1509949540 16 0
+1797 17 1509949540 5 0
+-1
+S
+
+#40780
+Inside the Gates~
+Just to the south a huge gate hangs on its strong hinges.  Stout pillars
+of stone support the gate and a high archway above it all.  A wide path
+passes north and south through here, coming from the gate to the south
+and going north towards the Tower.  You can see its spire pointing to the
+sky far above the landscape to the north.  A guard post stands behind the
+wall to the west, housing the winch which opens and closes the ponderous
+gate.
+~
+key object # 1098
+[Merior] saying acode is kinda odd 
+[Merior] gatekeeper needs resistances, better stats - but of course isnt likely to be killed
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40779 10 10 5
+D2
+gate~
+gate~
+391 1098 40793 10 10 5
+D3
+~
+~
+0 -1 40782 10 10 5
+E
+gate hinges pillars~
+Stone walls converge from the east and west to meet at the gate.  They
+walls run into and meld with the huge stone pillars that hold up the gate. 
+Great hinges are mounted on the pillars and support the thick doors. 
+They doors stand several times your height and at least as thick as you
+are tall.  Curious carvings cover the stone, sigils of power and pictures
+of creatures of fantasy.
+~
+A
+pull~
+lever~
+act_tochar( #ch, ch );
+~
+E
+ch~
+You see no lever to pull.  Perhaps the guard can help you open the gate.
+~
+!
+0 0 0
+A
+say ' tell ask~
+open guard~
+send_to_room( #guard, room );
+interpret( mob_in_room( 879, room ), "poke gatekeeper" );
+wait( 1 );
+send_to_room( #gate, room );
+wait( 1 );
+interpret( mob_in_room( 758, room ), "unlock s" );
+interpret( mob_in_room( 758, room ), "open s" );
+~
+E
+guard~
+The guard stares blankly a moment, then leanes over to the gatekeeper.
+
+~
+E
+gate~
+The gatekeeper jumps and looks around for a few seconds.  Finally
+realizing what is required of him, he pulls the keychain from around his
+neck and walks over to the gate.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+interpret( mob_in_room( 758, room ), "close s" );
+interpret( mob_in_room( 758, room ), "lock s" );
+~
+!
+1 0 4
+758 169 1509949540 3 0
+786 17 1509949540 16 0
+1649 17 1509949540 5 0
+1852 17 1509949540 5 0
+1098 17 1509949540 17 0
+879 73 1509949540 3 0
+618 17 1509949540 6 0
+1797 17 1509949540 5 0
+648 17 1509949540 5 0
+854 17 1509949540 7 0
+1089 17 1509949540 16 0
+879 73 1509949540 3 0
+618 17 1509949540 6 0
+1797 17 1509949540 5 0
+648 17 1509949540 5 0
+854 17 1509949540 7 0
+1089 17 1509949540 16 0
+-1
+S
+
+#40781
+Cliff's Edge~
+A constant gusting wind tugs at you as you travel through this area.  A
+few bushy plants cling to the rocks around the area, growing in the few
+spots of soil held in the creases of the rocks.  A faint path wanders
+between the large stones and outcroppings of rock, passing east-west
+through here.  The cliff's edge is just to the south, and a rock wall
+dominates the area to the north.  The path to the east leads to the Tower
+gate, and to the west off into the wilderness.
+~
+~
+301465608 3 9 0
+D1
+~
+~
+0 -1 40779 10 10 5
+D3
+~
+~
+0 -1 40783 10 10 5
+E
+cliff 1 south~
+The south side of the path is bordered by open air where the cliff falls
+away to a wide valley below.
+~
+E
+wall 1 north~
+A rock wall blocks the way to the north.  It is a sheer face, with no
+visible seams or handholds for climbing.
+~
+E
+1 east gate~
+Stone buildings and a huge wall surrounding the gate are visible off to
+the east along the path.
+~
+-1
+S
+
+#40782
+Guard Post~
+A low ceiling hangs over your head, a plain stone slab resting on the
+unadorned stone walls around you.  The room is rectangular, with a long
+table and benches running the length.  The remains of a plain meal rests
+on the table.  In the rear of the room a heavy winch is set up with heavy
+chains running on pulleys out to the gate.
+~
+guard post
+[Merior] stone slab rests...
+[Merior] make benches and table objects
+[Merior] need some extras
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 40780 10 10 5
+879 9 1509949540 3 0
+879 9 1509949540 3 0
+879 137 1509949540 3 0
+-1
+S
+
+#40783
+Cliff's Edge~
+Wind whistles between the rocks from the updraft of the valley.  A
+scattering of trees stubbornly force their roots between the rocky
+surface of this area.  A path of sorts meanders between boulders and past
+the trees, turning north and east from here.  To the south is a cliff
+overlooking a wide valley, to the north is a thickening forest.  The view
+to the west is dominated by a mountainous face.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40784 10 10 5
+D1
+~
+~
+0 -1 40781 10 10 5
+2504 9 1509949540 3 0
+473 9 1509949540 3 0
+840 17 1509949540 -2 0
+-1
+S
+
+#40784
+Rocky ground~
+The path wanders generally north and south between large outcroppings of
+stone and a scattering of large trees.  Large stones poke out of the
+ground, which is primarily dark soil growing grass and weeds.  At one
+point along the path you see a large patch of matted down plants,
+possibly the bed of a very large animal.  Also, deep-set tracks of some
+heavy unknown animal litter the ground.  The way east is blocked by a
+sheer wall of stone.  The path continues north and south from here.  To
+the west more trees appear, but you seem unable to head in that direction.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40785 10 10 5
+D2
+~
+~
+0 -1 40783 10 10 5
+E
+wall 1 east~
+A rock wall blocks passage to the east.  Small plants grow at its base
+and a few stubborn vines claim a tenuous hold on the wall.
+~
+E
+tracks plants bed~
+A very large and heavy animal appears to be tromping through this area,
+its large tracks visible to even the most novice of trackers.  Off to the
+side of the path you see a flattened area in the grass, probably where
+the creature took a nap.
+~
+A
+1 west~
+~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+You try to head west briefly, but you loop right back to where you were. 
+You don't even remember what it was like further west except some kind of
+strange light hung in the air and a mountain shimmered on the other side.
+~
+E
+not~
+You see $n wander off to the west but come right back shaking $s head in
+confusion.
+~
+!
+0 0 0
+2501 9 1509949540 3 0
+832 17 1509949540 -2 0
+-1
+S
+
+#40785
+Forest Path Crossing~
+The path splits here, going to the north, east, and south from here.  The
+ground is quite wet, and slopes downward to the north, becoming more
+marshy in that direction.  To the south the path continues into drier
+forested areas.  To the east you see the Tower spire pointing to the sky
+through a break in the forest cover.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40786 10 10 5
+D1
+~
+~
+0 -1 40787 10 10 5
+D2
+~
+~
+0 -1 40784 10 10 5
+358 17 1509949540 -2 0
+-1
+S
+
+#40786
+Marsh~
+The path continues north and south from here, winding between trees.  The
+ground is quite muddy, and there are patches of open water between the
+humps of tree roots.  The trees are different from the ones to the south;
+they are smaller and twisted and do not completely block out the sky.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 40788 10 10 5
+D2
+~
+~
+0 -1 40785 10 10 5
+E
+trees~
+Gnarled trees grow in clumps, their roots providing the only dry areas to
+walk.  They have dark colored and very rough bark, and have flat needles.
+~
+-1
+S
+
+#40787
+Swampy Path~
+The path turns to the west and south here, though the trees are unchanged. 
+The dark branches cover the sky completely, and the ground is damp and
+marshy.  The strange thing in this area is that you don't hear the forest
+activity like elsewhere in the woods.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 40766 10 10 5
+D3
+~
+~
+0 -1 40785 10 10 5
+-1
+S
+
+#40788
+Swamp~
+The ground is completely covered in water here, with humps of ground
+appearing around the tree's roots.  The trees are thick trunked, and a
+grey moss covers them.  Sickly green colored vines climb up the trunks
+and hang between the trees.  The path has dissappeared into the watery
+ground, but it is possible to travel to the east, north, and south.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40790 10 10 5
+D1
+~
+~
+0 -1 40789 10 10 5
+D2
+~
+~
+0 -1 40786 10 10 5
+E
+trees moss vines~
+Rough bark and thick, squat trunks of trees grow in densely packed clumps. 
+A grey moss clings to the trees, and a few stringy vines climbed up the
+trees to catch the sun in the higher branches.
+~
+A
+~
+~
+send_to_room( #plop, room );
+~
+!
+2 100 0
+420 9 1509949540 3 0
+-1
+S
+
+#40789
+Swamp~
+The ground bounces under your feet as you walk about this area.  You
+notice that if you walk close to any of the few trees that grow here they
+wave crazily with each footstep.  The ground is actually the roots of the
+trees all gnarled together covering the mud underneath.  Large patches of
+open mud lay in wait for the unwary traveler to step into them.  A
+noxious gas bubbles up from the mud, splattering it about.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 40791 10 10 5
+D3
+~
+~
+0 -1 40788 10 10 5
+A
+~
+~
+send_to_room( #bubble, room );
+~
+E
+bubble~
+You hear small bubbles of gas burble up from the mud.
+~
+!
+2 50 0
+A
+~
+~
+send_to_room( #thump, find_room( 40789 ) );
+~
+E
+thump~
+A flash of light to the north catches your attention, then you hear a muffled explosion.
+~
+!
+0 0 0
+-1
+S
+
+#40790
+Swamp~
+The ground bounces beneath your feet and the plants around you move with
+the bouncing motion.  The trees and plants that grow here form the
+"ground" as their roots grow together to cover the mud below.  The ground
+is not completely covered, though, and open patches of mud are scattered
+about where the roots do not grow together.  To the west and north, the
+solid ground ends and bare, deep mud dominates to the terrain as far as
+you can see.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 40791 10 10 5
+D2
+~
+~
+0 -1 40788 10 10 5
+A
+~
+~
+send_to_room( #thump, find_room( 40790 ) );
+~
+E
+thump~
+You see a flash of light from the east, and then hear a muffled explosion.
+~
+!
+0 0 0
+A
+1 north 1 west~
+~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+Your attempt to walk off to the north and west result in you sinking
+quickly into the mud and getting yourself all slimy before you manage to
+clamber back out.
+~
+E
+not~
+You see $n try to wander off in the mud to the north and west, sink
+quickly up to $s waist and make a mess of $mself before clambering back
+out.
+~
+!
+0 0 0
+-1
+S
+
+#40791
+Swamp~
+A thick mat of roots floating on the top of mud forms the ground here.  A
+few trees, whose roots you walk on, wave in the air to the motion of your
+footsteps.  Long grasses and strange weeds grow in between the trees and
+around the large patches of open mud that are not covered by the roots. 
+A noxious smell pervades the air, and bubbles of gas bubble up from the
+mud.  The root matt comes to an end to the north, making it impossible to
+go in that direction.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 40789 10 10 5
+D3
+~
+~
+0 -1 40790 10 10 5
+E
+mat roots trees~
+Short, scrubby trees grow on top of the muddy flats, their roots growing
+out along the surface and intertwining.  The roots create a sturdy mat,
+strong enough to support you as you walk along.  The trees and grasses
+that grow in this area sway with the ripples of your footsteps along the
+ground.  Off to the north the mat of roots ends, leaving only an
+impassable muddy mire.
+~
+E
+grasses plants~
+Grasses that grow with tube-like stalks and plants that hold water and
+give off a sweet smell to trap flies thrust themselves up between the
+roots that form the unstable ground.
+~
+A
+~
+~
+send_to_room( #burble, room );
+wait( 1 );
+send_to_room( #explode, room );
+loop( all_in_room ) {
+  i = 6d6+5;
+  inflict( rch, mob, i, "searing flame" );
+  dam_message( rch, i, "searing flames" );
+  acode( find_room( 40790 ), 1 );
+  acode( find_room( 40789 ), 2 );
+  }
+~
+E
+explode~
+You are suddenly enveloped in flames as the gas bubbles ignite!
+~
+E
+burble~
+You hear a gurgling sound of gas bubbles being emitted from the mud.
+~
+!
+4 500 0
+-1
+S
+
+#40792
+Earth magics cave.~
+You are in a very large chamber, extending beyond your view into the
+gloom in all directions.  The floor is bare dirt with large, rough stones
+peeking out.  In the center of the room there rests a particularly large
+stone, almost an ogre's height across, rough and unfinished around the
+edges but cut flat and highly polished on its top.
+~
+[Merior] dont understand the flee here
+[Merior] no custom code here
+~
+301596672 11 9 0
+D0
+~
+~
+0 -1 40796 10 10 5
+D1
+~
+~
+0 -1 40798 10 10 5
+D2
+~
+~
+0 -1 40797 10 10 5
+D3
+~
+~
+0 -1 40795 10 10 5
+E
+archway shimmering portal~
+A golden arch stands near the stone table, covered in runes.  Under its
+span the air shimmers in multi-colored lights, and you see the image of a
+gate blurred and swimming through the lights.  Perhaps this is a portal
+out of this room.
+~
+E
+stone center top~
+The stone appears to be a huge flat table.  Its flat, polished top has
+intricate carvings etched into it, beautiful engravings of some arcane
+purpose.  Every time you begin to look away from the stone, something
+changes on the table's surface, some eerie thing that makes your eyes
+snap back to look.  But when you look at it you see nothing different.
+~
+E
+walls floor ceiling~
+The walls, floor, and ceiling are completely made of bare earth.  It
+makes you wonder just how it is all help up.
+~
+E
+carvings engravings arcane~
+A pentagram is carved into the polished surface of the dark top of the
+stone, with strange runes and glyphs etched in and around the pattern.
+~
+A
+enter~
+arch archway shimmering lights portal~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+transfer( ch, find_room( 40759 ) );
+~
+E
+ch~
+You step into the shimmering lights of the portal and find youself
+somewhere else...
+
+~
+E
+not~
+You see $n step into the shimmering lights under the arch and disappear.
+
+~
+!
+0 0 0
+-1
+S
+
+#40793
+Tower Gate~
+The path abruptly ends at the foot of a monstrous gate to the north. 
+Huge stone doors hang on thick metal hinges attached to stout stone
+pillars.  A high arch spans the pillars and extends to the ground on
+their sides, forming seamless walls which extend out along the cliffs to
+either side.  The ground drops away sharply on both sides of the path, a
+long drop down to the valley floor.  To the south the path follows a
+ridge of stone down a winding path to the valley floor.
+~
+key object # 1098
+[Merior] not sure where all this is supposed to link to
+[Phule] is near greened way
+~
+301465601 3 9 0
+D0
+gate~
+gate~
+391 1098 40780 10 10 5
+D2
+~
+~
+0 -1 39286 10 10 5
+A
+knock bang call bash hit~
+gate open~
+act_tochar( #ch, ch );
+act_notchar( #notch, ch );
+wait( 1 );
+send_to_room( #peer, room );
+wait( 1 );
+interpret( mob_in_room( 758, find_room( 40780 ) ), "unlock s" );
+interpret( mob_in_room( 758, find_room( 40780 ) ), "open s" );
+send_to_room( #open, room );
+~
+E
+ch~
+You bang on the gate and call for it to be opened.
+~
+E
+notch~
+$n bangs on the gate and calls for it to be opened.
+~
+E
+peer~
+You feel the eyes of the gate guards on you as they ponder your right to enter.
+~
+E
+open~
+A rumbling of gears and chains through pulleys comes from behind the gate
+as the huge doors swing open.
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 758, find_room( 40780 ) );
+interpret( mob, "close south" );
+interpret( mob, "lock south" );
+~
+!
+1 -1 1
+-1
+S
+
+#40794
+The Antlion Pit~
+Far above you, about 30 feet or so, you see the edge of the pit.  The
+walls slope up steeply to the edge, and it looks to be a very difficult
+climb.  The sand is very loose and slides down to the bottom of the pit
+at the least disturbance.
+~
+~
+301465600 3 9 0
+D4
+~
+~
+0 -1 40775 10 10 5
+A
+1 up flee~
+~
+if( find_skill( ch, climb ) == 0 )
+  i = 2d50;
+if( find_skill( ch, climb ) == 1 )
+  i = 2d50+10;
+if( find_skill( ch, climb ) == 2 )
+  i = 2d50+20;
+if( find_skill( ch, climb ) == 3 )
+  i = 2d50+30;
+if( find_skill( ch, climb ) == 4 )
+  i = 2d50+40;
+if( find_skill( ch, climb ) == 5 )
+  i = 2d50+50;
+if( find_skill( ch, climb ) == 6 )
+  i = 2d50+60;
+if( find_skill( ch, climb ) == 7 )
+  i = 2d50+70;
+if( find_skill( ch, climb ) == 8 )
+  i = 2d50+80;
+if( find_skill( ch, climb ) == 9 )
+  i = 2d50+90;
+if( find_skill( ch, climb ) == 10 )
+  i = 2d50+100;
+if( i > 91 ) {
+  act_tochar( #up, ch );
+  act_notchar( #not, ch );
+  continue;
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #notnope, ch );
+  }
+~
+E
+up~
+You scramble up the slope and escape from the pit.
+
+~
+E
+not~
+You see $n scramble up the slope and out of the pit.
+
+~
+E
+nope~
+You slip in the tumbling sand, and fall back into the pit.
+
+~
+E
+notnope~
+You see $n try to scramble up the slope, but slip in the tumbling sand
+and slide back down.
+
+~
+!
+0 0 0
+874 8 1509949540 3 0
+-1
+S
+
+#40795
+Earth magics cave.~
+Three boulders stand in a stack near the wall to the west.  The smallest
+of the rocks is the bottom of the stack, with the larger ones balancing
+on it, looking to be almost ready to fall over at any second.  The ground
+around the odd pile is dark, bare soil with small chips of stone
+scattered about.  The cave opens out to the east, north and south, while
+a wall of packed dirt blocks passage to the west.
+~
+~
+301596672 11 9 0
+D0
+~
+~
+0 -1 40803 10 10 5
+D1
+~
+~
+0 -1 40792 10 10 5
+D2
+~
+~
+0 -1 40802 10 10 5
+-1
+S
+
+#40796
+Earth magics cave.~
+A stone pillar stands here, heaving up from the ground and stretching
+beyond your vision up into the heights of the cavern.  The ground around
+the great pillar and stretching as far as you can see is loose dark soil. 
+It is piled up to the north, sloping up to an almost vertical wall. 
+Stones protrude from the dirt in places, some glittering with facets of
+crystal.  The huge cavern extends to the east, south, west.
+~
+~
+301596672 11 9 0
+D1
+~
+~
+0 -1 40799 10 10 5
+D2
+~
+~
+0 -1 40792 10 10 5
+D3
+~
+~
+0 -1 40803 10 10 5
+-1
+S
+
+#40797
+Earth magics cave.~
+This area is dominated by a huge stone column which reaches high into the
+cave above you, far beyond your vision.  A murky pool surrounds the
+column, dark slimy water which covers the ground.  The pool laps up to
+the wall of stone to the south and ends to the east, north, and west when
+the floor rises to a high elevation in those directions.  Dull, dark
+colored stones poke out of the pool.  A greasy looking growth covers the
+stones, making the only dry crossing of the area slippery footing.
+~
+~
+301596672 11 9 0
+D0
+~
+~
+0 -1 40792 10 10 5
+D1
+~
+~
+0 -1 40801 10 10 5
+D3
+~
+~
+0 -1 40802 10 10 5
+-1
+S
+
+#40798
+Earth magics cave.~
+The cave floor is cracked and split dried earth broken up by sharp
+protruding stones.  Sharp edges of obsidian glass glint in the light and
+make the area difficult to negotiate through safely.  A bright light
+shines in the darkness to the north, catching your eye in the deep
+subteranean blackness around you.  The cave opens out in all directions
+except the east, where a wall of naked stone blocks passage.
+~
+~
+301596672 11 9 0
+D0
+~
+~
+0 -1 40799 10 10 5
+D2
+~
+~
+0 -1 40801 10 10 5
+D3
+~
+~
+0 -1 40792 10 10 5
+-1
+S
+
+#40799
+Earth magics cave.~
+The floor of bare earth slopes up steeply to become the wall of the
+chamber, extending high above you beyond your vision to the north and
+east.  A huge crystal standing taller than an ogre emerges from a rough
+grey stone near the western wall.  A bright light shines from the
+crystal, giving illumination to the area about you.  The south and west
+open out into a huge cave so large you can not see the far walls. 
+Stones with glittering facets of crystal embedded in them catch the light
+and send slanting beams of light around the room.
+~
+~
+301596673 11 9 0
+D2
+~
+~
+0 -1 40798 10 10 5
+D3
+~
+~
+0 -1 40796 10 10 5
+E
+stone crystal facets light western~
+A bright light emanates from a monstrous clear crystal that extends out
+of a plain grey boulder resting by the western wall.  It stands taller
+than an ogre and is almost the same in width.  The light illuminates a
+wide area around it as bright as sunshine.  Stones with tiny crystals in
+a myriad of colors embedded in them refract the light, sending glittering
+beams about the room.
+~
+A
+get take grab~
+crystal light~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+You attempt to lift a crystal massing many times your own with a mighty
+effort, but come up empty handed.  The crystal is just to huge and heavy
+for you to budge.
+~
+E
+not~
+$n walks up the the crystal, find a handhold and makes a valiant effort
+at moving the object massing hundreds of times $s own size.  $e walks
+back defeated, red faced and breathing hard.
+~
+!
+0 0 0
+A
+get grab take~
+stones facets~
+act_tochar( #ch, ch );
+act_notchar( #not, ch );
+~
+E
+ch~
+You try to pick up one of the many stones bearing small crystals in them,
+but find that it is larger than you thought.  It extends below the
+surface of the soil, and even making the effort to dig around it yields
+nothing.
+~
+E
+not~
+$n tries to pick up one of the many stones with embedded crystal, but
+finds them to be too large to handle.
+~
+!
+0 0 0
+1632 9 1509949540 3 0
+-1
+S
+
+#40800
+Earth magics cave.~
+Under Construction.
+~
+~
+301465601 11 9 0
+-1
+S
+
+#40801
+Earth magics cave.~
+A murky pool of water lies in a depression in the soil here.  Rough
+stones poke out of the dank pool, slippery with faintly glowing moss. 
+The cavern wall blocks the exits to the east and south with the slimy
+water lapping right up to the rough stone.  The cavern opens to the north
+and east away from the pool of water.
+~
+~
+301596672 11 9 0
+D0
+~
+~
+0 -1 40798 10 10 5
+D3
+~
+~
+0 -1 40797 10 10 5
+-1
+S
+
+#40802
+Earth magics cave.~
+Tubes of dried mud extend up from the floor, taller than the average
+halfling, and almost as big around.  The ground between the tubes is
+moist clay clumped up into heavy lumps of soil.  The cavern wall circles
+around the south and west sides of the room, blocking passage in those
+directions.  To the east and north, the cavern extends beyond your vision.
+~
+~
+301596672 11 9 0
+D0
+~
+~
+0 -1 40795 10 10 5
+D1
+~
+~
+0 -1 40797 10 10 5
+-1
+S
+
+#40803
+Earth magics cave.~
+A table of rough rock forms the floor here, rising about one foot above
+the surrounding floor of bare dirt.  The rock is dark and cracked, and
+has large, deep, gaping holes scattered about.  The surface is mottled
+with a dark brown and crusty covering, like a dried liquid deposit.  A
+huge cave opens to the east and south, while densly packed dirt forms a
+high wall to the north and west.
+~
+~
+301596672 11 9 0
+D1
+~
+~
+0 -1 40796 10 10 5
+D2
+~
+~
+0 -1 40795 10 10 5
+-1
+S
+
+#0
+

@@ -1,0 +1,4029 @@
+#AREA
+Forgotten Isles~
+Void~
+~
+
+0 0
+3
+#ROOMS
+
+#52500
+Misty Path~
+The grassy path continues, with large oak trees lining either side making
+it impossible to venture deeper into the forest.  Dense clouds of
+ground-hugging fog roll in from the north, obscuring vision for
+more than a yard or two.  The faint outline of what appears to be the
+seashore can just be made out through the mist.  In the distance the
+sound of water can be heard lapping against the shore.
+~
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 52501 10 10 5
+E
+grassy path~
+The path is blanketed with a carpet of lush green grass, worn away in
+spots to reveal patches of rich sandy loam beneath.
+~
+1069 9 1509949440 3 0
+1701 9 1509949440 3 0
+1702 9 1509949440 3 0
+1703 9 1509949440 3 0
+1704 9 1509949440 3 0
+1705 9 1509949440 3 0
+1706 9 1509949440 3 0
+1707 9 1509949440 3 0
+1708 9 1509949440 3 0
+-1
+S
+
+#52501
+Shore~
+Ever-shifting clouds of grey-white fog envelop this flat stretch of land,
+obscuring vision more than a hand's span away.  Familiar sounds - waves
+lapping gently against a shoreline, the raucous cry of gull and osprey,
+the faint scurryings of small creatures across wet sand - underscore the
+presence of a large body of water.  Peeking through the thick haze, the
+beginnings of a wide pier lie nearby, its weathered, nearly rotten,
+boards creaking in protest of the water's weight against ancient pilings.
+~
+horn - big nice noise :P
+[Calliope] action blow horn: When blown there is no message presented to the enactor.
+~
+301465609 3 9 0
+D2
+~
+~
+0 -1 52500 10 10 5
+E
+pier~
+What little can be seen of the pier's construction shows long oaken
+planks, badly warped and weathered age.  Its width suggests it could
+easly be large enough to dock a ship.
+~
+A
+blow~
+horn~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( mob_in_room( 1324, find_room( 52505 ) ) ) {
+    send_to_room( #leave, find_room( 52505 ) );
+    junk_mob( mob_in_room( 1324, find_room( 52505 ) ) );
+    }
+  junk_mob( mob_in_room( 1324, find_room( 52502 ) ) );
+  mload( 1324, find_room( 52502 ) );
+  act_notchar(#pblow,ch );
+  wait(1);
+  act_room(#noise,ch );
+  wait(1);
+  act_tochar(#spine,ch );
+  wait(1);
+  act_room(#arrive, ch );
+  wait(1);
+  act_room(#arrive1, ch );
+  wait(1);
+  act_room(#arrive3,ch );
+  remove_rflag( status1, room );
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #rnope, ch );
+  }
+~
+E
+blow~
+You blow the large horn!
+~
+E
+pblow~
+$n blows the large horn!
+~
+E
+noise~
+The horn emits a loud noise echoing into the surounding area.
+~
+E
+spine~
+A shiver runs down your spine.
+~
+E
+arrive~
+The mist splits showing an opening into the sea.
+~
+E
+arrive1~
+The breeze blows in from the sea.
+~
+E
+arrive3~
+A large ghost ship has pulled up onto the jetty.
+~
+E
+leave~
+The ferryman steps back into his boat and leaves at the sound of a distant horn.
+~
+E
+nope~
+You blow the horn with all your might, but it only echoes out over the
+bay.
+~
+E
+rnope~
+$n blows the horn with all $s might, but it only echoes out over the bay.
+~
+!
+0 0 0
+A
+climb~
+ship boat~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #climb1, ch );
+  transfer( ch, find_room( 52502 ) );
+  wait( 1 );
+  act_notchar( #arrive, ch );
+  acode( find_room( 52502 ), 1 );
+  loop( followers ) {
+    ch = rch;
+    acode( room, 2 );
+    }
+  end;
+  }
+else
+  act_tochar( #noship, ch );
+continue;
+~
+E
+noboat~
+You don't see that.
+~
+E
+climb~
+You clamber up onto the ship.
+~
+E
+climb1~
+You see $n clamber up onto the ship.
+~
+E
+noship~
+You do not see that here.
+~
+E
+arrive~
+$n climbs aboard the ship.
+~
+!
+0 0 0
+2753 17 1509949540 -2 0
+-1
+S
+
+#52502
+Somewhere in the Sea~
+Near impenetrable fog has covered this large oaken boat which creaks with
+every wave that breaks against it.  The boat has a large, deteriorating
+door in the centre of the deck leading down to what must have been the
+crews quarters.  The wooden stairs that led down to the quarters have
+long since rotted, making passage impossible.
+~
+Give ferryman a gold coin.
+Sort the mob out :P was a copy from Gremlins.......
+~
+301465600 6 9 0
+A
+entering~
+~
+wait( 1 );
+act_tochar( #enter, ch );
+wait( 2 );
+if( find_stat( ch, level ) >= 30 )
+  act_tochar( #oklevel, ch );
+else
+  act_tochar( #notlevel, ch );
+~
+E
+enter~
+The boatman looks in your direction and bows his head.
+~
+E
+oklevel~
+The boatman stretches out one of his boney arms and says "For a gold coin
+I will take you to an island across the sea." 
+~
+E
+notlevel~
+The boatman looks at you and says,
+"You dont look like you belong here, the island is full of danger."
+~
+!
+0 0 0
+A
+climb~
+jetty pier~
+act_tochar( #clamber, ch );
+act_notchar( #clamber2, ch );
+transfer( ch, find_room( 52501 ) );
+wait( 1 );
+act_notchar( #welcome, ch );
+loop( followers ) {
+ch = rch;
+}
+~
+E
+clamber~
+You clamber up onto the pier.
+~
+E
+clamber2~
+You see $n clamber up onto the pier.
+~
+E
+welcome~
+$n climbs on the pier.
+~
+!
+0 0 0
+-1
+S
+
+#52503
+Somewhere in the Sea~
+The fog thickens creating a dense blanket making it impossible to see
+more than two feet in any direction.  The therapeutic sound of the water
+lapping up against the hull can be heard as the boat glides swiftly
+through the quiet sea.  An eerie feeling descends as you continue this
+journey into the unknown.
+~
+~
+301465601 6 9 0
+-1
+S
+
+#52504
+Somewhere in the Sea~
+The fog has lifted marginally enabling you to see outside of the oaken
+boat.  The sea has become slightly rougher with the waves starting to
+crash into the hull of the boat.  The water has started to seep through
+the warped oaken boards making the floor damp underfoot.  You start to
+get a feeling that this voyage might not have been such a good idea after
+all.
+~
+~
+301465601 6 9 0
+-1
+S
+
+#52505
+Shore~
+The fog has all but cleared with the boat coming to an abrupt stop at a
+small pier.  A great expanse of sand is spread out before you.  In the
+distance you can see the base of the cliff and high above you various
+sea-faring birds circle.  The only plausible exit appears to be to the
+west onto the beach.
+~
+~
+301465600 10 9 0
+D3
+~
+~
+0 -1 52506 10 10 5
+E
+pier~
+The pier has been constructed with what appears to be long, oaken planks
+of wood, which have been badly warped.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52506
+Beach~
+The beach is covered entirely with damp sand making the going easy
+underfoot.  The sea is calm with the waves lapping gently against the
+shore.  Cliffs loom ominously towards the south and it is possible to
+make out a variety of nests where the local wildfowl have made their
+homes.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52507 10 10 5
+D1
+~
+~
+0 -1 52505 10 10 5
+D2
+~
+~
+0 -1 52508 10 10 5
+E
+nest~
+The nests have been crudely made from small twigs, moss and clumps of mud. 
+A foul smell seems to be coming from deep inside the nests.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52507
+Beach~
+The sand is extremely soft making it very hard to manoeuvre without
+losing your footing.  The sea can be seen to your east with the waves
+quietly lapping up onto the edge of the beach.  Far in the distance you
+can see the fog that made the journey to this island a harrowing
+experience.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 52506 10 10 5
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52508
+Beach~
+The ocean lies directly to the east with the water breaking against the
+small rocks that line the shore.  The rocks have become overgrown with
+seaweed that has attached itself as the tide changes.  Towards the west a
+cliff face can be seen with the rocks rising high into the sky, while to
+the north and south the sandy beach continues relentlessly.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 52506 10 10 5
+D2
+~
+~
+0 -1 52553 10 10 5
+D3
+~
+~
+0 -1 52509 10 10 5
+E
+rocks~
+The small rocks are scattered all around the shore, a mass of seaweed
+partially covering them.
+~
+E
+seaweed~
+The dark green, seaweed is strewn over the small rocks that line the
+shore.
+~
+A
+get~
+seaweed~
+send_to_char( #sea, ch );
+act_notchar( #sea1, ch );
+~
+E
+sea~
+You lean down to get the seaweed, as you attempt to pick up a large clump
+it slips through your fingers.
+~
+E
+sea1~
+$n leans down to get some seaweed, as $n attempts to pick up a large
+clump it slips through $s fingers.
+~
+!
+0 0 0
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52509
+The base of a cliff~
+The base of a cliff lies directly ahead of you, with the reddish stone
+stretching far into the sky.  About twenty yards up the cliff a dark
+opening can be seen, it appears to be large enough to climb into.  From
+within the opening, long, thick looking vines cascade down the rock and
+onto the sand beneath your feet.
+~
+climb vine
+vine extra
+extra for sand would be good.
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 52508 10 10 5
+A
+climb~
+vine~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 52510));
+~
+E
+to_room~
+$n grabs hold of some vines, and climbs into the cave above.
+~
+E
+to_char~
+You grab hold of some vines and climb up into the cave above.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room(#rumbling, room );
+wait(1);
+send_to_room(#falling, room );
+wait(1);
+send_to_room(#towards, room );
+wait(1);
+i = 10d10+100;
+loop( all_in_room ) {
+if( is_player( rch ) )
+dam_message( rch, i, "The boulder's crush" );
+inflict( rch, mob, i, "The boulder's crush" );
+}
+~
+E
+rumbling~
+The rumbling of falling rocks can be heard at the top of the cliff.
+~
+E
+falling~
+The sound of falling rocks becomes louder.
+~
+E
+towards~
+Large boulder's come hurtling towards you.
+~
+!
+2 1000 0
+A
+swing jump hop~
+vine~
+send_to_char( #swing1, ch );
+act_notchar( #oswing1, ch );
+wait(1);
+send_to_char( #swing2, ch );
+act_notchar( #oswing2, ch );
+wait(1);
+send_to_char( #swing3, ch );
+act_notchar( #oswing3, ch );
+wait(1);
+send_to_char( #swing4, ch );
+act_notchar( #oswing4, ch );
+i = 10d30;
+dam_message( ch, i, "The sharp rocks" );
+inflict( ch, mob, i, "The sharp rocks" );
+~
+E
+swing1~
+You grab a leafy vine and start swinging back and forth playfully.
+~
+E
+swing2~
+You swing yourself faster, enjoying the wind on your face.
+~
+E
+swing3~
+Suddenly, the vine catches on an outcropping of rock!
+~
+E
+oswing1~
+$n grabs a leafy vine and swings about playfully.
+~
+E
+oswing2~
+$n swings $mself faster, enjoying the wind on $s face.
+~
+E
+oswing3~
+Suddenly, the vine catches on an outcropping of rock!
+~
+E
+swing4~
+You lose control and slam into the rocky cliff!
+~
+E
+oswing4~
+$n loses control and slams into the rocky cliff!
+~
+!
+0 0 0
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52510
+Cave Entrance~
+Small, reddish coloured boulders lie scattered around this dark, foul
+smelling cave.  Thick vines lie across the floor of the cave, seemingly
+growing within the eastern wall.  Towards the west of the darkened cave
+the boulders are less common with the floor becoming uncluttered giving
+the impression that the floor may have been carved to create the start of
+an underground passageway.
+~
+Need vines in rdescription.
+need an entry message
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 52511 10 10 5
+A
+climb~
+vine~
+send_to_char( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 52509));
+~
+E
+to_char~
+You grab hold of some vines and climb down out of the cave.
+~
+E
+to_room~
+$n grabs hold of some vines, and climbs down out of the cave.
+~
+!
+0 0 0
+-1
+S
+
+#52511
+Subterranean Passage~
+Tall columns of rock rise from the bed of the earth, creating the chamber
+you stand in.  The rock, old as time and hard as iron, stands carved with
+words and shaped, to form corridors, as tall as two men.  The floor is
+smooth and cool to touch.  The ground vibrates very slightly and a quite
+hum resonates through the whole passageway.
+~
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52510 10 10 5
+D2
+~
+~
+0 -1 52512 10 10 5
+E
+rock~
+The rock is grey in colour with flecks of red.
+~
+E
+floor~
+The floor is strangely smooth definitely not natural formation of
+~
+E
+coloumn~
+The columns are huge made from carved stone, they rise from the
+bed of the earth creating the pure strength to hold the chamber from
+plunging down.
+~
+E
+old carved words~
+In that dreaded place, beneath the moon's pale gaze, damned men walk,
+they hunt the labyrinths in that breathless, windless night.  They
+brandish their weapons in mocking challenge to all life, and, sometimes,
+in deep hard voiced, like the thunder and rain, shout the one word, the
+word of there ancient, dark master.  They shout Garnorgoth the prince of
+darkness.
+~
+A
+touch~
+floor~
+i = 4d10;
+ dam_message( ch, i, "The floor's cool touch" );
+ inflict( ch, mob, i, "The floor's cool touch" );
+~
+!
+0 0 0
+-1
+S
+
+#52512
+Great Hallway of the Ancients~
+Terrific columns stand in line rising from the floor to the ceiling,
+creating the strength to hold the colossal weight of the solid rock above
+you head.  Carved sentinels decorate the ceiling looking down with
+guardianship.  A huge stone tablet has been fashioned directly onto the
+breastwork of the earth's crust itself.  To the west stands an immense
+gateway.  Strange runes and symbols cling to the gateway.
+~
+add gate
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52511 10 10 5
+D2
+~
+~
+0 -1 52513 10 10 5
+D3
+~
+~
+0 -1 52514 10 10 5
+E
+column~
+The columns are huge made from interlocking carved stones, there size
+shadows the area, creating a feeling of unease.
+~
+E
+stone tablet huge runes symbols~
+Here lies the gate way to perplexity, an entrance to chaos itself. 
+Guardians have stood in rock for timeless ages watching this place, pay
+heed now, and go no further.  This place is cursed throughout all
+eternity.  This gateway has been sealed to keep the inside in, and the
+foolish out.
+~
+-1
+S
+
+#52513
+Hall of the ages~
+Huge stone statues lie in arched alcoves along the entire length of the
+hall.  The foundation of this room has a mist that clings to the floor. 
+Ivy has grown up one alcove and now grows over head.  Small droplets of
+water splash down onto your face.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52512 10 10 5
+E
+statues stone~
+The men like statues are made from a deep red granite, they stand 15 feet
+tall, looking down into the hallway.
+~
+E
+alcove~
+The alcove has been over run with ivy, tiny cracks line the internal
+structure of the wall where the masonry has become weathered and worn
+over centuries of time.
+~
+E
+ivy~
+The ivy is twisted and gnarled, and has embedded itself into the wall. 
+Its running a rampage in the alcove, making itself look evil and
+cancerous.
+~
+-1
+S
+
+#52514
+Undercity of Ruatonim~
+The room glows red, the stone has become blood red.  To one side a large
+pedestal full of a black liquid burns brightly, filling the room with a
+flickering light.  Shadows are cast everywhere they seem to dance.  Tall
+stone columns are patterned from base to crown with a black and white
+diamond mosaic.  The floor is highly decorated with mosaics of cubed and
+interlocking geometric shapes.
+~
+this code is designed so that the players can't jump to attack the
+minotaur.......  spells will work against it....  I think thats ok as the
+tank will have to rescue and will still cause problems.
+
+reset 1 +s = mob sentinel
+[Void] make mobs easier for gods sake :P
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52512 10 10 5
+D3
+~
+~
+0 -1 52515 10 10 5
+E
+pedestal~
+The pedestal stands about 5 feet from the floor it is made from a metal
+that is black as the blood of the earth.  An evil flame pours out of the
+pedestal bowl filling the room with a hellish light.
+~
+E
+columns diamond~
+The columns are huge made from carved stone, onto the carved columns a
+pattered mosaic creeps and spirals its way found the column, in a dread
+black and desolate white diamond pattern.
+~
+E
+floor geometric interlocking cubed~
+The highly decorated mosaic roam and encompass its way across the floor,
+in a beautiful cubed and interlocking geometric pattern.  The small tiles
+are made from a type of ceramic pottery.
+~
+A
+kill~
+all minotaur guard albino~
+if( mob_in_room( 1771, find_room( 52514 ) ) )
+send_to_room( #kill, room );
+~
+E
+kill~
+The minotaur guard bellows: "You wait until I am ready"
+~
+!
+0 0 0
+1771 137 1509949540 3 0
+-1
+S
+
+#52515
+High Antechamber~
+The rocks forming the room have been hammered to create kaleidoscopic
+formations, with huge alcoves fashioned into the southern wall.  Around
+the base of the alcoves, extrude huge pillars adorned with geometric
+tessellation's of large man-like creatures being united with horned
+beasts.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52516 10 10 5
+D1
+~
+~
+0 -1 52514 10 10 5
+D3
+~
+~
+0 -1 52518 10 10 5
+E
+rocks kaleidoscopic formations~
+Looking closer to the rocks, you see that they have been hammered with a
+fine tool, the rocks now are covered with kaleidoscopic patterns.
+~
+E
+alcoves~
+The alcoves have tiny cracks line the internal structure of the wall
+where the masonry has become weathered and battered over centuries of
+time.  The Internal ceiling of each alcove has a painting depicting the
+heavens and the stars, small fine painted silver lines cover the painting
+like a web.
+~
+E
+pillars tellellations~
+Huge pillars are adorned with geometric tessellation's of large man-like
+creatures being united with horned beasts, the mosaic is made from very
+fine cubed ceramic pottery.
+~
+-1
+S
+
+#52516
+Fire forge of Olbaid~
+A brilliant light hits you face, huge waves of super heated air rushes
+over you body.  In the centre of the room, a mighty fire forge glows, a
+dazzling white light is being created from the tremendous heat.
+~
+make an anvil
+Towards one side a magnificent anvil lies.
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52517 10 10 5
+D2
+~
+~
+0 -1 52515 10 10 5
+E
+forge mighty~
+A mighty fire forge glows with immense heat, looking closer to believe
+that mighty weapons of mass destruction can be made with this fire from
+hell.  The fire rages lapping at the sides of the hellish forge, like the
+sea in a raging storm.
+~
+1989 9 1509949540 3 0
+-1
+S
+
+#52517
+Armory of ratak~
+You have entered a large circular room, wall to wall with rows of what
+looks like unfinished armor.  The walls are smooth and covered with
+hellish pictures that contain strange scenes.  The floor is made of pitch
+black and blood red tiles, which arc across the entire floor expanse.
+~
+~
+301465601 11 9 0
+D2
+~
+~
+0 -1 52516 10 10 5
+E
+armor~
+To one side rows of what looks like unfinished armor rank the walls.  The
+armor is completely worthless and looking closer you see that they are
+linked together by a huge chain, meaning you cant take them.
+~
+E
+pictures scenes~
+The walls are smooth and covered with hellish pictures that contain
+strange scenes of demons torturing men like creatures, spiking them with
+spears and boiling them in large black pots.  The picture makes you feel
+sick bringing a horrid taste in your mouth.
+~
+E
+floor tiles~
+The floor is made of pitch black and blood red tiles, they are smooth to
+touch and made form fine cubed ceramic pottery.
+~
+-1
+S
+
+#52518
+Chamber of forms~
+Twisted shades of red purge this chamber, ripping all colours from the
+room.  The patterned mosaic shapes continue to spread across the floor,
+with relentless vigour and strength.  Tall stone columns stand patterned
+from base to crown with a black and white diamond mosaic.  Torches cling
+to the walls, full of a black liquid that burns brightly, filling the
+room with a flickering light.
+~
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52515 10 10 5
+D2
+~
+~
+0 -1 52525 10 10 5
+D3
+~
+~
+0 -1 52519 10 10 5
+E
+mosaic patterns~
+The mosaic is a geometric pattern that interlocks with in itself, it is
+comprised of black, reds and white small tiles, each tile is made from a
+type of smooth ceramic pottery.
+~
+E
+torches liquid~
+Small torches cling from the walls they are made from a metal that is
+black as the blood of the earth.  A baneful flame pours out of the
+torches filling the room with a Hadean light.
+~
+-1
+S
+
+#52519
+Hall of the ancient Ones~
+To one side a large pedestal full of a black liquid burns brightly,
+filling the room with a flickering light that twists and turns creating
+shadows that dance round the room like small devils dancing round.  The
+complex geometric patterned mosaic shapes continue to spread across the
+floor, with continued puissance and energy.  Thick stone columns stand
+patterned from base to crown with spiralling black and crimson red
+diamond interlocking mosaic.  More Torches cling to the walls, full of a
+black liquid that burns brightly.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52520 10 10 5
+D1
+~
+~
+0 -1 52518 10 10 5
+E
+torches~
+Small torches cling from the walls they are made from a metal that is
+black as the blood of the earth.  A baneful flame pours out of the
+torches filling the room with a Hadean light.
+~
+E
+pedestal~
+The pedestal stands about 5 feet from the floor it is made from a metal
+that is black as the blood of the earth.  An evil flame pours out of the
+pedestal bowl filling the room with a hellish light.
+~
+E
+stone columns~
+The columns are huge made from carved stone, onto the carved columns a
+pattered mosaic creeps and spirals its way found the column, in a black
+and crimson red diamond pattern.
+~
+E
+mosaic~
+The mosaic is a geometric pattern that interlocks with in itself, it is
+comprised of black, reds and white small tiles, each tile is made from a
+type of smooth ceramic pottery.
+~
+-1
+S
+
+#52520
+Chamber of the ages~
+To the west stands an awesome gate created with ultra rare metals with
+Gold and krynite banding, giving the gate way its colossal strength. 
+Terrific columns stand line the walls rising from the floor to the
+ceiling, creating the strength to hold the colossal weight of the solid
+blood red rock above you head.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52521 10 10 5
+D2
+~
+~
+0 -1 52519 10 10 5
+D3
+~
+~
+0 -1 52523 10 10 5
+E
+gate~
+An awesome gate stands here, reinforced with ultra rare metals, such as
+Gold and krynite banding, giving the gate way its colossal strength.
+~
+E
+columns stone~
+The columns are huge and have been made from carved stone, they rise from
+the bed of the earth creating the pure strength to hold the chamber from
+crashing down.
+~
+E
+rock~
+The rock has the equivalent colour of deep red blood.  The rock is quite
+smooth and cool to the touch.
+~
+-1
+S
+
+#52521
+Corridor of light~
+To the north you hear the sound of rushing liquid.  Flickering light
+spirals and fluctuates causing shadows to swish and flutter around the
+chamber like butterflies.  The floor is patterned with a black and blood
+red diamond mosaic.  In the passageway, rectangular slots line the walls.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52522 10 10 5
+D2
+~
+~
+0 -1 52520 10 10 5
+E
+mosaic~
+The highly decorated mosaic roams and encompasses its way across the
+floor, in a beautiful black and blood red diamond pattern.  The small
+tiles are made from a type of ceramic pottery.
+~
+E
+rectangular slots~
+Rectangular slots line the walls, looking closer you see that they were
+most probably carved into the rock, to allow mofe tofches to be mounted
+onto the wall.
+~
+-1
+S
+
+#52522
+Pool of radiance~
+A glowing pool or radiance ripples in front of you, with its own enriched
+pure energy.  Lightning cracks and crackles across the deep pool surface. 
+A Brilliant blue light is radiated from the pool.  As you watch the pool,
+the occasional waves of pure blue fire pulse across the surface of the
+pool like the charging of wild horses.  In the centre of the pool twists
+a vortex, a column of pure enriched energy flowing with unadulterated
+power.  Awesome columns created with interlocking blood red stone, Gold
+gems and krynite line these columns.  The floor you stand on lies a
+mosaic created with ultra rare metals.
+~
+~
+301465601 11 9 0
+D2
+~
+~
+0 -1 52521 10 10 5
+E
+pool radiance~
+A glowing pool or radiance ripples in front of you, it's presents pulls
+at you Seiki, never before have you witnessed such un-harnessed raw power. 
+Waves of pure blue fire pulse across the surface of the pool like the
+charging of wild horses.  Looking closer to the pool itself, you see the
+body of the pool change in hues of blue.  You cannot determine the depth
+of the pool, but it looks deep.
+~
+E
+lightning~
+You watch the pool pulsate and ripple, time to time you see a sudden
+speed change and flow of the pool.  As the pool changes direction, a huge
+build up of energy causes Lightning, to crack and crackle across the deep
+pool surface.  Causing the chamber to be filled with a bright light.
+~
+E
+vortex~
+In the centre of the pool twists a vortex, a column of pure enriched
+energy flowing with unadulterated power, it twists at high speeds causing
+a mind bending sound.  It cracks and crackles, pulsate and ripple in hues
+of blue and vivid whites.  It looks like a nexus and intertwining energy
+streams or strands.  Maybe this is a place where all time and energy is
+focused, forming this rift of pure raw power.
+~
+E
+column awesome stone~
+The columns are huge made from interlocking carved stones, there size
+shadows the area, creating a feeling of unease.
+~
+E
+gold gem krynite~
+Gold gems and krynite line these columns they have been inset into the
+columns And covered in a clear amber.
+~
+E
+mosaic rare metals~
+The floor you stand on lies a mosaic created with ultra rare metals.  the
+metals have been cut into tetrahedral shapes, then inset into the ground
+followed by a covering of clear amber.
+~
+-1
+S
+
+#52523
+Mosaic filled Corridoor~
+The floor is highly decorated with kaleidoscopic mosaics of cubed and
+interlocking locking geometric shapes.  The walls are smooth and pure
+crimson red in colour.  Small slots line the walls to the north and south. 
+To the east stands the huge gate full of strength and presents.  Fine
+gold lines run across the ceiling creating a diamond pattern.
+~
+add gate
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52520 10 10 5
+D3
+~
+~
+0 -1 52524 10 10 5
+E
+floor mosaic kaleidoscopic cubed~
+The floor is highly decorated with kaleidoscopic mosaics of cubed and
+interlocking locking geometric shapes.
+~
+E
+slots small~
+Small Rectangular slots line the walls, looking closer you see that they
+were most probably carved into the rock, to allow more torches to be
+mounted onto the wall.
+~
+E
+fine gold lines~
+Fine gold lines run across the ceiling  creating a diamond pattern.
+~
+E
+gate~
+To the east, an awesome gate stands here, reinforced with ultra rare
+metals, such as Gold and krynite banding, giving the gate way its
+colossal strength.
+~
+-1
+S
+
+#52524
+anti-chamber of desolation~
+The floor is covered with a black and red tile effect, the texture
+ripples causing the light to reflect in strange patterns.  Huge pedestals
+line the walls causing a large smoky build up, that makes your eyes fill
+with water.  This antechamber has a cold mist that clings to the floor;
+large bands of mithril are imbedded into the rock to the north, south and
+west.
+~
+add big mob
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52523 10 10 5
+E
+floor tile~
+The floor is covered with a black and red tile effect, the tiles are made
+from a smooth pottery, that is cold to touch.
+~
+E
+huge pedestal~
+Huge pedestals cling from the walls they are made from a metal that is
+black as the blood of the earth.  A baneful flame pours out a thick
+smoke, that makes your eyes fill with water.
+~
+E
+bands imbedded~
+large bands of mithril are imbedded into the rock to the north and south
+and west.
+~
+-1
+S
+
+#52525
+Hall way of arches~
+Aloft rise towering arches that extend to the pinnacle of the carved
+geodesic dome, looking closer you spy a series of carved cherubs
+that line the walls, all peering down from there seats on high with
+faces of despondency and despair.  The floor is made up of pitch
+black and blood red tiles that are locked together in pure conflict.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52518 10 10 5
+D2
+~
+~
+0 -1 52526 10 10 5
+E
+tiles~
+The highly evil tiles roam and encompass its way across the floor, in
+pure conflict.  The cubed and interlocking geometric pattern is comprised
+of pitch black and blood red tiles.  The large tiles are made from a type
+of ceramic pottery.
+~
+E
+cherubs~
+Looking closer you at the series of carved cherubs you see they have been
+carved from a pure veined marble, they have been carved with a flowing
+toga.  Their heads seem large compared with their bodies, the cherubs
+have large eyes made from large swirling gems.  All peer down from there
+seats on high with faces of despondency and despair.  Their sight brings
+a feeling of sadness and woe into your heart.
+~
+-1
+S
+
+#52526
+Fountain of Blood~
+In the centre of the room a multi-tiered circular fountain spews gallons
+of blood.  A huge blood covered statue stands looking into the pool of
+blood.  The floor is highly decorated with mosaics of cubed and
+interlocking locking geometric shapes.  Blood has showered onto the floor
+making the floor very slippery.
+~
+make floor slippy
+blood dripping from ceiling
+make a statue mob... comes out when touched.
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52525 10 10 5
+D1
+~
+~
+0 -1 52528 10 10 5
+D2
+~
+~
+0 -1 52529 10 10 5
+D3
+~
+~
+0 -1 52527 10 10 5
+E
+circlular fountain~
+In the centre of the room a multi-tiered circular fountain spews gallons
+of blood.  looking closer you see it is made from smooth deep red crystal. 
+You can't determine the depth of blood in the main tier.  This is truly a
+horrific sight.
+~
+E
+floor mosaics~
+The highly decorated mosaic crosses the floor, in a beautiful cubed and
+interlocking geometric pattern.  The small tiles are made from a type of
+ceramic pottery.
+~
+E
+statue~
+The tall statue stands poised over the fountain covered in blood.  The
+statue is shaped like a large muscular man.  It has been carved out of a
+milky coloured rock.
+~
+-1
+S
+
+#52527
+Room of Phases~
+The walls are smooth and mosaics cover the walls with hellish pictures
+that contain strange scenes of large man-like creatures being united with
+horned beasts.  The ground vibrates very slightly and a quite hum
+resonates through the whole chamber, this room has a reddish mist that
+clings to the floor.
+~
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52526 10 10 5
+E
+mosaics~
+Mosaics cover the walls with hellish pictures that contain strange scenes
+of large man-like creatures being united with horned beasts, looking
+closer you see that the mosaic is made from tiny coloured crystals and
+gems.
+~
+-1
+S
+
+#52528
+Darkened Cavern~
+Large, reddish coloured boulders lie scattered around this dark cavern. 
+A large broken mosaic lies across the expanse of the floor obviously from
+neglect and erosion.  Towards the south of the darkened cavern the
+boulders are common with the floor becoming irregular giving the
+impression that the floor may be an entrance to the start of an
+underground passageway.
+~
+~
+301465601 11 9 0
+D3
+~
+~
+0 -1 52526 10 10 5
+D5
+~
+~
+0 -1 52530 10 10 5
+E
+boulders~
+Scattered around this dark cavern, Large reddish coloured boulders lie on
+the floor.  The boulders look like they have fallen from the ceiling and
+crashed down onto the ground.
+~
+E
+floor mosaic~
+A highly decorated mosaic use to crosses the floor, in a beautiful cubed
+and interlocking geometric pattern.  Now A large broken mosaic across the
+expanse of the floor obviously from neglect and erosion.  Some of the
+small tiles that make up the mosaic are now scattered across the area.
+~
+-1
+S
+
+#52529
+Room of Purity~
+To the southern wall a large honeysuckle grows.  Small droplets fall from
+the chambers ceiling which touch the honeysuckle's flowers creating a
+wave of sweet smelling perfume.  Tall stone columns rise from the floor
+patterned from base to crown with a black and blood red diamond mosaic.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52526 10 10 5
+E
+honeysuckle~
+To the southern wall a large honeysuckle grows in full vigour.  Waves of
+sweet smelling perfume emanate from the water covered flowers.
+~
+E
+columns stone~
+The columns are huge made from carved stone, onto the carved columns a
+pattered mosaic creeps and spirals its way found the column, in a black
+and blood red diamond pattern.
+~
+-1
+S
+
+#52530
+Humming Chamber~
+The ground vibrates very slightly and a quiet hum resonates through the
+whole passageway.  This antechamber has a cold and chilling mist that
+clings to the floor, and claws at your legs.  A blood red liquid runs
+down the wall to the west, creating a puddle that ripples and bubbles.
+~
+~
+301465601 11 9 0
+D2
+~
+~
+0 -1 52531 10 10 5
+D4
+~
+~
+0 -1 52528 10 10 5
+E
+blood liquid puddle~
+A blood red liquid runs down the wall to the west, creating a puddle that
+ripples and bubbles.  The puddle is quite shallow but warm to touch.  The
+liquid runs into deep cracks in the floor creating a deep gurgling sound.
+~
+-1
+S
+
+#52531
+Whokey Hole~
+Small charred black roots grow from the ceiling; they resemble witches
+fingers with long nails that claw your head as you pass through the
+passageway.  Stalactites form from the low cavern ceiling, they
+constantly drip a red liquid.  The liquid runs into deep cracks in the
+floor creating a deep gurgling sound.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 52530 10 10 5
+D2
+~
+~
+0 -1 52532 10 10 5
+E
+charred root witches fingers~
+Small charred black roots grow from the ceiling; they resemble witches
+fingers with long nails that claw your head as you pass through the
+passageway.
+~
+-1
+S
+
+#52532
+Cavern of Stalactites~
+Off to one side the wall grows a vein of krynite and what likes a cluster
+of deep red crystals.  Stalactites continue to grow from the low cavern
+ceiling.  To the north you hear the sound or rushing liquid.  Large,
+reddish coloured boulders lie scattered around this dark cavern making
+walking quite hard because of the uneven floor surface.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 52531 10 10 5
+D2
+~
+~
+0 -1 52533 10 10 5
+E
+vein krynite red~
+To one side, the wall grows a vein of violet krynite and what likes a
+cluster of deep red crystals 
+~
+E
+stalactites~
+Large stalactites grow from the low cavern ceiling the occasional drip of
+red liquid can be seen, falling from the stalactites.
+~
+E
+boulders~
+Large, reddish coloured boulders lie scattered around this dark cavern.
+~
+-1
+S
+
+#52533
+Gloomy chamber~
+Columns of rock rise from the bed of the earth, creating the chamber you
+stand in, the rock is sharp and irregular.  A pool of pure creamy white
+liquid lies in a stone repository, it swirls and twists creating a
+bubbling froth.  Huge stone statues lie in arched alcoves along the
+entire length of the hall, all the stature look on with anguish and woe.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 52532 10 10 5
+D1
+~
+~
+0 -1 52534 10 10 5
+E
+stone repository liquid creamy~
+The stone repository is full of pure creamy white liquid, the liquid
+swirls and twists creating a bubbling froth and a strange gurgling noise.
+~
+E
+statues~
+Huge stone statues lie in arched alcoves along the entire length of the
+hall, all the stature look on with anguish and woe.  The statues have
+been shaped like large muscular men.  They have been carved out of a
+milky coloured rock.
+~
+-1
+S
+
+#52534
+Chilled Cavern~
+To the south some light emanates, the sound of wind and the smell of
+fresh air radiates from the path to the south.  The rustling of leaves
+can be heard faintly to the distant south.  To the west a strange
+bubbling sound can be heard and a distant sound of liquid trickling into
+a deep hole can be heard.
+~
+~
+301465601 10 9 0
+D2
+~
+~
+0 -1 52535 10 10 5
+D3
+~
+~
+0 -1 52533 10 10 5
+-1
+S
+
+#52535
+Cavern Entrance~
+To the south there is an opening in the trees, which seems to be passable
+with two large oak trees shaping the exit, the smell of fresh air is
+strong here.  A fresh cool breeze washes this area that cleanses you
+entire sole.  The rocks sparkle with a gold and red.  To the north the
+passageway becomes darker and more enclosed with small boulders that line
+the floor.
+~
+~
+301465601 10 9 0
+D0
+~
+~
+0 -1 52534 10 10 5
+D2
+~
+~
+0 -1 52536 10 10 5
+E
+tree oak~
+The large oak trees stand about 45 feet tall, they look like they have
+stood for a long time.
+~
+E
+rocks gold red~
+The rocks on the wall sparkle with a gold and red shimmer, maybe there is
+a high concentration of minerals in the rock.
+~
+-1
+S
+
+#52536
+Wooded Grove~
+Above and around you, dark trees blacken the area.  It is impossible to
+tell whether it is night or day in the world outside.  To the north there
+is an opening in the trees, which seems to be passable with two large oak
+trees shaping the exit.  There is a faint trail leading to the west.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52535 10 10 5
+D3
+~
+~
+0 -1 52537 10 10 5
+E
+large oak trees~
+Surrounding you blackened trees loom, stretching toward two larger oak
+trees to the north.  These stand bowing out, encircling a dark cave.
+~
+-1
+S
+
+#52537
+Dark Ditch~
+The trees around you block out the light entirely.  There is the feeling
+of thick dingy air, crowding around you.  A damp smell lingers on the
+light wind that passes through the trees.  What you can just make out are
+two narrow paths, to the east and west.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 52536 10 10 5
+D3
+~
+~
+0 -1 52552 10 10 5
+-1
+S
+
+#52538
+Temple Vestry~
+This is a small area, which has been divided from the rest of the temple
+by crudely hung curtains to the south and west.  Clothes lay strewn
+across the floor and over a small bench.  A tall wall supported by large
+columns tower above you to the north and east.  Across the wall, more
+symbols decorate the masonry.
+~
+~
+301465601 1 9 0
+D2
+~
+~
+0 -1 52540 10 10 5
+D3
+~
+~
+0 -1 52539 10 10 5
+E
+Symbols painted wall~
+Across the wall are scratches and a painting, which has been, scrawled
+deep into the masonry.  Looking closer at the markings, your thoughts
+fill with deep demonic evil.
+~
+E
+huge column~
+The columns are huge made from carved stone, they rise from the marble
+floor, holding the flimsy weight of the crumbling shelter.
+~
+E
+purple curtain~
+This is a small area, which has been divided from the rest of the temple
+by crudely hung curtains to the south and west.  Clothes lay strewn
+across the floor and over a small bench.  A tall wall supported by large
+columns tower above you to the north and east.  Across the wall, more
+symbols decorate the masonry.
+~
+-1
+S
+
+#52539
+North temple quarter~
+A smooth marble floor contrasts with the darker, rougher column
+stretching into the dark roof.  Debris is scattered around, coated in
+deep red blood.  To the east are some deep purple curtains, crudely hung
+from a brass rail.  There is a small statue resting on a shelf dug out of
+the wall to the north.
+~
+~
+301465601 1 9 0
+D1
+~
+~
+0 -1 52538 10 10 5
+D2
+~
+~
+0 -1 52541 10 10 5
+D3
+~
+~
+0 -1 52549 10 10 5
+E
+purple curtain brass rail~
+An old tattered curtain slumps off its rail, torn and eaten with age. 
+Dirt has gathered over its matted surface, rubbing off onto you armor and
+tainting the surface.
+~
+E
+debris furniture marble benches~
+Strewn around the floor, are the remnants of benches and furniture, they
+lay scattered across the marble.  There appears to be nothing of value
+other than firewood.
+~
+E
+statue small shelf~
+A small stature rests on the shelf, crudely dug out of the crumbling
+masonry.  There is a definite shape to the figure, depicting an evil god
+of death and destruction.  Although hideous to look at, this artifact
+would be invaluable to those who worship and follow this path.
+~
+-1
+S
+
+#52540
+Inside the temple of Angrell ~
+The temple stretches out before you in complete ruin.  Huge columns tower
+up to the height of the wall to support what was once a wooden ceiling. 
+Debris lays scattered across benches which are spread across ahead of you. 
+Symbols are painted across a wall, broken up by a large black doorway to
+the east.  Deep purple curtains hang to the north.
+~
+do something about the door to the east
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 52538 10 10 5
+D1
+~
+~
+0 -1 52552 10 10 5
+D2
+~
+~
+0 -1 52542 10 10 5
+D3
+~
+~
+0 -1 52541 10 10 5
+E
+purple curtain~
+An old tattered curtain slumps off its rail, torn and eaten with age. 
+Dirt has gathered over its matted surface, rubbing off and tainting your
+armors surface.
+~
+E
+Symbols painted wall~
+Across the wall are scratches and a painting, which has been, scrawled
+deep into the masonry.  Looking closer at the markings, your thoughts
+fill with deep demonic evil.  A pair of huge black doors leaves a dark
+expanse in the hypnotic evil runes.  The blackness of these doors envelop
+you into there darkness.
+~
+E
+Column huge~
+The columns are huge made from interlocking carved stones, their size
+shadows the area, creating a feeling of unease.
+~
+E
+debris furniture marble benches~
+Strewn around the floor, are the remnants of benches and furniture, they
+lay scattered across the marble.  There appears to be nothing of value
+other than firewood.
+~
+-1
+S
+
+#52541
+Temple Centre~
+This appears to be the center of the temple.  You can see columns
+stretching up into the sky, once they would have supported by the
+ceiling, but this now lies crumbling beneath your feet.  Scattered across
+the area sit several benches, most covered in debris and blood soaked
+rags.
+~
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 52539 10 10 5
+D1
+~
+~
+0 -1 52540 10 10 5
+D2
+~
+~
+0 -1 52548 10 10 5
+D3
+~
+~
+0 -1 52550 10 10 5
+E
+huge column~
+The columns are huge, made from carved stone.  They rise from the marble
+floor, where they once would have supported the sheltering wood that now
+lies crumbling at your feet.
+~
+E
+debris furniture marble benches blood rags~
+Strewn around the floor, are the remnants of benches and furniture, they
+lay scattered across the marble.  Several blood soaked rags lie amongst
+the debris.  There appears to be nothing of value other than firewood.
+~
+-1
+S
+
+#52542
+Dark Temple Corner~
+This area seems to have been used recently, in contrast with the rest of
+the temple.  There is no dust or debris here and around a tall column a
+few benches are neatly arranged to face the south wall.  On the wall to
+the south painted symbols stretch around the corner of the temple onto
+the east wall.
+~
+exit south is hole
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 52540 10 10 5
+D2
+~
+~
+0 -1 52543 10 10 5
+D3
+~
+~
+0 -1 52548 10 10 5
+E
+benches~
+These small wooden benches are crudely constructed, forming an uneven and
+rough surface.
+~
+E
+tall column~
+The column is very tall and is made from stone inscribed with evil forms. 
+It stands up from the marble floor, where they once would have supported
+the sheltering wood that now lies crumbling at your feet.
+~
+E
+symbols painted corner wall~
+Fiendish symbols are painted all around the walls, some of the evil art
+has flaked away from the rotting wall, crumbling into the floor.
+~
+E
+rotting crumbling~
+A section of the plaster has flaked away from the wall, leaving a hole
+big enough for you to crawl through.
+~
+-1
+S
+
+#52543
+Cave Entrance~
+The cave around you narrows with each step you make, giving the
+impression that the cave is closing in on you.  There is very little room
+inside the cave making you have to crouch under the low, tunneled, stone
+ceiling.  There is no actual shape to the room, but it seems to tunnel
+off to the south.  There is a dug out hole in the crumbling wall to the
+north, which looks big enough to climb through.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52542 10 10 5
+D2
+~
+~
+0 -1 52544 10 10 5
+-1
+S
+
+#52544
+Twisted Tunnel~
+Climbing through this tunnel you become aware of the putrid stench of
+death.  The tunnel seems to twist and turn off towards the east and north. 
+The darkness of the tunnel seems to filter into the light coming from the
+east.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52543 10 10 5
+D1
+~
+~
+0 -1 52545 10 10 5
+-1
+S
+
+#52545
+Cave Opening~
+The light filling this tunnel radiates from the east, flickering over the
+rough walls.  A putrid stench floats on a light breeze past you, turning
+your stomach.  A gentle but deep hum can be heard, vibrating from further
+along the tunnel.
+~
+~
+301465601 11 9 0
+D1
+~
+~
+0 -1 52546 10 10 5
+D3
+~
+~
+0 -1 52544 10 10 5
+-1
+S
+
+#52546
+Large Cavern~
+The continuous crack and splinter of bones is heard as you move around. 
+In the wall to the east there seems to be a basin dug into the wall.  The
+stone walls all around you are deeply scratched and mauled with what
+would appear to be claws.  The cavern narrows to the west and continues
+to the south.  The continuous crack and splinter of bones is heard as you
+move around.  The stone walls all around you are deeply scratched and
+mauled with what would appear to be claw marks.  The cavern narrows to
+the west and continues to the south.
+~
+~
+301465601 11 9 0
+D2
+~
+~
+0 -1 52547 10 10 5
+D3
+~
+~
+0 -1 52545 10 10 5
+E
+bones~
+Scattered around are numerous skeletal bones that have been crushed
+underfoot.
+~
+E
+scratches claw marks wall~
+Deeply scratched into the stone walls are random claw marks, gouged from
+the rough surface.
+~
+-1
+S
+
+#52547
+Lair~
+Throughout the cavern bones are strewn across the floor making a thick
+carpet of ivory.  Rags lay here, ripped and shredded.  There is a
+clearing in the bones, forming a circular nest of enormous proportions. 
+There is a tunnel dug into the east wall with bars crossing the entrance
+preventing any access.
+~
+~
+301465601 11 9 0
+D0
+~
+~
+0 -1 52546 10 10 5
+E
+bones carpet ivory~
+Thick underfoot is a blanket of bones, obviously the past meals of
+something big.
+~
+E
+scratches claw marks wall~
+Deeply scratched into the stone walls are random claw marks, gouged from
+the rough surface.
+~
+E
+bar tunnel~
+Dug into the east wall, a tunnel stretches off into the darkness.  From
+within the tunnel, you can hear some activity and whispering, but you
+cannot make out anything in the darkness of the tunnel.
+~
+1322 9 1509949540 3 0
+-1
+S
+
+#52548
+South Temple Quarter~
+This seems to be the start of the main temple, stretching off to the west. 
+The floor is smooth marble, shadowed by a lone column standing in the
+center of the floor.  In the south wall, a small dug out shelf holds a
+statue.  Debris is scattered around the floor and over some benches.
+~
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 52541 10 10 5
+D1
+~
+~
+0 -1 52542 10 10 5
+D3
+~
+~
+0 -1 52551 10 10 5
+E
+lone column~
+The single column is immense and is made from delicately carved stone. 
+It rises from the marble floor, where they once would have supported the
+sheltering wood that now lies crumbling at your feet.
+~
+E
+debris furniture marble benches blood rags~
+Strewn around the floor, are the remnants of benches and furniture, they
+lay scattered across the marble.
+~
+E
+statue small shelf~
+A small stature rests on the shelf, crudely dug out of the crumbling
+masonry.  There is a definite shape to the figure, depicting an evil god
+of death and destruction.  Although hideous to look at, this artifact
+would be invaluable to those who worship and follow this path.
+~
+-1
+S
+
+#52549
+Sacrificial pit~
+There is a change of floor surface in this area of the temple.  The
+smooth marble cracks into flagstones, increasing in size as they get
+nearer a large pit in the center of the floor.  In the wall to the north,
+there is a small boarded up window, effectively blocking the light out
+from the outside.
+~
+~
+301465601 1 9 0
+D1
+~
+~
+0 -1 52539 10 10 5
+D2
+~
+~
+0 -1 52550 10 10 5
+E
+window bordered small~
+A shaped window has been cut onto the symbolic wall; several crudely
+shaved planks of wood, effectively blocking the light have blocked your
+view.
+~
+E
+planks wood shaved~
+No description Several small planks of wood cover the window, blocking
+the light.
+~
+E
+Symbols wall~
+Across the wall are scratches and a painting, which has been, scrawled
+deep into the masonry.  Looking closer at the markings, your thoughts
+fill with deep demonic evil.
+~
+-1
+S
+
+#52550
+Ancient Altar~
+Before you, stands a small altar carved out of black marble.  It seems to
+be the focal point of the entire temple.  It sits, raised above the rest
+of the temple floor on a wooden stand.  To the west, there sits a statue,
+resting on a dug out shelf in the wall.
+~
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 52549 10 10 5
+D1
+~
+~
+0 -1 52541 10 10 5
+D2
+~
+~
+0 -1 52551 10 10 5
+E
+altar small carved black marble wooden stand~
+Standing in the middle of the temple, a small marble altar rests on a
+marble plinth.  The blackened marble is inscribed with similar runes as
+the surrounding walls.  A delicate wooden stand holds the altar off the
+dusty floor.
+~
+E
+statue small shelf~
+A small stature rests on the shelf, crudely dug out of the crumbling
+masonry.  There is a definite shape to the figure, depicting an evil god
+of death and destruction.  Although hideous to look at, this artifact
+would be invaluable to those who worship and follow this path.
+~
+-1
+S
+
+#52551
+Decayed Font~
+Entering the side room, you see an empty font, crumbling into dust and
+stone.  Above the font hangs a cap, forming the same shape and size of
+the font itself.  In the center of the room sits a tall column,
+stretching into the darkness above.
+~
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 52550 10 10 5
+D1
+~
+~
+0 -1 52548 10 10 5
+E
+font stone, cap~
+Resting in front of you sits a large stone font decaying from age and
+lack of use.  Engraved into both the base and cap are devilish figures
+performing strange religious rights.
+~
+E
+huge column~
+The huge columns made from carved stone rise from the marble floor. 
+Fastened out of your reach you can see the old fraying rope suspending
+the font cap about its base.
+~
+E
+fraying rope~
+The tired old rope creaks under the immense weight of the engraved stone
+cap.
+~
+-1
+S
+
+#52552
+Temple Entrance~
+The trees on either side of you seem to make a pathway up to a tall wall. 
+The wall has scratches scrawled across it, with two large black doors,
+which tower over you, stretching almost half way up the wall.  To the
+east, a trail leads into darkness.
+~
+~
+301465601 1 9 0
+D1
+~
+~
+0 -1 52537 10 10 5
+D3
+~
+~
+0 -1 52540 10 10 5
+E
+walls scratches tall~
+The wall has been created with large, carved granite boulders and stands
+at least 12ft high.  Numerous scratches have been gouged deep into the
+face of the wall.
+~
+E
+black doors~
+Huge doors tower above you coloured the blackest of black.  Above the
+doors, scratched into the wall are several runes, but you are unable to
+make out what they mean.
+~
+-1
+S
+
+#52553
+Beach~
+By your feet there is a small rock pool, created by an inlet from the sea
+as the tide washes in and out.  To the east, the ocean stretches far away
+into the distance with mist lying low making visibility difficult.  The
+soft sandy beach leads off to the north and south, creating a path
+between the ocean and the towering dunes to the west.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52508 10 10 5
+D2
+~
+~
+0 -1 52554 10 10 5
+E
+dune~
+The enormous sand dune has created a natural barrier, preventing travel
+to the west.  The harsh wind has created ripples all along the surface of
+the sand dunes.
+~
+E
+rock pool~
+Small, sharp rocks in the shape of a circle have created a rock- pool,
+which has been filled by the sea.  The sea appears to have been mixed
+with another liquid creating a strange dark appearance to the water.
+~
+A
+~
+~
+send_to_room(#sand, room );
+~
+E
+sand~
+A sudden blast of wind blows sand into your face!
+~
+!
+2 100 0
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52554
+sand~
+Towards the north-east the ocean can be clearly seen with black- headed
+gulls flying overhead looking for any scraps of food left on the beach. 
+Small tufts of wispy grass sprout from underneath the fine-grained sand
+creating a pleasant place to relax and enjoy the ocean view.  The damp
+sand appears to have been untouched with the tide wiping away any marks
+that may have been there previously.
+~
+~
+301465610 10 9 0
+D0
+~
+~
+0 -1 52553 10 10 5
+D1
+~
+~
+0 -1 52560 10 10 5
+D2
+~
+~
+0 -1 52555 10 10 5
+E
+tufts wispy grass~
+The grass sways slightly in the gentle breeze that blows in from the sea.
+~
+E
+fine grained sand~
+The fine sand stretches down towards the shore.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52555
+sand~
+The surrounding beach area is sheltered from the wind by a large sand
+dune that lies off to the west.  There are several small nesting areas
+scattered around the steep slope of the sand dune, causing the smell of
+rotting food to linger in the stale air.  Further toward the east, you
+see a large cliff stretching high into the sky.  The beach continues off
+to the north, south and east.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52554 10 10 5
+D1
+~
+~
+0 -1 52559 10 10 5
+D2
+~
+~
+0 -1 52556 10 10 5
+E
+dune~
+The enormous sand dune has created a natural barrier, preventing travel
+to the west.  Numerous nests lie abandoned scattered amongst the dunes.
+~
+E
+nests~
+The remnants of shattered eggshells and broken bones lie amongst the
+otherwise empty nests.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+end;
+if( rflag( reset0, room ) ) {
+i = random( 1, 20 );
+if( i == 1 ) {
+send_to_char( #yes_char, ch );
+act_notchar( #yes_room, ch );
+obj_to_char( oload( 1410 ), ch );
+end;
+}
+else {
+send_to_char( #no_char, ch );
+act_notchar( #no_room, ch );
+}
+remove_rflag( reset0, room );
+}
+else {
+send_to_char( #no_char, ch );
+act_notchar( #no_room, ch );
+}
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and
+make a fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52556
+Beach~
+The fine sand appears to have been disturbed here, with strange foot
+marks indicating that someone or something may have passed through here
+recently.  Towards the west there is a large sand dune making passage in
+that direction impossible, however the beach continues to the north,
+south and the east.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52555 10 10 5
+D1
+~
+~
+0 -1 52558 10 10 5
+D2
+~
+~
+0 -1 52557 10 10 5
+E
+foot marks strange~
+Each footprint left in the sand consists of three, large, claw like
+indentations.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52557
+sand~
+Underfoot the conditions have started to change, with the sand being
+mixed with smaller stones making walking much easier.  Towards the east
+the cliff can be seen much more clearly, with the summit appearing to
+stretch far into the sky.  Your passages to the south and the west have
+been blocked by huge sand dunes that must have been created by a recent
+storm.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52556 10 10 5
+D1
+~
+~
+0 -1 52561 10 10 5
+E
+stones~
+Amongst the stones that lie here, you see a variety of small insects.
+~
+E
+insects~
+A number of small, yet harmless insects scamper around between the rocks.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52558
+sand~
+A large palm tree grows here, creating some protection from the rdesc
+towards the south the sand has become more coarse with a combination of
+small stones and soft sand, covering the tracks.  To the east several
+boulders have fallen down from the top of the cliff that blocks off any
+exit in that direction.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52559 10 10 5
+D3
+~
+~
+0 -1 52556 10 10 5
+E
+stones~
+Some small smooth stones lie here.
+~
+E
+footprints  tracks~
+Each footprint left in the sand consists of three, large, claw like
+indentations.
+~
+E
+large palm tree~
+A large palm tree stands here, leaves blowing in the breeze.
+The canopy provides a good shelter from the weather.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+-1
+S
+
+#52559
+sand~
+A small fire has recently been abandoned on the eastern part of the only
+remains are the burnt out wood and a discarded tin.  Sand has over the
+fire in an attempt to muffle the still smoking embers.  The sand seems to
+have been left untouched, other than footprints leading towards rdesc the
+south.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 52560 10 10 5
+D2
+~
+~
+0 -1 52558 10 10 5
+D3
+~
+~
+0 -1 52555 10 10 5
+E
+tin~
+The tin can has been used to heat something over the fire, the outside
+charred by the fire.
+~
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+A
+get~
+tin~
+send_to_char( #tin, ch );
+act_notchar( #gtin, ch );
+wait(1);
+do_spell( burning hands, ch );
+wait(1);
+send_to_char( #tin1, ch );
+act_notchar( #gtin1, ch );
+~
+E
+tin~
+You pick up the tin unaware how hot it was.
+~
+E
+gtin~
+$n picks up a tin, suddenly $e screams.
+~
+E
+tin1~
+Screaming in pain you throw the tin to the ground.
+~
+E
+gtin1~
+Screaming in pain $n throws the tin to the ground.
+~
+!
+0 0 0
+-1
+S
+
+#52560
+sand~
+The sea surrounds you here, with small waves lapping onto the shore both
+to the north and the east.  At the shores edge you can see small pieces
+of driftwood that have been washed up with the tide.  A trail of
+footprints have been left in the sand, they appear to have come from the
+waters edge and lead towards the south.
+~
+~
+301465600 10 9 0
+D2
+~
+~
+0 -1 52559 10 10 5
+D3
+~
+~
+0 -1 52554 10 10 5
+A
+get~
+sand~
+if( !is_player( ch ) )
+  end;
+if( rflag( reset0, room ) ) {
+  i = random( 1, 20 );
+  if( i == 1 ) {
+    send_to_char( #yes_char, ch );
+    act_notchar( #yes_room, ch );
+    obj_to_char( oload( 1410 ), ch );
+    end;
+    }
+  else {
+    send_to_char( #no_char, ch );
+    act_notchar( #no_room, ch );
+    }
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #no_char, ch );
+  act_notchar( #no_room, ch );
+  }
+~
+E
+yes_room~
+$n focuses on the beach and find a grain of sand!
+~
+E
+yes_char~
+You focus on the beach and find a grain of sand!
+~
+E
+no_room~
+Attempting to grab a grain of sand $n trips over $s feet and makes a fool
+of $s.
+~
+E
+no_char~
+Attempting to grab a grain of sand you trip over your feet and make a
+fool of yourself.
+~
+!
+0 0 0
+A
+~
+~
+ch = rand_player( room );
+send_to_char( #wave, ch );
+act_notchar( #gwave, ch );
+~
+E
+wave~
+A huge wave crashes onto the beach, causing you to run further up the
+beach to relative safety!
+~
+E
+gwave~
+$n prances up the beach, cowering in fear of the sea.
+~
+!
+2 200 0
+A
+wave~
+~
+~
+!
+0 0 0
+-1
+S
+
+#52561
+Canyon~
+Standing in a clearing from the sand and rock, you see all around you
+rubble and soil that has been created from years of decay.  There appears
+to be only one exit from the clearing, this being a path cleared away to
+the west.  To the east there is a great cliff face, with stones
+protruding from the surface, stretching into the sky above you.
+~
+do a climb code with hand holds to climb up.
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 52557 10 10 5
+E
+rocks~
+Looking at the rocks you think you could use them as hand holds to climb
+the cliff.
+~
+A
+climb~
+up hand holes rock~
+send_to_char( #climb, ch );
+act_notchar( #rclimb, ch );
+wait(1);
+send_to_char( #climb2, ch );
+wait(1);
+send_to_char( #climb3, ch );
+transfer( ch, find_room( 52562 ) );
+wait(0);
+act_notchar( #arrive, ch );
+loop( followers ) {
+ch = rch;
+acode( room, 1 );
+}
+~
+E
+climb~
+You place your hands in the hand holes and gradually climb up the rocky
+cliff.
+~
+E
+rclimb~
+$n places $s hands in some hand holes and climbs up the rocky cliff.
+~
+E
+arrive~
+$n climbs over the edge of the cliff, breathing heavily.
+~
+E
+climb2~
+Reaching a handy rest point, you pause to catch your breath before
+continuing upwards.
+~
+E
+climb3~
+Finally after a long and exhausting climb, you reach the ledge before the
+cavern.
+~
+!
+0 0 0
+-1
+S
+
+#52562
+Rocky cliff~
+You stand on a small ledge at the side of a huge cliff.  The cliff towers
+above you, seemingly for miles.  You can pick a path off to the north,
+allowing you to traverse the cliff face.  You can see a trail down the
+rocks below you, leading off to some sand dunes below and to the west.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52563 10 10 5
+A
+leap jump~
+down edge cliff~
+send_to_char( #jump, ch );
+act_notchar( #rjump, ch );
+wait(1);
+transfer( ch, find_room( 52561) );
+i = 10d10+100;
+act_notchar(#ouch, ch );
+  dam_message( ch, i, "The rough floor" );
+  inflict( ch, mob, i, "The rough floor" );
+~
+E
+jump~
+After a deep breath, you leap into the horizen and drop intro the world
+below.
+~
+E
+rjump~
+$n takes a deep breath before leaping over the edge of the cliff.
+~
+E
+ouch~
+$n falls from the sky above, landing with a thud on the floor.
+~
+!
+0 0 0
+-1
+S
+
+#52563
+Canyon~
+The ledge seems to narrow as you advance further across the precipice. 
+To the north, boulders bar you progress.  A random set of footholds seems
+to trail off to the south, enabling you to reach a wider ledge.  Cracks
+in the stone around your feet seem to move under your weight, shifting
+uncertainly.  Above you, several rocks protrude from the surface.
+~
+add acode... room 20 on disk
+climb up - eagle crashes out and no transfur...
+delete up
+north should be move rock
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52564 10 10 5
+D2
+~
+~
+0 -1 52562 10 10 5
+D4
+~
+~
+0 -1 52565 10 10 5
+E
+boulders~
+A particularly large boulder catches your eye, it has been rounded by the
+harsh elements, and smaller stones lie around the boulder.
+~
+E
+smaller stones~
+Smaller stones lie around the base of the boulder, very similar to their
+larger counterparts, you notice a single small stone props up the larger
+boulder, you think you can pry it free.
+~
+E
+rocks~
+Looking at each single protruding rock, you feel you could pick a path
+along them and climb the cliff face, although this looks a treacherous
+path, it looks like the only one leading to the top.
+~
+A
+climb~
+cliff up holds path face~
+send_to_char( #c_climb, ch );
+act_notchar( #o_climb, ch );
+if( random( 0, 5 ) == 1 ) {
+  wait(1);
+  send_to_char( #luck, ch );
+  }
+wait(1);
+send_to_char( #arrive, ch );
+act_notchar( #o_arrive, ch );
+transfer( ch, find_room( 52565 ) );
+interpret( ch,  "rest" );
+~
+E
+c_climb~
+Clutching at a handhold, you swing yourself up and continue the climb up
+to the top.
+~
+E
+o_climb~
+Scrapping up the wall, $n continues $s climb up the cliff face.
+~
+E
+arrive~
+You take one last, daring snatch at an overhang.  Exhausted you swing
+yourself over the ledge and roll over on to your back to catch your
+breath.
+~
+E
+o_arrive~
+You see two hands grasping at the soils from over the edge of the cliff
+as $n hauls $s self over the edge, collapsing in exhaustion.
+~
+E
+luck~
+A confused eagle lands on you, adjusting itself accordingly, it marks
+your shoulder as its territory.  With a hop it disappears into the sky
+above.  You must me lucky ! 
+~
+!
+0 0 0
+-1
+S
+
+#52564
+sand~
+Entering the cave, you are immediately struck by a horrible stench of
+decaying flesh.  Searching around the darkness of the cave you notice a
+grass nest, resting on what looks like a small crevice cut out from the
+rock wall.  The walls seem to be made of a sand-like stone, crumbling at
+the slightest touch.
+~
+add acode from room 21
+~
+301465604 3 9 0
+D2
+~
+~
+0 -1 52563 10 10 5
+E
+grass nest~
+A large nest carefully woven out of grass, it looks almost large enough
+for you to climb into it.  From where you stand, you can't quite see
+anything in the bottom of the nest.
+~
+A
+search~
+nest~
+if( !is_player( ch ) )
+end;
+if( rflag( reset0, room ) ) {
+i = random( 1, 20 );
+if( i == 1 ) {
+send_to_char( #yes_char, ch );
+act_notchar( #yes_room, ch );
+obj_to_char( oload( 1410 ), ch );
+end;
+}
+else {
+send_to_char( #no_char, ch );
+act_notchar( #no_room, ch );
+}
+remove_rflag( reset0, room );
+}
+else {
+send_to_char( #no_char, ch );
+act_notchar( #no_room, ch );
+}
+~
+E
+no_char~
+Looking through the nesting, you dont manage to finds anything of use.
+~
+E
+yes_char~
+You rummage around the old nest, you managed to find a peice of troll
+flesh !!
+~
+E
+yes_room~
+Rummaging arounsd the old nesting, $n finds a peice of trolll flesh !!
+~
+E
+no_room~
+Hunting around the nesting, $n comes up semmling a bit musty
+~
+!
+0 0 0
+A
+look in~
+nest~
+~
+!
+0 0 0
+-1
+S
+
+#52565
+sand~
+You are standing at the summit of a mountainous cliff, with an entire
+world of forests and cities spread out below you.  Looking directly down
+over the edge of the cliff face, you see a trail of craggy rocks leading
+down into the clouds below.  Rocks block your exit to the east.  There
+are openings in the rocks to the north and south, which look big enough
+for you to fit through.
+~
+add acode 24
+heh not sure why sitting on the floor... ah coz you are knackered.
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52566 10 10 5
+D2
+~
+~
+0 -1 52580 10 10 5
+D5
+~
+~
+0 -1 52563 10 10 5
+E
+trail rocks edge face~
+Peeking over the edge of the canyon, you can pick a path of rocks that
+would help you climb down the face in relative safety.
+~
+-1
+S
+
+#52566
+sand~
+You are standing along side a great canyon; there are several rocks here,
+scattered around in the powdery soil.  Some rocks to the east stretching
+high above you.  To the west, woodlands and fields stretch into the
+distance from far below your feet.  There is a trail leading to the south
+and north.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52567 10 10 5
+D2
+~
+~
+0 -1 52565 10 10 5
+E
+rocks soil powdery~
+Looking around your feet, the powdery soil seems to float around some
+rocks on the breeze.
+~
+-1
+S
+
+#52567
+Canyon~
+You walk into a rocky clearing, only to find it's a dead end.  You are
+standing on a ridge, with a sheer drop down into the dark canyon floor. 
+Looking out into the distance you see the vast forests domain stretching
+out below you.  The dusty soil floats on the breeze, disturbed from
+beneath your feet.
+~
+acode for east...
+room 22
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 52568 10 10 5
+D2
+~
+~
+0 -1 52566 10 10 5
+E
+ridge edge canyon~
+You edge up close to the lip of the path, and carefully peer over the
+edge.  Far below you, you can make out distant sounds of life on the
+darkest depths of the canyon.  About 3 meters below your feet you can see
+a ledge that could just about be big enough to hold you, you may be able
+to jump down onto it.
+~
+-1
+S
+
+#52568
+sand~
+BRIDGE!!!!!
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 52569 10 10 5
+D3
+~
+~
+0 -1 52567 10 10 5
+-1
+S
+
+#52569
+sand~
+Standing on a narrow ledge, hanging over a great canyon, you begin to
+feel gravity pulling you over the edge.  Looking down to the depths below
+you, there is nothing to be seen but the never-ending darkness.  The
+ledge leads to the south.  To the west, you see some footholds that could
+enable you to climb up the face of the canyon.
+~
+add acode 41
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 52570 10 10 5
+D3
+~
+~
+0 -1 52568 10 10 5
+E
+footholds face~
+Stretching a little way above you are a selection of cracks and holes
+that could enable you to climb up onto a ledge just out of reach, above
+your head.
+~
+-1
+S
+
+#52570
+sand~
+You are standing at the end of the ledge, with a cave entrance off to the
+west with the ledge continuing to the north.  There is another ledge to
+the south resting about five foot lower down to the one you are standing
+on, it looks stable enough to easily hold you weight.
+~
+add acode 42
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52569 10 10 5
+D2
+~
+~
+0 -1 52571 10 10 5
+D3
+~
+~
+0 -1 52574 10 10 5
+E
+cave entrance west~
+Taking a quick glance at the opening in the face of the cliff next to
+you, it would seem to have been made from hacking at the stone with a
+blunt tool.  Judging by the hard stone of the cliff, you would think that
+this cave would have taken centuries to dig.
+~
+E
+ledge south~
+The ledge seems strangely large compared to the other nooks and cracks in
+the cliff face.  It hangs just down the face from where you are standing,
+and you think you could lower yourself down to it easily.  Looking around
+the ledge, you see nothing but the darkness of the canyon, it would take
+a brave man to jump to the ledge.
+~
+-1
+S
+
+#52571
+Rocky crap :P~
+You are standing on a small ledge; there is barley enough room to move
+around.  Looking over the edge, you see nothing but blackness below you. 
+If you listen quietly, you can hear a murmur of life echoing from below. 
+On the wall to the south of you, you seem to notice a vine sway in a
+slight breeze.
+~
+add acode 43 bungee!
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52570 10 10 5
+D2
+~
+~
+0 -1 52572 10 10 5
+E
+vine~
+The blackened vine hangs in front of you.  Looking up, you cannot see
+where it is secured to, and looking down, you cannot see where it
+finishes.
+~
+A
+leap swing jump~
+vine~
+send_to_char( #swing1, ch );
+act_notchar( #oswing1, ch );
+wait(1);
+send_to_char( #swing2, ch );
+act_notchar( #oswing2, ch );
+wait(1);
+send_to_char( #swing3, ch );
+act_notchar( #oswing3, ch );
+wait(1);
+i = 10d30;
+dam_message( ch, i, "The rock face" );
+inflict( ch, mob, i, "The rock face" );
+~
+E
+swing1~
+You grab a leafy vine and swing out into the canyon.
+~
+E
+oswing1~
+$n grabs a leafy vine and swings out into the canyon.
+~
+E
+swing2~
+You feel the wind changing direction as you see the rocky ledge coming
+closer and closer.
+~
+E
+oswing2~
+$n looks worried as the wind changes direction.
+~
+E
+oswing3~
+A sudden gust of wind sends $n sprawling into the cliff!.
+~
+E
+swing3~
+A sudden gust of wind sends you sprawling into the cliff!.
+~
+!
+0 0 0
+-1
+S
+
+#52572
+sand~
+You are standing at the bottom of the canyon.  The immense rock-face
+stretching high above you into the blackness.  The entire area is cast
+into darkness, lost in the blackness shaded from the towering rocks. 
+Beneath your feet the ground feels dusty and hard, the presence of life
+in these dull conditions is unlikely.  You can make out a prominent vine
+stretching into the darkness above.  The visible exit seems to head off
+to the south.
+~
+add acode 44
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52571 10 10 5
+D2
+~
+~
+0 -1 52573 10 10 5
+E
+vine~
+The blackened vine hangs in front of you.  Looking up, you cannot see
+where it is secured to, and looking down, you can see its end flick
+around in the wind just below the ledge you stand on.
+~
+-1
+S
+
+#52573
+sand~
+You stand in a blackened corner of the canyon.  Around this area, there
+seems evidence of recent disturbance.  To the south, there is a
+collection of grass and hay.  It seems to be collecting into some sort of
+bedding.  A rock next to the flattened foliage appears to be smoothed off
+and flattened through centuries of use.  The only visible exit lies to
+the north.
+~
+add acode 45
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52572 10 10 5
+E
+bedding grass hay collection~
+A large mass of grass and hay lay here, flattened down into some sort of
+bedding.  You dare yourself to lie in it, but wonder what sort of vermin
+could be settled within the depths of the nesting.
+~
+E
+flattened stone smoothed~
+This dark rock appears to have been used as a small table.  On the
+flattened surface, there is a small pile of junk sitting in the dust of
+time.  On closer examination, you doubt any of the junk would be of any
+use to you.
+~
+E
+junk pile~
+You lean closer to take a look at the small pile of junk on a
+flattened stone. A freak gust of wind sweeps through the dust and
+the junk, blowing it in your face.
+~
+-1
+S
+
+#52574
+sand~
+You are crouched in a lit cavern within the canyon face.  It would appear
+that this area is the entrance to a larger home for some animal.  Around
+you are bits of useless discarded debris, which seem to have been
+collected together.  The cave entrance is to the east, the cave continues
+off into the darkness of the south.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 52570 10 10 5
+D2
+~
+~
+0 -1 52575 10 10 5
+E
+useless discarded debris~
+Discarded around the area, amongst soil and stones are trinkets and bones
+collected together.  Looking around you see nothing of value.
+~
+-1
+S
+
+#52575
+sand~
+The cave opens out here slightly and is illuminated by an unknown source
+from above.  The cave stretches north and southward.  There is an eerie
+scratching coming from the south, but you are unable to decide what could
+be causing it.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52574 10 10 5
+D2
+~
+~
+0 -1 52576 10 10 5
+-1
+S
+
+#52576
+sand~
+You have entered a large cavern, nesting in the heart of the mountainous
+rock.  The cavern stretches far above and below you and is illuminated by
+a flickering orange glow, which seems to cover the floor of the cavern
+below.  There is a strong heat coming from the cavern below.  A narrow
+path circles the outside edge of the cavern.  There are two exits,
+leaving north and south.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52575 10 10 5
+D2
+~
+~
+0 -1 52577 10 10 5
+-1
+S
+
+#52577
+sand~
+You feel yourself climbing deeper in the mountain heart.  As you enter
+the cavern's area; you see a large collection of old bones mixed with
+fresh looking corpses.  You have a strange feeling of being watched from
+the depths of the darkness stretching into the cavern roof.  Passageways
+leave north and southward.
+~
+add acode 39
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52576 10 10 5
+D2
+~
+~
+0 -1 52578 10 10 5
+E
+old bones fresh corpses~
+You force yourself to look closer at the remains of these unfortunate
+creatures.  As you cats your eye over the lifeless surroundings you
+notice that the bones are of several different dismembered creatures,
+scattered around.  One, more fresher corpse rests on top, slowly decaying
+down into the other old bones.
+~
+-1
+S
+
+#52578
+sand~
+You have reached an opening from the darkest depths of the cavernous pit
+of the mountain.  Above you can see the peak of the mountain and a bridge
+stretching across the area.  Exits leave back into darkness to the north
+and a small tunnel to the east.
+~
+add acode 40
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52577 10 10 5
+D1
+~
+~
+0 -1 52579 10 10 5
+-1
+S
+
+#52579
+well~
+You seem to be at the bottom of a well, standing within a cramped cave
+which stretches high above you, narrowing into a spot of light, you can
+only assume is the sky.  The cave walls around you are smoothed and
+constructed to taper into a circular opening from the tunnel.  The only
+way out is back to the west.
+~
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 52578 10 10 5
+E
+smooth wall~
+Looking at the smooth surface of the walls, you are only struck
+with the seamless taper as it stretches high above you.
+~
+-1
+S
+
+#52580
+sand~
+Following the edge of the canyon, the trail continues to lead off north
+and south.  Large rocks towering above you block any exit to the west. 
+To the east is the vast drop of the canyon, stretching off into the
+darkness.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52565 10 10 5
+D2
+~
+~
+0 -1 52581 10 10 5
+E
+canyon~
+Shuffling closer to the edge of the canyon, to dare a peek into the
+depths of the darkness.  Some rocks tumble off the edge of the pathway,
+falling off into the distance.  Noticing you never here them land, you
+back away from the edge.
+~
+-1
+S
+
+#52581
+sand~
+You are standing on a narrow ledge, forcing you to venture very close to
+the edge.  A sudden movement causes several rocks to displace themselves
+and fall into the darkness.  The confined ledge continues north and south. 
+There is an opening in the wall to the west; it looks large enough for
+you to squeeze through.
+~
+add acode 26
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52580 10 10 5
+D2
+~
+~
+0 -1 52582 10 10 5
+D3
+~
+~
+0 -1 52583 10 10 5
+E
+opening wall~
+Looking at the weathered face to the west, you notice a hole seemingly
+just big enough to enter into the darkness within.
+~
+-1
+S
+
+#52582
+canyon~
+You are standing on a large ledge, cut away onto the wall.  This ledge
+would appear to have been recently been used by a creature of some kind. 
+There are several scattered remains strewn around the floor.  There are
+only two exits from the ledge, one being suicidal.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52581 10 10 5
+E
+scattered remains~
+Bending over to examine the rotten meat and bone, you begin to feel
+uneasy.  What ever it was that bought the demise of these adventurers, it
+had to have vast strength and anger to cause this devastation.
+~
+-1
+S
+
+#52583
+sand~
+This is a narrow passageway passing through the elevated rocks.  You can
+see nothing past the rocks, only the sky above and the cold, smooth
+surface of the walls.  The occasional sharp jagged snag of rock reaches
+out to you as you pass.  The passageway seems to turn a corner, moving
+east and south.
+~
+add acode 28
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 52581 10 10 5
+D2
+~
+~
+0 -1 52584 10 10 5
+E
+jagged rock wall cold smooth~
+Small rocks reach out like rocks are very sharp at the edges.  Running
+your hand along the smooth surface of the wall, getting a contrast of the
+surface, you from the otherwise smooth, cold rocks.  Some of the
+flint-snag yourself on the jagged rock.
+~
+-1
+S
+
+#52584
+sand~
+The narrow passage continues though the shadows of the tall, smooth rocks. 
+On the base of the eastern wall, you notice delicate engravings carved
+into the even rock.  The rocks stretch away into the sky, blocking any
+view into the distance.  The passageway leads north and south.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52583 10 10 5
+D2
+~
+~
+0 -1 52585 10 10 5
+E
+delicate engravings~
+Looking closely at the patterns and figures carved into the face etched
+into the wall were created with such fine precision and detail. 
+Following the pattern of the fine engravings, you feel you are following
+the tale of someones life.
+~
+-1
+S
+
+#52585
+sand~
+Standing in a small opening, you get the uneasy feeling that you are
+being watched.  There are a several small rocks scattered throughout the
+area.  To the west, you can see the towns and cities on the horizon.  The
+clearing would appear to have been used in the past as a camp for
+previous travelers, but by the junk that has been scattered, it would
+appear the travelers didn't stay long.
+~
+add acode 30
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52584 10 10 5
+D1
+~
+~
+0 -1 52586 10 10 5
+D2
+~
+~
+0 -1 52588 10 10 5
+E
+rocks junk scattered~
+Spread around the opening, in which you stand a scattering of old camping
+equipment lay strewn amongst the rocks in the dusty soil.  A long
+burnt-out fire sits in the middle, circled with small rocks.
+~
+E
+fire burnt-out small~
+Looking closer at the soot-stained rocks, a gust of wind blows through
+the clearing.  Some soot blows off the burn rocks into your face.
+~
+-1
+S
+
+#52586
+sand~
+You are standing at the beginning of what appears to be an ancient
+bridge, stretching off across the canyon.  It is impossible to make out
+the destination of the bridge.  The old ropes of the bridge are supported
+by the surrounding rocks and look sturdy enough.  There are exits to the
+west and to the south.
+~
+add acode 33
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 52587 10 10 5
+D3
+~
+~
+0 -1 52585 10 10 5
+E
+bridge ancient ropes~
+Stretching across the width of the canyon is what would appear to be a
+primitive bridge construction.  It sways in the wind, although it looks
+unused, it would appear to be sturdy enough to hold a group of
+traveller's.  Looking along the bridge, you are unable to make out what
+it is attached to on the other side.
+~
+-1
+S
+
+#52587
+sand~
+You are standing amongst what appears to be an arrangement of
+artificially flattened rocks, which are arranged so to be facing out onto
+the canyon.  There seems to be a central rock, which has the faded
+remnants of blood coating it, as if it had once been used as a
+sacrificial altar.  To the north you can see an old bridge stretching
+across into the darkness of the canyon.  There are exits to the north and
+to the west.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52586 10 10 5
+D3
+~
+~
+0 -1 52588 10 10 5
+E
+blood altar sacrificial central~
+Standing in what would be the focus of all the other rocks is a taller,
+carved rock.  Its is larger then all the others, and slightly more
+decorative.  Across the top of the altar, old, dried blood stains the
+surface, marking the smoother stone.
+~
+E
+rocks~
+Ordered around the area, are several carved rocks.  All of these rocks
+seem to face a central rock, bigger then the rest.  The smaller rock
+pattern of the carving around the edges has been smoothed away by time
+and use on the top.
+~
+-1
+S
+
+#52588
+sand~
+Patches of dry mud mixed with small patches of fine- bladed grass
+encircle the area around you.  A small pond is visible, which would
+appear to have been naturally formed over many years.  The water spills
+out of a crack in some rocks above the algae filled pond, although you
+cannot detect the source.
+~
+add acode 31
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52585 10 10 5
+D1
+~
+~
+0 -1 52587 10 10 5
+D2
+~
+~
+0 -1 52589 10 10 5
+E
+pond water crack rocks~
+A pleasant trickle of water seeps out of the smoothed rock, forming a
+pond contained within smaller smooth rocks.  A natural alga floats around
+the edges of the water, bubbling with life.
+~
+E
+algae natural~
+The greenish mixture of natural alga bobs in the lapping ripples of the
+water.  Small bubbles of life rise from the bottom of the algae, twisting
+its way to the water surface.  The presence of this natural substance
+tells you the water is fresh and clean.
+~
+-1
+S
+
+#52589
+sand~
+This is the southwest corner of the mountainous rock.  You have a
+tremendous view over the treetops of the forest stretching out in front
+of you.  There is a set of flat looking rocks settled down near the edge
+of the cliff, making a handy bench for you to rest on.
+~
+add acode 32
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 52588 10 10 5
+D1
+~
+~
+0 -1 52590 10 10 5
+E
+flat rocks~
+Sitting near the edge of the cliff, an assortment of flattened rocks
+rests, almost inviting you to sit there and enjoy the view.  There seems
+no reason as to why they are here, or how they got here.
+~
+-1
+S
+
+#52590
+sand~
+You are standing in a dead-end, with the rough rock walls overhanging
+creating a sheltered cave.  There are some small rocks on the caves
+floor, inscribed with strange engravings.  The only exit is back to the
+west the way you entered 
+~
+add acode 35
+~
+301465601 3 9 0
+D3
+~
+~
+0 -1 52589 10 10 5
+E
+small rocks engravings~
+Bending down to look at the small rocks around the floor, you pick a
+couple up and examine them.  The rocks are rough on one side, but has
+been smoothed off and polished to a high shine.  Engravings have been
+delicately carved into the smooth surface.  It is obvious to you that a
+lot of time has been spent etching in great detail small figures and
+forms onto each individual rock.
+~
+-1
+S
+
+#0
+

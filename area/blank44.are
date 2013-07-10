@@ -1,0 +1,1565 @@
+#AREA
+Decrepit House~
+Void~
+Decrepit House~
+
+33 0
+0
+#ROOMS
+
+#39500
+Small Forest Path~
+The forest is extremely dense here with the small forest path coming to
+an abrupt end.  Small bushes can be seen growing between the tall pine
+trees to the east and west.  A small gap in the trees to the north allows
+passageway to what looks like the remains of a garden.
+~
+~
+301465600 3 5 0
+D0
+~
+~
+0 -1 39501 10 10 5
+D2
+~
+~
+0 -1 1049 10 10 5
+-1
+S
+
+#39501
+Unkept Garden~
+Tall, untidy grass grows all around, it appears that it has remained
+uncut for many years.  Thin strips of pine peek out from among the weeds,
+marking where a flowerbed once stood, but now separate a small compost
+heap from the neighbouring vegetation.  To your north stands a small
+house; it too shows signs of long-standing neglect.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39502 10 10 5
+D2
+~
+~
+0 -1 39500 10 10 5
+E
+weed~
+The weeds are thriving.  They were once the menace of the owner but now
+they are left alone to consume the garden.
+~
+E
+flower bed 1 west~
+The flowers were once bright and beautiful and keenly cared for.  But now
+they have decayed into compost with the lack of care and respect that they
+once commanded.
+~
+E
+grass long untidy~
+The long grass has been uncut for many years.  It is now out of of
+control and has a life of its own.
+~
+-1
+S
+
+#39502
+Decrepit House~
+A decrepit house looms ahead of you, its form casting a huge shadow over
+the surrounding area.  The paint on this old building has all but
+disappeared, with the rotten timber showing through quite clearly.  The
+beams of the building creak from each gust of wind which blows through
+the house.  There is a door to the north to enter into the house.
+~
+~
+301465608 3 9 0
+D0
+door~
+north door~
+131 -1 39503 10 10 5
+D2
+~
+~
+0 -1 39501 10 10 5
+E
+decrepit house~
+The old house casts a large shadow over the surrounding area, it is in
+very bad condition and appears that it could collapse at any time.  It
+appears that once this house was well cared for but now it has been left
+to rot.
+~
+E
+rotten timber paint work~
+The paint on the building has almost all decayed to show the timber
+underneath.  The timber itself has been eaten away by the weather, it has
+since dried and is now very brittle.
+~
+E
+shadow huge~
+The shadow is formed from the old building standing directly ahead of
+you.  It is large and very dark.
+~
+-1
+S
+
+#39503
+Hall~
+The walls are barely covered by a flaky white paint which makes the damp
+walls clearly visible.  There is a coarse, faded rug that lies in the
+centre of the hall, its colour long since lost to time.  The surrounding
+floorboards are rotten and uneven; it appears that they could collapse at
+any time.  There is a set of stairs in the corner of the room leading to
+the next floor.
+~
+~
+301465604 0 7 0
+D0
+~
+~
+0 -1 39506 10 10 5
+D1
+~
+~
+0 -1 39504 10 10 5
+D2
+door~
+door south~
+131 -1 39502 10 10 5
+D4
+~
+~
+0 -1 39511 10 10 5
+E
+walls paint house~
+The walls of the house have been stripped of decor.  The paint has been
+destroyed by the harsh weather and now only remains in small patches.
+~
+E
+coarse faded rug colour~
+The rug is very old and is covered in dust.  The colour has faded with
+each step placed on its coarse material.  It was once a splendid sight,
+but now its presence is an eyesore.
+~
+E
+floorboards rotten uneven~
+The floorboards are made from solid oak.  The wood has been eaten away
+making the floorboards rotten and uneven.  They are very unsafe and
+should be walked upon with extreme care.
+~
+E
+set stairs~
+The stairs look to have been very badly built using a dark hardwood. 
+Most of the steps have broken with constant use and their old age.  The
+steps that still remain are almost totally rotten and uneven with just a
+few strong enough to walk on.
+~
+1265 137 1509949540 3 0
+-1
+S
+
+#39504
+Kitchen~
+Debris lies everywhere, strewn about the room in random disorder.  Broken
+timbers and smashed crockery are strewn all around the room.  The
+cupboards have been broken and smashed into pieces.  A broken pipe at the
+far corner of the room drips water, making the room damp and foul
+smelling.
+~
+~
+301465600 0 7 0
+D0
+~
+~
+0 -1 39510 10 10 5
+D3
+~
+~
+0 -1 39503 10 10 5
+E
+debris cupboards~
+The debris consists mostly of broken timbers and smashed crockery, none
+of which look particularly interesting.
+~
+E
+pipe~
+Whether it was a pipe for fresh water or a simple drainage pipe, it now
+has snapped in half and drips a foul-smelling, rank liquid.
+~
+1265 9 1509949540 3 0
+-1
+S
+
+#39506
+Lounge~
+The heavy smell of a coal fire lingers in the air.  At the far end of the
+room stands an old, crumbled brickwork fireplace.  The uneven brick walls
+have been stained black from smoke, indicating the flue may not have
+worked properly.  At the side of the room there is a small glass window
+looking out into the garden.   
+~
+(Aldric) Try entering the fireplace.
+~
+301465604 0 7 0
+D2
+~
+~
+0 -1 39503 10 10 5
+E
+brick fireplace~
+The brick fireplace is very old with many broken bricks lining the hearth. 
+There is a large amount of ash on the base suggesting that the fire has
+been used frequently.  There is a slightly warm feeling emanating from
+the fire.
+~
+E
+glass window garden~
+The window is rather small and is still intact, made of glass totally
+covered in dust and grime.  Looking out into the garden would have been a
+pleasant experience when the house was new.
+~
+A
+enter go~
+4 fireplace~
+if( size( ch ) > 4 )
+  act_tochar( #fit, ch );
+else {
+  act_tochar( #crouch, ch );
+  act_notchar( #rcrouch, ch );
+  transfer( ch, find_room( 39524 ) );
+  act_notchar( #arrive, ch );
+  }
+~
+E
+crouch~
+You crawl into the fireplace.
+~
+E
+rcrouch~
+$n crawls into the fireplace, how uncouth.
+~
+E
+arrive~
+$n crawls into the fireplace and stands up.
+~
+E
+fit~
+You can't fit in there.
+~
+!
+0 0 0
+1265 9 1509949540 3 0
+-1
+S
+
+#39507
+Chimney~
+You cling tightly to the walls of the blackened chimney which have been
+crudely built using old broken bricks.  The bricks have been heavily
+stained with dusty black soot with the mortar in between them is very old
+and cracked.  The chimney appears to be unstable and in urgent need of
+repair.
+~
+~
+335020036 0 4 0
+D4
+~
+~
+1024 -1 39508 10 10 5
+D5
+flue~
+flue~
+1155 -1 39524 10 10 4
+E
+mortal old cracked~
+The mortar appears to be very brittle and extremely old.  It is amazing
+that the chimney is still in one piece.
+~
+E
+flue~
+The flue is covered with thick black soot making the fireplace black.
+It is slightly ajar as though someone has climbed up into the
+chimney.
+~
+A
+up~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 39508  ) );
+~
+E
+climb~
+You carefully climb up the chimney.
+~
+E
+rclimb~
+$n carefully climbs up the chimney.
+~
+!
+0 0 0
+A
+down~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+ transfer( ch, find_room( 39524  ) );
+~
+E
+climb~
+You carefully climb down the chimney.
+~
+E
+rclimb~
+$n carefully climbs down the chimney.
+~
+!
+0 0 0
+73 137 1509949540 3 0
+-1
+S
+
+#39508
+Chimney~
+You climb up the walls of the blackened chimney.  Attached to the side of
+the east wall there is a thin piece of wood, it is dark and appears to be
+exremely sturdy.  Deep within the wood, large claw marks have been
+gouged, it seems as though this wood is used as a resting place for some
+kind of creature.
+~
+~
+301465604 0 4 0
+D4
+~
+~
+1024 -1 39509 10 10 5
+D5
+~
+~
+1024 -1 39507 10 10 5
+E
+dark wood claw marks~
+The dark wood has strange claw marks scratched deep into it.  The marks
+are on the top side of the wood.  It looks as if it is being used as a
+resting place for some creature.
+~
+A
+up~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+ transfer( ch, find_room( 39509  ) );
+~
+E
+climb~
+You carefully climb up the chimney.
+~
+E
+rclimb~
+$n carefully climbs up the chimney.
+~
+!
+0 0 0
+A
+down~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 39507  ) );
+~
+E
+climb~
+You carefully climb down the chimney.
+~
+E
+rclimb~
+$n carefully climbs down the chimney.
+~
+!
+0 0 0
+73 137 1509949540 3 0
+73 137 1509949530 3 0
+-1
+S
+
+#39509
+Roof~
+You are standing on an old slated roof.  The roof is in very bad
+condition with several slates missing, making standing treacherous.  From
+here you can see the surrounding area, with the garden down below and in
+the distance a large forest can just be seen.  At the far end of the roof
+you can see a large nest.
+~
+~
+301465604 0 9 0
+D5
+~
+~
+1024 -1 39508 10 10 5
+E
+large nest~
+The nest is made from large twigs from the nearby forest.  It has been
+neatly made, with room for a large lizard to nest.  There are recent
+droppings on the base of the nest.
+~
+A
+get~
+all all.egg egg nest~
+if( mob_in_room( 1282, room ) ) {
+act_tochar( #take,ch );
+act_notchar( #rtake,ch );
+  }
+else
+  continue;
+~
+E
+take~
+The gecko snarls at you and blocks your attempt to steal the eggs.
+~
+E
+rtake~
+$n is prevented from getting eggs by the gecko.
+~
+!
+0 0 0
+A
+down~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+ transfer( ch, find_room( 39508  ) );
+~
+E
+climb~
+You carefully climb down the chimney.
+~
+E
+rclimb~
+$n carefully climbs down the chimney.
+~
+!
+0 0 0
+1282 9 1509949540 3 0
+1703 49 1509949540 -2 0
+1702 81 1509949540 -2 0
+1702 81 1509949470 -2 0
+1702 81 1509949455 -2 0
+-1
+S
+
+#39510
+Larder~
+The shelves of the larder are bare, the food having long since been
+devoured.  The only evidence that anything ever lined the shelves are the
+smears and stains of decayed food.  Water drips constantly from a crack
+in the wall, trickling into the centre of the room to form a large puddle. 
+There is an echo of water draining through the rickety floor boards.
+~
+~
+301465600 0 6 0
+D2
+~
+~
+0 -1 39504 10 10 5
+D5
+trap door~
+trapdoor~
+155 -1 39515 10 10 5
+E
+puddle large~
+The puddle looks to be rather deep, filled with disgusting brown stagnant
+water.  Looking into the depths of the water there appears to be a rusty
+chain.
+~
+E
+rusty chain~
+The chain is immersed within the stagnant puddle.  It is very rusty and
+appears to be attached to something.
+~
+A
+get pull~
+chain~
+if( is_open( room, down ) ) {
+  act_tochar( #already_done, ch );
+  end;
+  }
+open( room, down );
+act_tochar( #opens_door, ch );
+act_notchar( #ropens_door, ch );
+send_to_room( #door_opens, find_room( 39515 ) );
+~
+E
+opens_door~
+You pull a chain that was hidden in the puddle and a trapdoor opens.
+~
+E
+ropens_door~
+$n pulls a chain that was hidden in the puddle and a trapdoor opens.
+~
+E
+already_done~
+The trapdoor is already open, pulling the chain serves no purpose now.
+~
+E
+door_opens~
+A trapdoor is opened from above.
+~
+!
+0 0 0
+1222 9 1509949540 3 0
+-1
+S
+
+#39511
+Hall~
+Dust has settled throughout the room leaving some unusual footprints
+trampled hard into the dust.  Cobwebs line the ceiling and appear to have
+been shaped to give the impression of the outline of a creature.  Claw
+marks have been gouged deeply into the damp walls.  There are doors to
+the north and the east.
+~
+I'd be curious to find out who did the cob-web art on the ceiling.  I
+hope there's a way to find out later, would be intersting and make the
+description here make more sense.  -talis 
+~
+301465604 0 7 0
+D0
+door~
+door~
+131 -1 39514 10 10 5
+D1
+door~
+door~
+131 -1 39512 10 10 5
+D5
+~
+~
+0 -1 39503 10 10 5
+E
+walls damp claw marks~
+A damp stain has risen slowly up the walls.  Strange claw marks have been
+gouged into the wall, they seem to indicate recent battle.
+~
+E
+cobwebs ceiling creature~
+The ceiling is lined with fine threaded cobwebs, that appear to be shaped
+into a drawing of a creature.  It is impossible to determine what kind of
+creature from the drawing.
+~
+1265 9 1509949540 3 0
+-1
+S
+
+#39512
+Main Bedroom~
+A large bed is the centrepiece of the room; shredded blankets are strewn
+all across the bed.  The bed itself is made of a dark wood that has been
+twisted at the bottom to make four clawed feet.  A crudely made table and
+chair rest by a window at the furthest corner of the room.  A large
+cupboard is almost hidden by the dimly lit room.
+~
+~
+301465604 0 7 0
+D0
+cupboard~
+cupboard~
+139 -1 39513 10 10 5
+D3
+door~
+door~
+131 -1 39511 10 10 5
+E
+large cupboard~
+The cupboard has a large oak door at the front that opens into the room,
+it looks as though it is large enough for you to enter.
+~
+E
+bed dark feet~
+A large bed with four clawed feet.  It has been made out of a strange dark
+wood, with four clawed feet to support the beds huge frame.  Strewn
+accross the bed are some dirty, torn blankets.
+~
+A
+~
+~
+mob = mob_in_room( 1264, room );
+if( mob )
+  act_tochar( #no, ch );
+else
+  continue;
+~
+E
+no~
+You can't open the door with the chieftain standing in the way.
+~
+!
+8 0 1
+1264 9 1509949540 3 0
+-1
+S
+
+#39513
+Cupboard~
+This is a huge cupboard, it is very cold and dank. The walls of the 
+cupboard are made with a dark black wood.  There is an old work table set
+off to the side, it appears that this room was once used for studying. 
+On the northern wall there are a series of small crooked shelves that
+have remained intact.
+~
+~
+301465604 0 5 0
+D2
+cupboard~
+cupboard~
+139 -1 39512 10 10 5
+E
+old work table~
+The table has been carefully carved using the finest rose wood.  It is in
+excellent condition other that a slight cover of dust lies on the surface. 
+There is in nothing of interest on the table.
+~
+E
+series small crooked shelves~
+Made from a few planks of splintered oak wood the shelves line the
+northern wall.  Mostly crooked and worn the shelves are now bare.
+~
+1265 9 1509949540 3 0
+1049 49 1509949540 -2 0
+1039 81 1509949490 -2 0
+998 81 1509949455 -2 0
+983 81 1509949465 -2 0
+26 81 1509949530 -2 0
+2 81 1509949530 -2 0
+16 81 1509949490 -2 0
+938 81 1509949490 -2 0
+876 81 1509949470 -2 0
+-1
+S
+
+#39514
+Bedroom~
+There is no furniture in this room.  All that remains is an outline left
+in the dust.  There are strange marks on the floor, almost as though
+someone or something has dragged the furniture out of the room.  To the
+south you can head back to the hall.
+~
+~
+301465604 0 6 0
+D2
+door~
+door~
+131 -1 39511 10 10 5
+E
+marks~
+Four straight lines which score the surface of the floor, heading from
+various corners of the room and out the door.  It is obvious that
+something heavy was pushed or dragged out of the room.
+~
+1265 9 1509949540 3 0
+-1
+S
+
+#39515
+Secret Cavern~
+You descend into a dank, poorly lit cavern.  The floor is slippery and a
+pungent smell greets your nostrils.  Water drips down from the ceiling
+into a pool of water making the floor treacherous.  There is a dim light
+coming from a hole in the ceiling whilst to the east there is a small
+exit which is barely visible.
+~
+[Olah] why is there a useless acode here?
+~
+301465604 11 7 0
+D1
+~
+~
+0 -1 39516 10 10 5
+D4
+trapdoor~
+trapdoor~
+2203 -1 39510 10 10 5
+E
+hole~
+There is a hole in the ceiling, surprisingly the ceiling is made from
+wood.  A faint outline of a trapdoor can be made in the ceiling.
+~
+A
+~
+~
+~
+!
+0 0 0
+-1
+S
+
+#39516
+Secret Cavern~
+The walls are made of jagged rocks which seem to sparkle, while the roof
+of the cave is quite low.  Looking closer at the rock you see a strange
+slime, it seems at seep from the rocks themselves.  There is a warm
+breeze that sweeps in from the north.  Underfoot there is a stream of
+water, full of pebbles which makes walking uncomfortable.  A large
+boulder strewn with algae lies in the path.
+~
+~
+301465604 11 7 0
+D0
+~
+~
+0 -1 39517 10 10 5
+D3
+~
+~
+0 -1 39515 10 10 5
+E
+large boulder algae~
+The boulder is choked with green algae, the water laps around it creating
+a white foam.  The boulder is far too large too be moved.
+~
+1222 9 1509949540 3 0
+-1
+S
+
+#39517
+Secret Cavern~
+The walls seem to close in making it difficult to see.  The sound of the
+water running over the rocks in this small stream rings in your ear.  The
+rush of the water can be felt on your feet making it hard to keep balance. 
+The smell of cold rock and mud drifts in the air, squalid and old.  The
+rocks seem to shimmer and move, almost as though they are alive.  Water
+drips from the ceiling creating a steady fall of water like a fine spring
+rain.  To the north the stream appears to become deeper.
+~
+~
+301465604 11 7 0
+D0
+~
+~
+0 -1 39518 10 10 5
+D2
+~
+~
+0 -1 39516 10 10 5
+1222 9 1509949540 3 0
+-1
+S
+
+#39518
+Secret Cavern~
+The cavern opens out and forms a t-junction.  The walls drip with slime
+and water.  The stream flows in from the east.  Underfoot the water has
+deepened to knee height, making walking hard going.  Stalactites grow
+from the high cavern ceiling, and a pale milky liquid drips from them. 
+Large rocks covered in algae are strewn about the area like stepping
+stones.
+~
+~
+301465604 11 7 0
+D1
+~
+~
+0 -1 39520 10 10 5
+D2
+~
+~
+0 -1 39517 10 10 5
+D3
+~
+~
+0 -1 39519 10 10 5
+E
+stalactites ceiling pale milky liquid~
+The liquid is the lifeblood of the stalactites, as drop by drop the
+stalactite grows as the bits of stone in the drops add to the tip of the
+existing stalactite.
+~
+E
+rocks algae stepping stones~
+To avoid walking in the cold, murky water, one could easily get about by
+stepping on the stones.
+~
+1222 9 1509949540 3 0
+-1
+S
+
+#39519
+Secret Cavern~
+This cavern has large ledges carved into the walls, the stream runs slow
+and deep here.  Strangely a bed has been placed on one of the larger
+ledges.  The bed is made of a dark black wood, and each of its four legs
+have been twisted to form a clawed foot.  Peering around the cave you see
+other pieces of furniture, a writing table is slumped on one of the
+smaller rock ledges and a large chair is propped up against one of the
+hard cave walls.
+~
+we have chairs in the game, might want to actually add a chair to the
+room.  Players will question why they can't sit on the chair that is here. 
+-talis 
+maybe change shaman long desc.  ...small flames arcing from hand to hand,
+...practicing his spells.  Warriors may not know what spell he was
+practicing.  just a suggestion.
+might want to create a sigil for shaman inventory.  The one he so proudly
+displays, a souvenir for those who defeat him.  I would just make it a
+treasure, not of any real use.  -talis 
+~
+301465604 11 7 0
+D1
+~
+~
+0 -1 39518 10 10 5
+E
+bed~
+The bed is made of a dark black wood, and each of its four legs are
+twisted into a clawed foot.
+~
+E
+furniture table chair~
+The chair looks uncomfortable at best, and the desk does not seem to have
+seen much use.
+~
+1263 9 1509949540 3 0
+1707 17 1509949540 -2 0
+-1
+S
+
+#39520
+Secret Cavern~
+Before you stands a manmade rock dam, the water flows from the north over
+the top of the rocks like a small weir.  The sides of the cavern seem to
+be closing in making the cave smaller.  Moss has taken residence here
+making the walls dark green.  The stalactites seem to have been smashed
+down to create the material for the dam.
+~
+~
+301465604 11 7 0
+D0
+~
+~
+0 -1 39521 10 10 5
+D3
+~
+~
+0 -1 39518 10 10 5
+E
+moss green~
+This dark green moss seems to thrive from the damp conditions that the
+dam has produced.  The moss grows all over the craggy walls with extreme
+vigour.
+~
+E
+dam~
+The dam has been crudely made using the rock from the overhanging
+stalactites.  It has meant that a vast amount of water has been kept from
+flowing down into the cavern.
+~
+A
+north~
+~
+continue;
+~
+E
+to_char~
+You clamber onto the rocks and cross over the dam.
+~
+E
+not_char~
+$n clambers onto the rocks and crosses over the dam.
+~
+!
+3 0 1
+1222 9 1509949540 3 0
+-1
+S
+
+#39521
+Base of a Well~
+The rock walls glisten, reflecting the already reflected light from a
+large pool of water.  The pool is immense, and is filled with what
+appears to be a never-ending supply of fresh water.  There is a small
+crack in the rocks where the water gushes into a stream that has
+developed to the south.  A red brick well has been built above you.  The
+bricks have started to crumble with old age and with frequent use.  At
+the side of the cave there is an iron lever.
+~
+[Rebekka] need entry message
+~
+301465604 13 9 0
+D2
+~
+~
+0 -1 39520 10 10 5
+D4
+~
+~
+0 -1 39522 10 10 5
+E
+iron lever~
+Looking closer at the lever, you see it is made from heavy wrought iron. 
+It is linked to a series of large gears which perhaps work something.
+~
+A
+pull~
+lever~
+if( rand_char( find_room( 39530 ) ) ){
+  act_tochar( #gear_grind, ch );
+  end;
+  }
+if( rand_char( find_room( 39529 ) ) ){
+  act_tochar( #gear_grind, ch );
+  end;
+  }
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+wait( 1 );
+if( rflag( status1, room ) ) {
+  remove_rflag( status1, room );
+  act_room( #bucket_up, ch );
+  send_to_room( #bucket_here, find_room( 39522 ) );
+  }
+else{
+  set_rflag( status1, room );
+  act_room( #bucket_down, ch );
+  send_to_room( #bucket_left, find_room( 39522 ) );
+  }
+     
+~
+E
+pull~
+You pull down on the lever.  It shifts easily then springs back to its
+original position.
+~
+E
+rpull~
+$n pulls the lever.
+~
+E
+bucket_down~
+A clanking sound fills the shaft as the bucket is lowered.
+~
+E
+bucket_up~
+The bucket is raised amidst the clatter of chains.
+~
+E
+gear_grind~
+You pull the lever, but it seems to catch on something and you hear gears
+grind as they try to work.  Glancing up, you notice the bucket is slowly
+moving of its own jerkily of its own accord, as if someone were already
+inside moving it.
+~
+E
+bucket_here~
+Mysteriously, the bucket has arrived at the top of the well.
+~
+E
+bucket_left~
+Mysteriously, the bucket begins a descent down the well-shaft.
+~
+!
+0 0 0
+A
+enter go~
+bucket~
+if( rflag( status1, room ) ){
+  if( rand_char( find_room( 39529 ) ) ){
+    act_tochar( #no_room, ch );
+    end;
+    }
+  act_tochar( #get_in, ch );
+  act_notchar( #rget_in, ch );
+  transfer( ch, find_room( 39529 ) );
+  }
+else
+  act_tochar( #no_bucket, ch );
+  
+~
+E
+get_in~
+You carefully work your way into the large bucket.
+~
+E
+rget_in~
+$n carefully gets into the large bucket.
+~
+E
+no_bucket~
+You don't see that here.
+~
+E
+no_room~
+You try to get in, but there seems to be no more room.
+~
+!
+0 0 0
+A
+~
+~
+if( !can_fly( ch ) )
+  act_tochar( #nope, ch );
+else
+  continue;
+~
+E
+nope~
+Unless you learn to fly, looks like you'll have to find another way up.
+~
+!
+3 0 16
+A
+south~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+ transfer( ch, find_room( 39520  ) );
+~
+E
+climb~
+You clamber onto the rocks and cross over the dam.
+~
+E
+rclimb~
+$n clambers onto the rocks and crosses over the dam.
+~
+!
+0 0 0
+1388 17 1509949540 -2 0
+-1
+S
+
+#39522
+Garden Well~
+No grass grows here, just large weeds that can survive in these unkept
+conditions.  A red brick well has a rope hanging down its centre which
+sways with the wind.  Moss covers the exterior of the well and weeds
+decorate its base.  There is a winch attached to the centre of the well.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 39525 10 10 5
+D5
+~
+~
+0 -1 39521 10 10 5
+E
+winch~
+The winch has a large handle which is made from wrought iron.  The arrays
+of cogs and gears look like they are in reasonably good working order.
+~
+E
+well~
+The well has been built using red bricks which have started to decay
+through both old age and frequent use.  In the centre of the well a winch
+can be seen to lower and raise a bucket.
+~
+A
+crank pull turn use~
+winch crank~
+if( rand_char( find_room( 39530 ) ) ){
+  act_tochar( #winch_jam, ch );
+  end;
+  }
+if( rand_char( find_room( 39529 ) ) ){
+  act_tochar( #winch_jam, ch );
+  end;
+  }
+act_tochar( #crank, ch );
+act_notchar( #rcrank, ch );
+wait( 1 );
+if( rflag( status1, room ) ) {
+  remove_rflag( status1, room );
+  act_room( #bucket_down, ch );
+  send_to_room( #bucket_here, find_room( 39521 ) );
+  }
+else{
+  set_rflag( status1, room );
+  act_room( #bucket_up, ch );
+  send_to_room( #bucket_left, find_room( 39521 ) );
+  }
+~
+E
+winch_jam~
+You try to crank the winch, but the chain seems jammed on something.
+~
+E
+crank~
+Chains rattle as you begin to work the large winch.
+~
+E
+rcrank~
+Chains rattle as $n begins to work the large winch.
+~
+E
+bucket_down~
+Amidst the rattle of unwinding chains, the bucket plumets into the
+darkness of the well.  You await the expectant splash, yet it never comes.
+~
+E
+bucket_up~
+The winch locks to a stop as the chain fills the crossbar completely. 
+The bucket now rests just above the lip of the well.  My what a large
+bucket.
+~
+E
+bucket_here~
+The bucket works its way down the shaft till it stops just short of the
+floor.
+~
+E
+bucket_left~
+The bucket begins a smooth ascent to the top of the well.
+~
+!
+0 0 0
+A
+go enter~
+bucket~
+if( rflag( status1, room ) ){
+  if( rand_char( find_room( 39529 ) ) ){
+    act_tochar( #no_room, ch );
+    end;
+    }
+  act_tochar( #get_in, ch );
+  act_notchar( #rget_in, ch );
+transfer( ch, find_room( 39530 ) );
+  }
+else
+  act_tochar( #no_bucket, ch );
+~
+E
+no_room~
+You try to get in, but there seems to be no more room.
+~
+E
+get_in~
+You carefully work your way into the bucket, being careful not to fall
+down the well.
+~
+E
+rget_in~
+$n carefully works $s way into the bucket, taking special care not to
+fall into the well.
+~
+E
+no_bucket~
+You don't see that here.
+~
+!
+0 0 0
+A
+~
+~
+if( !can_fly( ch ) )
+act_tochar( #nope, ch );
+else
+continue;
+~
+E
+nope~
+Boy, thats a long drop.  Interested in taking up flying are we?
+Perhaps you can find a safer way down, one that won't kill you.
+~
+!
+3 0 32
+546 137 1509949540 3 0
+-1
+S
+
+#39524
+Inside a Fireplace~
+The fireplace is almost pitch black, with the brick walls having 
+been scorched from the heat of the fire.  On the floor remains the 
+ash of burnt timber.  The smell of a burning wood fire still lingers 
+in the air.  Above you the flue is covered in thick dark soot.
+~
+[Phule] heh i like this :)
+~
+301465612 0 4 0
+D2
+none~
+none~
+0 -1 39506 10 10 4
+D4
+flue~
+flue~
+1155 -1 39507 10 10 4
+E
+flue soot dark thick~
+The flue is covered with thick black soot making the fireplace black. 
+It is slightly ajar as though someone has climbed up into the
+chimney.
+~
+A
+1 open~
+3 flue 1 up~
+if( is_open( room, up ) ) {
+  act_tochar( #already_open, ch );
+  end;
+  }
+open( room, up );
+if( find_stat( ch, dex ) < random( 8, 14 ) ) {
+  act_tochar( #soot, ch );
+  act_notchar( #rsoot, ch );
+  wait( 1 );
+  act_tochar( #can_see, ch );
+  act_notchar( #rcan_see, ch );
+  }
+else{
+  act_tochar( #dodged, ch );
+  act_notchar( #rdodged, ch );
+  }
+~
+E
+already_open~
+The flue is already open.
+~
+E
+soot~
+A cloud of soot descends from atop the flue covering you in grime and
+momentarily blinding you.
+~
+E
+rsoot~
+A cloud of soot falls from the flue onto $n, covering $m in grime and
+momentarily blinding $m.
+~
+E
+dodged~
+A cloud of soot descends when you open the flue, but you manage to duck
+out of the way before it covers you.
+~
+E
+rdodged~
+$n barely manages to avoid being coated in a cloud of soot that descends
+from the flue as it is opened.
+~
+E
+can_see~
+You wipe the grime from the your eyes and can see again.
+~
+E
+rcan_see~
+$n wipes the soot from $s eyes and can see again.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #climb, ch );
+act_notchar( #rclimb, ch );
+transfer( ch, find_room( 39507  ) );
+~
+E
+climb~
+You carefully grab hold of some bricks and climb up the chimney.
+~
+E
+rclimb~
+$n carefully grabs hold of some bricks and climbs up the chimney.
+~
+!
+3 0 16
+-1
+S
+
+#39525
+Garden Path~
+This seems to be the start of a small garden.  It has run wild, plants
+are twice as big as they should be.  To the south runs a small path, by
+the side lies an old terracotta pot.  Broken pottery lays scattered
+about the area, suggesting that once there were many potted plants here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39522 10 10 5
+D2
+~
+~
+0 -1 39526 10 10 5
+E
+pottery~
+The crumbling remains of old plant pots lay scattered throughout the
+garden, with a dark green moss starting to grow over them.
+~
+546 9 1509949540 3 0
+-1
+S
+
+#39526
+Garden Path~
+The small path snakes its way, cutting through the darkened ground.  A
+lonely sundial stands tall and proud trying to not get strangled and
+buried by the rampaging plants.  As you overlook the garden you spy a
+small fountain tucked away, covered with sweet smelling honeysuckle.  To
+the west a row of small bushes grow, to the east large trees shadow the
+area.
+~
+sundial extra, should slither be sliver?  -talis 
+[Void] done
+[Callum] In look fountain, 'lillies' should be 'lilies'
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39525 10 10 5
+D2
+~
+~
+0 -1 39527 10 10 5
+E
+fountain~
+The old fountain once was picturesque and majestic.  Its three levels
+once filled with crystal clear water, now floods with brown murky water. 
+Lilies float aimlessly on the slime covered water.  The rock it is
+carved in has many crevices filled with mosses and lichen.
+~
+E
+sundial~
+A circular slab of stone stands here, protruding through the bushes
+surrounding it.  A sliver of metal stands proud from the top, casting a
+shadow over the engraved surface.
+~
+1273 9 1509949540 3 0
+1 17 1509949540 -2 0
+-1
+S
+
+#39527
+Garden Path~
+Masses of wild flowers grow everywhere, they tumble onto the path.  It
+looks like it once was a beautiful mosaic full of colour and vigour, now
+only small sections of it remain - the rest broken and lost to time.  A
+small statue is covered by tall shrubs with deep vermilion buds which
+sway in the sweet smelling air.  Under an archway lies an ivy covered
+bench, the archway was once strong and proud, but now weeps due to the
+harshness of nature.
+~
+bench needs description
+[Void] done
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 39526 10 10 5
+D3
+~
+~
+0 -1 39528 10 10 5
+E
+statue small~
+The statue looks sorrowful and forsaken, with eyes that seem to weep. 
+The material that it has been created from has been corroded and purged
+by the forces of nature.  It appears to be screaming with pain and
+anguish wishing the pain would end.
+~
+459 9 1509949540 3 0
+459 9 1509949540 3 0
+1706 17 1509949540 -2 0
+-1
+S
+
+#39528
+Secluded Garden~
+The wooden walls of the house have been severely damaged by the 
+weather.  The wood has almost rotted away to nothing.  On the ground 
+there seems to be the rotten remains of bear meat.  There appears to 
+have been a door to the west which has been boarded up with solid 
+oak planks of wood.  Surrounding the house there are tall trees 
+keeping the house secluded.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 39527 10 10 5
+E
+west door~
+The oak planks nearly cover the entire door.  Only small slivers of the
+door appear between the well-secured planks.
+~
+A
+open pry remove~
+door west planks boards~
+act_tochar( #scratch, ch );
+act_notchar( #rcant_open, ch );
+if( random( 1, 3 ) > 1 ) {
+  dam_message( ch, 1, "a rusty nail" );
+  inflict( ch, mob, 1, "a rusty nail" );
+  }
+act_tochar( #cant_open, ch );
+~
+E
+scratch~
+As you try to pry the boards away your hands brush against the nails.
+~
+E
+cant_open~
+Try as you might, you can't seem to get to the door.  The planks are too
+securely adhered to the house to remove them.
+~
+E
+rcant_open~
+$n tries to pry the planks from the door, but can't seem to budge them.
+~
+!
+0 0 0
+1273 9 1509949540 3 0
+-1
+S
+
+#39529
+Inside a Bucket~
+The bucket is made out of splintered planks of oak and has an old rusty
+nail protruding from the side.  A battered iron band surrounds the top of
+the bucket to protect it from damage.  There is a small hole in the
+bottom of the bucket enabling you to see the cavern below.  It would
+appear that you could easily climb out of the bucket.
+~
+~
+301465604 0 5 0
+D4
+~
+~
+0 -1 39530 10 10 5
+A
+~
+~
+act_tochar( #chains, ch );
+remove_rflag( status1, find_room( 39521 ) );
+wait( 1 );
+act_tochar( #chains2, ch );
+wait( 1 );
+act_tochar( #done, ch );
+set_rflag( status1, find_room( 39522 ) );
+send_to_room( #bucket_up, find_room( 39521 ) );
+send_to_room( #bucket_here, find_room( 39522 ) );
+transfer( ch, find_room( 39530 ) );
+  
+~
+E
+chains~
+You firmly grasp the chains in your hands and begin to work the bucket to
+the top of the well.
+~
+E
+chains2~
+whew, this sure is hard work.
+~
+E
+bucket_up~
+The bucket begins to make a jerky ascent up the well.
+~
+E
+done~
+You've made it to the top, the winch is just above you now.
+~
+E
+bucket_here~
+Mysteriously, the bucket has just arrived at the top of the well.
+~
+!
+3 0 16
+A
+climb get~
+out~
+act_tochar( #get_out, ch );
+transfer( ch, find_room( 39521 ) );
+act_notchar( #rget_out, ch );
+~
+E
+get_out~
+You hop out of the bucket.
+~
+E
+rget_out~
+$n hops out of the bucket.
+~
+!
+0 0 0
+-1
+S
+
+#39530
+Inside a Bucket~
+The bucket is made out of splintered planks of oak with an old rusty nail
+protruding from the side.  A battered iron band surrounds the top of the
+bucket to protect it from damage.  There is a small hole in the bottom of
+the bucket enabling you to see the cavern below.  It would appear that
+you could easily climb out of the bucket.
+~
+~
+301465604 0 5 0
+D5
+~
+~
+0 -1 39529 10 10 5
+A
+climb get~
+out~
+act_tochar( #get_out, ch );
+transfer( ch, find_room( 39522 ) );
+act_notchar( #rget_out, ch );
+~
+E
+get_out~
+You carefully get out of the bucket, making sure not to fall into the
+well.
+~
+E
+rget_out~
+$n carefully exits the bucket, making sure not to fall into the well.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #chains, ch );
+remove_rflag( status1, find_room( 39521 ) );
+wait( 1 );
+act_tochar( #chains2, ch );
+wait( 1 );
+act_tochar( #done, ch );
+set_rflag( status1, find_room( 39521 ) );
+send_to_room( #bucket_down, find_room( 39522 ) );
+send_to_room( #bucket_here, find_room( 39521 ) );
+transfer( ch, find_room( 39529 ) );
+~
+E
+chains~
+You firmly grasp the chains in your hands and begin to work the bucket
+down the well shaft.
+~
+E
+chains2~
+Woah, the chain nearly slipped out of your hands.  Have to take your time
+lest you plummet to your death.
+~
+E
+done~
+Seems you've made it to the bottom unscathed.  What a relief.
+~
+E
+bucket_down~
+The bucket begins to make a jerky ascent down the well.
+~
+E
+bucket_here~
+Mysteriously, the bucket has just arrived at the bottom of the well.
+~
+!
+3 0 32
+-1
+S
+
+#0
+

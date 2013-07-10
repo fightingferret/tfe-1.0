@@ -1,0 +1,41 @@
+#AREA
+Minor Djinns~
+Phule Nivel~
+~
+
+0 0
+3
+#ROOMS
+
+#77000
+In a Dark Hole~
+You stand within the darkness of darkness, where darkness lurks in dark
+silent darkness.  It is silent and dark, dark like the darkness that
+takes away light and darkens it.  With darkness surrounding you, you can
+only think that the dark will soon darken the light silently and you will
+be in silent darkness.  Several lamps are here, brightly lit.
+~
+~
+301465601 3 5 0
+D4
+boulder~
+~
+203 -1 35810 10 10 5
+A
+push~
+1 up boulder~
+if( !is_open( room, up ) ) {
+  act_tochar( "You roll the boulder aside.", ch );
+  act_notchar( "$n pushes the boulder out of the way, revealing a hole above your head.", ch );
+  open( room, up );
+  }
+else
+  act_tochar( "The boulder has already been pushed aside.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#0
+

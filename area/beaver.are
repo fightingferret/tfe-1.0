@@ -1,0 +1,571 @@
+#AREA
+Big Beaver Damn~
+Fenlyn~
+~
+
+0 0
+3
+#ROOMS
+
+#73001
+Inside the Wooden Dam~
+Under Construction.
+~
+[Fenlyn] acode to leave d
+[Fenlyn] acode to exit dam into river
+[Fenlyn] River is 527
+[Fenlyn] Down into underground is 73002
+[Fenlyn] 3 Beavers reset here
+~
+301596677 3 9 0
+A
+climb~
+1 down~
+if( find_skill( ch, climb ) == 0 ) {
+  act_tochar( #noskill, ch );
+  end;
+  }
+act_tochar( #d, ch );
+act_notchar( #ncd, ch );
+transfer( ch, find_room( 73002 ) );
+act_notchar( #arr, ch );
+~
+E
+d~
+You climb down using several branches for support.
+~
+E
+ncd~
+$n climbs down using several branches for support.
+~
+E
+arr~
+$n arrives from above.
+~
+E
+noskill~
+You don't know how to climb.
+~
+!
+0 0 0
+A
+exit~
+dam crevice~
+act_tochar( #hole, ch );
+act_notchar( #nchole, ch );
+transfer( ch, find_room( 527 ) );
+act_notchar( #arr, ch );
+~
+E
+hole~
+You step through the tight crevice exiting the dam.
+~
+E
+nchole~
+$n steps through the tight crevice disappearing from sight.
+~
+E
+arr~
+$n arrives from within the dam.
+~
+!
+0 0 0
+27 9 1509949540 3 0
+27 9 1509949515 3 0
+27 9 1509949490 3 0
+-1
+S
+
+#73002
+Under the Wooden Dam~
+Above your head is a ceiling of sticks carefully arranged and placed as
+to minimize the amount of water that falls to the dirt floor.  On the
+western and eastern walls mud-covered branches provide insulation from
+the cold ground and a near watertight walkway.  Built into the wooden
+ceiling is a hole leading to the inside of the dam.
+~
+[Fenlyn] hole above acode to enter 73001
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73003 10 10 5
+D2
+~
+~
+0 -1 73009 10 10 5
+A
+climb~
+1 up~
+if( find_skill( ch, climb ) == 0 ) {
+  act_tochar( #noskill, ch );
+  end;
+  }
+act_tochar( #up, ch );
+act_notchar( #ncup, ch );
+transfer( ch, find_room( 73001 ) );
+act_notchar( #arr, ch );
+~
+E
+up~
+You climb up using several branches for support.
+~
+E
+ncup~
+$n climbs up using several branches for support.
+~
+E
+arr~
+$n arrives from below.
+~
+E
+noskill~
+You don't know how to climb.
+~
+!
+0 0 0
+-1
+S
+
+#73003
+An Underground Intersection~
+The underground labyrinth splits into four different directions here. 
+Small animal tracks lead off to the northern and southern paths, but
+little evidence of travel exists on the eastern and western paths.
+Poking through the weaved branches in the ceiling are several green weeds.
+~
+[Fenlyn] 4 way intersection, tracks, gnawed bits of wood
+[Fenlyn] weed extras
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73004 10 10 5
+D1
+~
+~
+0 -1 73005 10 10 5
+D2
+~
+~
+0 -1 73002 10 10 5
+D3
+~
+~
+0 -1 73025 10 10 5
+-1
+S
+
+#73004
+A Dead End~
+Uncarved sticks lie scattered about the single-exit path.  All of the
+branches still have their bark which are colored dark brown from all the
+moisture that has been absorbed.  A few drops of water splash down from
+the ceiling into a small puddle.  Across the surface of the puddle you
+notice a gleaming light.
+~
+[Fenlyn] Food collection.
+[Fenlyn] puddle fountain, limited water.
+[Fenlyn] search for coin
+~
+301596677 3 9 0
+D2
+~
+~
+0 -1 73003 10 10 5
+-1
+S
+
+#73005
+Under the Wooden Dam~
+Under Construction.
+~
+[Fenlyn] Snake reset here
+~
+301596677 3 9 0
+D2
+~
+~
+0 -1 73006 10 10 5
+D3
+~
+~
+0 -1 73003 10 10 5
+-1
+S
+
+#73006
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73005 10 10 5
+D1
+~
+~
+0 -1 73007 10 10 5
+-1
+S
+
+#73007
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73008 10 10 5
+D3
+~
+~
+0 -1 73006 10 10 5
+-1
+S
+
+#73008
+Under the Wooden Dam~
+Under Construction.
+~
+[Fenlyn] mommy beaver and kids.
+~
+301596677 3 9 0
+D2
+~
+~
+0 -1 73007 10 10 5
+-1
+S
+
+#73009
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73002 10 10 5
+D1
+~
+~
+0 -1 73010 10 10 5
+D3
+~
+~
+0 -1 73023 10 10 5
+-1
+S
+
+#73010
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D1
+~
+~
+0 -1 73011 10 10 5
+D2
+~
+~
+0 -1 73022 10 10 5
+D3
+~
+~
+0 -1 73009 10 10 5
+-1
+S
+
+#73011
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D1
+~
+~
+0 -1 73012 10 10 5
+D3
+~
+~
+0 -1 73010 10 10 5
+-1
+S
+
+#73012
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73014 10 10 5
+D2
+~
+~
+0 -1 73013 10 10 5
+D3
+~
+~
+0 -1 73011 10 10 5
+-1
+S
+
+#73013
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73012 10 10 5
+D3
+~
+~
+0 -1 73021 10 10 5
+-1
+S
+
+#73014
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73015 10 10 5
+D2
+~
+~
+0 -1 73012 10 10 5
+-1
+S
+
+#73015
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73016 10 10 5
+D2
+~
+~
+0 -1 73014 10 10 5
+-1
+S
+
+#73016
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D2
+~
+~
+0 -1 73015 10 10 5
+D3
+~
+~
+0 -1 73017 10 10 5
+-1
+S
+
+#73017
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D1
+~
+~
+0 -1 73016 10 10 5
+D3
+~
+~
+0 -1 73018 10 10 5
+-1
+S
+
+#73018
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+195 -1 73019 10 10 5
+D1
+~
+~
+0 -1 73017 10 10 5
+-1
+S
+
+#73019
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D1
+~
+~
+227 -1 73020 10 10 5
+D2
+~
+~
+195 -1 73018 10 10 5
+-1
+S
+
+#73020
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D3
+~
+~
+227 -1 73019 10 10 5
+-1
+S
+
+#73021
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D1
+~
+~
+0 -1 73013 10 10 5
+-1
+S
+
+#73022
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73010 10 10 5
+-1
+S
+
+#73023
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73024 10 10 5
+D1
+~
+~
+0 -1 73009 10 10 5
+-1
+S
+
+#73024
+Under the Wooden Dam~
+Under Construction.
+~
+~
+301596677 3 9 0
+D2
+~
+~
+0 -1 73023 10 10 5
+-1
+S
+
+#73025
+A Sharp Turn in the Dam~
+Green weeds and moss poke out through crevices in the wooden south wall. 
+Several of the branches making up the wall are broken allowing a steady
+stream of ground water to flow out of the wall into a small channel of
+water on the ground.  On the surface of the water are little bits of wood
+which had been left on the ground.
+~
+~
+301596677 3 9 0
+D0
+~
+~
+0 -1 73026 10 10 5
+D1
+~
+~
+0 -1 73003 10 10 5
+-1
+S
+
+#73026
+A Flooded Corridor~
+Under Construction.
+~
+~
+301596677 13 9 0
+D0
+~
+~
+0 -1 73027 10 10 5
+D2
+~
+~
+0 -1 73025 10 10 5
+-1
+S
+
+#73027
+A Flooded Corridor~
+Under Construction.
+~
+~
+301596677 6 9 0
+D2
+~
+~
+0 -1 73026 10 10 5
+D4
+~
+~
+0 -1 311 10 10 5
+-1
+S
+
+#0
+

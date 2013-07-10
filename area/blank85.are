@@ -1,0 +1,2452 @@
+#AREA
+Vyan Tombs~
+Orb~
+Vyan Tombs~
+
+40 0
+0
+#ROOMS
+
+#49750
+A Vaulted Cavern~
+You are inside a huge subterranean cavern whose ceiling reaches into the
+darkness above.  Every sound echoes and bounces off the vaulted walls of
+the cavern.  The air is stale, as though it has not been disturbed for
+centuries.  The darkness seems to close in about you.  A huge, ornate
+door has been set into the smooth, level stone of the northern wall.
+~
+no_mob
+down is 49805
+~
+301465612 11 5 0
+D0
+door of mithril and steel~
+mithril steel door~
+195 -1 49751 10 10 5
+D3
+~
+~
+0 -1 49797 10 10 5
+E
+mithril steel door~
+This door is wrought of mithril and steel, making it formidable indeed. 
+Strange runes and sigla are inscribed beneath what appears to be a clan
+or family insignia.
+~
+E
+insignia~
+A dark sword, running blood, is clasped in a strong, jet-black hand upon
+a background of silver.
+~
+E
+runes sigla~
+Strangely familiar, yet unintelligable, the runes inscribed here
+underscore the insignia.
+~
+E
+wall~
+The northern wall of the cavern is made of smooth, dark stone.  A sharp
+contrast to the dull roughness of the other walls.
+~
+A
+say recite speak~
+runes~
+if( is_open( room, north ) ) {
+  act_tochar( #nothing, ch );
+  end;
+  }
+if( find_skill( ch, vyanian ) > 6 ) {
+  act_tochar( #recite, ch );
+  act_notchar( #rrecite, ch );
+  wait( 1 );
+  act_tochar( #success, ch );
+  act_notchar( #rsuccess, ch );
+  wait( 1 );
+  send_to_room( #open, room );
+  open( room, north );
+  }
+else if( find_skill( ch, gift of tongues ) > 0 ) {
+  act_tochar( #recite, ch );
+  act_notchar( #rrecite, ch );
+  wait( 1 );
+  act_tochar( #success, ch );
+  act_notchar( #rsuccess, ch );
+  wait( 1 );
+  send_to_room( #open, room );
+  open( room, north );
+  }
+else {
+  act_tochar( #recite, ch );
+  act_notchar( #rrecite, ch );
+  wait( 1 );
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+~
+E
+recite~
+@e@CAfter carefully looking at the runes, you slowly try to pronounce
+them.
+~
+E
+rrecite~
+@b@CWith a thoughtful look, $n slowly tries to pronounce the runes.
+~
+E
+fail~
+Your accent is terrible and all that you end up saying is a garble of
+mixed up sounds.
+~
+E
+rfail~
+$n mutters and grumbles a sentence of gibberish.
+~
+E
+success~
+@b@CWith great care, you pronounce the runes with a nearly perfect accent.@n
+~
+E
+rsuccess~
+@b@C$n pronounces the runes with a perfect Vyan accent.
+~
+E
+nothing~
+The door is already open.
+~
+E
+open~
+@eThe runes flare with a silver light and the door opens.
+~
+!
+0 0 0
+A
+look examine~
+runes symbols~
+act_tochar( #look, ch );
+act_notchar( #rlook, ch );
+continue;
+~
+E
+look~
+You study the runes etched on the door.
+~
+E
+rlook~
+$n studies the runes etched on the door.
+~
+!
+0 0 0
+-1
+S
+
+#49751
+Within an Ancient Tomb~
+This wide, vaulted chamber is made up of a dark, polished stone; perhaps
+some type of granite.  Set in the south wall is a large door crafted of
+mithril and steel.  The floor is dusty and booted footprints meander
+along it as though a sentry has been patroling this area.
+~
+[Lansharra] patrolling
+~
+301465612 11 5 0
+D0
+~
+~
+0 -1 49752 10 10 5
+D2
+door of mithril and steel~
+steel mithril door~
+195 -1 49750 10 10 5
+E
+footprint print boot~
+All made by one style of boot, the slender prints cross and smear each
+other.
+~
+E
+door~
+This door is wrought of mithril and steel, making it formidable indeed.
+~
+A
+open~
+south door s~
+if( !is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, south );
+  }
+else 
+  act_tochar( #nothing, ch );
+~
+E
+open~
+You open the door to the south.
+~
+E
+ropen~
+$n opens the door to the south.
+~
+E
+nothing~
+The door is already open.
+~
+!
+0 0 0
+-1
+S
+
+#49752
+A Stone Guard Room~
+The walls of this open chamber are finely carved from dark stone, and
+polished to a dull gleam.  The stone floor is worn, though spots of polish
+are still sparsely scattered throughout.  Here and there, rich tapestries
+are hung, though their golden splendour is dulled by age.  A large slab of
+stone sits in the center of the chamber, dark and cold.  Ornate stone
+arches buttress dark openings to east and west.
+~
+[Merior] need silence check for freeze
+[Orb] He isnt hollering, so he cant be silenced.
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49753 10 10 5
+D2
+~
+~
+0 -1 49751 10 10 5
+D3
+~
+~
+0 -1 49762 10 10 5
+E
+tapestries~
+The cloth of gold has faded and is now a dull and ragged affair, the
+designs now unidentifiable.
+~
+E
+slab stone ~
+This huge slab of black stone dominates the middle of the chamber.
+~
+1330 9 1509949540 3 0
+-1
+S
+
+#49753
+A Dark Passageway~
+The smooth, dark stone comes together here to form a narrow tunnel. 
+Interlacing patterns of spirals are etched into the wall in a very fine
+web of lines.  Pillars of black stone rest along the walls, supporting
+the ceiling, reaching up into the darkness above.  The granite floor is
+flawlessly level, though years of use have worn away the polish.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49754 10 10 5
+D3
+~
+~
+0 -1 49752 10 10 5
+E
+web lines spiral pattern~
+Curling around in a seemingly random pattern, the design was etched into
+the stone in thin, shallow strokes.
+~
+E
+pillar black~
+The tall, thin pillars of stone reach up into the darkness above you.
+Around the bases, fine layers of dust coat the floor.
+~
+1330 9 1509949540 3 0
+-1
+S
+
+#49754
+A Dark Passageway~
+Walls of dark stone compose this constricting corridor.  The smooth,
+burnished walls are broken only by the occasional sturdy stone support.
+The floor near the support pillars still bears the lustrous finish seen on
+the walls, though the rest of the stone walkway seems to have been dulled
+by heavily-booted feet.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49756 10 10 5
+D3
+~
+~
+0 -1 49753 10 10 5
+-1
+S
+
+#49756
+A Dark Passageway~
+The corridor runs east and west into darkness.  The air becomes slightly
+colder and you seem to be descending as you follow the passageway.  In
+comparison to the worn floor, the burnished walls seem to gleam.  The
+elegantly carved pillars seem to be marbled here and there with a vein of
+silver, winding its way out of the rock behind them.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49757 10 10 5
+D3
+~
+~
+0 -1 49754 10 10 5
+E
+pillar silver vein~
+The pillars seem to have been carved out of the rock around them.  The
+silver vein winds around and through the pillars and walls in this
+section of the hallway.
+~
+-1
+S
+
+#49757
+A Dark Passageway~
+The walls and pillars in this section of the corridor carry a few spidery
+veins of silver though the main lode seems to have faded almost entirely
+back into the stone of the wall.  Grooves have been worn into the floor
+here as though, during the passage of years, the stone melted away.  The
+chamber to the east exudes a dim, flickering light and slightly warmer air
+air drifts out toward you.
+~
+[Finius] nice
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49758 10 10 5
+D3
+~
+~
+0 -1 49756 10 10 5
+E
+grooves floor~
+Nearly an inch deep, and twice as wide, these groves have been worn into
+the floor over a span of years.
+~
+E
+wall silver vein pillar~
+The few twisting veins of silver that marble the wall fade as you look
+eastward, though they become bold and thick westward.
+~
+-1
+S
+
+#49758
+A Dimly Lit Chamber~
+This wide chamber is dimly lit by softly glowing balls of white light. 
+The dark stone walls glimmer in the magical light, chasing away some of
+the somberness of the tomb.  A tiny statue of a vyan woman holding a harp
+stands in the southeast corner.
+~
+~
+301465605 11 5 0
+D0
+~
+~
+0 -1 49776 10 10 5
+D3
+~
+~
+0 -1 49757 10 10 5
+E
+tiny statue~
+Standing only a foot tall, this tiny statue is very life-like.  The harp
+that the vyan woman holds in her tiny stone hands is made of silver, and
+the tiny strings glimmer in the magical light.
+~
+A
+get take search remove~
+statue harp~
+act_tochar( #get, ch );
+~
+E
+get~
+You try to take the statue, but it is firmly attached to the wall.
+~
+!
+0 0 0
+1330 9 1509949540 3 0
+-1
+S
+
+#49759
+The Gloomy Passage~
+The close stone walls seem to bear down upon you as you make your careful
+way through the blackness of the corridor.  You find it nearly impossible
+to make out any features of this narrow room, as the thick gloom within
+the passage is nearly impenetrable.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 49760 10 10 5
+D2
+~
+~
+0 -1 49776 10 10 5
+1301 9 1509949540 3 0
+-1
+S
+
+#49760
+Ceremonial Chamber~
+In this room, the corridor opens into a wide hall.  In the center of the
+room lies a dark altar, studded with gems, that seems to glow
+malevolently.  Various murals adorn the walls, mostly depicting the
+sacrifice of victims to a powerful, cruel god.  The darkness here is
+almost tangible and you feel your movements slow as the numbing cold
+overwhelms you and seeps into your bones.
+~
+~
+301466628 11 9 0
+D1
+study door~
+study door~
+235 -1 49761 10 10 5
+D2
+~
+~
+0 -1 49759 10 10 5
+D3
+~
+~
+0 -1 49782 10 10 5
+E
+mural~
+A terrified elf lies upon a bloody altar as a Vyan priest brandishes a
+wicked dagger above him.  The silhouette of a dark entity hovers above
+the altar, looking on in approval.
+~
+E
+altar~
+A low, richly jeweled altar of solid silver.  Mysterious symbols have
+been etched here and there upon its base, either a curse or a prayer.
+~
+E
+east e~
+The eastern wall of the chamber is smooth.  The only thing out of the
+ordinary is a small indentation in the very center of the wall.  It looks
+as though a small, identical symbol might be placed in it.
+~
+E
+indentation~
+This small notch in the wall seems to be in the shape of a letter or a symbol. 
+~
+A
+insert place~
+rune~
+if( !is_open( room, east ) ) {
+  if( has_obj( 1774, ch ) ) {
+    if( !mob_in_room( 1339, room ) ) {
+      act_tochar( #rrune, ch );
+      act_notchar( #rune, ch );
+      open( room, east );
+      }
+    else 
+      act_tochar( #growl, ch );
+    }
+  else
+    act_tochar( #fail, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+rune~
+As $n fits the rune into the indentation, a small door slides open
+revealing a hidden room.
+~
+E
+rrune~
+As you fit the rune into the indentation, a small door slides open
+revealing a hidden room.
+~
+E
+nothing~
+The door is already open.
+~
+E
+fail~
+You do not have the rune.
+~
+E
+growl~
+The necromancer glares at you and says, "You may not enter my study."
+~
+!
+0 0 0
+A
+~
+~
+wait( 2 );
+if( !is_open( room, east ) )
+end;
+close( room, east );
+send_to_room( #close, room );
+send_to_room( #close, find_room( 49761 ) );
+~
+E
+close~
+The study door quietly slides shut.
+~
+!
+1 0 2
+1339 9 1509949540 3 0
+-1
+S
+
+#49761
+The Necromancer's Study~
+This small room is lined with shelves full of unidentifiable vials and
+pouches.  A lovely desk of a polished hard wood is set in one corner.  It
+is littered with scrolls, quills, and a few small items.  The walls of
+the chamber are covered with arcane symbols and runes drawn in the
+silvery metal found on the walls of the passageways at the front of the
+tomb.  On the floor is inscribed a silvery circle and runed about with
+the same symbols found on the wall.
+~
+~
+301465609 11 9 0
+D3
+study door~
+study door~
+235 -1 49760 10 10 5
+E
+walls~
+The symbols painted on the wall seem to glow faintly.  Although they do
+resemble in some ways what little of the written Vyan language outsiders
+have managed to obtain, they seem somehow older and more powerful.
+~
+E
+floor~
+While at first it seemed drawn there, closer inspection reveals it is a
+circle of metal set deeply into the floor.  There is no flaw in the
+metal, nor a break in the circle at any point.  Strange runes surround
+the circle, interlaced so that no gaps are evident.
+~
+E
+runes~
+Silvery runes wind their way around the circle as if sealing it.  They
+glow faintly and you do not quite dare to touch them.
+~
+E
+desk~
+This lovely desk must have been brought here hundreds of years ago.  The
+grain of the wood has been all but polished away.  The desk contains a
+single drawer which appears to be securely locked.
+~
+A
+touch press~
+runes~
+i = 3d20;
+act_tochar( #zap, ch );
+act_notchar( #rzap, ch );
+inflict( ch, ch, i, "being electrocuted" );
+~
+E
+zap~
+As you reach out a tentative hand to touch the runes, they flare brightly
+and an arc of pure energy @b@CELECTROCUTES@n you!!
+~
+E
+rzap~
+As $n reaches out a tentative hand to touch the runes, they flare
+brightly and an arc of pure energy @b@CELECTROCUTES@n $m!!
+~
+!
+0 0 0
+A
+open~
+door west w~
+if( is_open( room, west ) )
+  act_tochar( #nothing, ch );
+else {
+  act_tochar( #slide, ch );
+  act_notchar( #rslide, ch );
+  open( room, west );
+  }
+~
+E
+slide~
+You slide the heavy door open.
+~
+E
+rslide~
+$n slides the heavy door open.
+~
+E
+nothing~
+The door is already open.
+~
+!
+0 0 0
+A
+get take remove search touch~
+desk pouch object quills~
+act_tochar( #take, ch );
+act_notchar( #rtake, ch );
+~
+E
+take~
+@eAs you reach out to take the objects on the desk, a small shield of
+energy flares, blocking your attempt.
+~
+E
+rtake~
+@eAs $n reaches out to take the objects on the desk, a small shield of
+energy flares, blocking $m attempt.
+~
+!
+0 0 0
+1799 49 1509949540 -2 0
+1473 81 1509949480 -2 0
+16 81 1509949530 -2 0
+16 81 1509949510 -2 0
+954 81 1509949520 -2 0
+2498 81 1509949455 -2 0
+16 81 1509949490 -2 0
+-1
+S
+
+#49762
+A Dark Passageway~
+Constrictingly close walls press in around you to form the narrow
+corridor.  Burnished to a dull gleam, the walls are of what appears to be
+granite, although the stone is so dark it approaches black.  Pillars rise
+out of the rock to support the corridor's ceiling.  Small pieces of rock
+litter the floor, possibly fallen from the roof of the tunnel.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49752 10 10 5
+D3
+~
+~
+0 -1 49763 10 10 5
+E
+pillars~
+The black marble pillars rise up out of the wall, tall and strong, to
+buttress the heavy stone.
+~
+1857 17 1509949540 -2 0
+1330 9 1509949540 3 0
+-1
+S
+
+#49763
+Before a Silent Tomb~
+The north wall of the tunnel opens into gaping doorway.  The hinges on
+the doorway are ripped and twisted.  Deep scratches run vertically down
+the dark walls near the door.  Bits and pieces of stone litter the floor
+where they were scraped from the walls.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 49764 10 10 5
+D1
+~
+~
+0 -1 49762 10 10 5
+D3
+~
+~
+0 -1 49765 10 10 5
+E
+deep scratches~
+The deep grooves in the wall are about three inches in diameter and run
+from a foot below the ceiling, all the way to the floor.
+~
+E
+doorway hinges~
+The hinges on this doorway are twisted and broken, as though the door was
+ripped away by great strength.
+~
+1857 17 1509949540 -2 0
+-1
+S
+
+#49764
+Within the Silent Tomb~
+The silence in this chamber is almost unnerving.  There are a few
+scattered weapons here and there.  The smooth walls are unadorned and the
+bier in the middle of the chamber is quite plain.  Although this chamber
+seems totally uninhabited, the feeling of an unseen presence lingers.
+~
+~
+301465612 11 5 0
+D2
+~
+~
+0 -1 49763 10 10 5
+E
+bier~
+A plain, black slab of stone, the bier lies unoccupied in the middle of
+the room.
+~
+1338 9 1509949515 3 0
+-1
+S
+
+#49765
+A Dark Passageway~
+The narrow stone walls of this corridor seem almost suffocatingly close. 
+A faint chill creeps through the room as though an arctic breeze has
+somehow found its way here, miles below the surface.  The worn granite of
+the floor is dull and lackluster with many years of use.  The skeleton of
+a tiny animal is nestled between two of the carved pillars.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49763 10 10 5
+D3
+~
+~
+0 -1 49771 10 10 5
+E
+skeleton mouse rat~
+This tiny skeleton has either escaped the notice of the guards or they're
+growing lax in their maintainence.  Tiny bits of grey-brown fur cling to
+the small remains.
+~
+-1
+S
+
+#49766
+A Dark Junction~
+A damp coldness creeps through this room, sending an involuntary shiver
+through you.  The chill, stone walls end to the west and south, allowing
+you passage only into corridors to the north and east.  The footing is
+uneven here and the dark mist obscures the floor.
+~
+[Finius] *CACKLE* just as i read shiver in room description it says: You
+shiver.  nice timing :) 
+[Eltrex] A dark Junction (vyan tombs) tripped with levitate on :)
+[Rebekka] misplaces his step
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 49775 10 10 5
+D1
+~
+~
+0 -1 49771 10 10 5
+A
+~
+~
+loop( all_in_room ){
+  ch = rand_player( room );
+  if( is_player( ch ) )
+    interpret( ch, "shiver" );
+  end;
+  }
+~
+!
+2 150 0
+1330 9 1509949540 3 0
+-1
+S
+
+#49768
+The Corridor's End~
+The north-south corridor ends here, a wide opening to the north.  The
+burnished walls gleam, and the archway to the north is finely carved and
+maintained.  The sound of running water sends muted echoes in from the
+chamber to the north.
+~
+[Finius] look symbol: do they have any shape or picture or are the
+reminiscent of...anything?
+[Orb] Unless your a scholar of ancient vyan symbols, no.
+[Merior] i'm going other way and not sure if there is an answer i've missed - why can the wraiths detect hidden?
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 49769 10 10 5
+D2
+~
+~
+0 -1 49775 10 10 5
+E
+archway~
+Though undoubtably ancient, the smooth stone archway has been finely
+maintained and the thin, spiraling symbols are as clear as the day they
+were etched.
+~
+E
+symbol~
+The symbols are utterly unknown to you.
+~
+1301 9 1509949540 3 0
+-1
+S
+
+#49769
+A Massive Stone Hall~
+The huge hall, hewn out of the dark granite, has a high vaulted ceiling
+which disappears into the darkness above.  The polished floor gleams in
+the magical light making the marbled streaks of white seem to glow.  The
+sound of running water burbles up from a beautiful fountain of polished
+granite in the middle of the room.  The stone walls are butressed by
+elegantly carved metal supports.
+~
+~
+301465605 11 5 0
+D1
+~
+~
+0 -1 49770 10 10 5
+D2
+~
+~
+0 -1 49768 10 10 5
+E
+fountain~
+This is a lovely structure, so far the only expression of true beauty you
+have found in this dismal place.  Clear water wells up from the top of
+the elegantly fluted spout and cascades down to the dark basin below.
+~
+E
+metal supports~
+Made of steel, or possibly mithril, these supports buttress the gleaming
+stone walls.
+~
+1 17 1509949540 -2 0
+1330 9 1509949540 3 0
+-1
+S
+
+#49770
+Deep Inside the Tomb~
+This part of the tomb is far more ornate than the beginning, and the tombs
+here have been left intact.  The walls are of the same dark stone found
+throughout the tomb, polished to a dull gleam.  Swords, shields, weapons
+of every kind are hung along the walls.  Whether in glass cases or merely
+on hooks, they are all attached firmly to the wall.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49772 10 10 5
+D3
+~
+~
+0 -1 49769 10 10 5
+E
+walls weapons shields crests swords~
+Swords and daggers, halberds and maces, a huge assortment of weapons line
+the walls.  Some of the finer weapons are mounted in lovely glass and
+steel cases.
+~
+A
+~
+~
+send_to_room( #shiver, room );
+~
+E
+shiver~
+@e@CYou shiver as the numbing cold chills you to the bone.
+~
+!
+2 150 0
+A
+get take~
+weapon sword dagger shield~
+act_tochar( #get, ch );
+~
+E
+get~
+It is firmly attached to the wall.
+~
+!
+0 0 0
+-1
+S
+
+#49771
+A Dark Passageway~
+The endless dripping of water permeates this area of the hallway. 
+Running through a crack in the wall, a natural spring seems to have worn
+through the stone gradually.  The beads of moisture run down the wall to
+fall with a soft splash into growing puddle on the floor.  The stone
+walkway is nearly covered by the dark pool.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49765 10 10 5
+D3
+~
+~
+0 -1 49766 10 10 5
+E
+pool puddle water~
+You noticed the oily sheen on the water's surface, no doubt the result of
+the polishing agent used to burnish the walls and floor long ago.
+~
+A
+drink ~
+spring puddle~
+act_tochar( #drink, ch );
+act_notchar( #rdrink, ch );
+~
+E
+drink~
+You bend down to drink from the spring but the oily sheen to the water
+changes your mind.
+~
+E
+rdrink~
+$n bends down toward the spring, then shakes $s head and straightens
+without drinking.
+~
+!
+0 0 0
+819 17 1509949540 -2 9
+-1
+S
+
+#49772
+Deep Inside the Tomb~
+The polished walls here make the narrow corridor seem larger than it
+truly is.  Murals of fierce battles have been painted over the walls,
+though most seem to have been torn away with time.  The floor of the
+corridor is smooth and unblemished.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49773 10 10 5
+D3
+~
+~
+0 -1 49770 10 10 5
+E
+mural~
+Painted in dark jewel-tones, the scenes of battle depict the slaughtering
+of countless elves.
+~
+A
+~
+~
+send_to_room( #shiver, room );
+~
+E
+shiver~
+@b@CYou shiver as the numbing cold chills you to the bone.
+~
+!
+2 150 0
+1301 9 1509949540 3 0
+-1
+S
+
+#49773
+Before a Richly Carved Door~
+The polished rock wall is interrupted here by a richly crafted and carved
+door of black marble.  The door stretches up into the darkness of the
+ceiling;  the top is not visible in the thick gloom of the passageway.
+Finely crafted runes and facets of the marble door glint in the magical
+light.
+~
+~
+301465605 11 5 0
+D1
+~
+~
+0 -1 49777 10 10 5
+D2
+finely crafted door~
+door marble~
+195 -1 49774 10 10 5
+D3
+~
+~
+0 -1 49772 10 10 5
+E
+door~
+This lovely marble creation stretches up into the darkness and you get
+the impression that the door was never meant to be opened.
+~
+A
+open~
+door s south~
+if( is_open( room, south ) ) {
+  act_tochar( #nothing, ch );
+  end;
+  }
+if( find_stat( ch, str ) < 16 ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  }
+else {
+  act_tochar( #success, ch );
+  act_notchar( #rsuccess, ch ) ;
+  open( room, south );
+  }
+~
+E
+pull~
+As you try to force the door, a ward flares to life, rimming the door in
+a pale white glow.  Try as you might, the door will not budge.
+~
+E
+rpull~
+As $n tries to force the door open, a ward flares to life, rimming the
+door in a pale white glow.
+~
+E
+success~
+As you pull with all your might, the magical seal breaks with a 
+@eblinding flash@n and the door opens.
+~
+E
+rsuccess~
+As $n pulls on the door, the magical seal breaks with a blinding flash
+and the door opens.
+~
+E
+nothing~
+The finely carved door is already open.
+~
+!
+0 0 0
+1330 9 1509949540 3 0
+-1
+S
+
+#49774
+A Richly Decorated Chamber~
+Beautiful tapestries and platinum inlays line the wall of this heavily
+decorated chamber.  The floor is carpeted with rugs woven of silk and
+embroidered with battle scenes depicting vyan victories over various
+races.  This particular vyan must have been very rich in life to take
+such priceless treasures with him in death.  The stone bier in the middle
+of the room is draped with a finely woven silk shroud.  The desicated
+body beneath the shroud is quite slender.
+~
+[Lansharra] wrait summons a gust of wind...that doesn't do any damage...?
+~
+301465612 11 9 0
+D0
+door~
+door~
+195 -1 49773 10 10 5
+E
+bier~
+Unlike the great slabs of stone most biers are, this one seems to have
+been carved out of a solid block of black marble.  Like the door to this
+tomb, runes and designs have been delicately etched upon the stone.  Gems
+of every color imaginable are placed throughout the stone bier adding to
+its magnificence.
+~
+E
+body~
+The desicated body beneath the shroud is slender, not even the size of a
+human child.
+~
+E
+rugs floor~
+Rich carpets of finely woven silk grace the floor with their softness. 
+Jewel-tone shades of red, blue, and green are mottled together in each
+rug.  Embroidered into the silk, the scenes of vyan-elf battles are quite
+vivid.
+~
+A
+open~
+door north~
+if( !is_open( room, north ) ) {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, north );
+}
+else
+act_tochar( #nothing, ch );
+~
+E
+open~
+You push the heavy door open.
+~
+E
+ropen~
+$n pushes the heavy door open.
+~
+E
+nothing~
+The door is already open.
+~
+!
+0 0 0
+1333 9 1509949540 3 0
+-1
+S
+
+#49775
+Further into the Tomb~
+The dark, stone walls form yet another passageway here, running north into
+the inner crypt.  The darkness is complete here, thick and cloying.  The
+numbing coldness deepens here, and the unnatural sensation sends chills
+down your spine.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 49768 10 10 5
+D2
+~
+~
+0 -1 49766 10 10 5
+-1
+S
+
+#49776
+Further into the Tomb~
+The dark stone walls form a passageway here which leads into the
+blackness of the inner crypt.  The darkness here is thick and menacing. 
+An occasional bead of moisture runs down a pillar to drop with a soft
+sound into a small puddle.  What little of the floor you can see is
+lightly worn, though the stone is pitted here and there by years of
+dripping water.
+~
+~
+301465604 11 9 0
+D0
+~
+~
+0 -1 49759 10 10 5
+D2
+~
+~
+0 -1 49758 10 10 5
+E
+puddle~
+This dark puddle collects in the basin between two marble pillars.
+Hollowed out by years of dripping, the basin is only a few inches deep.
+~
+819 17 1509949540 -2 0
+-1
+S
+
+#49777
+Deep Within the Tomb~
+Walls of dark, polished rock form the corridor around you.  Murals line
+the walls, depicting various vyan victories.  Columns of stone buttress
+the arching passageway and the ceiling ascends into darkness.  The floor
+beneath you is free of dust and is just as carefully tended as the walls
+seem to be.  Silence permeates the area and a deep chill seems to seep out
+of the very walls.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49778 10 10 5
+D3
+~
+~
+0 -1 49773 10 10 5
+E
+walls~
+The dark stone, possibly granite, is polished to a dull glow here.  If
+you look carefully, you can almost make out your reflection.
+~
+E
+columns~
+The slender columns of black marble rise up out of the stone of the wall
+to buttress the arching passageway.
+~
+E
+murals~
+Each painting is predominately red with the blood of vyan enemies. 
+Depicting legious of vyans fiercely fighting many foes, you can determine
+several different races among the enemies.
+~
+1301 9 1509949540 3 0
+-1
+S
+
+#49778
+A Gloomy Intersection~
+The darkly beautiful stone splits into three directions at this junction.
+The arched entrances to the three rooms are finely carved and inlaid with
+an unidentifiable metal.  Intricate patterns are etched into the expertly
+polished floor.  The vaulted ceiling disappears into the darkness above,
+making the slightest sounds echo loudly in the large chamber.  To the west
+and east, the passages stretch into darkness while the southern exit is
+blocked by a large, dark door.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49779 10 10 5
+D2
+door of dark wood~
+door dark wood~
+131 1882 49783 10 10 5
+D3
+~
+~
+0 -1 49777 10 10 5
+E
+door~
+This expertly carved piece of wood fits perfectly into its stone jamb. 
+Ringed about by arcane symbols and sigils, it almost radiates an aura of
+malice.  A plaque of polished obsidian is placed in the center of the
+door.  In a bold hand, there are several lines of runes carved upon it.
+~
+E
+pattern circle floor~
+Winding around and around, the patterns spiral toward the center of the
+room, becoming smaller and smaller until they fade into a dot near the
+middle.  Thin and spidery, the runes are expertly etched into the floor.
+~
+A
+look read~
+plaque obsidian inscription runes~
+if( find_skill( ch, vyanian ) < 7 ) {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+else {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_tochar( #success, ch );
+  act_notchar( #rsuccess, ch );
+  wait( 1 );
+  act_tochar( #plaque, ch );
+  }
+~
+E
+rune~
+You stare at the inscription for a long moment.
+~
+E
+rrune~
+$n stares at the inscription for a long moment.
+~
+E
+success~
+After a few moments' thought, you are able to decipher the inscription.
+~
+E
+rsuccess~
+$n's thoughtful look turns to one of understanding.
+~
+E
+fail~
+After staring at the inscription for several moments, the words dont seem
+to be any clearer.  You throw up your hands in frustration and turn away.
+~
+E
+rfail~
+$n looks blankly at the inscription for awhile, before throwing up $m
+hands in frustration and turning away.
+~
+E
+plaque~
+@bPrince Drosten Karnak
+                    @bKnight Protector of Shai'zarn
+~
+!
+0 0 0
+-1
+S
+
+#49779
+Deep Within the Tomb~
+Expertly carved and polished walls of dark stone enclose the narrow
+passageway, melding up into the ceiling far above you.  The floor has no
+trace of dust, though the air is stale and chill.  Columns of thick, dark
+stone buttress the walls and high ceiling, reaching up into the darkness
+above you.  To the east and west, the passageway stretches into a thick
+gloom.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49780 10 10 5
+D3
+~
+~
+0 -1 49778 10 10 5
+E
+columns~
+Carved from the wall around them, the stone columns bear the weight of
+the walls and ceiling.
+~
+1301 9 1509949540 3 0
+1330 9 1509949540 3 0
+-1
+S
+
+#49780
+Before a Tightly Sealed Door~
+The finely polished walls are broken by a huge, stone door.  Unlike the
+floor and walls, the stone door is drab and lackluster.  Pieces of
+polished marble litter the floor here and there, as if a large stone
+object had shattered in the hall.  Steel hinges hold the massive door,
+and you imagine it must have taken an army to put it into place.  On
+closer inspection, you see that the edges of the door are tightly sealed
+with a silvery metal.
+~
+~
+301465604 11 5 0
+D1
+~
+~
+0 -1 49781 10 10 5
+D2
+large stone slab~
+large stone slab~
+195 -1 49784 10 10 5
+D3
+~
+~
+0 -1 49779 10 10 5
+E
+door slab south s~
+This large stone slab looks to have replaced what must have been the
+original door, now lying in pieces in the hall.  The door is firmly held
+in place by sturdy steel hinges and is sealed tightly by an unknown,
+silvery metal.
+~
+E
+broken pieces marble~
+The shattered pieces of marble are polished and smooth on some pieces,
+possibly the remains of a door.
+~
+A
+open~
+slab door south s~
+if( is_open( room, south ) ) {
+  act_tochar( #nothing, ch );
+  end;
+  }
+if( find_stat( ch, str ) < 16 ) {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+else {
+  act_tochar( #success, ch );
+  act_notchar( #rsuccess, ch );
+  open( room, south );
+  }
+~
+E
+fail~
+You strain and heave but the seal holds tightly; the stone slab wont move.
+~
+E
+rfail~
+$n strains and heaves but the seal holds tightly.
+~
+E
+success~
+The binding seal cracks and bursts, releasing the giant slab of stone.
+~
+E
+rsuccess~
+$n pulls with all $s might and the seal cracks under $s mighty effort.
+~
+E
+nothing~
+The stone slab is already open.
+~
+!
+0 0 0
+1857 17 1509949540 -2 0
+-1
+S
+
+#49781
+Deep Within the Tomb~
+Perfectly polished walls and a high, arched ceiling form this corridor.
+The floor is as polished as the walls, unblemished by use.  Metal and
+stone columns buttress the ceiling, supporting what feels like millions of
+tons of rock.  A biting cold creeps in around you, making the complete
+darkness here very frigid.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 49782 10 10 5
+D3
+~
+~
+0 -1 49780 10 10 5
+1301 9 1509949540 3 0
+-1
+S
+
+#49782
+Outside the Dark Hall~
+The passageway deep within the tomb ends abruptly to the east in a dark,
+cavernous hall.  The floor and walls are polished here and the archway
+leading to the hall is lined with what appear to be religious symbols
+drawn in a faintly glowing metallic substance.  The biting cold seems to
+recede a little outside this hall, though the smell of old blood replaces
+it.
+~
+~
+301465604 11 9 0
+D1
+~
+~
+0 -1 49760 10 10 5
+D3
+~
+~
+0 -1 49781 10 10 5
+E
+arch symbols~
+Carved from the dark granite of the wall, this thin, cylindrical arch is
+twined about with unidentifiable silvery runes and symbols.
+~
+-1
+S
+
+#49783
+Entrance to the Shai'zarn Mausoleum~
+Carved out of the solid rock, this half-circular chamber could only have
+been shaped by the labor of master stone masons.  The floor and ceilings
+shine from countless years of polishing, as does the interlacing design
+of silvery runes and wards.  The high ceiling, a dome of gleaming stone,
+is worked in the same runes that ring the rest of the room.  In the
+middle of the chamber lies an elegantly crafted bier of delicately worked
+silver.  Finely wrought and shot through with filaments of a black
+gemstone, the bier holds no body though a faint, bluish outline can be
+seen on its surface, as though the occupant faded into the metal.
+~
+[Lansharra] can't look bier, look floor, ground...
+~
+301465612 11 5 0
+D0
+door~
+door~
+131 -1 49778 10 10 5
+D5
+trapdoor~
+trapdoor trap door~
+2187 -1 49785 10 10 5
+E
+silver~
+This priceless work of art has obviously lain here undisturbed for time
+out of mind.  Looking more like an altar than a bier, it lies empty but
+for the bluish outline of a humanoid body.
+~
+E
+down trapdoor d~
+The faint outline of a door is visible in the stones.
+~
+E
+rune~
+The silvery runes scrawled across the room are of a pattern unknown to
+you.  Spiraling around and across the entire room, there is no break
+evident in the rune pattern.
+~
+A
+search~
+floor stone down d~
+if( !is_open( room, down ) ) {
+  act_tochar( #door, ch );
+  act_notchar( #rdoor, ch );
+  show( ch, room, down );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+door~
+You search the floor carefully, finding a trap door.
+~
+E
+rdoor~
+$n looks up from the floor with a startled expression on $m face.
+~
+E
+nothing~
+The trapdoor is already open.
+~
+!
+0 0 0
+A
+~
+trap door~
+if( mob_in_room( 1336, room ) ) {
+  if( !is_open( room, down ) ) {
+    act_tochar( #block, ch );
+    act_notchar( #rmblock, ch );
+    }
+  else
+    continue;
+  }
+else
+  continue;
+~
+E
+to_char~
+You open the trapdoor, leading down deeper into the earth.
+~
+E
+to_room~
+$n opens a trapdoor in the floor.
+~
+E
+block~
+The presence of Prince Karnak prevents you from opening the trapdoor.
+~
+E
+to_side~
+The trap door above you opens.
+~
+E
+rmblock~
+The presence of Prince Karnak prevents $n from opening the trapdoor!
+~
+!
+8 0 32
+1336 9 1509949540 3 0
+-1
+S
+
+#49784
+Within the Sealed Tomb~
+As you step into this room, you begin to see why the door was sealed.
+The perfectly crafted walls of polished stone are splashed with old blood
+and raked with claws, marring the smooth perfection.  Tapestries lie in a
+tattered ruin upon the floor and what once must have been burial gifts
+are broken and shattered all around the room.  The ornate stone bier in
+the middle of the room has been overturned, and a large crack runs down
+the middle.  A crumpled, long dead skeleton lies in the southeastern
+corner of the room.
+~
+~
+301465612 11 9 0
+D0
+slab of stone~
+stone slab door~
+195 -1 49780 10 10 5
+E
+door~
+The huge stone slab that served to seal the chamber looks as though huge
+claws have repeatedly raked the inside of it.
+~
+E
+skeleton~
+This must be all that is left of the occupant of this tomb; you can see a
+faint gleam in the pile of bones, warranting a closer look.
+~
+A
+search~
+bones pile skeleton~
+if( mob_in_room( 1334, room ) ) {
+  act_tochar( #nothing, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #skel, ch );
+  act_notchar( #rskel, ch );
+  mload( 1334, room );
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+skel~
+@b@RAs you rummage through the pile of bones, a bone-chilling shriek
+echoes through the chamber.  A cloud of darkness billows up from the pile
+of bones!
+~
+E
+rskel~
+@b@RAs $n rummages through the pile of bones, a high pitched shriek
+echoes through the chamber.  A cloud of darkness billows up from the pile
+of bones!
+~
+E
+nothing~
+You search the pile of bones, finding nothing.
+~
+E
+rnothing~
+You see $n search the pile of bones but comes up empty-handed.
+~
+!
+0 0 0
+A
+~
+~
+if( find_stat( ch, level ) > 90 )
+continue;
+if( mob_in_room( 1334, room ) ) {
+  act_tochar( #block, ch );
+act_notchar( #rblock, ch );
+  }
+else
+  continue;
+~
+E
+block~
+You attempt to leave the room but the wraith quickly blocks your path.
+~
+E
+rblock~
+$n tries to leave the room but the wraith quickly rushes in front of $m,
+blocking $m exit.
+~
+!
+3 0 1
+A
+open~
+door north n slab~
+if( is_open( room, north ) )
+act_tochar( #nothing, ch );
+else {
+act_tochar( #door, ch );
+act_notchar( #rdoor, ch );
+open( room, north );
+}
+~
+E
+door~
+You push the heavy stone slab open.
+~
+E
+rdoor~
+$n pushes the heavy stone slab open.
+~
+E
+nothing~
+The heavy slab is already open.
+~
+!
+0 0 0
+-1
+S
+
+#49785
+Above a Spiral Stair~
+You find yourself above a spiraling stone staircase.  Above you is a
+heavy slab of stone, blocking your way upward.  Each step is finely
+carved into the stone, and steel rails line the staircase, guarding your
+steps.  Twisting around in a downward spiral, the bottom of the staircase
+is clouded in darkness.
+~
+~
+301465612 11 9 0
+D4
+trapdoor~
+trap door trapdoor heavy slab stone~
+2187 -1 49783 10 10 5
+D5
+~
+~
+0 -1 49786 10 10 5
+-1
+S
+
+#49786
+Below the Staircase~
+At the bottom of the stairs, you find yourself in a vaulted chamber.  The
+staircase spirals up into the darkness above.  The expertly burnished
+walls gleam with polish.  Although the floors of the upper crypt were
+dull with use, these gleam with no trace of a blemish.  No dust at all
+settles here, no water drips; there is only utter silence.
+~
+no_mob
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 49787 10 10 5
+D4
+~
+~
+0 -1 49785 10 10 5
+-1
+S
+
+#49787
+A Gloomy Hallway~
+The beautiful, gleaming black stone of the walls and floor does nothing
+to detract from the air of sterility here.  Flawlessly finished, the
+stone bears no blemish of any kind.  Lovely, black marble doors dominate
+the walls to the east and west, each glowing softly with magical energy.
+~
+~
+301465604 11 5 0
+D0
+~
+~
+0 -1 49790 10 10 5
+D1
+marble door~
+marble door~
+131 -1 49789 10 10 5
+D2
+~
+~
+0 -1 49786 10 10 5
+D3
+marble door~
+marble door~
+131 -1 49788 10 10 5
+E
+marble door ~
+Hewn of lustrous, black marble these doors are carved and etched with
+various symbols and designs.
+~
+E
+symbols designs runes~
+Thin, spidery runes and symbols decorate the doors, though whether they
+have some arcane significance or are merely words, you cannot tell.
+~
+-1
+S
+
+#49788
+The Crypt of Lord Ancalagon~
+This cubical chamber is small and compact.  The stone walls are hung with
+tapestries which are now little more than tatters and threads.  Piled
+here and there are various treasures, broken and tarnished by time.  The
+only exit lies to the east, a marble door which leads back to the hall.
+
+~
+~
+301465604 11 5 0
+D1
+marble door~
+marble door~
+131 -1 49787 10 10 5
+E
+treasure pile heap~
+What once must have been rich loot is now tarnished, worthless junk.
+~
+A
+get take search~
+treasure pile various~
+if( !mob_in_room( 1401, room ) ) {
+  act_notchar( #rgone, ch );
+  act_tochar( #gone, ch );
+  }
+else {
+  act_tochar( #get, ch );
+  act_notchar( #rget, ch );
+  }
+~
+E
+get~
+As you reach out to get the treasure, the wraith blocks your path!
+~
+E
+rget~
+As $n reaches out to take the treasure, the wraith blocks his path!
+~
+E
+gone~
+You pick through the treasure, finding nothing but broken, tarnished
+rubbish.
+~
+E
+rgone~
+$n picks through the treasure, finding nothing but broken, tarnished
+rubbish.
+~
+!
+0 0 0
+1401 9 1509949540 3 0
+-1
+S
+
+#49789
+The Crypt of Lord Maesin~
+Small and compact, this chamber is sparsely decorated with plaques and
+various items.  In one corner, a heap of scrolls lies decaying, little
+more than moldy pulp.  Burn marks mar the burnished perfection of the
+walls, giving the stone a mottled look.
+~
+~
+301465604 11 5 0
+D3
+marble door~
+marble door~
+131 -1 49787 10 10 5
+E
+heap scrolls corner pile~
+Forgotten and largely worthless, this heap of moldy papers lies here in
+ruin.
+~
+A
+search~
+scrolls heap pile moldy~
+if( mob_in_room( 1400, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  if( random( 1, 10 ) < 9 ) {
+    remove_rflag( reset1, room );
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    }
+  else {
+    remove_rflag( reset1, room );
+    act_tochar( #search, ch );
+    act_notchar( #rsearch, ch );
+    obj_to_char( oload( 1004 ), ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  }
+~
+E
+search~
+@eYou search the moldy pile of scrolls, finding one useful one.
+~
+E
+rsearch~
+$n searches the moldy pile of scrolls, finding a useful sheet of paper.
+~
+E
+fail~
+You search the moldy pile of scrolls, finding nothing useful.
+~
+E
+rfail~
+$n searches the moldy pile of scrolls but finds nothing useful.
+~
+E
+nope~
+The wraith hovers protectively over the pile, blocking access.
+~
+!
+0 0 0
+1400 9 1509949540 3 0
+-1
+S
+
+#49790
+A Gloomy Hallway - Before a Steel Door~
+This dark junction is walled on three sides by ornately worked doors.  To
+the east and west, black marble doors seal the chambers while a finely
+crafted door of steel blocks your passage to the north.  Beneath your
+feet the burnished, dark stone of the floor lies silent and cold.
+~
+~
+301465604 11 5 0
+D0
+steel door~
+steel door~
+131 -1 49793 10 10 5
+D1
+marble door~
+marble door~
+131 -1 49792 10 10 5
+D2
+~
+~
+0 -1 49787 10 10 5
+D3
+marble door~
+marble door~
+131 -1 49791 10 10 5
+E
+marble door~
+Hewn of lustrous, black marble this door is carved and etched with
+various symbols and designs.
+~
+E
+steel door~
+Made of a thin sheet of steel, the northern door is plain and sturdy.
+~
+-1
+S
+
+#49791
+The Crypt of Lady Sindara~
+Dominating the center of this small tomb is a silvery altar.  Runed about
+with strange symbols, it glows faintly, lending light to the tiny room. 
+Various sigils are drawn and etched onto the dark walls, perhaps holy
+symbols, perhaps meaningless.
+~
+[Dalthas] Look run -> no description
+[Stile] look rune - no description
+~
+301465605 11 5 0
+D1
+marble door~
+marble door~
+131 -1 49790 10 10 5
+E
+altar~
+Though made out of a silvery metal, possibly platinum or mithril, the
+altar is relatively plain.  Odd symbols are etched into the bottom,
+though you cannot decipher them.
+~
+E
+runes~
+No description~
+1402 9 1509949540 3 0
+-1
+S
+
+#49792
+The Crypt of Lord Kamsae~
+Lacking the austerity of the rest of the lower crypt, this chamber seems
+more suited to an average, surface-dweller crypt.  Dirt, the bones of
+tiny animals, and twigs litter the floor of this small room.  Elegantly
+carved into the dark, granite walls are outlines of various and sundry
+animals.
+~
+~
+301465604 11 9 0
+D3
+marble door~
+marble door~
+131 -1 49790 10 10 5
+E
+walls outlines animals~
+The walls are covered in eerily life-like outlines of many animals. 
+Wolves, bears, boars and badgers, to name a few, are painted here in
+great detail.
+~
+1403 9 1509949540 3 0
+-1
+S
+
+#49793
+The Crypt of Lord Daeshin~
+Larger and more vaulted than the tombs before it, this chamber's high
+ceiling ascends into darkness.  The walls to the east and west are
+buttressed by columns of black marble, carved and polished to an elegant
+perfection.  Suits of armor are displayed in each of the corners, black
+steel with silver trimming.
+~
+~
+301465604 11 5 0
+D0
+marble door~
+marble door~
+131 -1 49794 10 10 5
+D2
+steel door~
+steel door~
+131 -1 49790 10 10 5
+E
+armor suit corner~
+Apparently made for the same, slender warrior these suits of armor are of
+the finest make.  Black steel plates trimmed with silver and embossed
+with various symbols, they radiate an aura of enchantment.
+~
+A
+open~
+north n door~
+if( mob_in_room( 1405, room ) ) {
+  act_tochar( #guard, ch );
+  act_notchar( #rguard, ch );
+  }
+else
+  continue;
+~
+E
+guard~
+@eThe ghostly paladin steps in front of you, blocking your path.
+~
+E
+rguard~
+@eThe ghostly paladin steps in front of $n, blocking $m path.
+~
+!
+8 0 1
+A
+get take remove search touch~
+armor suits ~
+act_tochar( #get, ch );
+act_notchar( #rget, ch );
+~
+E
+get~
+@BAs you try to approach the armor, a shield of glowing blue envelops the
+suits, prohibiting your advance.
+~
+E
+rget~
+@BAs $n tries to approach the armor, a shield of glowing blue envelops
+the suits, prohibiting $s advance.
+~
+!
+0 0 0
+1405 9 1509949540 3 0
+-1
+S
+
+#49794
+Crypt of Wraithlord Szearin~
+Carved rather roughly out of the dark granite, this chamber is utterly
+different from the polished, lustrous stone found elsewhere in the crypt. 
+No items or decorations adorn this chamber; it is completely empty.  The
+only smooth surface in the entire chamber is a small oval in the center
+of the room.
+~
+~
+301465604 11 9 0
+D0
+marble door~
+marble door~
+195 -1 49795 10 10 5
+D2
+marble door~
+marble door~
+131 -1 49793 10 10 5
+E
+oval smooth center stone~
+Smoothed down from the original roughness of the stone, this small,
+smooth patch of granite is a perfect oval.
+~
+A
+open~
+door north n~
+if( mob_in_room( 1407, room ) ) {
+  act_tochar( #guard, ch );
+  act_notchar( #rguard, ch );
+  wait( 2 );
+  send_to_room( #form, room );
+  }
+else
+  continue;
+~
+E
+guard~
+@eThe wraith moves swiftly to block your path.
+~
+E
+rguard~
+@bThe wraith moves swiftly to block $n's path.
+~
+E
+form~
+@CAfter a moment, the wraith flows away from the door.
+~
+!
+3 0 1
+A
+open~
+door south marble s so sou sout~
+if( is_open( room, south ) )
+  act_tochar( #open, ch );
+else {
+  act_tochar( #door, ch );
+  act_notchar( #rdoor, ch );
+  open( room, south );
+  }
+~
+E
+open~
+The door is already open.
+~
+E
+door~
+You push the heavy, marble door open.
+~
+E
+rdoor~
+$n pushes the heavy, marble door open.
+~
+!
+0 0 0
+1407 9 1509949540 3 0
+-1
+S
+
+#49795
+The Crypt of Lord Raschid~
+Burnished to a muted gleam, the stone work here is particularly fine.  The
+flat, perfectly smooth floor is almost completely covered by richly woven
+rugs and tapestries, which, curiously, have not faded with time. 
+Weapons, armor, items of every type are carefully set in various displays
+about the large chamber.  Set high on the northern wall is the crest of
+House Shai'zarn.
+~
+~
+301465604 11 5 0
+D2
+marble door~
+marble door~
+195 -1 49794 10 10 5
+E
+crest shai'zarn~
+A dark sword, running blood, is clasped in a strong, jet-black hand upon
+a background of silver.
+~
+E
+rugs floor~
+The smooth floor of dark stone is swathed in silk carpets and finely
+woven rugs.  Each carpet is a rich jewel-tone, accenting the darkness of
+the room.
+~
+A
+open~
+door south s~
+act_tochar( #door, ch );
+act_notchar( #rdoor, ch );
+open( room, south );
+~
+E
+door~
+You open the marble door.
+~
+E
+rdoor~
+$n opens the marble door.
+~
+!
+0 0 0
+A
+get take~
+crest weapons armor items~
+act_tochar( #get, ch );
+~
+E
+get~
+It is firmly attached to the wall.
+~
+!
+0 0 0
+1408 9 1509949540 3 0
+-1
+S
+
+#49796
+A Vaulted Cavern~
+Under Construction.
+~
+~
+301465612 11 9 0
+-1
+S
+
+#49797
+A Rough Stone Chamber~
+The water trickling down from above forms a small pool in the middle of
+the floor.  A large crack in the stone on the eastern side of the chamber
+swallows the water as tries to run down the sloping floor.  Rough and
+jagged, the stone floor beneath the pool is uneven.
+~
+~
+301465612 11 9 0
+D1
+~
+~
+0 -1 49750 10 10 5
+D4
+~
+~
+0 -1 49798 10 10 5
+E
+pool~
+The pool is filled with cold, murky water.
+~
+E
+crack~
+This large crack in the floor consumes the water that trickles down from
+the overflowing pool.
+~
+1513 17 1509949540 -2 14
+-1
+S
+
+#49798
+A Rough Stone Chamber - Near a Large Hole~
+The floor of this rough chamber slopes downward here, toward a large hole. 
+Roughly chiseled out of the rock, the hole is so large that it takes
+nearly the entire floor of the chamber.  Water drains down from the north
+to trickle slowly into the large opening.
+~
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 49799 10 10 5
+D5
+~
+~
+0 -1 49797 10 10 5
+E
+hole opening~
+A wide hole yawns in the middle of the room.  It appears large enough for
+several people to climb down it at the same time.
+~
+A
+~
+~
+act_tochar( #enter, ch );
+continue;
+~
+E
+enter~
+You carefully climb down into the hole.
+~
+!
+3 0 32
+-1
+S
+
+#49799
+A Rough Stone Chamber~
+The floor of this cubical chamber has been leveled off and made
+relatively flat.  The grey walls are roughly hewn and have various jagged
+stone outcroppings.  A large pool has accumulated in the center of the
+floor, and the water has a strange smell.  Sloping downward to the south,
+the chamber continues.  A large hole in the ceiling ascends into darkness.
+~
+~
+301465612 11 9 0
+D2
+~
+~
+0 -1 49798 10 10 5
+D4
+~
+~
+0 -1 49800 10 10 5
+E
+pool~
+The water is murky and gives off the musty scent of minerals.
+~
+E
+outcroppings~
+Randomly scattered outcroppings of stone jut out of the walls of this
+rough chamber.
+~
+A
+eat~
+corpse maiden vyan~
+if( race( ch ) == Troll )
+act_tochar( #eat, ch );
+else
+continue;
+~
+E
+eat~
+You start to tear into the corpse, but are prevented by an unseen force.
+~
+!
+0 0 0
+A
+~
+~
+mob = mob_in_room( 1852, room );
+if( mob ) {
+  if( !is_fighting( mob ) ) {
+    send_to_room( #dis, room );
+    junk_mob( mob );
+    }
+  }
+~
+E
+dis~
+The vyan woman gestures angrily and is consumed by a burst of flame.
+~
+E
+work~
+THIS WORKS!!!!!!!!!
+~
+!
+2 500 0
+1513 17 1509949540 -2 14
+1773 17 1509949540 -2 16
+1112 17 1509949540 -2 0
+1332 9 1509949540 3 0
+-1
+S
+
+#49800
+A Forgotten Shaft~
+The constant dripping of water echoes through the old tunnel.  Jagged
+handholds have been carved in the shaft, obviously made for huge hands. 
+The cold of the rock chills you and the rough stone bites into your hands
+as you climb through the shaft.
+~
+~
+301465612 11 9 0
+D4
+~
+~
+0 -1 49801 10 10 5
+D5
+~
+~
+0 -1 49799 10 10 5
+E
+handholds~
+The outcroppings of rock are too regular to be natural features.  They
+are rough and somewhat sharp.
+~
+-1
+S
+
+#49801
+A Forgotten Shaft - Near a Vein of Quartz~
+The drab grey stone of the shaft appears black where the rivulets of
+water wash down it.  A vein of pure white quartz runs down the southern
+side of the shaft, branching out into tendrils of white which fade back
+into lackluster grey.
+~
+~
+301465612 11 9 0
+D4
+~
+~
+0 -1 49802 10 10 5
+D5
+~
+~
+0 -1 49800 10 10 5
+E
+quartz~
+Pure white quartz runs down the shaft in a blaze of white.
+~
+-1
+S
+
+#49802
+A Forgotten Shaft~
+Deposits of minerals line the rough stone walls in lumps of white.  The
+water trickling down the shaft has deep grooves in the stone, adding to
+the available handholds.  Patches of slippery fungus cling to the walls
+at various intervals, fed by the ever-present water.
+~
+~
+301465612 11 9 0
+D4
+~
+~
+0 -1 49804 10 10 5
+D5
+~
+~
+0 -1 49801 10 10 5
+E
+fungus~
+The slippery green fungus gives off a faint green light.
+~
+-1
+S
+
+#49803
+A Vaulted Cavern~
+Under Construction.
+~
+~
+301465612 11 9 0
+-1
+S
+
+#49804
+A Forgotten Shaft~
+Carved out of the stone itself, this narrow hole runs deep into the earth
+here.  Rough handholds have been carved out of the stone, making passage
+down the tunnel relatively easy.  Water drips down the sides of the
+tunnel and phosphorescent fungus grows on the walls, giving off a faint
+light.
+~
+up is 28146
+~
+301465605 11 9 0
+D4
+~
+~
+0 -1 28146 10 10 5
+D5
+~
+~
+0 -1 49802 10 10 5
+E
+fungus~
+This fungus gives off a sickly green glow which faintly illuminates the
+tunnel.
+~
+-1
+S
+
+#49805
+A Vaulted Cavern~
+Under Construction.
+~
+~
+301465612 11 9 0
+D5
+~
+~
+0 -1 49806 10 10 5
+-1
+S
+
+#49806
+A Vaulted Cavern~
+Under Construction.
+~
+~
+301465612 11 9 0
+D4
+~
+~
+0 -1 49805 10 10 5
+-1
+S
+
+#0
+

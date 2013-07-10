@@ -1,0 +1,3511 @@
+#AREA
+Cyclops Caverns~
+Phule Kreel~
+cyclops/pixies~
+
+40 0
+0
+#ROOMS
+
+#73500
+Inside a Dark Cave~
+This cold dark opening into the solid stone of the Cairn Mountains is
+eerily silent.  No wind howls past its mouth, the earth below does not
+rumble or disturb.  The texture of the stone is mostly rough, but the
+passage over and over again of some great weight has worn the footstone
+to a fine, smooth surface.  An enormous stone slab lies to the south,
+while a rough passage leads in a generally descending path north into the
+stone.
+~
+push stone
+nomob
+entrace to cyclops cave
+[Marek] the passage over and over again = years of use?
+[Sheltem] I think push slab should work just as well as push stone
+
+[Fenlyn] I think that pushing the stone should pick a char at random out
+of room to south and inflict 2d20 on em from the pushed boulder.
+~
+335020044 11 8 0
+D0
+~
+~
+0 -1 73501 10 10 5
+D2
+~
+~
+235 -1 44765 10 10 5
+A
+push~
+stone~
+if( !is_open( room, south ) ) {
+  act_tochar( #push, ch );
+  act_notchar( #rpu, ch );
+  open( room, south );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+push~
+You push open the heavy stone.
+~
+E
+rpu~
+$n pushes open the heavy stone to the south.
+~
+E
+already~
+The stone is already open.
+~
+!
+0 0 0
+-1
+S
+
+#73501
+Inside a Dark Cave~
+This large, spacious cave seems to be a gigantic hallway of some sort,
+descending to the north and rising toward the surface to the south.  A
+side-tunnel leads east.  A few bones litter this area, discolored and
+with rotting flesh still hanging upon them.  All in all this gives the
+cave quite a foul smell.
+~
+[Marek] the Who Goes There code is nice :)
+~
+335020108 11 9 0
+D0
+~
+~
+0 -1 73503 10 10 5
+D1
+~
+~
+0 -1 73502 10 10 5
+D2
+~
+~
+0 -1 73500 10 10 5
+E
+bones flesh~
+They look about human-sized, and most of the bones look as if they have
+been gnawed upon.  The skulls have been crushed in completely, as if they
+were beaten heavily with a large club or bludgeon.
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  if( mob_in_room( 1092, find_room( 73502 ) ) ) {
+    mob = mob_in_room( 1092, find_room( 73502 ) );
+    if( is_resting( mob ) ) {
+      send_to_room( #shuffle, find_room( 73501 ) );
+      interpret( mob, "yell WHO GOES THERE???" );
+      interpret( mob, "stand" );
+      interpret( mob, "west" );
+      }
+    }
+  remove_rflag( reset0, room );
+  }
+~
+E
+shuffle~
+You hear the shuffling of heavy feet to the east.
+~
+!
+1 0 4
+A
+search~
+bones flesh~
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  act_tochar( #pick, ch );
+  act_notchar( #rpick, ch );
+  if( random( 0, 30 ) == 7 ) {
+    obj_to_char( oload( 1458 ), ch );
+    act_tochar( #something, ch );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else {
+  act_tochar( #pick, ch );
+  act_notchar( #rpick, ch );
+  act_tochar( #nothing, ch );
+  }
+~
+E
+pick~
+You pick through the pile of bones and flesh, looking for anything
+interesting.
+~
+E
+rpick~
+$n picks through the pile of bones and flesh.
+~
+E
+something~
+You find something which was floating about an inch above the ground.
+~
+E
+nothing~
+You don't find anything valuable.
+~
+!
+0 0 0
+-1
+S
+
+#73502
+A Large Alcove~
+This rather large alcove, perhaps 20 feet to a side and about 30 feet
+high, looks to be mainly used as a guard outpost.  There is a high slab
+which looks to easily weigh 2 tons and may serve as a bench if the guard
+was the size of a giant.  A tunnel lies to the west through an opening
+which is the alcove's only visible exit.
+~
+~
+335020036 11 9 0
+D3
+~
+~
+0 -1 73501 10 10 5
+D5
+way below~
+~
+235 -1 73606 10 10 5
+E
+slab~
+The slab itself in almost overlookable, but beside the slab a pair of
+scrape marks follow its edges for several yards.
+~
+E
+scrape marks~
+The marks were probably caused by the sliding of the massive stone.
+~
+A
+push slide move pull~
+stone slab chair bench~
+if( is_open( room, down ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+i = find_stat( ch, str );
+if( i > 17 ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, down );
+  send_to_room( #opens, find_room( 73606 ) );
+  }
+else {
+  act_tochar( #weak, ch );
+  end;
+  }
+~
+E
+already~
+The stone bench has already been pushed aside to reveal the passage down.
+~
+E
+opens~
+The stone above you slides to one side revealing a large opening.
+~
+E
+weak~
+You are too weak to move the large slab of stone.
+~
+E
+open~
+Straining, you move the stone slab and reveal a large opening below.
+~
+E
+ropen~
+$n strains and moves the stone slab, revealing a large opening below it.
+~
+E
+no~
+You can't budge the stone.
+~
+!
+0 0 0
+1092 9 1509949540 2 0
+-1
+S
+
+#73503
+Inside a Dark Cave~
+This large cave-tunnel comes to a dead end here, although it never seems
+very tight as far as space goes.  At its narrowest it is 20 feet wide,
+and its shortest about 25 feet high.  To the south the tunnel branches
+and also seems to climb.  A large crack in the west wall might bear
+further investigation.
+~
+~
+335020036 11 9 0
+D2
+~
+~
+0 -1 73501 10 10 5
+D3
+~
+~
+202 -1 73504 10 10 5
+E
+crack~
+The crack is about two feet wide and about four feet high and has
+presumably gone unnoticed by the titanic occupants of this cave. 
+Wherever it leads, no one much larger than a gnome could probably squeeze
+through the tight passage.
+~
+A
+squeeze~
+west crack~
+if( mob_in_room( 1092, room ) ) {
+  act_tochar( #block, ch );
+  end;
+  }
+if( size( ch ) < 4 ) {
+  act_tochar( #squeeze, ch );
+  act_notchar( #rsqueeze, ch );
+  transfer( ch, find_room( 73504 ) );
+  act_notchar( #rrsqueeze, ch );
+  }
+else
+  act_tochar( #big, ch );
+~
+E
+big~
+You are too big to fit through the crack.
+~
+E
+rrsqueeze~
+$n squeezes in through a crack in the east wall.
+~
+E
+rsqueeze~
+$n squeezes out through a crack in the west wall.
+~
+E
+squeeze~
+You squeeze through the crack in the west wall.
+~
+E
+block~
+The lesser cyclops pulls you away from the crack.
+~
+!
+0 0 0
+1092 9 1509949540 3 0
+-1
+S
+
+#73504
+Above a Large Hole~
+This cavernous chamber overlooks an extremely large hole which descends
+straight down through about 20 feet of stone which in turn lies above a
+100 foot fall to the stone level below.  The only way down appears to be
+a series of large hand- and foot-holds in a descending column of rock. 
+Obviously not made with small humanoids in mind, it nonetheless looks
+like an easy climb to descend into the cave's depths.  The large tunnel
+appears to come to a bend to the east.  A small crack in the east wall
+bears further notice.  Another crack, this one in the ceiling, allows a
+few solitary rays of sunlight to filter in through the darkness.  The
+sunlight hits an oddly-shaped rock in a corner of the ledge.
+~
+~
+335020036 11 6 0
+D1
+~
+~
+202 -1 73503 10 10 5
+D5
+~
+~
+1024 -1 73601 10 10 5
+E
+crack~
+The crack is about two feet wide and about foor feet high and has
+presumably gone unnoticed by the titanic occupants of this cave. 
+Wherever it leads, no one much larger than a gnome could probably squeeze
+through the tight passage.
+~
+E
+rock~
+Its triangular surface is smooth and most of the rock is somewhat
+reflective.  However it would probably have to be polished to be an
+effective mirror.
+~
+A
+squeeze~
+east crack~
+if( mob_in_room( 1092, room ) ) {
+  act_tochar( #block, ch );
+  end;
+  }
+if( size( ch ) < 4 ) {
+  act_tochar( #squeeze, ch );
+  act_notchar( #rsqueeze, ch );
+  transfer( ch, find_room( 73503 ) );
+  act_notchar( #rrsqueeze, ch );
+  }
+else
+  act_tochar( #big, ch );
+~
+E
+big~
+You are too big to fit through the crack.
+~
+E
+rrsqueeze~
+$n squeezes in through a crack in the east wall.
+~
+E
+rsqueeze~
+$n squeezes out through a crack in the west wall.
+~
+E
+squeeze~
+You squeeze through the crack in the west wall.
+~
+E
+block~
+The lesser cyclops pulls you away from the crack.
+~
+!
+0 0 0
+A
+polish~
+rock~
+if( rflag( reset0, room ) ) {
+  act_tochar( #pol, ch );
+  act_notchar( #rpol, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+pol~
+You polish at the rock, reflecting the beam of light downward into the
+depths of the cavern.  It seems to hit the east wall of the chamber below.
+~
+E
+rpol~
+$n polishes at the rock for a bit.
+~
+E
+no~
+The rock is as polished as it's going to get.  A beam of light from above
+reflects off of it and into the chamber below, striking the large
+cavern's east wall.
+~
+!
+0 0 0
+-1
+S
+
+#73505
+Below a Large Hole~
+About one hundred thirty feet overhead, an enormous, roughly-circular
+hole reaches up through 20 more feet of rock to a cave tunnel above even
+that.  A climb up a large column of stone seems to be the only way to
+reach the tunnel high overhead, a column which sports several large
+handholds and footholds which were obviously made for someone or
+something much larger than human-sized.  Around you an extremely large
+underground chamber spreads out in all directions, with only darkness in
+sight whichever way you turn.  Who knows if the massive chamber ever
+ends, or if it stretches out into infinite darkness, forever?
+~
+[Merior] here it's handhold ... be consisent
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73506 10 10 5
+D1
+~
+~
+0 -1 73507 10 10 5
+D2
+~
+~
+0 -1 73600 10 10 5
+D3
+~
+~
+0 -1 73508 10 10 5
+D4
+~
+~
+1024 -1 73601 10 10 5
+1259 9 1509949540 3 0
+-1
+S
+
+#73506
+A Large Underground Chamber~
+The high, massive rock wall to the north is the only thing of substance
+you can see amidst a see of darkness all around you.  Even the ceiling,
+high overhead, if the cavern does indeed have an end, is shrouded in
+all-concealing blackness.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73605 10 10 5
+D2
+~
+~
+0 -1 73505 10 10 5
+D3
+~
+~
+0 -1 73604 10 10 5
+-1
+S
+
+#73507
+A Large Underground Chamber~
+The natural rock wall to the east is smooth and extremely reflective.  If
+polished it may act as some sort of mirror.  The cavern's natural ceiling
+vaults to about one hundred feet overhead, and the chamber spreads out to
+the north, west, and south.
+~
+[Merior] rooms are AWFULLY similar...
+[Merior] bats are bigger then cyclops? seems a bit much
+[Phule] go spelunking, it's all darkness, much the same :)
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73605 10 10 5
+D2
+~
+~
+0 -1 73602 10 10 5
+D3
+~
+~
+0 -1 73505 10 10 5
+A
+polish~
+wall~
+if( rflag( reset0, room ) ) {
+  act_tochar( #polish, ch );
+  act_notchar( #rpol, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+polish~
+You polish at the wall for a bit until you can see yourself in its flat,
+reflective surface.
+~
+E
+rpol~
+$n polishes at the wall for a bit, clearing away some smudges.
+~
+E
+no~
+The wall is as polished as it's likely to get.
+~
+!
+0 0 0
+A
+l look~
+wall east~
+if( !rflag( reset0, find_room( 73504 ) ) ) {
+  act_tochar( #source_y, ch );
+  if( !rflag( reset0, room ) )
+    act_tochar( #onward, ch );
+  else
+    act_tochar( #would, ch );
+  }
+else
+  act_tochar( #gen, ch );
+~
+E
+gen~
+The wall would probably act like a huge magnifying mirror if polished.
+~
+E
+source_y~
+A beam of light from overhead strikes the wall at an odd angle.
+~
+E
+onward~
+The beam of light is reflected and magnified from the wall, heading west
+through the chamber.
+~
+E
+would~
+Maybe the wall, if polished enough, would reflect the light.
+~
+!
+0 0 0
+-1
+S
+
+#73508
+A Large Underground Chamber~
+The utterly devoid blackness of the chamber all around is reflected in the
+giant flat surface of the rock wall to the west.  The ceiling, perhaps
+some one hundred feet overhead, is lost in the shadows of myriad
+stalagtites and cracks, and the vast expanse of the chamber is hidden
+within its darkness.  It seems that if you stepped out, away from the
+comforting reassurance of the wall, you would become lost in a sea of
+blackness with no hope of returning to the safety of the chamber's walls.
+~
+mirror going ne
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73604 10 10 5
+D1
+~
+~
+0 -1 73505 10 10 5
+D2
+~
+~
+0 -1 73603 10 10 5
+A
+l look~
+west wall w~
+if( !rflag( reset0, find_room( 73507 ) ) ) {
+  if( !rflag( reset0, find_room( 73504 ) ) ) {
+    act_tochar( #source_y, ch );
+    if( !rflag( reset0, room ) )
+      act_tochar( #onward, ch );
+    else
+      act_tochar( #would, ch );
+    }
+  }
+else
+  act_tochar( #gen, ch );
+~
+E
+source_y~
+A beam of light reflects in from the darkness to the east, striking the
+smooth surface of the rock.
+~
+E
+would~
+Perhaps if the rock were polished, the light would reflect on; from the
+angle, seemingly to the northeast.
+~
+E
+onward~
+The light is reflected off the polished surface of the rock, heading
+northeast through the darkness.
+~
+E
+gen~
+The wall is smooth and wide.  Once polished, it would probably serve as a
+good mirror.
+~
+!
+0 0 0
+A
+polish~
+wall rock~
+if( !rflag( reset0, room ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #pol, ch );
+  act_tochar( #rpol, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+already~
+How much more do you want to polish it?  It already gleams like a clear
+mirror.
+~
+E
+rpol~
+$n polishes at the rock for a minute.
+~
+E
+pol~
+You polish the wall until it gleams like a flawless mirror.
+~
+!
+0 0 0
+-1
+S
+
+#73509
+Inside a Muddy Hut~
+Sticks, branches, and straw comprose the walls and ceiling of this
+cramped, humid hut.  Puddles sit atop the reddish clay floor which has
+many footprints in it including your own.  A strange smoke appears to
+float up from each puddle making it very difficult to see any detail in
+the hut, but enough visibility remains to see that there is no way into
+or out of this small space.
+~
+[Fenlyn] mprogs on seer to send person back to someplace.  Maybe a little
+payment.
+[Fenlyn] shaman --> 73633
+[Fenlyn] cyc entrance --> 44765
+~
+335021063 0 5 0
+2209 9 1509949540 3 0
+-1
+S
+
+#73600
+A Large Underground Chamber~
+You stand near the south wall of a large underground chamber.  To the
+north is an impenetrable sea of darkness which stretches out of vision. 
+The ceiling above is host to a score or more of large stalagtites.  They
+have seen the passing of centuries before, so it is unlikely they will
+find now an opportune time to come crashing down.  Then again, perhaps
+yelling would not be a good idea.
+~
+[Merior] extra for ceiling
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73505 10 10 5
+D1
+~
+~
+0 -1 73602 10 10 5
+D3
+~
+~
+0 -1 73603 10 10 5
+-1
+S
+
+#73601
+Inside a Large Hole, on a Ledge Overhanging a Chamber~
+This small ledge seems to be a good resting spot between the tunnel
+overhead and a cavernous chamber below you.  A large stone column can be
+climbed in either direction to leave the ledge.
+~
+no_mob
+[Merior] dino-sized? - wont keep repeating i guess
+~
+335020044 11 6 0
+D4
+~
+~
+1024 -1 73504 10 10 5
+D5
+~
+~
+1024 -1 73505 10 10 5
+-1
+S
+
+#73602
+A Large Underground Chamber~
+You are in the southeast corner of a massive underground cavern.  The
+stalagtite-covered rock ceiling looms at about one hundred feet overhead,
+and the far walls of the cavern cannot even be seen through the darkness,
+making the room seem infinite in size.
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73507 10 10 5
+D3
+~
+~
+0 -1 73600 10 10 5
+-1
+S
+
+#73603
+A Large Underground Chamber~
+While high cavern walls rise to the south and west, nothing but
+impenetrable darkness can be seen in the distance to the northeast,
+hiding, yet amplifying, the huge nature of the underground chamber.  The
+ceiling above is almost out of sight, at about eighty to one hundred feet
+overhead.
+~
+[Merior] how'd you get an overlap here see if you can sort it out please
+
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73508 10 10 5
+D1
+~
+~
+0 -1 73600 10 10 5
+-1
+S
+
+#73604
+A Large Underground Chamber~
+One of the larger underground chambers this close to the surface of the
+world, the chamber is at least eighty to a hundred feet high, and thrice
+that in length and width.  An entire village could perhaps be built in
+the chamber, and not fear for over-crowdedness for many generations.  A
+side alcove is to the west, while the cavern stretches out to the
+southeast.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73506 10 10 5
+D2
+~
+~
+0 -1 73508 10 10 5
+D3
+~
+~
+0 -1 73647 10 10 5
+-1
+S
+
+#73605
+A Large Underground Chamber~
+While the giant chamber stretches off into the darkness above, to the
+west, and to the south, a smaller tunnel leads to the east, away from the
+large underground chamber.  The blackness is featureless, yet
+all-consuming, empty, yet palpably black, like the midnight of a new moon.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73650 10 10 5
+D2
+~
+~
+0 -1 73507 10 10 5
+D3
+~
+~
+0 -1 73506 10 10 5
+-1
+S
+
+#73606
+A Massive Stone Stairway~
+This staircase of roughly-cut stone is giant-sized to say the least. 
+Each step is about 2 feet tall.  The descending chamber which houses the
+stair is enormous as well, at least 25 feet in each direction.  The
+stone ceiling overhead has not collected dust on it, while all the other
+walls are coated in layers of collected dust.
+~
+~
+335020044 11 9 0
+D4
+~
+~
+235 -1 73502 10 10 5
+D5
+~
+~
+0 -1 73608 10 10 5
+E
+up ceiling stone~
+The stone appears to be moveable; perhaps there is a passage above?
+~
+A
+push slide move pull~
+stone slab ceiling~
+if( is_open( room, up ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, up );
+  send_to_room( #opens, find_room( 73606 ) );
+  }
+~
+E
+already~
+The stone above has already been pushed aside to reveal the passage up.
+~
+E
+opens~
+The stone slab slides to one side revealing a large opening.
+~
+E
+weak~
+You are too weak to move the large slab of stone.
+~
+E
+open~
+Straining, you move the stone slab and reveal a large opening above.
+~
+E
+ropen~
+$n strains and moves the stone slab, revealing a large opening above it.
+~
+!
+0 0 0
+-1
+S
+
+#73607
+A Massive Stone Stairway~
+Under Construction.
+~
+~
+335020036 11 9 0
+-1
+S
+
+#73608
+At the Base of a Massive Stone Stairway~
+A wide, tall stairway built with immense, 2-foot steps leads up and to
+the west.  To the east an equally giant-sized tunnel leads into darkness. 
+The stone walls are roughly-hewn; myriad small niches and holes were
+ignored by its builders in their crudeness.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73609 10 10 5
+D4
+~
+~
+0 -1 73606 10 10 5
+E
+niches holes~
+They nearly line the rough walls of the tunnels.  Nearly anything could
+be hidden within them.
+~
+A
+search~
+niches holes~
+act_tochar( #nothing, ch );
+~
+E
+nothing~
+You search the holes and niches, but don't find anything.
+~
+!
+0 0 0
+1092 9 1509949540 3 0
+-1
+S
+
+#73609
+A Giant Stone Hall~
+This wide, tall, and overall immensely giant hall leads east into
+cavernous darkness and west toward the base of a giant staircase. 
+Several small niches and holes line the walls like grass in a field,
+overlooked by the builders of the passage.  In fact not much attention
+was payed to detail; outside of being roughly square, the passage lacks
+smoothness on any side.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73610 10 10 5
+D3
+~
+~
+0 -1 73608 10 10 5
+E
+niches holes~
+They nearly line the rough walls of the tunnels.  Nearly anything could
+be hidden within them.
+~
+A
+search~
+niches holes~
+act_tochar( #search, ch );
+act_notchar( #rsearch, ch );
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 0, 19 ) == 1 ) {
+    obj_to_char( oload( 1472 ), ch );
+    act_tochar( #parch, ch );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+You search in the niches and holes but don't find anything.
+~
+E
+parch~
+You find a crumpled old parchment inside one of the niches.
+~
+E
+rparch~
+$n finds a crumpled old parchment inside one of the niches.
+~
+E
+search~
+You search the niches for anything out of the ordinary.
+~
+E
+rsearch~
+$n searches the niches for anything out of the ordinary.
+~
+!
+0 0 0
+-1
+S
+
+#73610
+A Giant Stone Hall~
+The giant hallway hewn into stone by rough, crude means heads west and
+north.  In the darkness to the west a stair seems to rise through the
+shadows, but perhaps it is only an odd shadow coming from the irregular
+walls.  To the north the giant hall comes to an end, with a massive door
+leading out of the hall to the northwest.
+~
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73611 10 10 5
+D3
+~
+~
+0 -1 73609 10 10 5
+E
+walls irregular~
+While dents and chips marr the surface of every wall, they are in general
+random and look much like giant slash marks.
+~
+1092 9 1509949540 3 0
+-1
+S
+
+#73611
+A Giant Stone Hall~
+A giant door of dark pine stands to the east.  Unlike the crude, rough
+stonework of the giant hall, the door was put together at least soundly,
+if not only a little crude, as if the builders spent extra time on its
+construction.  The stone hall leads away from the door to the south.
+~
+great door to east
+[Merior] if not only?
+[Merior] ok.. how does cflag get set?
+[Phule] cflag gets set when the player is here, not resting, not fighting, and random trigger goes off
+[Jyhad] tochar and notchar are backwards
+~
+335020036 11 9 0
+D1
+door of dark pine~
+e east door dark pine~
+131 -1 73612 10 10 5
+D2
+~
+~
+0 -1 73610 10 10 5
+E
+corner~
+The dark corner to the northwest seems to have within it a strange small
+glow; it may be nothing.
+~
+E
+door~
+The giant door of dark, almost black, pine wood appears thick and very
+heavy.  Something seems 'not right' about it, however.  Perhaps closer
+examination would be advised.
+~
+A
+~
+~
+ch = rand_player( room );
+if( cflag( 36, ch ) )
+  end;
+if( is_fighting( ch ) )
+  end;
+if( is_resting( ch ) )
+  end;
+act_tochar( #gleam, ch );
+set_cflag( 36, ch );
+~
+E
+gleam~
+A gleam catches your eye from the darkness of a corner.
+~
+!
+2 100 0
+A
+search~
+dark corner~
+if( !cflag( 36, ch ) ) {
+  act_tochar( #notyet, ch );
+  end;
+  }
+if( rflag( reset2, room ) ) {
+  act_tochar( #noth, ch );
+  end;
+  }
+remove_rflag( reset2, room );
+i = random( 0, 25 );
+if( i == 7 ) {
+  obj_to_char( oload( 1475 ), ch );
+  act_tochar( #find, ch );
+  }
+else
+  act_tochar( #noth, ch );
+~
+E
+notyet~
+You search around a bit in the darkness, but since you don't know what
+you are looking for you don't find anything.
+~
+E
+noth~
+You search around, but don't find anything.
+~
+E
+find~
+You find a beat up old lantern.
+~
+!
+0 0 0
+A
+search~
+door~
+act_tochar( #nothing, ch );
+~
+E
+nothing~
+You don't find anything by searching the door's surface.
+~
+!
+0 0 0
+A
+examine inspect~
+door~
+if( find_skill( ch, inspect ) > 5 ) 
+  act_tochar( #trap, ch );
+else
+  act_tochar( #nothing, ch );
+~
+E
+trap~
+You examine the door and find that it is trapped; opening it will sound
+an alarm.
+~
+E
+nothing~
+You don't find anything out of the ordinary; but that may be because you
+don't know enough about traps to know one when you see one.
+~
+!
+0 0 0
+A
+untrap~
+door~
+if( !is_player( ch )  )
+  end;
+if( !rflag( reset1, room ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, untrap ) > 0 ) {
+  act_tochar( #success, ch );
+  act_notchar( #rsuccess, ch );
+  remove_rflag( reset1, room );
+  }
+else {
+  if( random( 0, 9 ) == 7 ) {
+    act_tochar( #anyway, ch );
+    act_notchar( #rsuccess, ch );
+    remove_rflag( reset1, room );
+    }
+  else {
+    act_tochar( #bumble, ch );
+    act_notchar( #bumble, ch );
+    if( random( 0, 3 ) != 3 ) {
+      act_tochar( #off, ch );
+      act_notchar( #roff, ch );
+      acode( room, 7 );
+      remove_rflag( reset1, room );
+      }
+    else {
+      act_tochar( #back, ch );
+      act_notchar( #rback, ch );
+      }
+    }
+  }
+~
+E
+try~
+You try to untrap the door.
+~
+E
+rtry~
+$n tries to untrap the door.
+~
+E
+success~
+You successfully disarm the rather crude trap.
+~
+E
+rsuccess~
+$n successfully disarms the trap.
+~
+E
+already~
+As you more closely inspect the trap you notice it has already been
+disarmed or set off.
+~
+E
+anyway~
+Despite no knowledge of traps, you somehow manage to disarm the trap on
+the door.
+~
+E
+bumble~
+You fumble with the trap.
+~
+E
+rbumble~
+$n fumbles with the trap on the door.
+~
+E
+off~
+You clumsily set off the trap!!
+~
+E
+roff~
+$n clumsily sets off the trap!!
+~
+E
+rback~
+$n backs away from the trap, it having dumbfounded him.
+~
+E
+back~
+You back away from the trap.
+~
+!
+0 0 0
+A
+~
+~
+if( rflag( reset1, room ) ) {
+  act_tochar( #trap, ch );
+  act_notchar( #rtrap, ch );
+  remove_rflag( reset1, room );
+  acode( room, 7 );
+  continue;
+  }
+else
+  continue;
+~
+E
+trap~
+You open the door, setting off a loud alarm!!
+~
+E
+rtrap~
+$n opens the door to the east, setting off a loud alarm!!
+~
+!
+8 0 2
+A
+**TRAP_CODE**~
+~
+interpret( mob_in_room( 1092, find_room( 73617 ) ), "stand" );
+interpret( mob_in_room( 1092, find_room( 73618 ) ), "stand" );
+interpret( mob_in_room( 1092, find_room( 73616 ) ), "stand" );
+interpret( mob_in_room( 1092, find_room( 73620 ) ), "stand" );
+interpret( mob_in_room( 1093, find_room( 73621 ) ), "stand" );
+~
+!
+0 0 0
+-1
+S
+
+#73612
+West of a Massive Stone Table~
+You stand between a massive door of dark pine to the west and an
+enormous table of stone to the east.  You can go north or south around
+the table between it and the irregular walls of the chamber.  You cannot
+see what is on the table as it stands at least eight feet tall.  The
+table's height makes the climb up to it a difficult one, but you can also
+probably fit beneath it.
+~
+climb onto table to east
+or go east beneath the table
+[Kastle] grim im using a walnut quaterstaff +1 normally
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73614 10 10 5
+D1
+~
+~
+0 -1 73615 10 10 5
+D2
+~
+~
+0 -1 73613 10 10 5
+D3
+massive door of dark pine~
+massive door dark pine w west~
+131 -1 73611 10 10 5
+A
+climb~
+table up~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #rfly, ch );
+  transfer( ch, find_room( 73654 ) );
+  act_notchar( #rrfly, ch );
+  end;
+  }
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+  act_tochar( #yes, ch );
+  act_notchar( #ryes, ch );
+  transfer( ch, find_room( 73654 ) );
+  act_notchar( #rryes, ch );
+  end;
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #rfail, ch );
+  end;
+  }
+~
+E
+try~
+You jump and grab a corner of the table, trying to climb up.
+~
+E
+rtry~
+$n jumps and grabs a corner of the table, trying to climb up.
+~
+E
+fly~
+You fly up and land at the end of the table.
+~
+E
+rfly~
+$n flies up and lands at the end of the table.
+~
+E
+rrfly~
+$n flies up from the ground to the west.
+~
+E
+yes~
+You pull yourself up onto the edge of the table.
+~
+E
+ryes~
+$n pulls $mself up onto the edge of the table.
+~
+E
+rryes~
+$n climbs up from the ground to the west.
+~
+E
+fail~
+Your fingers slip and you drop back down to the floor.
+~
+E
+rfail~
+$n's fingers slip and $e falls back down to the floor.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #beneath, ch );
+act_notchar( #rbean, ch );
+continue;
+~
+E
+beneath~
+You crouch down just a bit and duck beneath the table.
+~
+E
+rbean~
+$n crouches down just a bit and ducks beneath the table.
+~
+!
+3 0 2
+-1
+S
+
+#73613
+Southwest of a Massive Stone Table~
+The southwest corner of this enormous dining hall is very dark, bound in
+shadows cast from the hulking stone table.  Even the tree-sized torches
+that burn in metal sconces high on the wall do not light this secluded
+nook.  A wide path around the stone table turns north and east, heading
+deep into this large cavern.
+~
+[Kastle] aza goden was the power leveling monk last night
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73612 10 10 5
+D1
+~
+~
+0 -1 73616 10 10 5
+E
+torch torches sconces~
+It is hard to make out details from this far down, but the torches high
+on the walls seem to be nothing more than flaming treetops.  The
+blackened sconces are wrought of metal, age-eaten and crumbling with rust.
+~
+-1
+S
+
+#73614
+Northwest of a Massive Stone Table~
+This simply titanic room is dominated by a warship-sized table to the
+southeast.  Not much out of the ordinary lurks in this corner of the
+room, other than a large, crude painting on the wall.  To the south, you
+see a massive door hanging on the west wall.  To the east a row of
+benches and chairs line the table.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73617 10 10 5
+D2
+~
+~
+0 -1 73612 10 10 5
+-1
+S
+
+#73615
+Beneath a Giant Stone Table~
+Weaving your way through enormous stone chair legs, you stand in a
+forest of stone beneath the canopy of the massive table above you.  The
+floor is grimy and slick with blood.  It is very dark, the light
+seemingly swallowed by the dull, red-black floor.  You can escape the
+confines of the table to the west, or continue beneath it to the east.
+~
+~
+335020036 11 6 0
+D1
+~
+~
+0 -1 73619 10 10 5
+D3
+~
+~
+0 -1 73612 10 10 5
+E
+chairs~
+Standing like trees, the legs of massive stone chairs surround you.
+~
+E
+tables~
+High above, the underside of a titanic stone table hangs like a moonless
+sky--dark, forboding, utterly without light.
+~
+185 9 1509949540 3 0
+-1
+S
+
+#73616
+South of a Massive Stone Table~
+To the north, the legs of the stone chairs and table might as well be a
+forest.  They are as thick as treetrunks and almost as tall.  Beneath the
+table is a darknened haze, lurking in the enveloping shadow cast by the
+massive stone table.  To the south is the southernmost wall of this
+dining hall; its stone is cold and lifeless.  The wall is covered almost
+entirely by various shields, some enormous, and some far too small to be
+used by a cyclops.
+~
+sleeping lesser
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73620 10 10 5
+D3
+~
+~
+0 -1 73613 10 10 5
+E
+shield shields~
+The south wall is covered with shields of various designs.  Toward the
+top of the wall are round stone shields, easily 15 feet across.  The
+shields get smaller on down the wall, until about 10 feet above the
+floor, they are shields a smaller humanoid could use.
+~
+A
+climb~
+table up~
+if( can_fly( ch ) ) {
+act_tochar( #fly, ch );
+act_notchar( #rfly, ch );
+transfer( ch, find_room( 73654 ) );
+act_notchar( #rrfly, ch );
+end;
+}
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+act_tochar( #yes, ch );
+act_notchar( #ryes, ch );
+transfer( ch, find_room( 73654 ) );
+act_notchar( #rryes, ch );
+end;
+}
+else {
+act_tochar( #fail, ch );
+act_notchar( #rfail, ch );
+end;
+}
+~
+E
+try~
+You jump and grab a corner of the table, trying to climb up.
+~
+E
+rtry~
+$n jumps and grabs a corner of the table, trying to climb up.
+~
+E
+fly~
+You fly up and land at the end of the table.
+~
+E
+rfly~
+$n flies up and lands at the end of the table.
+~
+E
+rrfly~
+$n flies up from the ground to the south.
+~
+E
+yes~
+You pull yourself up onto the edge of the table.
+~
+E
+ryes~
+$n pulls $mself up onto the edge of the table.
+~
+E
+rryes~
+$n climbs up from the ground to the south.
+~
+E
+fail~
+Your fingers slip and you drop back down to the floor.
+~
+E
+rfail~
+$n's fingers slip and $e falls back down to the floor.
+~
+!
+0 0 0
+A
+get jump take~
+shield shields~
+i == 1d6;
+if( i == 1 ) {
+  send_to_char( #almost, ch );
+  act_notchar( #almostr, ch );
+  end;
+  }
+if( i == 2 ) {
+  send_to_char( #near, ch );
+  act_notchar( #nearr, ch );
+  end;
+  }
+if( i == 3 ) {
+  send_to_char( #kindof, ch );
+  act_notchar( #kindr, ch );
+  end;
+  }
+else {
+  send_to_char( #nope, ch );
+  act_notchar( #noper, ch );
+  }
+~
+E
+almost~
+You give a mighty leap, and you hand just grazes the bottom of a large,
+steel shield.
+~
+E
+almostr~
+$n gives a mighty leap, $s hand just grazing the bottom of a large, steel shield.
+~
+E
+near~
+You jump for the shields, your hand coming within a foot of touching one
+of them.
+~
+E
+nearr~
+$n jumps for the shields, $s hand coming within a foot of touching one of
+them.
+~
+E
+kindof~
+You jump, coming close to the shields, but not near enough to take hold.
+~
+E
+kindr~
+$n jumps, coming close to the shields, but not near enough to take hold.
+~
+E
+nope~
+You jump for the shields, but don't even come close.
+~
+E
+noper~
+$n jumps for the shields, but doesn't even come close.
+~
+!
+0 0 0
+1092 137 1509949540 2 0
+-1
+S
+
+#73617
+North of a Massive Stone Table~
+To the south is a mountainous stone table abutted by chairs as large as
+small buildings.  The table moves east and west through this cavernous
+dining hall.  To the north is a stone wall, soaring upward to dizzying
+heights.  The wall is hung with enormous, crude pictures, framed with
+slats of wood that look as though they were simply ripped away from the
+tree, rather than cut.
+~
+sleeping lesser
+lesser in room 73617, 73618
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73618 10 10 5
+D3
+~
+~
+0 -1 73614 10 10 5
+E
+pictures picture~
+These seem to be family portraits, as all the cyclops look similar.  They
+have each other's eye.
+~
+A
+climb~
+table up~
+if( can_fly( ch ) ) {
+act_tochar( #fly, ch );
+act_notchar( #rfly, ch );
+transfer( ch, find_room( 73654 ) );
+act_notchar( #rrfly, ch );
+end;
+}
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+act_tochar( #yes, ch );
+act_notchar( #ryes, ch );
+transfer( ch, find_room( 73654 ) );
+act_notchar( #rryes, ch );
+end;
+}
+else {
+act_tochar( #fail, ch );
+act_notchar( #rfail, ch );
+end;
+}
+~
+E
+try~
+You jump and grab a corner of the table, trying to climb up.
+~
+E
+rtry~
+$n jumps and grabs a corner of the table, trying to climb up.
+~
+E
+fly~
+You fly up and land at the end of the table.
+~
+E
+rfly~
+$n flies up and lands at the end of the table.
+~
+E
+rrfly~
+$n flies up from the ground to the north.
+~
+E
+yes~
+You pull yourself up onto the edge of the table.
+~
+E
+ryes~
+$n pulls $mself up onto the edge of the table.
+~
+E
+rryes~
+$n climbs up from the ground to the north.
+~
+E
+fail~
+Your fingers slip and you drop back down to the floor.
+~
+E
+rfail~
+$n's fingers slip and $e falls back down to the floor.
+~
+!
+0 0 0
+A
+~
+~
+~
+!
+0 0 0
+1092 137 1509949540 2 0
+-1
+S
+
+#73618
+North of a Massive Stone Table~
+A stupefying stone table looms to the south, casting a shadow over this,
+the north wall of the dining hall.  Large benches have been hewn roughly
+from the stone, heading east and west with the wall.  Fitted high on the
+wall is an enormous woodcut.
+~
+benches perhaps?
+sleeping lesser
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73623 10 10 5
+D3
+~
+~
+0 -1 73617 10 10 5
+E
+woodcut~
+More than twenty feet high and thirty feet long, this woodcut looks as if
+it might have been carved by a jittery lumberjack with a dull axe.  It is
+hard to tell what the artist is trying to represent.  It might be a
+battle scene, it might be a family gathering, it might be a self portrait.
+~
+E
+benches~
+These benches are about fifteen feet long, and have been hewn from the
+very stone of the north wall.  Their construction is crude, as they as
+rippled and bumpy as the sea on a stormy day.
+~
+A
+climb~
+table up~
+if( can_fly( ch ) ) {
+act_tochar( #fly, ch );
+act_notchar( #rfly, ch );
+transfer( ch, find_room( 73655 ) );
+act_notchar( #rrfly, ch );
+end;
+}
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+act_tochar( #yes, ch );
+act_notchar( #ryes, ch );
+transfer( ch, find_room( 73655 ) );
+act_notchar( #rryes, ch );
+end;
+}
+else {
+act_tochar( #fail, ch );
+act_notchar( #rfail, ch );
+end;
+}
+~
+E
+try~
+You jump and grab a corner of the table, trying to climb up.
+~
+E
+rtry~
+$n jumps and grabs a corner of the table, trying to climb up.
+~
+E
+fly~
+You fly up and land at the end of the table.
+~
+E
+rfly~
+$n flies up and lands at the end of the table.
+~
+E
+rrfly~
+$n flies up from the ground to the north.
+~
+E
+yes~
+You pull yourself up onto the edge of the table.
+~
+E
+ryes~
+$n pulls $mself up onto the edge of the table.
+~
+E
+rryes~
+$n climbs up from the ground to the north.
+~
+E
+fail~
+Your fingers slip and you drop back down to the floor.
+~
+E
+rfail~
+$n's fingers slip and $e falls back down to the floor.
+~
+!
+0 0 0
+1092 137 1509949540 2 0
+-1
+S
+
+#73619
+Beneath a Giant Stone Table~
+You are under the east end of an enormous stone table.  At the table's
+head to the east stands an ornate chair, much larger than the others. 
+The pile of bones and garbage beneath this chair is very large, almost
+reaching the bottom of the chair.  You see humanoid skulls scattered in
+amongst the animal bones.  Something seems to sparkle in one of the human
+skulls.  You can escape the confines of the table to the east, or
+continue beneath it to the west.
+~
+[Merior] gems seem a strange thing to get by searching
+[Phule] cyclops are wasteful, is not easy to get here...
+~
+335020036 11 6 0
+D1
+~
+~
+0 -1 73621 10 10 5
+D3
+~
+~
+0 -1 73615 10 10 5
+E
+chair bones pile~
+An enormous pile of bones, trash, and garbage has accumulated alongside
+the massive chair at the head of the table.  Bits of meat still cling to
+the broken bones, and the whole pile gives a fetid stench that thickens
+the air.
+~
+A
+search~
+skull pile bones~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 0, 7 ) < 2 ) {
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    i = random( 0, 9 );
+    if( i < 5 ) {
+      obj_to_char( oload( 1066 ), ch );
+      end;
+      }
+    if( i < 9 ) {
+      obj_to_char( oload( 1067 ), ch );
+      end;
+      }
+    if( i == 9 ) {
+      obj_to_char( oload( 1069 ), ch );
+      end;
+      }
+    }
+  else {
+    act_tochar( #noth, ch );
+    act_notchar( #rnoth, ch );
+    }
+  }
+else {
+  act_tochar( #noth, ch );
+  act_notchar( #rnoth, ch );
+  }
+~
+E
+find~
+You find a translucent crimson gem in the eyesocket of the skull.
+~
+E
+rfind~
+$n finds a translucent crimson gem in the eyesocket of the skull.
+~
+E
+rnoth~
+$n searches the pile of bones but doesn't find anything.
+~
+E
+noth~
+You search the pile of bones but don't find anything.
+~
+!
+0 0 0
+185 9 1509949540 3 0
+-1
+S
+
+#73620
+South of a Massive Stone Table~
+To the north is a massive stone table, so tall what is on cannot be seen. 
+The mighty chairs that surround the table have been pulled away a little
+here, making a near perfect ladder to the table's surface.  A broad path
+moves around the table, heading east a west.  To the east is the
+southeast corner of this large dining hall, while to the west is a wall
+covered with many shields.
+~
+sleeping lesser
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73622 10 10 5
+D3
+~
+~
+0 -1 73616 10 10 5
+A
+climb~
+table up~
+if( can_fly( ch ) ) {
+act_tochar( #fly, ch );
+act_notchar( #rfly, ch );
+transfer( ch, find_room( 73655 ) );
+act_notchar( #rrfly, ch );
+end;
+}
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+act_tochar( #yes, ch );
+act_notchar( #ryes, ch );
+transfer( ch, find_room( 73655 ) );
+act_notchar( #rryes, ch );
+end;
+}
+else {
+act_tochar( #fail, ch );
+act_notchar( #rfail, ch );
+end;
+}
+~
+E
+try~
+You jump and grab a corner of the table, trying to climb up.
+~
+E
+rtry~
+$n jumps and grabs a corner of the table, trying to climb up.
+~
+E
+fly~
+You fly up and land at the end of the table.
+~
+E
+rfly~
+$n flies up and lands at the end of the table.
+~
+E
+rrfly~
+$n flies up from the ground to the south.
+~
+E
+yes~
+You pull yourself up onto the edge of the table.
+~
+E
+ryes~
+$n pulls $mself up onto the edge of the table.
+~
+E
+rryes~
+$n climbs up from the ground to the south.
+~
+E
+fail~
+Your fingers slip and you drop back down to the floor.
+~
+E
+rfail~
+$n's fingers slip and $e falls back down to the floor.
+~
+!
+0 0 0
+1092 137 1509949540 2 0
+-1
+S
+
+#73621
+East of a Massive Stone Table~
+This is the easthern end of the dining hall.  To the west is a huge stone
+table, overshadowing the entire room.  A broad path around the table
+moves south and north.  A chair has been pushed aside, opening up a path
+to the west that goes under the table itself.  To the east is a broad
+stone arch, which leads to what looks to be the kitchen.
+~
+table to west
+massive arch to east - kitchen
+sleeping greater
+[Merior] again..  typo map and see if you can figure out what the overlap
+is..  i REALLY hate overlap ;) 
+[Kaliban] nyn oops
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73623 10 10 5
+D1
+~
+~
+0 -1 73624 10 10 5
+D2
+~
+~
+0 -1 73622 10 10 5
+D3
+~
+~
+0 -1 73619 10 10 5
+E
+chair~
+The chair is 10 feet high.  It's made of stone and wood hurled together
+in crude carpentry.
+~
+E
+table~
+The table stretches across the large room at about 8 feet high, and
+thrice that in width.
+~
+A
+~
+~
+act_tochar( #duck, ch );
+act_notchar( #rduck, ch );
+continue;
+~
+E
+duck~
+You crouch slightly and duck beneath the massive stone table.
+~
+E
+rduck~
+$n crouches slightly and ducks beneath the massive stone table.
+~
+!
+3 0 8
+A
+climb~
+table up~
+if( can_fly( ch ) ) {
+act_tochar( #fly, ch );
+act_notchar( #rfly, ch );
+transfer( ch, find_room( 73655 ) );
+act_notchar( #rrfly, ch );
+end;
+}
+act_tochar( #try, ch );
+act_notchar( #rtry, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+act_tochar( #yes, ch );
+act_notchar( #ryes, ch );
+transfer( ch, find_room( 73655 ) );
+act_notchar( #rryes, ch );
+end;
+}
+else {
+act_tochar( #fail, ch );
+act_notchar( #rfail, ch );
+end;
+}
+~
+E
+try~
+You jump and grab a corner of the table, trying to climb up.
+~
+E
+rtry~
+$n jumps and grabs a corner of the table, trying to climb up.
+~
+E
+fly~
+You fly up and land at the end of the table.
+~
+E
+rfly~
+$n flies up and lands at the end of the table.
+~
+E
+rrfly~
+$n flies up from the ground to the east.
+~
+E
+yes~
+You pull yourself up onto the edge of the table.
+~
+E
+ryes~
+$n pulls $mself up onto the edge of the table.
+~
+E
+rryes~
+$n climbs up from the ground to the east.
+~
+E
+fail~
+Your fingers slip and you drop back down to the floor.
+~
+E
+rfail~
+$n's fingers slip and $e falls back down to the floor.
+~
+!
+0 0 0
+1093 137 1509949540 2 0
+-1
+S
+
+#73622
+Southeast of a Massive Stone Table~
+This is the southeast corner of a massive stone table, which runs
+east-to-west through this titanous cavern.  Lined up against the walls
+here a several small stone chairs, which face the center of the room.  A
+broad path around the table branches north and west.
+~
+~
+335020044 11 9 0
+D0
+~
+~
+0 -1 73621 10 10 5
+D3
+~
+~
+0 -1 73620 10 10 5
+E
+chairs small chair~
+Compared to the larger chairs in the dining hall, these chairs are a
+miniscule twelve feet high.  They are hewn from stone, their surfaces
+ridged and pockmarked.
+~
+-1
+S
+
+#73623
+Northeast of a Massive Stone Table~
+The cyclops have spent quite some time working on this corner of their
+dining hall.  The walls are ground smoothly, unlike the rough work of
+their outer hall.  To the north the stone gives way to a door of massive
+silver, its make obviously not cyclops.  The silverwork and intricate
+design of the door was obviously work they could not accomplish.  To the
+southwest is a massive stone table.
+~
+silver door to n
+[Phule] ill do this rdesc :)
+[Phule] unless you want to; is silver door
+[Canna] bandoleer is supposed to be bandolier
+~
+335020036 11 9 0
+D0
+massive silver door~
+n north massive silver door~
+131 -1 73625 10 10 5
+D2
+~
+~
+0 -1 73621 10 10 5
+D3
+~
+~
+0 -1 73618 10 10 5
+E
+massive silver door~
+Upon this door is depicted in silver engravings a mighty battle between
+regal cyclops and sinister, flying pixies.
+~
+-1
+S
+
+#73624
+A Gruesome Kitchen~
+Blood-covered cutting implements lie strewn about, dripping gore onto the
+stone tables.  High above your head, row upon row of gutted elves,
+humans, and other unrecognizable creatures swing on giant meathooks. 
+Tattered flesh clings to the walls and lies rotting in pools of blood. 
+Huge drawers lie just out of your reach, as does the top of a massive
+preparation table.  On the far wall hangs a banner-sized sign, covered
+with words and diagrams.
+~
+secret pantry door n
+~
+335020044 11 9 0
+D0
+secret kitchen-pantry door~
+secret pantry door~
+203 -1 73627 10 10 5
+D3
+~
+~
+0 -1 73621 10 10 5
+E
+banner-sized sign words diagrams~
+The sign seems to be a sort of a cookbook.
+Only two recipes are shown:
+
+Tender Dwarf Stew
+Ingredients - 40 heads of lettuce, 1 small tree, 25 gallons tomato juice,
+20 heads of cabbage, 70 carrots, 200 ears of corn, 130 potatoes, 1 dwarf. 
+Instuctions - Tenderize dwarf until it stops screaming, then add all
+ingredients into large stone pot and let simmer for three hours.  Serve
+steaming hot with soup crackers.
+ 
+Chocolate Moose
+Ingredients: 1 ton of chocolate, 40 eggs, 60 gallons of milk, 1 moose. 
+Instructions: Melt chocolate, then add eggs and milk.  Stir into creamy
+lather.  Let sit for two hours, then stir in moose (use heavy knife for
+chopping moose into small pieces as added).  Let chill for three hours,
+then serve with a decorative bed of almond bark, broken antlers, and
+lemon slices.
+~
+E
+hooks~
+All but one are occupied.
+~
+E
+tables~
+The huge tables drip gore and sinew from their stone edges.  The
+tabletops soar above you, dropping a rain of blood in your path.
+~
+E
+implements knives~
+Cleavers, knives, and massive hammers dangle from racks high on the walls. 
+The cutting implements are all as large as dwarves and look very heavy.
+~
+A
+pull~
+hook~
+if( is_open( room, north ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+else {
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+send_to_room( #opens, room );
+send_to_room( #ropes, find_room( 73627 ) );
+open( room, north );
+}
+~
+E
+already~
+The meathook has already been pulled down as far is it can be pulled.
+~
+E
+pull~
+You pull down on the meat hook.
+~
+E
+rpull~
+$n pulls down on the meat hook.
+~
+E
+opens~
+You hear a soft click as a secret panel to the north opens.
+~
+E
+ropes~
+The secret pantry door to the south swings open.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, north ) ) {
+  if( char_in_room( ch, room ) ) {
+    act_tochar( #close, ch );
+    act_notchar( #rclose, ch );
+    }
+  else
+    send_to_room( #closed, room );
+  close( room, north );
+  send_to_room( #closes, find_room( 73627 ) );
+  }
+~
+E
+closes~
+The secret door to the south swings shut.
+~
+E
+rclose~
+As $n enters the room, the secret door to the north closes.
+~
+E
+close~
+As you enter the room, te secret door to the north swings shut.
+~
+E
+closed~
+A secret door to the north swings shut.
+~
+!
+1 0 1
+1242 9 1509949540 3 0
+1607 17 1509949540 -2 0
+1607 17 1509949540 -2 0
+-1
+S
+
+#73625
+A Giant Stone Hall~
+You stand at the south end of a wide, yet short, hallway hewn through the
+stone.  To the south is a mighty silver door of great craftsmanship and
+is obviously not of cyclops make.  On the wall to the east, a large skull
+is mounted.  The hall continues to the north.
+~
+secret closet e
+pull jaw (e)
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73628 10 10 5
+D1
+secret hallway-closet door~
+~
+203 -1 73626 10 10 5
+D2
+massive silver door~
+s south massive silver door~
+131 -1 73623 10 10 5
+E
+skull jaw~
+Old and cracked, this large skull is a poorly-concealed lever, which
+may have something to do with the even more poorly concealed secret door
+to the east.
+~
+E
+door~
+Upon this door is depicted in silver engravings a mighty battle between
+regal cyclops and sinister, flying pixies.
+~
+A
+pull~
+jaw~
+if( is_open( room, east ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, east );
+  send_to_room( #opens, find_room( 73626 ) );
+  }
+~
+E
+already~
+The jaw has already been pulled, the secret door east opened.
+~
+E
+opens~
+A secret panel to the west swings open mysteriously.
+~
+E
+rpull~
+$n pull down on the jaw of the skull and a secret door to the east swings
+open.
+~
+E
+pull~
+You pull down on the jaw of the skull and a secret door to the east
+swings open.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, east ) ) {
+  if( char_in_room( ch, room ) ) {
+    act_tochar( #plate, ch );
+    act_notchar( #rplate, ch );
+    }
+  else
+    send_to_room( #closed, room );
+  close( room, east );
+  send_to_room( #closes, find_room( 73626 ) );
+  }
+~
+E
+closes~
+The secret door to the west swings shut.
+~
+E
+rplate~
+$n steps on a crude pressure plate, and the secret door to the east
+swings shut.
+~
+E
+plate~
+You step on a crude pressure plate and the door to the east swings shut.
+~
+E
+closed~
+A secret door to the east swings shut.
+~
+!
+1 0 2
+-1
+S
+
+#73626
+Secret Closet~
+While large enough by far for you to stand comfortably tall in, this
+small stone closet must be a tight fit for a full-grown cyclops.  On the
+west wall a gruesome skull is hung, while a candlestick is mounted on the
+south wall.
+~
+secret closet
+pull candlestick (s)
+pull jaw (w)
+[Merior] skull extra is off here too
+~
+335020036 11 9 0
+D2
+secret closet-pantry door~
+secret closet-pantry door~
+203 -1 73627 10 10 5
+D3
+secret hallway-closet door~
+secret hallway-closet door~
+203 -1 73625 10 10 5
+E
+candlestick~
+Large and crude, it is a poorly hidden lever which may have something to
+do with the even more poorly concealed secret door to the south.
+~
+E
+skull jaw~
+Old and cracked, this large skull is a poorly-concealed lever, which
+may have something to do with the even more poorly concealed secret door
+to the west.
+~
+A
+~
+~
+wait( 1 );
+if( is_open( room, south ) ) {
+if( char_in_room( ch, room ) ) {
+  act_tochar( #plate, ch );
+  act_notchar( #rplate, ch );
+}
+else
+send_to_room( #closed, room );
+  close( room, south );
+  send_to_room( #closes, find_room( 73627 ) );
+  }
+~
+E
+closes~
+The door to the north swings shut.
+~
+E
+rplate~
+$n steps on a crude pressure plate and the door to the south swings shut.
+~
+E
+plate~
+You step on a crude pressure plate and the door to the south swings shut.
+~
+E
+closed~
+A secret door to the south swings shut.
+~
+!
+1 0 4
+A
+~
+~
+wait( 1 );
+if( is_open( room, west ) ) {
+if( char_in_room( ch, room ) ) {
+  act_tochar( #plate, ch );
+  act_notchar( #rplate, ch );
+}
+else
+send_to_room( #closed, room );
+  close( room, west );
+  send_to_room( #closes, find_room( 73625 ) );
+  }
+~
+E
+plate~
+You step on a crude pressure plate and the door to the west closes.
+~
+E
+rplate~
+$n steps on a crude pressure plate and the door to the west closes.
+~
+E
+closes~
+The door to the east swings shut.
+~
+E
+closed~
+A secret door to the west swings shut.
+~
+!
+1 0 8
+A
+pull~
+candlestick~
+if( is_open( room, south ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, south );
+  send_to_room( #opens, find_room( 73627 ) );
+  }
+~
+E
+already~
+The candlestick has already been pulled, the secret door to the south
+open.
+~
+E
+pull~
+You pull on the candlestick, and a secret door to the south swings open.
+~
+E
+rpull~
+$n pulls on the candlestick, and a secret door to the south swings open.
+~
+E
+opens~
+The door to the north swings open.
+~
+!
+0 0 0
+A
+pull~
+jaw~
+if( is_open( room, west ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, west );
+  send_to_room( #opens, find_room( 73625 ) );
+  }
+~
+E
+already~
+The jaw has already been pulled down, the secret door to the west open.
+~
+E
+pull~
+You pull down on the jaw of the skull, opening a secret door to the west.
+~
+E
+rpull~
+$n pulls down on the jaw of the skull, opening a secret door to the west.
+~
+E
+opens~
+The door to the east swings open.
+~
+!
+0 0 0
+A
+garbgarb~
+~
+send_to_room( "A cyclops wakes you.", room );
+~
+!
+0 0 0
+-1
+S
+
+#73627
+Pantry~
+This dark, dusty room is enclosed in stone.  It is obviously a pantry of
+some sort, but appears very empty, save a large shelf on the east wall,
+and a candlestick on the north wall.  All in all it is a quiet, lonely
+part of this underground hall.  Perhaps it is a safe place to rest.
+~
+pantry - secret closet n
+pull candlestick
+~
+335020044 11 9 0
+D0
+secret closet-pantry door~
+secret closet-pantry door~
+203 -1 73626 10 10 5
+D2
+secret kitchen-pantry door~
+secret kitchen-pantry door~
+203 -1 73624 10 10 5
+E
+candlestick~
+Large and crude, it is a poorly hidden lever which may have something to
+do with the even more poorly concealed secret door to the north.
+~
+E
+n north s south~
+You see a very poorly concealed secret door.
+~
+A
+push~
+wall s south~
+if( is_open( room, south ) ) {
+  act_tochar( #is_open, ch );
+  end;
+  }
+else {
+  act_tochar( #push, ch );
+  act_notchar( #rpush, ch );
+  open( room, south );
+  send_to_room( #pushes, find_room( 73624 ) );
+  }
+~
+E
+is_open~
+The secret door into the kitchen is already open.
+~
+E
+pushes~
+Someone pushes open a secret door from behind the wall to the north.
+~
+E
+rpush~
+$n pushes open a secret door to the south.
+~
+E
+push~
+You push open a secret door to the south.
+~
+!
+0 0 0
+A
+pull~
+candlestick~
+if( is_open( room, north ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, north );
+  send_to_room( #opens, find_room( 73626 ) );
+  }
+~
+E
+already~
+Someone has already pulled the candlestick, opening a secret door to the
+north.
+~
+E
+pull~
+You pull down on the candlestick, and a secret door to the north opens.
+~
+E
+rpull~
+$n pulls down on the candlestick, and a secret door to the north opens.
+~
+E
+opens~
+The secret door to the south opens.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, north ) ) {
+if( char_in_room( ch, room ) ) {
+  act_tochar( #crude, ch );
+  act_notchar( #rcrude, ch );
+}
+else
+send_to_room( #closed, room );
+  close( room, north );
+  send_to_room( #closes, find_room( 73626 ) );
+  }
+~
+E
+rcrude~
+$n steps on a crude pressure plate and the secret door to the north
+swings shut.
+~
+E
+crude~
+You step on a crude pressure plate and the secret door to the north
+swings shut.
+~
+E
+closes~
+The secret door to the south swings shut.
+~
+E
+closed~
+A secret door to the north swings shut.
+~
+!
+1 0 1
+A
+~
+~
+wait( 1 );
+if( is_open( room, south ) ) {
+  if( char_in_room( ch, room ) ) {
+    act_tochar( #crude, ch );
+    act_notchar( #rcrude, ch );
+    }
+  else
+    send_to_room( #closed, room );
+  close( room, south );
+  send_to_room( #closes, find_room( 73624 ) );
+  }
+~
+E
+crude~
+You step on a crude pressure plate and the door to the south swings shut.
+~
+E
+rcrude~
+$n steps on a crude pressure plate and the door to the south swings shut.
+~
+E
+closes~
+A secret door to the north swings shut.
+~
+E
+closed~
+A secret door to the south swings shut.
+~
+!
+1 0 4
+-1
+S
+
+#73628
+A Giant Stone Hall~
+You are at the north end of a wide, yet not long hall hewn out of the
+stone.  At the south end of the hall you see a large silver door, but
+that is still about 30 feet away from this end of the hall.  An archway
+leads west toward a torchlit hall, while a set of rusty iron shackles
+hang from the north wall.
+~
+torchlit walk west 
+[Merior] cant we play with the shackles? please?
+[Phule] no toys for you
+[Dovea] My toy needs new batteries.
+~
+335020037 11 9 0
+D2
+~
+~
+0 -1 73625 10 10 5
+D3
+~
+~
+0 -1 73629 10 10 5
+E
+shackles~
+The shackles are rusty and empty, but they do seem to have seen recent
+use.  Perhaps the cyclops chain prisoners here for public display and
+provide an opportunity for passers-by to torture them.
+~
+1093 9 1509949540 3 0
+-1
+S
+
+#73629
+A Torchlit Walk~
+Wide and tall, this hall is spacious and looms overheard, making you seem
+like a mouse wandering amidst the halls of men.  Large torches are hung
+out of reach along the walls, lighting the hall with their dim,
+flickering glow.  The torchlit walk continues east and west.
+~
+[Merior] torch-lit maybe?
+~
+335020037 11 9 0
+D1
+~
+~
+0 -1 73628 10 10 5
+D3
+~
+~
+0 -1 73630 10 10 5
+-1
+S
+
+#73630
+A Torchlit Walk~
+This wide, tall walk lit by dim torches leads east and west.  A dark,
+sinister passage branches off to the south.  Nothing adorns these walls
+save the high-set torches, as if even the cyclops avoid this intersection. 
+The air is still even for this far underground.  From the south you hear
+a hideous grinding; but what exactly it is you cannot make out.
+~
+[Merior] grinding always happens?
+[Phule] yes the walls themselves are grinding in agony
+~
+335020037 11 9 0
+D1
+~
+~
+0 -1 73629 10 10 5
+D2
+~
+~
+0 -1 73631 10 10 5
+D3
+~
+~
+0 -1 73632 10 10 5
+1093 9 1509949540 3 0
+-1
+S
+
+#73631
+A Sinister Side-Passage~
+The walls of this sinister passage are woven black and blue, pure evil
+emanates from the very stone, so twisted and malignant has it become. 
+Something powerful must have perverted it with evil magicks for it to
+become so.  The rock itself seems to scream hideous curses at you.  The
+sinister passageway continues to the east, while a larger, more wholesome
+hall intersects this one to the north.
+~
+~
+335020044 11 9 0
+D0
+~
+~
+0 -1 73630 10 10 5
+D1
+~
+~
+0 -1 73633 10 10 5
+A
+listen~
+scream curse~
+act_tochar( #listen, ch );
+~
+E
+listen~
+The grating of stone on stone fills your ears, but perhaps the noises are
+not curses after all: maybe they are warning of a terrible fate which
+awaits beyond.
+~
+!
+0 0 0
+-1
+S
+
+#73632
+A Torchlit Walk~
+Broad and tall enough for a score of men to pass through easily, this
+walk continues east and west.  Torches cast their dim, flickering yellow
+glow across the hall.  The walls of the hall are rough, showing the marks
+where the hall was hewn out of the solid stone.
+~
+~
+335020037 11 9 0
+D1
+~
+~
+0 -1 73630 10 10 5
+D3
+~
+~
+0 -1 73634 10 10 5
+1093 9 1509949540 3 0
+-1
+S
+
+#73633
+Before a Chasm of Evil~
+A chasm of immense proportions opens up below you, yawing, yearning, it
+seems, for your soul.  Its dark recesses pulsate with evil and hate and
+wickedness, reaching ever downward into darkness and then into the fires
+of the bowels of the earth.  To the west a sinister passage leads away
+from the chasm.  This is truly one of the points of evil power in the
+cosmos, its permeating presence is palpable.  An altar of black rock
+stands near the edge of the abyss.
+~
+[Merior] do thorns on whip count as bladed?
+[Merior] the shaman program seems a bit rough
+[Merior] i suspect the alignment check isnt gonna work right now...
+[Phule] on thorns - uh, no, is a thorn not a blade :)
+~
+335021061 11 9 0
+D3
+~
+~
+0 -1 73631 10 10 5
+E
+altar~
+Pure evil, the altar pulsates in a dark harmony with the abyss below it.
+~
+A
+xpour~
+fluid liquid holy water~
+if( is_name( "alt", arg ) ) {
+  if( mob_in_room( 1094, room ) ) {
+    act_tochar( #nomob, ch );
+    end;
+    }
+  if( has_obj( 98, ch ) ) {
+    junk_obj( has_obj( 98, ch ), 1 );
+    act_tochar( #spill, ch );
+    act_notchar( #ncspill, ch );
+    wait( 1 );
+    act_tochar( #dis, ch );
+act_notchar( #rdis, ch );
+    transfer( ch, find_room( 73509 ) );
+    act_notchar( #arr, ch );
+    }
+  else
+    act_tochar( #nowater, ch );
+  }
+else
+  continue;
+~
+E
+nomob~
+Certainly the shaman wouldn't let you do that.
+~
+E
+spill~
+You pour some of the holy water onto the altar.
+~
+E
+ncspill~
+$n pours some of $s holy water onto the altar.
+~
+E
+arr~
+$n arrives in a column of crimson flame!
+~
+E
+nowater~
+You don't seem to have any holy water.
+~
+E
+dis~
+After a moment, your field of vision is surrounded by crimson flame and
+your surroundings begin to waiver!
+~
+E
+rdis~
+Suddenly, $e is consumed by crimson flame and disappears!
+~
+!
+0 0 0
+1094 9 1509949540 3 0
+-1
+S
+
+#73634
+A Bend in the Torchlit Walk~
+This dimly lit walk leads south and east.  Giant torches adorn the wide
+hallway on either side, held in place by sconces just out of reach.  The
+high walls are roughly hewn from the surrounding stone, reflecting
+the brute power of this cavern's inhabitants.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73632 10 10 5
+D2
+~
+~
+0 -1 73635 10 10 5
+-1
+S
+
+#73635
+A Bend in the Walkway~
+The walkway leads west and north.  You notice a change in the rock as the
+wall leads west, and from the look of it the high walls begin to give way
+to a natural cavern of an even greater magnitude.  To the north the walls
+are lit by high-set sconces, while to the west there is but darkness.
+~
+[Merior] second sentence is hard to follow... extras might help too
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73634 10 10 5
+D3
+~
+~
+0 -1 73636 10 10 5
+1093 9 1509949540 3 0
+-1
+S
+
+#73636
+An Enormous Natural Cavern~
+This natural cavern stretches in dark emptiness tall and wide.  To the
+east a more unnatural tunnel has been hewn through the rock, while to the
+west the cavern continues.  While not overly damp, from somewhere the
+dripping of water can be heard, and the floor is somewhat slick with
+slime.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73635 10 10 5
+D3
+~
+~
+0 -1 73643 10 10 5
+-1
+S
+
+#73643
+An Enormous Natural Cavern~
+This mostly dry cavern is huge and stretches in all directions.  However a
+small, dark spring burbles in the northwest corner of the cavern.  A few
+short stalagtites hang from the high ceiling, but the floor has been worn
+smooth.  Luckily, none of the water from the small spring has spread to
+the floor to make it slick.  A roughly smashed-out hole in the cavern
+wall to the south leads into another passage.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73636 10 10 5
+D2
+~
+~
+0 -1 73644 10 10 5
+E
+dark spring water~
+The dark water of the spring looks cold, but possibly not to be trusted. 
+It has a decidedly oily aroma.
+~
+E
+hole south s~
+Someone has pounded and crushed their way through the wall, making a
+roughly 20 foot high, 12 feet wide hole leading into the cavern beyond.
+~
+1646 17 1509949540 -2 20
+1093 9 1509949540 3 0
+-1
+S
+
+#73644
+A Tunnel Hewn Through Solid Stone~
+This section of tunnel interconnects two large caverns to the north and
+south.  It is obviously not of natural design, as the jagged, rough edges
+of the tunnel appear to mostly be places where the rock was smashed and
+crushed as the tunnel was made.
+~
+~
+335020044 11 9 0
+D0
+~
+~
+0 -1 73643 10 10 5
+D2
+~
+~
+0 -1 73647 10 10 5
+-1
+S
+
+#73647
+A Large Underground Chamber -- Side Alcove~
+The large chamber you are in is enormous, stretching fifty feet and
+beyond in all directions.  However, looking to the east you see that this
+is but a small side section of an even larger cavern in that direction. 
+A tunnel has been smashed through the rock wall to the north, connecting
+this cavern with another beyond.
+~
+[Merior] type map and see what you can do about room overlaps, please
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73644 10 10 5
+D1
+~
+~
+0 -1 73604 10 10 5
+E
+hole north n~
+Someone has pounded and crushed their way through the wall, making a
+roughly 20 foot high, 12 feet wide hole leading into the cavern beyond.
+~
+-1
+S
+
+#73650
+A Perfectly Square Tunnel~
+This tunnel is completely out of place here amidst the natural lines of
+the caverns to the west.  The walls are smooth and the hall itself is
+square, about 25 feet to a side.  To the east the strange tunnel
+continues.  The wall to the north is especially smooth, almost reflective.
+~
+mirror facing se
+[Merior] does the polishing have some purpose?
+[Phule] polishing definately has large purpose, had hoped you would like it *sigh*
+~
+335020044 11 9 0
+D1
+~
+~
+0 -1 73651 10 10 5
+D3
+~
+~
+0 -1 73605 10 10 5
+A
+l look~
+n north wall~
+if( !rflag( reset0, find_room( 73504 ) ) ) {
+  if( !rflag( reset0, find_room( 73507 ) ) ) {
+    if( !rflag( reset0, find_room( 73508 ) ) ) {
+      act_tochar( #source_y, ch );
+      if( !rflag( reset0, room ) )
+        act_tochar( #onward, ch );
+      else
+        act_tochar( #maybe, ch );
+      }
+    }
+  }
+else
+  act_tochar( #gen, ch );
+~
+E
+source_y~
+A beam of light reflects onto the wall from somewhere through the
+darkness to the southwest.
+~
+E
+gen~
+The wall, once polished, might act like some sort of huge mirror.
+~
+E
+maybe~
+The wall, although smooth and reflective, is not polished enough to
+reflect the light.
+~
+E
+onward~
+The light reflects off the polished rock, heading southeast.
+~
+!
+0 0 0
+A
+polish~
+rock wall~
+if( !rflag( reset0, room ) )
+  act_tochar( #heh, ch );
+else {
+  act_tochar( #pol, ch );
+  act_notchar( #rpol, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+heh~
+The rock is as polished as it can get.
+~
+E
+rpol~
+$n polishes at the rock for a while.
+~
+E
+pol~
+You polish the rock until its surface gleams like a mirror.
+~
+!
+0 0 0
+-1
+S
+
+#73651
+A Perfectly Square Tunnel - Turn~
+While not extremely well done, the stonework of this tunnel is at least
+fair.  The walls are flat and smooth, even where they meet in
+near-perfect right angles.  The most impressive aspect of the display is
+that the entire passage has been cut out of solid rock.  The tunnel leads
+west and south.
+~
+[Merior] penultimate sentence seems odd to me
+~
+335020036 11 9 0
+D2
+~
+~
+0 -1 73652 10 10 5
+D3
+~
+~
+0 -1 73650 10 10 5
+-1
+S
+
+#73652
+A Perfectly Square Tunnel - Before the Throne Room~
+This passage has been carved roughly out of the solid bones of the world,
+no small feat.  However the power of the stoneworkers is minute in
+comparison to the sight to the west.  Two immense columns of black
+obsidian flank an opening to the west, silent guardians of the room
+beyond.  The columns must weigh many tons each, and whether by magic or
+force they came here, it is unlikely anything will ever disturb their
+silent vigilance.
+~
+[Merior] nice first sentence
+[Merior] are columns not also made by the stoneworkers?
+~
+335020036 11 9 0
+D0
+~
+~
+0 -1 73651 10 10 5
+D3
+~
+~
+0 -1 73653 10 10 5
+A
+l look~
+e east wall~
+if( !rflag( reset0, find_room( 73504 ) ) ) {
+  if( !rflag( reset0, find_room( 73507 ) ) ) {
+    if( !rflag( reset0, find_room( 73508 ) ) ) {
+      if( !rflag( reset0, find_room( 73650 ) ) ) {
+        act_tochar( #source_y, ch );
+        if( !rflag( reset0, room ) )
+          act_tochar( #onward, ch );
+        else
+          act_tochar( #maybe, ch );
+        }
+      }
+    }
+  }
+else
+  act_tochar( #gen, ch );
+~
+E
+source_y~
+Light strikes the wall, reflected in from the northwest.
+~
+E
+gen~
+Once polished, the flat surface of rock might serve as a good mirror.
+~
+E
+maybe~
+Perhaps if the wall was polished, the light would reflect further.
+~
+E
+onward~
+The light reflects off the polished surface of the wall, heading west.
+~
+!
+0 0 0
+A
+polish~
+rock wall~
+if( !rflag( reset0, room ) )
+  act_tochar( #no, ch );
+else {
+  act_tochar( #pol, ch );
+  act_notchar( #rpol, ch );
+  remove_rflag( reset0, room );
+  }
+~
+E
+no~
+The rock is as polished as it will get.
+~
+E
+pol~
+You polish the rock to a gleaming shine.
+~
+E
+rpol~
+$n polishes at the rock for a while.
+~
+!
+0 0 0
+-1
+S
+
+#73653
+Chamber of the Warleader~
+This cavern may have once posessed a raw, natural beauty akin to the
+other caves of the Cairn Mountains.  Hintings at natural gem deposits and
+once-massive cave formations are all that remain of nature's work here,
+as the present inhabitants of the tunnel have erased thousands of years
+of rock growth and replaced them with their own ornamentation.  Grotesque
+faces are carved into the walls, leering down at you from all directions. 
+From the portrayals of the figures, perhaps the handful of crude
+depictions represent the line of rulers of this chamber.  The most recent
+addition appears to be a large statue.  While roughly-cut and mostly
+hacked-looking, it seems to be a cyclops.  One hand of the statue looks
+to have been holding some sort of massive club.  The club is missing.
+~
+[Merior] put some of the figure stuff into extras
+[Merior] is statue supposed to do anything? or just to look at?
+[Phule] just look - and notice club is gone *cackle*
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73652 10 10 5
+1095 9 1509949540 3 0
+-1
+S
+
+#73654
+Atop a Giant Stone Table~
+You have the view of a cockroach.  Mounds of food wait on enormous stone
+platters to be dismantled by the cyclops.  Tomatoes the size of a gnome's
+head are piled next to tree trunks of carrot.  Several recently alive
+bears and wolves lie on mats of lettuce in gruesome entrees, the animals
+bloody and half-eaten.  You can climb off this massive, slime-coated
+table of stone to the north, west, and south, or continue exploring it to
+the east.
+~
+~
+335020036 11 9 0
+D1
+~
+~
+0 -1 73655 10 10 5
+E
+mounds food tomatoes carrot~
+The food piles up; many of the pieces of food are half-eaten.
+~
+E
+bears wolves~
+The corpses lie in pools of blood - they were presumably alive and tied
+to their plates when brought to the table.
+~
+A
+climb jump~
+down off table w west~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 73612 ) );
+act_notchar( #rrjump, ch );
+~
+E
+jump~
+You jump down to the floor below.
+~
+E
+rjump~
+$n jumps down to the floor below.
+~
+E
+rrjump~
+$n jumps down from the table above.
+~
+!
+0 0 0
+A
+climb jump~
+n north~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 73617 ) );
+act_notchar( #rrjump, ch );
+~
+E
+jump~
+You jump down to the floor below.
+~
+E
+rjump~
+$n jumps down to the floor below.
+~
+E
+rrjump~
+$n jumps down from the table above.
+~
+!
+0 0 0
+A
+climb jump~
+s south~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 73616 ) );
+act_notchar( #rrjump, ch );
+~
+E
+jump~
+You jump down to the floor below.
+~
+E
+rjump~
+$n jumps down to the floor below.
+~
+E
+rrjump~
+$n jumps down from the table above.
+~
+!
+0 0 0
+1107 9 1509949540 3 0
+-1
+S
+
+#73655
+Atop a Giant Stone Table~
+Here you see pile upon pile of slime-covered food resting atop the
+massive table of stone.  It must take a gigantic appetite to consume all
+this.  Several large animals lay in a pool of their own blood, having
+gnawed themselves to death in an effort to break free of their bindings. 
+The largest portions - and the largest animals - wait at the head of the
+table.
+~
+[Merior] titanic vs titanous?
+[Merior] extras needed
+~
+335020036 11 9 0
+D3
+~
+~
+0 -1 73654 10 10 5
+A
+climb jump~
+n north~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 73618 ) );
+act_notchar( #rrjump, ch );
+~
+E
+jump~
+You jump down to the floor below.
+~
+E
+rjump~
+$n jumps down to the floor below.
+~
+E
+rrjump~
+$n jumps down from the table above.
+~
+!
+0 0 0
+A
+climb jump~
+s south~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 73620 ) );
+act_notchar( #rrjump, ch );
+~
+E
+jump~
+You jump down to the floor below.
+~
+E
+rjump~
+$n jumps down to the floor below.
+~
+E
+rrjump~
+$n jumps down from the table above.
+~
+!
+0 0 0
+A
+climb jump~
+down off table east e~
+act_tochar( #jump, ch );
+act_notchar( #rjump, ch );
+transfer( ch, find_room( 73621 ) );
+act_notchar( #rrjump, ch );
+~
+E
+jump~
+You jump down to the floor below.
+~
+E
+rjump~
+$n jumps down to the floor below.
+~
+E
+rrjump~
+$n jumps down from the table above.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

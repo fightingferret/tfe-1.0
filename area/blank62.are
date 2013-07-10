@@ -1,0 +1,2614 @@
+#AREA
+Desert Ogre Caves~
+Terek~
+Desert Ogre Caves~
+
+70 0
+0
+#ROOMS
+
+#44000
+Black Wastes - A Bleak Path~
+Sand dunes rise up on each side of the path; the wind constantly blowing
+the sand around in a frenzy.  A small wall of stones lines the path
+heading to the north and south here.  Deep ruts made by numerous people
+walking back and forth are testament to the heavy usage of this path. 
+Off to the north the path continues through the sand dunes while to the
+south it intersects a barren road.
+~
+~
+301465600 11 6 0
+D0
+~
+~
+0 -1 44001 10 10 5
+D2
+~
+~
+0 -1 51257 10 10 5
+1 17 1509949540 -2 0
+-1
+S
+
+#44001
+Black Wastes - A Bleak Path~
+The path winds its way along the rolling sand dunes of the wastes as it
+continues to the east and south.  Several small piles of black volcanic
+rock rest along the path, each partially crystalized.  Along the western
+sand dunes bits of bleached-white bones peek out from beneath the sand. 
+A few small boulders lie along the path but other than that it is barren.
+~
+Add Move boulder code just for finius
+if ya see an extra missing, tell me
+~
+301465600 11 6 0
+D1
+~
+~
+0 -1 44002 10 10 5
+D2
+~
+~
+0 -1 44000 10 10 5
+E
+tracks~
+The tracks have been made by a large humanoid creature.  Looking closely
+the tracks look like they were made by an ogre or troll but are too
+distorted to tell for sure.  The tracks head off towards the east and
+south followed by several sets of smaller humanoid footprints.
+~
+E
+bleached-white bones~
+Digging the sand away from around the bone fragments you uncover the
+skeletal remains of a humanoid being.  Examining the bones carefully you
+see that they are from a fairly large humanoid, about the size of a full
+grown troll.
+~
+E
+volcanic rock~
+These massive black rocks have been fused with bits of a strange bluish
+metal.  Holes and niches cover the surface of the rocks.  The sides of
+the rocks are completely smooth and only the occasional hole or crack is
+visible along its surface.
+~
+A
+push pull move~
+boulders~
+if( find_stat( ch, str ) > 24 ) {
+  act_tochar( #budge, ch );
+  act_notchar( #budge1, ch );
+  }
+else {
+  act_tochar( #no, ch );
+  act_notchar( #no1, ch );
+  }
+~
+E
+budge~
+You struggle and strain against the massive boulder and finally move it
+about an inch.
+~
+E
+budge1~
+$n struggles and strains against the massive boulder and finally moves it
+about an inch.
+~
+E
+no~
+You struggle and strain against the massive boulder but are unable to
+move it.
+~
+E
+no1~
+$n struggles and strains against the massive boulder but is unable to
+move it.
+~
+!
+0 0 0
+-1
+S
+
+#44002
+Black Wastes - A Bleak Path~
+Enormous sand dunes rise up to the east and south of you, obscuring your
+field of vision of the surrounding terrain.  A few small bones litter the
+ground, apparently from some small animal.  A fierce wind blows across
+the area, sending clouds of dust and sand flying in every direction.  You
+are able to wind your way north and west through the dunes, following a
+primitive rocky path.
+~
+~
+301465600 11 6 0
+D0
+~
+~
+0 -1 44003 10 10 5
+D3
+~
+~
+0 -1 44001 10 10 5
+E
+bones~
+Examining the bones carefully you notice that they are the remains of a
+jack rabbit.  Its bones have partially eroded from a combination of sand,
+wind and heat.
+~
+-1
+S
+
+#44003
+Black Wastes - Bleak Path~
+This rocky path works its way in between several sand dunes as it
+continues through the wastes.  To the north and west of here lie large
+mounds of sand, which look far too steep to climb.  To the east a dark
+cave rises up from the carpet of sand.  To the south the path heads down
+the dunes, snaking its way towards the outline of a road.
+~
+~
+301465600 11 6 0
+D1
+~
+~
+0 -1 44004 10 10 5
+D2
+~
+~
+0 -1 44002 10 10 5
+-1
+S
+
+#44004
+Black Wastes - Before a Dark Cave~
+Several humanoid skulls litter the floor before the mouth of this large,
+dark cave.  Bits and pieces of bone lie in piles along with the skulls
+giving the impression of ghastly deaths.  Broken swords and punctured
+platemail, covered in rust and sand, lie just before the mouth of the
+cave.  Below you a dark, musty tunnel descends into the ground from which
+a foul stench emanates.  To the west a small, rocky path heads away from
+the cave.
+~
+[Thunder] You pick up one *OF* the humanoid skulls*,* but it quickly crumbles in your hand.   (add the stuff in *'s) :)
+~
+301465600 11 6 0
+D3
+~
+~
+0 -1 44003 10 10 5
+D5
+~
+~
+0 -1 44005 10 10 5
+E
+humanoid skulls~
+The skulls are from various humanoids, from humans to dwarves.  Most of
+the skulls have been crushed by a massive amount of weight and only a few
+remaing completely intact.
+~
+E
+broken swords platemail~
+Longswords, broadswords and shortswords lie in heaps before the mouth of
+the cave, each covered in a layer of thick rust and some snapped in two. 
+Partial suits of bronze platemail dented and filled with holes, lie next
+to swords left behind by their owners.
+~
+A
+get take grab~
+bones skull pile~
+act_tochar( #crumble, ch );
+act_notchar( #crumble1, ch );
+~
+E
+crumble~
+@eYou pick up one the humanoid skulls but it quickly crumbles in your
+hand.
+~
+E
+crumble1~
+@e$n picks up one the humanoid skulls but it quickly crumbles in $s
+hand.
+~
+!
+0 0 0
+-1
+S
+
+#44005
+A Musty Tunnel~
+A thick layer of slick, green-colored moss clings to the walls of this
+vertical passage.  Water trickles down the smooth grey stone walls making
+the surface quite slippery.  Carved into the southern wall of the passage
+are several craggy holes, each chisled out by unskilled hands.  Below you
+the passage is illuminated very faintly and the sound of dripping water
+reaches your ears.  Above you the passage heads back out to the surface.
+~
+~
+301465604 11 6 0
+D4
+~
+~
+0 -1 44004 10 10 5
+D5
+~
+~
+0 -1 44006 10 10 5
+E
+moss thick layer~
+The moss is a by-product of the moisture in the tunnel and has become
+quite slick, making travel through the tunnel hazardous.
+~
+A
+~
+~
+if( find_stat( ch, dex ) < 10 ) {
+  i = 5d5+55;
+  act_tochar( #doh, ch );
+  act_notchar( #doh1, ch );
+  transfer( ch, find_room( 44006 ) );
+  act_tochar( #hurt, ch );
+  act_notchar( #arrive, ch );
+  dam_message( ch, i, "The fall" );
+  inflict( ch, mob, i, "falling down a slippery passage" );
+  }
+else
+  continue;
+~
+E
+doh~
+@eYou suddenly lose your footing on the slippery surface and tumble down!
+~
+E
+doh1~
+@e$n suddenly loses $s footing on the slippery surface and tumbles down!
+~
+E
+arrive~
+@e$n suddenly comes tumbling down the vertical shaft above you and hits
+the floor with a thump!
+~
+E
+hurt~
+@eYour body finally slams into the hard stone floor and you hear several
+bones snap.
+~
+!
+3 0 48
+-1
+S
+
+#44006
+A Musty Tunnel~
+The constant sound of dripping water echoes down the tunnels, its source
+unknown.  The floor of the tunnel is covered in pools of water which have
+made it very slick, causing you to grab hold of the walls to remain
+standing.  Directly to the north the sound of sputtering torches can be
+heard along with the sight of what could be a door.  Above you the tunnel
+continues, heading back out into the open air.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 44007 10 10 5
+D4
+~
+~
+0 -1 44005 10 10 5
+E
+puddle~
+The water is brown in color with swirls of some greenish-colored goo
+intermixed.  A foul stench wafts up from the puddle like that of an
+unwashed body.
+~
+819 17 1509949540 -2 31
+-1
+S
+
+#44007
+Before a Great Stone Door~
+Two lone torches lie on the east and west walls of this room, partially
+illuminating the great stone door that has been set into the northern
+wall.  The only sound that can be heard is that of dripping water and the
+crackle of the torches' flames as they lick the damp walls.  The air is
+quite clammy; the humidity causes sweat to bead off your skin.  To the
+south the tunnel extends into darkness.
+~
+fix acode
+~
+301465613 11 6 0
+D0
+great stone door~
+great stone door~
+131 -1 44008 10 10 5
+D2
+~
+~
+0 -1 44006 10 10 5
+E
+great stone door~
+The door is made from a single slab of stone which is incredibly huge and
+appears quite sturdy.  A crude set of rusty hinges can faintly be seen
+along its edges.
+~
+A
+open push pull~
+n north door great stone~
+if( is_open( room, north ) ) {
+  act_tochar( #open2, ch );
+  end;
+  }
+if( !is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #open1, ch );
+  open( room, north );
+  interpret( mob_in_room( 1417, find_room( 44011 ) ), "open east" );
+  interpret( mob_in_room( 1417, find_room( 44010 ) ), "open west" );
+  }
+~
+E
+open~
+@b@RYou slowly open the great stone door, the sound of stone grinding
+echoing down the tunnels.
+~
+E
+open1~
+@b@R$n slowly opens the great stone door, the sound of stone grinding
+echoing down the tunnels.
+~
+E
+open2~
+The door is already open.
+~
+!
+0 0 0
+-1
+S
+
+#44008
+Torch-Lined Passage~
+Rows of torches on the east and west walls run the length of the tunnel,
+illuminating it slightly.  The ceiling floor and walls are composed of
+smooth grey stone which is slightly reflective.  Large wooden beams stand
+along the walls, supporting the stone ceiling's massive weight.  To the
+south a great stone door rises up from within the wall.
+~
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 44009 10 10 5
+D2
+great stone door~
+great stone door~
+131 -1 44007 10 10 5
+E
+wooden beams~
+The support beams are made of a strange orange-colored wood that has
+reddish hues in it.  Steel plates are spaced out along the beam about
+every five inches for extra reinforcement.
+~
+E
+great stone door~
+The door is composed of one giant slab of greyish-colored stone.  Bits of
+white obsidian peek out from within the confines of the stone.  A large
+steel handle lies in the center of the door and looking closely you
+notice it is covered in dried blood.
+~
+-1
+S
+
+#44009
+Torch-Lined Passage~
+The walls along the passage show signs of heavy work here, as you notice
+deep cuts and scars made by metal tools.  The constant sound of
+sputtering torches echoes down the passage and a slight breeze
+occasionally blows through, causing the torches to crackle as their
+flames lick the damp stone walls.  To the east and west large stone doors
+rise up, bearing no marks of who might dwell here.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44012 10 10 5
+D1
+large stone door~
+large stone door~
+131 -1 44010 10 10 5
+D2
+~
+~
+0 -1 44008 10 10 5
+D3
+large stone door~
+large stone door~
+131 -1 44011 10 10 5
+E
+cuts scars walls~
+The walls are severely scarred by a series of cuts and scars made by
+metal-working tools.  An extremely large crack runs along the ceiling and
+down both the western and eastern walls and brown clay has been stuck
+into them like a type of mortar.
+~
+E
+large stone doors~
+The doors are nothing magnificent but rather just plain stone blocks
+attached to the wall by large wrought iron hinges.  The slabs of stone
+are completely smooth to the touch and great care was taken when
+chiseling the rock.  No marks have been made on the doors to identify who
+might dwell in this secluded cave.
+~
+-1
+S
+
+#44010
+Guard Station~
+This room is completely bare except for a single wooden table which
+stands in the southeast corner of the room.  A single torch hangs off the
+northern wall, which barely illuminates this large chamber.  The grey
+stone walls show signs of heavy construction as their surface is scarred
+by niches and indentations.
+~
+~
+301465605 11 6 0
+D3
+large stone door~
+large stone door~
+131 -1 44009 10 10 5
+E
+wooden table~
+A chipped table stands in the southeastern corner of this chamber. 
+Several gouges mar its surface, and dark flecks are sprinkled on its bare
+surface.
+~
+E
+niche indentation~
+All three walls of this dim chamber are covered with niches and
+indentations.  Upon closer examination, you can see marks from drilling
+tools used by the builders of this area.  The niches are empty, simply
+small pock marks left after hasty construction.
+~
+1417 9 1509949540 3 0
+-1
+S
+
+#44011
+Guard Station~
+This small, cube-shaped room has been carved out from slick grey stone. 
+A pile of filthy rags lies in the center of the room from which a foul
+stench arises.  In the northwest corner of the room stands a rack of
+pikes and spears, larger than normal ones.  A few slabs of beef lie
+scattered about the room which bear large teeth marks suggesting someone
+has been dining on them recently.  To the east a large stone door stands,
+offering an exit out.
+~
+~
+301465613 11 6 0
+D1
+large stone door~
+large stone door~
+131 -1 44009 10 10 5
+E
+rags~
+The rags are simple strips of fine cloth covered in some grime and mildew. 
+An overpowering stench arises from the pile like that of burnt flesh.  A
+few of the rags have the letter's "C M P" embroidered into the cloth.
+~
+E
+rack pikes spears~
+Large spears and pikes, larger then normal ones, rest in a wooden weapons
+rack that sits in the corner of the room.  Each of the weapons has been
+polished to a bright shine and their edges are extremely sharp, as if
+they were just sharpened recently.
+~
+1417 9 1509949540 3 0
+-1
+S
+
+#44012
+Passage Intersection~
+Three passages intersect here from the east, west and south.  The
+passages to the west and south are slightly illuminated by rows of
+torches hanging on the walls while the passage to the east is pitch black. 
+Small piles of sand rest upon the floor, possibly tracked in by the
+cave's occupants.
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 44030 10 10 5
+D2
+~
+~
+0 -1 44009 10 10 5
+D3
+~
+~
+0 -1 44013 10 10 5
+1419 9 1509949540 3 0
+1410 17 1509949540 -2 0
+-1
+S
+
+#44013
+Torch-Lined Passage~
+The constant sound of dripping water echoes throughout the tunnels,
+breaking the silence.  The passage has been carved by skilled hands; the
+walls are very smooth showing no signs of cracks, rough edges or any
+blemishes.  Torches hang in sconces every few feet along the walls,
+shedding a reddish light upon the passage.  The passage continues to the
+east and west from here.
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 44012 10 10 5
+D3
+~
+~
+0 -1 44014 10 10 5
+-1
+S
+
+#44014
+Torch-Lined Passage~
+Streams of water trickle down the smooth grey walls and collect into a
+large puddle upon the floor, creating a very slippery surface.  The walls
+bear no signs or marks of who or what could have made them but by the
+looks of them they are definitely not natural.  The passage bends to the
+east and north here, continuing through the cave.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44015 10 10 5
+D1
+~
+~
+0 -1 44013 10 10 5
+E
+walls~
+The walls are made from a grey-colored stone and are very smooth to the
+touch.  No marks or any other abrasions are visible upon the walls, not
+even a tiny crack can be seen.  Examining them closely you notice that
+only highly skilled miners could have dug through this thick a stone
+without compromising its stability.
+~
+-1
+S
+
+#44015
+Torch-Lined Passage~
+Black scorch marks run up the eastern and western walls, caused by
+torches' flames licking against the smooth grey stone.  A fine layer of
+sand covers the floor on this section of the passage.  To the west a
+large iron door has been placed.  The rows of torches continue to run the
+length of the passage to the north and south.  A few humanoid bone
+fragments covered in brown mold rest along the sides of the passage.
+~
+[Celine] messages when breaking it open are confused.
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44017 10 10 5
+D2
+~
+~
+0 -1 44014 10 10 5
+D3
+crude iron door~
+crude iron door~
+211 -1 44016 10 10 5
+E
+scorch marks walls~
+The black scorch marks have been caused from the constant licking of the
+torches' flames along the walls.  A few of the marks have large
+fingerprints smudged into them and they crudely resemble words of some
+sort.  Looking carefully you notice that one of the scorch marks is
+legible and contains one word: @e"Liariak"@n.
+~
+E
+sand~
+No description~
+E
+Humanoid bone fragments~
+The remains are humanoid yet are too far warped and distorted to tell
+exactly which race they are from.  A thick brown mold covers the bones
+from which the stench of decaying flesh emanates.  A tiny strip of black
+leather hangs from the rib bones of the skeleton but other than that the
+bones are bare.
+~
+A
+bash~
+w west door~
+if( is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( find_stat( ch, str ) > 19 ) {
+  act_tochar( #bash, ch );
+  act_notchar( #bash1, ch );
+  open( room, west );
+  }
+Else
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+bash~
+@b@WYou charge and throw yourself against the iron door, breaking it down!
+~
+E
+bash1~
+@b@WY$n charges and throws $mself against the iron door, breaking
+it down!
+~
+E
+no~
+@b@YYou throw yourself at the iron door, but fail to break it down.
+~
+E
+no1~
+@b@Y$n throws $mself at the iron door, but fails to break it down.
+~
+E
+open~
+The door has already been broken down.
+~
+!
+0 0 0
+-1
+S
+
+#44016
+Large Storage Cavern~
+Crates, barrels, and wagons lie stacked up wall to wall in this chamber. 
+The scent of ale, fresh meat, burnt flesh, and mildew linger in the air
+creating an overpowering smell.  The chamber is extremely cold and a few
+of the barrels and crates are covered in a thin layer of frost.  To the
+east a large iron door rises up, heavily reinforced by steel strips.
+~
+~
+301465613 11 6 0
+D1
+crude iron door~
+crude iron door~
+211 -1 44015 10 10 5
+E
+crates barrels wagons~
+Large wooden crates, iron-banded barrels and small wagons lie stacked up
+in this large storage room.  The crates have been opened and only contain
+wood chips.  The barrels contain a reddish-colored liquid which smells
+like wine.  Most of the wagons are empty but a few contain bolts of silk,
+wool and satin.  Looking closely you notice most of the crates and wagons
+bear the stamp of the town of Medienne, far to the south of this land.
+~
+A
+bash~
+east e door crude iron~
+if( is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( find_stat( ch, str ) > 19 ) {
+  act_tochar( #bash, ch );
+  act_notchar( #bash1, ch );
+  open( room, east );
+  }
+else
+  act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+bash~
+@b@WYou charge and throw yourself against the iron door, breaking it down!
+~
+E
+bash1~
+@b@WY$n charges and throws $mself against the iron door, breaking
+it down!
+~
+E
+no~
+@b@YYou throw yourself at the iron door, but fail to break it down.
+~
+E
+no1~
+@b@Y$n throws $mself at the iron door, but fails to break it down.
+~
+E
+open~
+The door has already been broken down.
+~
+!
+0 0 0
+A
+get take move~
+crate barrel meat wagon~
+act_tochar( #nope, ch );
+~
+E
+nope~
+Try as you might, you cannot seem to budge any of the items in this
+chamber.
+~
+!
+0 0 0
+-1
+S
+
+#44017
+Torch-Lined Passage~
+This portion of the passage is cluttered with wooden support beams.  The
+space between the beams is empty, save for a torch which tries to shed
+light on the ground.  Several droplets of water trickle down from within
+them, hitting the solid stone floor with a gentle splash.  To the east a
+dimly lit alcove lies, while to the north and south the passage continues. 
+A massive iron door with thick mithril bands lies to the west.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44019 10 10 5
+D1
+~
+~
+0 -1 44018 10 10 5
+D2
+~
+~
+0 -1 44015 10 10 5
+D3
+mithril-banded iron door~
+mithril-banded iron door~
+391 2452 44052 10 10 5
+E
+cracks~
+Each of the cracks which run down the ceiling are about six inches wide,
+and droplets of water contantly trickle from them.  Small dead roots peek
+out from within them and occasionally a few grains of sand drop down from
+within the bowels of the cracks.
+~
+-1
+S
+
+#44018
+Living Quarters~
+This chamber is extremely large, at least a thousand cubic feet total. 
+Several dozen piles of straw cover the floor, possibly serving as beds
+for the cave's inhabitants.  A gigantic fireplace lies along the eastern
+wall, providing the chamber with ample heat and light.  Various small
+tables stand scattered about the room, along with a few intact and
+partially intact chairs.
+~
+~
+301465605 11 6 0
+D3
+~
+~
+0 -1 44017 10 10 5
+E
+piles straw~
+Several piles of straw lie along the floor of this chamber, some covered
+in mildew and grime while others have been made with fresh hay.  A few of
+the beds have thin cloths lying next to them covered in mud.
+~
+E
+fireplace~
+The fireplace is at least a hundred feet long by sixteen feet high. 
+Massive wooden logs lie within the fireplace covered in twigs and hay. 
+Several steel grates lie across the logs and a few small cauldrons rest
+atop them.  Portions of the fireplace are lit and blazing with bright
+flames while in other places it remains unlit.
+~
+E
+tables~
+The tables are large enough to fit three ogre-sized along with a hearty
+amount of food.  Nicks and scratches scar the table but other than that
+they are ordinary tables.
+~
+E
+chairs~
+Large enough to fit a three human-sized men, the chairs are nothing
+extravagant but simply wooden chairs.  A few of them have been busted
+into piles of splinters and very few remain intact.  Looking closely you
+notice a few of the chairs are covered in dried blood.
+~
+1419 9 1509949540 3 0
+-1
+S
+
+#44019
+Torch-Lined Passage~
+This section of the passage tightens considerably as the walls here have
+partially collapsed.  Thick wooden support beams brace the walls, showing
+severe signs of stress as they try vainly to keep the walls from
+collapsing further.  The passage breaks here, heading west into a dark
+alcove and continuing to the north and south.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44021 10 10 5
+D2
+~
+~
+0 -1 44017 10 10 5
+D3
+~
+~
+0 -1 44020 10 10 5
+E
+wooden support beams~
+The beams are cracked and twisted due to the immense weight the stone
+ceiling has forced upon them.  Examining them closely you notice a few of
+the mithril bands holding the beams shape have snapped while others look
+as though they could collapse at any moment.
+~
+-1
+S
+
+#44020
+Living Quarters~
+This chamber is quite small, the ceiling just barely reaching six feet. 
+Set into the northern wall lies a crude fireplace in which a small kettle
+hangs.  In the center of the room lies a soiled and foul-smelling bedroll
+which looks to be still usable.  Along the western wall a small black
+wooden table stands, covered in slabs of rotting meat.  To the east lies
+crude square opening, leading back onto the main passage.
+~
+mental note to add the kettle
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 44019 10 10 5
+E
+fireplace~
+The fireplace is nothing more than a crudely carved cube-shaped hole in
+the northern wall.  Small scorched logs rest on the bottom of the
+fireplace, surrounded by large heaps of ash.  A metal bar spans across
+the logs just a few inches of above them from which a small black iron
+kettle hangs.
+~
+E
+bedroll~
+Made from strips of animal fur, leather and fine cloth, this bedroll is
+sized for a human-sized being or larger.  Most of the bedroll has been
+eaten away by moths and dirt; mildew and some other unknown substances
+cover it creating a foul stench.
+~
+E
+black wooden table~
+The table is about four feet long by three feet wide and is made from a
+black wood.  Slabs of rotted meat lie atop it, a few covered in swarms of
+maggots and other insects.  An empty wooden mug rests at the back of the
+table, filled with some liquid which smells like pure alcohol.
+~
+1419 9 1509949540 3 0
+1901 17 1509949540 -2 23
+-1
+S
+
+#44021
+Torch-Lined Passage~
+Thick cobwebs hang down from the ceiling, partially blocking the view of
+the north passage.  A portion of the eastern wall is made of sandstone
+and has partially collapsed into a mound of sand.  The floor is quite
+slippery due to the very moist air in the caves, causing you to move very
+slowly and carefully.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44022 10 10 5
+D2
+~
+~
+0 -1 44019 10 10 5
+E
+cobwebs~
+Shimmering like fine silken thread, the cobwebs are quite large, covering
+most of the passage.  Dead insects can be seen caught within the webs as
+well as cocooned moths.
+~
+E
+eastern wall~
+The eastern wall is made of yellow-black sandstone, with swirls of red
+and orange.  Large piles of sand lie on the floor against the wall, large
+holes testament to their origin.
+~
+-1
+S
+
+#44022
+Torch-Lined Passage~
+Large cracks run along the western and northern wall of the passage here. 
+From within the bowels of the cracks you can hear the faint sound of
+running water.  A section of the west wall is made from a blackish
+colored stone, standing out from the smooth grey stone walls all around
+you.  The passage continues to the east and south, the faint sound of
+flickering torches echoing down it.
+~
+secret door w
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 44023 10 10 5
+D2
+~
+~
+0 -1 44021 10 10 5
+D3
+blackish-colored door~
+blackish-colored door~
+431 62 44045 10 10 5
+E
+west wall blackish colored stone~
+The wall is different from the northern wall as it is composed of
+blackish colored stone instead of smooth grey stone.  A layer of fine
+dust cover the western wall's surface from which the faint outline of
+cracks can be seen.
+~
+E
+west wall~
+This portion of the wall is unusually black and contrasts greatly with
+the surrounding grey.  A tiny crack can be seen separating the two types
+of rock.
+~
+-1
+S
+
+#44023
+Torch-Lined Passage~
+The rows of torches continue through the passage, shedding a dim reddish
+glow onto the grey stone walls.  A stream of water snakes beneath your
+feet, heading east as the passage slopes down.  A few filthy rags litter
+the ground, covered in mildew and giving off a foul stench.  To the west
+the passage climbs upwards a bit as it continues through the caves.
+~
+~
+301465605 11 6 0
+D1
+~
+~
+0 -1 44024 10 10 5
+D3
+~
+~
+0 -1 44022 10 10 5
+E
+rags~
+The rags are covered in filth and mildew emitting a foul stench that
+is stronger then a red dragon's breath weapon.  Looking through the rags
+you notice a glint of metal from underneath them.
+~
+A
+get search~
+rags~
+if( rflag( reset0, room ) ) {
+remove_rflag( reset0, room );
+act_tochar( #get, ch );
+act_notchar( #get1, ch );
+obj_to_char( oload( 2159 ), ch );
+}
+else
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+get~
+@eYou sift through the pile of dirty rags and take one.
+~
+E
+get1~
+@e$n sifts through the pile of dirty rags and takes one.
+~
+E
+no~
+@eYou sift through the pile of dirty rags but find nothing.
+~
+E
+no1~
+@e$n sifts through the pile of dirty rags but finds nothing.
+~
+!
+0 0 0
+-1
+S
+
+#44024
+Torch-Lined Passage - Intersection~
+A large puddle of water has collected on the floor here, spanning from
+wall to wall and making the stone floor very slick.  A few torches along
+the walls are unlit; water having dripped on them from the cracks along
+the ceiling.  Directly to the north, the outline of a massive door rises
+up.  The passage continues to the north, south and west from here.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44025 10 10 5
+D2
+~
+~
+0 -1 44048 10 10 5
+D3
+~
+~
+0 -1 44023 10 10 5
+E
+puddle~
+The puddle spans from wall to wall here, causing the stone floor to
+become quite slippery.  Droplets of water drip down from the ceiling
+above and land on the puddle, sending small ripples across its surface
+and disturbing a cloud of brown-colored grime.
+~
+E
+torches~
+The torches hang from small, iron hooks that have been attached to the
+wall with bronze spikes.  All of the torches remain unlit due to the
+water that constantly drips on them from the ceiling above.
+~
+819 17 1509949540 -2 31
+-1
+S
+
+#44025
+Before a Heavily Reinforced Door~
+A greenish colored moss covers the walls of the passage here, while
+cracks in the ceiling occasionally drop handfuls of sand down to a
+growing pile of sand on the floor.  Water dribbles down the stone walls,
+mingling with the moss and creating a very slick surface.  Directly to
+the north a large, heavily reinforced steel door rises up.  To the south
+the passage continues through the caves.
+~
+[Celine] need a act_tochar opening the door
+[Celine] *mutter*  fixing this myself.
+~
+301465605 11 6 0
+D0
+heavily reinforced door~
+heavily reinforced door~
+131 -1 44026 10 10 5
+D2
+~
+~
+0 -1 44024 10 10 5
+E
+greenish moss~
+The moss is quite thick and furry, like the type native to moist jungles. 
+Its greenish hue is occasionally interrupted by a spot of red intermixed
+with black fungii that also grows on the wall.  A foul stench emanates
+from the moss, like that of decaying flesh and looking carefully it looks
+as though there is something trapped beneath it.
+~
+E
+north large heavily reinforced steel door~
+This massive door is made from a giant sheet of steel wrapped in mithril
+bands for even more reinforcement.  A small handle hangs along the left
+side of the door but lacks any keyhole.  Several cuts and dents scar the
+surface of the door, like someone had tried to bash it in.
+~
+A
+open push pull~
+door n north heavily reinforced~
+if( !is_open( room, north ) ) {
+  if( find_stat( ch, str ) > 20 ) {
+    act_tochar( #open, ch );
+    act_notchar( #open1, ch );
+    open( room, north );
+    }
+  else {
+    act_tochar( #nope, ch );
+    act_notchar( #nope1, ch );
+    }
+  }
+else
+  act_tochar( #open?, ch );
+~
+E
+open~
+@eWith all your might you slowly open the heavily-reinforced door to the
+north.
+~
+E
+open1~
+@eWith all $s might $n slowly opens the heavily-reinforced door to the
+north.
+~
+E
+nope~
+@eYou strain with the door but cannot open it.
+~
+E
+nope1~
+@e$n strains with the door but cannot open it.
+~
+E
+open?~
+The door is already open.
+~
+!
+0 0 0
+-1
+S
+
+#44026
+Filthy Chamber~
+Mounds of soiled rags, bits of filthy leather armor, and a thick layer of
+grime cover the floor of this chamber.  A few unlit braziers lie toppled
+over upon the ground, their oil creating slippery pools beneath your feet. 
+To the east and west, small dark alcoves hang off the main chamber.  To
+the north lies a large gold-trimmed door and a heavily reinforced door
+lies the south.
+~
+~
+301465613 11 6 0
+D0
+gold-trimmed door~
+gold-trimmed door~
+131 -1 44029 10 10 5
+D1
+~
+~
+0 -1 44027 10 10 5
+D2
+heavily reinforced door~
+heavily reinforced door~
+131 -1 44025 10 10 5
+D3
+~
+~
+0 -1 44028 10 10 5
+E
+Pile mound rags leather armor~
+The mounds of soiled rags and leather armor are covered in grime and
+mildew.  A foul stench wafts up from within the piles like that of rotted
+meat.  Looking closely you notice that the rags and armor are soaked in
+oil and appear highly flammable should a source of fire get too close.
+~
+E
+braziers~
+These medium-sized iron braziers are covered in a thick layer of rust. 
+All of the braziers lie overturned and their lighting oil spilled out
+onto the floor before you.
+~
+A
+cast~
+burning hands flame strike fireball fireshield~
+if( class( ch ) == mage ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #doh, ch );
+    act_notchar( #doh1, ch );
+    loop( all_in_room ) {
+      if( is_player( rch ) )
+        do_spell( fireball, rch );
+      }
+    }
+  }
+else
+  continue;
+~
+E
+doh~
+@eAs you begin to cast your spell you notice a small flame hit the puddle
+of oil upon the floor, igniting it!
+~
+E
+doh1~
+@eAs $n begins to cast $s spell you notice a small flame hit the puddle
+of oil upon the floor, igniting it!
+~
+E
+blaze~
+@eThe puddle upon the floor suddenly explodes in a burst of flame,
+sending spheres of fire about the room!
+~
+!
+0 0 0
+A
+open pull push~
+south s door heavily reinforced~
+if( is_open( room, south ) ) {
+  act_tochar( #open?, ch );
+  end;
+  }
+if( !is_open( room, south ) ) {
+  if( find_stat( ch, str ) > 20 ) {
+    act_tochar( #open, ch );
+    act_notchar( #open1, ch );
+    open( room, south );
+    }
+  }
+if( find_stat( ch, str ) < 20 ) {
+  act_tochar( #nope, ch );
+  act_notchar( #nope1, ch );
+  }
+~
+E
+open~
+@eWith all your might you slowly open the heavily-reinforced door to the
+south.
+~
+E
+open1~
+@eWith all $s might $n slowly opens the heavily-reinforced door to the
+south.
+~
+E
+nope~
+@eYou strain with the door but cannot open it.
+~
+E
+nope1~
+@e$n strains with the door but cannot open it.
+~
+E
+open?~
+The door is already open.
+~
+!
+0 0 0
+1416 9 1509949540 3 0
+-1
+S
+
+#44027
+Bone-Filled Alcove~
+From wall to wall large piles of bones lie scattered about the floor,
+consisting of whole and partial skeletons.  Rats crawl out from beneath
+the piles, gnawing away at what little flesh remains on the bones.  The
+foul stench of decaying flesh fills the room.  A single, partially
+complete skeleton lies chained to the southern wall.
+~
+~
+301465613 11 6 0
+D3
+~
+~
+0 -1 44026 10 10 5
+E
+piles bones~
+The pile of bones is quite massive, filling this large alcove knee-deep
+with skeletons.  Most of the skeletons have been ripped apart but a few
+remain whole.  Rib bones, femurs and humanoid skulls lie atop the pile,
+some covered in gashes made by a sharp weapon while others have merely
+been crushed.
+~
+E
+single chained skeleton southern wall~
+The skeletal remains chained to the southern wall are that of a troll by
+the size and shape of the bones.  His wrists are broken in several places
+where he was chained to the wall and examining the rest of the bones
+carefully you note that his legs are snapped in two and several ribs have
+been broken off.
+~
+1416 9 1509949540 3 0
+-1
+S
+
+#44028
+Dark Alcove~
+This small alcove is completely barren except for a few rusty swords
+which lie upon the ground.  No torches or other light sources are visible
+in the room and your own light source does little to illuminate the area. 
+The sound of running water can be faintly heard here, but you can see no
+holes, cracks, or openings to pinpoint its location.
+~
+~
+301465612 11 6 0
+D1
+~
+~
+0 -1 44026 10 10 5
+E
+swords pile rusty~
+Once weapons of destruction and brutality, these swords are now nothing
+more than brittle, rust-covered strips of metal.  Their blades are
+completely dull and useless in any offensive attacks.  A few of the
+swords are missing blades and only their handles remain.
+~
+A
+get grab take~
+swords rusty~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no~
+@eYou take one of the rusty swords from the pile but it quickly crumbles
+in your hand.
+~
+E
+no1~
+@e$n takes one of the rusty swords from the pile but it quickly crumbles
+in $s hand.
+~
+!
+0 0 0
+1416 9 1509949540 3 0
+-1
+S
+
+#44029
+Warlord's Chamber~
+This extremely large chamber has been crudely carved through the solid
+stone.  The walls are very craggy and chunks of sharp rock stick out from
+within them.  A large, silken rug covers the floor of the chamber,
+covered in several layers of sand, mud, and mildew.  Large braziers form
+a ring around a large silver throne which lies in the center of the room. 
+Hanging upon the walls are several dozen humanoid skulls, held up by
+rusty metal chains.  To the south a large gold-trimmed door marks the
+exit out of this chamber.
+~
+~
+301465613 11 6 0
+D2
+gold-trimmed door~
+gold-trimmed door~
+131 -1 44026 10 10 5
+E
+silken rug~
+This large, silken rug is made from purple and black fibers which create
+a checkered pattern.  Layers of mildew, sand and mud cover its surface,
+distorting its once magnificent beauty.  Peering at it closely you notice
+that the image of a shield with a golden phoenix on it has been
+embroidered into the center of the rug.
+~
+E
+throne~
+Made from highly polished silver, this massive throne could easily seat
+an ogre or troll sized being comfortably.  The forearms and backboard are
+not made from silver but composed of multi-colored sapphires and diamonds
+which gleam in the light.  Soft, velvety cushions have been tacked into
+the seat and backboard of the throne and in the center of each rests a
+large clear sapphire.
+~
+E
+skulls metal chains~
+Suspended by rusty metal chains, several humanoid skulls hang from the
+ceiling, each damaged in one way or another.  The skulls resemble those
+of trolls, gnomes, humans and elves.  A few of the skulls have large
+holes in the center of the skull while others are mere fragments of the
+whole.  Embedded within a few of the skulls are different gems of unusual
+shapes and colors.
+~
+A
+~
+~
+act_room( #sway, ch );
+~
+E
+sway~
+@eA slight breeze blows through the room, rattling the chains and causing
+them to sway back and forth.
+~
+!
+0 800 0
+1415 9 1509949540 3 0
+2458 17 1509949540 -2 0
+-1
+S
+
+#44030
+Dark Passage~
+Black obsidian walls rise up around you, completely barren of any torches
+or other light sources.  The walls are quite smooth and seem to have been
+cut out by skilled miners.  Small sparkles of silver glitter from within
+the obsidian as your light hits them.  To the west the passage becomes
+illuminated by a row of torches hanging from the walls while to the east
+the passage continues into darkness.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 44031 10 10 5
+D3
+~
+~
+0 -1 44012 10 10 5
+E
+walls sparkles silver obsidian~
+The walls are composed of black obsidian which is very smooth to the
+touch.  Small pieces of what looks to be silver lie embedded within the
+walls and sparkle brightly everytime light hits them.  Examining the
+walls closely you notice a large strip of silver about an inch above the
+floor.
+~
+A
+get dig pry~
+silver chunk slab piece~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no~
+@eYou try to pry the silver free but fail.
+~
+E
+no1~
+@e$n tries to pry the silver free but fails.
+~
+!
+0 0 0
+-1
+S
+
+#44031
+Dark Passage~
+A thick layer of bluish-colored slime covers the walls and floor along
+the passage, possibly a by-product of the moisture that has accumulated
+down here.  The foul stench of mildew and rotting flesh wafts through the
+passage along with the heavy smell of sweat.  To the north the passage
+slopes downwards a bit while to the west it runs level.
+~
+~
+301465612 11 6 0
+D0
+~
+~
+0 -1 44032 10 10 5
+D3
+~
+~
+0 -1 44030 10 10 5
+E
+bluish-colored slime~
+The slime is bluish in color with blotches of black intermixed within it. 
+The puddle spans from wall to wall and covers the walls.  A few inches
+below the ceiling you see the source of the slime as a large crack in the
+wall constantly spews out more slime every minute.
+~
+-1
+S
+
+#44032
+Dark Passage~
+A few filthy rags, covered in some substances best left unidentified,
+litter the floor along the passage here.  Roots grow through large cracks
+in the ceiling above you, their ends just barely touching the stone floor
+below you.  To the east stands a large, reddish-colored door covered in
+scorch marks.  Lying directly to the west is a black stone door.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 44035 10 10 5
+D1
+reddish colored door~
+reddish colored door~
+131 -1 44034 10 10 5
+D2
+~
+~
+0 -1 44031 10 10 5
+D3
+black stone door~
+black stone door~
+131 -1 44033 10 10 5
+E
+filthy rags~
+An overwhelming stench wafts up from several filthy rags that lie along
+the side of the passage.  The rags are covered in dirt and grime and some
+other substances that cannot be identified.  Examining them closely you
+see a metal spike attached to one rag, that like used to make studded
+leather armor.
+~
+E
+roots~
+Massive roots hang down from cracks within the ceiling and nearly touch
+the floor below.  The roots are withered and dead although some bud with
+black flowers.  Several of the roots tangle together almost completely
+blocking the passage to the north.
+~
+-1
+S
+
+#44033
+Dining Hall - South End~
+Large torches adorn the walls of this huge chamber, shedding an immense
+amount of light.  Hanging from the southern wall are several stone
+cabinets, each securely bolted shut.  A very large grey stone table runs
+the length of the chamber; several dozen chairs tucked beneath it.  Off
+to the north a large crystal chandelier hangs down from the ceiling
+sending a rainbow of colors about the chamber.  To the east a door marks
+the exit out of the dining hall.
+~
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 44038 10 10 5
+D1
+black stone door~
+black stone door~
+131 -1 44032 10 10 5
+E
+cabinets~
+The cabinets are made from white marble with grey streaks in it.  Two
+wooden doors rest at the front of the cabinets along with a very large
+lock.  Carved on the surface of the doors is a small mural depicting a
+band of ogres charging a group of small, armored dwarves.
+~
+1417 9 1509949540 3 0
+2442 49 1509949540 -2 0
+1221 81 1509949540 -2 0
+1222 81 1509949540 -2 0
+2433 49 1509949540 -2 0
+16 81 1509949490 -2 0
+16 81 1509949490 -2 0
+823 81 1509949540 -2 0
+-1
+S
+
+#44034
+Cooking Area~
+The horrid stench of burning flesh fills this smokey room.  Large
+bonfires lie beneath huge cauldrons which bubble away.  A small stone
+table lies in the far eastern corner of the room, covered in blood and
+slabs of meat.  A cabinet on the southern wall sits open and is filled
+with jars of exotic spices and seasonings.  To the north lies a thick
+stone door which is covered in a thin layer of frost.
+~
+~
+301465613 11 6 0
+D0
+thick stone door~
+thick stone door~
+131 -1 44044 10 10 5
+D3
+reddish colored door~
+reddish colored door~
+131 -1 44032 10 10 5
+E
+table~
+This table serves as a chopping block for the cook of the cave.  Many
+deep cuts scars its surface, made by an extremely sharp object.  Fresh
+blood covers the entire surface of the table and slowly drips down onto
+the floor.  Slabs of raw meat lay upon the table itself, covered in a
+fine white powder.
+~
+E
+cauldrons~
+Eight massive cauldrons fill this room, able to hold at least three
+human-sized people.  Each cauldron bubbles rapidly as several chunks of
+meat occasionally float to the surface and then disappear again.  The
+bottoms of the cauldrons are a bright cherry red and a loud sizzle can be
+heard each time the liquid in them boils over and hits the searing hot
+metal.
+~
+1818 17 1509949540 -2 13
+1418 9 1509949540 3 0
+2426 49 1509949540 -2 0
+415 81 1509949540 -2 0
+755 81 1509949540 -2 0
+304 81 1509949450 -2 0
+1619 81 1509949540 -2 0
+1677 81 1509949540 -2 0
+-1
+S
+
+#44035
+Dark Passage~
+Dried roots from long-dead trees drape down from the ceiling becoming a
+nuisance as you try to move them aside.  The black obsidian walls of the
+passage are covered in a mass of vines and roots which had broken through
+the stone before they died.  To the east a black iron door blocks your
+movement but is barren of any handles or keyholes to open it.  The
+passage continues through the darkness to the south and north.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 44036 10 10 5
+D1
+black iron door~
+black iron door~
+195 -1 44044 10 10 5
+D2
+~
+~
+0 -1 44032 10 10 5
+E
+root~
+Thick, dried roots hang overhead, bits of earth still stuck to them. 
+Twisted vines which once clung to the roots were carried down here with
+them, and to their death.
+~
+-1
+S
+
+#44036
+Dark Passage~
+Chunks of stone litter the floor of the passage here, along with a few
+wooden support beams that have toppled over.  Wide cracks run along the
+floor, ceiling and walls, small streams of water snaking through them. 
+The passage breaks here, heading to the north, south, and east while to
+the west a large stone door stands.
+~
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 44040 10 10 5
+D1
+~
+~
+0 -1 44037 10 10 5
+D2
+~
+~
+0 -1 44035 10 10 5
+D3
+black stone door~
+black stone door~
+131 -1 44039 10 10 5
+-1
+S
+
+#44037
+Caved-In Passage~
+The passage to the east is completely blocked by large stones which seem
+far too large to move.  Thick wooden support beams lie upon the ground,
+snapped like twigs from the great force exerted on them by the stone
+ceiling.  The walls show severe signs of weakness and look as if at any
+moment they could collapse.
+~
+~
+301465613 11 6 0
+D3
+~
+~
+0 -1 44036 10 10 5
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( is_follower( ch ) )
+  end;
+i = 1d1+99;
+Wait( 1 );
+send_to_room( #rumble, room );
+Wait( 10 );
+loop( all_in_room ) {
+  send_to_room( #rumble1, room );
+  dam_message( rch, i, "the heavy stone slabs" );
+  inflict( rch, mob, i, "being crushed to death" );
+  }
+~
+E
+rumble~
+@b@MA loud rumbling fills the room as a few stone slabs from the ceiling
+begin to break free!
+~
+E
+rumble1~
+@b@MThe ceiling finally gives way and begins to rain huge stone slabs
+upon the room!
+~
+!
+1 0 8
+1419 9 1509949540 3 0
+-1
+S
+
+#44038
+Dining Hall~
+A large, crude stone fireplace has been carved into the western wall from
+which a blazing fire roars, warming the dining hall.  Above you a crystal
+chandelier hangs suspended from the ceiling by a thin rope.  On the
+eastern wall a large, tattered banner hangs covered in dirt and blood. 
+The large stone dining table continues to the north and south, running
+the length of the dining hall.
+~
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 44039 10 10 5
+D2
+~
+~
+0 -1 44033 10 10 5
+E
+fireplace~
+This massive fireplace has been crudely carved out of the stone wall. 
+Large wood logs rest above a steel grate in the floor, blazing with an
+intense heat that warms the entire dining hall.
+~
+E
+tattered banner~
+The banner is quite damaged as time, moths and general mistreatment have
+taken their toll.  Beneath the layers of dirt and blood you catch a faint
+glimpse of the image of a clenched fist covered in blood.
+~
+E
+chandelier~
+The chandelier is made from hundreds of multi-colored crystal shards
+which send a rainbow of color across the dining hall.  Small iron candle
+holders form a ring along the inner edges of the chandelier, supplying an
+immense amount of light for the dining hall.
+~
+1417 9 1509949540 3 0
+2442 49 1509949540 -2 0
+1222 81 1509949540 -2 0
+227 81 1509949450 -2 0
+-1
+S
+
+#44039
+Dining Hall - North End~
+The walls of this portion of the chamber are covered in splatters of
+blood, dried bits of meat, and some other material you cannot identify. 
+Several large, unopened wooden crates lie stacked up in the northwestern
+corner of the room, covered in many layers of dust and cobwebs.  A few
+open barrels of ale sit along the northern wall, the stench of alcohol
+wafting up from within them.  To the east a large stone door has been
+placed.
+~
+[Merior] lowered reset on troll flesh
+~
+301465613 11 6 0
+D1
+black stone door~
+black stone door~
+131 -1 44036 10 10 5
+D2
+~
+~
+0 -1 44038 10 10 5
+E
+barrels~
+Many open barrels lie along the northern wall, each completely filled to
+their tops with ale.  Peering inside the barrels you notice that a few of
+them contain red wine while others contain what smells like pure alcohol.
+~
+E
+crates wooden~
+The crates are covered in several layers of dust and sand and remain
+unopened.  Small holes can be seen around the bottom of the crates in
+which rats have gnawed their way inside.  Written across the side of the
+crate are the words: @e"Meridian Merchants."@n 
+~
+1417 9 1509949540 3 0
+2431 17 1509949540 -2 36
+2442 49 1509949540 -2 0
+1221 81 1509949540 -2 0
+1222 81 1509949540 -2 0
+227 81 1509949450 -2 0
+-1
+S
+
+#44040
+Dark Passage~
+Moving through the passage you grope blindly around for the walls as your
+light source does little to break the darkness of the area.  A gentle
+*crunch* echoes down the passages as you look down to see a pile of small
+bones, possibly from some small desert animal.  A few small puddles of
+water lie along the passage floor, making the ground very slippery.  The
+passage continues to the east and south from here.
+~
+~
+301465604 11 6 0
+D1
+~
+~
+0 -1 44041 10 10 5
+D2
+~
+~
+0 -1 44036 10 10 5
+E
+bones~
+Several skeletal remains of rats lie here, a few remaining completely
+intact while most have been crushed to small pieces by people walking
+over them.  Examining the bones carefully you notice that beneath the
+pile a hint of metal shines through.
+~
+-1
+S
+
+#44041
+Dark Passage~
+A steady stream of water drops down from large cracks in the ceiling,
+making the passage very damp and cold.  Small rocks, broken free from the
+walls and ceiling, litter the floor of the passage.  To the north, west,
+and east the passage continues to snake through the cave system.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44042 10 10 5
+D1
+~
+~
+0 -1 44046 10 10 5
+D3
+~
+~
+0 -1 44040 10 10 5
+-1
+S
+
+#44042
+Dark Passage~
+The passage narrows here, becoming barely wide enough to allow a
+human-sized man to squeeze through sideways.  Thick cobwebs hang down
+from the ceiling, undisturbed for quite some time.  The walls along this
+section of the passage are a mixture of dark grey stone and yellowish
+sandstone, and off to the north the sandstone becomes more dominate.
+~
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 44043 10 10 5
+D2
+~
+~
+0 -1 44041 10 10 5
+E
+cobweb~
+Several giant cobwebs partially block the passage.  Dead bodies of
+beetles, roaches, and mice have been trapped in these webs, as well as
+several decomposing, now unrecognizable bodies.
+~
+-1
+S
+
+#44043
+Dark Passage - Dead End~
+The passage comes to an abrupt halt here, blocked to the north by a
+pillar of hardened sandstone.  Two unlit braziers stand before the
+northern wall but other then that the room is completely barren.  The
+passage continues back towards the south, leading into the darkness and
+maze of tunnels.
+~
+~
+301465613 11 6 0
+D2
+~
+~
+0 -1 44042 10 10 5
+E
+pillar sandstone~
+A large pillar of pure sandstone has been built into the northern most
+point of this passage, as if to block off movement in that direction. 
+Figures of desert ogres have been carved into its surface, making it
+appear decorative as well as structural.
+~
+-1
+S
+
+#44044
+Food Storage Room~
+Several humanoid bodies lie piled up in heaps across the floor of this
+incredibly cold storage room.  Huge slabs of beef hang down from the
+ceiling above, suspended by thick rope.  Barrels filled with vegetables
+lie in the northeast corner of the room.  Several dozen casks of wine lie
+piled up along the western side of the room from which you can see the
+outline of a door behind them.
+~
+[Merior] wrote a generic boring acode - feel free to make it nicer
+~
+301465605 11 6 0
+D2
+thick stone door~
+thick stone door~
+131 -1 44034 10 10 5
+D3
+thick stone door~
+thick stone door~
+195 -1 44035 10 10 5
+E
+humanoid bodies~
+Lying upon the floor are several frozen corpses of dwarves, gnomes and
+humans, each still bearing a look of pure terror upon their faces.  The
+armor that they once wore still remains upon their body but is stuck to
+their flesh and impossible to remove.
+~
+E
+beef slabs~
+Slabs of beef the size of a full grown cow hang from the ceiling
+suspended by thick rope.  Each slab has been skinned neatly and the flesh
+still hangs from the rib bones of the creature they came from.
+~
+E
+barrels~
+Several barrels sit stacked up in the corner of the room, filled with
+different vegetables from carrots to celery.  Half the barrels are filled
+with water to help preserve the food while others are coated with a
+thick, yellow substance.
+~
+E
+Casks~
+At least two dozen casks filled with red wine lie stacked up against the
+western side of the room.  A few of the casks still retain their sweet
+aroma while others have aged to the point where they have become pure
+alcohol.
+~
+A
+get take~
+barrel vegetable cask wine beef slab body~
+act_tochar( #notake, ch );
+~
+E
+notake~
+You cannot take anything from this room.
+~
+!
+0 0 0
+-1
+S
+
+#44045
+Secret Supply Room~
+Mounds of gold coins fill this large cubic room, glistening in the
+light.  Large sacks filled with precious gems lie scattered about the
+room in a unorganized manner.  Several chests rest along the western
+wall, some open and empty while others remain closed and locked.  In the
+center of the room lies a single gold brazier from which a large blue
+flame provides lighting for the room.  A large, glowing glyph lies etched
+into the southern wall, emitting a faint humming sound.  To the east the
+faint outline of a blackish-colored door can be seen.
+~
+~
+301465613 11 6 0
+D1
+blackish-colored door~
+blackish-colored door~
+431 62 44022 10 10 5
+E
+mound gold coins~
+Mounds of gold coins have been piled up against the western and northern
+walls.  The coins glisten in the light and send a shower of golden light
+across the room.  By the looks of the heaps, it would have taken someone
+over ten years to collect this many and there seems to be enough to make
+any man rich beyond his wildest dreams.
+~
+E
+sacks gems~
+The sacks are filled with several precious gems, from diamonds to
+sapphires.  Each gem is cut in a different and unique way and a few are
+multi-colored.  Searching through the sacks carefully you note that
+several of the gems are the size of an ogre's clenched fist and some that
+are of colors you have never seen before.
+~
+E
+brazier~
+The brazier is made from solid gold and has had several blue diamonds
+embedded into the metal.  A small pile of grey powder provides the fuel
+for the blue flame which blazes brightly from within the brazier.
+~
+E
+glowing silver glyph~
+The glyph has been carved in the shape of two arrows crossing each other
+inside a triangle.  Rubies have been embedded around its perimeter which
+glow faintly.  The glyph itself hums with magic and sends a ray of bluish
+light directly at the large crimson-colored chest in the cnter of the
+room.
+~
+A
+inspect~
+a closed crimson-colored steel chest slightly very rusty~
+if( find_skill( ch, inspect ) > random( 3, 15 ) )
+act_tochar( #trap, ch );
+else
+act_tochar( #notrap, ch );
+~
+E
+trap~
+You carefully examine the lock on the steel chest and notice a thin metal
+wire hanging just above a metal plate beneath the chest.
+~
+E
+notrap~
+You inspect the chest and find that it is trapless.
+~
+!
+0 0 0
+A
+disarm untrap~
+a closed crimson-colored steel chest slightly very rusty glyph warding~
+if( !has_obj( 2582, ch ) ) {
+  act_tochar( #rune, ch );
+  end;
+  }
+if( has_obj( 2582, ch ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_tochar( #done, ch );
+    end;
+    }
+  if( find_skill( ch, untrap ) > random( 2, 15 ) ) { 
+    remove_rflag( reset0, room );
+    act_tochar( #success, ch );
+    obj = has_obj( 2582, ch );
+    junk_obj( obj, 1 );
+    }
+  else { 
+    act_tochar( #oops, ch );
+    act_notchar( #oops1, ch );
+    loop( all_in_room ) {
+      if( is_player( rch ) )
+        dam_message( rch, 1d1+149, "The glyph of warding" );
+      inflict( rch, mob, 1d1+149, "A glyph of warding" );
+      }
+    }
+  }
+~
+E
+success~
+You carefully disarm the magical glyph and watch it as it slowly fades
+out of existance.
+~
+E
+oops~
+You accidently trip the glyph and a thundering roar fills the room!
+~
+E
+oops1~
+$n suddenly jumps back from the chest with a look of terror in $s eyes!
+~
+E
+done~
+The trap has already been disarmed.
+~
+E
+rune~
+@WThe rune of warding upon the wall has generated a replusion aura about
+the chest, you will have to find a way to dispel it before you can open
+the chest.
+~
+!
+0 0 0
+A
+pick unlock~
+a closed crimson-colored steel chest slightly very rusty~
+i = random( 1, 10 );
+if( rflag( reset0, room ) ) { 
+  act_tochar( #ouch, ch );
+  act_notchar( #ouch1, ch );
+  loop( all_in_room ) {
+    if( is_player( rch ) )
+      dam_message( rch, 1d1+149, "The glyph of warding" );
+    inflict( rch, mob, 1d1+149, "A glyph of warding" );
+    }
+  }
+else
+  continue;
+~
+E
+ouch~
+You accidently let the wire touch the metal plate and suddenly a
+thundering roar fills the room!
+~
+E
+ouch1~
+$n accidently trips the trap on the chest and suddenly the glyph on the
+wall flares to life as a thundering roar fills the room!
+~
+!
+0 0 0
+A
+get take grab~
+mounds coins~
+act_tochar( #zap, ch );
+act_notchar( #zap1, ch );
+do_spell( lightning bolt, ch );
+~
+E
+zap~
+@eAs you reach for the coins the glyph on the south wall suddenly flares
+to life and a bolt of lightning erupts from it!
+~
+E
+zap1~
+@eAs $n reaches for the coins the glyph on the south wall suddenly flares
+to life and a bolt of lightning erupts from it!
+~
+!
+0 0 0
+1910 49 1509949540 -2 0
+1873 81 1509949443 -2 0
+16 81 1509949490 -2 0
+16 81 1509949490 -2 0
+16 81 1509949490 -2 0
+2249 81 1509949450 -2 0
+2250 81 1509949443 -2 0
+182 81 1509949470 -2 0
+77 81 1509949444 -2 0
+1021 81 1509949443 -2 0
+-1
+S
+
+#44046
+Dark Passage~
+Thick cobwebs hang down from the ceiling creating a tangled mess of
+silken thread.  Chunks of stone litter the floor, merging with a huge
+pile of boulders which lies against the eastern wall, cutting off passage
+in that direction.  A few unlit torches hang upon the wall, covered in
+mildew and grime.  To the west, passage continues through the caves.
+~
+~
+301465605 11 6 0
+D3
+~
+~
+0 -1 44041 10 10 5
+E
+chunk stone boulder~
+A huge pile of gray boulders blocks any movement towards the west. 
+closer to you are large chunks of the same stone, a rock which seems to
+match that of the passage itself.
+~
+E
+cobweb~
+Cobwebs, probably built by spiders far larger then their more common
+counterpart provide evidence that this passage has not been used for a
+long time.  Although there is no sign of the web's builders, they must
+have been quite large to have made such a tangled mass of threads.
+~
+1419 9 1509949540 3 0
+1419 9 1509949540 3 0
+1419 9 1509949540 3 0
+-1
+S
+
+#44047
+Torch-Lined Passage~
+Under Construction.
+~
+~
+301465601 11 6 0
+-1
+S
+
+#44048
+Faintly Glowing Tunnel~
+This portion of the tunnel is rather crude, showing signs of recent work. 
+Large wooden beams rise up alongside you, supporting the stone roof's
+massive weight.  A faint blue glow fills the corridor causing your own
+shadow to dance across the walls rough surface.  Lying upon the floor are
+the remains of a humanoid creature, his skull crushed by some massive
+force.  To the north lies a more brightly lit tunnel while to the south
+the blue glow becomes brighter.
+~
+~
+301465605 11 6 0
+D0
+~
+~
+0 -1 44024 10 10 5
+D2
+~
+~
+0 -1 44049 10 10 5
+E
+wooden beams~
+The beams are made from large strips of blackened wood which have several
+mithril and steel bands wrapped around them for added reinforcement. 
+Cracks and gashes run down the length of the beams, caused by the stress
+from the heavy stone ceiling above.
+~
+E
+remains humanoid creature bones~
+The remains are that of a human whose skull has been crushed by some
+tremendous force.  His legs, arms and ribs have all been snapped like
+they were mere twigs.  Bits of blood-red leather still cling to his bones
+and the boots he once wore are now nothing more then brittle cloth. 
+Clutched in his hand is a mithril dagger which still retains its polished
+appearance.
+~
+A
+get take grab~
+mithril dagger~
+act_tochar( #nope, ch );
+act_notchar( #nope1, ch );
+~
+E
+nope~
+@eYou attempt to pry the dagger from the skeleton's hand but it
+mysteriously vanishes.
+~
+E
+nope1~
+@e$n attempts to pry the dagger from the skeleton's hand but it
+mysteriously vanishes.
+~
+!
+0 0 0
+-1
+S
+
+#44049
+Faintly Glowing Tunnel~
+Several strange glyphs have been etched into the sharp stone walls here,
+each pulsing with a deep blue color and humming faintly.  The sound of
+dripping water echoes down the tunnel but other than that and the sound
+of your own footsteps, the area is silent.  To the west the tunnel
+curves, heading towards the bright blue glow, while to the north the
+tunnel becomes more dimly light.
+~
+~
+301465613 11 6 0
+D0
+~
+~
+0 -1 44048 10 10 5
+D3
+~
+~
+0 -1 44050 10 10 5
+E
+strange glyphs etched walls~
+The walls have had several odd glyphs etched into their smooth surface in
+the form of a triangle.  The glyphs are arcane to you in meaning or
+origin.  The glyph's pulsing auras shed an unnatural blow glow bouncing
+against the walls.  In the center of the triangle the image of a clenched
+fist has been carved into the stone wall.
+~
+-1
+S
+
+#44050
+Before a Rune-Inscribed Door~
+Directly to the north, a massive rune-inscribed door made of pure
+silver has been placed into the stone wall of the cavern.  A single torch
+hangs from the western wall, shedding an unnaturally bright blue glow
+across the walls and down the tunnel.  In the southwest corner of the
+room lies a rather large pile of moldy straw and a few tattered rags. 
+Above you lies a stone shaft which rises out of sight and into darkness. 
+Upon the floor several words have been crudely etched into the stone.
+~
+~
+301465613 11 6 0
+D0
+rune-inscribed door~
+rune-inscribed door~
+131 -1 44051 10 10 5
+D1
+~
+~
+0 -1 44049 10 10 5
+E
+north rune-inscribed door massive~
+This large door is made from a single slab of highly polished obsidian. 
+Several runes have been etched into its surface which pulse with a bluish
+glow.  In the center of the door is a very large glyph which resembles an
+open palm holding a ball of fire.
+~
+E
+torch western wall~
+The torch is like any other you have seen before except for the fact that
+its flame burns with a bright blue light.  Examining it closely you
+notice a few strange glyphs and runes etched along the shaft of the torch.
+~
+E
+southwest corner pile moldy straw~
+The pile of straw is covered in mildew and grime that has accumulated
+over time in the damp climate of the caves.  Examining it closely you
+notice a strip of flesh hidden beneath it and an empty small iron flask. 
+Lying next to the pile are a few tattered rags covered in some unknown
+substance and emitting a horrid stench.
+~
+E
+tattered rags~
+Sifting through them you notice that they are actually tunics and
+breeches made for a human-sized man.  The rags are covered in mildew and
+some substances which you cannot identify.  A horrid stench, like that of
+an unwashed body wafts up from the rags.
+~
+E
+up stone shaft~
+The shaft is a four foot by four foot cube-shaped hole that heads
+vertically up through the cavern ceiling.  Droplets of water occasionally
+drop from within the shaft but other than that it is unknown what lies up
+within it.
+~
+E
+words floor~
+Although rather crudely written you manage to decipher them:
+
+@eHere rests one of the centers of mana in the world.  Be ye warned
+all who attempt to destroy the magics here.
+~
+A
+get take~
+flask~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You are not able to remove the flask from beneath the flesh.
+~
+!
+0 0 0
+1417 9 1509949540 3 0
+-1
+S
+
+#44051
+Master Warlock's Chamber~
+Bubbling cauldrons, tables covered in glass vials and alchemy devices
+fill this large room.  Upon the western wall are several sets of shackles
+in which humanoid skeletal remains still rest.  Looking down on the floor
+you notice a painting of fearsome ogres battling hordes of black dragons. 
+A large bookcase stands against the eastern wall, filled with several
+scrolls, books, and dusty tomes.  At the far northern end of the room
+sits a large throne made from many humanoid bones and skulls.  To the
+south a massive rune-inscribed door rises up.
+~
+~
+301465613 11 6 0
+D2
+rune-inscribed door~
+rune-inscribed door~
+131 -1 44050 10 10 5
+E
+Bubbling cauldrons~
+The massive cauldrons are made of a red-orange iron covered in scorch
+marks.  Their bottoms glow a bright red from the intense heat provided by
+the firepits beneath them.  A foul stench like that of pure sulphur wafts
+out from within them and every few moments a splatter of some
+reddish-colored ooze spills out over the edges.
+~
+E
+shackles~
+These wrought iron shackles have been hammered into the wall by great
+steel spikes which hold them securely in place.  Each set of shackles is
+a different size, ranging from gnome to troll size.  The shackles
+themselves are covered in dried blood from past foes who were unfortunate
+enough to be chained in here.  A few humanoid skeletons, covered in
+tattered rags, still lie shackled to the wall.
+~
+E
+painting floor~
+The painting has been made using what looks like blood and mutli-colored
+clay.  The mural depicts several large ogres in platemail assaulting a
+horde of black dragons.  Ogres mounted on large sand-colored lizards rush
+up from the rear of the battle.  In the center of the mural an abnormally
+large ogre dressed in heavy black robes stands with his hands pointed at
+a rather large dragon as it is hit by a fireball.  On the far corner of
+the mural a large, red winged demon floats above the ground, as if
+observing the ferocious battle.
+~
+E
+bookcase~
+The bookcase is made from highly polished birchwood and has a series of
+minature ogres carved into it.  Rows of books, scrolls and old tomes,
+covered in dust, lie along the shelves.  A single, flesh-bound book rests
+ontop of the bookcase, a faint howl emanating from within it.
+~
+E
+throne~
+Composed of several humanoid skulls and other bones, the throne is quite
+massive, able to seat at least two human-sized men side by side.  The
+bones are very glossy in appearance and a few have had gems embedded into
+them.  Scraps of purple velvet hang along the backboard and a mottled
+cushion rests in the seat itself.
+~
+E
+humanoid skeletons~
+The skeletons are those of a gnome, a human and a rather large troll. 
+Each of the skeletons is covered in a set of tattered rags which emit a
+foul stench of decaying flesh.  Looking closely you notice that the
+skeleton of a gnome wears a blue diamond ring on his left hand.
+~
+E
+south rune-inscribed door~
+The door is made of a single slab of black obsidian which has had several
+glowing runes etched into its surface.  Each rune glows a different color
+and a few of them hum with magic.  At the very bottom of the door lies a
+line of small runes which pulse with a purple light.
+~
+A
+get take grab~
+book scroll tome~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  i = random( 1, 12 );
+  if( i == 1 ) {
+    act_tochar( #got, ch );
+    act_notchar( #got1, ch );
+    obj_to_char( oload( 1016 ), ch );
+    end;
+    }
+  if( i == 2 ) {
+    act_tochar( #got, ch );
+    act_notchar( #got1, ch );
+    obj_to_char( oload( 1022 ), ch );
+    end;
+    }
+  if( i == 3 ) {
+    act_tochar( #got, ch );
+    act_notchar( #got1, ch );
+    obj_to_char( oload( 1013 ), ch );
+    end;
+    }
+  }
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+got~
+@eYou take one of the scrolls from within the bookcase.
+~
+E
+got1~
+@e$n takes one of the scrolls from within the bookcase.
+~
+E
+no~
+@eYou take one of the scrolls from the bookcase but it crumbles in your
+hand.
+~
+E
+no1~
+@e$n takes one of the scrolls from the bookcase but it crumbles in $s
+hand.
+~
+!
+0 0 0
+A
+get take grab~
+ring skeleton~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no~
+@eYou attempt to pry the ring from the skeleton of a gnome's finger but
+cannot free it.
+~
+E
+no1~
+@e$n attempts to pry the ring from the skeleton of a gnome's finger but
+cannot free it.
+~
+!
+0 0 0
+1636 9 1509949540 3 0
+-1
+S
+
+#44052
+Slave Pens~
+This cubical stone room is filled knee-deep with moldy hay.  Several
+dozen sets of steel shackles hang from the walls, some containing the
+skeletal remains of humanoids while others hang empty.  Bloodstains cover
+the walls and a sickening stench of decaying flesh wafts through the air. 
+In the center of the room lies a small, unlit firepit around which
+several empty stone cups rest.  To the east lies a heavy, iron door
+reinforced with mithril bands.
+~
+~
+301465613 11 6 0
+D1
+mithril-banded iron door~
+mithril-banded iron door~
+391 2452 44017 10 10 5
+E
+shackles~
+The shackles rang in size, from gnome to giant size.  Each set of
+shackles is made from steel and look quite capable of holding someone
+here securely without a chance of escape.  Dried blood cover a few sets
+of the shackles from past prisoners.  A few of the shackles still retain
+the skeletons of several humanoid creatures.
+~
+E
+bloodstains~
+Almost every wall is covered in dried blood which completely obscures the
+greyish-colored stone beneath.  Handprints and splatters of blood cover
+the southern wall along with an extremely large spot of blood on the west
+wall.
+~
+E
+skeletal remains humanoids~
+The skeletal remains of a dwarf, human, and ogre rest in the shackles. 
+Their flesh has been completely stripped and only dull, grey bones remain. 
+Examining them closely you note that all of the skeletons have had their
+legs broken as well as their necks.
+~
+E
+firepit~
+The firepit is a mere circle of stones with a few small twigs lying
+within it.  A small piece of flint and steel rests beside the firepit as
+does a small piece of tinder.
+~
+E
+stone cups~
+The cups are nothing amazing, just crudely made drinking containers.  A
+few contain some blackish-colored liquids while the rest are empty.
+~
+A
+get take grab~
+cup stone~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #no, ch );
+  act_notchar( #no1, ch );
+  obj_to_char( oload( 761 ), ch );
+  }
+else
+act_tochar( #nope, ch );
+act_notchar( #nope1, ch );
+~
+E
+no~
+@eYou take one of the stone cups from near the firepit.
+~
+E
+no1~
+@e$n takes one of the stone cups from near the firepit.
+~
+E
+nope~
+@eYou take one of the stone cups near the firepit but it crumbles in your
+hand.
+~
+E
+nope1~
+@e$n takes one of the stone cups near the firepit but it crumbles in $s
+hand.
+~
+!
+0 0 0
+A
+get take grab~
+shackles~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no~
+@eYou tug and heave at the shackles but despite your effort you cannot
+remove them from the wall.
+~
+E
+no1~
+@e$n tugs and heaves at the shackles but despite $s effort $e cannot
+remove them from the wall.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

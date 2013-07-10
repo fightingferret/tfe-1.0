@@ -1,0 +1,6266 @@
+#AREA
+Shadybrook~
+Terek Olah~
+~
+
+0 0
+3
+#ROOMS
+
+#76750
+Before the Gates of Shadybrook~
+Rising up before you to the south are the massive stone gates of the
+halfling city of Shadybrook.  Etched into each of the gates is the image
+of a delicate white rose on a blood-red shield.  On each side of the
+gates a stone watchtower has been erected and from within it you can see
+several halflings peering over over the horizon.  Spanning out around you
+to the northeast and northwest are the vast rolling hills of the
+Shadybrook wilds which go on for miles with no end in sight.  To the
+north the worn, wagon-rutted Southern Trade Road journeys off over the
+rolling hills of the wilds.
+~
+[Terek] Buffalo, Antelope, Bison, Cheetah, red-tailed hawks
+[Terek] Wild Horse, Minotaur Lizard, Locust Swarm. Warthog, Wild stags
+[Terek] Giant black Widow, Copperhead
+~
+368574465 1 6 0
+D0
+~
+~
+0 -1 77359 10 10 5
+D1
+~
+~
+0 -1 77751 10 10 5
+D2
+sturdy stone gates~
+sturdy stone gates~
+195 -1 76751 10 10 5
+D3
+~
+~
+0 -1 77839 10 10 5
+A
+knock pound bang~
+massive stone gates~
+if( race( ch ) == goblin ) {
+  act_tochar( #pound, ch );
+  act_notchar( #pound1, ch );
+  Wait( 2 );
+  act_tochar( #woops, ch );
+  act_notchar( #woops1, ch );
+  Wait( 2 );
+  act_room( #yell, ch );
+  }
+if( race( ch ) == orc ) {
+  act_tochar( #pound, ch );
+  act_notchar( #pound1, ch );
+  Wait( 2 );
+  act_notchar( #woops1, ch );
+  act_tochar( #woops, ch );
+  Wait( 2 );
+  act_room( #yell, ch );
+  }
+if( race( ch ) == troll ) {
+  act_tochar( #pound, ch );
+  act_notchar( #pound1, ch );
+  Wait( 2 );
+  act_notchar( #woops1, ch );
+  act_tochar( #woops, ch );
+  Wait( 2 );
+  act_room( #yell, ch );
+  }
+if( race( ch ) == ogre ) {
+  act_tochar( #pound, ch );
+  act_notchar( #pound1, ch );
+  Wait( 2 );
+  act_notchar( #woops1, ch );
+  act_tochar( #woops, ch );
+  Wait( 2 );
+  act_room( #yell, ch );
+  }
+if( race( ch ) == vyan ) {
+  act_tochar( #pound, ch );
+  act_notchar( #pound1, ch );
+  Wait( 2 );
+  act_notchar( #woops1, ch );
+  act_tochar( #woops, ch );
+  Wait( 2 );
+  act_room( #yell, ch );
+  }
+act_tochar( #pound, ch );
+act_notchar( #pound1, ch );
+Wait( 2 );
+act_tochar( #guard, ch );
+act_notchar( #guard1, ch );
+Wait( 2 );
+act_room( #open, ch );
+open( room, south );
+~
+E
+pound~
+@YYou pound on the gates several times.
+~
+E
+pound1~
+@Y$n pounds on the gates several times.
+~
+E
+guard~
+@YSeveral moments later the gates slowly grind open enough for a
+heavily-armored halfling to step out.  He carefully looks you over and
+than with a nod of approval quickly vanishes back behind the gates.
+~
+E
+guard1~
+@YSeveral moments later the gates slowly grind open enough for a
+heavily-armored halfling to step out.  He carefully looks $n over and
+than with a nod of approval quickly vanishes back behind the gates.
+~
+E
+open~
+@YMoments later the sound of stone grinding fills the air as the gates
+swing fully open and the city of Shadybrook spans out before you.
+~
+E
+woops~
+@YSuddenly there is movement in the watchtowers above and you quickly
+glance up to see several halflings with crossbows trained on you!
+~
+E
+woops1~
+@YSuddenly there is movement in the watchtowers above and you quickly
+glance up to see several halflings with crossbows trained on $n!
+~
+E
+yell~
+@YFrom somewhere behind the gates you hear someone bellow:@n @W"Your kind
+is nay welcome 'ere!  Now leave if'n ye value your miserable life!"@n 
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+Wait( 1 );
+act_room( #secure, ch );
+close( room, south );
+~
+E
+secure~
+@YThe sound of stone grinding fills the air as the gates slowly close and
+lock into place.
+~
+!
+1 0 4
+-1
+S
+
+#76751
+Inside the North Gates of Shadybrook~
+Directly to the north of you are the massive stone gates leading out of
+the city of Shadybrook.  Deep ruts have been carved into the ground
+around the gates, testament to the many years they have opened and closed
+to allow travellers in.  Set into the right side of the wall next to
+gates is a large steel @Wlever@n covered in grime.  Built up on each side
+of the gates to the east and west are small stone guardhouses with
+watchtowers built on top of their roofs.  To the south the city of
+Shadybrook begins to unfold before you.
+~
+~
+301465673 1 6 0
+D0
+sturdy stone gates~
+sturdy stone gates~
+195 -1 76750 10 10 5
+D1
+small stone door~
+small stone door~
+131 -1 76869 10 10 5
+D2
+~
+~
+0 -1 76752 10 10 5
+D3
+small stone door~
+small stone door~
+131 -1 76871 10 10 5
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+Wait( 1 );
+act_room( #secure, ch );
+close( room, north );
+~
+E
+secure~
+@YThe sound of stone grinding fills the air as the halflings quickly
+close the gates and lock them, checking them over once more before they
+return to their posts.
+~
+!
+1 0 1
+A
+pull yank tug~
+steel lever~
+if( is_open( room, north ) ) {
+  act_tochar( #open?, ch );
+  end;
+  }
+act_tochar( #pull, ch );
+act_notchar( #pull1, ch );
+Wait( 1 );
+Act_room( #open, ch );
+open( room, north );
+~
+E
+open?~
+The gates are already open.
+~
+E
+pull~
+@YYou pull the steel lever down.
+~
+E
+pull1~
+@Y$n pulls the steel lever down.
+~
+E
+open~
+@YA moment later the sound of stone griding fills the air and the gates
+slowly swing open.
+~
+!
+0 0 0
+2207 9 1509949540 3 0
+2207 9 1509949540 3 0
+-1
+S
+
+#76752
+Intersection of North Main Street and North Jezebel Avenue~
+Spanning out before you to the south, southwest and southeast is the vast
+city of Shadybrook.  Large and small white stone houses alike dot the
+grassy landscape of the city.  The roads are covered in deep wagon ruts
+which cut through the low grass.  The land rises and falls due to the
+builders taking no time to flatten the landscape, leaving it as it was
+several years ago.  Jezebel Avenue lies to the east and west of this
+point, making its lap around the exterior ring of the city.  To the south
+North Main Street plunges deep into the heart of the city.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76751 10 10 5
+D1
+~
+~
+0 -1 76806 10 10 5
+D2
+~
+~
+0 -1 76753 10 10 5
+D3
+~
+~
+0 -1 76813 10 10 5
+E
+1 north gates~
+Looming off to the north are the stone gates of the city; their white
+marble bricks standing out against the green background.  Atop each side
+of the gates are stone watchtowers in which you can see small shapes
+moving about.
+~
+E
+wagon ruts~
+Each of the wagon ruts that scar the surface of the road are about three
+inches deep.  The bottom of the ruts are filled with a small layer of mud
+as well as some bits of gravel.  The grass around the edge of them has
+been trampled by the many feet that have walked across this point.
+~
+2202 9 1509949540 3 0
+2202 9 1509949540 3 0
+2211 9 1509949540 3 0
+-1
+S
+
+#76753
+North Main Street~
+The street here is covered with deep wagon ruts that have filled with
+water from past rains, leaving puddles of mud everywhere.  Sitting just
+off the street to the east and west are small stone houses with wide
+gravel walkways leading up to them.  Around the foundations of each house
+are small white lilies and red rose bushes.  To the south North Main
+Street continues its course into the heart of the city towards a small
+hill.  To the north the street makes its way towards the northern gates
+of the city.
+~
+[Terek] Acodes Fixed
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76752 10 10 5
+D1
+small wooden door~
+small wooden door~
+131 -1 76878 10 10 5
+D2
+~
+~
+0 -1 76763 10 10 5
+D3
+small wooden door~
+small wooden door~
+131 -1 76877 10 10 5
+E
+wagon ruts~
+Several wagon ruts scar the grassy surface of the street here,
+criss-crossing each other at several points.  Each rut is about two
+inches deep and has filled with small puddles of water.
+~
+E
+1 east west stone houses~
+Standing off the edge of the street to the east and west are small,
+thatched roof stone cottages.  Both hoses are nearly identical; each have
+white marble walls, two windows and a single, small door.  Small, grey
+rock gravel walkways lead up to the doors of each house.  Around the base
+of the walls are several rows of white lilies as well as some roses
+bushes.
+~
+E
+gravel walkways~
+These small walkways are about three feet wide and composed of small,
+greyish-colored stones.  Larger stones of the same color line the sides
+of the walkway as it heads up to the tiny doorways.
+~
+E
+white lilies red rose bushes~
+Small, ivory-white lilies and bright-red rose bushes have been planted at
+around the base of the small cottages to the east and west.  Each of the
+flowers is in full bloom and their pleasant aroma fills the air.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76878 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the east.
+~
+E
+2~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the east.
+~
+E
+arrive~
+$n arrives from the west.
+~
+!
+3 0 2
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76877 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the west.
+~
+E
+2~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the west.
+~
+E
+arrive~
+$n arrives from the east.
+~
+!
+3 0 8
+-1
+S
+
+#76754
+Sunnydale Park - North End~
+Small oak trees dot the grassy hilltop of the park.  Tucked in between
+the trees are small stone benches; each covered in leaves.  Scanning the
+area around you, you note that you are directly in the center of town and
+the dozens of residental buildings and shops span out in every direction
+around you.  To the north the hill slopes down on a thirty degree angle
+as it heads back down into the business district of the town.  To the
+east and west the park continues along the gently sloping hill.  Directly
+to the south a large crystal fountain rises up from the center of the
+park.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76763 10 10 5
+D1
+~
+~
+0 -1 76762 10 10 5
+D2
+~
+~
+0 -1 76755 10 10 5
+D3
+~
+~
+0 -1 76761 10 10 5
+E
+small oak trees~
+These young oak trees are only a few years old judging by the size of
+their trunks.  The rich brown bark of its branches is free of any moss or
+bug infestation.  Multi-colored leaves fill their branches, each taking
+on the hue of a rainbow.
+~
+1 17 1509949540 -2 0
+3386 17 1509949540 -2 0
+-1
+S
+
+#76755
+Before a Magnificent Crystal Fountain~
+Positioned in the center of the park here is a massive fountain made
+entirely from a bluish-hued crystal.  The fountain has been carved into
+the shape of the goddess Freylia kneeling before a fallen halfling
+bedecked in battle-armor.  Around the base of the fountain are several
+small white rose bushes.  Nearly obscured by the thick vines of the roses
+is a small silver @Wplaque@n upon which something has been engraved. 
+Surrounding the fountain in all directions are pearly-white marble
+benches.  The park spans out in all directions along the slopes of the
+hill.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76754 10 10 5
+D1
+~
+~
+0 -1 76757 10 10 5
+D2
+~
+~
+0 -1 76758 10 10 5
+D3
+~
+~
+0 -1 76756 10 10 5
+E
+plaque~
+Pushing aside the thick vines to reveal the text upon the plaque:
+
+@YOur savior.
+@YOur goddess.
+@YIn times of doubt.
+@YIn times of sadness.
+@YIn times of need.
+@YShe will be there.
+@YTo guide us to our destiny.
+@YTo lift our sadness.
+@YTo aid us.
+
+@nThe author's name lies beneath the text: @YLady Lochsire Mzelia@n
+~
+E
+crystal fountain~
+This massive fountain has been carved from a bluish-hued crystal which
+twinkles in the light.  The fountain has been shaped in the likeness of
+the goddess Freylia kneeling before a fallen halfling warrior with her
+arms cradling his small head.  Freylia herself is bedecked in battle
+armor and strapped to her back is a massive two-handed sword.
+~
+E
+white rose bushes~
+Planted around the base of the fountain are several healthy rose bushes
+which bear ivory-white roses.  Each of the roses is in full bloom and
+their delicate petals have droplets of dew scattered across them.  Thick
+vines from the bushes tangle with each other and continue around the
+fountain where they nearly obscure a small plaque.
+~
+1 17 1509949540 -2 0
+-1
+S
+
+#76756
+Sunnydale Park - West End~
+Hundreds of walnuts lie scattered about the park, most of which have been
+robbed of their meat leaving only their tops while a few have remain
+unscathed.  The lush, green grass has been cut down to the height of
+about three inches, making this a lovely picnic area.  The branches of a
+large walnut tree which lies off the north hang just a few feet overhead,
+blocking out the view of the sky and providing a cool shade.  To the east
+the sound of a bubbling fountain can be clearly heard.  To the north,
+east, and south the park continues while to the west the hill slopes
+downwards and heads onto a small street.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76761 10 10 5
+D1
+~
+~
+0 -1 76755 10 10 5
+D2
+~
+~
+0 -1 76760 10 10 5
+D3
+~
+~
+0 -1 76770 10 10 5
+E
+walnuts park~
+Scattered about the lush green grass of the park are hundreds of broken
+walnuts; each stripped of their meat.  Mixed in with the acorns are
+several twigs and a few dry leaves.
+~
+E
+branches walnut tree~
+The branches of a large walnut tree which lies off to the north span
+overhead blocking out the view of the sky.  Large, flat leaves fill the
+branches of the trees as well as several hundred walnuts.
+~
+3386 17 1509949540 -2 0
+-1
+S
+
+#76757
+Sunnydale Park - East End~
+Like a soft velvet blanket stretched over a bed, the thick, green grass
+of the park covers every inch of the hill, only interrupted by the
+occasional patch of wildflowers or tree.  To the northeast, southeast and
+east you are given a clear view of the city from its small stone cottages
+and buildings to its massive walls which surround it.  Directly to the
+west a large crystal fountain has positioned in the center of the park
+and the sound of its bubbling water drifts through the air.  To the east
+the hill slopes down and onto a small street.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76762 10 10 5
+D1
+~
+~
+0 -1 76780 10 10 5
+D2
+~
+~
+0 -1 76759 10 10 5
+D3
+~
+~
+0 -1 76755 10 10 5
+3386 17 1509949540 -2 0
+-1
+S
+
+#76758
+Sunnydale Park - South End~
+Large patches of wildflowers cover almost every inch of the park in this
+spot; their sweet aroma filling the air.  Spanning out to the southeast
+and southwest is the vast green landscape of the city, occasionally
+interrupted by white stone buildings.  Directly to the east a large maple
+tree stands at an angle on the side of the hill.  To the north a fountain
+made of crystal has been erected in the center of the park.  Below the
+hill to the south a street begins its southern journey through the city.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76755 10 10 5
+D1
+~
+~
+0 -1 76759 10 10 5
+D2
+~
+~
+0 -1 76776 10 10 5
+D3
+~
+~
+0 -1 76760 10 10 5
+3386 17 1509949540 -2 0
+-1
+S
+
+#76759
+Sunnydale Park - Southeast Corner~
+Dominating this corner of the park is a gigantic maple tree, several
+decades old, which hangs on an angle on the edge of the hill.  Its thick,
+dark brown trunk is the size of four halflings after a good meal.  Its
+delicate branches are covered in bright green leaves which occasionally
+fall to the ground when the wind blows.  Resting beneath the shade of the
+tree next to its trunk is a small bench.  Young wildflowers have begun to
+sprout up from beneath the lush green grass, adding a touch of color to
+the landscape.  The park continues onward to the north and west.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76757 10 10 5
+D3
+~
+~
+0 -1 76758 10 10 5
+3386 17 1509949540 -2 0
+-1
+S
+
+#76760
+Sunnydale Park - Southwest Corner~
+Scattered about this section of the park are four foot high sunflowers;
+their bright yellow petals standing out against the green background. 
+The remains of a small cobblestone wall sits hanging on the edge of the
+hill to the south and west.  Glittering across the length of the wall are
+the tiny silken threads from a spider; each glistening in the light. 
+Placed diagnoally to the southwest is a small marble bench which carvings
+of halflings at play etched across its surface.  The park continues to
+the east and north from here, across the rolling hill.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76756 10 10 5
+D1
+~
+~
+0 -1 76758 10 10 5
+E
+sunflowers~
+These large sunflowers stand about four feet high with thick, round stems. 
+Their bright yellow petals stand out against the green landscape, adding
+a flare of color to the park.  Scattered about the base of the flowers
+are several large white and black seeds.
+~
+E
+1 south west cobblestone wall~
+The remains of a cobblestone wall lie just to the south and west of here,
+leaning off the edge of the hill.  The white marble stones which were
+used to compose it are now cracked and brittle having bore the burden of
+the elements for so many years.
+~
+E
+silken threads web~
+Like a piece of artwork an intricate design made from silken threads has
+been stretched across the remains of the cobblestone wall to the south
+and west.  Trapped within the threads are several small bugs ranging from
+flies to ants.
+~
+E
+small marble bench stone~
+This small bench is about three feet long and two feet wide.  A single
+slab of white marble was used to compose it as well as its legs.  Etched
+into its surface are several carvings of halflings at play and frolicking
+amidst a woodland landscape.
+~
+3386 17 1509949540 -2 0
+-1
+S
+
+#76761
+Sunnydale Park - Northwest Corner~
+The view of the surrounding city is marvelous from this vantage point;
+every small building as well as tree and road can be clearly seen. 
+Towering to the northwest on the edge of the hill is a large walnut tree
+with large, leaf-filled branches which span overhead, providing a cooling
+shade.  Placed in a small dip a few feet from the tree is a small marble
+bench polished to a high gloss.  To the southeast a fountain rises up in
+the center of the park.  To the east and south the park continues across
+the grassy hill.
+~
+[Terek] I am NOT writing a special extra for each bench, their all the same!
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76754 10 10 5
+D2
+~
+~
+0 -1 76756 10 10 5
+E
+1 northwest walnut tree~
+Towering up in the northwest corner, leaning off the edge of the hill, is
+a massive walnut tree.  Its thick, long branches are filled with lush
+green leaves as well as several hundred tiny walnuts.  Scattered about
+the base of the tree are several walnut shells robbed of their meat.
+~
+3386 17 1509949540 -2 0
+-1
+S
+
+#76762
+Sunnydale Park - Northeast Corner~
+A lone oak tree stands on this portion of the park.  Aged and gnarled it
+looks as though at any moment it could collapse beneath its own weight. 
+Erected on the northeast edge of the hill here is the statue of a
+beautiful halfling woman bedecked in battle-armor and grasping a large
+spiked mace.  At the base of the statue is a small bronze plaque nearly
+obscured by the thick grass which grows around it.  A few feet to the
+southwest of the statue a small bench has been placed.  The park spreads
+out the south and west from this point.
+~
+~
+301465665 1 6 0
+D2
+~
+~
+0 -1 76757 10 10 5
+D3
+~
+~
+0 -1 76754 10 10 5
+3386 17 1509949540 -2 0
+-1
+S
+
+#76763
+North Main Street~
+Most of the grass along this strip of the street has been ripped away by
+the many feet that tread down this road everyday.  In place of the grass
+are large mud puddles which span almost the entire width of the road. 
+Standing just off the street to the west is a large white marble building. 
+Great stone pillars line the front of the building and support its
+massive domed ceiling.  Directly to the east an open archway leads into a
+small, brightly-lit stone building.  To the south the street climbs up a
+sloping hill onto Sunnydale Park.  To the north the street continues its
+course through the city.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76753 10 10 5
+D1
+~
+~
+0 -1 76845 10 10 5
+D2
+~
+~
+0 -1 76754 10 10 5
+D3
+~
+~
+0 -1 76837 10 10 5
+E
+grass street~
+This strip of road is void of any grass, having been ripped away by years
+of travellers treading across it.  In place of the grass are large mud
+puddles which span across the width of the road.
+~
+E
+mud puddles~
+These large mud puddles are a dark brown color and some have taken on the
+color of the soil; a rich black color.  Each of the puddles are mere
+inches from one another.  The large puddles span the entire width of the
+road, leading right up to the doorways of two stone buildings to the east
+and west.
+~
+E
+1 west stone pillars bulding domed ceiling~
+Lying directly off the edge of the road to the west is an impressive
+stone building composed of white marble.  Stone pillars, at least
+thirteen feet high, line the front of the building and support its
+massive dome-shaped roof.
+~
+E
+1 east archway stone building~
+Directly to the east of you, just off the edge of the street, is a small
+stone building with a yellow-brown thatched roof.  An open archway is the
+only visible means of entrance into the building.  Its interior is very
+brightly-lit giving it a cheerful atmosphere.
+~
+E
+1 south sunnydale park~
+Directly to the south the street begins to ascend a hill towards the
+center of town.  Atop the hill you can just barely make out a few trees,
+benches and a single fountain which rises up in the center of it.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@YYou clamber up the hill towards Sunnydale Park.
+~
+E
+not_char~
+@Y$n clambers up the hill towards Sunnydale Park.
+~
+!
+3 0 4
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76845 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou bend down low and enter the small establishment to the east.
+~
+E
+2~
+@C$n bends down low and enters the small establishment to the east.
+~
+E
+arrive~
+$n arrives from the west.
+~
+!
+3 0 2
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76764
+Baker's Way~
+The various smells from the surrounding bakeries and shops fill the air
+along the road.  To the north and south large white marble buildings sit
+off the edge of the road and occasionally a strong wave of heat emanates
+from within them.  To the west Baker's Way continues its course through
+the food district of Shadybrook.  Off in the distance to the east you
+spot a small, grassy hill rising up in the center of town.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76765 10 10 5
+D1
+~
+~
+0 -1 76770 10 10 5
+D2
+~
+~
+0 -1 76766 10 10 5
+D3
+~
+~
+0 -1 76767 10 10 5
+E
+1 north south stone buildings~
+Each of the stone buildings which rest off the edge of the road to the
+north and south are identical.  Both have been composed of white stone
+blocks and a light grey mortar.  Their roofs are made from a yellow-brown
+thatch.  Protruding from the roof are several chimneys which spew clouds
+of white and black smoke.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76765 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head and enter the bakery to the north.
+~
+E
+2~
+@C$n ducks $s head low and enters the bakery to the north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+3 0 1
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76766 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head and enter the bakery to the south.
+~
+E
+2~
+@C$n ducks $s head low and enters the bakery to the south.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76765
+Lilac's Tart Shop~
+The overwhelming aroma of freshly baked tarts fills the air of this large
+shop.  Lining the eastern and western walls are glass cases within which
+are several sheets of freshly baked tarts which still steam.  Upon the
+northern wall is a long marble counter on which sheets of uncooked tarts
+rest.  Behind the counter are several large brick ovens which
+occasionally throw an intense wave of heat off.  To the south a simple
+wooden archway offers the only exit out of the shop.
+~
+~
+301469771 0 6 0
+D2
+~
+~
+0 -1 76764 10 10 5
+2208 9 1509949540 3 0
+3257 17 1509949540 -1 0
+3258 17 1509949540 -1 0
+3259 17 1509949540 -1 0
+3260 17 1509949540 -1 0
+3261 17 1509949540 -1 0
+3262 17 1509949540 -1 0
+3263 17 1509949540 -1 0
+3264 17 1509949540 -1 0
+3265 17 1509949540 -1 0
+3266 17 1509949540 -1 0
+3267 17 1509949540 -1 0
+3268 17 1509949540 -1 0
+3269 17 1509949540 -1 0
+3270 17 1509949540 -1 0
+-1
+S
+
+#76766
+Olia's Bakery~
+Dominating this small shop are several massive brick ovens which have
+been place against the north, east, and western walls.  Tucked inbetween
+the ovens is a long wooden table on which several loaves of freshly baked
+bread rest; each covered by a glass top.  Hanging from the edge of the
+table is a small wooden @Wsign@n with pictures of various types of bread
+upon its face.  Every so often the sound of the flames within the ovens
+flaring can be heard followed by a wave of intense heat filling the room. 
+To the north a wide doorway leads back out onto Baker's Way.
+~
+[Oculus] I think there should be a space between "in" and "between" in the 2nd line of the room desc
+~
+301469775 0 6 0
+D0
+~
+~
+0 -1 76764 10 10 5
+E
+wooden sign~
+@Y-=-=-=-=-=-= Welcome to Olia's Bakery! =-=-=-=-=-=-@n
+
+@WOur bread is made fresh every three hours and is never hard!  For
+information on our catering services please contact Olia.@n
+
+@YOlia - Master Baker@n
+~
+2212 9 1509949540 3 0
+28 17 1509949540 -1 0
+743 17 1509949540 -1 0
+3271 17 1509949540 -1 0
+3272 17 1509949540 -1 0
+3273 17 1509949540 -1 0
+3274 17 1509949540 -1 0
+-1
+S
+
+#76767
+Baker's Way~
+Standing just off the road to the north and south are two large marble
+buildings with thick, thatched roofs.  Small alleyways run past each of
+the buildings in which you can see several large crates and sacks stacked
+up next to them.  The sound of roaring flames can be clearly heard from
+within each of the structures and the distinct aroma of chocolate, sugar
+and vanilla wafts out from within them.  The grassy road continues to the
+east and west from here, continuing past the many bakeries of the town.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76768 10 10 5
+D1
+~
+~
+0 -1 76764 10 10 5
+D2
+~
+~
+0 -1 76769 10 10 5
+D3
+~
+~
+0 -1 76771 10 10 5
+E
+1 north and south large marble buildings thatched roofs~
+Rising up to the north and south are large buildings made from small
+marble blocks.  Each building has two windows which are covered in grime
+and tucked between them is a small, open doorway.  Their roofs have been
+constructed from a thick thatch which takes on a rich yellow color. 
+Brick chimneys made from grey stone protrude from the roofs and
+occasionaly spew out a large cloud of smoke.
+~
+E
+alleways crates sacks~
+Running between each of the buildings to the north and south are narrow
+alleyways.  Within each of them you can clearly see several large crates
+and sacks stacked up against the walls of the buildings.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76768 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head and enter the bakery to the north.
+~
+E
+2~
+@C$n ducks $s head low and enters the bakery to the north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+3 0 1
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76769 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head and enter the bakery to the south.
+~
+E
+2~
+@C$n ducks $s head low and enters the bakery to the south.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76768
+Dealiz's Fresh Baked Cookies~
+Several long wooden display cases line the walls of the small shop, each
+covered in sheets of cookies ranging from sugar to white chocolate chip. 
+Set against the northern wall of the building is a large brick oven with
+several open-faces.  Piled up against the western wall are several crates
+marked 'Supplies' and a few sacks of flour.  Resting against the eastern
+wall are several barrels filled with clear water.  To the south an open
+archway leads back out onto Baker's Way.
+~
+~
+301469771 0 6 0
+D2
+~
+~
+0 -1 76767 10 10 5
+2244 9 1509949540 3 0
+3348 17 1509949540 -1 0
+3349 17 1509949540 -1 0
+3350 17 1509949540 -1 0
+3351 17 1509949540 -1 0
+3352 17 1509949540 -1 0
+3353 17 1509949540 -1 0
+3354 17 1509949540 -1 0
+3355 17 1509949540 -1 0
+3356 17 1509949540 -1 0
+-1
+S
+
+#76769
+Izak's Chocolate Emporium~
+Large steel vats line the walls of this large shop; each bubbling
+violently sending tiny splatters of chocolate everywhere.  Tucked in
+between each of the vats are large bags of sugar, flour, and cocoa beans. 
+Off in the back of the shop, set against the southern wall, is a long
+glass display case filled with chocolate treats which cool slowly in the
+air.  Next to the display case is a small wooden table on which finished
+pieces of chocolate rest with a @Wsign@n placed next to them.
+~
+~
+301469771 0 6 0
+D0
+~
+~
+0 -1 76767 10 10 5
+2245 9 1509949540 3 0
+3363 17 1509949490 -1 0
+3364 17 1509949490 -1 0
+3365 17 1509949490 -1 0
+3366 17 1509949490 -1 0
+3367 17 1509949490 -1 0
+-1
+S
+
+#76770
+Baker's Way~
+Small walls composed of blocks of white marble line the edges of Baker's
+Way here.  Wagon ruts can be clearly seen imprinted into the soft, grassy
+ground.  Dotting the road are several small white lilies which have
+avoided being crushed by the traffic this road has seen.  To the east a
+small hill rises up from the center of town on which you can see several
+white benches surrounding a large crystal fountain.  To the west Baker's
+Way continues as it runs in between several buildings lining its edges.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76756 10 10 5
+D3
+~
+~
+0 -1 76764 10 10 5
+E
+1 north south small walls blocks white marble~
+Lining the edges of the road to the north and south are small walls
+composed of glossy white marble blocks.  Each block is held together by a
+pearly-white mortal that twinkles slightly.  A few dry, brown leaves
+litter the tops of the walls as well as some broken twigs.
+~
+E
+wagon ruts imprints grassy ground~
+Wagons ruts have been imprinted in the soft soil along this stretch of
+road, digging down a few inches.  The ruts run side-by-side along most of
+the road but intersect at some points.
+~
+E
+white lilies flowers~
+Scattered about the road are several ivory-white lilies which have
+avoided being crushed by the traffic of the city.  Their delicate petals
+are covered in a light yellow dust and their centers are a deep blue
+color.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@YYou clamber up the hill towards Sunnydale Park.
+~
+E
+not_char~
+@Y$n clambers up the hill towards Sunnydale Park.
+~
+!
+3 0 2
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76771
+Baker's Way~
+Large wagons filled to their tops with large crates, sacks, and barrels
+sit just off the edge of the road.  Patches of grass have been torn free
+from the road from several years of feet constantly walking upon it and
+the many wagons which come through the town.  To the north stands a large
+building with a low archway from which the scent of cheese emanates.  A
+small building topped with four small chimneys, each spewing forth
+billowing clouds of black smoke, stands directly to your south.  Baker's
+Way continues to the east and west from this point as it continues its
+course through the town.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76774 10 10 5
+D1
+~
+~
+0 -1 76767 10 10 5
+D2
+~
+~
+0 -1 76775 10 10 5
+D3
+~
+~
+0 -1 76772 10 10 5
+E
+wagons crates sacks barrels~
+Large wooden wagons have been placed just off the edge of the road to the
+south, between the gaps in the buildings.  Stored neatly in the back of
+each wagon are several large wooden crates stamped with the seal of
+Shadybrook.  Burlap sacks labeled "Sugar" and "Flour" have been stacked
+next to the crates.  A few capped, iron-banded barrels have also been
+placed in the wagons but their contants remain unknown.
+~
+E
+patches grass road street~
+Most of the grass along this strip of road has been ripped away leaving
+only the dark soil in its place.  The soil is soft and mushy, much like a
+swamps and small pockets of water can be seen in a few spots.
+~
+E
+1 north building low archway~
+Directly to the north stands a large cobblestone building which has been
+painted a bright orange color.  Its roof is covered in green thatch from
+which a heavy odor of moldy straw emanates.  A low archway marks the only
+visible means of entrance into the building and occasionally the scent of
+cheese wafts through it, mingling with the scent of moldly hay.
+~
+E
+1 south building small chimneys~
+To the south of you, just a few feet off the road, is a small building
+which has been painted a deep violet color.  Two small windows with
+emerald colored shutters adorn its northern face and between them is a
+small, open doorway.  Protruding from its orange thatched roof are four
+red brick chimneys which constantly spew large clouds of smoke.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76774 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head and enter the bakery to the north.
+~
+E
+2~
+@C$n ducks $s head low and enters the bakery to the north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+3 0 1
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76775 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+$n arrives from the north.
+~
+E
+2~
+@C$n ducks $s head low and enters the bakery to the south.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+2211 9 1509949540 3 0
+-1
+S
+
+#76772
+Intersection of West Jezebel Avenue and Baker's Way~
+Two roads intersect at this point in town, West Jezebel Avenue and
+Baker's Way.  Most of the grass which covers the intersection has been
+crushed beneath the weight of wagons and the many feet of travellers
+passing over this point but on each corner of the roads it grows thick
+and tall.  Looming like a watchful guardian directly to the west are the
+western gates of the city.  Atop each side of the gates are small stone
+watchtowers in which you can just barely make out the movement of guards. 
+West Jezebel Avenue runs to the north and south, and Baker's Way heads
+east.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76804 10 10 5
+D1
+~
+~
+0 -1 76771 10 10 5
+D2
+~
+~
+0 -1 76785 10 10 5
+D3
+~
+~
+0 -1 76773 10 10 5
+E
+grass~
+The grass has been crushed and driven deep into the dirt from the weight
+of travellers and wagons over this section of the road.  The dark, rich
+soil has begun to replace the grass causing a few mud puddles to form
+about the road.  On each corner of the avenue, where the grass has
+remained out of harms way, it has grown several feet high.
+~
+E
+1 west gates~
+Looming off to the west are the mighty stone gates of the city.  From
+this distance you can just barely make out the shapes of the gate guards
+which stand against the pearly-white stone of the gate.
+~
+E
+stone watchtowers~
+Protruding from the tops of the gates like a mountain spire are a pair of
+stone watchtowers.  Although it is hard to distinguish most of the their
+features you can see a banner flying above them.
+~
+2202 9 1509949540 3 0
+2202 9 1509949540 3 0
+-1
+S
+
+#76773
+Inside the Western Gates of Shadybrook~
+Looming before you to the west, like a watchful guardian, are the massive
+western gates of the city.  Stone watchtowers flying the battle standards
+of the Shadybrook Militia rest atop each side of the gates.  Running away
+from the gates to the north and south are the battlements which surround
+the city.  Set into the side of the gates is a steel @Wlever@n covered in
+flakes of red rust.  To the north and south small stone guard houses
+stand; each void of any windows and set with a single steel door which
+allows entrance into them.  To the east the city begins to unfold as its
+grassy roads begin their journey into it.
+~
+~
+301465673 1 6 0
+D1
+~
+~
+0 -1 76772 10 10 5
+D3
+massive stone gates~
+massive stone gates~
+195 -1 77855 10 10 5
+A
+pull tug move~
+steel lever~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no~
+As you attempt to pull the lever the gate guard comes over you to and
+says: @W"I'm sorry friend but the wilds out there are very dangerous at
+this time.  Please check back at a later time when the militia has time
+to clear away some of the monsters."@n 
+~
+E
+no1~
+$n tries to pull the lever but a gate guard quickly stops $m and speaks
+to $m a moment before returning to his post.
+~
+!
+0 0 0
+2207 9 1509949540 3 0
+2207 9 1509949540 3 0
+-1
+S
+
+#76774
+Ogrim's Specialty Cheeses~
+The air within the enclosed space of the shop is filled with the mingling
+scents of the various cheeses.  Long birchwood tables, covered in stacks
+of every type of cheese possible, line the walls of the building.  Large
+barrels of cream rest against the northern wall along with large bags
+labeled 'Spices'.  In the center of the room a large glass display case
+houses a few large wheels of the cheese; each covered in green spots.  To
+the south a low doorway leads back out onto Baker's Way.
+~
+~
+301469775 0 6 0
+D2
+~
+~
+0 -1 76771 10 10 5
+2243 9 1509949540 3 0
+3375 17 1509949490 -1 0
+3377 17 1509949490 -1 0
+3376 17 1509949490 -1 0
+3373 17 1509949490 -1 0
+3378 17 1509949490 -1 0
+-1
+S
+
+#76775
+Noemo's Pie Shop~
+Long wooden shelves line the walls of this small shop, each covered in
+various types of pies which slowly cool in the air.  Just above the
+shelves are several windows which allow just enough cool air in to speed
+up the cooling process but still leaves the shop uncomfortable.  Set
+against the southern wall are four massive ovens.  Ripples of heat can be
+seen in front of each of the ovens and blasts of intense heat constantly
+issue forth from them.  In the center of the room a long wooden table has
+been setup on which several pies, each a different flavor, rest under a
+glass box.
+~
+~
+301469775 0 6 0
+D0
+~
+~
+0 -1 76771 10 10 5
+2242 9 1509949540 3 0
+3338 17 1509949540 -1 0
+3339 17 1509949540 -1 0
+3340 17 1509949540 -1 0
+3341 17 1509949540 -1 0
+3342 17 1509949540 -1 0
+3343 17 1509949540 -1 0
+3344 17 1509949540 -1 0
+3345 17 1509949540 -1 0
+3346 17 1509949540 -1 0
+-1
+S
+
+#76776
+South Main Street~
+Large grey stones white specks peak up from beneath the inch-high grass
+of the road.  On either side of the road large two story dwellings rise
+up above you and run the length of the road heading south.  To the
+northeast and northwest you can clearly see dozens of small buildings
+dotting the green lansdcape of the city, tucked neatly inside the
+confines of the stone walls.  To the north a grassy hill rises up in the
+center of town and atop it you can see several stone benches surrounding
+a large crystal fountain.  To the south the street continues its way
+towards the southern gates.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76758 10 10 5
+D2
+~
+~
+0 -1 76777 10 10 5
+E
+grey stone road~
+These large, grey stones are each about the size of a storm giant's fist. 
+Small white specks scar their smooth surface and glint in the light.
+~
+E
+1 east west two-story dwellings buildings~
+Rising up on both sides of the road are large two-story buildings
+composed of white stone blocks and rich, brown wooden support beams.  The
+second floor of each building is covered in windows but the ground floor
+is void of any on this side.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@YYou clamber up the hill towards Sunnydale Park.
+~
+E
+not_char~
+@Y$n clambers up the hill towards Sunnydale Park.
+~
+!
+3 0 1
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+2211 9 1509949540 3 0
+-1
+S
+
+#76777
+South Main Street~
+Towering up before you to the east and west are massive two-story stone
+buildings with thick, thatched roofs.  Rich, brown maple support beams
+have been worked into the corners of the buildings and the stones set in
+between them.  Several windows adorn the faces of the walls and peering
+inside you can see several halflings gathered at the tables inside. 
+Engraved bronze @Ysigns@n hang over the doors of each dwelling upon which
+you can see bold writing.  Off in the distance to the south the massive
+southern gates of the city can be seen.  South Main Street continues to
+the north and south from this point as it continues through the town.
+~
+[Terek] No action needed for ents, doorways are large enough ;)
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76776 10 10 5
+D1
+maple door~
+maple door~
+131 -1 76824 10 10 5
+D2
+~
+~
+0 -1 76778 10 10 5
+D3
+oak door~
+oak door~
+131 -1 76825 10 10 5
+E
+signs~
+Each of the signs hanging from the @Yeastern@n and @Ywestern@n buildings
+are made from bronze plates and each have something printed across their
+surfaces in bold print.
+~
+E
+eastern sign~
+Written in bold white letters the sign reads: @W"The Jolly Halfling Tavern."@n
+~
+E
+western sign~
+Written in bold yellow letters the sign reads: @Y"The Dancing Kobold Inn."@n
+~
+E
+1 east west buildings~
+Towering up to the east and west of you are two impressive buildings. 
+Each is almost identical to the other; each is composed of white stone,
+maple support beams and a thatched roof.  Set into the eastern building
+is a large maple door over which a engraved bronze sign hangs.  The
+western building has an oak door as well as a bronze sign hanging over it. 
+Small windows adorn the face of the buildings and through the eastern one
+you can see several halflings gathered round tables while the western
+building only gives a view of a decorated sitting room.
+~
+-1
+S
+
+#76778
+Intersection of South Main Street and South Jezebel Avenue~
+The southern edge of Shadybrook lies just to your south.  South Main
+Street halts its southward course at this point, barred by the southern
+gates which lie directly to the south.  South Jezebel Avenue runs
+east-west from here as it works its way along the outer walls of the city. 
+Spanning out to the northeast and northwest are dozens of stone buildings
+both large and small.  Peaking out over the walls of the city to the
+south you can just barely make out mist-shrouded mountain tops looming
+far off in the distance.
+~
+[Terek] Jesus i bet this rdesc sucks eh mer?
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76777 10 10 5
+D1
+~
+~
+0 -1 76794 10 10 5
+D2
+~
+~
+0 -1 76779 10 10 5
+D3
+~
+~
+0 -1 76793 10 10 5
+E
+1 south gates~
+Looming off to the south are the southern gates of the city.  Resting
+atop them on each side are stone guardhouse upon which large, colorful
+banners gently flap in the breeze.  Barely visible over the edge of the
+gates are the mist-shrouded mountains tops of a vast mountain range.
+~
+2220 41 1509949540 3 0
+2202 73 1509949540 3 0
+2202 73 1509949540 3 0
+-1
+S
+
+#76779
+Inside the Southern Gates of Shadybrook~
+Directly to the south of you the massive stone southern gates of
+Shadybrook rise before you.  Chunks of stone have broken free from the
+gates from past sieges and now litter the grassy ground in front of them. 
+On either side of the gates, just above their tops, are stone watchtowers
+in which you can see several vague shapes moving about.  Resting next to
+the gate, set into the thick stone of the walls, is a small steel
+@Wlever@n.  To the east and west small iron doors lead into the eastern
+and western guard houses.  To the north the city of Shadybrook unfolds
+before you; its grassy avenues passing through its many buildings.
+~
+~
+301465673 1 6 0
+D0
+~
+~
+0 -1 76778 10 10 5
+D2
+massive stone gates~
+massive stone gates~
+195 -1 77798 10 10 5
+A
+pull tug move~
+steel lever~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no~
+As you attempt to pull the lever the gate guard comes over you to and
+says: @W"I'm sorry friend but the wilds out there are very dangerous at
+this time.  Please check back at a later time when the militia has time
+to clear away some of the monsters."@n 
+~
+E
+no1~
+$n tries to pull the lever but a gate guard quickly stops $m and speaks
+to $m a moment before returning to his post.
+~
+!
+0 0 0
+2207 9 1509949540 3 0
+2207 9 1509949540 3 0
+-1
+S
+
+#76780
+Sunnydale Lane~
+Small shrubs skirt along the edges of the lane and planted between each
+of them young trees just beginning to grow.  The grass here has been
+slowly torn away from the dirt from the many feet which constantly tread
+across it on a daily basis, leaving large patches of dirt which have
+turned into mud puddles scattered about the lane.  To the west a small
+hill rises up in the center of town and several benches can be seen
+positioned atop it.  To the east Sunnydale Lane continues its course
+through the city.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76781 10 10 5
+D3
+~
+~
+0 -1 76757 10 10 5
+E
+1 north south small shrubs trees~
+Lining the northern and southern edges of the roads are several small,
+green shrubs.  Each of the shrubs is covered with small orange berries
+with red dots upon them.  Between each of the shrubs young trees ranging
+from elms to oaks have been planted.  The bark of the trees is still grey
+and their trunks are only a few inches round.  Their branches are nothing
+more than twigs and are void of any leaves.
+~
+E
+grass dirt lane~
+The grass of the lane is barely visible, having been torn away by the
+many feet which tread across it everyday.  In place of the grass are
+large patches of dirt which have turned to mud puddles.
+~
+E
+mud puddles~
+These small puddles dot the dark, soily landscape of the lane, each
+filled with brown-black mud.  A few of the puddles have grown in size due
+to the wagons which rut across them everyday.
+~
+E
+1 west hill~
+Rising up to the west a small hill leading up into Sunnydale Park.  Atop
+the hill you can see several large trees, patches of flowers and a few
+stone benches.  The faint sound of bubbling can be heard from somewhere
+on it.
+~
+A
+~
+~
+continue;
+~
+E
+not_char~
+@Y$n clambers up the hill towards Sunnydale Park.
+~
+E
+to_char~
+@YYou clamber up the hill towards Sunnydale Park.
+~
+!
+3 0 8
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76781
+Sunnydale Lane~
+Wagon ruts scar the surface of the lane, digging deep into the ground and
+covering almost every inch of it.  Barely any grass remains on this strip
+of road here having been torn away by wagon wheels.  Attempts to smoothen
+down the road and fill in the ruts can be seen from the mound of dirt
+lying just off the edge of the road and several shovels.  Nestled in a
+grove of tall oak trees to the north is a small building with an open
+doorway.  To the south another building stands but much smaller than the
+other.  Sunnydale Lane runs east and west from here, continuing through
+the city.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76842 10 10 5
+D1
+~
+~
+0 -1 76782 10 10 5
+D2
+~
+~
+0 -1 76843 10 10 5
+D3
+~
+~
+0 -1 76780 10 10 5
+E
+wagon ruts lane road~
+Wagon ruts criss-cross each other and wander off in east-west directions
+along this stretch of road.  The grass has been torn up quite badly
+leaving only a few green patches amidst all the dirt.  A few of the ruts
+have been filled halfway with a greyish-colored soil.
+~
+E
+mound dirt shovels~
+Lying just off the edge of the road is a large mound of greyish-colored
+dirt as well as several small steel shovels.  The mound is about three
+feet high and is filled with small chunks of stone and gravel.  The faces
+of the shovels are scarred by large scratches and dents, testament to the
+usage they have seen.
+~
+E
+1 north oak trees grove building~
+Directly off the edge of the road to the north is a large grove of mighty
+oak trees.  The branches of the trees are filled with large green leaves
+as well as a few multi-colored ones.  Nestled within the grove is a small
+thatched roof building which has been painted an olive-green color.
+~
+E
+1 south building~
+Directly to the south of here is a small thatched roof building.  The
+building is just barely large enough to accomidate a halfling.  The walls
+have been painted a pitch-black color and the thatch upon the roof is a
+deep grey color.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76842 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low to avoid smacking it and enter the small shop.
+~
+E
+2~
+@C$n ducks $s head low to avoid smacking it and enters the small shop to
+the north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+3 0 1
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76843 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low to avoid smacking it and enter the small shop.
+~
+E
+2~
+@C$n ducks $s head low to avoid smacking it and enters the small shop to
+the north.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76782
+Sunnydale Lane~
+A grove of impressive oak trees have grown along the northern edge of the
+lane; their thick, long branches spanning over the street.  An occasional
+breeze swirls through the area causing the branches to gently tap
+together and send multi-colored leaves slowly drifting to the ground.  To
+the south a small, cobblestone cottage topped with a thatched roof sits
+just off the road.  The lane cuts through the hilly terrain of the city
+as it advances to the east and west from here.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76783 10 10 5
+D2
+small wooden door~
+small wooden door~
+131 -1 76879 10 10 5
+D3
+~
+~
+0 -1 76781 10 10 5
+E
+1 north grove oak trees~
+Dominating the northern edge of the lane is a large grove of oak trees. 
+The trees appear to have been here quite some time; their trunks measure
+at least eight feet around.  The branches from the oak trees span
+overhead, casting a shadow upon the lane and also providing a cool shade. 
+Green leaves as well as several multi-colored leaves which take on the
+hue of a rainbow.
+~
+E
+1 south cobblestone cottage thatched roof~
+Lying off the edge of the lane to the south is a small cottage composed
+of cobblestones which have been painted different colors.  A blue
+thatched roof covers the top of the cottage and a small chimney protrudes
+from it.  Two windows adorn the face of the building and tucked between
+them is a small wooden door.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76879 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the south.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the south.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+2211 9 1509949540 3 0
+-1
+S
+
+#76783
+Sunnydale Lane~
+A thick blanket of multi-colored leaves and tiny brown twigs cover the
+grassy lane.  Overhead the thick branches of several oaks trees which lie
+off to the northwest block out the view of the sky.  Directly to the
+north lying just off the edge of the lane is a white cobblestone walkway
+leading up to a small cottage.  Off in the distance to the east you can
+just barely make out the eastern gates of the city.  To the west the lane
+continues towards a small hill in the center of town.
+~
+[Terek] At this point, terek wanted to die cus he hates happy stuff
+terek says kill me, these rdescs suck cus merior is gonna reap em!
+~
+301465665 1 6 0
+D0
+small wooden door~
+small wooden door~
+131 -1 76880 10 10 5
+D1
+~
+~
+0 -1 76784 10 10 5
+D3
+~
+~
+0 -1 76782 10 10 5
+E
+blanket multi-colored leaves tiny brown twigs lane~
+Covering almost every inch of the lane are piles of multi-colored leaves;
+each taking on a different color of the rainbow.  Intermixed with the
+leaves are several small brown twigs no longer than two inches.
+~
+E
+1 up overhead thick branches oak trees~
+Stretching out above the lane are several large, thick branches from a
+grove of oak trees which lie just off to the northwest.  Each of the
+branches is covered in thick, healthy brown bark and are filled with
+multi-colored leaves.
+~
+E
+1 north white cobblestone walkway cottage~
+Directly off the edge of the road to the north is a small cobblestone
+walkway composed of blue and white bricks which leads up to an
+brightly-colored stone cottage.  The cottage's walls have been painted a
+bright violet color and its thatched roof has been dyed navy blue.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76880 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the north.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+3 0 1
+-1
+S
+
+#76784
+Intersection of Sunnydale Lane and East Jezebel Avenue~
+Sunndydale Lane and East Jezebel Avenue intersect with each other at this
+point.  In the center of the road is a towering oak tree which stands at
+least thirty feet high.  It rich, dark brown bark is mottled with bits of
+green moss.  At the base of the tree, someone has taken the time to plant
+small yellow lilacs and pink daisies.  Wagon ruts run around each side of
+the tree, heading off in every direction.  Directly to the east the
+massive eastern gates of the city rise up.  Sunnydale Lane heads west as
+it makes its way back into the center of the city.  East Jezebel Avenue
+continues its north-south course from this point.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76821 10 10 5
+D1
+~
+~
+0 -1 76802 10 10 5
+D2
+~
+~
+0 -1 76801 10 10 5
+D3
+~
+~
+0 -1 76783 10 10 5
+E
+oak tree center bark moss~
+Spreading its lengthy branches all around, the tree forms a protective
+canopy and provides a nice shade here.  The tree's trunk looks extremely
+thick, possibly eight or so feet in diameter.  Its bark is thick and some
+sap seems to drip to drip from it.  Patches of thick moss have started to
+grow along the bark; each patch is rectangular in shape and only occupy a
+foot or less of space.
+~
+E
+lilacs daisies~
+Although most lilacs are white, and most daisies are white with yellow
+centers, these flowers seem to be the exception.  The yellow lilacs are
+almost golden and form a dense ring around the base of the tree.  The
+daisies are a splendid pink and grow right beside the lilacs.  The
+flowers provide a pleasant scent and brighten the ground.
+~
+E
+ruts side~
+The ruts are a few inches deep and very narrow.  Most head in an
+east-west or north-south direction, but some curve around in circles or
+diagonally.
+~
+2202 9 1509949540 3 0
+2202 9 1509949540 3 0
+-1
+S
+
+#76785
+West Jezebel Avenue~
+Looming overhead to the west are the mighty stone walls of the city. 
+Long vines drape down the walls and tangle with each other, concealing
+most of the stone.  On several sections of the wall a thick green moss
+grows which appears to glow with a pale light.  Standing off the path to
+the east is the side wall of a small building topped with four chimneys
+which bellow out clouds of white, black and grey smoke.  The avenue dips
+down a bit to the south as it continues on its course.  To the north it
+proceeds to climb at a slight angle up the hill and towards the western
+gates of the city.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76772 10 10 5
+D2
+~
+~
+0 -1 76786 10 10 5
+E
+long vines~
+These large, thick vines drape down from the battlements above the city
+walls, tangling with each other mid-way down the wall.  The ends of the
+vines have come to rest at the base of the wall where they have created a
+thick mound.
+~
+E
+thick green moss~
+This green moss is extremely thick but takes on the appearance of the
+same kind of moss found on tree trunks around the area.  One major
+difference in this moss is that it seems to glow with a pale light which
+dims and brightens at its own free will.
+~
+E
+1 east building chimneys~
+The small building is composed of white stone blocks which gleam in the
+light.  Its roof is made from a thick thatch and has four brick chimneys
+protruding from it.  Each of the chimneys churns out large, billowing
+clouds of smoke which quickly dissipate in the air.
+~
+-1
+S
+
+#76786
+West Jezebel Avenue~
+Dominating the eastern edge of the avenue here is a massive stone
+building with a gold-plated domed roof.  An open archway sits directly in
+between two stained glass windows which depict a scene of halfling miners
+at work.  Hanging over the archway is a elegantly carved silver @Wsign@n. 
+The ever-present city walls loom just a few feet off the western side of
+the road; their battlements lined with what appear to be catapaults.  The
+avenue continues its north-south course from this point as it climbs and
+descends the many grassy hills in its path.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76785 10 10 5
+D1
+~
+~
+0 -1 76846 10 10 5
+D2
+~
+~
+0 -1 76787 10 10 5
+E
+1 east building~
+This large building stands a story and a half high and is capped with a
+gold-plated domed roof.  An open archway marks the only visible means of
+entrance into the building.  Flanking the archway are a pair of stained
+glass windows depicting a band of halfling miners hard at work deep
+inside a gem mine.
+~
+E
+gold-plated domed roof~
+The roof has been beautifully constructed in a dome shape and covered in
+glistening gold plates.  The rivets used to secure each plate to the next
+are made of white metal which shines brightly.
+~
+E
+stained glass windows~
+The windows, although small, depict a very detailed scene of halfling
+miners at work.  Each of the miners is dressed in dirty work clothes and
+wields a heavy pick axe.  Gems from the dark rock walls glisten as if
+light had reflected off them.  In the backdrop you can see several more
+halflings hauling metal carts towards a brightly-lit opening in the mine.
+~
+E
+elegant carved silver sign~
+The sign has been made from hammered silver and lined with red sapphires
+which glisten in the light.  Written in the center in bold print are the
+words: @Y"Shadybrook Jeweler's Market"@n 
+~
+E
+1 west walls battlements~
+The ever-present thick stone walls loom overhead directly to the west of
+you.  Their smooth surface is scar with tiny cracks and a few of the
+blocks have been chipped.  Resting atop its battlements are what appear
+to be several catapaults aimed out to the west.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76846 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head to avoid injury and enter the establishment to the
+east.
+~
+E
+2~
+@C$n ducks $s head low to avoid injury and enters the establishment to
+the east.
+~
+E
+arrive~
+$n arrives from the west.
+~
+!
+3 0 2
+-1
+S
+
+#76787
+West Jezebel Avenue~
+Large patches of dried hay lie scattered about the grass-covered avenue;
+possibly broken free from a small stone cottage with a thatch roof that
+stands off the road directly to the east.  Surrounding the small cottage
+are small green shrubs trimmed into perfect rectangles.  Along the
+western side of the avenue, young oak trees grow; their tiny trunks no
+more than a foot round.  West Jezebel Aveneue continues its north-south
+course as it scurries past the buildings along the outer edge of the city.
+~
+[Terek] and yes merior, oak trees bark is grey when their that small ;)
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76786 10 10 5
+D1
+small wooden door~
+small wooden door~
+131 -1 76881 10 10 5
+D2
+~
+~
+0 -1 76788 10 10 5
+E
+patches dried hay avenue~
+The hay is a rich yellow-brown color and quite thick.  Patches of it lie
+scattered about on almost every portion of the avenue, possibly broken
+free from the cottage that lies directly to the east.
+~
+E
+small stone cottage~
+This small cottage has been built with pearly-white marble blocks and
+white mortar.  Its windows are flanked by bright-yellow shutters with
+tiny roses painted upon them.  The roof is made from a thick thatch found
+in almost every corner of the realm.
+~
+E
+green shrubs rectangles~
+These small, green shrubs which surround the cottage on all sides have
+been trimmed into perfect rectangles.  Small yellow berries can be seen
+growing along their branches as well as a few white flowers.
+~
+E
+1 west young oak trunks~
+These young oak trees have just begun to grow.  Their small trunks are a
+foot in diameter and the bark has not yet changed to brown.  Their
+branche are thin, no more than the size of twigs, and only have a few
+small leaves growing from them.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76881 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the east.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the east.
+~
+E
+arrive~
+$n arrives from the west.
+~
+!
+3 0 2
+2211 9 1509949540 3 0
+-1
+S
+
+#76788
+Southwest Corner of Jezebel Avenue~
+The thick stone walls of the city turn sharply at a ninety degree angle
+here, continuing to both the north and east.  Nestled atop the southwest
+corner of the walls is a small watchtower on which a large battle
+standard slowly flaps in the breeze.  Small chunks of stone lies at the
+base of the wall; having broken free from along its battlements.  To the
+northeast small and large buildings dot the green landscape.  Jezebel
+Avenue continues to the north and east from this point.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76787 10 10 5
+D1
+~
+~
+0 -1 76789 10 10 5
+E
+city walls thick stone~
+These massive walls are composed of several dozen layers of white marble
+bricks stacked atop one another.  The wall stands about twelve feet high
+and is just about as thick.  Nestled upon its southwest corner of a small
+stone watchtower.
+~
+E
+small watchtower~
+The watchtower, from this distance, appears very small.  Its four
+open-faced sides allow an excellent view of any threats coming in from
+the surrounding area.  Flying above it is a colorful battle standard
+which gently flaps in the breeze.
+~
+E
+battle standard~
+Although from this distance you cannot make out the image upon it but you
+can see its bright colors used to create it.  Yellow, green, white and
+violet strips streak across its cloth surface.
+~
+E
+chunks stone base~
+These large chunks of white marble have broken free from the battlements
+high above some time ago.  A few patches of green moss have begun to take
+up residence upon their surface.
+~
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76789
+South Jezebel Avenue~
+Large holes scar the surface of the avenue; each filled halfway with
+thick, brown mud.  Wagon ruts run down the length of the road,
+intersecting each other at points, making the road very bumpy.  A long
+trench has been dug along the southern edge road in which small shrubs in
+clay pots rest; still waiting to be planted.  Off to the east a ways you
+can see large, thick-trunked trees skirting along the edge of the avenue. 
+Off to the southwest you can just barely make out a stone watchtower
+resting atop the battlements.  The avenue continues its east-west course
+through the southern end of the city.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76790 10 10 5
+D3
+~
+~
+0 -1 76788 10 10 5
+E
+large holes avenue road street~
+These large pot holes have been left over time from the many feet as well
+as wagon wheels passing down this avenue.  Each has filled with thick,
+brown mud from the past rains the area has seen.
+~
+E
+wagon ruts~
+Each of the wagon ruts are about five inches deep and lying at their
+bottom are small pools of muddy water.  Most of the ruts are fairly new
+judging by the fresh soil which has been thrown up alongside them.
+~
+E
+1 south trench~
+The trench runs along the base of the city walls to the south for about
+eight feet.  Each is filled with thick, brown mulch and dark soil.  Large
+holes have been dug within the trench every two feet and resting beside
+them are clay pots which contain young shrubs.
+~
+E
+clay pots shrubs~
+The clay pots are of simple design and have no distinguishing features. 
+Within each of them is a young shrub with lush green leaves.  A few of
+the shrubs have tiny white flowers hanging from their branches which
+emanate a pleasant aroma.
+~
+E
+stone watchtower~
+From this distance the watchtower appears as nothing more than a mound of
+white stone with some type of banner flying above it.
+~
+-1
+S
+
+#76790
+South Jezebel Avenue~
+A few small shrubs grow along the southern edge of the road along the
+base of the walls but other than that there is nothing else of interest
+along this stretch of road.  The only building within view is a small
+stone house which sits directly to the north.  The house is void of any
+windows and only a small steel door is the visible means of entrance. 
+Flying above the house is a small banner bearing the mark of Shadybrook
+Militia.  The avenue continues its east-west stretch through the city.
+~
+~
+301465665 1 6 0
+D0
+small steel door~
+small steel door~
+131 -1 76826 10 10 5
+D1
+~
+~
+0 -1 76791 10 10 5
+D3
+~
+~
+0 -1 76789 10 10 5
+E
+1 south shrubs~
+These lush, green shrubs are full of healthy branches and leaves.  Each
+has a small mound of mulch surrounding it as well as a small ring of
+smooth grey stones.
+~
+E
+1 building north stone house~
+This small stone building is void of any windows and only a small steel
+door is its visible means of entrance.  Flying above it is a large,
+colorful banner with the mark of the Shadybrook Militia upon it; a red
+dragon coiled around a snow-white blade.
+~
+E
+banner~
+The banner has been made from a fine silken cloth and embroidered with
+the image of a red dragon coiled around a snow-white blade.  Beneath the
+image are the words: @W"Shadybrook Militia - Brigade of Light"@n 
+~
+-1
+S
+
+#76791
+South Jezebel Avenue~
+A row of large birch trees line the soutern edge of the road; their
+massive trunks pressing against the city walls.  Scattered all about the
+base of the trees are patches of wildflowers of various colors.  Along
+the northern edge of the road are several small statues carved in the
+likeness of halflings bedecked in battle-worn armor.  To the northeast a
+large two-story building rises up between two small hills.  To the
+northwest stands a smaller building topped with a brightly-colored banner. 
+The avenue continues to climb and descend along the small hills as it
+heads east and west.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76792 10 10 5
+D3
+~
+~
+0 -1 76790 10 10 5
+E
+1 south birch trees~
+These giant trees soar at least fifteen above you, higher than the city
+walls which their trunks press against.  Their rich, dark brown bark is
+free of any moss or bug holes.  Surrounding each of them is a patch of
+wildflowers of various types.
+~
+E
+wildflowers~
+These small wildflowers are every type ranging from dandilions to tulips. 
+Each of the flowers is a different color, cycling through every color of
+the rainbow.  Occasionally you can see a small bug skitter across one of
+their delicate leaves before it drops to the ground and vanishes.
+~
+E
+1 north statues halflings~
+Each of the statues has been carefully carved to resemble a halfling
+bedecked in battle armor.  Every detail imaginable has been added to them
+right down to the wrinkles in their foreheads to the scars on their arms. 
+One of the statues stands out from the rest; it has been carved in the
+likeness of a halfling woman in full plate armor grasping a spiked mace
+tightly in her hand.
+~
+-1
+S
+
+#76792
+South Jezebel Avenue~
+Two large wagons sit off the northern edge of the avenue here; their
+drivers no where in sight and their cargo holds empty.  Stacked up in a
+neat pile next to the wagons are a mound of white stone blocks and a
+large barrel filled with a thick, grey substance.  A small gravel
+footpath leads off to the northwest around the base of large two-story
+building which towers directly to the north.  The grass-covered avenue
+heads off to the east and west continuing its long course around the
+outskirts of the city.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76793 10 10 5
+D3
+~
+~
+0 -1 76791 10 10 5
+E
+large wagons~
+These large wagons are mainly used by merchants to haul heavy goods
+across the realm.  Their horses have been undone and their cargo holds
+are bare save for a few small piles of sugar and flour.
+~
+E
+pile mound white stone blocks~
+These hefty stone blocks are about one foot by one foot and have been
+carefully carved to remove any rough edges.  Small lips on each sides
+allow them to be interlocked with each other.  Although too small to be
+used for the city walls to the south they resemble those used in all the
+buildings about the city.
+~
+E
+barrel~
+This large iron-banded barrel has been filled with a thick, grey
+substance.  Small bits of stone can be seen within the mixture, usually
+used in mortar mixtures.
+~
+E
+gravel footpath~
+The footpath is composed of small grey stone and its borders lined with
+large stones.  It weaves around the walls of the large building and heads
+towards the back of it before dissappearing.
+~
+E
+1 north building two-story~
+This large building is two stories tall and covered in glass windows with
+maple shutters.  Thick, dark brown support beams have been place at its
+corners to support the upper story.
+~
+-1
+S
+
+#76793
+South Jezebel Avenue~
+Standing directly to the north of you is a large two-story stone building. 
+Dark maple beams have been set into the corners of it on which hang
+glass-covered lanterns.  Several small windows adorn the face of the
+building within which you can see several vague shapes moving about.  Off
+to the southeast you catch a glimpse of the mighty stone gates of the
+city.  Like a guardian watching over you, the thick city walls never
+stray from their straight east-west expanse along the southern edge of
+the avenue.  To the east and west the avenue continues to make its way
+about the city.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76778 10 10 5
+D3
+~
+~
+0 -1 76792 10 10 5
+E
+dark maple beams~
+These large beams are made of sturdy maple dried and treated to keep from
+warping.  A glossy finish has been added to them causing light to shine
+off of them.
+~
+E
+windows~
+The windows have been coated with a frosty-white substance obscuring what
+lies inside the building.  You can just barely make out some vague shapes
+occasionally moving past the window and around the interior of the
+building.
+~
+E
+1 south walls~
+Constructed of sturdy white marble blocks, the wall is as sturdy as a
+mountain.  Battlements run along its top and off to the southeast you can
+see a stone watchtower resting above it.
+~
+E
+stone gates~
+From this angle you can only see a small glimpse of the mighty gates. 
+Resting atop them you can see twin watchtowers protruding like giant
+obelisks.
+~
+-1
+S
+
+#76794
+South Jezebel Avenue~
+Dominating the northern edge of the avenue is a large two-story building
+composed of white marble blocks and oak support beams.  A single, large
+window adorns the face of the building which is covered in dirt and
+grime, obscuring what lies behind it.  Large maple, elm, and oak trees
+line the edge of the city walls to the south; their large branches
+spanning overhead, providing a cool shade.  Nestled in between the trees
+are small green shrubs filled with brightly colored berries.  The avenue
+continues its east-west course from here.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76795 10 10 5
+D3
+~
+~
+0 -1 76778 10 10 5
+-1
+S
+
+#76795
+South Jezebel Avenue~
+This portion of the avenue is relatively flat compared than the hilly
+terrain around you.  The soil has been partially chewed up, and most of
+the grass has turned brown and has been stepped upon.  Standing to the
+north is an immense white building that occupies much of the area in that
+direction.  At the base of the building lies a bed of flowers.  On top of
+the flowers are a few empty broken glass bottles that emit the smell of
+stale alcohol.  The avenue continues to extend a great distance to the
+east and west from here.
+~
+[Olah] gonna put a halfling drunkard resting here
+[Terek] Gonna put yourself there? ;)
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76796 10 10 5
+D3
+~
+~
+0 -1 76794 10 10 5
+-1
+S
+
+#76796
+South Jezebel Avenue~
+The lush, green grass of the avenue has been trampled over and over on
+this section of the avenue, leaving large patches of dirt in its place. 
+All about you to the northeast and nothwest, buildings both large and
+small dot the landscape, surrounded by the protective walls of the city. 
+Standing directly off the road to the north is a small cottage topped
+with a thatched roof and a narrow chimney.  South Jezebel Avenue
+continues its long, unending course around the city to the east and west
+from this point.
+~
+~
+301465665 1 6 0
+D0
+small wooden door~
+small wooden door~
+131 -1 76884 10 10 5
+D1
+~
+~
+0 -1 76797 10 10 5
+D3
+~
+~
+0 -1 76795 10 10 5
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76884 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the north.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+3 0 1
+-1
+S
+
+#76797
+South Jezebel Avenue~
+Rising up directly to the north, like a massive obelisk, is a large white
+obsidian building.  Small steps lead up towards a set of massive double
+doors covered in gold plates and holy runes which seem to glow.  Pillars
+run across the front of the temple, each carved in the likeness of a
+halfling with his arms raised skywards.  The sound of quiet chanting
+echoes through the air from within the temple.  The temple is flanked on
+both sides by small, thatched roof cottages topped with small chimneys. 
+The avenue continues across the grassy plains of the city to the east and
+west.
+~
+~
+301465665 1 6 0
+D0
+massive double doors~
+massive double doors~
+131 -1 76849 10 10 5
+D1
+~
+~
+0 -1 76803 10 10 5
+D3
+~
+~
+0 -1 76796 10 10 5
+E
+1 north building temple~
+No description.
+~
+E
+steps~
+No description.
+~
+E
+double doors gold plates holy runes~
+No description.
+~
+E
+pillars~
+No description.
+~
+E
+thatched rof cottages chimneys~
+No description.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@YYou ascend the steps up into the temple and are suddenly overcome by a
+feeling of divine protection.
+~
+E
+not_char~
+@Y$n slowly walks up the steps into the Temple of Freylia.
+~
+!
+3 0 1
+-1
+S
+
+#76798
+Southeast Corner of Jezebel Avenue~
+The avenue bends at a sharp ninety degree angle beside the city walls. 
+At the corner of the walls above, you can see a raised banner flapping
+proudly in the air.  Growing at the bottom corner of the walls are
+several bushes shaped in the figure of a pony, rabbit, and dog.  Looking
+north, the avenue passes by a row of small houses.  To the west, the
+avenue becomes slightly more level and the grass seems to grow slightly
+taller in that direction.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76799 10 10 5
+D3
+~
+~
+0 -1 76803 10 10 5
+E
+walls~
+Standing well over twenty feet tall, the stone walls of the city provide
+a fortified barrier against outside invaders.  Near the top of the
+battlements are several catapults positioned a few feet apart from one
+another.
+~
+E
+banner~
+Waving powerfully back and forth is red banner that has been placed at
+the top corner of the city walls.  The banner appears like a bright flash
+of red in the sky.
+~
+E
+bushes~
+Trimmed meticulously to a height of four feet, the bushes stand in
+various poses.  The bush resembling a pony has its head and knees bent in
+a relaxed position; while the rabbit and dog-shaped bushes stand fully
+alert, with their heads pointed towards the sky.
+~
+E
+houses~
+Stone houses painted in bright colors lie to the northwest, running
+parallel to East Jezebel Avenue.  Each house has a thatch roof and
+appears well kept.
+~
+E
+grass~
+Tall, light-green blades of grass completely cover the ground.  They make
+travel through the town easy on the feet and pleasant on the eyes.
+~
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76799
+East Jezebel Avenue~
+Numerous leafy bushes and broad ferns line the sides of the avenue here. 
+Just off the avenue to the west is a small purple cottage.  Two heart-
+shaped shutters beside the window have been opened, and a rectangular
+pot of flowers has been placed near its sill.  Looming over the cottage
+is a maple tree that shades the house from most sunlight.  Hanging from
+the tree's largest branch is a wide wooden plank that is tied to the
+branch by two sturdy-looking ropes.  The avenue continues further north
+beside more houses and reaches a bend to the south.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76800 10 10 5
+D2
+~
+~
+0 -1 76798 10 10 5
+D3
+small wooden door~
+small wooden door~
+131 -1 76885 10 10 5
+E
+bushes ferns sides~
+The bushes and ferns grow abundantly in a linear, alternating pattern
+beside the avenue.  The bushes have been trimmed to a round shape but
+flat at the top.  The broad leaves of the ferns almost touch the bushes
+beside them.
+~
+E
+1 west cottage house~
+The modest house has been painted in a very light purple, but not light
+enough to be mistaken for lavender.  Its walls are made of smooth, solid
+marble, and its roof is thatched.
+~
+E
+shutters window~
+The shutters are made of a light balsa wood.  The window is also the same
+heart shape as the shutters.  Looking through the window, you can't
+determine much of what's inside of the house from this vantage point,
+except that the interior of the house is painted in bright, flamboyant
+colors.
+~
+E
+pot flowers sill~
+The pot resting against the window sill is about three feet long, a foot
+wide, and a foot deep.  It has been filled almost completely with a
+black-brown soil.  Daffodils, tulips, and sunflowers have been planted in
+the pot and resonate vibrant, bright colors.
+~
+E
+maple tree~
+The maple tree towers over the house; its long branches extend
+protectively.  Its bark is light brown and thick as an elephant's hide.
+~
+E
+branch plank ropes~
+The plank is several inches thick and two feet long.  The rope connected
+to the plank and the thick branch above it looks strong and capable of
+carrying someone the size and weight of a human child easily.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76885 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the west.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the west.
+~
+E
+arrive~
+$n arrives from the east.
+~
+!
+3 0 8
+-1
+S
+
+#76800
+East Jezebel Avenue~
+A multitude of rich colors dominates the sights west of you.  Orange,
+pink, and yellow have been splashed together to create a dizziness-
+inducing design along the stone walls of the small house to the west. 
+The roof is made of straw which has been dyed a light shade of blue.  At
+the foot of the doorless entrance to the house are several shiny green
+cobblestones, each as round as a halfling's stomach.  The grass growing
+around the house is taller and greener than the grass along the avenue. 
+The avenue continues to the north and south beside the row of houses.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76801 10 10 5
+D2
+~
+~
+0 -1 76799 10 10 5
+D3
+~
+~
+0 -1 76847 10 10 5
+E
+1 west house roof~
+The rectangular house is small, extending about fifteen feet across.  Its
+stone walls are smooth, and the bright paint along the walls look new,
+showing no dried paint chips or other signs of age.  The straw roof is
+thick and looks like it'd provide fair protection from the weather.
+~
+E
+entrance cobblestones~
+The entrance to the house is arched and would allow someone the size of
+an ent to enter if he or she were to try hard enough to squeeze through. 
+Leading up to the entrance are a bunch of cobblestones spaced a few
+inches apart from one another.  Unfamiliar designs have been etched into
+each stone.
+~
+E
+grass~
+Numerous blades of verdant green grass surround the area.  The blades
+grow to about two feet around the house, but have been trimmed to less
+than a foot along the avenue, where many have often trampled upon the
+grass.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76847 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the west.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the west.
+~
+E
+arrive~
+$n arrives from the east.
+~
+!
+3 0 8
+-1
+S
+
+#76801
+East Jezebel Avenue~
+Directly to the west is a small stone cottage painted in bright lavender
+with olive green stripes.  A small garden filled with daisies, tulips,
+and orchids lies at the front of the house.  It's apparent that the
+garden has been well-cared for -- its soil is moist and brown and its
+flowers vibrant and colorful.  More houses of similar size can be seen
+further south down the grassy avenue; while to the north stands a tall
+oak tree at the center of a three-way intersection.
+~
+~
+301465673 1 6 0
+D0
+~
+~
+0 -1 76784 10 10 5
+D2
+~
+~
+0 -1 76800 10 10 5
+D3
+small wooden door~
+small wooden door~
+131 -1 76886 10 10 5
+E
+1 west small stone cottage~
+This small cottage has been made from small white bricks that have been
+painted in light lavender and olive green stripes.  Its thatched roof has
+been dyed a bright yellow color and a small chimney protrudes from it.  A
+small dirt footpath snakes its way up to a small wooden door set into the
+cottages wall.
+~
+E
+garden daisies tulips orchids~
+Planted in front of the small house is a small flower garden surrounded
+by a small picket fence.  Orchids, tulips and daises of various colors
+and sizes thrive in the rich soil and add a flare of color to the
+landscape.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76886 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head low enough to where you can fit through the doorway
+and enter the dwelling to the west.
+~
+E
+2~
+@C$n ducks $s head low enough to where $e can fit through the doorway and
+enters the dwelling to the west.
+~
+E
+arrive~
+$n arrives from the east.
+~
+!
+3 0 8
+-1
+S
+
+#76802
+Inside the Eastern Gates of Shadybrook~
+Looming directly to the east are the massive stone gates of Shadybrook. 
+Resting atop each side of the gates are small stone watchtowers atop
+which the battle standards of the city fly.  Heading away from each
+watchtower are the long battlements of the city upon which you catch a
+brief glimpse of catapaults poised to fire.  Sitting to the north and
+south are small stone guard houses, each with a single steel door marking
+the entrance into them.  Next to the southern guard house, set into the
+thick white stone of the gates, is a small steel @Wlever@n.  To the west
+the grassy roads and avenues of Shadybrook begin their advance throughout
+the vast expanse of the city.
+~
+~
+301465673 1 6 0
+D1
+massive stone gates~
+massive stone gates~
+195 -1 77773 10 10 5
+D3
+~
+~
+0 -1 76784 10 10 5
+A
+pull tug move~
+steel lever~
+act_tochar( #no, ch );
+act_notchar( #no1, ch );
+~
+E
+no1~
+$n tries to pull the lever but a gate guard quickly stops $m and speaks
+to $m a moment before returning to his post.
+~
+E
+no~
+As you attempt to pull the lever the gate guard comes over you to and
+says: @W"I'm sorry friend but the wilds out there are very dangerous at
+this time.  Please check back at a later time when the militia has time
+to clear away some of the monsters."@n 
+~
+!
+0 0 0
+2207 9 1509949540 3 0
+2207 9 1509949540 3 0
+-1
+S
+
+#76803
+South Jezebel Avenue~
+A row of small houses have been erected to the north of you.  Each of the
+homes are decorated in light, cheerful colors that brighten the landscape. 
+At the base of the city wall to the south are many empty and half-empty
+cans of paint.  The ground around the cans have been splattered with
+different paints resulting in multi-colored patches of grass.  Quite a
+few daisies grow along this portion of the avenue, providing additional
+color to the surrounding area.  The avenue continues west and reaches a
+bend to the east.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76798 10 10 5
+D3
+~
+~
+0 -1 76797 10 10 5
+E
+1 south base cans paint~
+The shiny silver cans no longer hold any usable paint.  Dried spots
+around each rim reveal that each used to contain red, blue, yellow, or
+orange paint.
+~
+E
+wall~
+The walls are made of solid white stone and stand well past twenty feet
+tall.  They wrap around the city protectively and block out any unwanted
+visitors.
+~
+E
+ground patches grass paints~
+Spilled dry paint splotches have caused some of the grass along the
+avenue to change color.  In addition to light green, some blades of grass
+are now red, blue, orange, or yellow.
+~
+E
+daisies~
+Growing in dense patches, the daisies provide this part of the avenue
+with a pleasant scent.  Their ivory white petals and golden centers are a
+visual feast, further enlivening the atmosphere of the city.
+~
+-1
+S
+
+#76804
+West Jezebel Avenue~
+Dozens of rose bushes line the eastern and western sides of the avenue. 
+Each of the roses are of different colors and a few are even a mixture of
+several colors.  Patches of the grass here have been replaced by
+wildflowers which just now have begun to bloom.  To the southeast several
+stone buildings can be seen and from that direction the sweet aroma of
+chocolate, freshly baked bread and sugar emanates.  West Jezebel Avenue
+continues to trek around the city to the north and south from this point.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76805 10 10 5
+D2
+~
+~
+0 -1 76772 10 10 5
+E
+1 east west rose bushes~
+Thriving in the rich, dark soil of the grassy plains of the region are
+several rose bushes which have been planted along the eastern and western
+edges of the avenue.  Each of the roses is a different color, ranging
+from violet to yellow.  Sharp thorns protrude from the branches and
+glisten in the light like a sword's blade.  Most of the roses are still
+closed but a few have opened in full bloom; their delicate petals gently
+swaying in the breeze.
+~
+E
+patches wildflowers~
+The rich, green grass that once thrived along this section of the avenue
+has been replaced by several patches of brightly-colored wildflowers. 
+Dandilions, tulips, violets and daisies all have taken up residence and
+each is in full bloom.
+~
+-1
+S
+
+#76805
+West Jezebel Avenue~
+The grass along this section of the avenue is quite different from the
+rest.  Each of the blades has been changed a different color, cycling
+through all the colors of a rainbow.  The city walls which loom overhead
+to the west are covered in black scorch marks.  Directly off the road to
+the east is a small thatched roof building covered in glowing runes and
+sigils.  Sitting directly next to the building is the statue of a orc;
+his face frozen as if he were screaming.  The avenue continues to the
+north and south from here.
+~
+[Terek] Wizard stoned the orc and kept it as a prize ;)
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76807 10 10 5
+D1
+~
+~
+0 -1 76839 10 10 5
+D2
+~
+~
+0 -1 76804 10 10 5
+E
+grass~
+All of the grass along this stretch of the avenue has been turned various
+colors.  Each blade differs from the rest colorwise, cycling through
+every color of the rainbow and than even more colors.  Glancing down at
+the grass you notice that the soil between it has changed to a deep blue
+color.
+~
+E
+1 west walls black scorch marks~
+The great city walls which lie directly to the west of you are covered in
+large, black scorch marks.  The marks are not the type left by fire but
+rather as if a large ball of flame had impacted upon its surface and
+dissipated.
+~
+E
+1 east thatched roof building~
+This small building looks the same as most of the other buildings about
+the city save for the fact that its white stone walls are covered in
+glowing runes and sigils.  Its thatched roof is not the common
+yellow-brown color but is in fact a deep violet color.
+~
+E
+glowing runes sigils~
+The runes and sigils which adorn the walls of the small building glow
+with a deep crimson light and pulse and dim as if of their own free will. 
+Peering over the runes you notice they are of different sizes and shapes
+and each is surrounded by a small ring of clear rubies.
+~
+E
+statue stone orc~
+This large statue stands about six feet tall and has been carved into the
+likeness of an orc grasping a large pike.  Every part of the statue has
+been amazingly detailed right down to the orc's bushy eyebrows.  His face
+is locked in a look of fear and his mouth is open wide, as if he were
+screaming.  The stone which the statue has been carved from is unlike any
+you have seen; parts of it are transparent and you can almost see the
+orc's armor beneath it.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76839 ) );
+act_notchar( #arrive, ch );
+  }
+else
+continue;
+~
+E
+1~
+@CYou duck your head considerably as you enter the small building.
+~
+E
+2~
+@C$n ducks $s head low as $e enters the shop to the east.
+~
+E
+arrive~
+$n arrives from the west.
+~
+!
+3 0 2
+-1
+S
+
+#76806
+North Jezebel Avenue~
+Large white stone blocks have been piled up along the northern wall of
+the city just off the avenue here.  Resting beside the blocks are crates
+filled with masonary tools and other stone-working supplies.  All along
+the northern battlements you can see the halfling guards pacing back and
+forth as they peer out over the wilds, scanning for any signs of a threat. 
+North Jezebel Avenue continues to the east and west from here, rising and
+falling through the tiny hills.
+~
+[Terek] Battlements inaccessible, will add fake acode action in
+[Terek] Watchtowers to say you'r not allowed there
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76814 10 10 5
+D3
+~
+~
+0 -1 76752 10 10 5
+E
+1 north white stone blocks pile~
+These massive blocks are about three feet long by two feet wide and have
+been polished to give them a glossy look.  The blocks are about the same
+size used to compose the city wall they rest against.
+~
+E
+crates masonary tools stone-working supplies~
+Each of the large wooden crates has been branded with the seal of
+Shadybrook upon their sides.  Contained within each crate are several
+masonary and stone-working tools ranging from pick-axes to trowels.
+~
+E
+battlements~
+Running across the length of the city walls to the north are the
+reinforced battlements.  Halfling guards can be seen pacing back and
+forth across them occasionally stopping a moment before continuing their
+rounds.
+~
+-1
+S
+
+#76807
+West Jezebel Avenue~
+Small clumps of moss have started to grow along the towering city wall to
+the west.  The shape of the clumps resemble small round pies due to their
+semi-circular ridges.  Stacked along the base of the wall in a four by
+four configuration are some blocks of white marble that contain several
+long cracks about half an inch wide.  Off to the east is a peculiar-
+looking building, but you see no way to enter it from here.  The avenue
+extends to the north and south, where the grass continues to grow
+abundantly and almost totally blankets the tilted ground.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76808 10 10 5
+D2
+~
+~
+0 -1 76805 10 10 5
+E
+1 west wall clumps moss~
+The moss which covers most of the western wall is a rich, green color. 
+Each clump looks like a tiny pie due to its semi-cicular ridges across
+its surface.  Occasionally the moss ripples as if a stiff breeze had
+blown across it.
+~
+E
+blocks white marble~
+These large marble blocks look about the same size as the ones used to
+compose the city walls.  Large cracks, about half an inch wide scar their
+surfaces.
+~
+E
+1 east small building~
+This building differs than all the others of the city due to its cylinder
+shape.  Its roof is composed of sheets of white stone plated with silver. 
+No windows are visible upon this side nor an entrance.
+~
+-1
+S
+
+#76808
+Northwest Corner of Jezebel Avenue~
+You are at the bend in Jezebel Avenue as the city wall to the north and
+west of you curls to the east and south.  The grass is bright green and
+tall here, covering almost all of the hilly surface of the avenue.  Also
+growing among the grass are patches of clovers and several wildflowers,
+including dandelions and buttercups, which dot the lush green landscape
+in yellow.  The sound of laughter and the hustle and bustle of city life
+can be heard in the distance.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76809 10 10 5
+D2
+~
+~
+0 -1 76807 10 10 5
+E
+grass~
+The grass is thick and a healthy green color.  Most of it has been cut
+down to about an inch high but in some places it reaches as much as two
+feet.
+~
+E
+patches wildflowers clovers dandelions buttercups~
+Mixed with the lush green grass of the avenue are several large patches
+of wildflowers and clovers.  Each of the wildflowers varies in color and
+size but all remain quite beautiful.  Like the wildflowers, the clovers
+also vary in color from dull green to a rich yellow color.
+~
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76809
+North Jezebel Avenue~
+A wooden @Wsign@n with several runes inscribed in it hangs from the
+cylindrically-shaped building to the south.  Emanating from that
+direction is a powerful white gas that leaves you feeling uncomfortable
+when inhaled too deeply.  No grass grows near the entrance to the
+building, and a soft violet light illuminates its inside.  To the north
+are several layers of fist-sized rocks that line the base of the city
+wall.  North Jezebel Avenue extends to the east and west along the small
+grassy hills and beside the protective stone wall.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76810 10 10 5
+D2
+~
+~
+0 -1 76838 10 10 5
+D3
+~
+~
+0 -1 76808 10 10 5
+E
+wooden sign runes~
+Written in elegant, flowing runes which pulse with a red light the sign
+reads: @R"Beredin's Alchemy Supplies"@n 
+~
+E
+1 south cylindrical building~
+This large building has been shaped into a cylinder and topped with a
+stone roof which has been plated in silver.  An entranceway sized for
+halflings is the only visible means of entrance.  A thick, white grass
+billows out from within the doorway.  A soft violet light illuminates the
+interior of the building.
+~
+E
+white gas~
+The gas is quite thick and billows forth like smoke from a chimney.  It
+has a strong odor of sulfur which makes your eyes water.
+~
+E
+fist-sized rocks~
+These small, fist-sized rocks are fairly smooth and have a pearly-white
+color to them.  Small blades of grass surround the rocks and some young
+wildflowers have begun to sprout up around them.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76838 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head considerably as you enter the small building.
+~
+E
+2~
+@C$n ducks $s head low as $e enters the shop to the south.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76810
+North Jezebel Avenue~
+The blended scent of chewed up hay and strong, intoxicating perfumes
+engulfs this part of the Jezebel Avenue.  Much of the grass along the
+avenue is light brown and bent, indicative of the constant trampling they
+must endure.  To the south are a couple of sycamore trees, their trunks
+twisting diagonally and their branches waving softly with each passing
+breeze.  The avenue continues its sloping course to the east and west
+beside the protective city wall.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76811 10 10 5
+D3
+~
+~
+0 -1 76809 10 10 5
+E
+grass avenue~
+The grass along this stretch of the avenue has been severely trampled,
+leaving most of it a dull brown color.  Barely visible through the grass
+are wagon ruts which sink about a quarter of an inch into the soft soil.
+~
+E
+1 south sycamore trees~
+These large trees have a rich brown color to them and are covered in
+patches of light green moss.  Their thick trunks twist diagnoally and
+their branches spread out over the buildings to the southeast and
+southwest.
+~
+-1
+S
+
+#76811
+North Jezebel Avenue~
+Patches of yellow-brown hay have been scattered about the surface of the
+avenue, mingling with the soft green grass.  The strong odor of dried hay
+emanates from a large building set just off the road to the south.  The
+sound of clanging metal as well as horses snorting can be heard from
+within it.  Along the northern edge of the road loom the large walls of
+the city.  Only interrupted by patches of grass and a few trees, the
+southern side of the road is cluttered with small buildings and cottages. 
+Jezebel continues unabated to the east and west from here.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76812 10 10 5
+D2
+~
+~
+0 -1 76840 10 10 5
+D3
+~
+~
+0 -1 76810 10 10 5
+E
+yellow-brown hay avenue green grass~
+Large patches of dried hay have been scattered about the avenue, mingling
+with the lush green grass.  The hay's strong odor fills the air and every
+time the wind blows the overwhelming aroma of it assails you, emanating
+from the building to the south.
+~
+E
+1 south building~
+The building is fairly large and topped with a thich thatched roof.  The
+strong odor of hay emanates from within it and occasionally you can hear
+the snort of some animal.
+~
+E
+1 north city walls~
+Towering up like a massive obelisk, directly to the north, are the
+impressive city walls.  Their white marble blocks are void of any cracks
+or blemishes and white mortar has been used as filler in between each
+block, giving it the appearance of a sheet of snow.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76840 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck your head considerably as you enter the small building.
+~
+E
+2~
+@C$n ducks $s head low as $e enters the shop to the south.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76812
+North Jezebel Avenue~
+Lining the southern edge of the avenue are leafy bushes that have been
+trimmed to resemble familiar creatures.  Some of the bushes look like
+woodland animals such as deer and rabbits, while other bushes have been
+cut to appear like rotund, short human-like creatures.  A smooth stone
+wall has been erected to the north.  At the base of the wall are rows of
+tiny pebbles and twigs.  The avenue ascends and descends slightly as it
+continues to the east and west.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76813 10 10 5
+D3
+~
+~
+0 -1 76811 10 10 5
+E
+1 south leafy bushes~
+These lush, green bushes have each been trimmed to resemble woodland
+animals.  Some of the bushes look like deer, rabbits and squirrels while
+others look like short-humanoid creatures.  Small, red berries grow from
+the branches from a few of the bushes, adding a touch of color to the
+green landscape.
+~
+E
+pebbles twigs~
+The pebbles which line the base of the city walls to the north are about
+the size of a copper coin and are extremely glossy.  Mixed with the
+pebbles are small twigs, broken free from the many trees within the city,
+and swept aside to keep them off the avenue.
+~
+-1
+S
+
+#76813
+North Jezebel Avenue~
+The road continues to the east and west, as it slopes up and down the
+hilly landscape.  White stone bricks, each the size of a halfling's foot,
+have been deeply imbedded in a polka-dot pattern along this portion of
+the road, as though the builder planned to add them later to the rest of
+the road but forgot.  Covering some of the bricks are muddy wagon tracks
+that lead in diagonal, horizontal, and circular directions.  In between
+the narrowly spaced bricks, small wildflowers have sprouted.  Rising to
+the north is a guard's watchtower made of smooth white stone blocks.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76752 10 10 5
+D3
+~
+~
+0 -1 76812 10 10 5
+E
+white stone bricks~
+The bricks are made from white marble which has been polished to give
+them a glossy look.  Each is the size of a halflings foot and have been
+snuggly set against each other.  Judging by the amount of bricks laid it
+appears that the builder had planned to make all of the avenue
+cobblestone but than forgot.
+~
+E
+muddy wagon trucks~
+The wagon tracks are fairly fresh and the mud is still wet.  Ruts lead up
+to the bricks where their mud tracks have trampled over them and
+continued on the other side.
+~
+E
+small wildflowers~
+Small wildflowers have begun to sprout up between each of the tightly
+spaced bricks upon the ground.  Their tiny buds have not yet begun to
+bloom but looking closely you can see an array of colors inside the
+tightly-closed buds.
+~
+-1
+S
+
+#76814
+North Jezebel Avenue~
+The distinct smell of sulfur and iron fills the air along this section of
+the avenue.  The sound of metal clanging echoes down the road and nearly
+drowns out the other sounds of the city.  To the south sits a small stone
+building topped with a soot-covered chimney which spews out large clouds
+of black smoke.  A small wooden @Wsign@n hangs over the doorway to the
+building.  The avenue continues on an east-west course from this point as
+it skirts along the outer ring of the city.
+~
+[Terek] Acode Fixed
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76815 10 10 5
+D2
+~
+~
+0 -1 76822 10 10 5
+D3
+~
+~
+0 -1 76806 10 10 5
+E
+wooden sign~
+Written in elegant, flowing black print the sign reads: @W"Diri's Weapons
+Shop"@n 
+~
+E
+1 south stone building soot-covered chimney clouds smoke~
+The building is painted in light green.  Etched above its entrance are a
+pair of crossed swords.  The smell of burning brimstone fills the air
+around the entrance.  At the side of the building is a blackened chimney
+that extends several feet above the roof of the building.  A continuous
+cloud of smoke flows from its top, darkening the area directly above it.
+~
+A
+~
+~
+room = find_room( 76814 );
+send_to_room( #ouch, room );
+~
+E
+ouch~
+A loud howl of pain emanates from the building to the south and you hear
+a deep voice chuckle and say: @W"Thats nay how ye do it lad.  Ye use the
+tongs to get the iron out, not your bare hands."@n 
+~
+!
+2 400 0
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76822 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck low as you attempt to enter the building to the south but
+misjudge and smack your head into the doorway.  A second attempt prevails
+and you enter uninjured.
+~
+E
+2~
+@C$n ducks $s head low as $e tries to enter the shop to the south but
+misjudges and smacks right into the doorway.  After grumbling a few foul
+curses and rubbing $s head $e manages to get in without injury.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76815
+North Jezebel Avenue~
+The avenue gently rises and falls over the sloping hills of the city as
+it continues its east-west path along the edge of the northern
+battlements.  Small mud puddles dot the grassy road in which you can
+occasionally see a bug land on their surfaces and than zip off.  A gentle
+breeze blows along the avenue, carrying with it the sweet scent of
+freshly baked bread, wildflowers, and sometimes the putrid odor of sulfur. 
+To the southeast and southwest small buildings lie off the edge of the
+road.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76816 10 10 5
+D3
+~
+~
+0 -1 76814 10 10 5
+E
+north northern battlements~
+The battlements are made of solid white stone.  Standing well over twenty
+feet tall, the walls look like they would provide a firm barrier from
+unwanted guests.
+~
+E
+mud puddles~
+They were probably caused by the feet of halflings and other pedestrians
+that past through this part of the avenue.  An opaque liquid partially
+fills the puddle, and you can see occasional ripples along their surface.
+~
+E
+southeast southwest buildings~
+Small buildings dot the southern landscape.  Although each looks unique
+and colorful, the buildings are all made of stone and have thatched roofs.
+~
+-1
+S
+
+#76816
+North Jezebel Avenue~
+The avenue dips deeply into the ground here, like a trail descending into
+a valley.  All along the northern edge of the street, white rose bushes
+have been planted; their flowers just now beginning to bloom.  Directly
+off the edge of the avenue to the south is a tiny building topped with a
+large chimney which constantly spews a thick white smoke into the air. 
+Stacked up against the side of the building are several large iron-banded
+barrels, long slabs of raw iron ore, and an enormous pile of charcoal. 
+Jezebel Avenue continues to the east and west from here, gently rising up
+the slopes of the hills.
+~
+[Terek] Acode fixed
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76817 10 10 5
+D2
+~
+~
+0 -1 76823 10 10 5
+D3
+~
+~
+0 -1 76815 10 10 5
+E
+northern edge white rose bushes flowers~
+Growing in a long row along the northern side of the avenue are five rose
+bushes.  Their buds and petals are white as milk and give off a fragrant
+scent.  Each rose looks to be in full blossom, beautifying the sights
+along this part of the street.
+~
+E
+1 south building~
+The building is painted in navy blue.  Its walls are made of a smooth,
+polished stone.  The thatched roof covers the top and seems to provide
+good protection for the building.
+~
+E
+chimney smoke~
+The chimney looks several feet wide in diameter and is made of red bricks. 
+It extends a few feet above the roof, and a thick cloud of smoke flows
+from it like a misty linked chain.
+~
+E
+iron-banded barrels slabs iron ore pile charcoal~
+Placed in a pyramid-like configuration, the round wooden barrels have
+several holes on them revealing a dark liquid within the barrels.  The
+metal bands around the barrels are tarnished but look sturdy.  Leaning
+against the barrels are long bars of iron ore that haven't been polished,
+but still seem to shine.  Charcoal pieces lie stack on top of the
+barrels; most of the charcoal look solid black and unused.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76823 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou duck low as you attempt to enter the building to the south but
+misjudge and smack your head into the doorway.  A second attempt prevails
+and you enter uninjured.
+~
+E
+2~
+@C$n ducks $s head low as $e tries to enter the shop to the south but
+misjudges and smacks right into the doorway.  After grumbling a few foul
+curses and rubbing $s head $e manages to get in without injury.
+~
+E
+arrive~
+$n arrives from the north.
+~
+!
+3 0 4
+-1
+S
+
+#76817
+North Jezebel Avenue~
+Tiny yellow, blue, red and violet flowers cover the surface of the avenue
+here, each in full bloom.  Bees buzz around the flowers, gathering their
+sweet nectar and than flying off back to their hive.  Along the southern
+edge of the road several young oak trees grow, their tiny branches just
+now starting to form.  Next to the trees sits a short marble bench nearly
+obscured by the waist-high grass which grows around it.  The avenue
+continues its journey around the outskirts of the city to the east and
+west from here.
+~
+~
+301465665 1 6 0
+D1
+~
+~
+0 -1 76818 10 10 5
+D3
+~
+~
+0 -1 76816 10 10 5
+E
+flowers surface~
+Dotting the grassy avenue are a variety of flowers with brightly-colored
+petals.  A pleasant scent emanates from them and fills the air around you.
+~
+E
+bees~
+The bumblebees are fuzzy as they go about their business collecting
+nectar, oblivious to anything around them.  Their stingers stick out
+noticeably and are no longer than half an inch long.
+~
+E
+oak trees branches~
+The oak trees stand only five or six feet tall.  Their barks are solid
+and light brown, and their branches extend a half a foot from the trunks. 
+You can barely make out tiny leaves have just beginning to grow from them.
+~
+E
+marble bench~
+Extending four feet long and a foot wide, this bench looks pleasant
+enough to rest upon.  Its white marble seat is exceedingly smooth.  Its
+legs are round, stand about a foot high, and are intricately carved.
+~
+E
+grass~
+Three foot high blades of light green grass grow around a marble bench
+and underneath some oak trees.  The grass rustle in a wave-like fashion
+with each passing breeze.
+~
+3372 17 1509949540 -2 0
+-1
+S
+
+#76818
+Northeast Corner of Jezebel Avenue~
+Jezebel Avenue bends to the east and south here, its northern and eastern
+course blocked by the large stone walls of the city.  Atop the
+battlements you can just barely make out catapults positioned several
+feet apart.  Bits of stone, broken free from the eastern wall, lie
+scattered about its base.  Dotting the grassy landscape to the west,
+southwest and south are dozens of shops and homes of the citizens of
+Shadybrook.  The outer walls of the city run west and south from here, as
+well as the avenue which paralells it.
+~
+i sense typos cus i can't friggin spell today
+[Olah] wouldn't it be neat if the editor had a spellchecker? 
+[Olah] for now, we just have to rely on merior ;p
+~
+301465665 1 6 0
+D2
+~
+~
+0 -1 76819 10 10 5
+D3
+~
+~
+0 -1 76817 10 10 5
+E
+stone eastern walls~
+The white stone walls stand over twenty feet tall and look very solid.
+The eastern wall seems slightly worn away, but that was probably due to
+negligence on the part of the builder who was probably in a rush to erect
+the walls.
+~
+E
+battlements catapults~
+The gaps of the battlements are a few feet wide and long at the top of
+the walls.  The catapults placed within the gaps have been polished and
+appear immediately ready to be used in defense of the city.
+~
+E
+shops homes~
+Most of the buildings to the southwest of the city are made of stone and
+painted in bright, cheerful colors.  Each is small compared to human
+standards but look well-kept and unique.
+~
+2202 9 1509949540 3 0
+2210 9 1509949540 3 0
+-1
+S
+
+#76819
+East Jezebel Avenue~
+The thick, stone walls of the city loom high above you to the east,
+casting a dark shadow upon the avenue.  At the base of the wall several
+sourberry bushes have been planted and their tiny flowers still waiting
+to turn into fruit.  Off the edge of the road to the west tall maple,
+oak, birch and elm trees tower up towards the sky; their thick branches
+tangling with each other.  The avenue continues its north-south run
+around the city, never straying from its distance from the walls.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76818 10 10 5
+D2
+~
+~
+0 -1 76820 10 10 5
+E
+1 east thick stone walls~
+These mighty stone walls have been made from large white marble bricks
+tightly spaced together.  A white mortar has been used to hold each of
+them together and in some places a thin sheet of it has been used to help
+reinforce them further.
+~
+E
+sourberry bushes tiny flowers~
+These bushes grow very low to the ground; their tops barely reaching a
+foot high.  Small yellow berries hang from each of their delicate
+branches as well as some small white flowers.
+~
+E
+1 west maple oak birch elm trees~
+Standing off the edge of the road to the west, like mighty obelisks, are
+several oak, birch, maple and elm trees.  Each of the trees have thick,
+round trunks measuring at least four feet in diameter.  Their leafy
+branches spread out over the small cottages and buildings surrounding
+them.  Groaning and cracking can be heard from their branches everytime a
+stiff breeze blows through the area, causing them to sway gracefully.
+~
+-1
+S
+
+#76820
+East Jezebel Avenue~
+Thick, green ivy vines drape down the length of the walls to the east of
+you, snaking their way towards the center of the street.  Trampled
+daisies lie scattered about the surface of the avenue, having been
+crushed by the heavy traffic of the city.  A loud bubbling sound emanates
+from a small marble building to the west and the distinct smell of burned
+leather fills the air.  The avenue continues to run in a straight line to
+the north and south from here.
+~
+[Terek] Acode Fixed
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76819 10 10 5
+D2
+~
+~
+0 -1 76821 10 10 5
+D3
+~
+~
+0 -1 76844 10 10 5
+E
+1 east ivy vines walls~
+Long strands of dark green ivy flow down the city walls to the east of
+you like the flowing braids of a wild forest nymph.  The vines cover much
+of the wall around this portion of the avenue, almost overtaking the
+ground here as well.
+~
+E
+daisies surface~
+What remains of the wild profusion of yellow daisies are crushed leaves,
+squashed stems, and broken petals.  Each of the pieces have been
+dispersed randomly along the avenue's surface.
+~
+E
+1 west marble building~
+To the west is a marble building painted in scarlet red.  A large bucket
+of clear water has been placed at the side of the building.  Several
+cobblestones lie at the front to form a curved path into the building.
+~
+A
+~
+~
+if( race( ch ) == ent ) {
+  act_tochar( #1, ch );
+  act_notchar( #2, ch );
+  transfer( ch, find_room( 76844 ) );
+act_notchar( #arrive, ch );
+  }
+else
+  continue;
+~
+E
+1~
+@CYou crouch down and enter the small shop to the west.
+~
+E
+2~
+@C$n crouches down low and waddles into the small shop to the west.
+~
+E
+arrive~
+$n arrives from the east.
+~
+!
+3 0 8
+2211 9 1509949540 3 0
+-1
+S
+
+#76821
+East Jezebel Avenue~
+Several grey rocks peak out beneath the thick layer of grass along the
+avenue; some the size of a halfling's skull and others the size of a
+storm giant's head.  Wagon ruts snake their way between the rocks and a
+few lead straight up to them and than continue on their other side. 
+Small weeds mingle with various colored flowers along the edge of the
+road, each trying to overtake the other.  East Jezebel Avenue continues
+to the north and south, never straying from its course parallel to the
+thick city walls.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76820 10 10 5
+D2
+~
+~
+0 -1 76784 10 10 5
+E
+grey rocks grass avenue~
+These large, grey rocks vary in size; some the size of a halfling's skull
+while others rival a storm giant's head.  Their surface is very smooth
+and is specked with white dots.
+~
+E
+wagon ruts~
+Several wagon ruts scar the surface of the avenue; some very old while
+others look to be recently made.  The ruts lead right up to a group of
+grey rocks, head over them, and than continue on the other side.
+~
+E
+weeds flowers~
+Thick ragweeds grow along each side of this stretch of the avenue,
+mingling with small patches of wildflowers.  The weeds have begun to
+snake their way around the stems of the flowers in a vain attempt to
+destroy them.
+~
+-1
+S
+
+#76822
+Diri's Weapons Shop~
+This shop, although small, contains hundreds of weapons which hang from
+its walls.  Pikes, swords, spears whips and clubs all have been neatly
+set up for display across the stone walls, each polished to a high shine
+and rust-free.  Resting in the southeast corner of the room are two iron
+anvils, a barrel of water, a small crucible and a large iron forge.  In
+the center of the room is a long wooden counter on which rest several
+pieces of cheese and a large mug of ale.  An open doorway to the north is
+the only exit out of the shop.
+~
+*** WHIP ***
+[Terek] Will make descs for reagants at a later date.
+*** FALCHION ***
+[Terek] Objects written for it, NEXT!
+SHOP DONE!
+[Terek] Weapons Approved!
+~
+301465679 0 6 0
+D0
+~
+~
+0 -1 76814 10 10 5
+E
+walls pikes swords spears whips clubs~
+Each of the weapons is in pristine condition and free of any rust or
+tarnish.  The weapons range from simple steel pikes to spiked clubs the
+size of an ogre's body.  The swords are of superior design and each has
+its hilt carved in the likeness of different monsters.  A large whip
+hanging from the southern wall catches you attention; it measures about
+three feet long and is tipped with tiny krynite claws.
+~
+E
+iron anvils~
+These anvils are made from black wrought iron and are sized just right
+for a halfling blacksmith.  The surface of the anvils are covered in
+solidified metal and several large scratches and nics.
+~
+E
+barrel water~
+This iron-banded barrel is filled with cool, clear water which is used
+for cooling weapons just after they have come out of the forges.
+~
+E
+crucible~
+This small crucidble still contains some liquified steel which sizzles
+and bubbles violently.  A strong wave of heat emanates from the crucible
+making it quite dangerous to touch at this time.
+~
+E
+iron forge~
+This large forge is made from wrought iron and is covered in a thick
+layer of soot.  A large chimney has been built above it which leads
+through a small opening in the roof.  Flames occasionally spew forth from
+the grill covering its opening and inside you can just barely make out
+several large steel strips resting in its red-hot coals.
+~
+E
+wooden counter~
+Made from a long slab of birchwood, this counter is of simple design. 
+Upon it rests several pieces of cheese covered in green spots and a large
+mug of ale which emanates a strong scent of alcohol.
+~
+2222 9 1509949540 3 0
+744 17 1509949480 -1 0
+930 17 1509949480 -1 0
+898 17 1509949480 -1 0
+1554 17 1509949480 -1 0
+1052 17 1509949480 -1 0
+973 17 1509949480 -1 0
+968 17 1509949480 -1 0
+3295 17 1509949480 -1 0
+3020 17 1509949480 -1 0
+-1
+S
+
+#76823
+Loeia's Custom Crafted Armors~
+Dozens of shields, helms and suits of plate armor adorn the walls of this
+tiny shop.  The entire southern wall is dedicated to shields, ranging
+from small bucklers to ogre-sized tower shields of various colors and
+shapes.  Shelves line the western wall of the shop and atop them rest
+helms made from every type of material from leather to ivory.  Hanging
+from the eastern wall are impressive suits of plate armor sized for a
+halfling and larger.  In the center of the room is a simple stone table
+on which rest several polishing cloths, glass vials of oil and a hefty
+hammer.  To the north an open archway leads back out onto Jezebel Avenue.
+~
+[Terek] *** SHIELD ***
+[Terek] Strap loads in Dark faeries ( or will )
+[Terek] Slabs in Shadybrook Cemetary
+[Terek] Rune in med crypt
+[Terek] *** SKIRT ***
+[Terek] Belt pops in erm..orogs
+[Terek] Buckle in a chest in flor's Desert (pending)
+[Terek] Ingots, i wonder
+[SHOP DONE!]
+[Terek] Bolt object not done
+~
+301469771 0 6 0
+D0
+~
+~
+0 -1 76816 10 10 5
+E
+southern wall shields bucklers tower~
+The entire southern wall is covered with shields of every size, shape,
+color and metal.  The shields range from simple bronze bucklers to
+colorfully painted kite shields.  One shield catches your eye; resting in
+the center of all the others is a massive adamantite tower shield
+emblazoned with the image of a red dragon a stream of fire.
+~
+E
+western wall shelves helms~
+The helms which rest atop the shelves along the western wall are of
+superior design.  Each has been carefully polished and kept free of any
+tarnish or rust.  Ivory greathelms and bronze caps are just a few of the
+helms which the armorsmiths of Shadybrook have put on display in this
+shop.
+~
+E
+eastern wall suits armor plate~
+The entire eastern wall is a sheet of metal.  Plate mail crafted in
+unique shapes and colorfully painted have been hung from the wall.  Each
+suit is sized for different races from someone the size of a halfling to
+an ent.  Each suit has been carefully polished to a high shine causing
+your reflection to be easily seen upon its surface.
+~
+E
+stone table~
+This stone table is of simple design; a stone slab carefully carved to
+remove its sharp edges mounted atop a solid stone block.  Cluttered
+across the table are several polishing cloths, glass vials of oil used to
+help keep the platemail rust-free and a large blacksmith's hammer used
+for banging dents out.
+~
+2213 9 1509949540 3 0
+3282 17 1509949470 -1 0
+3283 17 1509949470 -1 0
+3284 17 1509949470 -1 0
+3299 17 1509949470 -1 0
+3298 17 1509949470 -1 0
+-1
+S
+
+#76824
+The Jolly Halfling Tavern - Foyer~
+This large entranceway has been lavishly decorated with paintings and
+fine oak furniture.  The floor is covered in a large red carpet with the
+image of a falcon soaring over snow-capped mountain peaks.  Set against
+the southern wall are several small, cushioned chairs and a small oak
+tabled with small carvings of halflings at play etched across its surface. 
+Hanging just above the chairs is a large tapestry depicting a band of
+halflings at a large festival set atop a grassy knoll.  To the east and
+north gold-plated archways lead into the tavern where loud music and
+laughing can be heard.  To the west a maple door leads back out onto
+South Main Street.
+~
+~
+301465613 0 6 0
+D0
+~
+~
+0 -1 76866 10 10 5
+D1
+~
+~
+0 -1 76868 10 10 5
+D3
+maple door~
+maple door~
+131 -1 76777 10 10 5
+-1
+S
+
+#76825
+The Dancing Kobold Inn - Entranceway~
+Large silk tapestries embroidered with the images of green forest
+landscapes adorn the stone walls of this small entranceway.  A long,
+velvet cushioned bench rests against the southern wall and sitting in
+front of it is a glossy maple table on which a ceramic vase with fresh
+wildflowers rests.  Off to the north is a small alcove where you can see
+a wooden staircase spiraling up to the second floor.  To the west lies a
+brightly-lit room filled with tables and chairs.  Set into the eastern
+wall is a small oak door which leads out of the inn.
+~
+~
+301465613 0 6 0
+D0
+~
+~
+0 -1 76848 10 10 5
+D1
+oak door~
+oak door~
+131 -1 76777 10 10 5
+D3
+~
+~
+0 -1 76865 10 10 5
+-1
+S
+
+#76826
+Shadybrook Militia's Barracks~
+This small building is nothing more than a hollow shell; the walls are
+utterly bare of any decorations.  What little lies in the room is nothing
+spectacular; a small table with four wooden chairs sits against the
+northern wall and a wooden weapons rack filled with spears is set against
+the eastern wall.  A small fireplace which burns with small flames has
+been set against the western wall provides the only light for the room. 
+In the center of the room a small black hole leads deep into the ground. 
+Attached to the floor next the hole is a steel ladder which descends into
+the darkness.  To the south a heavy steel door leads out onto Jezebel
+Avenue.
+~
+~
+301465677 0 6 0
+D2
+small steel door~
+small steel door~
+131 -1 76790 10 10 5
+D5
+~
+~
+0 -1 76827 10 10 5
+-1
+S
+
+#76827
+On a Steel Ladder~
+Dark, dirt walls surround you in every direction, closing in to mere
+inches from your body at some points.  Twisted roots protrude from the
+walls and run down the length of them.  The steel ladder bolted to the
+southern wall is covered in bits of grime which make some of the steps
+extremely slippery, causing you to hang on tight for fear of falling off. 
+Below you the ladder descends into darkness and even the glint of its
+steel cannot be seen.  Above you the ladder rises towards a small
+opening, leading into a dimly lit room.
+~
+~
+301465665 1 6 0
+D4
+~
+~
+0 -1 76826 10 10 5
+D5
+~
+~
+0 -1 76828 10 10 5
+-1
+S
+
+#76828
+A Dark and Silent Earthen Room~
+This small, cold room has been dug straight through the dirt beneath the
+city.  The walls are nothing but packed dirt with a few wooden support
+beams occasionally set up at weak points.  The ground is scarred by deep
+ruts, left over time by the many feet which passed through this area.  To
+the north a row of torches line the walls of a passageway as it heads
+through the barracks.  To the east and west small doors have been set
+into the earthen walls, leading to seperate chambers.  A heavy steel
+ladder has been tacked to the southern wall, extending upwards into a
+dark shaft.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76829 10 10 5
+D1
+small steel door~
+small steel door~
+131 -1 76836 10 10 5
+D3
+small wooden door~
+small wooden door~
+131 -1 76835 10 10 5
+D4
+~
+~
+0 -1 76827 10 10 5
+-1
+S
+
+#76829
+Earthen Tunnel~
+This wide tunnel has been cut directly through the hard soil beneath the
+city.  Wooden support beams line the edges of the walls trying to keep
+the heavy ceiling from caving-in.  Set in between each beam is a torch
+which burns with a dull flame which illuminates the tunnel just enough to
+see your hand in front of your face.  The air is extremely cold and with
+every breath you take you can see it as you exhale.  Set into the eastern
+and western walls are small oak doors.  To the north and south the tunnel
+continues through the barracks.
+~
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 76830 10 10 5
+D1
+small oak door~
+small oak door~
+131 -1 76834 10 10 5
+D2
+~
+~
+0 -1 76828 10 10 5
+D3
+small oak door~
+small oak door~
+131 -1 76833 10 10 5
+-1
+S
+
+#76830
+Earthen Tunnel~
+Large, thick roots protrude from the roof on this section of the tunell. 
+Mounds of dirt lie at the foot of the northern wall, having broken free
+from the ceiling.  Two iron braziers have been set against the northern
+wall; their small flames barely giving off any light.  To the east and
+west small oak doors have been set into the hard dirt walls.  The tunnel
+extends to the south of here as it makes its ways through the underground
+barracks complex.
+~
+~
+301465665 1 6 0
+D1
+small oak door~
+small oak door~
+131 -1 76832 10 10 5
+D2
+~
+~
+0 -1 76829 10 10 5
+D3
+small oak door~
+small oak door~
+131 -1 76831 10 10 5
+-1
+S
+
+#76831
+Enlisted Men's Bunkhouse~
+Small bunkbeds line the walls of this small dirt chamber, each covered
+with thick woolen blankets and clean uniforms.  The air is fairly damp
+and cold, making this room bunkhouse a very uncomfortable living area.  A
+grey stone fireplace has been carved into a gap in the western wall and
+despite its blazing flames it barely lets off enough heat to break
+through the biting cold.  Hanging from the southern wall is a tattered
+silk tapestry with the image of two crossed swords upon it.  Set into the
+eastern wall is a small oak door, covered in a thin green moss, which
+leads back out of the bunkhouse.
+~
+~
+301465665 1 6 0
+D1
+small oak door~
+small oak door~
+131 -1 76830 10 10 5
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+-1
+S
+
+#76832
+Enlisted Men's Bunkhouse~
+Four wooden bunkbeds line the walls of this small bunkhouse; each covered
+in thick wool blankets and soft goose-down pillows.  At the foot of each
+bunkbed is a large steel-banded chest with a hefty lock attached to it. 
+Set into the northern dirt wall is a small stone fireplace which burns
+with dull flames which barely fights back against the cold.  Lining the
+southern wall are a few wooden weapon racks on which rest steel
+shortswords; each covered in dried blood.  To the west a small oak door
+leads out of the bunkhouse.
+~
+~
+301465665 1 6 0
+D3
+small oak door~
+small oak door~
+131 -1 76830 10 10 5
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+-1
+S
+
+#76833
+Enlisted Men's Bunkhouse~
+Dirty uniforms, rusty weapons and pieces of armor have been carelessly
+tossed about the floor of this bunkhouse.  Each of the four bunkbeds
+which line the walls of the room are unmade and covered in a thin layer
+of white frost.  Iron braziers ablaze with red-orange flames line the
+western wall of the room, illuminating the chamber brightly.  Resting
+against the southern wall is a simple wooden table on which are several
+half-empty mugs of ale and a few loaves of fresh bread.  To the east a
+small oak door marks the exit out of the bunkhouse.
+~
+~
+301465665 1 6 0
+D1
+small oak door~
+small oak door~
+131 -1 76829 10 10 5
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+-1
+S
+
+#76834
+Enlisted Men's Bunkhouse~
+This small bunkhouse is extremely small, even by halfling standards.  A
+small stone fireplace has been set into the southern wall which burns
+brightly.  Despite the roaring fireplace the room is incredibly chilly
+from being so deep underground.  Four small bunkbeds line the eastern
+wall and stacked on each are neatly folded woolen blankets and cloth
+sheets.  Along the nothern wall of the room are several iron braziers
+which burn with red-orange flames.  Hanging from the ceiling is a large
+battle standard with the image of a silvery falchion swooping down for an
+attack on it.  A small oak door set into the western wall leads out of
+the bunkhouse.
+~
+~
+301465665 1 6 0
+D3
+small oak door~
+small oak door~
+131 -1 76829 10 10 5
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+2221 9 1509949540 3 0
+-1
+S
+
+#76835
+Captain of the Guard's Quarters~
+The large room has been lavishly decorated with large, bright-colored
+silk tapestries and elegant furniture.  In the northwest corner of the
+room a small bed has been erected, covered in soft, red velvet blankets
+and fluffy goose-down pillows.  Against the southern wall are several
+large bookcases each filled with old tomes and scrolls.  A large stone
+desk sits in the center of room on which rest several old empty wooden
+mugs and stacks of papers.  A tapestry hanging on the northern wall
+depicts a large battle between an army of heavily-armored halflings and a
+band of orcs and goblins.  Set into the eastern wall is a small wooden
+door leading out of the room.
+~
+~
+301465667 1 6 0
+D1
+small wooden door~
+small wooden door~
+131 -1 76828 10 10 5
+2218 9 1509949540 3 0
+-1
+S
+
+#76836
+Weapon's Storage Room~
+Large wooden weapon racks line the walls of this small room, each filled
+with various spears, pikes, swords and bows.  In the center of the room
+several large open chests rest in which you can see several hundred
+crossbow bolts and arrows.  Hanging on the walls just above the weapon
+racks are several large swords made of pure mithril; each polished to a
+high shine and free of any rust or tarnish.  A small iron door has been
+set into the western wall and hanging next to it is a large wooden sign
+with bright, bold text written across its surface.
+~
+~
+301465665 1 6 0
+D3
+small steel door~
+small steel door~
+131 -1 76828 10 10 5
+-1
+S
+
+#76837
+National Bank of Shadybrook~
+This large building is composed entirely of white marble bricks with
+tinges of grey streaked throughout them.  The black and white tiled floor
+has been polished to a high shine and your reflection can be easily seen
+on its surface.  Set into the northern wall are several teller booths
+covered in heavy steel bars.  Hanging from the ceiling and walls are
+several enormous silk tapestries depicting halfling at play, frolicing in
+the woods and locked in mortal combat with a legion of goblins.  To the
+east an open archway leads out of the bank and out onto the main road.
+~
+~
+301467727 0 6 0
+D1
+~
+~
+0 -1 76763 10 10 5
+E
+enormous silk tapestries ceiling walls~
+Each of the massive tapestries depicts the citizens of Shadybrook at play
+and battle.  The eastern tapestry depicts a band of halfling children
+running around a grassy knoll, chasing each other.  The western tapestry
+portrays several halflings scampering through a forest chasing woodland
+animals.  The largest tapestry which hangs from the ceiling shows a
+gruesome battle between a large halfling force of infantrymen and a band
+of goblin spearman.
+~
+-1
+S
+
+#76838
+Beredin's Alchemy Supplies~
+Long wooden tables covered in glass vials, beakers and jars filled with
+unknown substances line the walls of this shop.  A large steel cauldron
+has been setup against the southern wall which bubbles violently and
+wafts tendrils of white smoke which cause your eyes to burn and water. 
+The walls have been painted with murals of strange monsters ranging from
+homonculi to snickering little imps.  Hanging from the ceiling is a
+chandelier composed of the bones of some unknown being.  The candles
+within the chandelier burn with an unnatural violet flame which
+illuminates the shop just enough to see a few feet in front of you.  An
+archway carved from pure obsidian has been set into the northern wall,
+leading out of the shop.
+~
+~
+301469769 0 6 0
+D0
+~
+~
+0 -1 76809 10 10 5
+E
+wooden tables glass vials beakers jars~
+These long wooden tables have been placed along every wall in this small
+shop.  Upon each table are several glass vials filled with a bubbling
+substance which emits a foul-smelling odor.  Beakers have been set up in
+wooden racks and each is filled with a black substance which steams
+constantly.  Several jars, small and large, contain live specimens of
+several lizards, snakes as well as a few blobs of slime which slowly move
+about the jars.
+~
+E
+1 south wall steel cauldron~
+Set up against the southern wall is a large steel cauldron resting over a
+large fire pit.  The cauldron bubbles violently, sending a brown liquid
+splattering against the walls and ground.  Tendrils of white smoke rise
+from within it and fills the shop, causing yours eyes to burn and
+water-up.
+~
+E
+walls murals strange monsters homonculi snickering imps~
+All of the walls in this shop have had colorful murals painted across
+them; each depicting snickering imps in flight and homoculi feasting on
+small grubs.  Each of the monsters has been well-detailed and appears
+just as they would in the wilds.  The southern wall's mural catches you
+eye; it depicts a gruesome scene of a winged-demon tearing a small goblin
+limb from limb and feasting up its olive-green flesh.
+~
+E
+1 up ceiling chandelier bones~
+Suspended from the ceiling by a thick iron chain is a chandelier which
+has been made from the bones of some unknown creature.  The bones are
+blackened and charred, as if they had been exposed to an intense flame. 
+Small niches in the bones have been added to hold several tallow candles
+which burn with an unnatural violet flame.
+~
+E
+tallow candles violet flame~
+The candles held within the chandelier are normal tallow candles save for
+the fact that they burn with an unnatural violet flame.  The light
+emanting from the candles is not very bright and only illuminates the
+shop enough to just barely make out its furnishings.
+~
+E
+1 north obsidian archway~
+Carved from pure obsidian, this archway has been covered in pulsating
+runes of various shapes and sizes.  Each rune glows a different color
+from the other and sends forth a wave of magic which causes your hairs to
+stand on end.
+~
+2227 9 1509949540 3 0
+1182 17 1509949540 -1 0
+1269 17 1509949490 -1 0
+304 17 1509949465 -1 0
+977 17 1509949470 -1 0
+425 17 1509949540 -1 0
+37 17 1509949540 -1 0
+243 17 1509949540 -1 0
+98 17 1509949540 -1 0
+1194 17 1509949540 -1 0
+474 17 1509949540 -1 0
+249 17 1509949465 -1 0
+78 17 1509949540 -1 0
+479 17 1509949465 -1 0
+1269 17 1509949490 -1 0
+873 17 1509949540 -1 0
+284 17 1509949465 -1 0
+79 17 1509949540 -1 0
+81 17 1509949540 -1 0
+755 17 1509949540 -1 0
+206 17 1509949475 -1 0
+1301 17 1509949475 -1 0
+-1
+S
+
+#76839
+Zaklar's Wizard's Emporium~
+This shop appears more like a library than anything else due to the many
+bookcases which line the walls; each filled with stone tablets and
+scrolls tied up with red ribbons.  Erected in the center of the room is
+an obsidian marker upon which glowing red text has been written.  Etched
+into the ceiling is a rune which glows with a pale crimson light.  A
+thick, bluish-colored fog rolls across the soft dirt floor and tendrils
+of it slowly snake their way up your leg.  To the west a curtained
+doorway leads back out of the shop.
+~
+[Terek] Shop Done
+~
+301469771 0 6 0
+D3
+~
+~
+0 -1 76805 10 10 5
+2225 9 1509949540 3 0
+285 17 1509949448 -1 0
+305 17 1509949455 -1 0
+1003 17 1509949470 -1 0
+1008 17 1509949470 -1 0
+1020 17 1509949470 -1 0
+1021 17 1509949470 -1 0
+1025 17 1509949470 -1 0
+1029 17 1509949470 -1 0
+1266 17 1509949470 -1 0
+1017 17 1509949470 -1 0
+1155 17 1509949470 -1 0
+-1
+S
+
+#76840
+Shadybrook Stables and Livery~
+The overwhelming scent of dried hay fills this large building.  Lining
+the east and west sides are small stalls each containing a different size
+and type of mount ranging from small packmules to muscular warhorses. 
+Set in front of each stall are water troughs and barrels of grain. 
+Hanging from the wall next to the door to the north are several saddles,
+bridles, combs and grooming supplies for the animals.  A large open
+doorway to the south leads to the back of the building where the steady
+clanging of metal can be heard.
+~
+[Terek] Shop Done
+Room south needs extras
+~
+301477965 0 6 0
+D0
+~
+~
+0 -1 76811 10 10 5
+D2
+~
+~
+0 -1 76890 10 10 5
+D5
+~
+~
+235 -1 76841 10 10 5
+E
+1 east west stalls~
+Each of the small stalls which line the eastern and western walls of the
+room are filled with large mounds of yellow-brown hay.  A hefty steel
+gate is attached to each of the stalls and secured with a large lock.
+~
+E
+water troughs~
+Filled with cool, refreshing water, the troughs have been positioned just
+in front of the stalls to allow the animals easy access to them.
+~
+E
+barrels grain~
+Each of the several barrels which have been set next to the stall's gates
+have been filled with grains and oats.  Mixed in with the grain are bits
+of corn as well as some wheat to help keep the animals healthy.
+~
+E
+saddles bridles combs grooming supplies~
+Hanging over the door to the north are several finely crafted saddles
+made from red leather.  Next to the saddles are leather and steel bridges
+which have been polished to a high shine.  Resting within an arm's reach
+below the saddles and bridles are several combs and heavy brushes used
+for grooming the mounts in the livery.
+~
+2226 9 1509949540 3 0
+-1
+S
+
+#76841
+Mount Holding Area~
+~
+~
+301473865 0 6 0
+D4
+~
+~
+235 -1 76840 10 10 5
+623 9 1509949540 3 0
+645 9 1509949540 3 0
+646 9 1509949540 3 0
+119 9 1509949540 3 0
+647 9 1509949540 3 0
+-1
+S
+
+#76842
+Krin's Travellers Supplies~
+This brightly-lit shop is crowded with large crates, barrels and display
+cases, filled to the brim with every possible supply a traveller would
+need.  Within each of the display cases large waterskins, travelling
+packs and pouches sit neatly displayed on a layer of red velvet.  Resting
+on shelves along the walls are torches, candleholders, and lanterns as
+well as flasks of oil.  On the northern side of the shop a large wooden
+desk, cluttered with stacks of papers and mounds of gold coins.  A small
+doorway to the south leads back out of the shop.
+~
+[Terek] Ya ya, action to get papers, coins
+~
+301469775 1 6 0
+D2
+~
+~
+0 -1 76781 10 10 5
+2239 9 1509949540 3 0
+25 17 1509949490 -1 0
+229 17 1509949490 -1 0
+26 17 1509949490 -1 0
+55 17 1509949490 -1 0
+948 17 1509949490 -1 0
+-1
+S
+
+#76843
+Bockatak's Hides and Furs~
+Two torches hang on each side of the doorway to the north, providing just
+enough light to make out the shops interior.  The shop is almost barren
+save for a simple oak table in the center of the room, covered in large
+and small furs from various animals and monsters.  Hanging from the walls
+are large yeti skins and most notable a grotesque sheet of cyclops skin
+which nearly covers the entire southern wall.
+~
+~
+301469775 1 6 0
+D0
+~
+~
+0 -1 76781 10 10 5
+2240 9 1509949540 3 0
+40 17 1509949490 -1 0
+41 17 1509949490 -1 0
+43 17 1509949490 -1 0
+211 17 1509949490 -1 0
+-1
+S
+
+#76844
+Bludderdeck's Leather Works~
+The overwhelming smell of burned leather fills the air on this small,
+cramped shop.  Lining the northern wall are several large iron cauldrons
+which bubble violently, sending splashes of scaulding hot water across
+the floor.  Hanging from the southern wall are impressive suits of
+leather armor; each with pictures of fearsome monsters painted across
+their breasts.  A large wooden tanning and curing rack has been erected
+to the west on which rests a steaming piece of leather.  In front of the
+rack is a small stone desk on which rest knives, tongs and a large bag of
+salt.  To the east a small doorway leads out of the building.
+~
+~
+301469775 0 6 0
+D1
+~
+~
+0 -1 76820 10 10 5
+2241 9 1509949540 3 0
+186 17 1509949480 -1 0
+980 17 1509949480 -1 0
+1077 17 1509949480 -1 0
+2003 17 1509949480 -1 0
+2103 17 1509949480 -1 0
+2182 17 1509949480 -1 0
+-1
+S
+
+#76845
+Hirith's Fine Clothing~
+This small building is cluttered with crates, tables and several
+glass-display cases.  Hammered into the walls are several hooks upon
+which fine silk surcoats, breeches, and cloaks hang from.  In the center
+of the room is a large maple counter on which are several boxes tied
+closed with blue silk ribbons.  Set against the eastern wall is a large
+display case in which are clothing accessories ranging from belt buckles
+to cloak clasps.  To the west a low archway marks the exit out of the
+shop and onto North Main Street.
+~
+[Terek] Done
+~
+301469771 0 6 0
+D3
+~
+~
+0 -1 76763 10 10 5
+2228 9 1509949540 3 0
+3277 17 1509949480 -1 0
+1567 17 1509949480 -1 0
+1564 17 1509949480 -1 0
+3327 17 1509949480 -1 0
+3323 17 1509949480 -1 0
+3326 17 1509949480 -1 0
+3324 17 1509949480 -1 0
+-1
+S
+
+#76846
+Shadybrook Jeweler's Market~
+This spacious building is made entirely from white obsidian blocks which
+have been polished to a high shine.  The dome-style roof is plated in
+gold and a mural of halfling gem cutters at work has been etched into its
+surface.  The walls of the building have had stone shelves placed all
+along them atop which rest gemworking supplies ranging from polishing
+cloths to steel files.  In the center of the room is a glass display
+case, lined with a soft red velvet cloth.  Housed inside the case are
+several different types of exotic gems and jewerly.  To the west an
+archway carved in the shape of two halflings with their swords crossed
+above their heads marks the only exit back onto Jezebel Avenue.
+~
+[Terek] Done
+~
+301469771 0 6 0
+D3
+~
+~
+0 -1 76786 10 10 5
+2229 9 1509949540 3 0
+3328 17 1509949480 -1 0
+3329 17 1509949480 -1 0
+3330 17 1509949480 -1 0
+3331 17 1509949480 -1 0
+-1
+S
+
+#76847
+Halfling Citizen's Home~
+The walls of this house are just as bright and colorful as its exterior. 
+Each wall has been painted in a combination of various yellow, green,
+orange, and gold shapes.  The floor looks pretty peculiar as well, with
+its alternating yellow and red checker board-like pattern.  Placed on top
+of the floor is a thick, circular rug.  The rug contains a few jelly and
+chocolate set-in stains.  Standing against the western wall is a long
+table with a stack of fabrics of varying colors and textures.  Beside the
+stack are several sets of sewn clothes that remain unfinished.  An
+archway to the east leads back out to the city.
+~
+[Olah] eccentric seamstress
+~
+301465677 0 6 0
+D1
+~
+~
+0 -1 76800 10 10 5
+-1
+S
+
+#76848
+The Dancing Kobold Inn - Below a Wooden Staircase~
+Two torches hang from the stone walls of this alcove, shedding a pale
+yellow light upon the room just enough to see ones hand in front of their
+face.  Hanging from the western wall is a small picture depicting a
+kobold dancing with a halfling woman.  Upon the eastern wall is a silk
+tapestry depicting a scene of a group halflings feasting in a forest
+grove.  In the center of the room is a large wooden staircase which
+spirals up into an opening in the roof.  Lying directly to the south is a
+small dimly-lit room.
+~
+~
+301465605 0 6 0
+D2
+~
+~
+0 -1 76825 10 10 5
+D4
+~
+~
+0 -1 76887 10 10 5
+-1
+S
+
+#76849
+Entrance to the Temple of Freylia~
+The large, grey stone walls of this chamber have been covered with large
+murals depicting halflings at play and battle.  Lining the walls of the
+chamber are several ruby-encrusted gold braziers which burn with
+brilliant blue flames, illuminating the room brightly.  In the center of
+the room a life-like statue carved in the likeness of the goddess Freylia
+bedecked in battle armor has been erected.  Set just before the statue is
+a set of stone stairs which descends down into the floor.  To the south a
+pair of massive double doors lead out of the temple.
+~
+~
+301465679 0 6 0
+D2
+massive double doors~
+massive double doors~
+131 -1 76797 10 10 5
+D5
+~
+~
+0 -1 76850 10 10 5
+-1
+S
+
+#76850
+On a Spiraling Stone Staircase~
+The dark, grey stone walls surrounding the staircase are bare of any
+decore except for a few torches which burn with dull flames.  The stairs
+are composed of white marble stones which have been polished to give them
+a glossy-appearance.  The faint sound of chanting can be heard from
+somewhere deep within the temple and never ceases.  Below the staircase
+continues to spiral down into the temple.  Above you the staircase climbs
+towards a brightly-lit chamber.
+~
+~
+301465671 0 6 0
+D4
+~
+~
+0 -1 76849 10 10 5
+D5
+~
+~
+0 -1 76851 10 10 5
+2231 9 1509949540 3 0
+-1
+S
+
+#76851
+On a Spiraling Stone Staircase~
+The smooth grey stone walls are covered in small silk tapestries; each
+bearing the mark of Freylia upon them.  Set in between each of the
+tapestries are small torches set into golden sconces, burning with dull
+blue flames which just barely illuminate the staircase enough to see the
+next step.  Below you the staicase's end can be seen as it lands in a
+brightly-lit room.  Above you the staircase continues to spiral up
+towards to the top of the temple.
+~
+~
+301465667 1 6 0
+D4
+~
+~
+0 -1 76850 10 10 5
+D5
+~
+~
+0 -1 76852 10 10 5
+-1
+S
+
+#76852
+Lavishly Decorated Sitting Room~
+This large stone chamber has been lavishly decorted with brightly-colored
+furniture.  A long wooden bench covered with soft, white velvet cushions
+has been set against the southern wall.  Resting in front of the bench is
+a small oak table covered in glass vases which contain several dozen
+white roses.  Hanging from the ceiling is a large crystal chandelier
+filled with white tallow candles which burn with brilliant flames,
+illuminating the entire room.  To the east and west small wooden doors
+have been set into the walls.  To the north a dimly-lit passageway leads
+away from the sitting room.  Tucked in the southeastern corner of the
+room are a set of stone steps which ascend up to the top of the temple.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76853 10 10 5
+D1
+small wooden door~
+small wooden door~
+131 -1 76863 10 10 5
+D3
+small wooden door~
+small wooden door~
+131 -1 76855 10 10 5
+D4
+~
+~
+0 -1 76851 10 10 5
+2231 9 1509949540 3 0
+-1
+S
+
+#76853
+A Silent Passageway~
+Torches hanging in golden sconces line the walls of the stone passageway. 
+The flames from the torches burn with a blue color and lick against the
+walls.  The walls are covered in small murals depicting Freylia bringing
+her fury down upon armies of orcs, goblins, trolls and ogres.  The
+passageway is unnaturally quiet and not even the sound of the torches or
+your footsteps can be heard.  Off to the north you can see a brightly-lit
+chamber in which a large altar has been erected.  To the south another
+chamber can be seen filled with colorful furniture.
+~
+~
+301465603 1 6 0
+D0
+~
+~
+0 -1 76854 10 10 5
+D2
+~
+~
+0 -1 76852 10 10 5
+-1
+S
+
+#76854
+Before the Altar of Freylia~
+Set against the northern wall of this brightly-lit chamber is a massive
+altar composed of white obsidian slabs; each polished to a high shine. 
+Etched along the faces of each of the slabs are carvings of halflings at
+play, work and battle.  Scattered across the altar are several types of
+offerings ranging from freshly-baked tarts to baskets of wildflowers.  On
+each side of the altar is a life-like granite statue carved into the
+likeness of the goddess.  Hanging from the eastern and western walls are
+enormous silk tapestries portraying Freylia healing fallen halfling
+warriors.  Ruby-encrusted braziers, each ablaze with violet-hued flames,
+line the walls of the room leading straight up to the altar.  To the
+south a small passage leads away from the altar.
+~
+~
+301465999 1 6 0
+D2
+~
+~
+0 -1 76853 10 10 5
+2230 9 1509949540 3 0
+-1
+S
+
+#76855
+Quiet Hallway~
+The walls along this section of the hallway are covered in a series of
+flowing golden runes.  A lone tapestry hangs from the southern wall
+depicting a halfling army engaged in a deadly battle with a group of
+green dragons just outside the city walls.  Lining the western wall are
+several small golden braziers; some burning rose-scented incense and
+others burning with blue flames which illuminate the hallway.  Set into
+the eastern wall is a small wooden door.  To the north the hallway
+continues through the temple.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76856 10 10 5
+D1
+small wooden door~
+small wooden door~
+131 -1 76852 10 10 5
+-1
+S
+
+#76856
+Quiet Hallway~
+Large silk tapestries adorn the walls along this section of the hallway;
+each depicting the priestess' of Freylia in acts of worship and
+celebration.  Sitting before each of the tapestries are ruby-encrusted
+braziers which burn with bluish-hued flames, illuminating the hallway
+just enough to see a few feet in front of you.  Set into the western wall
+is a small birchwood door with a barred window placed in its center.  The
+hallway continues to the north and south from here as it continues
+through the temple.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76857 10 10 5
+D2
+~
+~
+0 -1 76855 10 10 5
+D3
+~
+~
+0 -1 76873 10 10 5
+2231 9 1509949540 3 0
+-1
+S
+
+#76857
+Quiet Hallway~
+A lone statue carved in the likeness of a halfling priestess dressed in
+flowing robes stands against the eastern wall of the hallway.  Placed
+around the base of the statue are several bunches of wildflowers. 
+Hanging from the ceiling is a simple wooden chandelier filled with white
+tallow candles which burn with a soft white light.  Set into the western
+wall is a small birchwood door with a holy rune etched into it.  The
+hallway continues to the north and south from here.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76858 10 10 5
+D2
+~
+~
+0 -1 76856 10 10 5
+D3
+~
+~
+0 -1 76874 10 10 5
+-1
+S
+
+#76858
+Quiet Hallway~
+Colorfully painted murals adorn the smooth grey walls on this section of
+the hallway; each depicting a gruesome scene of a large battle being
+fought between an army of orcs and halflings.  The ceiling above has been
+set with red and white tiles placed in a chess board type of pattern. 
+Hanging from the western wall are two small torches which burn with soft
+blue flames.  The hallways is unnaturally quiet and not even the sound of
+your own footsteps can be heard.  The hallway bends to the east and south
+at this point, continuing its course through the temple.
+~
+~
+301465667 1 6 0
+D1
+~
+~
+0 -1 76859 10 10 5
+D2
+~
+~
+0 -1 76857 10 10 5
+2231 9 1509949540 3 0
+-1
+S
+
+#76859
+Quiet Hallway~
+The unnatural silence of the temple continues throughout this section of
+the hallway and not even the sound of your own breathing penetrates the
+veil of silence.  The walls are bare of any decorations or hangings and
+only the smooth, grey stone is left to look at.  Sitting low to the
+ground along the edges of the walls are several iron braziers which burn
+with rose-scented incense.  The dim hallway continues to the east and
+west from this point, penetrating depper into the holy temple.
+~
+~
+301465667 1 6 0
+D1
+~
+~
+0 -1 76860 10 10 5
+D3
+~
+~
+0 -1 76858 10 10 5
+-1
+S
+
+#76860
+Quiet Hallway~
+The eastern wall along this bend in the hallway is covered in several
+dozen holy runes each pulsing with dim blue auras.  Flowing forth from
+the runes are surges of power which cause your hair to stand on end and
+cold shivers to run down your spine.  In the center of all the runes is a
+small stone which containing a golden chalice covered in ancient text. 
+Despite the glow from the runes the hallway is fairly dark, dropping
+visibility down to an arms length.  The hallway continues to the west and
+south where it heads into more brightly-lit sections.
+~
+~
+301465667 1 6 0
+D2
+~
+~
+0 -1 76861 10 10 5
+D3
+~
+~
+0 -1 76859 10 10 5
+2231 9 1509949540 3 0
+-1
+S
+
+#76861
+Quiet Hallway~
+Intricate carvings depicting a halfling army marching over a hilly
+landscape cover the western wall along this section of the hallway. 
+Every minute detail of the army has been carved right down to the
+emblazoned images upon their armor.  Etched deeply into the stone beneath
+the carvings are several lines of text worn and faded over time.  Set
+into the eastern wall is a small birchwood door upon which a holy symbol
+has been carved.  The hallway continues its north-south course through
+the depths of the temple.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76860 10 10 5
+D1
+~
+~
+0 -1 76875 10 10 5
+D2
+~
+~
+0 -1 76862 10 10 5
+-1
+S
+
+#76862
+Quiet Hallway~
+Four stone statues have been erected against the western wall of the
+hallway; each carved in the likeness of a female halfling bedecked in
+battle-worn armor and grasping a large spiked mace.  Hanging above the
+heads of each statue are silk tapestries bearing the mark of Freylia upon
+their surface.  Set into the eastern wall is a small birchwood door with
+a single holy rune etched onto its surface.  The hallway continues to the
+north and south from here, contiuning its course through the temple.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76861 10 10 5
+D1
+~
+~
+0 -1 76876 10 10 5
+D2
+~
+~
+0 -1 76863 10 10 5
+-1
+S
+
+#76863
+Quiet Hallway~
+Ruby-encrusted braziers line the walls of this desolate hallway.  The
+walls are bare of any decorations save for a few occasional cracks here
+and there.  Silence fills the air and not even the sound of the flames
+from the braziers can be heard.  Set into the western wall is a small
+wooden door covered in glowing glyphs and runes.  The hallway heads north
+from this point as it continues its course through the heart of the
+temple.
+~
+~
+301465667 1 6 0
+D0
+~
+~
+0 -1 76862 10 10 5
+D3
+small wooden door~
+small wooden door~
+131 -1 76852 10 10 5
+2231 9 1509949540 3 0
+-1
+S
+
+#76864
+The Dancing Kobold Inn - Bar Room~
+This room is lit by several several torches lining the walls, each giving
+off just enough light to create a sleepy atmosphere.  A long, redwood bar
+has been erected a few feet away from the northern wall on which rest
+several empty mugs and glasses.  Behind the bar is a large wine rack
+filled with almost every type of wine known to the realm.  Surrounding
+the bar are several padded wooden stools each sized for halflings and
+larger beings.  Hanging upon the walls are colorful pictures of kobolds
+dancing and frolicking amongst a band of halflings.  Lying directly to
+the south is a softly-lit room filled with tables.
+~
+Vrick Here
+~
+301469703 0 6 0
+D2
+~
+~
+0 -1 76865 10 10 5
+2234 9 1509949540 3 0
+3362 17 100 -2 2
+3362 17 100 -2 38
+3362 17 100 -2 15
+3362 17 100 -2 4
+3362 17 100 -2 17
+3362 17 100 -2 5
+3362 17 100 -2 11
+3362 17 100 -2 28
+-1
+S
+
+#76865
+The Dancing Kobold Inn - Dining Area~
+Finely crafted redwood tables covered in red tablecloths have been set up
+in a neat pattern about the room.  Four cushioned wooden chairs surround
+each of the tables.  Resting in the center of the tables are brass
+candles holders each containing a tallow candle which burns with a dull
+flame.  The floor is carpeted with a fine silken rug with the image of a
+waterfall rushing down over a snow-capped mountain embroidered upon its
+surface.  Upon the western wall is a large @Mmenu@n written on
+tan-colored paper.  Lying off in the room to the north is a small bar
+with several stools resting before it.  To the east lies the entranceway
+into the inn.
+~
+~
+301465607 0 6 0
+D0
+~
+~
+0 -1 76864 10 10 5
+D1
+~
+~
+0 -1 76825 10 10 5
+E
+paper menu~
+@YThe Dancing Kobold Inn takes pride in our fast service and warm food. 
+Below is a list of a current prices.  Send any complaints to Mr.  Vrick. 
+ -- The Management.@n
+
+@B-=-=-=-=-=-=-=-=-= Dancing Kobold Inn Dinners =-=-=-=-=-=-=-=-=-
+
+@WRoasted Chicken -- 1 Silver
+@WRoasted Lamb -- 1 Gold@n
+@WSteak and Potatoes -- 1 Gold@n
+@WLeg of Lamb and Vegetables -- 1 Gold@n
+@WHouse Soup -- 1 Silver@n
+@WVegetable Soup -- 1 Silver@n
+@WBeef Soup -- 1 Silver@n
+
+Please call for the waitress when you are ready to order.
+~
+A
+call order~
+food waitress~
+if( mob_in_room( 2253, room ) ) {
+  act_tochar( #there, ch );
+  end;
+  }
+act_tochar( #call, ch );
+act_notchar( #call1, ch );
+Wait( 1 );
+mob = mload( 2253, room );
+room = find_room( 76865 );
+send_to_room( #wait, room );
+Wait( 1 );
+act_tochar( #order, ch );
+act_notchar( #order1, ch );
+~
+E
+there~
+If you'd pay attention you'd notice the waitress is already here.
+~
+E
+call~
+@YYou raise your hand and call for the waitress to come take your order.
+~
+E
+call1~
+@Y$n raises $s hand and calls for the waitress to come take $s order.
+~
+E
+wait~
+@YA few moments later an attractive halfling waitress enters the room and
+smiles cheerfully.
+~
+E
+order~
+The waitress smiles at you and says: @W"Welcome to the Dancing Kobold. 
+If you've not looked at the menu already it is on the wall.  If you're
+ready to order than please hand me the amount of your purchase in the
+exact coins and then tell me which course you would like."@n 
+~
+E
+order1~
+@WThe waitress leans down and speaks quietly to $n.
+~
+!
+0 0 0
+-1
+S
+
+#76866
+The Jolly Halfling Tavern - Table-Filled Room~
+The distinct smell of cigar smoke, roasted chicken and alcohol fill the
+air of this large room.  Tables have been scattered about the room in a
+disorganized fashion; each cluttered with dirty plates and mugs.  Several
+of the chairs that rest beneath the tables have been knocked over and
+some broken into small pieces which now litter the ground.  Hanging from
+the western wall are two small pictures of rolling, grassy hills covered
+in patches of wildflowers.  Set into the northern wall is a small stone
+fireplace ablaze with red-orange flames.  To the south a gold-plated
+archways leads into the foyer.  To the east a long wooden bar can be seen
+running along the walls.
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 76867 10 10 5
+D2
+~
+~
+0 -1 76824 10 10 5
+2250 9 1509949540 3 0
+-1
+S
+
+#76867
+The Jolly Halfling Tavern - Bartender's Station~
+Protruding from the northern wall, curving, and than stopping at the
+eastern wall is a long wooden bar covered in empty glasses and mugs. 
+Positioned along the length of the bar are several bar stools; most sized
+for a halfling but some fit for someone the size of an ent.  Behind the
+bar are several large cases filled with bottles of almost every type of
+ale and other alcohol.  Hanging from the ceiling is a large steel
+chandelier filled with large tallow candles which illuminate the tavern
+brightly.  To the south and west are large, smoke-filled rooms in which
+you can see several tables scattered about.
+~
+Dalzarc here
+~
+301469703 0 6 0
+D2
+~
+~
+0 -1 76868 10 10 5
+D3
+~
+~
+0 -1 76866 10 10 5
+2235 9 1509949540 3 0
+3362 17 100 -1 3
+3362 17 100 -1 4
+3362 17 100 -1 18
+3362 17 100 -1 38
+3362 17 100 -1 1
+3362 17 100 -1 2
+3362 17 100 -1 42
+-1
+S
+
+#76868
+The Jolly Halfling Tavern - Table-Filled Room~
+Twelve wooden tables cluttered with empty and full mugs have been
+scattered about this large room.  The air is filled with thick, rolling
+clouds of smoke and the distinct odor of beer and cigar smoke.  The floor
+is littered with pieces of food, mud, and small piles of ashes.  Upon the
+eastern wall is a large, framed portrait of a merry-looking halfling
+dancing with a blonde-haired maiden.  Off to the north, through the thick
+clouds of smoke, you can just barely make out a long wooden bar.  To the
+west a gold-plated archway leads out to the foyer.
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 76867 10 10 5
+D3
+~
+~
+0 -1 76824 10 10 5
+2217 9 1509949540 3 0
+2217 9 1509949540 3 0
+2217 9 1509949540 3 0
+-1
+S
+
+#76869
+Northern Guard House~
+Wooden weapon racks line the walls of this small stone guardhouse, each
+filled with spears, pikes, javelins and swords.  In the center of the
+room is a small wooden table surrounded by four padded chairs.  An iron
+stove has been set against the eastern wall on which a black iron kettle
+filled with coffee rests.  An elegant silk tapestry bearing the mark of
+the Shadybrook militia hangs from the southern wall.  A stone staircase
+lies along the northern wall, leading up to the watchtower.  To the west
+a small stone door leads back out of the guard house.
+~
+~
+301465673 1 6 0
+D3
+small stone door~
+small stone door~
+131 -1 76751 10 10 5
+D4
+~
+~
+0 -1 76870 10 10 5
+2207 9 1509949540 2 0
+2207 9 1509949540 2 0
+-1
+S
+
+#76870
+Northern Watchtower~
+This stone watchtower gives an excellent view of the surrounding wilds,
+allowing the watchmen of the city of view threats coming from any angle. 
+The grassy, rolling hills of the wilds stretch out to the northeast and
+northwest of you, going on for several miles.  Directly to the west, just
+below you, are the northern gates of the city behind which you can see
+the gate guards standing.  Set against the southern wall is an open
+iron-bound chest filled with crossbow bolts, spears and flasks of oil
+attached to rags.  To the east a small stone door leads out onto the
+battlements surrounding the city.  Set against the northern edge of the
+tower is a stone staircase leading down into the guard house.
+~
+~
+301465673 1 6 0
+D1
+small stone door~
+small stone door~
+195 -1 76882 10 10 5
+D5
+~
+~
+0 -1 76869 10 10 5
+2216 9 1509949540 3 0
+-1
+S
+
+#76871
+Northern Guard House~
+Several small wooden chairs have been scattered about the room in an
+unorganized fashion.  Three wooden tables covered in playing cards, dice
+and empty mugs have been placed against the western wall.  Sitting
+against the southern wall are two small iron stoves on which bubbling
+kettles rest.  Hanging from the western wall are several steel weapon
+racks on which hang spears of various sizes.  A stone staircase has been
+erected against the northern wall, leading up towards the watchtower.  To
+the east a small stone door marks the exit out of the guard house.
+~
+~
+301465673 1 6 0
+D1
+small stone door~
+small stone door~
+131 -1 76751 10 10 5
+D4
+~
+~
+0 -1 76872 10 10 5
+2207 9 1509949540 2 0
+2207 9 1509949540 2 0
+-1
+S
+
+#76872
+Northern Watchtower~
+Many tools of siege repelling can be found scattered about the floor of
+this watchtower ranging from simple chests full of crossbow bolts to oil
+flasks with rags shoved into them.  The four open faces of the watchtower
+allow a clear view of the vast wilds to the north, east, and west while
+the view to the south allows the watchmen a clear, birds eye view of the
+city.  Several miles to the west you can catch a brief glimpse of lush
+green tree tops of a vast forest.  On the northern end of the watchtower
+a simple stone staircase leads down to the guard house below.
+~
+~
+301465673 1 6 0
+D3
+small stone door~
+small stone door~
+195 -1 76883 10 10 5
+D5
+~
+~
+0 -1 76871 10 10 5
+2216 9 1509949540 3 0
+-1
+S
+
+#76873
+Clergy's Quarters~
+This small stone chamber is sparcely decorated; only a few pieces of
+furniture of simple design have been scattered about the room.  A small
+four-post wooden bed has been setup against the western wall; covered in
+a simple cloth sheet and a single pillow.  A stone washbasin has been set
+against the northern wall and sitting beside it is a small bucket of
+fresh, cool water.  Set against the southern wall is an open wardrobe
+which contains several white and red clergy uniforms.  A small oak door
+has been set into the eastern wall, leading out of the room.
+~
+~
+301465667 1 6 0
+D1
+~
+~
+0 -1 76856 10 10 5
+-1
+S
+
+#76874
+Clergy's Quarters~
+This room is completely bare save for a small bedroll which has been
+directly in the center of the room.  Surrounding the bedroll is a ring of
+candles which burn with rose-colored flames.  The smooth, grey stone
+walls are void of any decorations but you can see the faint impressions
+of where pictures once hanged.  Set into the eastern wall is a small
+birchwood door which leads back out into the main hallway of the temple.
+~
+~
+301465667 1 6 0
+D1
+~
+~
+0 -1 76857 10 10 5
+-1
+S
+
+#76875
+Clergy's Quarters~
+This small stone chamber is filled with the overwhelming aroma of
+flower-scented incense.  Hanging from the walls are a few silk tapestries
+bearing the image of the mark of Freylia.  In the center of the room is a
+small wooden cot lined with soft velvet padding.  Setting against the
+eastern wall is a small maple desk upon which rest several scrolls tied
+neatly with yellow ribbons.  A single torch hangs from the northern wall
+which provides very little light for the room.  A small birchwood door
+lies directly to the west, leading out of the clergy's quarters.
+~
+~
+301465667 1 6 0
+D3
+~
+~
+0 -1 76861 10 10 5
+-1
+S
+
+#76876
+Clergy's Quarters~
+This small stone chamber is decorated with simple furniture and
+decorations.  A small wooden bed, covered in soft white blankets, rests
+in the southeast corner of the room.  A plain wooden bookcase filled with
+dusty tomes and scrolls has been placed against the northern wall.  A
+tapestry made of red silk and embroidered with the image of a halfling
+priestess kneeling before an altar dedicated to Freylia has been hung
+from the eastern wall.  To the west a small birchwood door marks the only
+exit out of this chamber.
+~
+~
+301465667 1 6 0
+D3
+~
+~
+0 -1 76862 10 10 5
+-1
+S
+
+#76877
+Halfling Citizen's Home~
+An array of pastel colors fills the walls of this small home, giving it a
+cozy yet festive feel.  Gazing up is like looking at the sky as the
+ceiling is painted in turquoise, with cloud-like shapes spaced
+intermittently.  A desk made of cedar wood stands against the northern
+wall, cluttered with all sorts of wrinkled up paper and thick, leather-
+bound books.  Beside the desk is a comfortable-looking bed covered in a
+soft, furry purple blanket.  A small wooden door has been set to the east. 
+Hung to the left of the door is a painting of a halfling child frolicking
+on a hilltop.
+~
+~
+301465669 0 6 0
+D1
+small wooden door~
+small wooden door~
+131 -1 76753 10 10 5
+-1
+S
+
+#76878
+Halfling Citizen's Home~
+The sweet smell of cookie dough flows throughout this house.  The scent
+seems to originate from a round wooden table that stands shakily at the
+corner of the room.  Stacks of cakes sit atop the table, but seem ready
+to topple over if their delicate balance is disturbed.  Set against the
+northern wall are a few windows that remain closed, thereby keeping the
+most of the aroma confined within the home.  Thin orange curtains drape
+the sides of the window, and some have brown smudges on them.  To the
+west is a small wooden door that leads back out to the city.
+~
+~
+301465677 0 6 0
+D3
+small wooden door~
+small wooden door~
+131 -1 76753 10 10 5
+-1
+S
+
+#76879
+Halfling Citizen's Home~
+This cozy little home is furnished with all sorts of peculiar furniture
+and decorations.  Hanging along the orange walls and from the light blue
+ceiling are unusual-looking trinkets.  Some are silvery metal chimes,
+glass pendants, and folded paper animals.  Other trinkets lie in the
+corner in an unorganized pile, as though the owner didn't even know what
+to do with them.  At another end of the room is a small bed covered in a
+thick, plush blanket with bright, flowery designs.  Attached to the
+wooden beams at the four corners of the bed are silk drapes.  Woven into
+the drapes are scenes of halflings skipping up a green hill.
+~
+~
+301465669 0 6 0
+D0
+small wooden door~
+small wooden door~
+131 -1 76782 10 10 5
+-1
+S
+
+#76880
+Halfling Citizen's Home~
+A thick yellow carpet has been spread all across the floor of this cozy
+cottage.  Only a few splotches of red jelly mar the surface of the carpet. 
+Hung along each wall and encircling the room are numerous paintings
+depicting a festively plump halfling holding or munching on a tasty-
+looking dessert.  At the northwestern corner of the room is a five-
+foot long bed made of mahogany wood.  About a dozen pillows in various
+shapes and sizes have been stacked on the bed, and several cake crumbs
+have been scattered randomly along the bed.
+~
+~
+301465677 0 6 0
+D2
+small wooden door~
+small wooden door~
+131 -1 76783 10 10 5
+-1
+S
+
+#76881
+Halfling Citizen's Home~
+A wooden bed in the northeastern corner is one of the few items that
+occupy this sparsely furnished house.  The bed's mattress looks thin and
+sagging, and the bed's wooden frame appears worn and fragile.  Scattered
+randomly along the wooden floor boards are several stalks of straw
+covered in clumps of mud.  The straw most likely fell from the weathered
+thatch roof above you.  To the west is a small wooden door with loose
+hinges that leads out to the city.
+~
+~
+301465677 0 6 0
+D3
+small wooden door~
+small wooden door~
+131 -1 76787 10 10 5
+-1
+S
+
+#76882
+Northern Battlements of Shadybrook~
+Under Construction.
+THIS ROOM IS NOT ACCESSIBLE
+~
+~
+301465673 1 6 0
+D3
+~
+~
+195 -1 76870 10 10 5
+-1
+S
+
+#76883
+Northern Watchtower~
+Under Construction.
+THIS ROOM IS NOT ACCESSIBLE
+~
+~
+301465673 1 6 0
+D1
+~
+~
+195 -1 76872 10 10 5
+-1
+S
+
+#76884
+Halfling Citizen's Home~
+This home is small yet cozy.  The stone walls are painted in a peach
+color, and highly detailed flowery designs along the walls accentuate the
+pleasant aesthetic qualities of the house.  In the middle of the house is
+a halfling-sized rocking chair made of dark mahogany wood.  Its lacquered
+finish gives the chair a shiny new look.  Beside the chair is a wide bed
+with numerous fluffy pillows stacked upon it.  A red brick fireplace with
+a few pine logs still remaining in it lies to the north.  Hung just above
+the fireplace is an acrylic painting of a young smiling halfling couple
+frolicking along a lush green hillside.  A small wooden door to the south
+leads back outside to the city.
+~
+~
+301465677 0 6 0
+D2
+small wooden door~
+small wooden door~
+131 -1 76796 10 10 5
+-1
+S
+
+#76885
+Halfling Citizen's Home~
+The interior of this house applies a few unusual designs to fit the
+unique tastes of its inhabitants.  The walls have been painted in bright
+green and orange, with large splotches of yellow added for flair. 
+Attached around the walls in a continuous V-shaped pattern are
+well-preserved tulips, daisies, and sunflowers.  Their scent is still
+powerful and pleasant.  Resting against the northern wall is a bookshelf
+containing a large number of books and writing paper.  Facing the
+bookshelf is a messy desk filled with flowers, pens, and cookie crumbs. 
+A small wooden door with a single red rose painted on it lies to the east.
+~
+[Olah] flower fanatic
+~
+301465677 0 6 0
+D1
+small wooden door~
+small wooden door~
+131 -1 76799 10 10 5
+-1
+S
+
+#76886
+Halfling Citizen's Home~
+This house smells of dank soil and fresh flowers.  Dirt clumps can be
+found all along the wooden floor and even the walls.  Hung along the deep
+blue walls is an array of oil paintings of various flowers and plants,
+most of which are familiar looking but their names elude your memory.  A
+couple of shelves span the northern wall.  Spades, clay pots, and other
+gardening equipment have been stored on the shelves.  Resting in a neat
+pile at the northeast corner of the room are several large bags of soil
+and fertilizer.  Beside the pile is a watering pot that is half empty. 
+To the east is a small door that leads back outside.
+~
+[Olah] gardener home
+~
+301465677 0 6 0
+D1
+small wooden door~
+small wooden door~
+131 -1 76801 10 10 5
+-1
+S
+
+#76887
+The Dancing Kobold Inn - Above a Wooden Staircase~
+A lush, red carpet covers the area around the staircase and has
+embroidered with the image of a herd of antelope running across a grassy
+plain.  A simple, glass-covered lantern hangs from the western wall
+providing just enough light to see what lies around you.  In the center
+of the room a wooden staircase spirals down towards the ground floor of
+the inn.  Directly to the south lies a brightly-lit room filled with
+tables and a desk.  The sweet aroma of roses fills the air and seems to
+emanate from the southern room.
+~
+~
+301465605 0 6 0
+D2
+~
+~
+0 -1 76888 10 10 5
+D5
+~
+~
+0 -1 76848 10 10 5
+-1
+S
+
+#76888
+The Dancing Kobold Inn - Reception Area~
+This small room is filled with small wooden tables on which rest several
+colorfully painted vases containing fresh red roses.  Light is provided
+by several glass-covered lanterns which hang from the southern and
+eastern walls.  Set against the southern wall is a small maple desk on
+which rest several bottles of ink, feather quills, and a leather-bound
+book.  A small bell rests next to the book with a small @Wsign@n attached
+to it.  Set into the western wall is a large oak door.  To the north a
+wooden staircase can be seen spiraling down towards the ground floor.
+~
+[Terek] Glamor area, Receptionist is never around
+[Terek] Room West is to be off-limits
+~
+301465601 1 6 0
+D0
+~
+~
+0 -1 76887 10 10 5
+D3
+large oak door~
+large oak door~
+471 -1 76889 10 10 5
+E
+sign~
+Written in elegant bold print the sign reads: @W"Please ring bell for
+service."@n 
+~
+A
+ring tap~
+bell~
+act_tochar( #tap, ch );
+act_notchar( #tap1, ch );
+Wait( 5 );
+act_tochar( #none, ch );
+~
+E
+tap~
+@WYou gently tap the bell and it lets out a small @Y*ding*@n @Wwhich
+echoes around the room.
+~
+E
+tap1~
+@W$n gently taps the bell and it lets out a small @Y*ding*@n @Wwhich
+echoes around the room.
+~
+E
+none~
+@WAfter several minutes with no answer it becomes apparent that the
+receptionist is not around.
+~
+!
+0 0 0
+-1
+S
+
+#76889
+The Dancing Kobold Inn - Silent Hallway~
+Under Construction.
+~
+~
+301465601 1 6 0
+D0
+~
+~
+0 -1 76891 10 10 5
+D1
+~
+large oak door~
+471 -1 76888 10 10 5
+-1
+S
+
+#76890
+Alixi's Riding Supplies~
+Large iron forges, crucibles and anvils have been placed along the
+southern wall of this building.  Forging hammers and metal tongs hang
+from the western wall and beneath them resting on a wooden shelf are
+several stacks of horse shoes.  The eastern side of the room is cluttered
+with stacks of saddles, bridles and various types of barding.  In the
+center of the room is a life-sized dummy of a heavy warhorse on which
+rests a suit of highly-polished scale mail barding.  To the north an
+opening in the wall leads into another section of the building.
+~
+~
+301469769 0 6 0
+D0
+~
+~
+0 -1 76840 10 10 5
+E
+1 south wall iron forges crucibles anvils~
+Placed against the southern wall are several blacksmithing items ranging
+from forges to crucidbles.  Set in the southwestern corner of the room
+are two large iron forges which waft strong waves of heat every few
+moments.  Placed next to them are four steel crucibles in which you can
+see solidified iron deposits.  Next to the crucibles are eight small
+anvils suited for someone the size of a halfling.  The anvils are covered
+in large dents as well as a few dozen scratch marks which dig deep into
+their metal.
+~
+E
+1 west wall forging hammers metal tongs wooden shelf horse shoes~
+Suspended from the western wall from iron hooks are several large forging
+hammers made from black iron and a few pairs of metal tongs used for
+removing hot iron from the forges.  Beneath the hammers and tongs is a
+small wooden shelf are several stacks of steel horse shoes; each polished
+to a high shine.
+~
+E
+1 east wall stacks saddles bridles barding~
+Set against the eastern side of the building are several stacks of red
+leather saddles trimmed with gold thread.  Bridles of various sizes,
+designs and metals lie in a pile next to the saddles.  Stacked neatly
+next to the bridles are several pieces of plate, leather and chain
+barding which have been polished to a high gloss.
+~
+E
+center life-sized dummy heavy warhorse high-polished scale mail barding~
+Placed in the center of the room is a life-sized dummy of a heavy
+warhorse which has been shaped just like a real one.  Its mane is made
+from thick, coarse thread and hangs down its neck.  Its tail too has been
+added with brown thread and drapes casually behind it.  Mounted on the
+dummy is a suit of highly-polished scale mail barding which gleams in the
+light.
+~
+2236 9 1509949540 3 0
+546 17 1509949470 -1 0
+568 17 1509949470 -1 0
+571 17 1509949470 -1 0
+552 17 1509949470 -1 0
+582 17 1509949470 -1 0
+-1
+S
+
+#76891
+The Dancing Kobold Inn - Private Room~
+Under Construction.
+~
+~
+301465601 1 9 0
+D2
+~
+~
+0 -1 76889 10 10 5
+-1
+S
+
+#0
+

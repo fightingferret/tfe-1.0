@@ -1,0 +1,2378 @@
+#AREA
+The House of Jhessail~
+Galen~
+~
+
+0 0
+2
+#ROOMS
+
+#63000
+The Porch of a Large Townhouse~
+You are on the front porch of a large townhouse.  Steps lead north off of
+the porch and back to the dirt path.  The front door of the townhouse
+lies to the south, and the latticework encloses the rest of the front
+porch.  A typical porch swing has been secured to the left side of the
+porch, and moves slightly even without a breeze.  Small planters, filled
+with daisies and tulips, sit along the porch.
+~
+[Merior] to a dirt path
+[Merior] knocker action
+[Merior] where does key repop?
+~
+335020033 0 5 0
+D0
+~
+~
+0 -1 1052 10 10 5
+D2
+front door~
+front door~
+407 2503 63001 10 10 5
+E
+front porch~
+The porch is made out of wooden planks that have been nailed down to a
+frame.  The white paint on the wood is now old and peeling.
+~
+E
+latticework~
+The latticework is made of small strips of wood overlaying each other at
+an angle.  The walls of the porch are formed by the latticework, closing
+it in yet still allowing an open feeling.  Like the porch it also has a
+covering of old, white paint which is peeling.  Looking outwards you can
+see a small yard.
+~
+E
+swing~
+This old porch swing moves slightly, even without a breeze.  Two old,
+rusty chains squeak as the swing is moved.  Like the rest of the porch,
+it has a covering of old, white paint.
+~
+E
+planters daisies tulips~
+There are four small planters on the porch, two on each side of the door. 
+There is a mixture of daisies and tulips growing in each.  Due to the
+lack of direct sunlight they are not doing well however, and dead leaves
+lie around each planter.
+~
+E
+front door~
+This door is made out of thick, rigged planks of ironwood and banded
+together with what looks like adamantite.  It looks to have cost a
+fortune to make.  Embedded in the door is a large steel knocker, shaped
+in the face of bull with the ring going through its nose.
+~
+A
+sit~
+swing~
+act_tochar( #swing, ch );
+act_notchar( #swing_r, ch );
+~
+E
+swing~
+You sit on the porch swing and push with your feet, causing it to sway
+back and forth gently.
+~
+E
+swing_r~
+$n sits on the porch swing and swings back and forth for a while.
+~
+!
+0 0 0
+-1
+S
+
+#63001
+A Small Foyer~
+The air in this small room has a slight chill.  The walls are covered in
+an expensive-looking wallpaper, and two small oil lamps have been mounted
+on the wall.  The light from the two lamps is more than sufficient to
+brighten this room.  The floor is totally covered by a thick, dark rug. 
+To the east there is a small door, the front door is to the north, and
+you can see part of another room to the south.
+~
+This room is an entirely different room.
+~
+335020037 0 5 0
+D0
+front door~
+front door~
+407 2503 63000 10 10 5
+D1
+small door~
+small door~
+131 -1 63002 6 10 5
+D2
+~
+~
+0 -1 63003 10 10 5
+E
+front door~
+This door is made out of thick, rigid ironwood planks bound with
+adamantite.  Two holes are placed in the door, they are about the right
+height for a human to look through.  Oddly, you need a key to unlock and
+lock the door from this side as well as outside.
+~
+E
+wallpaper~
+Upon this wallpaper is an intricate design of black, red, and gold lines. 
+The sections have been matched up perfectly and reflect the light from
+the lamps very well.
+~
+E
+oil lamps~
+These two oil lamps produce ample light for this room, even turned down
+as low as they are.  Looking closely you see the reservoirs are almost
+full with a dark red oil.
+~
+E
+thick dark rug~
+The rug on the floor appears to be made out of wool that has been dyed a
+dark red in the middle, upon which is woven a dragon's head inside of a
+circle.
+~
+E
+small~
+This small door is made out of a single piece of fine Vaasa oak.  A brass
+door knob is also evident.
+~
+A
+look~
+holes hole~
+if( is_open( find_room( 63001 ), north ) ) {
+  act_tochar( #isopen, ch );
+  end;
+}
+act_tochar( #look, ch );
+act_notchar( #look_r, ch );
+mload( 1951, find_room( 63000 ) );
+mob = mob_in_room( 1951, find_room( 63000 ) );
+do_spell( eagle eye, ch, mob );
+junk_mob( mob );
+~
+E
+isopen~
+It's pretty hard to look through the holes when the door is open.
+~
+E
+look~
+You look through the holes in the door.
+~
+E
+look_r~
+$n looks through the holes in the door.
+~
+!
+0 0 0
+-1
+S
+
+#63002
+A Small Cloak Room~
+Pegs and shelves line the walls of this small room.  On the floor, set
+against the walls, are various pairs of boots.  Hanging from the pegs and
+stuffed onto the shelves are various overgarments.  A musty smell
+permeates the room, coming from the few damp garments.
+~
+[Merior] add garment to extra
+[Merior] i dont think ghosts should have a bash attack - particulary one that doesnt bash
+[Merior] lower marmor
+~
+335020036 0 5 0
+D3
+small door~
+small door~
+131 -1 63001 6 10 5
+E
+pegs shelves~
+A long row of pegs has been placed along the east wall, and shelves have
+been placed along the wall above the pegs.
+~
+E
+boots~
+Different pairs of boots are lined up against the wall here.  They are
+different sizes and of different styles.  Most of the boots appear to be
+very old.  The leather is worn and scuffed, and very stiff.
+~
+E
+overgarments~
+Overgarments of various sizes and materials are hanging from the pegs
+here.  Most of these cloaks, capes, and slickers are old and suffering
+from dry rot.  Very few look like they would last more than a few hours
+out of this cloak room.
+~
+A
+search take~
+boots~
+act_tochar( #boots, ch );
+act_notchar( #boots_r, ch );
+~
+E
+boots~
+You rummage through the boots but don't find any your size.
+~
+E
+boots_r~
+$n rummages through the boots.
+~
+!
+0 0 0
+A
+search take~
+overgarments garments~
+act_tochar( #stuff, ch );
+act_notchar( #stuff_r, ch );
+~
+E
+stuff~
+You rummage through the garments but don't find any in useable condition.
+~
+E
+stuff_r~
+$n rummages through the garments.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63003
+A Large Living Room~
+The air in this room has a definite chill to it.  A small chandelier
+hangs from the ceiling, providing illumination for the entire room. 
+Thick rugs cover the floor here, cushioning your steps.  The walls and
+ceiling in this room have been painted a light blue color, causing the
+furniture to clash with it somewhat.
+~
+[Merior] couches dont rest at the center
+[Merior] furniture colors dont clash with light blue
+~
+335020037 0 5 0
+D0
+~
+~
+0 -1 63001 10 10 5
+D1
+~
+~
+0 -1 63005 10 10 5
+D3
+~
+~
+0 -1 63004 10 10 5
+E
+couches~
+The two couches are solid black in color, and appear to be made of velvet.
+~
+E
+small table~
+This table is made of rosewood, and contrasts nicely with the couches. 
+Its top is clear of any clutter, though covered with a fine layer of
+dust.
+~
+E
+chandelier~
+The chandelier hanging from the ceiling is made of the finest crystal
+Long candles set into holders in the chandelier adequately light the room.
+~
+E
+thick rugs~
+The rugs on the floor all have a black dragon's head centered on an
+unbelievably pure white background.  Each rug is made of the finest
+combed wool.
+~
+2711 17 1509949540 -2 0
+2711 17 1509949540 -2 0
+2309 17 1509949540 -2 0
+-1
+S
+
+#63004
+A Small Stairwell~
+This small room contains a large, wooden staircase.  Secured to the west
+wall, the staircase rises to the second floor of this townhouse.  Hanging
+from the second floor ceiling high above your head is an exquisite gold
+chandelier.  A large, full-length mirror is mounted on the north wall. 
+Despite the rugs on the floor, this room still has a distinct chilliness
+to it.
+~
+[Merior] this shouldnt still be called a townhouse - we arent in a town
+~
+335020037 0 5 0
+D1
+~
+~
+0 -1 63003 10 10 5
+D4
+~
+~
+0 -1 63015 10 10 5
+E
+large wooden staircase~
+This large staircase appears to be made out of mahogany that has been
+stained a dark brown.  A long, narrow rug has been placed on the stairs.
+~
+E
+gold chandelier~
+This large chandelier appears to be made out of gold, from what you can
+see from here.  The large white candles in the holders provide plenty of
+light for this room.
+~
+E
+mirror~
+This large mirror shows your reflection in it.  Beautiful, eh?
+~
+-1
+S
+
+#63005
+A Formal Dining Room~
+A massive table dominates the center of this room.  Along the table are
+eight large, comfortable-looking chairs.  Despite the size of the table,
+the room is large enough for the chairs to be pulled out and used.  The
+floor is bare wood, and polished to a high sheen.  Candelabras are
+mounted on the walls, and black candles burn brightly in them.  Various
+dishes and a vase sit upon the table.  The walls are painted a deep
+burgundy here, matching nicely with the floor.
+~
+~
+335020037 0 5 0
+D2
+~
+~
+585 -1 63006 10 10 5
+D3
+~
+~
+0 -1 63003 10 10 5
+E
+massive table chairs~
+This massive table is made out of some unidentifiable wood.  There are
+eight place settings set out, one at each chair, and a vase of wilted
+flowers in the center.  A fine coat of dust covers everything.
+~
+E
+floor bare wood~
+This hardwood floor has been polished to such a high sheen that you can
+almost see your reflection in it.  There is not a single rub or scratch
+mark on it.
+~
+E
+candelabras black candles~
+These candelabras are made of stunning, flawless, white marble.  The
+black candles that are burning produce a hot, blue flame.
+~
+A
+~
+~
+act_room( #sounds, ch );
+~
+E
+sounds~
+~
+!
+2 0 0
+A
+get~
+candle~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #snap, ch );
+  act_notchar( #snap_r, ch );
+  end;
+}
+remove_rflag( reset0, room );
+if( random( 1, 3 ) == 1 ) {
+  act_tochar( #get, ch );
+  act_notchar( #get_r, ch );
+  obj_to_char( oload( 1282 ), ch );
+  end;
+}
+act_tochar( #snap, ch );
+act_notchar( #snap_r, ch );
+~
+E
+snap~
+You try to get a candle but can't free one, and anymore pressure might
+snap it in half!
+~
+E
+snap_r~
+$n tries to get a candle, but stops for some reason.
+~
+E
+get~
+You get a black candle, after applying enough pressure to remove it from
+the candelabra.
+~
+E
+get_r~
+$n gets a candle from a candelabra.
+~
+!
+0 0 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+466 17 1509949540 -2 0
+-1
+S
+
+#63006
+An Emaculate Kitchen~
+The air here is very chilly and dry.  Against the south wall is a large
+marble sink, filled with some liquid.  Cabinets and drawers line the east
+wall, and are extremely clean except for a small layer of dust.  A large
+china cabinet stands against the west wall, with a cutting board next to
+it.  The floor here is some type of ceramic tile, white in color.  A
+large window to the south allows a glimpse at the backyard of this house,
+small though it may be.
+~
+[Merior] south action is buggy
+How is it buggy?  Seems to work all right to myself and Rue.
+~
+335020037 0 5 0
+D0
+~
+~
+585 -1 63005 10 10 5
+D2
+back door~
+back door~
+131 -1 63025 10 10 5
+D3
+~
+~
+585 -1 63007 10 10 5
+E
+large marble sink water~
+This large sink is made out of medium grade white marble; there are quite
+a few black and grey streaks running through out the marble.  A large
+pipe is hooked up to the back of it and comes in from the south wall,
+while another pipe hooked to the bottom leaves out the south wall.
+~
+E
+cabinets drawers~
+These cabinets and drawers appear to be made of pine, and covered with a
+coat of white paint.  However, for its age, the paint is in remarkably
+good shape.  A thin layer of dust covers all of the cabinets and drawers.
+~
+E
+large china~
+This cabinet is made out of beautiful redwood with a nice polish.  Opening
+the glass doors reveals a stunning collection of costly china.
+~
+E
+cutting board~
+This is the first item you have seen that is not totally clean; there is
+a large red stain in the middle of this cutting board.  In the middle of
+ths stain a large cleaver sticks out of the board.
+~
+E
+cleaver~
+This is a standard metal-bladed, wooden-handled meat cleaver.
+~
+E
+floor ceramic tile~
+The tiles are laid out in a diamond shape, growing from one tile in the
+middle.  The tiles are ceramic and colored a brilliant white.
+~
+E
+window backyard~
+The window is a wooden-framed, single-paned sort common to this city. 
+Glancing through it you see a patch of green grass, a single oak tree,
+and some bushes.
+~
+A
+search~
+cabinets drawers~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #empty, ch );
+  act_notchar( #empty_r, ch );
+  end;
+}
+if( is_open( room, south ) )
+  remove_rflag( status1, room );
+remove_rflag( status0, room );
+close( room, south );
+close( room, west );
+close( room, north );
+remove_rflag( reset0, room );
+act_tochar( #full, ch );
+act_notchar( #full, ch );
+wait( 2 );
+act_room( #one, ch );
+wait( 2 );
+act_room( #two, ch );
+wait( 1 );
+loop( all_in_room ) {
+  if( is_player( rch ) ) {
+    i = 10d10+50;
+    dam_message( rch, i, "the deadly assault" );
+    inflict( rch, mob, i, "animated kitchen utensils" );
+    if( random( 1, 5 ) == 1 ) {
+      act_tochar( #pull, ch );
+      act_notchar( #pull_r, ch );
+      obj_to_char( oload( 1592 ), ch );
+    }
+  }
+}
+set_rflag( status0, room );
+if( !rflag( status1, room ) ) {
+  set_rflag( status1, room );
+  open( room, south );
+}
+open( room, north );
+open( room, west );
+~
+E
+empty~
+You look through the cabinets and drawers but don't find anything useful.
+~
+E
+empty_r~
+$n looks through the cabinets and drawers.
+~
+E
+full~
+While looking through the cabinets and drawers a swarm of glowing knives,
+spoons, forks, and other utensils fly out!
+~
+E
+full_r~
+As $n starts to search the cabinets and drawers a cloud of glowing
+utensils shoot forth!
+~
+E
+pull~
+You grimace and pull a knife left by the swarm of animated utensils from
+your wounds.
+~
+E
+pull_r~
+$n grimaces and pulls a knife from their wounds, ouch.
+~
+E
+one~
+The mass of kitchen implements collect into two groups, one at each exit
+from the room.  Their density keeps you from leaving the room, as they
+start to spin inwards, towards you!
+~
+E
+two~
+After getting into position the utensils fly fowards and strike!
+~
+!
+0 0 0
+A
+get~
+cleaver~
+act_tochar( #strain, ch );
+act_notchar( #strain_r, ch );
+~
+E
+strain~
+You pull as hard as you can but the cleaver won't come free.
+~
+E
+strain_r~
+$n strains until $s face turns bright red, but can not free the cleaver.
+~
+!
+0 0 0
+A
+fill~
+sink~
+if( rflag( status0, room ) ) {
+  act_tochar( #fill, ch );
+  act_notchar( #fill_r, ch );
+  obj_to_room( oload( 2779 ), room );
+  remove_rflag( status0, room );
+  end;
+}
+act_tochar( #isfull, ch );
+~
+E
+fill~
+You place a plug in the sink, turn a handle, and water quickly fills the
+sink.  Once full, you shut off the flow of water.
+~
+E
+fill_r~
+$n places the plug in the bottom of the sink, turns a handle, and water
+quickly fills the sink up.  $e then shuts off the flow of water.
+~
+E
+isfull~
+The sink is already full.
+~
+!
+0 0 0
+A
+drain~
+sink~
+if( !rflag( status0, room ) ) {
+  act_tochar( #drain, ch );
+  act_notchar( #drain_r, ch );
+  junk_obj( obj_in_room( 2779, room ) );
+  set_rflag( status0, room );
+  end;
+}
+act_tochar( #empty, ch );
+~
+E
+drain~
+Pulling the chain attatched to the top of the sink and the plug, you
+remove the plug from the hole in the bottom of the sink.  In a matter of
+seconds all of the water is gone from the sink.
+~
+E
+drain_r~
+$n pulls a chain attatched to the sink and plug, removing the plug from
+the hole in the bottom of the sink.  In a matter of seconds the sink is
+empty.
+~
+E
+empty~
+The sink is already empty.
+~
+!
+0 0 0
+A
+open~
+door s so sou sout south~
+if( rflag( status0, room ) ) {
+  if( !is_open( room, south ) ) {
+    open( room, south );
+    act_tochar( #open, ch );
+    act_notchar( #open_r, ch );
+    end;
+  }
+  act_tochar( #already, ch );
+  end;
+}
+act_tochar( #nope, ch );
+~
+E
+open~
+You open the back door to the south.
+~
+E
+open_r~
+$n opens the back door to the south.
+~
+E
+nope~
+Various animate knifes, forks, spoons, and other utensils are blocking
+that exit.
+~
+E
+already~
+It's already open.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63007
+A Small, Dank Storage Room~
+This room is filthy.  The corners contain immense cobwebs, and the dust
+is very thick here.  Boxes line the south wall, while sacks of food are
+stacked against the north wall.  The west wall has a small hole in it,
+going as far back into the wall as you can see.  The floor here is
+constructed out of uneven wooden planks.  The paint covering the walls is
+a dark beige in color but was probably once pure white.  The air in this
+room is extremely cold.
+~
+Planks are older because the vampires crypts were here for like 100 years, and they are part of the first structure to exist here.  Just a little flavor.
+~
+335020036 0 5 0
+D1
+~
+~
+585 -1 63006 10 10 5
+D3
+wall~
+wall~
+479 -1 63008 10 10 5
+E
+boxes~
+Markings cover the boxes, denoting food and perishables.
+~
+E
+sacks~
+Spoiled and rotten grain fills all of the sacks you look at.  Feeling
+around in the sacks reveals odd, hard lumps.
+~
+E
+floor planks~
+These planks look like they were carved by hand from a pine tree.  From
+the condition they are in you would guess they are also much older than
+the rest of the house.
+~
+A
+search~
+sacks~
+act_tochar( #search, ch );
+act_notchar( #search_r, ch );
+~
+E
+search~
+You search through the sacks and find nothing but rotted grain.
+~
+E
+search_r~
+$n searchs through the sacks.
+~
+!
+0 0 0
+A
+search~
+boxes~
+act_tochar( #boxes, ch );
+act_notchar( #boxes_r, ch );
+~
+E
+boxes~
+You search through the boxes, finding nothing but mold and rotten food.
+~
+E
+boxes_r~
+$n searches through the boxes.
+~
+!
+0 0 0
+A
+hit~
+hole wall~
+if( !is_open( room, west ) ) {
+  act_tochar( #hit, ch );
+  act_notchar( #hit_r, ch );
+  i = 1d10;
+  dam_message( ch, i, "the solid wall" );
+  inflict( ch, mob, i, "slamming into a wall" );
+}
+act_tochar( #no, ch );
+~
+E
+hit~
+You slam your fist into the wall causing a few small cracks to appear,
+but you can tell they aren't that deep.  Perhaps more force needs to be
+applied, like that found in a @Rball of fire@n.
+~
+E
+hit_r~
+$n slams $s fist into the wall, but nothing happens.
+~
+E
+no~
+You don't see that here.
+~
+!
+0 0 0
+A
+cast~
+fireball wall~
+if( is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  end;
+}
+if( has_obj( 79, ch ) ) {
+  if( find_skill( ch, fireball ) > 7) {
+    modify_mana( ch, -40 );
+    act_tochar( #one, ch );
+    act_notchar( #one_r, ch );
+    wait( 1 );
+    act_tochar( #two, ch );
+    act_notchar( #two_r, ch );
+    wait( 1 );
+    act_room( #three, ch );
+    wait( 1 );
+    open( room, west );
+    act_tochar( #done, ch );
+    act_notchar( #done_r, ch );
+    junk_obj( has_obj( 79, ch ), 1 );
+    end;
+  }
+  if( find_skill( ch, fireball ) < 8) {
+    modify_mana( ch, -40 );
+    act_tochar( #one, ch );
+    act_notchar( #one_r, ch );
+    wait( 1 );
+    act_tochar( #two, ch );
+    act_notchar( #two_r, ch );
+    wait( 1 );
+    act_room( #three, ch );
+    wait( 1 );
+    act_tochar( #fail, ch );
+    act_notchar( #fail_r, ch );
+    junk_obj( has_obj( 79, ch ), 1 );
+    end;
+  }
+}
+act_tochar( #need, ch );
+~
+E
+open~
+The wall is no longer there, how do you plan to destroy it twice?
+~
+E
+one~
+You incant a mystical phrase.
+~
+E
+one_r~
+$n incants a mystical phrase.
+~
+E
+two~
+Smoke pours from your hands as you rub them together.
+~
+E
+two_r~
+Smoke pours from $n's hands as $e rubs them together.
+~
+E
+three~
+A small piece of flint bursts into flames.
+~
+E
+done~
++++ You cast fireball. +++
+
+The raging fireball slams into the west wall, causing it to shatter like
+cheap crystal!
+~
+E
+done_r~
+$n casts fireball.
+
+$s raging fireball slams into the west wall, causing it to shatter like
+cheap crystal!
+~
+E
+need~
+You need a piece of flint to cast 'fireball'.
+~
+E
+fail~
++++ You cast fireball. +++
+
+You watch as your fireball slams into the wall and disappears, barely
+scorching it.  Pathetic.
+~
+E
+fail_r~
+$n casts fireball.
+
+$n's raging fireball slams into the wall and disappears, barely scorching
+it.  Pathetic.
+~
+!
+0 0 0
+A
+look~
+cracks~
+if( !is_open( room, west ) ) {
+  act_tochar( #cracks, ch );
+  end;
+}
+act_tochar( #no, ch );
+~
+E
+cracks~
+There are many cracks radiating outwards from the hole, and they appear
+to go quite deep into the wall.  Perhaps a very forceful hit will shatter
+the wall.
+~
+E
+no~
+You don't see that here.
+~
+!
+0 0 0
+A
+look~
+hole w we wes west~
+if( !is_open( room, west ) ) {
+  act_tochar( #hole, ch );
+  end;
+}
+act_tochar( #open, ch );
+~
+E
+hole~
+A constant, chilling breeze pours out of the hole.  Looking into the hole
+reveals nothing but the inside of a stone pipe as far as you can see. 
+Small cracks radiate outwards from the hole, as if it was added after the
+wall was built and structural damage resulted from it's addition.
+~
+E
+open~
+You don't see that here.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63008
+Hidden Room~
+This small room is nothing more than the head of stairs.  The stone wall
+that once formed a barrier between this room and the room to the east
+lies shattered on the floor.  Coming up from the stairwell is a strong,
+cold breeze.  The walls and floor here are made of a dark, black stone.
+~
+No, the wall won't be shattered at reset, however, it's part of the area and players will see it correctly the first time, after that I figure they should understand.  Also, how can I make an action to rewrite the rdesc based on status flags.
+~
+335020037 0 5 0
+D1
+wall~
+wall~
+479 -1 63007 10 10 5
+D5
+~
+~
+0 -1 63009 10 10 5
+E
+walls floor dark black stone~
+The walls and floor here are constructed of an odd, black stone.  The
+stone is extremely cold to touch, almost painfully so.
+~
+A
+cast~
+fireball wall~
+if( is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  end;
+}
+if( has_obj( 79, ch ) ) {
+  if( find_skill( ch, fireball ) > 7) {
+    modify_mana( ch, -40 );
+    act_tochar( #one, ch );
+    act_notchar( #one_r, ch );
+    wait( 1 );
+    act_tochar( #two, ch );
+    act_notchar( #two_r, ch );
+    wait( 1 );
+    act_room( #three, ch );
+    wait( 1 );
+    open( room, east );
+    act_tochar( #done, ch );
+    act_notchar( #done_r, ch );
+    junk_obj( has_obj( 79, ch ), 1 );
+    end;
+  }
+  if( find_skill( ch, fireball ) < 8) {
+    modify_mana( ch, -40 );
+    act_tochar( #one, ch );
+    act_notchar( #one_r, ch );
+    wait( 1 );
+    act_tochar( #two, ch );
+    act_notchar( #two_r, ch );
+    wait( 1 );
+    act_room( #three, ch );
+    wait( 1 );
+    act_tochar( #fail, ch );
+    act_notchar( #fail_r, ch );
+    junk_obj( has_obj( 79, ch ), 1 );
+    end;
+  }
+}
+act_tochar( #need, ch );
+~
+E
+open~
+The wall is no longer there, how do you plan to destroy it twice?
+~
+E
+one~
+You incant a mystical phrase.
+~
+E
+one_r~
+$n incants a mystical phrase.
+~
+E
+two~
+Smoke pours from your hands as you rub them together.
+~
+E
+two_r~
+Smoke pours from $n's hands as $e rubs them together.
+~
+E
+three~
+A small piece of flint bursts into flames.
+~
+E
+done~
++++ You cast fireball. +++
+
+The raging fireball slams into the west wall, causing it to shatter like
+cheap crystal!
+~
+E
+done_r~
+$n casts fireball.
+
+$s raging fireball slams into the west wall, causing it to shatter like
+cheap crystal!
+~
+E
+fail~
++++ You cast fireball. +++
+
+You watch as your fireball slams into the wall and disappears, barely
+scorching it.  Pathetic.
+~
+E
+fail_r~
+$n casts fireball.
+
+$n's raging fireball slams into the wall and disappears, barely scorching
+it.  Pathetic.
+~
+E
+need~
+You need a piece of flint to cast 'fireball'.
+~
+!
+0 0 0
+A
+hit~
+hole wall~
+if( !is_open( room, east ) ) {
+  act_tochar( #hit, ch );
+  act_notchar( #hit_r, ch );
+  i = 1d10;
+  dam_message( ch, i, "the solid wall" );
+  inflict( ch, mob, i, "slamming into a wall" );
+  end;
+}
+act_tochar( #no, ch );
+~
+E
+hit~
+You slam your fist into the wall causing a few small cracks to appear,
+but you can tell they aren't that deep.  Perhaps more force needs to be
+applied, like that found in a @Rball of fire@n.
+~
+E
+hit_r~
+$n slams $s fist into the wall, but nothing happens.
+~
+E
+no~
+There is no wall to the east, so how are you going to hit it?
+~
+!
+0 0 0
+A
+look~
+cracks~
+if( !is_open( room, east ) ) {
+  act_tochar( #cracks, ch );
+  end;
+}
+act_tochar( #open, ch );
+~
+E
+cracks~
+There are many cracks radiating outwards from the hole, and they appear
+to go quite deep into the wall.  Perhaps a very forceful hit will shatter
+the wall.
+~
+E
+open~
+You don't see that here.
+~
+!
+0 0 0
+A
+look~
+hole e ea eas east~
+if( !is_open( room, east ) ) {
+  act_tochar( #closed, ch );
+  end;
+}
+act_tochar( #open, ch );
+~
+E
+closed~
+A constant, chilling breeze moves through the hole.  Looking into the
+hole reveals nothing but the inside of a stone pipe as far as you can see. 
+Small cracks radiate outwards from the hole, as if it was added after the
+wall was built and structural damage resulted from it's addition.
+~
+E
+open~
+You see a storage room to the east, with rubble between here and there.
+~
+!
+0 0 0
+-1
+S
+
+#63009
+Cellar Stairwell~
+Stone stairs descend from above, ending here.  There is a hallway to the
+east.  The walls and floor here are made of a dark, black stone.  A brisk
+breeze blows in from the east, and up the stairs.  Cold seems to emanate
+from the very stone itself.  There is not a trace of dust anywhere.  The
+walls, floor, and ceiling are slightly damp.
+~
+~
+335151108 0 5 0
+D1
+~
+~
+0 -1 63010 10 10 5
+D4
+~
+~
+0 -1 63008 10 10 5
+E
+stone walls~
+Upon closer examination of the stone, you find it to be perfectly flat
+and smooth.  It is slightly damp to the touch.  A coldness seems to
+emanate from the very stone, or it could just be your imagination.
+~
+-1
+S
+
+#63010
+Dark Hallway in the Cellar~
+This hallway is very dark, and very cold.  You can see your breath
+whenever you exhale.  The hallway leads off to the north and the west. 
+In the gloom and shadow to the west the base of a staircase can barely be
+seen.  All of the surfaces around you are made of some sort of dark,
+black stone.  A strong, cold breeze blows from the north, sending a chill
+down your spine.
+~
+~
+335151108 0 5 0
+D0
+~
+~
+0 -1 63011 10 10 5
+D3
+~
+~
+0 -1 63009 10 10 5
+E
+walls stone~
+Upon closer examination of the stone, you find it to be perfectly flat
+and smooth.  It is slightly damp to the touch.  A coldness seems to
+emanate from the very stone, or it could just be your imagination.
+~
+A
+~
+~
+act_tochar( #frost, ch );
+act_notchar( #frost_r, ch );
+~
+E
+frost~
+You watch as your breath frosts in front of your face.
+~
+E
+frost_r~
+$n's breath frosts in front of $s face.
+~
+!
+2 150 0
+2798 49 1509949540 -2 0
+66 81 1509949490 -2 0
+-1
+S
+
+#63011
+By a Well at the Center of the Cellar~
+This large room is made of a dark, black stone.  The air here is very
+cold, and you can feel a strong breeze shooting out of the small well in
+the middle of the room.  A hallway leads off to the south, and there is
+one door in each of the other walls.  To the west is a silver door, east
+is a gold door, and north is an electrum door.  There isn't a single
+trace of moisture in the air here.  You can barely see rusted, iron
+sconces in each corner of this room.
+~
+The well is just blowing air out and you can't see water when you look at
+it, so why would someone try to drink from it?
+
+The pockets are extradimensonial space or something, like a bag of
+holding.  Meaning they don't have to exist within the confines of a room
+on this plane of existance.  Or something.
+
+The roses can be gotten by planting something in the back yard, near the
+oak tree.  Haven't worked the particulars of this out just yet.
+
+33.333...% chance they summon help.  If you got jumped wouldn't you yell
+all the time?
+
+Three kinds of roses only ham things up I think, one is enough.  Stuff is
+already to complex, heh.
+
+The well is the source for the cold wind that that the vampires use as a
+defense sort of.  Just something to add to the atmosphere, didn't you
+ever see that House movie?  :) 
+~
+335151108 0 5 0
+D0
+electrum door~
+electrum door~
+131 -1 63014 10 10 5
+D1
+gold door~
+gold door~
+131 -1 63013 10 10 5
+D2
+~
+~
+0 -1 63010 10 10 5
+D3
+silver door~
+silver door~
+131 -1 63012 10 10 5
+E
+dark black stone~
+Upon closer examination of the stone, you find it to be perfectly flat
+and smooth.  It is slightly damp to the touch.  A coldness seems to
+emanate from the very stone, or it could just be your imagination.
+~
+E
+well~
+The well is nearly three feet wide, and goes down farther than you see. 
+A fiercely cold wind blows out from the well, making it physically
+painful to actually look down into the well.
+~
+E
+rusted iron sconces~
+All four of these sconces look extremely old; the rust has almost eaten
+through the metal completely.  Unlit torches sit in each sconce.
+~
+E
+silver west~
+This door is made of solid silver.  There are many beautiful and mystical
+runes on the door, which seem to move in the corner of your eye.  In the
+middle of the door is an odd indentation, shaped like a flower.
+~
+E
+gold east~
+Light shines off of the solid gold door to the east.  An engraving
+showing a large, stocky man kneeling over a corpse has been dug into the
+gold.  In the middle of the door is an indentation which seems to be
+flower-shaped.
+~
+E
+north electrum~
+The door to the north is made of the purest electrum.  You can feel a
+strong force emanating from the metal of the door.  Rubies have been
+inlaid into the door to form a large, glittering red circle.  Inside the
+circle is the image of a human male, his skin inlaid with ivory, his
+eyes with emeralds, and his hair with obsidian.  In the center of the
+man's torso is an indentation that is flower-shaped.
+~
+E
+indentation~
+This indentation is shaped like a long stemed rose.  Perhaps if you have
+one you could @Wattatch@n it to the proper door.
+~
+A
+attach~
+silver~
+if( has_obj( 2756, ch ) ) {
+  if( rflag( status0, room ) ) {
+    act_tochar( #place, ch );
+    act_notchar( #place_r, ch );
+    remove_rflag( status0, room );
+    junk_obj( has_obj( 2756, ch ), 1 );
+    acode( room, 4 );
+    end;
+  }
+  act_tochar( #full, ch );
+  end;
+}
+act_tochar( #no, ch );
+~
+E
+place~
+You place a @Wsilver rose@n into the indentation in the silver door. 
+Slowly the rose starts to melt into the door, and there is a bright flash
+of pure white light from inside the room!
+~
+E
+place_r~
+$n places a @Wsilver rose@n into the indentation in the silver door. 
+Slowly the rose starts to melt into the door, and there is a bright flash
+of pure white light from inside the room!
+~
+E
+full~
+There is already a rose in the indentation, how many do you think you can
+shove in there?
+~
+E
+no~
+You don't have anything that will fit in the indentation.
+~
+!
+0 0 0
+A
+attach~
+gold~
+if( has_obj( 2756, ch ) ) {
+  if( rflag( status1, room ) ) {
+    act_tochar( #place, ch );
+    act_notchar( #place_r, ch );
+    remove_rflag( status1, room );
+    junk_obj( has_obj( 2756, ch ), 1 );
+    acode( room, 5 );
+    end;
+  }
+  act_tochar( #full, ch );
+  end;
+}
+act_tochar( #no, ch );
+~
+E
+place~
+You place a @Wsilver rose@n into the indentation in the gold door.
+Slowly the rose starts to melt into the door, and there is a bright flash
+of pure white light from inside the room!
+~
+E
+place_r~
+$n places a @Wsilver rose@n into the indentation in the gold door. 
+Slowly the rose starts to melt into the door, and there is a bright flash
+of pure white light from inside the room!
+~
+E
+full~
+There is already a rose in the indentation, how many do you think you can
+shove in there?
+~
+E
+no~
+You don't have anything that will fit in the indentation.
+~
+!
+0 0 0
+A
+attach~
+electrum~
+if( has_obj( 2756, ch ) ) {
+  if( rflag( status2, room ) ) {
+    act_tochar( #place, ch );
+    act_notchar( #place_r, ch );
+    remove_rflag( status2, room );
+    junk_obj( has_obj( 2756, ch ), 1 );
+    end;
+  }
+  act_tochar( #full, ch );
+  end;
+}
+act_tochar( #no, ch );
+~
+E
+place~
+You place a @Wsilver rose@n into the indentation in the electrum door. 
+Slowly the rose starts to melt into the door, and there is a bright flash
+of pure white light from inside the room!
+~
+E
+place_r~
+$n places a @Wsilver rose@n into the indentation in the electrum door. 
+Slowly the rose starts to melt into the door, and there is a bright flash
+of pure white light from inside the room!
+~
+E
+full~
+There is already a rose in the indentation, how many do you think you can
+shove in there?
+~
+E
+no~
+You don't have anything that will fit in the indentation.
+~
+!
+0 0 0
+A
+int1~
+~
+wait( 100 );
+set_rflag( status0, room );
+act_room( #time, ch );
+~
+E
+time~
+Before your eyes the rose embedded in the @Wsilver door@n fades out of
+existance, perhaps the evil in this place destroyed it.
+~
+!
+0 0 0
+A
+int2~
+~
+wait( 100 );
+set_rflag( status1, room );
+act_room( #time, ch );
+~
+E
+time~
+Before your eyes the rose embedded in the @Ygold door@n fades out of
+existance, perhaps the evil in this place destroyed it.
+~
+!
+0 0 0
+A
+int3~
+~
+wait( 100 );
+set_rflag( status2, room );
+act_room( #time, ch );
+~
+E
+time~
+Before your eyes the rose embedded in the @Welectrum door@n fades out of
+existance, perhaps the evil in this place destroyed it.
+~
+!
+0 0 0
+-1
+S
+
+#63012
+A Formal Burial Crypt~
+This large room is quite clearly a formal burial crypt.  In the middle of
+the room is a large, solid black coffin.  The walls are the same dark,
+black stone as the rest of the area, but has been covered with many aged
+and fading tapestries.  Candelabras stand in each corner, the candles in
+them lit and burning without producing smoke.  An exquisite silver door
+adorns the east wall.
+~
+[Merior] why are people buried in the house?
+This part of the "house" is much older than the house.  This is a crypt
+that has been around for alot longer than the house, and will be around
+alot longer.  House is just camoflauge sort of.
+~
+335151109 0 5 0
+D1
+silver door~
+silver door~
+131 -1 63011 10 10 5
+E
+coffin~
+This large black coffin is made of flawless obsidian.  The lid has a
+raised sculpture of a lovely woman on it.  Her long hair falls softly
+around her slightly round face and down onto her shoulders.  Her hands
+are clasped together in the middle of her chest.  The lid to the coffin
+has no hinges but could probably be slid open by a rather strong person.
+~
+E
+tapestries tapestry~
+Some of these tapestries appear to be hundreds of years old.  They each
+depict different scenes, though they all have the same theme.  In each
+tapestry someone is being kissed by a stunning human female.  A small
+amount of faded red can be seen around her lips, making it appear as if
+her lips were stained by blood.
+~
+E
+candelabras~
+Each of these four candelabras holds three candles.  A dark red flame
+burns on each candle; however no smoke is given off nor does the candle
+seem to be shrinking at all.
+~
+1821 9 1509949540 3 0
+-1
+S
+
+#63013
+A Cluttered Burial Crypt~
+This room reeks of death.  A dozen or so corpses and skeletons have been
+thrown against the east wall, leaving red-brown splotches where they hit. 
+In the middle of the room is a huge black-steel coffin.  There is a
+sculpture of a man on the lid of it.  You can see many small insects
+crawling over the corpses, adding to the gruesome scene before you.  A huge
+axe has been secured to the north wall, its blade encrusted with dried
+blood.  A large gold door lies to the west.
+~
+[Merior] existence - acode
+?
+use assist group if he's calling friends (accidently deleted)
+?
+~
+335151108 0 5 0
+D3
+gold door~
+gold door~
+131 -1 63011 10 10 5
+E
+corpses skeletons~
+These appear to be some of the missing townsfolk from Medienne.  Each
+corpse has a two-pronged bite mark on it and the skeletons all have their
+necks snapped.  The smell emanating from this pile of death is horrible.
+~
+E
+black steel coffin~
+This coffin is made of solid steel that has been turned black through
+some unknown process.  The lid shows the image of a powerful man.  His
+face is cruel and he has a hooked nose.  The rest of his body is quite
+muscular though.  The muscles of the image seem to ripple with great
+force.  His hands are clasped upon his chest.
+~
+E
+huge axe blade~
+This axe seems to be made out of solid adamantite.  The blood on the
+blade could be centuries old, it is almost black with age.  Mithril bands
+secured into the rock wall hold the axe in place, and your best efforts
+can't even budge it.
+~
+A
+search~
+corpses skeletons~
+act_tochar( #search, ch );
+act_notchar( #search_r, ch );
+~
+E
+search~
+You rummage through the pile of corpses and skeletons, finding nothing
+but rot and a very offensive odor.
+~
+E
+search_r~
+$n rummages through the pile of corpses and skeletons.
+~
+!
+0 0 0
+1809 9 1509949540 3 0
+-1
+S
+
+#63014
+A Gold-Gilded Crypt~
+Gold gilding covers everything you can see, excluding a huge sarcophagus
+in the middle of the room and the electrum door in the south wall. 
+Extremely old, but well-preserved paintings line the walls.  The shine
+of the gilding prevents you from seeing anything that might be beneath it. 
+A solid electrum door is embedded into the south wall, with a strange
+picture made out of enlaid gems.
+~
+~
+335151108 0 5 0
+D2
+electrum door~
+electrum door~
+131 -1 63011 10 10 5
+E
+sarcophagus~
+This huge sarcophagus appears to be made of solid electrum.  You have
+never seen such a mass of this rare metal in one place.  An inlaid
+illustration of a wiry human male covers the lid.
+~
+E
+paintings old~
+Various shades of the gold gilding covering these paintings allow you to
+discern the image beneath.  Depicted in various scenes are a stunning
+human female and two human males.  The pictures are partially covered
+with dust but otherwise appear to be in fine condition.
+~
+E
+electrum~
+The door to the south is made of the purest electrum.  You can feel a
+strong force emanating from the metal of the door.  Rubies have been
+inlaid into the door to form a large, glittering red circle.  Inside the
+circle is the image of a human male, his skin inlaid with ivory, his eyes
+with emeralds, and his hair with obsidian.
+~
+1803 9 1509949540 3 0
+-1
+S
+
+#63015
+A Stairwell~
+Leading down to the lower floor is a large wooden staircase.  Attached to
+the top of the railing posts on each side of the staircase are elegant
+oil lamps.  A large tapestry has been hung on the west wall, contrasting
+nicely with the off-white color of the walls.  The floor is made of
+wooden planking.  East is a hallway leading to the rest of this floor. 
+On the north wall is a large oil painting of a woman.
+~
+[Merior] how did a new painting get in this old, abandoned place?
+~
+335020037 0 5 0
+D1
+~
+~
+0 -1 63016 10 10 5
+D5
+~
+~
+0 -1 63004 10 10 5
+E
+staircase~
+A large staircase made of mahogany descends down to the first floor.  A
+narrow rug has been placed on the stairs, probably to help protect them.
+~
+E
+oil lamps~
+These two lamps are very ornate, the glass crystal clear.  Small bolts
+secure them to the top of the stairwell posts.  Each lamp burns with a
+clean, blue-yellow flame.
+~
+E
+tapestry~
+The likeness of a middle-aged man is woven into this tapestry.  He has
+dark grey hair combed back off of his forehead, a sharp nose, and thin
+unsmiling lips.  His face seems very pale, and the skin very tight and
+drawn.  The background is a dark red color.
+~
+E
+painting~
+Protrayed in this painting is a lovely young girl.  She has blond tresses
+down to her shoulders, large blue eyes, a button nose, and a ruby red 
+lips.  The painting appears to be very new.
+~
+-1
+S
+
+#63016
+A Long, Dimly-Lit Hallway~
+A large bookcase has been placed against the east wall of this section of
+the hallway.  Covering the entire length of this hallway is a large rug. 
+Wooden floors show along the edges of the rug.  Various pictures and
+knickknacks are hung on the walls here, which are painted a beige color. 
+The air here is a nice moderate temperature.
+~
+~
+335020037 0 5 0
+D0
+~
+~
+0 -1 63017 10 10 5
+D2
+~
+~
+0 -1 63018 10 10 5
+D3
+~
+~
+0 -1 63015 10 10 5
+E
+bookcase~
+This large bookcase is made out of some sort of unidentifiable wood. 
+Glancing through the titles on the shelves you see many fairy tales,
+along with some books on metallurgy and other scientific works.
+~
+E
+rug~
+This large rug is made out of the finest Pennan wool.  It has been dyed
+dark blue, with a black dragon's head in the middle.
+~
+E
+pictures knickknacks~
+Hanging on various parts of both walls are pictures, wreaths, and various
+other knickknacks.  None of them appear to have any value.
+~
+-1
+S
+
+#63017
+A Hallway Before a Window~
+A narrow rug covers part of the floor here, and extends down the hallway
+to the south.  The bare floor around the rug seems to be constructed out
+of a local variety of wood.  A window on the north wall is edged on the
+sides by curtains, and looks out over the front porch and yard of this
+house.  Doorways to the west and east lead to different rooms in the
+house.  Illumination from the window allows you to see all the dust in
+the air.  The chill in the air is quite noticeable, and almost causes
+goosebumps.
+~
+~
+335020037 0 5 0
+D1
+wooden door~
+wooden door~
+131 -1 63020 10 10 5
+D2
+~
+~
+0 -1 63016 10 10 5
+D3
+bathroom door~
+bathroom door~
+131 -1 63019 10 10 5
+E
+rug~
+This large rug is made out of the finest Pennan wool.  It has been dyed
+dark blue, with a black dragon's head in the middle.
+~
+E
+floor~
+Despite studying the floor closely you still can't recognize the wood
+that it is made of.
+~
+E
+window~
+Glancing out the window, you see the top of the front porch and the front
+yard.  A ways off to the north-west you can see another house, this one
+looks to be in great disrepair though.
+~
+E
+curtains~
+These curtains are made out of regular cotton cloth that has been dyed a
+beautiful red color.  They are held back from the window by little cloth
+ties.
+~
+E
+bathroom~
+This door is made out of pine and has been painted an off-white color.
+~
+-1
+S
+
+#63018
+Hallway~
+You are in the southern end of the hallway.  A small window in the south
+wall looks out onto the back yard and a dense forest.  There are solid
+looking wooden doors, trimmed in brass, to the west and east.  The doors
+are both made out of walnut, and stained a dark brown.  The rug on the
+floor runs the length of the hallway.  A fine layer of dust covers
+everything, and can be seen floating in the air.
+~
+~
+335020037 0 5 0
+D0
+~
+~
+0 -1 63016 10 10 5
+D1
+wooden door~
+wooden door~
+131 -1 63022 10 10 5
+D3
+small, wooden door~
+small wooden door~
+131 -1 63021 10 10 5
+E
+window~
+This small window is made of a single pane of glass in a wooden frame. 
+Looking through the window you see the small backyard of this house, and
+the dense forest that surrounds it.
+~
+E
+rug~
+This large rug is made out of the finest Pennan wool.  It has been dyed
+dark blue, with a black dragon's head in the middle.
+~
+A
+~
+~
+act_tochar( #dust, ch );
+act_notchar( #dust_r, ch );
+interpret( ch, "sneeze" );
+~
+E
+dust~
+All the dust present in the air tickles your nose, causing you to sneeze!
+~
+E
+dust_r~
+You see $n's face wrinkle up as $e sneezes!
+~
+!
+2 0 0
+-1
+S
+
+#63019
+A Small, Cluttered Bathroom~
+Cold diamond-shaped tile covers the floor.  Against the west wall is a
+bench with a hole cut into it, above which hangs a small mirror.  A table
+sits against the south wall.  Upon the table is a bowl and a pitcher. 
+The walls here are covered in a wallpaper with a rose pattern on it.  A
+small cabinet hangs on the north wall, and through the doorway to the
+east you can see a hallway.
+~
+[Merior] full_r tourniquet
+[Merior] vary the mobs some - less servants, have something different
+~
+335020037 0 5 0
+D1
+bathroom door~
+bathroom door~
+131 -1 63017 10 10 5
+E
+bench~
+The purpose of this bench is quite obvious.  However, it seems to be very
+clean.  A thin layer of dust even covers it.
+~
+E
+mirror~
+This small, dusty mirror has a metal edging around it.  The means by
+which it is attached to the wall are undetectable, however a nail is the
+most probable.  Looking in it you see yourself, scary.
+~
+E
+table bowl pitcher~
+This small table holds a marble bowl and pitcher of the finest quality. 
+Both the bowl and pitcher are empty however, and there is a thin layer of
+dust on them.
+~
+E
+cabinet~
+This small cabinet is made out of a lovely stained rosewood.
+~
+E
+door~
+This door is made out of pine and has been painted an off-white color.
+~
+A
+search~
+cabinet~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #empty, ch );
+  act_notchar( #empty_r, ch );
+  end;
+}
+remove_rflag( reset0, room );
+if( random( 1, 2 ) == 1 ) {
+  act_tochar( #full, ch );
+  act_notchar( #full_r, ch );
+  obj_to_char( oload( 230 ), ch );
+  end;
+}
+act_tochar( #empty, ch );
+act_notchar( #empty, ch );
+~
+E
+empty~
+You rummage through the cabinet, but nothing useful can be found.
+~
+E
+empty_r~
+$n rummages through the small cabinet.
+~
+E
+full~
+You rummage through the cabinet and find... a tourniquet.
+~
+E
+full_r~
+$n rummages through the cabinet and gets a trouniquet from it.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63020
+Bedroom~
+In the middle of this room is a large bed with no headboard.  Pushed
+against the north wall is a large dresser made of a beautiful wood. 
+Against the east wall rests a wooden desk, complete with chair.  What you
+can see of the floor here is made out of some unknown sort of hardwood,
+polished to a high sheen.  A doorway in the west wall leads to the
+hallway.
+~
+[Merior] dont tell us what searching does in an extra
+[Merior] though your acode works - it could use different logic and be prettier ;)
+~
+335020037 0 5 0
+D3
+wooden door~
+wooden door~
+131 -1 63017 10 10 5
+E
+bed~
+This bed has no headboard at all.  Cotton sheets and a wool comforter
+cover the mattress, which is secured in a wooden frame.
+~
+E
+dresser~
+This dresser is made of an expensive-looking wood.  Various dressing
+items sit atop it.
+~
+E
+desk chair~
+The desk before you is made of a nice-looking wood you do not recognize,
+as is the chair.  On top of the desk is a large blotter and other writing
+materials.  Searching the drawers reveals more writing implements and
+paper.
+~
+A
+search~
+dresser~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #empty, ch );
+  act_notchar( #empty_r, ch );
+  end;
+}
+remove_rflag( reset0, room );
+if( random( 1, 3 ) == 1 ) {
+  act_tochar( #full, ch );
+  act_notchar( #full_r, ch );
+  obj_to_char( oload( 831 ), ch );
+  end;
+}
+act_tochar( #empty, ch );
+act_notchar( #empty_r, ch );
+~
+E
+empty~
+You search through the dresser drawers and nothing except useless junk.
+~
+E
+empty_r~
+$n searchs through the dresser drawers.
+~
+E
+full~
+You search through the dresser drawers, and in the last drawer, you find
+a wool cap!
+~
+E
+full_r~
+$n searches through the dresser drawers and finds a wool cap in the last
+one.
+~
+!
+0 0 0
+A
+search~
+desk~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #empty, ch );
+  act_notchar( #empty_r, ch );
+  end;
+}
+remove_rflag( reset0, room );
+if( random( 1, 25 ) == 1 ) {
+  act_tochar( #full, ch );
+  act_notchar( #full_r, ch );
+  obj_to_char( oload( 1015 ), ch );
+  end;
+}
+act_tochar( #empty, ch );
+act_notchar( #empty_r, ch );
+~
+E
+empty~
+You dig through the desk, however you can't find anything useful.  There
+is just some feather quills, vials of ink, and a few scraps of parchment
+in the various drawers.
+~
+E
+empty_r~
+$n looks through the desks contents.
+~
+E
+full~
+You rummage through the desks contents and find a scroll buried under a
+batch of feather quill pens.
+~
+E
+full_r~
+$n rummages through the desks contents and pulls out a scroll.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63021
+A Large Closet~
+This moderately sized room is full of every single useless thing you can
+imagine, some of it very old.  Boxes are neatly stacked against the
+walls, in contrast to the sloppiness elsewhere in the room.  The boxes
+are of many different sizes and shapes, ranging from cigar boxes to
+something that might hold a large goat.  A door on the east wall leads
+out to the hallway.
+~
+[Merior] why would a box hold a goat? odd thing to use to peg the size
+[Merior] a lot
+~
+335020036 0 5 0
+D1
+small, wood door~
+small wood door~
+131 -1 63018 10 10 5
+E
+boxes~
+These boxes range from very old to very new, and are full of useless
+trinkets such as fake jewelry, bits and pieces of cloth and metal, and
+other odd items.
+~
+E
+piles~
+These piles are just mounds about five feet high that are made up of junk. 
+Shards of glass and ceramics, bits and pieces of metal, fragments of
+cloth, and alot of other stuff.
+~
+A
+search~
+boxes~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #empty, ch );
+  act_notchar( #empty_r, ch );
+  end;
+}
+remove_rflag( reset0, room );
+if( random( 1, 3 ) == 1 ) {
+  act_tochar( #full, ch );
+  act_notchar( #full_r, ch );
+  obj_to_char( oload( 2236 ), ch );
+  end;
+}
+act_tochar( #empty, ch );
+act_notchar( #empty_r, ch );
+~
+E
+empty~
+You search the boxes but don't find anything besides obvious trash.
+~
+E
+empty_r~
+$n searches through the boxes, tossing aside many pieces of trash.
+~
+E
+full~
+You search through the boxes, finding a clump of tattered cloth.
+~
+E
+full_r~
+$n searches through the boxes, pulling out a clump of tattered cloth.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63022
+The Master Bedroom~
+A huge bed has been shoved against the east wall, the headboard flush
+against it.  Two dressers sit side by side against the south wall.  They
+appear to be made out of brass.  There is a doorway in the north wall
+that leads to another, smaller adjoining room.  A doorway is also present
+in the west wall.  Two night tables frame the bed, on each is a small oil
+lamp.  The walls here are covered in a dark green wallpaper with gold
+lines on it.  A coating of dust covers all of the furniture in this room. 
+A small compartment made of steel is embedded in the east wall, about
+four feet above the ground.
+~
+[Merior] dont tell us what is in the dresser unless it is open
+[Merior] how can we tell north is a smaller room if door is closed
+[Merior] container was buggy and deleted
+[Rue] erased resets for stuff in container
+~
+335020037 0 5 0
+D0
+bathroom door~
+bathroom door~
+131 -1 63023 10 10 5
+D3
+wooden door~
+wooden door~
+131 -1 63018 10 10 5
+E
+bed~
+The mattress fits snugly into a wooden frame and is covered by cotton
+sheets and a wool blanket.
+~
+E
+dressers~
+These dressers seem to be made out of solid brass.  They have been
+polished so they shine like gold.  Glancing through them you find various
+garments that are too small or too large to fit you.
+~
+E
+night tables oil lamp~
+These small wooden tables each hold a glass oil lamp, which are currently
+empty and unlit.
+~
+A
+search~
+mattress bed~
+act_tochar( #empty, ch );
+  act_notchar( #empty_r, ch );
+~
+E
+empty~
+You search all around and in the bed and mattress, revealing a small
+steel compartment set in the bed frame.
+~
+E
+empty_r~
+$n searchs all about the bed and mattress.
+~
+!
+0 0 0
+1827 9 1509949540 3 0
+-1
+S
+
+#63023
+Master Bathroom~
+This small room is covered in dust.  Underneath the dust you can see a
+small bench with a wooden stall around it, composed of two pieces of wood
+place on either side of the bench.  A table has been placed against the
+north wall.  Hanging on the east wall is a full-length mirror.  On the
+table are various grooming items, including a brush, hand mirror, and
+comb.  The air in this room has an odd chill to it, to the south is a
+doorway leading into a bedroom.
+~
+[Merior] fix mirror extra
+[Merior] when so many rooms have an odd chill, they arent odd any more
+[Merior] random low success on getting brush, comb, etc would be fun
+~
+335020037 0 5 0
+D2
+bathroom door~
+bathroom door~
+131 -1 63022 10 10 5
+E
+dust~
+Everything is covered in a thin layer of dust here, very odd.
+~
+E
+bench wooden stall~
+There is a hole in the bench and its purpose is quite obvious.  The stall
+surrounding the bench is probably there to provide the occupant some
+privacy.
+~
+E
+full length mirror~
+** make it so you look into the mirror and see a random person in the room **
+~
+1827 9 1509949540 3 0
+-1
+S
+
+#63024
+Small Dimensonial Pocket of Hellfire~
+Hot, very hot.  You see an unbelievable inferno blazing all around you. 
+Your equipment is smoldering, and your exposed flesh is almost burning. 
+This room seems to be your own mini-hell, or perhaps the home of the pit
+fiend.  You can find no exit at all, as you are surrounded by flames and
+coals everywhere you look.  Oddly enough, there is no smoke that you can
+detect.  Who knows how long you are trapped in here?
+~
+This is a dimensional pocket of hell that players can be sent to by the
+pit fiend.
+fixed by Talis and Rue on 2-5-98 *bow*
+*worship*
+~
+335151141 9 9 0
+A
+~
+~
+room = find_room( 63024 );
+act_room( #pray, ch );
+acode( room, 2 );
+~
+E
+pray~
+You had better start @Cpraying@n to your god for salvation!
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 63024 );
+if( num_in_room( room ) > 0 ) {
+  loop( all_in_room ) {
+    i = 1d10+10;
+    inflict( rch, mob, i, "hellfire" );
+    dam_message( rch, i, "the blazing hellfire" );
+  }
+  acode( room, 3 );
+  end;
+}
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 63024 );
+wait( 1 );
+acode( room, 2 );
+~
+!
+0 0 0
+A
+pray~
+~
+if( !is_resting( ch ) ) {
+  interpret( ch, "rest" );
+  act_tochar( #one, ch );
+  act_notchar( #one_r, ch );
+  wait( 2 );
+  act_tochar( #two, ch );
+  act_notchar( #two_r, ch );
+  wait( 2 );
+  act_room( #answer, ch );
+  wait( 2 );
+  act_tochar( #flight, ch );
+  wait( 1 );
+  interpret( ch, "stand" );
+  transfer( ch, find_room( 63011 ) );
+}
+act_tochar( #no, ch );
+~
+E
+one~
+You kneel down and begin to pray to your god.
+~
+E
+one_r~
+$n kneels down and begins to murmur softly.
+~
+E
+two~
+Chanting over and over softly, you feel your mind sore aloft.
+~
+E
+two_r~
+$n's eyes close as $e goes into a trance.
+~
+E
+answer~
+You think you hear someone say, 'It's ok my child, you shall live...'
+~
+E
+flight~
+You feel your body join your mind in ascention...
+~
+E
+no~
+You are already praying!
+~
+!
+0 0 0
+-1
+S
+
+#63025
+A Small Backyard~
+This small yard is full of plant life.  A huge, old oak tree grows up,
+the lower branches keeping you from seeing the top.  A thick mat of grass
+covers the ground, all the way to the dense woods that surround the yard. 
+A few small, green bushes have been planted randomly in the yard.  The
+house to the north has a back door that is readly accesible.
+~
+~
+335020037 0 9 0
+D0
+back door~
+back door~
+131 -1 63006 10 10 5
+E
+tall oak tree~
+This oak tree is easily over fifty years old, as it soars into the sky at
+least forty feet.  Thick, broad branches grow out from all over the tree,
+starting about fifteen feet up the trunk.  It looks rather impossible to
+climb.
+~
+E
+bushes~
+These bushes are normal, berriless bushes.  The deep green of their
+leaves shows they are in a healthy state.  Three bushes are planted in
+the yard total, in no real pattern.
+~
+A
+climb~
+tree~
+act_tochar( #dumb, ch );
+act_notchar( #dumb_r, ch );
+i = 2d25+50;
+dam_message( ch, i, "the painful fall" );
+inflict( ch, mob, i, "a painful fall" );
+~
+E
+dumb~
+You try to climb the tree, make it about ten feet up the trunk, and fall
+back down.  Hard.
+~
+E
+dumb_r~
+$n tries to climb the tree, makes it almost ten feet up, then falls down
+to the ground.  Hard.
+~
+!
+0 0 0
+A
+plant bury~
+bloody heart~
+if( has_obj( 2841, ch ) ) {
+  if( rflag( reset0, room ) ) {
+    act_tochar( #plant, ch );
+    act_notchar( #plant_r, ch );
+    wait( 2 );
+    act_room( #then, ch );
+    wait( 2 );
+    act_room( #next, ch );
+    wait( 2 );
+    act_room( #finally, ch );
+    obj_to_room( oload( 2842 ), room );
+    junk_obj( has_obj( 2841, ch ), 1 );
+    end;
+  }
+  act_tochar( #nope, ch );
+}
+act_tochar( #not, ch );
+~
+E
+plant~
+You dig a hole, place the bloody heart into it, and cover the heart with
+dirt.  Slowly the dirt around and above the heart starts to pulse with a
+dark black light.
+~
+E
+plant_r~
+$n digs a hole, places the bloody heart into it, and covers the heart
+with dirt.  Slowly the dirt around and above the heart starts to pulse
+with a dark black light.
+~
+E
+then~
+As the dark black light pulses it is slowly fadding to a blueish color.
+~
+E
+next~
+The blueish pulsing light fades into a dull white, then bright white light!
+~
+E
+finally~
+Suddenly, the bright white flashes, blinding you temporarely.  When you
+can see again a rose bush of the finest silver now sits where the heart
+was buried.
+~
+E
+not~
+You don't have that.
+~
+E
+nope~
+Even before you start digging you know this area has already been sapped
+of it's power and needs time to regenerate, so planting the heart would
+be pointless.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

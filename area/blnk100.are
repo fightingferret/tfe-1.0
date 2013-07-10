@@ -1,0 +1,1392 @@
+#AREA
+Enchanted Garden~
+Merior~
+enchanted garden~
+
+25 0
+0
+#ROOMS
+
+#54000
+By the Garden Gate~
+Low, neatly-trimmed grass grows by your feet, in stark opposition to the
+tall trees of Medienne Forest to your east, west, and south.  To the
+north is a low wooden gate.  Peering over the top you can just see a wide
+expanse of neatly-planted rows of fruits, vegetables, and flowers.
+~
+south is Med Forest (300)
+~
+301465601 2 9 0
+D0
+garden gate~
+~
+131 -1 54001 10 10 5
+D2
+~
+~
+0 -1 300 10 10 5
+E
+wooden gate 1 north~
+A low wooden gate is attached to a wooden fence which appears to encircle
+a large garden.  The gate and fence seem quite new, and the garden they
+surround is laid out in neat rows.
+~
+E
+1 west 1 east 1 south tree forest~
+Everywhere you look, tall trees crowd together, making it difficult to
+see the sky.  A mixture of evergreens and deciduous trees, Medienne
+Forest spans southward for quite some distance.
+~
+E
+1 north fruit vegetable flower garden~
+Neatly-planted rows of flowers grow to your north and northwest, while
+large fruits and vegetables can be seen, to your northeast.  Although you
+can't distinguish all of them from this distance, you can definitely pick
+out some roses, wisteria, pumpkins, and tomatoes.
+~
+-1
+S
+
+#54001
+By the Garden Gate~
+A large garden filled with fruits and vegetables extends to the north and
+east in neatly-planted rows.  To the west is a small area which contains
+a neatly-tended flower bed.  To the south is a low wooden gate allowing
+entrance into the fenced-in garden; the trees of Medienne Forest are
+clearly visible over the fence.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54008 10 10 5
+D1
+~
+~
+0 -1 54002 10 10 5
+D2
+garden gate~
+~
+131 -1 54000 10 10 5
+D3
+~
+~
+0 -1 54011 10 10 5
+E
+wooden gate 1 south~
+A low wooden gate is attached to a wooden fence which appears to encircle
+a large garden.  The gate and fence seem quite new, and the garden they
+surround is laid out in neat rows.
+~
+E
+garden fruit vegetable flower 1 west 1 north 1 east~
+Well-tended plants grow to your east and west.  You can see many types of
+oversized flowers, fruits, and vegetables.  A narrow path leads north
+through the heavy growth.
+~
+E
+forest trees~
+Towering high over the fence to your south, you can see the varied trees
+of Medienne Forest.  Their mixed shades of green leaves seem to blend and
+merge as you stare at them, making it difficult to determine their
+individual sizes and shapes.
+~
+A
+1 south~
+~
+if( !is_open( room, south ) ) {
+  act_tochar( #nope, ch );
+  dam_message( ch, 2d3, "the bump" );
+  inflict( ch, mob, 2d3, "the bump" );
+  }
+else continue;
+~
+E
+nope~
+You bump into the closed gate and bruise your shin.
+~
+!
+3 0 4
+-1
+S
+
+#54002
+Along the Garden Fence~
+To the south, a low wooden fence separates the trees of Medienne Forest
+from the garden that stretches before you.  A narrow path lies at your
+feet; you can follow it east and west.  A large bare spot in the garden
+appears to your north.
+~
+~
+301465601 2 9 0
+D0
+~
+~
+0 -1 54007 10 10 5
+D1
+~
+~
+0 -1 54003 10 10 5
+D3
+~
+~
+0 -1 54001 10 10 5
+E
+1 south fence forest trees~
+A low wooden fence serves to keep the forest out of the garden.  Beyond
+the fence lie the trees of the forest, their branches heavily covered
+with green leaves.
+~
+E
+1 east 1 west path~
+A narrow path leads east and west through the garden, its surface covered
+with dark earth.
+~
+E
+1 north~
+The area to your north is bare of all vegetation.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+-1
+S
+
+#54003
+Along the Garden Fence~
+A low wooden fence to the south is covered with a long wisteria vine. 
+The vine seems to grow out towards the forest trees to the south, and has
+been neatly trimmed at the northern base of the fence.  You can travel
+east or west along the fence or move north into an area filled with
+tomato plants.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54004 10 10 5
+D1
+~
+~
+0 -1 54017 10 10 5
+D3
+~
+~
+0 -1 54002 10 10 5
+E
+wisteria 1 south fence forest~
+This long vine has been trained to grow along the fence.  Its light
+purple flowers give off a faint scent.
+~
+E
+1 north tomato~
+Green plants about three feet tall have been tied to wooden stakes with
+thin leather cords.  Each plant is full of large red fruit, and several
+threaten to topple their stakes.
+~
+E
+1 east 1 west path~
+A narrow path leads east and west through the garden, its surface covered
+with dark earth.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2107 9 1509949540 3 0
+-1
+S
+
+#54004
+Among the Vegetables~
+Dozens of tomato plants grow all about you, their varicolored fruits
+ripe and fragrant.  To the south you can see a wooden fence mostly
+covered by a long wisteria vine; to the north is an area filled with
+purple eggplants.  There appears to be a bare patch of land far to your
+west; you cannot see what grows far to the east.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54005 10 10 5
+D2
+~
+~
+0 -1 54003 10 10 5
+D3
+~
+~
+0 -1 54007 10 10 5
+E
+tomato plants~
+Green plants about three feet tall have been tied to wooden stakes with
+thin leather cords.  Each plant is full of large red fruit, and several
+threaten to topple their stakes.
+~
+E
+1 south fence wisteria vine~
+This long vine has been trained to grow along the fence.  Its light
+purple flowers give off a faint scent.
+~
+E
+1 north eggplant~
+Dozens of plants grow so closely together it is impossible to determine
+where one stops and the next begins.  The plants are well-covered by
+ripe-looking purple eggplants.
+~
+E
+1 west bare patch~
+It appears as if someone has been preparing the ground to the west for
+planting.  Old roots have been dug up and set aside, and a number of
+holes have been dug into the nearby earth.
+~
+E
+1 east~
+You cannot see beyond the tomato plants to your east.
+~
+A
+1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You cannot get through the tomato plants to your east.
+~
+!
+0 0 0
+2112 9 1509949540 3 0
+-1
+S
+
+#54005
+Among the Vegetables~
+Low green leaves are intertwined with large purple eggplants, making it
+difficult to walk without stepping on one.  To your south are dozens of
+tomato plants, while to the west the garden contains green vines topped
+by giant orange pumpkins.  The red, green, and yellow of the peppers to
+your east are bright, and their fragrance is sharp.  A wooden fence to
+the north keeps the forest out of the well-tended garden.
+~
+[Starshine] action east - the intertwined leaves of the eggplants block your path?
+[Starshine] add keyword leaves to rextra east and add "The leaves of the eggplants grow so densely as to block your way east." ?
+~
+301465601 2 9 0
+D2
+~
+~
+0 -1 54004 10 10 5
+D3
+~
+~
+0 -1 54006 10 10 5
+E
+eggplant~
+Dozens of plants grow so closely together it is impossible to determine
+where one stops and the next begins.  The plants are well-covered by
+ripe-looking purple eggplants.
+~
+E
+1 south tomato~
+Large tomato plants grow to your south.  Heavy with fruit, you can smell
+the pungent aroma of their leaves even from here.
+~
+E
+1 west orange pumpkin~
+To your west, the ground is covered with giant pumpkins.  They are bright
+orange, and take many shapes: round, oval, and some almost square.
+~
+E
+1 east red green yellow pepper~
+Many colored peppers grow on plants just to your east.  Their brightly
+colored flesh makes the area seem quite festive and gay.
+~
+A
+1 north~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2117 9 1509949540 3 0
+-1
+S
+
+#54006
+Among the Vegetables~
+Huge pumpkins surround you, making it very difficult to move, and their
+leafy vines threaten to grab your ankles if you dare to try.  A large elm
+tree beyond the northern fence makes it hard to see the sky above you,
+but it does not seem to have bothered the growth of the plants.  Off to
+your northwest you can see a small cabin made of bamboo; however, it 
+is windowless and you get no indication of what may lie inside.
+~
+[Starshine] action from east and south rooms into here - you step into a mess of pumpkin vines?
+[Starshine] pumpkin (2122) mped 1: code? or delete?
+~
+301465601 2 9 0
+D1
+~
+~
+0 -1 54005 10 10 5
+D2
+~
+~
+0 -1 54007 10 10 5
+E
+elm tree fence 1 north~
+A tall elm tree hovers above the fence, however the shade it casts in
+midday doesn't appear to bother the plants that thrive underneath it. 
+Large, leafy branches hang over the fence ending just above your head.
+~
+E
+bamboo cabin northwest~
+A small cabin made of dried bamboo can be glimpsed in the distance.  You
+cannot see any windows, nor can you determine how this structure may be
+used.
+~
+E
+pumpkin vines~
+A mass of vines on the ground twists and turns upon itself.  Large orange
+pumpkins appear seemingly randomly upon the leafy bed.
+~
+A
+climb~
+tree elm~
+if( find_skill( ch, climb ) > random( 1, 7 ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #climbs, ch );
+  transfer( ch, find_room( 54023 ));
+  }
+else {
+  act_tochar( #fall, ch );
+  act_notchar( #falls, ch );
+  }
+~
+E
+climb~
+You skillfully climb the elm's branches.
+~
+E
+climbs~
+You see $n climb up the tree and disappear from sight.
+~
+E
+fall~
+You try to climb the tree, but slip and fall.
+~
+E
+falls~
+You see $n attempt to climb the elm, but slip and return to the ground.
+~
+!
+0 0 0
+A
+1 north~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2122 9 1509949540 3 0
+-1
+S
+
+#54007
+Among the Vegetables~
+This area of the garden currently contains no plants at all.  The dark
+dirt has been dug up recently, and a small pile of dead roots lies off to
+the side.  A number of small holes have been dug in a seemingly random
+pattern here, and look ready to hold new plant life.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54006 10 10 5
+D1
+~
+~
+0 -1 54004 10 10 5
+D2
+~
+~
+0 -1 54002 10 10 5
+D3
+~
+~
+0 -1 54008 10 10 5
+E
+roots hole dirt pile~
+It appears as if someone has been preparing the ground here for planting. 
+Old roots have been dug up and set aside, and a number of holes have been
+dug into the nearby earth.
+~
+E
+1 south~
+To your south lies a narrow dirt-covered path.
+~
+E
+1 north pumpkin~
+A mass of vines on the ground twists and turns upon itself.  Large orange
+pumpkins appear seemingly randomly upon the leafy bed.
+~
+E
+1 west~
+West, you see a garden path.
+~
+E
+1 east~
+East, you see a bunch of beautiful tomato plants.
+~
+A
+dig search~
+earth dirt hole~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You poke at the earth, but find only dead roots.
+~
+!
+0 0 0
+-1
+S
+
+#54008
+Along the Garden Path~
+You find yourself on a narrow path which wends carefully between the rows
+of vegetables.  To the south a ways, the gate to the garden can be
+glimpsed; further to the north is a small cabin built of what appears to
+be dried bamboo stems.  Various types of plants grow around you; flowers
+to the west and fruits and vegetables to the east.
+~
+[Steele] ;
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54009 10 10 5
+D1
+~
+~
+0 -1 54007 10 10 5
+D2
+~
+~
+0 -1 54001 10 10 5
+D3
+~
+~
+0 -1 54016 10 10 5
+E
+1 south gate~
+To the south, you can just see the garden gate, its low wooden structure
+appears to serve more of a decorative purpose than functional.
+~
+E
+1 north cabin bamboo~
+A little to your north is a small cabin, its sides made of roughly-cut
+bamboo shoots.  A door, similarly made of bamboo, covers much of this
+side of the structure.
+~
+E
+plant flower fruit vegetable 1 east 1 west~
+Although you stand on a narrow path, you are almost surrounded by
+flowers, fruits, and vegetables.  It is difficult to see all of them from
+here, but you make a mental note of the extreme size of some of the
+varieties.
+~
+-1
+S
+
+#54009
+By the Small Cabin~
+A small grassy area separates the garden to the south from a small cabin
+made of dried bamboo shoots.  A door, also made of bamboo, is decorated
+with dried flowers, and the handle is made from a dried apple.
+~
+~
+301465600 2 9 0
+D0
+bamboo door~
+~
+131 -1 54010 10 10 5
+D2
+~
+~
+0 -1 54008 10 10 5
+E
+door bamboo dried handle apple~
+A bamboo door serves to shut off the small cabin to your north.  Its
+edges are rough, indicating they were trimmed by a crude instrument.  The
+handle of the door is quite unusual: a dried apple appears to serve that
+function.  Many types of dried flowers have been attached to the door,
+giving it a very festive appearance.
+~
+E
+cabin~
+From this angle, it is impossible to determine just how large the cabin
+is, although it certainly cannot be very large.  This side of the
+structure has been made of dried bamboo shoots which have been tied
+together with a twine-like string.
+~
+A
+~
+~
+act_area( #smell, ch );
+~
+E
+smell~
+A fragrant smell wafts through the area.
+~
+!
+2 1000 0
+-1
+S
+
+#54010
+In the Cabin~
+The interior walls of the cabin are made of dried bamboo, and have very
+little decoration.  A large stove sits in the northwest corner of the
+room, and a battered maple table rests on uneven legs in the opposite
+corner.  Two small chairs stand near the table.  A small window has been
+carved into the northern wall; all other walls afford no outside view.
+~
+[Starshine] hmm...does it matter that people might get two caps?
+Merior each player can only complete quest once - i hope - how can they
+get two?
+[Starshine] perhaps woman should not peer at me with distrust after i
+have finished the quest?
+[Merior] she will if you have killed the veggies anyway
+[Starshine] heh. i meant her long_s :P
+~
+301465601 2 9 0
+D2
+bamboo door~
+~
+131 -1 54009 10 10 5
+E
+wall cabin bamboo~
+Slender shoots of dried bamboo have been tied together with a thin vine
+to form the walls of the cabin.
+~
+E
+stove maple table chairs~
+The furnishing in the cabin are quite simple.  A battered maple table
+wobbles slightly, and two small chairs stand near it.  The entire
+northwest corner of the room is dominated by a large stove.
+~
+A
+look~
+window out~
+act_tochar( #trees, ch );
+act_notchar( #seetree, ch );
+~
+E
+trees~
+You look out the small window at the dense forest.
+~
+E
+seetree~
+You see $n gaze out the window.
+~
+!
+0 0 0
+2127 9 1509949540 3 0
+-1
+S
+
+#54011
+Among the Roses~
+This portion of the garden is filled with lovely roses.  Their colors
+range from dark red to light blue, with orange, purple, and white
+sprinkled among them.  Dark green leaves only partially hide the sharp
+thorns along the stems.  You can see a low fence to your south, blocking
+movement in that direction.  Beyond the fence lies the vastness of
+Medienne Forest.  The view in all other directions is blocked by the high
+trellises.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 54001 10 10 5
+D3
+~
+~
+0 -1 54012 10 10 5
+E
+rose thorn dark leaf~
+Dozens of rose plants have been packed into this small area, each
+climbing its own trellis.  The blooms are all open, and make it difficult
+to see the actual plants behind them.  The dark leaves of the plants are
+numerous, but you can still see sharp thorns on the stems.
+~
+E
+fence 1 south forest~
+A low wooden fence to the south separates the garden from the forest.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You try to move to the south, but you are blocked by the fence.
+~
+!
+0 0 0
+1716 9 1509949540 3 0
+-1
+S
+
+#54012
+Flower Garden - Southwest Corner~
+The southwest corner of the garden is full of tulips.  The low flowers
+seem to have been planted in a pattern of alternating colors, although if
+there is a meaning to the pattern it is not obvious.  The fragrance of
+the tulips is quite strong, and hides any other smells.  To your east you
+can see a myriad of roses, to the north a large wisteria clings to the
+fence.
+~
+~
+301467648 2 9 0
+D0
+~
+~
+0 -1 54013 10 10 5
+D1
+~
+~
+0 -1 54011 10 10 5
+E
+tulips garden~
+Many dozens of tulips have been planted into neat rows here.  They seem
+to alternate in color: red, yellow, and white.
+~
+E
+1 east roses~
+Large roses cling to trellises off to your east.  Their colors cover
+almost the entire rainbow, though red and white are predominant.
+~
+A
+1 south 1 west~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2106 9 1509949540 3 0
+-1
+S
+
+#54013
+Along the Garden Fence~
+A very narrow path between the fence on your west and a large bed of
+wildflowers on your east allows you to move without killing the flora. 
+Wisteria grows on the fence, its pale blossoms waving slowly in the
+gentle breeze.  To your south you can see a large bed of tulips; herbs
+grow in profusion to your north.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54014 10 10 5
+D1
+~
+~
+0 -1 54016 10 10 5
+D2
+~
+~
+0 -1 54012 10 10 5
+E
+path~
+A narrow dirt path allows you to move north or south without stepping on
+the flowers to your east or bumping into the fence on your west.
+~
+E
+wildflowers flower 1 east~
+Dozens of types of wildflowers lie to your east, their bright colors
+dotting the green landscape with their leaves.
+~
+E
+wisteria vine fence 1 west~
+A wooden fence to your west has been almost completely obscured by a
+wisteria vine.  The vine is covered with small green leaves and tiny
+purple flowers.
+~
+E
+1 south tulips~
+Many dozens of tulips have been planted into neat rows to your south. 
+They seem to alternate in color: red, yellow, and white.
+~
+E
+1 north herbs~
+You can recognize rosemary, parsley, oregano, and basil.
+~
+A
+1 west~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2107 9 1509949540 3 0
+-1
+S
+
+#54014
+Flower Garden - Northwest Corner~
+The northwest corner of the garden appears to be used for growing herbs. 
+The smell of these herbs wafts through the air, creating a savory scent. 
+It is impossible to determine just how many different herbs grow here,
+but some are certainly identifiable.  To the south you can see a wisteria
+vine clinging to the fence; the ground to the east is covered with
+marigolds.
+~
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 54015 10 10 5
+D2
+~
+~
+0 -1 54013 10 10 5
+E
+herb~
+You can recognize rosemary, parsley, oregano, and basil.
+~
+E
+1 south wisteria~
+A wooden fence to your southwest has been almost completely obscured by a
+wisteria vine.  The vine is covered with small green leaves and tiny
+purple flowers.
+~
+E
+1 east marigolds~
+Low green plants are dotted with bright yellow-gold marigolds.
+~
+A
+smell sniff~
+~
+act_tochar( #smell, ch );
+~
+E
+smell~
+The lovely smell of mixed spices makes your mouth water.
+~
+!
+0 0 0
+A
+1 north 1 west~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2108 9 1509949540 3 0
+-1
+S
+
+#54015
+Among the Flowers~
+Dozens of clumps of marigolds cover the ground in this portion of the
+garden.  These relatively low plants leave a clear view of a wooden fence
+to the north, and a small cabin to the northeast.  To the south and west
+lie other types of flowers.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 54016 10 10 5
+D3
+~
+~
+0 -1 54014 10 10 5
+E
+1 south 1 west flowers~
+To the south is a large expanse of wildflowers, their blooms a riot of
+colors; small blossoms of flowering herbs to your west seem miniscule in
+comparison.
+~
+E
+1 northeast cabin~
+From this angle, it is impossible to determine just how large the cabin
+is, although it certainly cannot be very large.  This side of the
+structure has been made of dried bamboo shoots which have been tied
+together with a twine-like string.
+~
+E
+1 north fence~
+A low wooden fence to your north keeps the forest from creeping into the
+garden.
+~
+A
+1 north~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2115 9 1509949540 3 0
+-1
+S
+
+#54016
+Among the Flowers~
+You stand in the middle of a large expanse of wildflowers.  A riot of
+colors erupts from the mixed greens of the stalks, creating a veritable
+rainbow.  The plants are of differing heights, but appear to have been
+planted so that the tallest ones are furthest east.  Different types of
+flowering plants lie in all directions except east.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54015 10 10 5
+D1
+~
+~
+0 -1 54008 10 10 5
+D3
+~
+~
+0 -1 54013 10 10 5
+E
+bed wildflowers~
+Dozens of types of wildflowers surround you, their rioting colors almost
+blinding.  They seem to have been planted in a logical progression, with
+the shortest to the west, and tallest to the east.
+~
+E
+1 north~
+Low green plants are dotted with bright yellow-gold marigolds.
+~
+E
+1 west~
+A wooden fence to your west has been almost completely obscured by a
+wisteria vine.  The vine is covered with small green leaves and tiny
+purple flowers.
+~
+E
+1 south~
+Large roses cling to trellises off to your south.  Their colors cover
+almost the entire rainbow, though red and white are predominant.
+~
+E
+1 east~
+A narrow path to the east allows you to move through the garden without
+treading on the flowers.
+~
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+Rose trellises block movement this way.
+~
+!
+0 0 0
+2116 9 1509949540 3 0
+-1
+S
+
+#54017
+Along the Garden Fence~
+A large oak tree to your south peers over the fence wall, providing a
+wide shelter from the sun and elements.  Low branches have been crudely
+hacked off the trunk, but the upper ones remain intact.  To the north a
+neat row of squash has just enough separation to allow you to move
+through them.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54018 10 10 5
+D1
+~
+~
+0 -1 54022 10 10 5
+D3
+~
+~
+0 -1 54003 10 10 5
+E
+oak tree 1 south branches fence~
+This tall tree has stood in Medienne Forest for many decades.  Its lower
+branches have all been hacked away, preventing anyone from climbing the
+tree and entering the garden uninvited.  A low wooden fence separates the
+garden from the forest.
+~
+E
+1 north squash~
+These leafy plants are just beginning to bear their crops.  Several
+varieties of squash can be seen amongst the green leaves, but their final
+size and shape cannot yet be determined.
+~
+E
+1 east 1 west path~
+A narrow path leads east and west through the garden, its surface covered
+with dark earth.
+~
+A
+climb~
+oak tree~
+send_to_char( #nope, ch );
+act_notchar( #noclimb, ch );
+~
+E
+nope~
+You cannot climb the tree.
+~
+E
+noclimb~
+You see $n try to climb the oak, but slip and fall.
+~
+!
+0 0 0
+A
+1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+-1
+S
+
+#54018
+Among the Vegetables~
+To your east and west are dozens of squash plants, heavy with yellow
+vegetables.  To your north are many pepper plants, flecks of red, yellow,
+and green showing amongst the leaves.  To the south a bit you can see the
+garden fence and a tall oak tree.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54019 10 10 5
+D2
+~
+~
+0 -1 54017 10 10 5
+E
+squash plant~
+These leafy plants are just beginning to bear their crops.  Several
+varieties of squash can be seen amongst the green leaves, but their final
+size and shape cannot yet be determined.
+~
+E
+1 north pepper~
+Brightly colored peppers grow just to your north, their red, green, and
+yellow fruit brightening the area.
+~
+E
+1 south fence oak tree~
+A tall oak tree has stood in Medienne Forest for many decades.  Its lower
+branches have all been hacked away, preventing anyone from climbing the
+tree and entering the garden uninvited.  A low wooden fence separates the
+garden from the forest.
+~
+E
+1 east~
+Thorny raspberry plants grow to your east.  Their berries range from the
+white of a new growth to deep, dark red.
+~
+E
+1 west~
+Green plants about three feet tall have been tied to wooden stakes with
+thin leather cords.  Each plant is full of large red fruit, and several
+threaten to topple their stakes.
+~
+A
+1 west~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The plants are too thick to move that way.
+~
+!
+0 0 0
+A
+1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You cannot get through the raspberries to your east.
+~
+!
+0 0 0
+2123 9 1509949540 3 0
+-1
+S
+
+#54019
+Northern Garden~
+This portion of the garden is filled with numerous pepper plants.  The
+bright yellows, greens, and reds of the plants are a strong contrast to
+the dark green of the fir trees to the far side of the fence.  To the
+south you can see yellow squash, while several small apple trees grow to
+the east.  Dark purple eggplants grow to the west, but a direct path
+there cannot be discerned.
+~
+[Starshine] pepper (2124): hmm...i get nice bugs when i give the plant
+the bouquet...
+Merior seems ok to me - can you be more specific as to what is wrong?
+~
+301465600 2 9 0
+D1
+~
+~
+0 -1 54020 10 10 5
+D2
+~
+~
+0 -1 54018 10 10 5
+E
+pepper plant~
+Neat rows of red, green, and yellow peppers have been planted here.  The
+plants are sorted by color and size, with the very smallest growing
+closest to your feet.
+~
+E
+1 south yellow squash~
+These leafy plants are just beginning to bear their crops.  Several
+varieties of squash can be seen amongst the green leaves, but their final
+size and shape cannot yet be determined.
+~
+E
+1 west purple eggplant~
+Dozens of plants grow so closely together it is impossible to determine
+where one stops and the next begins.  The plants are well-covered by
+ripe-looking purple eggplants.
+~
+E
+1 east apple tree~
+Five small apple trees grow to the east, all laden with fruit.  Each one
+provides apples of a different variety.  A larger tree, bearing the
+largest of the apples grows in the corner of the garden, its branches
+extending into the forest.
+~
+E
+1 north fir fence wooden~
+Several dark fir trees lie to the north, just the other side of the low
+wooden fence.
+~
+A
+1 west~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You cannot move through the plants in that direction.
+~
+!
+0 0 0
+A
+1 north~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence prevents your moving in that direction.
+~
+!
+0 0 0
+2124 9 1509949540 3 0
+-1
+S
+
+#54020
+Garden - Northeast Corner~
+This corner of the garden includes several small apple trees,
+heavily-laden with fruit.  One tree in particular grows out over the
+fence, providing a good grazing spot for the forest animals.  You can see
+some raspberry plants to your south and pepper plants grow neatly to the
+west.
+~
+~
+301465600 2 9 0
+D2
+~
+~
+0 -1 54021 10 10 5
+D3
+~
+~
+0 -1 54019 10 10 5
+E
+apple trees fruit~
+Five small apple trees grow here, all laden with fruit.  Each one
+provides apples of a different variety.  A larger tree, bearing the
+largest of the apples grows in the corner of the garden, its branches
+extending into the forest.
+~
+E
+1 west pepper~
+Neat rows of red, green, and yellow peppers have been planted to your
+west.  The plants are sorted by color and size, with the very smallest
+growing furthest from you.
+~
+E
+1 south raspberry~
+Thorny raspberry plants grow to your south.  Their berries range from the
+white of a new growth to deep, dark red.
+~
+E
+1 north 1 east fence~
+A low wooden fence to your east and north separates the forest from the
+garden.
+~
+A
+1 north 1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+2125 9 1509949540 3 0
+-1
+S
+
+#54021
+Along the Eastern Fence~
+To your east is a low wooden fence, followed by a small cluster of pine
+trees with large green needles.  Immediately to your west is a large
+stand of raspberry plants; their thorns make passage in that direction
+very difficult.  You can barely make out some strawberries growing to the
+south, and several small apple trees grow to your north.
+~
+[Thome] The raspberry patch might be a typo.  Because i get rasberries off the corpse.  So is it suppose to be a rasberry patch?
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54020 10 10 5
+D2
+~
+~
+0 -1 54022 10 10 5
+E
+raspberry plants 1 west~
+Thorny raspberry plants grow close together, making movement to the west
+impossible.  Their berries range from the white of a new growth to deep,
+dark red.
+~
+E
+1 east pine needles fence~
+Half a dozen pine trees grow just to the east side of the fence.  These
+long-needled trees are far too slender to support anyone's weight.  The
+fence is quite low, and made of weather-aged wood.
+~
+E
+1 north apples~
+Five small apple trees grow to your north, all laden with fruit.  Each
+one provides apples of a different variety.  A larger tree, bearing the
+largest of the apples grows in the corner of the garden, its branches
+extending into the forest.
+~
+E
+trees~
+Trees surround you.  Apple trees laden with fruit to the north, and lush
+pine trees full of pungent needles to the east, over the fence there.
+~
+A
+clim~
+pine tree fence~
+act_tochar( #nope, ch );
+~
+E
+nope~
+Neither the tree nor fence can support your weight.
+~
+!
+0 0 0
+A
+1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence prevents you from moving further east.
+~
+!
+0 0 0
+A
+1 west~
+~
+act_tochar( #ouch, ch );
+~
+E
+ouch~
+You try to move west, but get caught on the thorns.
+~
+!
+0 0 0
+2126 9 1509949540 3 0
+-1
+S
+
+#54022
+Garden - Southeast Corner~
+The garden fence comes to a sharp 90-degree turn here, as it keeps the
+forest from encroaching on this edible paradise.  Although there is not
+really a path here, the low growth of strawberry plants allows you to
+move either west or north.
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 54021 10 10 5
+D3
+~
+~
+0 -1 54017 10 10 5
+E
+strawberry~
+These low green plants abound with ripe, juicy strawberries.  Small white
+flowers indicate where even more fruit will soon grow.
+~
+E
+garden fence forest 1 east 1 south~
+The low wooden fence forms a right angle just to your east and south,
+keeping the forest life from encroaching on the garden.
+~
+E
+1 west~
+A narrow path leads west to the rest of the garden, its surface covered
+with dark earth.
+~
+E
+1 north~
+Thorny raspberry plants grow to your north.  Their berries range from the
+white of a new growth to deep, dark red.
+~
+A
+1 south 1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The fence blocks your progress in that direction.
+~
+!
+0 0 0
+3055 17 1509949540 -2 0
+-1
+S
+
+#54023
+Up the Elm Tree~
+From up within the boughs of this large tree you are able to look out to
+the north and see more trees.  To your south is the well-tended garden
+you have been exploring; though further to the south spreads the expanse
+of Medienne Forest.
+~
+[Rhen] extras- look forest?
+~
+301465601 2 9 0
+A
+clim~
+elm tree down~
+act_tochar( #climb, ch );
+  act_notchar( #climbs, ch );
+  transfer( ch, find_room( 54006 ));
+~
+E
+climb~
+You carefully climb back down the tree.
+~
+E
+climbs~
+You see $n climb back down the tree and disappear from sight.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

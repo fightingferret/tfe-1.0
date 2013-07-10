@@ -1,0 +1,2186 @@
+#AREA
+Fire Newts~
+Phule Nivel~
+fire newts~
+
+10 0
+0
+#ROOMS
+
+#75000
+A Crumbling Hole~
+The loose rock around you crumbles at every breath, but the underlying
+foundation of rock and sun-baked sand seems solid enough.  A dark hole
+descends into the loose earth at your feet, yet the air seeping up from
+the depths below is warm and smells of brimstone, not the cool air one
+expects from a cave.  The rock wall to the east seems brittle.
+~
+[Phule] e is 35963
+~
+301596676 11 5 0
+D1
+rock~
+~
+235 -1 35963 10 10 5
+D5
+~
+~
+1024 -1 75001 10 10 5
+E
+hole 1 down below~
+Nothing but darkness awaits below, but the opening is large enough
+to accommodate all but the largest ogres.  It seems to descend for quite
+some distance.
+~
+E
+rock foundation~
+The loose rock rains down at odd intervals.
+~
+E
+1 east brittle~
+The east wall is mostly rubble, light enough to be cleared.
+~
+A
+~
+~
+send_to_room( "Bits of rock and debris fall from overhead.", room );
+~
+!
+2 100 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, east ) ) {
+  close( room, east );
+  send_to_room( "Rubble falls and covers the hole to the east.", room );
+  send_to_room( "Rubble falls and covers the hole to the west.", find_room( 35963 ) );
+  }
+~
+!
+1 0 2
+A
+clear move remove~
+rubble 1 east loose rock~
+if( !is_open( room, east ) ) {
+act_tochar( #remove, ch );
+act_notchar( #rremove, ch );
+open( room, east );
+}
+else
+act_tochar( #already, ch );
+~
+E
+remove~
+You clear the rubble to the east, opening an entrance out of the cave.
+~
+E
+rremove~
+$n clears the rubble to the east, opening an entrance out of the cave.
+~
+E
+already~
+The rubble has already been cleared, revealing an entrance out of the cave.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+A blast of hot air hits you as you head down.
+~
+!
+3 0 32
+-1
+S
+
+#75001
+A Dark Hole~
+Nearly vertical, this dark hole descends into the putrid bowels of the
+earth.  Natural footholds at irregular yet steady intervals make the
+descent a relatively easy one.  Above you, deteriorating rock forms a
+strange crumbling hole leading toward the surface.  From below rises the
+acrid smell of brimstone.
+~
+[Phule] nomob
+~
+301596684 11 5 0
+D4
+~
+~
+1024 -1 75000 10 10 5
+D5
+~
+~
+1024 -1 75002 10 10 5
+E
+hole 1 down~
+The dark hole descends a bit more, disappearing into the blackness below.
+~
+E
+1 up crumbling rock~
+Debris rains down periodically from above.  However, the underlying
+foundation appears sturdy.
+~
+E
+footholds~
+The crumbly rock forming this shaft down has created many footholds and
+handholds for use in climbing up and down.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+Using the footholds, you begin to climb $T.
+~
+!
+3 0 48
+A
+~
+~
+send_to_room( "Debris rains down in a small shower of tiny rocks.", room );
+~
+!
+2 100 0
+-1
+S
+
+#75002
+A Dark Cavern Smelling of Brimstone~
+While there is no true light source in this dark cavern, something to the
+north glows a dull red-orange.  The air is decidedly hot and stale,
+smelling strongly of brimstone.  A small, dark hole leads up, toward
+cooler desert air.  The floor at your feet is smooth, flawless obsidian. 
+There has definitely been some volcanic activity in this region.  A black
+corridor leads north toward the red glow.
+~
+[Starshine] higher marmor for newt (2143)?
+[Nivel] newts are not well-endowed with armor. plus they are low level.
+[Phule] okay about marmor: there is a 10 percent chance that adventurer will be lucky enough to hit soft dark underbelly for nice damage. that's how i planned it.
+~
+301596676 11 6 0
+D0
+~
+~
+0 -1 75003 10 10 5
+D4
+~
+~
+1024 -1 75001 10 10 5
+E
+1 north glow corridor red-orange~
+The glow lights the smooth walls a hot, eerie red-black.
+~
+E
+hole 1 up~
+Although the hole is at a steep angle, roughly straight overhead, natural
+footholds spaced at nearly regular intervals make for an easy climb.
+~
+E
+floor 1 down obsidian~
+Vaporized irregular rock has been washed away by lava, polishing the
+stone to a mirror-like gleam.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+Using the handholds you begin to climb.
+~
+!
+3 0 16
+2143 9 1509949540 3 0
+-1
+S
+
+#75003
+A Dark Cavern Smelling of Brimstone~
+Walls of black rock surround you in a natural corridor that narrows from
+the south to the north.  A red glow can be seen in the distance, a thin
+red line on the horizon.  The glow reflects off the dark rock walls in
+flickering waves.  The air here is hot and humid, and the smell of molten
+rock is overpowering.
+~
+~
+301596676 11 6 0
+D0
+~
+~
+0 -1 75004 10 10 5
+D2
+~
+~
+0 -1 75002 10 10 5
+E
+red flow line horizon 1 north~
+A red glow flickers off the glass-like obsidian rock and to the north you
+can spot a faint line of orange, where the air wavers as when heated.
+~
+E
+black rock obsidian walls~
+The black rock is a glassy obsidian and it absorbs the light and gives
+the corridor an eerie feeling.  To the north, the glow of red reflects
+off the rock and flickers like a fire.
+~
+E
+1 south~
+Darkness swallows light in a widening trail that inches off to the south.
+~
+A
+~
+~
+act_tochar( "A blast of heat gusts over you and you begin to sweat.", ch );
+~
+!
+2 100 0
+-1
+S
+
+#75004
+A Narrowing Corridor~
+The dark corridor narrows further to the north, approaching the burning
+red source of the glow, still unseen aside from the undulating waves of
+light and heat on the dark walls.  The corridor widens to the south,
+opening into a dim cavern in the black void beyond.
+~
+~
+301596676 11 6 0
+D0
+~
+~
+0 -1 75005 10 10 5
+D2
+~
+~
+0 -1 75003 10 10 5
+E
+dark corridor 1 north red source glow walls waves~
+The sheer obsidian walls, formed ages past in times of blistering
+volcanic eruption, serve as perfect mirrors as waves of heat and dull
+red light undulate across its surface.
+~
+E
+1 south cavern~
+The darkness swallows your vision, hiding the features of the cavern from
+this distance.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You head north and eventually come to a great cavern.
+~
+!
+3 0 1
+-1
+S
+
+#75005
+Dull Red Cavern~
+A massive cavern vaults above you, easily a hundred feet overhead and a
+hundred more wide.  More impressive still is the fact that the majority
+of the cavern's width north to south is a sixty-foot wide river of
+@Rmolten lava@n.  The hundred million or so tons of lava send simmering
+waves of heat and a low wavelength of red light across the cavern,
+outlining openings in the cavern walls at various points.  Obsidian
+ledges follow the lava flow to the east and west, while a dark corridor
+leads south away from the river.  There is no discernable way across the
+lava.
+~
+[Phule] lava n
+[Phule] obsidian ledges e and w
+~
+301596677 11 8 0
+D1
+~
+~
+0 -1 75006 10 10 5
+D2
+~
+~
+0 -1 75004 10 10 5
+D3
+~
+~
+0 -1 75007 10 10 5
+E
+massive carvern 1 up ceiling~
+The cavern ceiling is black obsidian, vaporized rock and ash caked onto
+the tons of rock overhead.
+~
+E
+river molten lava flow~
+The river of lava widens as it flows west.
+~
+E
+several openings~
+At various heights, some presumably inaccessible, the openings are the
+spots in the obsidian that the lava pushed through and exploded outward
+in some previous eruption, perhaps eons in the forgotten past, when the
+world was a raw thing.
+~
+E
+obsidian ledges 1 east 1 west~
+At best twelve feet wide, the ledges seem sturdy enough...
+~
+E
+1 south corridor~
+The dark corridor starts narrow, but presumably widens in the darkness to
+the south.  The path has a decidedly upward gradient.
+~
+A
+1 north~
+~
+act_tochar( #blah, ch );
+~
+E
+blah~
+You take one look over the ledge and down into the river of lava and
+wisely change your mind.
+~
+!
+0 0 1
+2143 9 1509949540 3 0
+-1
+S
+
+#75006
+Obsidian Ledge~
+The rock floor climbs upwards from west to east in this cavern, which is
+over a hundred feet high.  The black ceiling of the cavern is made of
+glassy obsidian and it reflects the great @Rlava@n flow to the north. 
+The flow itself is over fifty feet in width and widens further as it
+flows westward.  To the east, the ledge bends northward like a catwalk,
+almost entirely bridging the river of molten rock.
+~
+~
+301596677 11 6 0
+D1
+~
+~
+0 -1 75008 10 10 5
+D3
+~
+~
+0 -1 75005 10 10 5
+E
+catwalk bridge 1 east~
+The ledge to the east narrows but is easily wide enough to cross.  It
+hugs the side of the cavern and bends northward over the river of molten
+lava.
+~
+E
+river lava molten~
+The lava below is bright red as it flows westward.  Large areas of its
+surface are black with cooler, solidified lava, but they are eaten away
+by the molten rock's quick flow.
+~
+E
+1 north~
+Across the river of lava you can see another ledge in the distance, about
+fifteen feet lower in height.  Hot lava laps its edges, but it seems to
+allow further access to the rest of the cavern.
+~
+E
+1 up cavern~
+The cavern ceiling is black obsidian, vaporized rock and ash caked onto
+the tons of rock overhead.
+~
+A
+1 north~
+~
+act_tochar( "The waves of heat push you back away from the ledge.", ch );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step out onto the catwalk.
+~
+!
+3 0 2
+-1
+S
+
+#75007
+Obsidian Ledge~
+This twelve-foot wide ledge of perfect black obsidian follows the flow of
+a river of molten lava to the north, heading west.  To the east, the
+ledge becomes more of a landing beneath the high ceiling of this
+absolutely enormous cavern.  To the west, the ledge narrows as the lava
+flow broadens.
+~
+[Phule] lava n
+~
+301596677 11 6 0
+D1
+~
+~
+0 -1 75005 10 10 5
+D3
+~
+~
+0 -1 75010 10 10 5
+E
+river molten lava 1 north~
+Waves of heat distort your vision as the liquid river of rock flows
+ponderously and unstoppably west.  It even appears to wear away at the
+obsidian, the rock red hot where it directs the lava.
+~
+E
+obsidian ledge ceiling 1 up 1 down wall 1 south~
+The obsidian rock here darkly reflects the hot red glow of lava.  The
+ledge, walls and ceiling are composed of this substance, reflecting back
+strange waves of heat and light.  The northern wall of this enormous
+cavern is not really visible, but the southern wall is easily discerned. 
+As for the ceiling, it is high above you, the heat waves butting against
+it and being turned aside.
+~
+A
+1 north~
+~
+act_tochar( #blah, ch );
+~
+E
+blah~
+You take one look over the ledge and down into the river of lava and
+wisely change your mind.
+~
+!
+0 0 0
+-1
+S
+
+#75008
+Obsidian Ledge~
+This smooth ledge of glassy obsidian slowly climbs upwards from west to
+east.  The ledge narrows to only a few feet at some points and you eye
+the river of lava to your north with some apprehension.  The ledge seems
+to bend northward to your near east, and it begins to bridge the river of
+lava below as it hugs the eastern walls of the cavern.  To your north you
+can make out the far ledge on the other side of the river.  It seems to
+allow access to the rest of the cavern.
+~
+[Starshine] rextra 2: the sea? didn't see that west...
+[Phule] sea is in basic geography i assume every player learns as a child
+[Starshine] don't think i can tell if lava goes to sea or disappears back into the earth or erupts some place...
+[Phule] i can't either, promise will look
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75009 10 10 5
+D3
+~
+~
+0 -1 75006 10 10 5
+E
+1 north~
+To the north, across a fifty-foot wide river of lava, a ledge of rock
+allows further access to the cavern.  It slowly climbs upwards,
+paralleling this ledge, but about fifteen feet lower, making its way out
+of the sluggish flow.
+~
+E
+lava molten flow river~
+About fifty feet below you, the hot molten river flows westward where it
+will meet the sea.  Some spots of black float on the river, cooled rock
+that randomly forms and splits as it heads west.  The river is about
+forty to fifty feet in width, widening as it flows from underneath the
+east walls of the cavern.
+~
+E
+1 east bridge~
+The ledge to the east extends to the eastern wall of the cavern and bends
+northward over the river of lava.
+~
+E
+1 west~
+The ledge continues to the west where it descends to a point edging the
+river of lava.
+~
+E
+ledge~
+The ledge allows you to look down upon a huge river of lava.  Waves of
+heat blast you from below, but the obsidian of the ledge seems to be
+stable.  North, beyond the lava, is another ledge, reachable by a bridge
+of lava to your east.
+~
+A
+1 north~
+~
+act_tochar( "You step up to the ledge, look down into the burning lava, and change your mind.", ch );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step down off of the catwalk.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue up the catwalk.
+~
+!
+3 0 2
+2143 9 1509949540 3 0
+-1
+S
+
+#75009
+Obsidian Ledge~
+This ledge of black obsidian climbs ever upwards from west to east.  The
+ledge widens and narrows, making travel more difficult at points.  A hot
+lava flow runs westward far below you and volcanic gases rise up from the
+lava to choke you from your vantage point.  A similar ledge parallels
+this one across the molten river but it is a few feet lower.  It nearly
+intersects this ledge, which bends northward to the east as it almost
+bridges the gap of the lava flow.
+~
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75012 10 10 5
+D3
+~
+~
+0 -1 75008 10 10 5
+E
+1 east bridge~
+The ledge to the east extends to the eastern wall of the cavern and bends
+northward over the river of lava, where it intersects with the ridge of
+obsidian to the north.
+~
+E
+1 north~
+Across the lava flow lies another ledge of black obsidian rock, only a
+few feet lower and travelling parallel with this ledge from west to east. 
+To the northeast, it intersects with this ledge, which bends northward
+over the lava flow.  Where the two paths meet, there is a short drop from
+this pathway to the other ledge, as the obsidian probably split from an
+earthquake.
+~
+E
+1 down river molten lava~
+About eighty feet below you to the north is a quickly flowing mass of
+lava.  It is riddled with black, cooled pieces of rock that float along
+and break up in the flow.  The bright lava lights up the cavern as it
+reflects off the glassy obsidian, causing the area around the river to
+glow an eerie red.  A really eerie red.  This cave is extremely,
+extremely eerie.  And goddamn, it's @RRED@n!
+~
+E
+1 west~
+The ledge ramps downward, slowly descending to edge the river of lava at
+its depression point.
+~
+E
+ledge~
+This obsidian ledge you are on heads east where it eventually soars over
+the lava and intersects another ledge, which is visible to the north,
+beyond the molten river.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue along the catwalk to the $T.
+~
+!
+3 0 10
+A
+1 north~
+~
+act_tochar( "The prospect of your own melting flesh turns you back.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#75010
+Obsidian Ledge~
+The river of molten lava to the north widens to the point that this
+obsidian ledge disappears to the west.  However a small curl of the ledge
+remains, bending around the massive walls to the south.  The ledge widens
+to the east, underneath the vast ceiling of this titanic cavern.
+~
+[Phule] lava n and w
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75007 10 10 5
+D2
+~
+~
+0 -1 75011 10 10 5
+E
+river molten lava 1 north 1 west~
+Waves of heat distort your vision as the lava flows slowly west, a river
+of red-hot distruction.  West, the lava becomes more of a lake of
+orange-red, no more ledge or safety for one such as you.
+~
+E
+ledge 1 down obsidian ceiling 1 up wall 1 south~
+The ledge, besieged by the lava, has lost and disappears to the west.  A
+small bit of it still clings to the southern wall, which turns south
+here, opening a cavern and a lake of lava.  Obsidian, formed from the
+marriage of rock and extreme heat, barely holds its own against the
+inexorable lava.
+~
+A
+1 north 1 west~
+~
+act_tochar( "The river of molten lava prevents such movement.", ch );
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You press tightly against the obsidian ledge as you head south.
+~
+!
+3 0 4
+2143 9 1509949540 3 0
+-1
+S
+
+#75011
+Obsidian Ledge~
+This narrow ledge is perhaps six feet wide, not allowing for much of a
+slip before a certainly fatal fall into a flowing river of molten lava
+below.  The walls of the cavern to the east and south are solid obsidian.
+Something glitters amidst the shimmering obsidian surface of the southern
+face of the cavern.  The ledge widens a bit to the north.
+~
+[Phule] rextras
+[Phule] pry stone
+[Phule] gem 1066 (worthless), gem 1068 (nice)
+[Phule] lava w, walls e and s
+~
+301596677 11 5 0
+D0
+~
+~
+0 -1 75010 10 10 5
+E
+glitter obsidian 1 southern wall~
+A tiny gem is embedded in the impossibly hard face of the obsidian rock. 
+It would probably take a chisel, a bit of hard work and luck to pry
+the stone loose.
+~
+E
+ledge 1 down~
+The ledge must have formed ages ago as molten lava vaporized the
+rock and then rapidly cooled.
+~
+E
+river lava 1 west below~
+The river flows west, leaving the cavern by way of a dark tunnel.  In the
+distance you hear the loud hiss of water vaporizing into steam.
+~
+E
+1 north~
+The ledge widens a bit, to about eight feet.
+~
+A
+pry chisel get take free smash~
+gem stone 1 south wall obsidian~
+if( !rflag( reset0, room ) )
+  act_tochar( "Someone has already chiseled the gem loose.", ch );
+else {
+  if( !has_obj( 3044, ch ) )
+    act_tochar( "That would probably take a chisel.", ch );
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( "You chisel at the obsidian.", ch );
+    act_notchar( "$n chisels at the obsidian.", ch );
+    if( random( 1, 35 ) == 13 ) {
+      act_tochar( "You broke your chisel!", ch );
+      act_notchar( "$n broke $s chisel!", ch );
+      junk_obj( has_obj( 3044, ch ), 1 );
+      }
+    else {
+      act_tochar( "You chisel the small gem free!", ch );
+      act_notchar( "$n chisels the small gem free!", ch );
+      if( random( 1, 10 ) == 7 )
+        obj_to_char( oload( 1068 ), ch );
+      else
+        obj_to_char( oload( 1066 ), ch );
+      }
+    }
+  }
+~
+!
+0 0 0
+A
+1 west~
+~
+act_tochar( "You talk yourself out of the dive into the lava.", ch );
+~
+!
+0 0 0
+2143 9 1509949540 3 0
+-1
+S
+
+#75012
+Obsidian Ledge - Overhang~
+The ledge bends here where it meets with the southeastern wall of the
+cave.  The cavern ceiling is only ten or fifteen feet above your head, as
+you easily see your reflection in the glassy black obsidian.  To the
+west, the ledge descends steadily downward, widening and narrowing at
+different places along the ridge.  Northward, the ledge has flattened out
+and hugs the eastern wall where it slowly bridges the flow of lava.  To
+the northwest, a steady flow of lava travels westward, bounded by ledges
+to the north and south.
+~
+[Phule] n is ledge, rising
+~
+301596677 11 5 0
+D0
+~
+~
+0 -1 75013 10 10 5
+D3
+~
+~
+0 -1 75009 10 10 5
+E
+1 north~
+To the north, you notice that the bridge of rock seems to be incomplete. 
+Perhaps there is a drop of some sorts a little ways ahead.
+~
+E
+1 down lava molten river~
+The lava to your northwest travels in a westerly direction.  It gives off
+a bright red glow which fills the cavern with a dark light.
+~
+E
+1 west~
+To the west, the glassy black obsidian ledge descends ever slowly
+downward narrowing and widening at points to make travel difficult.
+~
+E
+ceiling 1 up obsidian reflection~
+As you look above you to the obsidian ceiling, you can see that the
+reflection it forms of you is distorted and dark.  The result is that
+your appearance is wraith-like, and the red glow that lights the cavern
+adds an eerie tinge to the outline of your reflection.  It is something
+of a nightmarish sight.  The sight is enhanced by the obsidian wall to
+your south, as well as the reflective ledge beneath your feet.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You descend along the catwalk.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You step out onto the ledge.
+~
+!
+3 0 1
+-1
+S
+
+#75013
+Obsidian Ledge - Split in the Natural Bridge~
+Here the dark obsidian rock has split in twain, probably caused by an
+earthquake or volcanic activity in the area.  Over ten feet below you can
+see the mirrored surface of the obsidian rock.  A tiny crevice has opened
+up between the two ledges, about four inches wide, and through it you can
+see the hot, red river of molten lava over a hundred feet below.
+~
+[Phule] jump leap | down across
+[Phule] to 75014
+[Starshine] connect down is for search?
+~
+301596677 11 5 0
+D2
+~
+~
+0 -1 75012 10 10 5
+D5
+~
+~
+170 -1 75014 10 10 5
+E
+1 north 1 down~
+As you look to the north and down, you see the glassy obsidian floor of
+the ledge below.  It is probably possible to climb or jump down to that
+other ledge.  There is a small crevice between the broken edges of the
+bridge, shown by a thin line of red that reveals the river of lava far
+below.
+~
+E
+crevice~
+Below you is a thin crevice created by the earthquake that separated this
+bridge.  Through it you can see the thin red glow of the river of lava
+which lies below you.
+~
+E
+1 west river molten lava~
+A wide trench of lava flows through the cavern, glowing a deep red.  Its
+power is evident by the thickly churning spots of black, solid rock which
+are quickly swallowed by the fast molten river.  The ledge here leans
+precariously over the river of lava and as you examine the river, you
+take note to watch your step.
+~
+A
+jump leap climb~
+1 north 1 down across ledge~
+act_tochar( "You jump down to the ledge below.", ch );
+act_notchar( "$n jumps down to the ledge below.", ch );
+transfer( ch, find_room( 75014 ) );
+act_notchar( "$n jumps in from above.", ch );
+~
+!
+0 0 1
+2143 9 1509949540 3 0
+2143 9 1509949540 3 0
+-1
+S
+
+#75014
+Obsidian Ledge - Split in the Natural Bridge~
+This narrow ledge on the eastern cavern wall bridges the gap over the
+river of lava below you.  The bridge here has split, making travel
+southward difficult.  A thin crevice of four inches separates the two
+bridges.  There is also an eight to ten foot difference in height between
+the two separated ledges, but the ledge above looks climbable as several
+half-bubble shaped footholds are riddled into the ridge.
+~
+[Phule] u us 75013, climb up
+~
+301596677 11 5 0
+D0
+~
+~
+0 -1 75015 10 10 5
+D4
+~
+~
+170 -1 75013 10 10 5
+E
+footholds half-bubble~
+These footholds are created by the bubbled texture of the obsidian rock
+where it has split.  They make the ridge to the south climbable.
+~
+E
+1 west lava molten flow river~
+The lava to your west flows in that direction through a wide trench.  It
+is a bright red and accounts for the heat and humidity in the area.
+~
+E
+1 south 1 up~
+The ledge to your south has been split by some earthquake.  Its glassy
+black surface is riddled with handholds, however, and looks climbable.
+~
+A
+climb~
+1 up rock wall 1 south~
+act_tochar( "You climb across the gap and up to the ledge above.", ch );
+act_notchar( "$n climbs up to the ledge above.", ch );
+transfer( ch, find_room( 75013 ) );
+act_notchar( "$n climbs up from below.", ch );
+~
+!
+0 0 1
+A
+~
+~
+act_tochar( #gas, ch );
+i = 1d2+4;
+dam_message( ch, i, "choking gases" );
+inflict( ch, mob, i, "choking gases" );
+~
+E
+gas~
+Thick fumes and black smoke rises through the crevice into the air here,
+choking you.
+~
+!
+2 100 0
+-1
+S
+
+#75015
+Obsidian Ledge - Overhang~
+This obsidian ledge bends here, walled in to the north and east by the
+black rock.  It shines and undulates as it reflects the fiery lava flow
+below you to the southwest.  To the west, the ledge parallels the river
+of lava flowing in the same direction.  To the south, the ledge extends
+to lean precariously over the flow of lava, but you notice that the
+bridge has broken in two a little ways away.
+~
+~
+301596677 11 5 0
+D2
+~
+~
+0 -1 75014 10 10 5
+D3
+~
+~
+0 -1 75016 10 10 5
+E
+bridge 1 south~
+The bridge seems to have broken apart and there is another ledge several
+feet up from the one to the immediate south.  It connects with a ledge
+that edges the flow of lava to the southwest.
+~
+E
+lava molten river southwest flow~
+The river of lava flows nearly one hundred feet below you and it travels
+westward.  Small black spots can be seen on it, the more solid masses of
+rock that have been torn from the edges of the river.
+~
+2143 9 1509949540 3 0
+-1
+S
+
+#75016
+Obsidian Ledge~
+This thin ledge of rock slowly descends as it travels from east to west. 
+To the south, a wide river of molten rock flows westward, edged in by
+this ledge and one on the far end.  To the east the ledge bends to bridge
+southward over the flow of lava, and the eastern wall of the cavern can
+be seen here from the soft red glow it reflects from the river.
+~
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75015 10 10 5
+D3
+~
+~
+0 -1 75017 10 10 5
+E
+1 east~
+The ledge bends to the east where it meets the eastern cavern wall
+and heads southwaerd over the river of lava.
+~
+E
+1 south~
+To the south, over the trench of lava that flows far beneath, you can
+make out another ledge which parallels this one, although it is a bit
+higher.
+~
+E
+lava molten river flow 1 down~
+The river of molten rock below you and to your south slowly flows
+westward into the sea.  It provides a thin red glow of light to this
+cavern, giving the area an eerie feeling.
+~
+E
+1 west~
+The ledge to the west descends downward, nearing the edge of the molten
+river at its lowest depression.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You descend along the ledge.
+~
+!
+3 0 8
+A
+1 south~
+~
+act_tochar( "You approach the burning heat of the lava flow then back away.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#75017
+Obsidian Ledge - Cave Entrance~
+This obsidian ledge leans over a molten river of lava to your south.  The
+lava is the source for light in the cavern but the black obsidian absorbs
+most of it, and the cavern is extremely dark despite the hot, red flow. 
+The ledge slowly descends as it travels from the east to the west,
+finally descending to the level of the lava which lies sixty feet below
+you.  Despite the distance, the air here is unusually hot and humid.  To
+your north, a large hole has been made in the black obsidian, about ten
+feet in diameter.  Long ago, a flow of lava must have melted through the
+thick rock and left this opening in the cavern.
+~
+[Nivel] done all rbugs through this...
+[Starshine] please do not delete rbugs till i've seen them.  saves time
+so i won't have to start from scratch.
+[Starshine] reviewer rbugs that is.  if you're talking about phule's
+that's different :P 
+~
+301596677 11 5 0
+D0
+~
+~
+0 -1 75018 10 10 5
+D1
+~
+~
+0 -1 75016 10 10 5
+D3
+~
+~
+0 -1 75019 10 10 5
+E
+1 south~
+Another ledge rises up on the far end of the lava flow, about ten to
+twenty feet higher than this ledge.
+~
+E
+1 west~
+Westward the ledge descends downward to warily come close to the river of
+lava below.
+~
+E
+1 east~
+The eastern ledge rises to meet with the cavern wall to the east.  There
+it seems to bend and bridge over the river of lava.
+~
+E
+river molten lava flow 1 down~
+The river of molten rock below you and to your south slowly flows
+westward.  It provides a pale red glow of light to this cavern, giving
+the area an eerie feeling.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue along the ledge to the $T.
+~
+!
+3 0 10
+A
+1 south~
+~
+act_tochar( "You walk up to the lava flow and marvel at its immense heat.", ch );
+~
+!
+0 0 0
+2143 9 1509949540 3 0
+-1
+S
+
+#75018
+Obsidian Tunnel - Intersection~
+The ten-foot diameter tunnel continues as it bends to the east, while a
+smaller passage cuts west toward a faint red glow.  To the south, the
+tunnel opens up into a vast underground chamber which is filled with
+heat, glows red, and smells of brimstone.
+~
+~
+301596676 11 5 0
+D1
+~
+~
+0 -1 75032 10 10 5
+D2
+~
+~
+0 -1 75017 10 10 5
+D3
+~
+~
+0 -1 75033 10 10 5
+E
+1 east 1 west 1 north~
+The obsidian-walled tunnel dead-ends to the north at an imperfect
+glass-like wall, continuing on to the east in a relatively sharp bend. 
+To the west it disappears into stygian darkness.
+~
+2143 9 1509949540 3 0
+-1
+S
+
+#75019
+Obsidian Ledge~
+This obsidian ledge travels from west to east, overlooking a flow of lava
+to the south.  The ledge climbs upwards to the east, while to the west it
+descends into the river below.  To the far east, you can make out a
+bridge of rock that extends precariously out from the eastern wall of the
+cavern to make its way across the lava trench.
+~
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75017 10 10 5
+D3
+~
+~
+0 -1 75020 10 10 5
+E
+river molten lava flow 1 down~
+The river of molten rock below you and to your south slowly flows
+westward into the sea.  It provides a thin red glow of light to this
+cavern, giving the area an eerie feeling.
+~
+E
+1 south~
+Another ledge rises up on the far end of the lava flow, about ten to
+twenty feet higher than this ledge.
+~
+E
+1 west~
+Westward the ledge descends downward to warily come close to the river of
+lava below.
+~
+E
+1 east~
+The eastern ledge rises to meet with the cavern wall to the east.  There
+it seems to bend and bridge over the river of lava.
+~
+E
+bridge~
+A small ledge of rock bridges the river of lava to the east, but it
+appears to have broken near the middle.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue along the ledge to the $T.
+~
+!
+3 0 10
+A
+1 south~
+~
+act_tochar( "Waves of heat push you back.", ch );
+~
+!
+0 0 0
+2143 9 1509949540 3 0
+-1
+S
+
+#75020
+Obsidian Ledge - Cave Entrance~
+This narrow ridge of obsidian rock slowly climbs upwards from the west to
+the east.  It overlooks a river of molten lava to the south, which is
+twenty to thirty feet below you.  To your north, a large hole marks the
+entrance to a cave, probably formed by a river of lava ages ago.
+~
+~
+301596677 11 5 0
+D0
+~
+~
+0 -1 75022 10 10 5
+D1
+~
+~
+0 -1 75019 10 10 5
+D3
+~
+~
+0 -1 75021 10 10 5
+E
+river molten lava flow 1 down~
+The river of molten rock below you and to your south slowly flows
+westward into the sea.  It provides a thin red glow of light to this
+cavern, giving the area an eerie feeling.  From this height, you can feel
+the searing heat of the flow.
+~
+E
+1 north hole cave entrance~
+Blackness swallows the entrance to the cave and you cannot make out
+anything beyond a few paces.
+~
+E
+1 west~
+Westward the ledge descends downward, coming ever closer to the river of
+lava below.
+~
+E
+1 east~
+The eastern ledge rises to meet with the cavern wall to the east.  There
+it seems to bend and bridge over the river of lava.
+~
+E
+1 south~
+Another ledge rises up on the far end of the lava flow, about ten to
+fifteen feet higher than your position in the cavern.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You continue along the ledge to the $T.
+~
+!
+3 0 10
+A
+1 south~
+~
+act_tochar( "The searing heat changes your mind.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#75021
+Obsidian Ledge - Before the Molten River~
+The narrow ledge reaches a dead end here, where it dips into the river of
+molten lava.  The heat here is nearly unbearable, and the river sprays up
+liquid fire where it meets the edge.  To the east, the ledge slowly makes
+its way upwards, out of the fiery river.
+~
+[Phule] end of ledge
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75020 10 10 5
+E
+1 west~
+The river of lava has melted away the ledge and the river widens at this
+point.
+~
+E
+1 east~
+The ledge slowly climbs its way upwards and out of the vicinity of the
+liquid rock.
+~
+E
+river molten lava 1 flow~
+Liquid rock spews upwards in burning sprays as it hits the ledge.  It is
+probably unsafe to stand closer than ten feet from the river.
+~
+E
+1 south~
+Across the river, you see another ledge, about ten to fifteen feet higher
+than your position.  It travels parallel to this ledge as you look
+eastward.
+~
+A
+~
+~
+rch = rand_player( room );
+act_tochar( #gust, ch );
+act_notchar( #rgust, ch );
+i = 1d4+1;
+dam_message( rch, i, "The gust of heat" );
+inflict( rch, rch, i, "Being cooked" );
+~
+E
+gust~
+@RA gust of heat envelops you.@n
+~
+E
+rgust~
+@RA gust of heat envelops $n.@n
+~
+!
+2 200 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You ascend away from the lava flow.
+~
+!
+3 0 2
+A
+1 west 1 south~
+~
+act_tochar( "Your anima speaks up nervously and you change your mind.", ch );
+~
+!
+0 0 0
+2143 9 1509949540 3 0
+-1
+S
+
+#75022
+Obsidian Tunnel~
+The tunnel leads west and south, while a smaller passage leads into a
+murky cloud of sulfur gas to the north.  A thin line of molten lava, no
+more than six inches wide, is seen through a crack in the stone at your
+feet, flowing south toward a massive river of lava.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75024 10 10 5
+D2
+~
+~
+0 -1 75020 10 10 5
+D3
+~
+~
+0 -1 75023 10 10 5
+E
+crack 1 down line molten lava~
+Seen through the thin crack lying at your feet, a narrow ribbon of molten
+rock flows southward toward the churning magma river.
+~
+E
+sulfur gas cloud 1 north~
+Undulating in air currents caused by the waves of heat, a cloud of sulfur
+gas billows to the north, masking what lies beyond.
+~
+E
+1 south river~
+The river of lava is just barely visible south, below the lip of the
+ledge.  It is a glowing, orange-red ribbon against the black obsidian.
+~
+E
+1 west~
+The tunnel disappears into darkness.
+~
+-1
+S
+
+#75023
+Obsidian Tunnel~
+The tunnel bends north and east, a graceful, almost smooth curve in the
+hard obsidian rock.  From the east, a faint breeze brings with it the
+acrid smell of sulfur.  To the north, a long stretch of tunnel leads into
+the darkness.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75025 10 10 5
+D1
+~
+~
+0 -1 75022 10 10 5
+E
+1 north obsidian rock~
+The glassy surface of the tunnel absorbs all light as it leads into the
+darkness to the north.
+~
+E
+1 east~
+East is an intersection in the tunnel, leading north and south.  Beyond
+the fact that there is a split in that direction, you cannot make out
+anything else.
+~
+2143 9 1509949540 3 0
+2143 9 1509949540 3 0
+-1
+S
+
+#75024
+Sulfurous Chamber~
+A bubbling patch of foul-smelling mud erupts searing-hot sulfur into the
+air, filling the small chamber with noxious fumes.  A small tunnel leads
+south through the obsidian rock and the heat and reddish glow can only
+mean the proximity of molten lava in that direction.
+~
+[Phule] small sulfur pool
+[Phule] sulfur toad
+[Phule] nomob
+[Starshine] up marmor on toad?
+[Phule] is low level, is a toad. hrm.
+[Starshine] only meant that the toad has a 10% marmor of 0. seems a bit too vulnerable.
+[Phule] is supposed to be vulnerable - is it's soft underbelly
+~
+301596684 11 7 0
+D2
+~
+~
+0 -1 75022 10 10 5
+E
+patch mud sulfur pool~
+The pool of bubbling mud boils, small bubbles rising to its surface and
+erupting to release noxious vapors of foul-smelling sulfur.
+~
+A
+search~
+pool mud~
+act_tochar( "Sticking your hand in the searing mud would probably not be a good idea.", ch );
+~
+!
+0 0 0
+2147 9 1509949540 3 0
+1269 17 1509949470 -2 0
+-1
+S
+
+#75025
+Obsidian Ledge~
+This north-south tunnel is smooth and flawless, having been seared out of
+the obsidian rock by a volcanic eruption eons ago.  Not even ash remains
+on the hard rock at your feet.  The air smells strongly of sulfur and
+brimstone, an acrid and pungent aroma threatening to make you dizzy.
+~
+[Phule] added
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75026 10 10 5
+D2
+~
+~
+0 -1 75023 10 10 5
+E
+obsidian rock~
+Glass-like in texture and black in colour, the walls and floor of this
+tunnel absorb the light.  Vaguely, within its mirrored surface, you can
+discern the faint outline of your reflection.
+~
+-1
+S
+
+#75026
+Obsidian Tunnel - Intersection in the Tunnel~
+These glass-like tunnels were formed by some sort of lava flow many years
+ago.  To the north you can detect a faint red glow of light, but the
+absorbing rock makes investigation impossible without a closer look.  To
+the south you can feel a thin breeze, bringing with it the pungent aroma
+of sulfur.
+~
+[Phule] added both :)
+~
+301596676 11 6 0
+D0
+~
+~
+0 -1 75039 10 10 5
+D1
+~
+~
+0 -1 75027 10 10 5
+D2
+~
+~
+0 -1 75025 10 10 5
+E
+black rock tunnel obsidian~
+Black obsidian forms the smooth walls and floor of this dark tunnel, its
+glassy surface formed by flowing magma in some forgotten past.
+~
+E
+1 north red glow~
+Northward, through the encompassing darkness, rises a faint red glow. 
+Nearly crimson in color from this distance, you must move closer to
+discern its source.
+~
+2199 9 1509949540 3 0
+2199 9 1509949540 3 0
+-1
+S
+
+#75027
+Along an Obsidian Tunnel~
+The tunnel heads almost straight east and west, with little twists and
+turns.  The rock is very smooth and glassy here from the high
+temperatures and pressures that existed when lava flowed along the tunnel
+ages ago.  On both sides, the rock absorbs the light and obscures your
+view.
+~
+[Nivel] done through here
+~
+301596676 11 5 0
+D1
+~
+~
+0 -1 75028 10 10 5
+D3
+~
+~
+0 -1 75026 10 10 5
+E
+rock~
+The rock here is a dark, glassy obsidian.  It seems to absorb all the
+light here, mirroring the room with a dim reflection.  Its gleaming
+surface is very solid and hard despite its fragile look.
+~
+-1
+S
+
+#75028
+Obsidian Tunnel - Intersection~
+The tunnel whimsically burrows its way into the black, glass-like rock. 
+Here the tunnel heads both west and east, and a smaller but equally
+twisting tunnel leads northward, where you can spot a faint red glowing
+color in the distance. 
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75041 10 10 5
+D1
+~
+~
+0 -1 75029 10 10 5
+D3
+~
+~
+0 -1 75027 10 10 5
+E
+1 east 1 west tunnel rock glow red 1 north~
+Like the passing of a giant snake, the tunnel burrows its way through
+the black, glass-like rock in seemingly whimsical precision.  The path
+continues into darkness to the west and east, but a smaller tunnel leads
+in from the north, the hundreds of obsidian mirrors that line the cavern
+walls echoing the faint red glow that trickles in from the distance.
+~
+2199 9 1509949540 3 0
+-1
+S
+
+#75029
+Obsidian Tunnel - Intersection~
+Two large tunnels seared out of the obsidian rock intersect here, one
+heading east and west while the other ends here, coming in from the south. 
+A faint red glow can be seen to the east, while to the south and west
+there is only darkness.
+~
+~
+301596676 11 5 0
+D1
+~
+~
+0 -1 75035 10 10 5
+D2
+~
+~
+0 -1 75030 10 10 5
+D3
+~
+~
+0 -1 75028 10 10 5
+E
+tunnels 1 east 1 west red glow 1 south~
+The tunnel from the south dead-ends in a glistening black wall, palely
+lit by a dull crimson light that emerges from the east end of an
+intersecting passageway.  To the west, the passage descends into
+darkness as black as a raven's wing.
+~
+2199 9 1509949540 3 0
+-1
+S
+
+#75030
+Obsidian Tunnel - Twisting and Turning~
+The tunnel twists and turns, staying roughly level but changing direction
+very often.  Here the tunnel heads north and east, but it is easily seen
+in both directions that the tunnel does not continue straight for long. 
+To the north, the tunnel intersects a crisscrossing passage, while to the
+east the tunnel bends again to the south.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75029 10 10 5
+D1
+~
+~
+0 -1 75031 10 10 5
+E
+1 north tunnel crisscrossing passage~
+From this vantage, you can see that the tunnel, its burnished obsidian
+walls black as a starless night, arrives at a three way intersection. 
+Dead-ending at a slick, gleaming wall, another tunnel crosses it, heading
+east and west.
+~
+-1
+S
+
+#75031
+Obsidian Tunnel - Twisting and Turning~
+Although there is no discernible gradient in the slope of the floor, the
+tunnel changes direction every twenty feet, at the most.  To the west,
+you can see that the tunnel makes another sharp turn to the north, while
+to the south the tunnel bends westward again.
+~
+~
+301596676 11 5 0
+D2
+~
+~
+0 -1 75032 10 10 5
+D3
+~
+~
+0 -1 75030 10 10 5
+2199 9 1509949540 3 0
+-1
+S
+
+#75032
+Obsidian Tunnel - Twisting and Turning~
+The tunnel bends north and west, staying fairly level but turning often. 
+To the north, the tunnel bends west after only about twenty feet, while
+to the west the tunnel turns south.  A small intersection to the west is
+outlined by a faint red glow.
+~
+[Phule] no.mob to segregate newts
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75031 10 10 5
+D3
+~
+~
+0 -1 75018 10 10 5
+E
+faint red glow 1 west~
+An eerie red outline to the west flickers near the intersection.  Its
+origin is unknown, and the black obsidian does nothing to pinpoint a
+source, as it reflects the glow back and forth upon its distorted surface. 
+~
+-1
+S
+
+#75033
+Obsidian Tunnel - Hook~
+The tunnel hooks from north to east, a smooth curve.  To the north, you
+see a faint red glow, and from that direction a strong smell of sulfur
+can be detected.  To the east, this tunnel seems to join with a larger
+one before disappearing into the velvet darkness beyond.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75034 10 10 5
+D1
+~
+~
+0 -1 75018 10 10 5
+E
+curve glow red 1 north~
+The tunnel hooks north, obsidian walls turning in a smooth but sharp
+curve toward a faint red light, barely seen from this distance but for
+its dull crimson glow.
+~
+-1
+S
+
+#75034
+Obsidian Tunnel - Sulfur~
+The acrid smell of sulfur reaches your nose as a dark patch of cooling
+lava, still over a thousand degrees hot, sends off a strong odor.  The
+lava glows a faint red-orange through patches of black where the air has
+cooled the lava nearly to the point of solidifying.  A small tunnel leads
+through the rock to the south and away from the smell.
+~
+[Phule] lava pool
+[Phule] sulfur toad
+[Phule] nomob
+~
+301596684 11 6 0
+D2
+~
+~
+0 -1 75033 10 10 5
+E
+1 down patch lava~
+The pool is still hot enough to boil the flesh from your bones, have no
+doubt, but a cooler upper layer of black crust seems semi-solid.
+~
+1269 17 1509949510 -2 0
+2147 9 1509949540 3 0
+-1
+S
+
+#75035
+Obsidian Tunnel - Branching North~
+What seems to be a larger tunnel, about twelve feet in diameter, leads
+east and west, while a slightly smaller branch leads north toward a dull
+red glow.  You can see another intersection of sorts to the west, while
+the tunnel either comes to a dead end or makes a sharp turn to the east.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75044 10 10 5
+D1
+~
+~
+0 -1 75036 10 10 5
+D3
+~
+~
+0 -1 75029 10 10 5
+E
+tunnel 1 north~
+The obsidian-lined tunnel takes a sharp turn, skirting protrusions of
+lustrous, black rock as it heads north toward a dull crimson glow further
+on.
+~
+-1
+S
+
+#75036
+Obsidian Tunnel - Sharp Bend~
+Although at first this appears to be a dead end, you can now clearly
+see that the tunnel bends sharply, a smaller passage leading roughly
+southwest and into the obsidian rock.  From the south, you can see a dull
+red glow.  To the west, the larger tunnel continues.
+~
+~
+301596676 11 5 0
+D2
+~
+~
+0 -1 75037 10 10 5
+D3
+~
+~
+0 -1 75035 10 10 5
+E
+red dull glow 1 south~
+Faintly flickering to the south, you can make out a thin slash of red
+light through the walls of the twisting tunnel.  Its deep crimson flares
+suggest a lava flow of some sort.
+~
+E
+obsidian rock~
+The flawless rock was burned through by a massive lava flow.
+~
+2199 9 1509949540 3 0
+-1
+S
+
+#75037
+Obsidian Tunnel - Nearing a Red Room~
+From the south, a fierce dark red glow sends waves of heat and light
+rippling across the walls of the tunnel.  This tunnel is small, only
+about eight feet across, but to the north the tunnel widens as it makes a
+hairpin loop to the west.  To the south, as the tunnel becomes more and
+more saturated in the eerie crimson light, there appears to be an
+chamber of sorts.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75036 10 10 5
+D2
+~
+~
+0 -1 75038 10 10 5
+E
+tunnel 1 south dark glow crimson walls light~
+Dark fire envelops this narrow stretch of tunnel, the reflection of the
+fierce crimson glow lying to the south upon pristine obsidian walls.
+~
+-1
+S
+
+#75038
+Obsidian Chamber~
+A large, bowl-shaped chamber has been melted out of the solid obsidian
+rock, lit a fierce red by the simmering pool of lava in the center of the
+room.  A narrow catwalk, about six feet wide, circumvents the pool,
+roughly circular in shape.  A tunnel leads through the rock to the north
+and away from the intense heat.
+~
+nomob
+[Phule] something cool perhaps
+[Phule] fire drake
+thanks again for the rextra, cool
+~
+301596684 11 7 0
+D0
+~
+~
+0 -1 75037 10 10 5
+E
+catwalk~
+Skirting the edge of the molten pool, a narrow ledge of smoothest
+obsidian offers little in the way of footing.  Precariously, it slants
+toward the bubbling magma.
+~
+E
+pool lava~
+This pool of lava has naturally melted the rock here into the smooth bowl
+it resides in.  Thick spurts of rock randomly shower the air with a red
+rain, while colder, nearly solid rock floats on top, churning around
+actively.  The pool's deep red glow provides a fair amount of light to
+this chamber.
+~
+E
+obsidian rock~
+The black, glass-like obsidian of this chamber is very smooth and
+circularly surrounds the room.  Most likely the chamber was caused by
+some great bubble of air trapped within the lava.  It shines the pool's
+light off its dark surface and reflects its red glow about the room.
+~
+2148 9 1509949540 3 0
+-1
+S
+
+#75039
+Bend in the Obsidian Tunnel~
+To the east, you can make out a bright glow of red, probably from a lava
+stream or pool that has emerged from the ground.  The black rock flickers
+along the sides of the east tunnel like a dark fire.  South of you, the
+black rock leads into darkness, but you can feel a tiny breeze of air
+which brings with it the rotten smell of sulfur.
+~
+~
+301596676 11 5 0
+D1
+~
+~
+0 -1 75040 10 10 5
+D2
+~
+~
+0 -1 75026 10 10 5
+E
+glow red 1 east~
+To the east, the glow brightens, undulating waves of light that fade in
+and out of all the colours of the red spectrum.
+~
+-1
+S
+
+#75040
+Obsidian Chamber - Lava Pool~
+A large pool of molten lava casts its dark red glow onto the black
+obsidian of the walls of this bowl-like chamber, glinting a gleaming
+@Rcrimson@n where it reflects off a small rock embedded in the north wall. 
+A small tunnel leads into the rock to the west, away from the heat.
+~
+[Phule] lava pool, gem in wall
+[Phule] drake
+[Phule] nomob
+~
+301596684 11 7 0
+D3
+~
+~
+0 -1 75039 10 10 5
+E
+crimson 1 north wall small rock gem~
+The small gemstone is firmly embedded in the rock.  It would take a
+chisel, some time, and some luck to get it free.
+~
+E
+pool molten lava~
+The pool of lava churns from deep underground, bubbling and spitting
+flame as it ignites small rocks which have had the misfortune to crumble
+into its grasp.
+~
+A
+pry chisel get take free smash~
+gem stone 1 south wall obsidian~
+if( !rflag( reset0, room ) )
+  act_tochar( "Someone has already chiseled the gem loose.", ch );
+else {
+  if( !has_obj( 3044, ch ) )
+    act_tochar( "That would probably take a chisel.", ch );
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( "You chisel at the obsidian.", ch );
+    act_notchar( "$n chisels at the obsidian.", ch );
+    if( random( 1, 35 ) == 13 ) {
+      act_tochar( "You broke your chisel!", ch );
+      act_notchar( "$n broke $s chisel!", ch );
+      junk_obj( has_obj( 3044, ch ), 1 );
+      }
+    else {
+      act_tochar( "You chisel the small gem free!", ch );
+      act_notchar( "$n chisels the small gem free!", ch );
+      if( random( 1, 10 ) == 7 )
+        obj_to_char( oload( 1068 ), ch );
+      else
+        obj_to_char( oload( 1066 ), ch );
+      }
+    }
+  }
+~
+!
+0 0 0
+2148 9 1509949540 3 0
+-1
+S
+
+#75041
+Along an Obsidian Tunnel~
+This tunnel winds its way north and south, although it twists and turns
+in some places.  A red glow comes from the north, flickering off of the
+mirror-like obsidian walls.  You can feel a rumbling sound from below
+your feet, perhaps a flow of lava.
+~
+~
+301596676 11 5 0
+D0
+~
+~
+0 -1 75042 10 10 5
+D2
+~
+~
+0 -1 75028 10 10 5
+E
+red glow obsidian walls~
+The ground rumbles beneath your feet, like the murmuring of angry titans,
+as the tunnel twists to the north and south to follow the flow of lava
+deep below.  The crimson glow spills into the corridor from the north,
+settling over the polished obsidian as though the walls themselves were
+molten hot, with only the occasional shadow to remind the eye of the
+depthless black that lies beneath.
+~
+A
+feel~
+ground 1 down~
+act_tochar( #feel, ch );
+~
+E
+feel~
+You feel the ground for a moment, and realize that the rumbling you had
+heard from below is indeed a lava flow that runs right beneath you.
+~
+!
+0 0 0
+-1
+S
+
+#75042
+Bend in the Obsidian Tunnel~
+Here the tunnel bends, leading off to the south and the west.  A deep red
+glow comes from the west, and the walls flicker slightly from its source. 
+To the south, the tunnel becomes obscured by black rock and leads into
+darkness.
+~
+~
+301596676 11 5 0
+D2
+~
+~
+0 -1 75041 10 10 5
+D3
+~
+~
+0 -1 75043 10 10 5
+E
+1 west~
+A deep red glow comes from the west, but you cannot be sure of its
+source, although the increased heat suggests a stream or pool of lava.
+~
+E
+red glow~
+Like the coil of a serpent the tunnel rears upward slightly and to the
+west, walls nearly as smooth as polished glass leaving little room for
+footholds.  A rich crimson glow washes down the incline, bathing the
+tunnel in a continuous wave of oppressive heat, setting the myriad of
+mirrors ablaze with its touch.  To the south, the glow lingers and fades
+into relative darkness.
+~
+2199 9 1509949540 3 0
+-1
+S
+
+#75043
+Before a Great Lava Pool~
+A massive pool of bright red lava lights this room up, reflecting off the
+black obsidian.  The pool itself is alive, churning small spots of nearly
+solid black rock about in its wake.  A sulfurous smell emanates from
+small bubbles that pop out of the lava, and the air here is hot and
+thick, clouded over in some areas by dark volcanic gases.  The red light
+glints @Rcrimson@n off of a small rock embedded in the north wall.
+~
+[Phule] lava pool, gem in wall
+[Phule] drake
+[Phule] nomob
+~
+301596685 11 7 0
+D1
+~
+~
+0 -1 75042 10 10 5
+E
+pool lava~
+This hot lava pool is over thirty feet in diameter, and edges around in
+almost a perfect circle.  Small chunks of black rock, still solid,
+speckle the lava.  The molten rock itself is alive, spitting out bubbles
+and small jets of flame as it seems to stir about.
+~
+E
+1 north wall crimson rock~
+The small gemstone is firmly embedded in the rock.  It would take a
+chisel, some time, and some luck to get it free.
+~
+A
+pry chisel get take free smash~
+gem stone south s wall obsidian~
+if( !rflag( reset0, room ) )
+  act_tochar( "Someone has already chiseled the gem loose.", ch );
+else {
+  if( !has_obj( 3044, ch ) )
+    act_tochar( "That would probably take a chisel.", ch );
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( "You chisel at the obsidian.", ch );
+    act_notchar( "$n chisels at the obsidian.", ch );
+    if( random( 1, 35 ) == 13 ) {
+      act_tochar( "You broke your chisel!", ch );
+      act_notchar( "$n broke $s chisel!", ch );
+      junk_obj( has_obj( 3044, ch ), 1 );
+      }
+    else {
+      act_tochar( "You chisel the small gem free!", ch );
+      act_notchar( "$n chisels the small gem free!", ch );
+      if( random( 1, 10 ) == 7 )
+        obj_to_char( oload( 1068 ), ch );
+      else
+        obj_to_char( oload( 1066 ), ch );
+      }
+    }
+  }
+~
+!
+0 0 0
+2148 9 1509949540 3 0
+-1
+S
+
+#75044
+Obsidian Tunnel - Red Glow~
+The dark tunnel bends from south to west, heading toward the source of a
+dull red-orange glow in the latter direction.  To the south, there seems
+to be some sort of intersection in the darkness.  The walls are
+featureless, flawless, the obsidian rock a solid face devoid of
+imperfections.
+~
+~
+301596676 11 5 0
+D2
+~
+~
+0 -1 75035 10 10 5
+D3
+~
+~
+0 -1 75045 10 10 5
+E
+1 west dull red-orange glow~
+Rising dull, red-orange and hot, a wave of heat flows on an air current
+from the direction of the radiant glow.
+~
+-1
+S
+
+#75045
+Dead End - Pool of Lava~
+A glowing pool of molten lava lies at your feet in this dead end of a
+dark tunnel.  The tunnel leads east, away from the pool.  This small room
+is almost a perfect dome, walls of flawless obsidian formed in the raw
+fury of a volcanic eruption.
+~
+[Phule] pool lava
+~
+301596677 11 5 0
+D1
+~
+~
+0 -1 75044 10 10 5
+E
+pool lava~
+The small pool is only a few feet wide and a handful more feet across,
+yet still even the slightest touch of the burning substance would liquify
+you.
+~
+2199 9 1509949540 3 0
+2199 9 1509949540 3 0
+-1
+S
+
+#0
+

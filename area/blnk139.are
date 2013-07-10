@@ -1,0 +1,2779 @@
+#AREA
+Forgotten Tombs~
+Florian~
+Forgotten Tombs~
+
+5 0
+0
+#ROOMS
+
+#72500
+Beneath the Stone Bier~
+A narrow shaft descends from a hole at the top of this narrow, vertical
+cavern.  Formed from limestone, the passageway is rough, as if it has been
+dug through.  Large divots of stone have been carved out of the limestone
+cavern, providing handholds for climbing.  The walls of the shaft are
+painted with the images of wolves and eagles.
+~
+*I appreciate what eveyone thinks I liked - going back to divots.
+*CFNIAOB
+~
+301465604 11 5 0
+D4
+~
+~
+0 -1 2514 10 10 5
+D5
+~
+~
+0 -1 72501 10 10 5
+E
+handhold large divots~
+Gouged out of the side of the limestone shaft are a series of oval divots
+the size of your hand.  Their purpose seems to be a simple one: to
+provide handholds for climbing the vertical limestone passage.
+~
+E
+walls paintings~
+Applied to the walls in a dark blue, almost black pigment are the
+outlines of animals.  They look very similar to wolves and eagles, but
+more primitive.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb up the limestone shaft, using the handholds.
+~
+E
+to_room~
+$n climbs up the limestone shaft, using the handholds.
+~
+!
+3 0 16
+A
+~
+~
+continue;
+~
+E
+to_char~
+Using the handholds, you climb down the limestone shaft.
+~
+E
+to_room~
+Using handholds, $n climbs down the limestone shaft.
+~
+!
+3 0 32
+-1
+S
+
+#72501
+Inside an Old Cavern Complex~
+This appears to be the beginning of a large series of caverns.  Directly
+to the north is a tall, domed cavern with passages branching off of it. 
+Above your head, a shaft has been dug through the limestone and continues
+upward into darkness.  Chunks of limestone have been gouged out of the
+side of the shaft, providing more than adequate handholds for the ascent.
+~
+*CF
+~
+301465612 11 9 0
+D0
+~
+~
+0 -1 72502 10 10 5
+D4
+~
+~
+0 -1 72500 10 10 5
+E
+chunks divots stone handholds shaft 1 up~
+Gouged out of the side of the limestone shaft are a series of oval chunks
+the size of your hand.  Their purpose seems to be a simple one: to
+provide handholds for climbing the vertical limestone passage.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You climb up the limestone shaft, using the handholds.
+~
+E
+to_room~
+$n climbs up the limestone shaft, using the handholds.
+~
+!
+3 0 16
+-1
+S
+
+#72502
+Domed Cavern~
+Nearly perfectly circular, this cavern is very wide and tall.  Some fifty
+feet above the smooth floor of the limestone cavern is a graceful, domed
+ceiling.  Hanging down from the center of the dome is a single stalactite. 
+Four passages of limestone, hollowed out naturally, branch off from the
+cavern in the cardinal directions.  Directly to the north, the gleam of
+gold catches your eye.
+~
+*CF
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72503 10 10 5
+D1
+~
+~
+0 -1 72523 10 10 5
+D2
+~
+~
+0 -1 72501 10 10 5
+D3
+~
+~
+0 -1 72522 10 10 5
+E
+ceiling dome center single stalactite~
+A single stalactite hangs from the ceiling like a giant dagger ready to
+fall.  Its tip is sharp, though way too high up to be of use.  Formed
+from dark grey limestone, the stalactite is about ten feet in diameter.
+~
+E
+1 north gleam gold~
+Though you cannot see exactly what it is, you are certain of two things. 
+You can see something north just up ahead and whatever it is, it is big. 
+A yellow gleam also catches your eye, as though you were catching a
+glimpse of gold or some other valuable golden metal.
+~
+2144 9 1509949540 3 0
+-1
+S
+
+#72503
+Near a Golden Stalagmite~
+Rising from the ground and nearly filling the cavern is a tall, golden
+stalagmite.  Formed from brilliant yellow, almost gold limestone, the
+dripstone formation comes within a few feet of touching the cavern's
+smooth, pale grey ceiling.  The cavern continues around the golden spire
+to the north and south.
+~
+*CF
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72504 10 10 5
+D2
+~
+~
+0 -1 72502 10 10 5
+A
+1 look~
+golden stalagmite~
+if( rflag( reset0, room ) )
+act_tochar( #iron, ch );
+else
+act_tochar( #none, ch );
+~
+E
+iron~
+A large, golden stalagmite rises from the ground.  At least twenty feet
+in diameter along its base, the stalagmite comes within just a few feet
+of touching the ceiling.  Though the stalagmite looks too slick to climb,
+someone appears to have tried.  A rusty iron hook is stuck in the side of
+the golden stalagmite.
+~
+E
+none~
+A large, golden stalagmite rises from the ground.  At least twenty feet
+in diameter along its base, the stalagmite comes within just a few feet
+of touching the ceiling.  The stalagmite looks much too slick to climb.
+~
+!
+0 0 0
+A
+get take search pull~
+rusty iron hook stalagmite~
+if( rflag( reset0, room ) )
+if( random( 1, 3 ) == 1 ) {
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+remove_rflag( reset0, room );
+obj_to_char( oload( 3119 ), ch );
+}
+else {
+act_tochar( #rust, ch );
+act_notchar( #rrust, ch );
+remove_rflag( reset0, room );
+}
+else
+act_tochar( #already, ch );
+~
+E
+already~
+There is no such object here.
+~
+E
+pull~
+You pull a rusty iron hook free from the side of the stalagmite.
+~
+E
+rpull~
+$n pulls a rusty iron hook free from the side of the stalagmite.
+~
+E
+rust~
+As you try to pull the rusty iron hook free, it crumbles apart.
+~
+E
+rrust~
+$n tries pulling a rusty iron hook out of the golden stalagmite but the
+hook crumbles to pieces.
+~
+!
+0 0 0
+2145 9 1509949540 3 0
+2145 9 1509949540 3 0
+-1
+S
+
+#72504
+Circular Cavern~
+Roughly circular, this cavern is very large.  Some thirty feet above your
+feet the ceiling stands, with a few slim stalactites dripping off of it. 
+Four passages of limestone, hollowed out naturally and smoothly, branch
+off from the cavern in the cardinal directions.  Directly to the south
+you can see a faint gleam of gold.
+~
+*CF
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72505 10 10 5
+D1
+~
+~
+0 -1 72527 10 10 5
+D2
+~
+~
+0 -1 72503 10 10 5
+D3
+~
+~
+0 -1 72506 10 10 5
+E
+1 south~
+To the south, you can see something golden.  You cannot tell what is it
+from here, though it appears quite large.
+~
+E
+few slim stalactites~
+From the ceiling of the cavern hang two slim, limestone stalactites. 
+Each is no longer than your arm and too high for you to reach.  They are
+dark brown in color, unlike the rest of the cavern which is pale grey.
+~
+2145 9 1509949540 3 0
+-1
+S
+
+#72505
+Before a Small, Pouring Fountain~
+This little cavern has a high ceiling and an extremely level floor. 
+Neither stalactites nor stalagmites mar the perfect smoothness of the
+cavern's ceiling or floor.  Protruding from the northern, back wall of
+the limestone chamber is a small font with the visage of a lion's
+face.  To the south, the cavern branches outward in several directions.
+~
+*CF
+~
+301465608 11 9 0
+D2
+~
+~
+0 -1 72504 10 10 5
+E
+small leonine line fountain font~
+Set into the wall of the cavern is a small, stone basin held in the jaws
+of a lion's mouth.  The stone lion face is neither fierce nor kind. 
+Water pours from its mouth into the basin.  The lion's two, ruby eyes
+wink at you.
+~
+A
+get take steal remove pry~
+red ruby eyes~
+if( rflag( reset0, room ) ) {
+if( !mob_in_room( 2142, room ) ) {
+    act_tochar( #reach, ch );
+    act_notchar( #rreach, ch );
+    wait( 1 );
+    act_room( #spirit, ch );
+    mload( 2142, room );
+    }
+  else {
+    act_tochar( #prevent, ch );
+    act_notchar( #rprevent, ch );
+    mob = mob_in_room( 2142, room );
+    attack_cold( mob, ch, 1d5+5, "chilling touch" );
+    }
+  }
+else {
+  act_tochar( #bite, ch );
+  act_notchar( #rbite, ch );
+  i = 2d4+8;
+  dam_message( ch, i, "The lion's stony bite" );
+  inflict( ch, mob, i, "by greed" );
+  }
+~
+E
+reach~
+You reach over the water basin and begin prying one of the lion's ruby
+eyes out.
+~
+E
+rreach~
+$n reaches over the water basin and begins prying one of the lion's ruby
+eyes out.
+~
+E
+spirit~
+@BA watery spirit rises from the fountain to stop the desecration!@n
+~
+E
+prevent~
+@BThe spirit of the fountain prevents you from stealing the lion's ruby
+eyes.
+~
+E
+rprevent~
+@BThe spirit of the fountain prevents $n from stealing the lion's ruby
+eyes.
+~
+E
+bite~
+@RThe lion reaches out to bite you as you try to take its eyes!@n
+~
+E
+rbite~
+@RThe lion reaches out to bite $n as $e tries to take its eyes!@n
+~
+!
+0 0 0
+A
+1 l lo loo look~
+small leonine line fountain font~
+act_tochar( #desc, ch );
+~
+E
+desc~
+Set into the wall of the cavern is a small, stone basin held in the jaws
+of a lion's mouth.  The stone lion face is neither fierce nor kind. 
+Water pours from its mouth into the basin.  The lion's two, ruby eyes
+wink at you.
+~
+!
+0 0 0
+1 17 1509949540 -2 0
+2145 9 1509949540 3 0
+-1
+S
+
+#72506
+Before a Yawning Chasm~
+A large, cavernous passage extends from the west to the east.  However, a
+yawning chasm stretches across the entire cavern from north to south,
+preventing travel to the west.  A single spiraling stalactite hangs from
+the ceiling of the passage, directly over the center of the chasm.
+~
+*CF
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72504 10 10 5
+D3
+~
+~
+0 -1 72507 10 10 5
+E
+single spiraling stalactite~
+Hanging from the ceiling is a single stalactite.  Roughly six feet long,
+the spiraling dripstone formation has a wide, anchoring base.  The side
+of the stalactite has a couple of chips out of it, as though someone has
+thrown something at it.
+~
+A
+~
+~
+if( ch == mob_in_room( 2144, room ) ) {
+  act_room( #scram, ch );
+  continue;
+  }
+if( ch == mob_in_room( 2145, room ) ) {
+  act_room( #fly, ch );
+  continue;
+  }
+if( !is_exhausted( ch ) ) {
+  if( can_fly( ch ) ) {
+    act_room( #fly, ch );
+    continue;
+    }
+  else {
+    act_tochar( #pass, ch );
+    act_notchar( #rpass, ch );
+    }
+  }
+else
+  continue;
+~
+E
+scram~
+A white and red spotted spider clings to the side of the cavern and
+climbs across the chasm.
+~
+E
+fly~
+A small brown bat easily flies across the chasm.
+~
+E
+pass~
+You cannot cross the chasm - it is too wide.
+~
+E
+rpass~
+$n attempts to cross the chasm but draws back in fear.
+~
+!
+3 0 8
+A
+swing cross~
+rope grappling hook chasm 1 west~
+if( room == find_room( 72506 ) ) {
+i = 72506;
+j = 72507;
+  }
+else {
+i = 72527;
+  j = 72526;
+  }
+if( !rflag( reset0, find_room( j ) ) ) {
+  if( rflag( reset1, find_room( j ) ) ) {
+    if( is_player( ch ) ) {
+remove_rflag( reset1, find_room( j ) );
+      act_tochar( #swing, ch );
+      act_notchar( #rswing, ch );
+      transfer( ch, find_room( j ) );
+      act_notchar( #arrives, ch );
+      wait( 1 );
+      act_room( #leave, ch );
+      acode( find_room( 72506 ), 3 );
+      }
+    else {
+remove_rflag( reset1, find_room( j ) );
+      act_tochar( #pet, ch );
+      act_notchar( #rpet, ch );
+      transfer( ch, find_room( j ) );
+      act_notchar( #arrives, ch );
+      acode( find_room( 72506 ), 3 );
+      }
+    }
+  else {
+    act_tochar( #cant, ch );
+    end;
+    }
+  }
+else {
+  act_tochar( #how, ch );
+  end;
+  }
+~
+E
+swing~
+Grabbing ahold of the rope, you swing across the chasm!
+~
+E
+rswing~
+$n grips the rope and swings across the entire chasm.
+~
+E
+pet~
+You somehow manage to cling to the rope and swing across the chasm!
+~
+E
+rpet~
+$n clings to the rope somehow and swings across the chasm!
+~
+E
+cant~
+The rope has not swung back here yet.
+~
+E
+how~
+How do you plan to get across the chasm?
+~
+E
+arrives~
+$n swings into the cavern, having crossed the yawning chasm.
+~
+E
+leave~
+@GThe rope returns to the other side of the chasm.
+~
+E
+return~
+@GThe rope returns from the other side of the chasm.
+~
+!
+0 0 0
+A
+~
+~
+wait( 2 );
+if( room == find_room( 72506 ) ) {
+j = 72507;
+i = 72506; }
+else {
+  j = 72526;
+i = 72527;
+}
+send_to_room( #return, find_room( i ) );
+set_rflag( reset1, find_room( j ) );
+~
+E
+return~
+@GThe rope returns from the other side of the chasm.@n
+~
+!
+0 0 0
+A
+use throw lasso grapple~
+rope grappling hook ceiling stalactites~
+if( room == find_room( 72506 ) ) { i = 72507;
+  j = 72506; }
+if( room == find_room( 72527 ) ) { i = 72526;
+j = 72527; }
+    if( has_obj( 3128, ch ) ) {
+      if( rflag( reset0, find_room( i ) ) ) {
+        if( find_stat( ch, dex ) > random( 9, 30 ) ) {
+          act_tochar( #throw, ch );
+          act_notchar( #rthrow, ch );
+          wait( 1 );
+          act_room( #latch, ch );
+          remove_rflag( reset0, find_room( i ) );
+          junk_obj( has_obj( 3128, ch ), 1 );
+          }
+        else {
+          act_tochar( #throw, ch );
+          act_notchar( #rthrow, ch );
+          wait( 1 );
+          act_room( #fail, ch );
+          }
+        }
+      else
+        act_tochar( #already, ch );
+      }
+    else
+      act_tochar( #donthave, ch );
+~
+E
+throw~
+@YYou twirl the rope and grappling hook around and around and release it!@n
+~
+E
+rthrow~
+@Y$n twirls a rope and grappling hook around and around and releases it!@n
+~
+E
+latch~
+@GThe grappling hook manages to latch onto something above the chasm.@n
+~
+E
+fail~
+@RThe grappling hook fails to latch hold of anything and falls back down.@n
+~
+E
+donthave~
+You do not have anything to help you in this case.
+~
+E
+already~
+A rope already hangs from above the chasm, ready to be crossed.
+~
+!
+0 0 0
+A
+get take grap remove~
+rope grappling hook~
+if( room == find_room( 72506 ) )
+i = 72507;
+if( room == find_room( 72527 ) )
+i = 72526;
+if( room == find_room( 72526 ) )
+i = 72526;
+if( room == find_room( 72507 ) )
+i = 72507;
+if( is_player( ch ) ) {
+if( !rflag( reset0, find_room( i ) ) ) {
+    act_tochar( #remove, ch );
+    act_notchar( #rremove, ch );
+    set_rflag( reset0, find_room( i ) );
+    obj_to_char( oload( 3128 ), ch );
+    }
+  else
+    act_tochar( #none, ch );
+  }
+else
+  act_tochar( #not, ch );
+~
+E
+remove~
+@CWith a daring reach, you yank the rope out of the ceiling!@n
+~
+E
+rremove~
+@$Cn removes the rope from the ceiling with a daring reach and grab.@n
+~
+E
+none~
+There is not a rope to remove from the ceiling.
+~
+E
+not~
+You cannot handle another item.
+~
+!
+0 0 0
+2144 9 1509949540 3 0
+-1
+S
+
+#72507
+Slanted Cavern~
+This broad cavern slants slightly to the south at a downward angle. 
+While the limestone walls are slightly rough, the floor is extremely
+smooth.  It is as if the floor has been polished or worn down by an
+abundance of traffic, yet you can see little other evidence of this.  The
+cavern continues to the south and east.  Also, along the northern part of
+the cavern is a giant slab of stone.  Beside it, set into the limestone,
+is a depression shaped like a hand print.
+~
+||hand print||look handprint|| look frame||
+[Merior] i'm not sure i like the copying the mirror side
+*who said its natural? Medicine man tells the tale.
+[Merior] i see: BUG clings to the wall and climbs across the chasm.
+*fixed, but its the code, not me.
+[Merior] where is the acode to go east here?
+There isnt one. one way travel
+*added fake to explain why
+[Merior] i can get the rope/hook without having put it in?
+*Anyone can get it once its there. No one owns a rope that just dangles...
+*CF
+~
+301465600 11 9 0
+D0
+stone slab~
+stone slab~
+235 -1 72508 10 10 5
+D1
+~
+~
+0 -1 72506 10 10 5
+D2
+~
+~
+0 -1 72520 10 10 5
+A
+touch push press depress~
+print handprint~
+if( rflag( reset0, find_room( 72507 ) ) ) {
+  if( !is_open( find_room( 72507 ), north ) ) {
+    remove_rflag( reset0, find_room( 72507 ) );
+    act_tochar( "You place your hand on the handprint indentation.", ch );
+    act_notchar( "$n places $s hand on the wall.", ch );
+    wait( 2 );
+    send_to_room( "The slab of stone rises into the ceiling of the cavern.", find_room( 72508 ) );
+    send_to_room( "The slab of stone rises into the ceiling of the cavern.", find_room( 72507 ) );
+    open( find_room( 72507 ), north );
+    }
+  else
+    act_tochar( "Touching the handprint doesn't seem to do anything.", ch );
+  }
+else
+  act_tochar( "The handprint panel cannot be depressed any further.", ch );
+~
+!
+0 0 0
+A
+1 look~
+depression indentation handprint print~
+act_tochar( #desc, ch );
+if( rflag( reset0, find_room( 72507 ) ) )
+  act_tochar( #no, ch );
+else
+  act_tochar( "The stone of the handprint is depressed into the wall.", ch );
+~
+E
+desc~
+Set into the limestone wall, next to the stone frame, is a sizable
+indentation.  Shaped like a handprint, the five-fingered depression is
+has been made from a fine-grained, dark granite rather than limestone.
+~
+E
+no~
+The stone of the handprint has a slight seam around it and is flush with
+the wall.
+~
+!
+0 0 0
+A
+1 look~
+framework stone 1 north slab~
+if( is_open( find_room( 72507 ), north ) )
+act_tochar( #open, ch );
+else
+act_tochar( #closed, ch );
+~
+E
+open~
+A framework of stone is set into the wall.  In it, you can see a slab of
+granite that has ascended into the ceiling, like a door.
+~
+E
+closed~
+A framework of stone is set into the wall of limestone.  Within it is a
+large slab of granite, much like a door.  The slab looks to somehow
+ascend into the ceiling of the cavern.
+~
+!
+0 0 0
+A
+get take remove grab~
+rope grappling hook~
+acode( find_room( 72506 ), 5 );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 72527 ), 1 );
+~
+!
+3 0 2
+A
+throw use lasso grapple~
+rope grappling hook ceiling~
+act_tochar( #try, ch );
+~
+E
+try~
+@RYou try to use the grappling hook, but you cannot find anything to
+attach it to from this side.
+~
+!
+0 0 0
+2144 9 1509949540 3 0
+-1
+S
+
+#72508
+Narrow Cavern Passage~
+This natural cavern is hollowed out of pale grey limestone.  The side
+walls of the cavern are close together, making the passageway west very
+narrow.  Set into the south wall is a large stone frame.  Next to the
+frame is a depression in the south wall shape like a hand print.
+~
+||hand print||look handprint|| look frame||
+*CF
+~
+301465600 11 9 0
+D2
+stone slab~
+stone slab~
+235 -1 72507 10 10 5
+D3
+~
+~
+0 -1 72509 10 10 5
+A
+touch push press depress~
+handprint print~
+acode( find_room( 72507 ), 1 );
+~
+!
+0 0 0
+A
+1 look~
+depression impression handprint print~
+acode( find_room( 72507 ), 2 );
+~
+!
+0 0 0
+A
+1 look~
+framework stone 1 south slab~
+acode( find_room( 72507 ), 3 );
+~
+!
+0 0 0
+2145 9 1509949540 3 0
+2145 9 1509949540 3 0
+-1
+S
+
+#72509
+Twisting Cavern~
+The cavern, though tall, is not very wide here.  Formed from pale grey
+limestone, the cavern twists sharply like a serpent in the throws of
+death.  Despite its twisted nature, you can see that the cavern leads
+both east and south.  On the walls of the stony chamber, pictures of palm
+trees and triangles have been painted with dark pigments.
+~
+*CF
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72508 10 10 5
+D2
+~
+~
+0 -1 72510 10 10 5
+E
+pictures palm trees triangles~
+Painted upon the walls of the cavern here are various images of palm
+trees.  Short and tall, thick and thin, no matter the wide variety, each
+tree is clearly a palm tree.  Painted around some of the trees are
+triangles.  One particular pair of palm trees cross and form an 'X'
+pattern.
+~
+2145 9 1509949540 3 0
+-1
+S
+
+#72510
+Long, Sloping Cavern~
+From your current position, you can see that the limestone cavern twists
+to the east directly to the north.  It also extends far to the south, so
+far that you cannot see its end from here.  The cavern's smooth, pale
+grey floor slopes at a downward angle to the south.  Thick, heavy dust
+coats the floor.
+~
+[Merior] i still dont understand how it can show no traffic when we are
+stomping around 
+*altered some, but such is the limitations of rdescs :P I'd opt for
+dynamic rdescs in a sec if I htought gc would code them...and if other
+imms wouldnt kill me.
+*CF
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72509 10 10 5
+D2
+~
+~
+0 -1 72511 10 10 5
+E
+floor thick dust~
+A large amount of dust covers the floor.  It is evenly spread and its
+surface has no identifiable tracks or visible signs of traffic on it
+other than your own.  Perhaps an inch thick, the dust looks to be
+concealing nothing of importance.
+~
+2144 9 1509949540 3 0
+-1
+S
+
+#72511
+Long, Sloping Cavern~
+A cavern passage extends nearly directly north and south here.  There are
+no unusual limestone formations in the immediate vicinity, though the
+floor of the passage slants downward to the south.  A smaller cavern
+branches off the passage to the west.
+~
+*CF
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 72510 10 10 5
+D2
+~
+~
+0 -1 72513 10 10 5
+D3
+~
+~
+0 -1 72512 10 10 5
+-1
+S
+
+#72512
+Cavern Tomb~
+This small cavern has but one way out and that is through a wide gap to
+the east.  The walls of this limestone chamber have been painted with
+pictures of deer being chased by hunters armed with bows.  In the center
+of the room is a long, stone bier.  Something appears to be atop the
+funerary slab.
+~
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72511 10 10 5
+E
+pictures deer hunters~
+A series of pictures have been paintd upon the walls.  They depict
+figures carrying what look to be simple bow and arrows chase after deer
+and the actual rituals of carving them up and roasting them.
+~
+2139 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+980 81 1509949465 -2 0
+9 80 1509949445 -2 0
+-1
+S
+
+#72513
+Long, Sloping Cavern~
+Though the cavern has a distinct downward slope to the south, it is not
+enough to impede travel in any way.  The pale grey limestone walls are
+slightly rippled and completely dry.  Two smaller caves branch off from
+the cavern to the west and east.  The cavernous passage also continues to
+the south.
+~
+*CF
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 72511 10 10 5
+D1
+~
+~
+0 -1 72515 10 10 5
+D2
+~
+~
+0 -1 72516 10 10 5
+D3
+~
+~
+0 -1 72514 10 10 5
+-1
+S
+
+#72514
+Cavern Tomb~
+The floor of this small cavern slopes downward to the east slightly
+towards the only passage in and out of the chamber.  A small amount of
+dirt and pebbles has accumulated along the cavern's threshold.  All
+around the limestone chamber, pictures of stars have been painted with
+dark blue and grey pigments.  A single stone bier rests in the center of
+the cavern.
+~
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72513 10 10 5
+E
+small amount dust pebbles~
+Along the threshold of the chamber is a small accumulation of pebbles and
+dirt.  The pile of detritus appears to have been collecting here for
+quite some time as a thick film of dust covers it.
+~
+E
+stars pictures~
+The pictures around the room are of stars.  Many of them look to be of
+constellations, but you do not recognize any of them.
+~
+A
+~
+threshold 1 east dirt pebbles~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) == 1 ) {
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 78 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+find~
+You find a nice-looking pebble among those in the threshold!
+~
+E
+rfind~
+$n finds something along the threshold.
+~
+E
+nothing~
+You find nothing along the threshold.
+~
+!
+9 0 0
+2139 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+3029 81 1509949450 -2 0
+79 80 1509949450 -2 0
+-1
+S
+
+#72515
+Cavern Tomb~
+This chamber is vaguely circular and formed from limestone. A small passage
+leads west from the cavern and adjoins with a larger one.  The only thing
+within the chamber is a long, stone bier with something cloaked in shadow
+lying atop it.  Images of foxes and bears have been painted upon the
+pale, grey walls and seem to dance around the funerary slab.
+~
+~
+301465600 11 9 0
+D3
+~
+~
+0 -1 72513 10 10 5
+E
+painting images foxes bears~
+Dancing around upon the walls are the images of bears and foxes.  Several
+of the animals look quite real and their eyes seem to follow you
+whereever you look.
+~
+2139 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+3032 81 1509949450 -2 0
+3028 80 1509949445 -2 0
+-1
+S
+
+#72516
+Long, Sloping Cavern~
+The passage ceases its downward slope to the south just a few feet before
+it reaches a dead end.  It levels out just in front of two small openings
+into other caverns.  The cavern stretches out of sight to the north.  A
+large amount of dust covers the floor.
+~
+*CF
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 72513 10 10 5
+D1
+~
+~
+0 -1 72518 10 10 5
+D3
+~
+~
+0 -1 72517 10 10 5
+E
+dust large amount~
+A large amount of dust covers the floor.  It is evenly spread and its
+surface has no identifiable tracks or visible signs of traffic on it,
+other than what you'd normally expect from yourself.  Perhaps an inch
+thick, the dust looks to be concealing nothing of importance.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You squeeze into the west cavern through the small gap.
+~
+E
+to_room~
+$n enters into the west cavern through a small gap.
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+You squeeze through a small gap of stone to the east.
+~
+E
+to_room~
+$n squeezes through a limestone opening to the east.
+~
+!
+3 0 2
+-1
+S
+
+#72517
+Cavern Tomb~
+A single slab of grey stone occupies this chamber, atop which lies
+something dark and shadowy.  Aside from this, the small, limestone
+cavern is completely empty.  Images of fierce lions and timid rabbits
+decorate the cavern's pale, grey walls.  A much larger cavern lies to the
+east, through a small gap in the wall.
+~
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72516 10 10 5
+E
+pictures paintings rabbits lions~
+Playful rabbits and fierce lions have been painted upon the walls of the
+cavern.  The depictions are quite simple, and lacking in artistic
+definition.  But they are obviously rabbits and lions, no matter how badly
+they are painted.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You leave the tomb through a small gap in the east wall.
+~
+E
+to_room~
+$n leaves the tomb through a small gap in the east wall.
+~
+!
+3 0 2
+2139 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+189 81 1509949465 -2 0
+935 80 1509949445 -2 0
+-1
+S
+
+#72518
+Cavern Tomb~
+The ceiling of the limestone cavern is unusually low.  Luckily, there are
+no stalactites upon which to hit your head.  Painted upon the walls of
+this chamber are illustrations of very masculine wolves.  The eastern
+wall of the cavern is covered with a light-colored, hanging fungus. 
+Also, in the center of the room rests a long, funerary slab.  The only
+way out of the chamber lies to the west, where the cavern adjoins a
+larger cavern.
+~
+*CF
+~
+301465600 11 9 0
+D1
+wall hanging fungus~
+~
+235 -1 72519 10 10 5
+D3
+~
+~
+0 -1 72516 10 10 5
+E
+wall fungus lightly-colored~
+A wall of light yellow fungus hangs all along the eastern wall of the
+chamber.  It has a very pungent spell wafting from it and does not look
+appetizing in the least.  You can, however, feel a slight breeze coming
+from beyond it.
+~
+E
+paintings pictures illustrations masculine wolves~
+Painted upon the walls of this cavern are a variety of wolves.  All
+appear to be in different poses, but each looks fierce.  All the designs
+clearly depict male wolves, going through their daily routines of
+eating, sleeping, playing and hunting.
+~
+E
+ceiling low~
+The ceiling of this small tomb is very low.  The limestone up above looks
+to be folding under some great weight.
+~
+A
+move part~
+wall fungus hanging~
+if( !is_open( find_room( 72518 ), east ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( find_room( 72518 ), east );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( find_room( 72518 ), east );
+  }
+~
+E
+open~
+You gently move aside the hanging wall of fungus.
+~
+E
+ropen~
+$n gently moves aside the hanging wall of fungus.
+~
+E
+close~
+With great care, you move the fungus to conceal what lies beyond.
+~
+E
+rclose~
+$n moves the fungus with great care, concealing what lies beyond.
+~
+!
+0 0 0
+2139 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+186 81 1509949450 -2 0
+34 80 1509949445 -2 0
+-1
+S
+
+#72519
+Tomb with a Painted Ceiling~
+Like a curtain, a wall of light-colored fungus hangs from over the
+cavern's only egress, which is directly to the west.  Like the chamber
+before it, the focus of this small limestone cavern appears to be the
+long, stone bier which lies at its center.  Above the funerary slab,
+painted on the ceiling, is the giant paw print of a wolf.
+~
+*CF
+~
+301465608 11 9 0
+D3
+wall of hanging fungus~
+wall hanging fungus~
+235 -1 72518 10 10 5
+E
+wall fungus~
+A wall of light yellow fungus hangs all along the western wall of the
+chamber.  It has a very pungent spell wafting from it and does not look
+appetizing in the least.  You can, however, feel a slight breeze coming
+from beyond it.
+~
+E
+giant paw print wolf~
+Painted with an unusally deep, ochre paint, a giant paw print decorates
+the ceiling.  The print is obviously that of a wolf's.  The giant
+footprint is painted directly over the stone bier.
+~
+A
+move part~
+wall hanging fungus curtain~
+acode( find_room( 72518 ), 1 );
+~
+!
+0 0 0
+A
+~
+~
+if( !is_open( room, west ) )
+act_tochar( #cant, ch );
+else
+continue;
+~
+E
+cant~
+The fungus curtain is too much in the way of leave the cavern without at
+least moving it.
+~
+E
+to_char~
+You pass under the fungus and out of the tomb.
+~
+E
+to_room~
+$n passes under the fungus and out of the tomb.
+~
+!
+3 0 8
+2138 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+1077 81 1509949450 -2 0
+1106 80 1509949445 -2 0
+-1
+S
+
+#72520
+Small, Cavern Pool~
+This small cavern has two branches leading off from it.  The branch which
+leads north slants upward in that direction while the passage that leads
+east off from the cavern looks overgrown with multiple types of fungus. 
+Towards the back the chamber is a small, dark pool of water, though much
+of it fills the room.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 72507 10 10 5
+D1
+~
+~
+0 -1 72521 10 10 5
+E
+dark pool water~
+A pool of dark but fresh water lies towards the back of the cavern,
+within a natural depression in the floor.  Though you cannot see much
+beneath its surface, you think you can detect the occasional bit of
+movement from it.
+~
+E
+1 east fungus~
+To the east grows an assortment of fungus.  Much o it is tall and too
+thick to navigate through.
+~
+A
+search~
+cavern pool~
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    if( random( 1, 20 ) == 1 ) {
+      act_tochar( #find, ch );
+      act_notchar( #rfind, ch );
+      obj_to_char( oload( 304 ), ch );
+      remove_rflag( reset0, room );
+      }
+    else {
+      act_room( #jump, ch );
+      mload( 180, room );
+      mob = mob_in_room( 180, room );
+      attack( mob, ch, 1d5, "clacking claw" );
+      remove_rflag( reset0, room );
+      }
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #not, ch );
+~
+E
+not~
+You edge near the pool but find nothing in it.
+~
+E
+find~
+Along the edges of the cavern pool you find a strange root.
+~
+E
+rfind~
+$n finds something along the edges of the cavern pool.
+~
+E
+jump~
+A small green crab rises out of the cavern pool!
+~
+E
+nothing~
+You see nothing of interesting in the cavern pool.
+~
+!
+9 0 0
+A
+~
+~
+if( ch == mob_in_room( 2144, room ) )
+  continue;
+if( ch == mob_in_room( 2145, room ) )
+  continue;
+if( !is_exhausted( ch ) ) {
+  act_tochar( #pass, ch );
+  act_notchar( #rpass, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+pass~
+@GYou push through a large amount of fungus, into a chamber full of it!
+~
+E
+rpass~
+$n pushes past some fungus.
+~
+!
+3 0 2
+A
+1 look~
+dark pool water~
+act_tochar( #desc, ch );
+~
+E
+desc~
+A pool of dark but fresh water lies towards the back of the cavern,
+within a natural depression in the floor.  Though you cannot see much
+beneath its surface, you think you can detect the occasional bit of
+movement from it.
+~
+!
+0 0 0
+1388 17 1509949540 -2 0
+2144 9 1509949540 3 0
+-1
+S
+
+#72521
+Overgrown Cavern~
+While this cavern might be quite large, it is hard to tell.  The floor
+and walls are covered with dark green and blue fungi.  The fungi appear
+to be spreading from a central point in the floor.  Two passages branch
+off from the overgrown cavern.  One leads west, into a cavern with a
+small pool, while the other extends south with a downward slope in the
+same direction.  The fungal growths creep along the passages, slowly
+encroaching on the other caverns.
+~
+[Merior] room was empty and i still couldnt go west
+*not suppose to. go around ;)
+[Starshine] add action search crack/crevice for flavor?
+*added
+[Starshine] hmm...why would having a bat or spider in the room result in
+too much fungal growth to move west?  :P 
+*You cant go west. Period. No if/and/buts. have to go around.
+*creatures who live here can because they are use to it and are much smaller.
+[Starshine] perhaps have a more informative message (bat/spider prevents
+movement) or make action clear fungus?
+*bats/spiders have _nothing_ to do with it.
+*You two are on drugs.
+*CF
+~
+301465600 11 9 0
+D2
+~
+~
+0 -1 72522 10 10 5
+D3
+~
+~
+0 -1 72520 10 10 5
+E
+dark green blue fungus floors walls~
+A multitude of different types of fungus grows all throughout the chamber. 
+Most are blue or green in color but they vary in size and shape.  The
+only thing much of the fungus has in common is that they seem to be
+spreading from a central crevice in the floor.
+~
+E
+central crevice crack~
+Running down the cavern's center is a narrow crack.  Little more than
+three inches wide, you are amazed at the amount of fungus which seems to
+be emerging from it.  Damp, warm air rises from the crevice in the floor,
+providing a perfect atmosphere for the fungus to grow in.
+~
+A
+~
+~
+if( ch == mob_in_room( 2144, room ) )
+  continue;
+if( ch == mob_in_room( 2145, room ) )
+  continue;
+act_tochar( #prevent, ch );
+~
+E
+prevent~
+There is too much fungal growth to continue in that direction.
+~
+!
+3 0 8
+A
+~
+crevice crack fungus blue green fungi~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 5 ) == 1 ) {
+    act_tochar( #search, ch );
+    act_notchar( #rsearch, ch );
+    obj_to_char( oload( 2314 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else {
+    act_tochar( #nothing, ch );
+    act_notchar( #rnothing, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #rnothing, ch );
+  }
+~
+E
+search~
+You search around the fungus, and find a loose piece of it within the
+crevice.
+~
+E
+rsearch~
+$n searches around the fungus and finds a loose piece of it within the
+crevice.
+~
+E
+nothing~
+You find nothing interesting among the blue and green fungus.
+~
+E
+rnothing~
+$n searches through the fungus but does not seem to find anything.
+~
+!
+9 0 0
+2145 9 1509949540 3 0
+-1
+S
+
+#72522
+Slanted Cavern~
+This section of the cavern complex is relatively small, with the ceiling
+being no more than twenty feet tall.  A section of the west wall is
+slightly bowed and the limestone has distinct ripples running through it
+around the area.  Two passages lead off from the cavern.  The first leads
+east, into a large, domed cavern while another leads north, slanting
+upwards.
+~
+[Merior] upward angle in the same direction - i still don't like
+[Merior] ceiling extra
+*added.
+[Starshine] room desc: how about "leads north, slanting upwards."?
+Dang, folks, semantics. Do you want to write it?
+*CFiHP*100
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72521 10 10 5
+D1
+~
+~
+0 -1 72502 10 10 5
+E
+slightly bowed section wall ripples distinct~
+Part of the wall is slightly deformed.  The limestone has ripples through
+it, just like you might see on the surface of a pond when a stone is cast
+into it.  The strange deformation looks to be the result of heavy stress
+upon the rocks from above.
+~
+E
+ceiling~
+The limestone ceiling hangs no more than twenty feet above your head. 
+Like the west wall, the ceiling is slightly rippled, as if it has been
+deformed by a vast source of heat.
+~
+2145 9 1509949540 3 0
+-1
+S
+
+#72523
+Slanted Cavern~
+This section of the caverns is relatively large, with the ceiling being
+more than forty feet tall.  A section of the east wall is badly deformed,
+having thick ripples running through it.  Two passages lead off from the
+cavern.  The first leads west, into a large, domed cavern while another
+leads north.  The northern passage slants at an upward angle to the north
+as well.
+~
+*CF
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72524 10 10 5
+D3
+~
+~
+0 -1 72502 10 10 5
+E
+section wall thick ripples~
+The eastern part of the cavern is badly deformed.  The limestone wall has
+large ripples running over its surface, as if great heat or stress has
+been applied to it.
+~
+2145 9 1509949540 3 0
+-1
+S
+
+#72524
+Overgrown Cavern~
+While this cavern might be quite large, it is hard to tell.  The floor
+and walls are covered with dark yellow and red fungi.  The fungi appear
+to be spreading from a central point in the floor.  Two passages branch
+off from the overgrown cavern.  One leads east, into a cavern with a
+small pool while the other extends south in a definite decline.  The
+fungal growths creep along the passages, slowly encroaching on the other
+caverns.
+~
+*CF
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72525 10 10 5
+D2
+~
+~
+0 -1 72523 10 10 5
+E
+dark yellow red fungus~
+A multitude of different types of fungus grows all throughout the chamber. 
+Most are red or yellow in color but they vary in size and shape.  The
+only thing much of the fungus has in common is that they seem to be
+spreading from a central crevice in the floor.
+~
+E
+central crevice crack~
+Running down the cavern's center is a narrow crack.  Little more than
+three inches wide, you are amazed at the amount of fungus which seems to
+be emerging from it.  Damp, warm air rises from the crevice in the floor,
+providing a perfect atmosphere for the fungus to grow in.
+~
+A
+~
+~
+if( ch == mob_in_room( 2144, room ) )
+  continue;
+if( ch == mob_in_room( 2145, room ) )
+  continue;
+act_tochar( #prevent, ch );
+~
+E
+prevent~
+There is too much overgrown fungus in the way!
+~
+!
+3 0 2
+A
+~
+fungus dark yellow red~
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    if( random( 1, 5 ) == 1 ) {
+      act_tochar( #get, ch );
+      act_notchar( #rget, ch );
+      obj_to_char( oload( 2314 ), ch );
+      remove_rflag( reset0, room );
+      }
+    else
+      act_tochar( #nothing, ch );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #not, ch );
+~
+E
+get~
+Looking through the fungus, you find an unusual blue piece of it.
+~
+E
+rget~
+Looking through the fungus, $n finds an unusual blue piece of it.
+~
+E
+not~
+Eeew! Fungus! Gross! Have your master get it!
+~
+E
+nothing~
+You find nothing interesting in the fungus.
+~
+!
+9 0 0
+2144 9 1509949540 3 0
+-1
+S
+
+#72525
+Small, Cavern Pool~
+This small cavern has two branches leading off from it.  The branch which
+leads west adjoins a cavern overgrown with fungus while the passage north
+has a definite incline in the same direction.  Towards the back fo the
+chamber is a small, dark pool of water whose depths spill out and cover
+much of the floor.
+~
+||catch fish||
+||search pool||
+[Merior] the second sentence sounds wrong - north slants upward in that direction?
+*clarified
+[Merior] look pool uses object, not room
+not my fault gc messed it up. acode to replace
+[Calliope] Why can you go west here, and not east from the other side? Wouldn't fungus block both directions?
+Same reason you push a barbed arrow through versus pulling it out of a wound.
+*mostly just to piss people off and go around, but escially because its
+easier to push through this way than the other.
+*CF
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 72526 10 10 5
+D3
+~
+~
+0 -1 72524 10 10 5
+E
+pool water dark~
+Towards the back of the small cavern, a generous amount of water has
+filled in a natural depression in the limestone, creating a small pool. 
+The water within the pool seems clean and fresh, though you cannot see
+far beneath its surface.
+~
+A
+catch~
+red fish little~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #wise, ch );
+  end;
+  }
+if( find_stat( ch, dex ) > random( 13, 19 ) ) {
+  send_to_char( #caught, ch );
+  act_notchar( #hascaught, ch );
+  obj_to_char( oload( 117 ), ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  }
+~
+E
+wise~
+The fish swim out of your reach.
+~
+E
+caught~
+Plunging your hand into the pool, you pull out a small fish!
+~
+E
+hascaught~
+$n Plunges $s hand into the pool, pulling out a small fish!
+~
+E
+to_char~
+Plunging your hand into the small pool, you narrowly miss catching a fish!
+~
+E
+to_room~
+$n plunges $s hand into the small pool but finds nothing.
+~
+!
+0 0 0
+A
+~
+~
+ch = rand_player( room );
+act_room( #flip, ch );
+~
+E
+flip~
+A little red fish jumps out of the pool of water, does a little flip, and
+enters the pool with a splash!
+~
+!
+2 150 0
+A
+search~
+dark pool water~
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    if( random( 1, 20 ) == 1 ) {
+      act_tochar( #find, ch );
+      act_notchar( #rfind, ch );
+      obj_to_char( oload( 3131 ), ch );
+      remove_rflag( reset0, room );
+      }
+    else {
+      act_room( #jump, ch );
+      mload( 183, room );
+      mob = mob_in_room( 183, room );
+      attack( mob, ch, 1d5, "nibbling bite" );
+remove_rflag( reset0, room );
+      }
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #not, ch );
+~
+E
+find~
+Towards the bottom of the pool, you find something silvery.
+~
+E
+rfind~
+$n pulls something out of the pool of water. It looks very shiny.
+~
+E
+jump~
+A small fish with very sharp teeth jumps out of the pool. It looks hungry!
+~
+E
+nothing~
+You find nothing of interesting in the pool.
+~
+E
+not~
+You shy away from the pool, sensing danger.
+~
+!
+9 0 0
+A
+~
+~
+acode( find_room( 72520 ), 2 );
+continue;
+~
+!
+3 0 8
+A
+1 look~
+dark pool water~
+act_tochar( #desc, ch );
+~
+E
+desc~
+Towards the back of the small cavern, a generous amount of water has
+filled in a natural depression in the limestone, creating a small pool. 
+The water within the pool seems clean and fresh, though you cannot see
+far beneath its surface.
+~
+!
+0 0 0
+1388 17 1509949540 -2 0
+2144 9 1509949540 3 0
+-1
+S
+
+#72526
+Slanted Cavern~
+This broad cavern slants slightly to the south at a upward angle.  While
+the limestone walls are smooth, the floor is extremely rough.  It seems
+as if this portion of the caverns has received very little traffic.  The
+cavern continues to the south and west.  Also, along the northern part of
+the cavern is a giant slab of stone.  Beside it, set into the limestone,
+is a depression shaped like a hand print.
+~
+||hand print||look handprint|| look frame||
+[Merior] i like the swinging rope - will it take my whole group across?
+*no, groupies will ahve to swing one at a time - no monks sitting on their dugg just being led ;)
+*CF
+~
+301465600 11 9 0
+D0
+stone slab~
+stone slab~
+235 -1 72528 10 10 5
+D2
+~
+~
+0 -1 72525 10 10 5
+D3
+~
+~
+0 -1 72527 10 10 5
+A
+press push depress touch~
+handprint print~
+if( rflag( reset0, find_room( 72526 ) ) ) {
+  if( !is_open( find_room( 72526 ), north ) ) {
+    remove_rflag( reset0, find_room( 72526 ) );
+    act_tochar( "You place your hand on the handprint indentation.", ch );
+    act_notchar( "$n places $s hand on the wall.", ch );
+    wait( 2 );
+    send_to_room( "The slab of stone rises into the ceiling of the cavern.", find_room( 72528 ) );
+    send_to_room( "The slab of stone rises into the ceiling of the cavern.", find_room( 72526 ) );
+    open( find_room( 72526 ), north );
+    }
+  else
+    act_tochar( "Touching the handprint doesn't seem to do anything.", ch );
+  }
+else
+  act_tochar( "The handprint panel cannot be depressed any further.", ch );
+~
+!
+0 0 0
+A
+1 look~
+indentation depression handprint print~
+act_tochar( #desc, ch );
+if( rflag( reset0, find_room( 72526 ) ) )
+  act_tochar( #no, ch );
+else
+  act_tochar( "The stone of the handprint is depressed into the wall.", ch );
+~
+E
+desc~
+Set into the limestone wall, next to the stone frame, is a sizable
+indentation.  Shaped like a handprint, the five-fingered depression is
+has been made from a fine-grained, dark granite rather than limestone.
+~
+E
+no~
+The stone of the handprint has a slight seam around it and is flush with
+the wall.
+~
+!
+0 0 0
+A
+1 look~
+framework stone 1 north slab~
+if( is_open( find_room( 72526 ), north ) )
+act_tochar( #open, ch );
+else
+act_tochar( #closed, ch );
+~
+E
+open~
+A framework of stone is set into the wall.  In it, you can see a slab of
+granite that has ascended into the ceiling, like a door.
+~
+E
+closed~
+A framework of stone is set into the wall of limestone.  Within it is a
+large slab of granite, much like a door.  The slab looks to somehow
+ascend into the ceiling of the cavern.
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 72527 ), 1 );
+~
+!
+3 0 8
+A
+get take remove grab~
+rope grappling hook~
+acode( find_room( 72506 ), 5 );
+~
+!
+0 0 0
+A
+throw use lasso grapple~
+rope grappling hook ceiling~
+acode( find_room( 72507 ), 6 );
+~
+!
+0 0 0
+2144 9 1509949540 3 0
+-1
+S
+
+#72527
+Before a Yawning Chasm~
+A large passageway of limestone stretches east to west here.  However, a
+yawning chasm extends across the north to south length of the cavern,
+preventing travel to the east.  Two thin stalactites hang down from the
+ceiling, directly over the center of the descending gap into darkness.
+~
+*CF
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72526 10 10 5
+D3
+~
+~
+0 -1 72504 10 10 5
+E
+chasm gap yawning darkness~
+As you look into the chasm, you can see nothing but darkness.  The edges
+of the chasm wall are much too slick to attempt climbing down.  On this
+side of the chasm, there appears to be something stuck in a crevice.
+~
+E
+stalactites two thin~
+From the ceiling hang two stalactites which are each perhaps six inches
+thick.  There is a small gap between them.  It wouldn't be too difficult
+for something to get accidentally caught between them.
+~
+A
+~
+~
+if( ch == mob_in_room( 2144, room ) ) {
+act_room( #scram, ch, obj, mob );
+  continue;
+  }
+if( ch == mob_in_room( 2145, room ) ) {
+act_room( #fly, ch, obj, mob );
+  continue;
+  }
+if( !is_exhausted( ch ) ) {
+  if( can_fly( ch ) ) {
+act_room( #fly2, ch, obj, mob );
+    continue;
+    }
+  else {
+    act_tochar( #pass, ch );
+    act_notchar( #rpass, ch );
+    }
+  }
+else
+  continue;
+~
+E
+scram~
+A white and red spotted spider clings to the wall and climbs across the chasm.
+~
+E
+fly~
+A small brown bat flies across the chasm with ease.
+~
+E
+pass~
+The chasm is too wide to cross.
+~
+E
+rpass~
+$n attempts to cross the chasm but draws back in fear.
+~
+E
+fly2~
+$n flies across the chasm with ease.
+~
+!
+3 0 2
+A
+swing cross~
+chasm rope 1 east grappling hook~
+acode( find_room( 72506 ), 2 );
+~
+!
+0 0 0
+A
+use lasso grapple rope~
+rope grappling hook~
+acode( find_room( 72506 ), 4 );
+~
+!
+0 0 0
+A
+get reach take~
+rope grappling hook~
+acode( find_room( 72506 ), 5 );
+~
+!
+0 0 0
+A
+1 look~
+crevice~
+if( rflag( reset2, room ) )
+act_tochar( #rope, ch );
+else
+act_tochar( #norope, ch );
+~
+E
+rope~
+Along the edge of the chasm, on this size, is a small crevice.  Little
+more than a crack in the limestone floor, the crevice is about two inches
+wide. There appears to be something caught inside the crevice.
+~
+E
+norope~
+Along the edge of the chasm, on this size, is a small crevice.  Little
+more than a crack in the limestone floor, the crevice is about two inches
+wide.
+~
+!
+0 0 0
+A
+search~
+crevice~
+if( rflag( reset2, room ) ) {
+  if( random( 1, 3 ) == 1 ) {
+    act_tochar( #rescue, ch );
+    act_notchar( #rrescue, ch );
+    obj_to_char( oload( 247 ), ch );
+    remove_rflag( reset2, room );
+    }
+  else {
+    act_tochar( #slip, ch );
+    act_notchar( #rslip, ch );
+    remove_rflag( reset2, room );
+    }
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+already~
+You see nothing unusual in or around the crevice.
+~
+E
+rescue~
+From a crevice, you gallantly rescue a length of sturdy rope before it
+falls into a dark chasm.
+~
+E
+rrescue~
+$n rescues a length of sturdy rope from the edges of the chasm.
+~
+E
+slip~
+As you make a grab for the rope, it plunges down into the chasm.
+~
+E
+rslip~
+As $n makes a grab for the rope, it plunges down into the chasm.
+~
+!
+0 0 0
+2145 9 1509949540 3 0
+-1
+S
+
+#72528
+Narrow Cavern Passage~
+This natural cavern is hollowed out of pale grey limestone.  The side
+walls of the passage are close together, making the opening into the
+cavern east very narrow.  Set into the south wall is a large stone
+structure.  Next to the frame is a depression in the south wall shape
+like a hand print.
+~
+||hand print||look handprint|| look frame||
+*CF
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72529 10 10 5
+D2
+stone slab~
+stone slab~
+235 -1 72526 10 10 5
+A
+press push depress touch~
+handprint print~
+acode( find_room( 72526 ), 1 );
+~
+!
+0 0 0
+A
+1 look~
+indentation depression handprint print~
+acode( find_room( 72526 ), 2 );
+~
+!
+0 0 0
+A
+1 look~
+framework stone 1 south slab~
+acode( find_room( 72526 ), 3 );
+~
+!
+0 0 0
+2145 9 1509949540 3 0
+-1
+S
+
+#72529
+Twisting Cavern~
+The cavern, though not very tall here, is wide.  Formed from pale grey
+limestone, the cavern twists gently like a stream, leading both west and
+south.  On the walls of the stony chamber, pictures of birds have been
+painted with dark pigments.  As the cavern continues to the west, it
+becomes much more narrow.
+~
+[Merior] wall/picture extras
+*added
+[Merior] room to west says its narrow - here it says its wide
+*clar. on both sides
+*CF
+~
+301465600 11 9 0
+D2
+~
+~
+0 -1 72530 10 10 5
+D3
+~
+~
+0 -1 72528 10 10 5
+E
+walls pictures birds~
+In red and black pigment, pictures of birds have been painted upon the
+walls.  Many of the birds look like common ravens and robins, but here
+and there, you can see a fanciful bird that can only be from the artist's
+imagination.
+~
+2144 9 1509949540 3 0
+-1
+S
+
+#72530
+Long, Low Cavern~
+From your current position, you can see that, just to the north, the
+limestone cavern twists to the west.  It also extends far south, so far
+in fact that you cannot see its end from here.  The ceiling of this
+passage is very low.  A great amount of dust coats the smooth, limestone
+floor.
+~
+[Merior] dont we leave marks in the dust? if not, why not?
+*clarified
+[Merior] ceiling extra
+*added
+*CF
+~
+301465600 11 9 0
+D0
+~
+~
+0 -1 72529 10 10 5
+D2
+~
+~
+0 -1 72531 10 10 5
+E
+dust floor great amount~
+A large amount of dust covers the floor.  It is evenly spread and its
+surface has no identifiable tracks or visible signs of traffic on it. 
+Perhaps an inch thick, the dust looks to be concealing nothing of
+importance.  The dust is unusual in that it appears quite heavy.  It
+settles back into place once disturbed as if nothing has been through it.
+~
+E
+ceiling low~
+The ceiling here is quite low, barely ten feet high.  The limestone
+strata looks heavily stressed and is bent, as though some great weight
+were pressing down upon it.
+~
+2144 9 1509949540 3 0
+-1
+S
+
+#72531
+Long, Low Cavern~
+A cavern passage extends nearly directly north and south here.  Along the
+western wall, there is a single bulge in the limestone.  Also, the
+ceiling of the cavern here is very low.  A smaller cavern branches off
+the passage to the east.
+~
+[Merior] ceiling extra
+*added, but its a ceiling for crying out loud...if calling it low makes
+it important...hehe 
+*CF
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 72530 10 10 5
+D1
+~
+~
+0 -1 72532 10 10 5
+D2
+~
+~
+0 -1 72533 10 10 5
+E
+single bulge~
+Along the western wall, there is an unusual bulge in the limestone.  The
+rock around it is misshapen and cracked.  It looks as though too much
+stress has been applied to its surface from above.
+~
+E
+ceiling~
+The ceiling here is extremely low, and looks no taller to the south or
+north.  It stands barely ten feet above the ground.
+~
+-1
+S
+
+#72532
+Cavern Tomb~
+The caverns come to a dead end here.  There are no passages branching
+from it except to the west.  While a small amount of dirt covers the
+floor, the limestone chamber seems empty and sterile.  Stained upon the
+walls with dark pigments are pictures of large fish and meandering
+streams.  At the center of the cavern lies a slab of stone being used as
+a bier.
+~
+[Merior] extra for painting
+*added
+[Merior] doesnt really matter, but why is her group crabmen?
+*group type doesnt matter, as long as you use diff ones in the same zone. I dont want to fill groups chart unnecessarily.
+[Merior] make her humanoid or give her marmor
+*done. I hate humanoid flag since you cant set a base ac.
+*CF
+~
+301465600 11 9 0
+D3
+~
+~
+0 -1 72531 10 10 5
+E
+pictures paintings fish streams~
+Tiny green and orange fish decorate the wall.  Many are depicted as
+having jumped from curving blue streams.
+~
+2140 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+3000 81 1509949450 -2 0
+893 80 1509949445 -2 0
+-1
+S
+
+#72533
+Long, Low Cavern~
+Though the cavern has an extremely low ceiling, it is not enough to
+impede travel in any way.  The limestone of this passage is grey in color
+and very dry.  Two smaller caves branch off from the cavern to the west
+and east.  The cavernous passage also continues to the south and north.
+~
+[Merior] ceiling extra
+*added.
+*CF
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 72531 10 10 5
+D1
+~
+~
+0 -1 72535 10 10 5
+D2
+~
+~
+0 -1 72536 10 10 5
+D3
+~
+~
+0 -1 72534 10 10 5
+E
+ceiling~
+You can see little about that ceiling that is unusual.  Made of
+limestone, the ceiling stands barely ten feet above the floor.
+~
+-1
+S
+
+#72534
+Cavern Tomb~
+The walls of this spacious, limestone chamber are characteristically
+smooth and dry.  The floor, which is just as smooth, is covered in a thin
+layer of dirt.  While the majority of the black dirt is evenly
+distributed, some of it is heaped along the base of a long stone bier
+which rests in the center of the cavern.  Painted upon the walls,
+especially around the chamber's entrance to the east, are images of
+running and jumping dogs.
+~
+[Merior] painting extra
+*Added
+[Merior] boots in the dirt seem odd - perhaps put the key here that used
+to be under the dog-shaped rock?  and modify the hint in zarander's tower
+*done deal
+*CF
+[Calliope] That key is popping in the crow's nest.  Might want to remove
+it once this area is open.
+*already slated
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72533 10 10 5
+E
+thin layer dirt~
+A thin layer of dirt covers the floor of this tomb.  Black in color, the
+soil is rich and fertile.  But it is also very old and musty.
+~
+E
+base heap~
+A significant amount of dirt has been heaped along the base of the stone
+bier.  The process does not look to have been natural.  As to what
+purpose it serves, you can only guess.
+~
+E
+painting~
+A multitude of dogs and puppies, painted in black, adorn the walls of
+this cavern.  Many of the canine figures jump and frolic in obvious play. 
+A few, like the ones closest to the bier, stand at attention, as though
+they are on guard.
+~
+A
+search unbury dig~
+base stone bier dirt black earth~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 10 ) == 1 ) {
+    act_tochar( #find, ch );
+    act_notchar( #rfind, ch );
+    obj_to_char( oload( 162 ), ch );
+    remove_rflag( reset0, room );
+    }
+  else
+    act_tochar( #nothing, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+You find nothing of interest at the base of the stone bier.
+~
+E
+find~
+You find a brass key at the base of the stone bier!
+~
+E
+rfind~
+$n finds something buried at the base of the stone bier.
+~
+!
+9 0 0
+2140 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+78 81 1509949450 -2 0
+246 80 1509949450 -2 0
+-1
+S
+
+#72535
+Cavern Tomb~
+This small cavern has two short stalagmites protruding from its floor. 
+The pair of dripstone formations stand opposite of the limestone
+chamber's only entrance to the west.  Images of the moon and sun have
+been painted upon the walls in dark yellow and orange pigments.  At the
+heart of the small cavern lies a long bier of stone.
+~
+[Merior] image extra
+*added
+[Merior] check with talis on the cord - i think we're using an rtable for
+it 
+*he didnt seem to mind and I dont want the ohter junk with it.
+*CF
+~
+301465600 11 9 0
+D3
+~
+~
+0 -1 72533 10 10 5
+E
+two short stalagmites~
+Two short stalagmites rise up from the floor.  Both are formed from grey
+limestone and have had their tips knocked off at some point.  They do not
+appear to have added growth in quite some time.
+~
+E
+images sun moon~
+The images of the sun and moons have been applied to the cavern wall with
+orange and yellow pigments.  There are nine of them all told.  Seven are
+orange and two are yellow.
+~
+2140 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+3000 81 1509949450 -2 0
+621 80 1509949455 -2 0
+-1
+S
+
+#72536
+Long, Low Cavern~
+The cavern's ceiling remains low until just a few feet before it reaches
+a dead end to the south.  The ceiling then rises a little, to a
+comfortable level.  Near where the ceiling gets taller, the cavern
+passage branches to the west and east, into smaller caves.  The limestone
+passageway continues out of sight to the north.
+~
+*CF
+~
+301465608 11 9 0
+D0
+~
+~
+0 -1 72533 10 10 5
+D1
+~
+~
+0 -1 72539 10 10 5
+D3
+~
+~
+0 -1 72537 10 10 5
+-1
+S
+
+#72537
+Cavern Tomb~
+This cavern's north and south walls are very close together while the
+other walls are far apart and very spacious.  A cave-in looks to have
+occurred along the western part of the limestone chamber for piles of
+rubble lie against it.  Painted upon the cavern's pale grey walls are
+pictures of fierce, feminine wolves.  The wolves seem to be gazing upon
+the long stone bier resting at the heart of the narrow cavern.
+~
+|move mound west||
+[Merior] how can we tell the wolf is feminine?
+simple painting, lack of genitals - again not typing that in desc
+[Merior] painting extra
+*added
+[Merior] pass-door ghosts go west through !
+*gave door a name?
+[Merior] you can up the snail shell repop
+*done
+*CF
+~
+301465600 11 9 0
+D1
+~
+~
+0 -1 72536 10 10 5
+D3
+mound of rubble~
+~
+203 -1 72538 10 10 5
+E
+pile rubble~
+A large amount of rubble lies against the west wall.  Though it appears
+to be from a cave-in, some of the rocks within it look strategically
+placed.  You can feel a faint breeze coming from beyond it.
+~
+E
+painting wolves feminine~
+Upon the walls, fierce female wolves have been painted.  Most of the
+she-wolfs stare at the stone bier resting in the cavern, as though
+guarding it.
+~
+A
+move push~
+mound rubble 1 west~
+if( find_stat( ch, str ) > random( 12, 17 ) ) {
+if( !is_open( room, west ) ) {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+open( room, west );
+}
+else {
+act_tochar( #close, ch );
+act_notchar( #rclose, ch );
+close( room, west );
+}
+}
+else
+act_tochar( #cant, ch );
+~
+E
+cant~
+You strain your muscles, but cannot gain leverage over the rubble.
+~
+E
+open~
+You place your shoulder against the rubble and push it aside!  Once out
+of the way, you can see a painted chamber beyond.
+~
+E
+ropen~
+$n places $s shoulder against the rubble and pushes it aside!  Once out
+of the way, you can see a painted chamber beyond.
+~
+E
+close~
+You set your shoulder against a pile of rubble, moving it in front of a
+passageway west.
+~
+E
+rclose~
+$n sets $s shoulder against a pile of rubble, moving it in front of a
+passageway west.
+~
+!
+0 0 0
+2140 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+3000 81 1509949450 -2 0
+189 80 1509949475 -2 0
+-1
+S
+
+#72538
+Tomb with Wall Paintings~
+The remains of a partial cave-in lie to the east, cluttering the small
+cavern's only entrance and exit.  Stalactites barely a foot long hang
+from the ceiling, poised directly above the long stone bier resting at
+the cavern's center.  Painted upon the smooth, pale grey walls are small
+paw prints.
+~
+||move mound east||
+[Merior] can east close? if so, room can be wrong
+*it says clutering, doesnt say sealing off.  It doesnt say either fully. 
+added leaving message to clarify.
+[Merior] if token doesnt always pop - should it be in her description?
+*nod, yeah, i think it should. see mirror wrong for argument :)
+[Merior] is stone just treasure?
+no, its a replacenet for low-level rbacers or equal gem bracers
+[Merior] generally 'big' mobs are more then 2 levels higher then little ones
+*um, yeah, so?  general zones follow the chief/shaman/cook/gaurd/warrior
+pattern too which is not exactly original. The mobs are 20% higher than their guards :p...
+*added paw print paint
+*CF
+~
+301465600 11 9 0
+D1
+mound of rubble~
+mound rubble~
+203 -1 72537 10 10 5
+E
+cave-in remains pile rubble~
+A large amount of rubble lies against the east wall.  Though it appears
+to be from a cave-in, some of the rocks within it look strategically
+placed.  You can feel a faint breeze coming from beyond it.
+~
+E
+paw prints~
+Tiny paw prints decorate the walls.  Most of them are half as big as your
+hand.  They look like the paw prints of wolf cubs.
+~
+A
+move push~
+mound rubble 1 east~
+if( find_stat( ch, str ) > random( 12, 17 ) ) {
+  if( !is_open( room, east ) ) {
+    act_tochar( #open, ch );
+    act_notchar( #ropen, ch );
+    open( room, east );
+    }
+  else {
+    act_tochar( #close, ch );
+    act_notchar( #rclose, ch );
+    close( room, east );
+    }
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+open~
+You strain your muscles, moving the mound of rubble aside.  Beyond it,
+you find a cavernous passageway.
+~
+E
+ropen~
+$n strains $s muscles, moving the mound of rubble aside.  Beyond it, you
+can see a cavernous passageway.
+~
+E
+close~
+You shove some rubble in front of the passageway leading east.
+~
+E
+rclose~
+$n shoves some rubble in front of the passageway leading east.
+~
+E
+cant~
+You strain your muscles, but cannot gain leverage over the rubble.
+~
+!
+0 0 0
+A
+~
+~
+if( !is_open( room, east ) )
+act_tochar( #cant, ch );
+else
+continue;
+~
+E
+to_char~
+You tred east past the rubble.
+~
+E
+to_room~
+$n climbs east over the rubble.
+~
+E
+cant~
+There is too much rubble obscuring the way east.
+~
+!
+3 0 2
+2137 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+1053 81 1509949450 -2 0
+901 80 1509949445 -2 0
+-1
+S
+
+#72539
+Cavern Tomb~
+The entrance to this cavern is little more than a gap in the western wall. 
+Within, you can see a series of horses painted upon the wall.  Formed
+from limestone, the cavern's surfaces are smooth and dry.  There is very
+little within the chamber, save for a long bier of grey stone.
+~
+[Merior] make him humanoid or give him marmor
+*done
+*CF
+[Loxus] is there supposed to be a _male_ ghost in here?
+~
+301465600 11 9 0
+D3
+~
+~
+0 -1 72536 10 10 5
+E
+walls painted painting horses~
+A series of crude images decorate the walls.  The images are of both
+short and tall horses, each of which are frolicing and dancing about.
+~
+2139 9 1509949540 3 0
+3086 49 1509949540 -2 0
+3087 113 1509949540 -2 0
+33 81 1509949450 -2 0
+1052 80 1509949445 -2 0
+-1
+S
+
+#0
+

@@ -1,0 +1,3263 @@
+#AREA
+Clan Strongholds~
+Orb~
+~
+
+0 0
+0
+#ROOMS
+
+#47250
+The Stables~
+This large room is lined with hitching posts and feeding troughs.  The
+smell of the earthen walls and floor mingles with the scent of animals.
+The floor is strewn with straw, but surprisingly free of other litter.  A
+crude staircase leads up.
+~
+~
+33030151 0 9 0
+D1
+~
+~
+0 -1 47251 10 10 5
+D3
+polished granite door~
+polished granite door~
+407 2759 23063 10 10 5
+-1
+S
+
+#47251
+A Small Chamber~
+You are in a small room, illuminated by a torches set in large holders
+which stand on either side of the entry.  The walls are made of large
+slabs of polished granite fitted together flawlessly.  You see a doorway
+to the north, its massive wooden doors standing open in invitation.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47252 10 10 5
+D3
+~
+~
+0 -1 47250 10 10 5
+-1
+S
+
+#47252
+Common Room~
+You have entered a large, low room with granite-panelled walls.  A
+fountain stands in the southeast corner, and the southwest corner is
+graced by a statue of a small vyan.  A large kettle of simmering elf stew
+sits in a fire-pit in the center of the room.  A bank teller stands
+beyond a window in the western wall.  A gracefully curving staircase
+leads down and an open doorway leads south.
+~
+~
+33030151 0 9 0
+D2
+~
+~
+0 -1 47251 10 10 5
+D5
+~
+~
+0 -1 47253 10 10 5
+E
+statue~
+This little vyan is carved in pure, black obsidian.  A plaque at the base
+of the statue is engraved with the words: Asser Ksaryan.  Known in these
+realms as Assamit, Master Thief and beloved of Dark Watch.  We thank him
+for his generosity and keep him in our hearts.
+~
+1901 17 1509949540 -2 16
+-1
+S
+
+#47253
+Great Hall~
+This immense chamber has been meticulously hewn from the living rock, its
+walls rising at least twenty feet to reach the gracefully domed ceiling.
+Intricate carvings line the walls, showing a glimpse of the many wars,
+battles and conquests won by mighty dark warriors.  Fiery, flickering
+light radiates from dozens of torches mounted on the walls in golden
+holders, bringing the carved surfaces to life.  A small doorway leads to
+the east, and the curved staircase leads up and down.
+~
+~
+33030151 0 9 0
+D1
+~
+~
+0 -1 47256 10 10 5
+D4
+~
+~
+0 -1 47252 10 10 5
+D5
+~
+~
+0 -1 47257 10 10 5
+-1
+S
+
+#47254
+Armorsmith's Workroom~
+This hot, smokey room is dominated by a huge black anvil.  Along the
+walls various tools have been neatly hung from metal racks.  Bins of
+scrap metal sit along the southern wall, filled with the twisted remains
+of broken armor and half-melted weapons.
+~
+~
+301469703 0 9 0
+D0
+~
+~
+512 -1 37244 10 10 5
+A
+custom~
+~
+if( mob_in_room( 1946, room ) )
+  act_tochar( #custom, ch );
+else
+  continue;
+~
+E
+custom~
+Item                         Cost  Lvl   Ingredients
+----                         ----  ---   -----------
+Five mithril rings            --     1   mithril token
+Five steel rings              --     1   steel token
+Five iron rings               --     1   iron token
+Five bronze rings             --     1   bronze token
+~
+!
+0 0 0
+A
+custom~
+mithril iron bronze steel~
+mob = mob_in_room( 1946, room );
+tell( mob, ch, #give );
+~
+E
+give~
+Well, give me the token and I'll exchange it for some rings of the same
+metal.
+~
+!
+0 0 0
+1946 9 1509949540 3 0
+-1
+S
+
+#47255
+Armorsmith's Workroom~
+Under Construction.
+~
+~
+33034247 0 9 0
+-1
+S
+
+#47256
+Training Room~
+This large room has been roughly carved into the solid granite.  Torches
+sit in holders on the north and south walls, dimly illuminating the
+blood-spattered walls.  The walls and floor are scarred and scorched from
+many duels and training sessions.  A large doorway on the western wall
+leads back to the main chamber.
+~
+~
+100139021 0 9 0
+D3
+~
+~
+0 -1 47253 10 10 5
+2746 17 1509949540 -2 0
+-1
+S
+
+#47257
+Hallway~
+You are standing in a long hallway, faintly lit by torches mounted on the
+walls.  The walls are damp and a few inches of water floods the floor.
+The hallway stretches to the east, and a curving staircase leads up.
+~
+~
+33030151 0 9 0
+D4
+~
+~
+0 -1 47253 10 10 5
+A
+unlock~
+door~
+if( has_obj( 2759, ch ) ) {
+act_tochar( #lock, ch );
+act_notchar( #rlock, ch );
+transfer( ch, find_room( 47258 ) );
+act_notchar( #arrive, ch );
+}
+else
+act_tochar( #nope, ch );
+~
+E
+lock~
+You fit your key into the lock...
+~
+E
+rlock~
+$n fits $s key into the lock and abruptly disappears.
+~
+E
+arrive~
+$n materializes in the room.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+!
+0 0 0
+-1
+S
+
+#47258
+Storage Room~
+This small room is very dark, making it difficult to judge its size.  The
+walls are made of a dark metal, its panels joined together with large
+rivets.  A heavy metal door leads south.
+~
+~
+33097735 0 9 0
+A
+unlock~
+door~
+if( has_obj( 2759, ch ) ) {
+  act_tochar( #lock, ch );
+  act_notchar( #rlock, ch );
+  transfer( ch, find_room( 47257 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+lock~
+You fit your key into the lock...
+~
+E
+rlock~
+$n fits $s key into the lock and abruptly disappears!
+~
+E
+arrive~
+$n materializes in the room.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+!
+0 0 0
+-1
+S
+
+#47259
+Tower Foyer~
+The entire room seems to be hollowed out of a single piece of ivory, and
+polished until it appears to glow opalescent in the ambient light.  A
+spiral stair seamlessly rises up out of the floor, curving around itself
+as it travels to the ceiling.  There is no support pillar for this
+structure, and the railings seem more serpents coiling through the air
+than pieces of cold stone.  A sapphire blue rune glows softly on the
+outside wall, the only visible departure from the uninterrupted white of
+the foyer.
+---
+The entire room seems to be hollowed out of a single piece of ivory, burn
+marks and blood causes the almost translucent stone to glow an evil crimson in the ambient
+light.  A spiral stair, chipped and damaged, rises up out of the floor,
+curving around itself as it travels to the ceiling.  There is no support
+pillar for this structure, and the railings seem more serpents coiling
+through the air than pieces of cold stone.  A dimly glowing rune pulses
+angrily at about chest level, a malignant purple.
+~
+~
+301465605 0 5 0
+D1
+ivory door~
+ivory door~
+195 -1 47260 10 10 5
+D4
+~
+~
+0 -1 47299 10 10 5
+D5
+~
+~
+0 -1 47322 10 10 5
+E
+oldrune~
+The rune is simple, and has many flowing curves.  A soft blue glow
+radiates from it, as if it were not so much a part of this world, but a
+reflection of another.
+~
+E
+rune~
+The rune is simple, and turns upon itself in twisted convolutions.  A
+malevolant violent glow radiates from it, as if it were not so much a
+part of this world, but a reflection of another much darker.
+~
+A
+trace~
+rune~
+if( !is_open( room, east ) ) {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_room( #open, ch );
+  open( room, east );
+wait( 4 );
+act_room( #close, ch );
+close( room, east );
+  }
+else {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_room( #close, ch );
+  close( room, east );
+  }
+~
+E
+rune~
+You trace the sinuous curves of the darkly glowing rune.
+~
+E
+rrune~
+$n traces the sinuous curves of the darkly glowing rune.
+~
+E
+open~
+The door swings silently open.
+~
+E
+close~
+The door swings silently closed.
+~
+!
+0 0 0
+-1
+S
+
+#47260
+The Training Grounds - Near a Tower~
+Pearlescent ivory walls soar far into the sky, seeminginly without end
+from so close to the base.  Not a seam, crack, or scratch can be seen in
+these walls, leaving the strong impression that the whole of it was
+created through a great expenditure of arcane power.  Looking closer, a
+softly gleaming rune pulses quietly at about chest level, a faint
+sapphire.
+--
+Pearlescent ivory walls now stained with soot, rise far into the sky,
+seemingly without end from so close to the base.  Not a seam can be seen
+in the tower's stone, but scratches and scorch marks reach roughly twenty
+feet into the air.  Above the darkened soot line, the alabaster tower
+still rises unscathed.  The seamless construction gives the strong
+impression that the whole of it was created through a great expenditure
+of arcane power.  Looking closer, a dimly glowing rune pulses angrily at
+about chest level, a malignant purple.
+~
+~
+301465601 0 9 0
+D0
+~
+~
+0 -1 47318 10 10 5
+D1
+~
+~
+0 -1 47261 10 10 5
+D3
+ivory door~
+ivory door~
+195 -1 47259 10 10 5
+E
+oldrune~
+The rune is simple, and has many flowing curves.  A soft blue glow
+radiates from it, as if it were not so much a part of this world, but a
+reflection of another.
+~
+E
+rune~
+The rune is simple, and turns upon itself in twisted convolutions.  A
+malevolent violet glow radiates from it, as if it were not so much a part
+of this world, but a reflection of another much darker.
+~
+A
+trace~
+rune~
+if( !is_open( room, west ) ) {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_room( #open, ch );
+  open( room, west );
+wait( 4 );
+act_room( #close, ch );
+close( room, west );
+  }
+else {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_room( #close, ch );
+  close( room, west );
+  }
+~
+E
+rune~
+You trace the sinuous curves of the darkly glowing rune.
+~
+E
+rrune~
+$n traces the sinuous curves of the darkly glowing rune.
+~
+E
+open~
+The door swings silently open.
+~
+E
+close~
+The door swings silently closed.
+~
+!
+0 0 0
+-1
+S
+
+#47261
+The Training Grounds~
+Great trees soar overhead, creating a verdant canopy over the grassy area
+below.  Sunlight filters down through the leaves of many different kinds
+of trees, illuminating embroidered banners hanging from the lower boughs.
+The murmurs of a brook dance through the area, surrounding you with sound.
+Glimpses of structures can be seen through the trees in every direction,
+but at a great enough distance to not disturb the training grounds.
+--
+Great trees soar overhead, limbs outstretched but no longer clothed in
+lush, green leaves.  Hazy sunlight attempts to filter through the bare
+branches, but the courtyard still seems shrouded in shadows.  Once-fine
+emrbroidered banners hang from the lower limbs of the trees, and flutter
+silently in the chill wind.  The sound of sluggishly flowing water can be
+heard to the east, an almost mournful chorus.  Glimpses of structures can
+be seen through the trees in every direction, but at a great enough
+distance to not disturb the training grounds.
+~
+[Adakar] first draft done
+~
+301465601 0 9 0
+D0
+~
+~
+0 -1 47262 10 10 5
+D1
+~
+~
+0 -1 47264 10 10 5
+D2
+crystalline doors~
+crystalline doors~
+67 -1 47263 10 10 5
+D3
+~
+~
+0 -1 47260 10 10 5
+E
+oldbanners~
+Fluttering in the breeze is a myriad of different colored banners. 
+Adorning each of the silken flags is an embroidered crest, and the
+personnal sigil of a member of the training grounds.
+~
+E
+oldtrees~
+Spaced about the large training grounds are trees of all
+sorts.  Large oaks, pines and maples spread their branches to the skies,
+lending shade to the field, while smaller trees silently watch over the
+training of the young combatants.
+~
+E
+oldstructures~
+Glancing around the area, you can see buildings in all directions. 
+Though you are too far away to make out any great detail, each seems to
+be of the same quality and composition as the outer walls of the compound.
+~
+E
+banners~
+Flapping in the wind are the remnants of once-brilliantly colored banners. 
+Faded sigils adorn each banner, and the personal sigil of the Training
+Grounds seems almost leeched of color by sunlight and neglect.
+~
+E
+trees~
+Spaced about the large training grounds are bare trees of many varieties. 
+Large oaks, pines, and maples spread their barren branches to the empty
+sky, lending fitful shade to the field, while smaller trees stand silent
+sentinel to times past.
+~
+E
+structures~
+Glancing around the area, you can see buildings in all directions. 
+Though you are too far away to make out any great detail, each seems to
+be of the same quality and composition as the rest of the training
+grounds, and in the same state of disrepair.
+~
+A
+insert~
+rod~
+if( has_obj( 1767, ch ) ) {
+  if( !is_open( room, south ) ) {
+    act_tochar( #leave, ch );
+    act_notchar( #rleave, ch );
+    wait( 1 );
+    act_room( #open, ch );
+    open( room, south );
+    }
+  else {
+    act_tochar( #leave, ch );
+    act_notchar( #rleave, ch );
+    wait( 1 );
+    act_room( #close, ch );
+    close( room, south );
+    }
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+leave~
+You insert the crystal rod into the octahedral hole in the center of the
+doors.
+~
+E
+rleave~
+$n inserts an eight-sided crystal rod into the octahedral hole in the
+center of the doors.
+~
+E
+open~
+The crystalline doors swing silently open.
+~
+E
+close~
+The crystalline doors swing silently closed.
+~
+E
+nope~
+You lack the crystal rod.
+~
+!
+0 0 0
+2167 9 1509949540 3 0
+1355 9 1509949540 3 0
+2168 9 1509949540 3 0
+2169 9 1509949540 3 0
+-1
+S
+
+#47262
+The Guildhall~
+The scents of pine, a strong soap, and a homecooked meal assail you as
+you step through the door into the guildhall.  A stone hearth completely
+dominates the east wall of the room, filled with a blazing fire which
+causes the contents of cookpot hanging from an iron hook to simmer
+quietly.  The wood floor is glows golden with the buff of many hours of
+cleaning, and reflects the light of many candles set into iron sconces on
+the support beams for the great eaved roof.  An equally well-kept and
+stocked bar lines the room to the west, with many leather-padded stools
+offering a perch for a weary clansman.
+---
+Greasy black stains creep out into the center of the room, almost as if
+someone had thoughtlessly scattered the coals of the fire onto the wood
+of the floor.  The stone hearth completely dominates the west wall of the
+room, sootstained but still intact.  An empty iron cookpot hangs from a
+hook above the cold hearth, while several of the trestle tables have been
+chopped into firewood-sized pieces, some stuffed into the hearth, some
+scattered along the east side of the room.  Shattered glass litters the
+bar, which is almost untouched except for several deep scratches.  There
+is no evidence of the stools which must have stood before the bar, but
+several of the benches have been thrown behind it.
+~
+[Eltrex] line 5 of the rdesc should be quietly.  The wood floor glows golden
+*cackle* and the name lives on.... <stare>
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 47267 10 10 5
+D1
+~
+~
+0 -1 47307 10 10 5
+D2
+~
+~
+0 -1 47261 10 10 5
+D5
+~
+~
+0 -1 47300 10 10 5
+A
+weave~
+rod~
+if( has_obj( 1767, ch ) ) {
+  act_tochar( #hand, ch );
+  act_notchar( #rhand, ch );
+  wait( 1 );
+  act_tochar( #bye, ch );
+  act_notchar( #rbye, ch );
+  transfer( ch, find_room( 47267 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+hand~
+You weave an eight sided crystal rod in a decisive pattern.
+~
+E
+rhand~
+$n weaves an eight sided crystal rod in a decisive pattern.
+~
+E
+bye~
+A swirling red mist coalesces around you.
+~
+E
+rbye~
+A swirling red mist coalesces around $n.  When it clear, $e is gone.
+~
+E
+arrive~
+A swirling red mist coalesces in the middle of the room, and $n steps out
+of it.
+~
+E
+nope~
+You lack the crystal rod.
+~
+!
+0 0 0
+210 17 1509949540 -2 0
+-1
+S
+
+#47263
+Before the Gates~
+You stand before a massive archway soaring high overhead.  A knight
+riding on horseback would not begin to approach the crest adorning the
+top of the arch.  A pair of crystalline doors, a milky quartz in color,
+bar passage through the gate.  No blemishes mar the surface of the
+glistening doors, save a small octagonal hole set in the center.  The
+quartz seems to be suspended by magic, for no hinges can be seen
+attaching them to the granite walls.  No seams or foundations can be seen
+in the stone, giving the impression it was pulled out of the ground
+entirely by the forces of magic.
+---
+You stand before a massive archway soaring high overhead.  A knight
+riding on horseback would not begin to approach the now shattered crest
+adorning the top of the arch.  A pair of crystalline doors, a milky
+quartz in color bar passage through the gate.  Scratches and scorch marks
+now mar the surface of these once glistening doors, a shattered fragment
+broken off from the center of the door disfigures the octagonal hole set
+into the middle of the quartz.  No hinges can be seen, nor seams and
+foundations in the stone, giving the impression it was pulled out of the
+ground entirely by the forces of magic.
+~
+[Adakar] 1st draft done
+~
+301465601 0 9 0
+D0
+crystalline doors~
+crystalline doors~
+67 -1 47261 10 10 5
+E
+shattered crest~
+The remains of an emblem are still recognizable despite the damage to the
+crest.  The crest of the Training Grounds, though incomplete silently
+watches over those that pass through the crystal gates.
+~
+E
+doors milky quartz gates~
+Peering through the milky stone of the door, you begin to make out darker
+patches against the translucent whiteness of the quartz.  Wide gashes mar
+the once-smooth surface of the massive doors, leaving the impression of
+great force being applied to the gate.  The stone's integrity has been
+uncompromized, and the twin quartz doors still hang as if by magic.
+~
+E
+walls stone~
+The stone that makes up these seamless walls is an exacting color for the
+ground beneath your feet.  The complete lack of seams in the towering
+walls combined with this perfect color gives a very strong impression
+that the walls were forced up out of the ground by powerful magic's.
+~
+A
+insert~
+rod~
+if( has_obj( 1767, ch ) ) {
+  if( !is_open( room, north ) ) {
+    act_tochar( #leave, ch );
+    act_notchar( #rleave, ch );
+    wait( 1 );
+    act_room( #open, ch );
+    open( room, north );
+    }
+  else {
+    act_tochar( #leave, ch );
+    act_notchar( #rleave, ch );
+    wait( 1 );
+    act_room( #close, ch );
+    close( room, north );
+    }
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+leave~
+You insert the crystal rod into the octahedral hole in the center of the
+doors.
+~
+E
+rleave~
+$n inserts an eight-sided crystal rod into the octahedral hole in the
+center of the doors.
+~
+E
+nope~
+You lack the crystal rod.
+~
+E
+open~
+The crystalline doors swing silently open.
+~
+E
+close~
+The crystalline doors swing silently closed.
+~
+!
+0 0 0
+A
+invoke~
+rod~
+if( has_obj( 1767, ch ) ) {
+  if( !mob_in_room( 1627, room ) ) {
+    act_tochar( #invoke, ch );
+    act_notchar( #rinvoke, ch );
+    wait( 1 );
+    act_room( #portal, ch );
+    mload( 1627, room );
+    wait( 7 );
+    send_to_room( #bye, room );
+    junk_mob( mob_in_room( 1627, room ) );
+    }
+  else
+    act_tochar( #nope, ch );
+  }
+else
+  act_tochar( #norod, ch );
+~
+E
+invoke~
+@BYou invoke the power of the crystal rod, willing it to form a portal to
+the material plane.
+~
+E
+rinvoke~
+@B$n holds an eight sided crystal rod before $m, incanting mystical
+phrases.
+~
+E
+portal~
+@BA whirling blue portal materializes before you.
+~
+E
+bye~
+The shimmering portal glows brightly, then fades away.
+~
+E
+nope~
+You invoke the rod, but nothing happens.
+~
+E
+norod~
+You lack the crystal rod.
+~
+!
+0 0 0
+A
+enter~
+portal~
+if( mob_in_room( 1627, room ) ) {
+  act_tochar( #enter, ch );
+  act_notchar( #rstep, ch );
+  transfer( ch, find_room( 19143 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+enter~
+You step into the shimmering portal and reality shifts.
+~
+E
+rstep~
+$n steps into the shimmering portal and disappears.
+~
+E
+nope~
+Whatever that is you are unable to enter it.
+~
+E
+arrive~
+$n materializes from thin air.
+~
+!
+0 0 0
+-1
+S
+
+#47264
+The Training Grounds - Near a Temple~
+An imposing structure of obsidian marble soars up into the eastern sky.
+Thinly veined with silver, the stone seems pulled out of the night sky
+itself as it forms elegant arches and pillars across the front of the
+building.  A circular stained glass window gleams in dark jewel tones
+from the center of the facade, surrounded by wickedly grinning gargoyles
+carved from the same night-colored stone.
+---
+An imposing structure of obsidian marble soars up into the empty eastern
+sky.  Thinly veined with silver, the stone seems pulled out of the night
+sky itself.  Once elegant arches, pillars, and flying buttresses now lie
+broken and crumpled on the ground.  Remnants of a circular stained glass
+window still gleam in dark jewel tones from the center of the facade,
+now gaping holes diminishing its beauty.  Wickedly grinning gargoyles
+carved from the same night-colored stone of the walls surround the gaping
+hole filled with jagged pieces of stained glass.
+~
+[Adakar] first draft done
+~
+301465601 0 9 0
+D1
+~
+~
+0 -1 47265 10 10 5
+D3
+~
+~
+0 -1 47261 10 10 5
+E
+structure temple~
+The temple itself is a massive structure of dark marble.  The building
+seems to have been constructed by skilled craftsmen, and in a state of
+disrepair.
+~
+E
+obsidian marble thinly veined silver stone~
+As black as the midnight sky, the marble is unblemished by any lighter
+discoloration's, save for the veins of silver running through the stone.
+~
+E
+arches pillars flying buttresses broken ground~
+Shattered pieces of ebon marble lie strewn upon the ground at the base of
+the temple.  The grass growing up around each piece gives the impression
+that none of these pieces have been moved recently..  Curving edges on
+the fragments of rubble speak of elegant stonework that once matched the
+gaping wounds of broken stone high upon the front wall of the building.
+~
+E
+remnants circular stained glass window center gaping hole~
+Sunlight reflects oddly off of the slivers of stained glass still
+clinging to the iron framework of the great circular window.  Myriad
+colors in a darkened and twisted parody of a rainbow litter the ground
+below the window, giving the impression of great intricacy in the
+original pattern.
+~
+E
+wickedly grinning gargoyle~
+Shining black marble pulls away from gleaming silver teeth, cunningly
+fashioned out of the stone to match the natural pattern of the gleaming
+veins in the dark rock.  Eerily lifelike, the creature crouching high
+above your head almost seems to watching you with dark, evil eyes.
+~
+210 17 1509949540 -2 0
+-1
+S
+
+#47265
+Inside the Temple~
+Polished silver braziers line the aisle and illuminate the temple
+interior.  Dark pillars the color of a midnight sky gleam as the silver
+threads through the obsidian marble reflect the flickering candlelight. 
+silent rows facing the altar in front of them.  A pristine white carpet
+flows down the center aisle, meeting with the carpet covering the raised
+dais at the center of the temple.  Alabaster candles fill candelabras
+along the far walls of the temple and send flashes of silver dancing
+through the stone of the walls.
+--
+Tarnished silver braziers lie toppled along the aisle, once the main
+illumination for the temple's interior.  A single brazier stands near the
+front of the room, feebly attempting to light the room alone.  Dark
+pillars, once brilliant columns, their silver threads reflecting the
+flickering light from the braziers now show marks of great neglect.  Cuts
+and chips mar the pillars of marble ruining their value but not
+diminishing the memory of their beauty.  Pews lie broken and shattered on
+the floor, no longer facing the altar in the front of the room.  A dingy
+white carpet, now no more than tattered remnants feebly attempts to flow
+down the center aisle, converges with the threads of carpet covering the
+raised dais at the center of the temple.  Broken remains of alabaster
+candles fill tarnished candelabras along the far walls of the temples.
+~
+[Adakar] first draft done
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 47266 10 10 5
+D3
+~
+~
+0 -1 47264 10 10 5
+D4
+~
+~
+0 -1 47302 10 10 5
+E
+tarnished silver braziers~
+Taking more careful notice of the toppled braziers lining the aisle, you
+notice that they number eight.  Each of these three legged, silver
+braziers are six feet tall, their pure silver now tarnished and barely
+recognizable.
+~
+E
+dark pillars columns marble~
+The four pillars supporting the second story of the temple are in a
+serious state of disrepair.  The columns have been crafted out of a rare
+black marble, silver threads running it in a pattern only nature could
+create.  Great gashes have been sliced into the pillars, the marble
+chipped near the beginning of each slash.
+~
+E
+pews shattered wood~
+The pews that once made two rows of seats have all been shattered and
+hacked up into small pieces.  Judging by some of the larger pieces of the
+pews, each must have been handcarved with extreme care and craftsmanship.
+~
+E
+dingy white carpet tattered remnants aisle~
+Flowing down the center aisle of the grand temple is the remnants of a
+once fine carpet.  Moths, time, neglect and the uncaring step of an
+inestimable number of feet have all but destroyed the carpet.  It is now
+a dirty grey in color, and in a few places merely a few threads still
+clinging together.
+~
+E
+alabaster candles candelabras~
+The alabaster candles that fill the candelabras which have been placed at
+equal distances along the outer walls have all either been broken or
+burned down to near nothing.  Similar to the rest of the room, they show
+great neglect in their appearance.
+~
+-1
+S
+
+#47266
+The Altar to the Gods~
+Alabaster candles surround you, their light reflected off of the silver
+inlaid runes on the great stone that is the altar.  Each rune is
+flawlessly formed of pure silver, and is the symbol of a god or goddess. 
+None takes any precedence over any other, nor varies in anything other
+than shape.  A small ivory candle burns with a blue fire towards the
+interior of the altar, one for each rune.  No wax drips from these
+candles, nor does the flame flicker in the slight draft that occasionally
+causes the other tapers to waver.
+---
+Many flickering shadows are cast by the strangely glowing blue flames
+adorning small ivory candles set upon the altar.  Bent candelabras gleam
+a dull metal at the edges of the room, with small grey pools of wax that
+once were candles.  The blue light reflects oddly off of the silver
+inlaid runes on the great stone that is the altar.  Each rune is
+flawlessly formed of pure silver, and is the symbol of a god or goddess. 
+None takes any precedence over any other, nor varies in anything other
+than shape.  Strangely enough, the entire altar set-up appears to not
+have been disturbed by the chaos that seems to have destroyed the temple
+proper.
+~
+[Adakar] first draft...done
+~
+301465733 0 7 0
+D1
+thick mahogany door~
+thick mahogany door~
+391 -1 47301 10 10 5
+D3
+~
+~
+0 -1 47265 10 10 5
+E
+altar candles runes silver inlay stones~
+Stepping closer to the marble slab of the altar, you feel a shiver run
+down your spine, as if this site was under close scrutiny.  Untouched and
+perfectly polished, this altar to all gods of this realm seems almost
+otherworldly.  Small ivory candles are topped with a vibrant blue flame
+that never wavers, even in the chill wind that runs through the compound.
+~
+E
+bent candelabras dull metal grey small wax pools~
+Once elegant candelabras are just so much scrap metal thrown carelessly
+against the wall.  Tiny pools of hardened greyish wax litter the floor,
+almost as if the candles themselves were scattered about.
+~
+-1
+S
+
+#47267
+Chamber of the Pyramid~
+Glittering runes, pulsing with an unwordly power, are carved into the dark
+obsidian walls.  A single torch held in a mithril sconce feebly attempts
+to illuminate the room, giving no warmth and little light.  A stand
+fashioned into the shape of a dragons claw sits in the center of the room,
+holding in its grasp a crystalline pyramid.  A swirling red haze dances
+within the pyramid drawing the eye and nearly pulling your consciousness
+into it.
+---
+Dark runes, dimly pulsing with an unworldly power, are carved into once
+fine dark obsidian walls.  Cracks and blood stains now mar the once
+perfect complexion of these glistening walls.  The burned out remains of
+a single torch, held in a now tarnished and worthless mithril sconce
+lends proof that this room was inhabited in the not so distant past.  A
+stand fashioned into the shape of a dragons claw lies tipped over on its
+side in the center of the room, shattered on the floor is the remains of
+the crystalline pyramid.
+~
+~
+301533189 0 9 0
+D2
+~
+~
+0 -1 47262 10 10 5
+E
+oldrunes~
+These magical runes are carved half an inch deep into the pure obsidian. 
+Each of these mystical sigils has been inlaid with a fine red powder,
+reminiscent of crushed ruby.
+~
+E
+runes~
+These magical runes are carved half an inch deep into the cracked
+obsidian walls.  A fine red powder, now darkened and chipped in many
+places fills these mystical sigils.
+~
+A
+touch~
+pyramid~
+act_tochar( #hand, ch );
+act_notchar( #rhand, ch );
+wait( 1 );
+act_tochar( #bye, ch );
+act_notchar( #rbye, ch );
+transfer( ch, find_room( 47262 ) );
+act_notchar( #arrive, ch );
+~
+E
+hand~
+You place your hands on the crystalline pyramid.
+~
+E
+rhand~
+$n places $s hands on the crystalline pyramid.
+~
+E
+bye~
+A swirling red mist engulfs you.
+~
+E
+rbye~
+A swirling red mist rises from the red pyramid, engulfing $n.
+~
+E
+arrive~
+A swirling red mist coalesces in the middle of the room, and $n steps out
+of it.
+~
+!
+0 0 0
+-1
+S
+
+#47268
+Tower Foyer~
+This dimly lit room has eight walls all of which are equal in size.  To
+the south lies a curtain bearing a four-leaf clover depiction.  Each of
+the walls bears symbols of vaious kinds, looking at them, they all show
+something completely different.  In the center of the room lies an altar
+bearing three large statues.  Torches burn from wall sockets, seeming to
+never burn low.  The light plays across the room delving into every
+corner.
+~
+~
+33030151 0 9 0
+E
+symbols~
+Looking at the symbols, there are many to see.  Perhaps looking at them
+individually might help.  There are - 
+A large confusing painting.
+A four leaf clover woven into a curtain.
+A large battle shield, with a runed crest.
+A crest of a sword and hammer across an open book.
+A tapestry with a blue field.
+A stone block with intricate carvings.
+A pitch black wall with deep inscriptions.
+A triptych with a black obsidian frame and base.
+~
+E
+large confusing painting~
+The painting is approximately a meter and a half across, and at first
+glance appears to be a uniform shade of dark maroon.  A closer
+inspection, however, reveals the depths and intricacies of the work.  The
+oil-paint has been built up in some areas, and when looked at in a
+certain manner, the texture itself composes a second picture, seperate,
+yet disturbing in its similarity to the main subject.  Observing the
+painting, you are drawn into the swirling maelstrom of the various shades
+of colour used within it.  Clouds seem to be moving at random around each
+other, flowing into the central point, a single spot of utter blackness. 
+A small gold plate is affixed to the bottom edge of the mahogony frame. 
+It reads simply "Donated by The Order of The Obsidian Thorn".
+~
+E
+four leaf clover woven~
+A simple black curtain over the entrance to the south.  Its soft
+material seems to invite touching, with its smooth feel.  Embroided upon
+it is a bright green four-leaf clover.  The clover has amazing beauty in
+its simplistic design, seeming almost as if you could reach out and grab
+it.  In fine red silk, the words "Slen protect us, and all who enter."
+are written on the bottom.
+~
+E
+large battle shield runed~
+An ancient oval shaped battle shield which is ringed in a
+indecipherable runic script.  The crest on the shield depicts the ghostly
+form of a knight in ancient full plate armor.  The shadowy form appears
+to be saluting you with its deadly looking longsword.
+A small plaque reads "Donated by clan SKap".
+~
+E
+crest sword hammer open book~
+Affixed to the wall here is a crest, made up of three items.  At the back
+is an old book, with cracked and yellowed pages, the runic emblems inside
+it barely legible, but obviously inked with blood.  The book is bound in
+a silver leather-like cover, possibly the skin of a young silver dragon.
+Crossed over this aged book are two weapons. A black obsidian hammer,
+etched with runes, and a violet-hued krynite sword, a reddish tint on
+its blade.
+Under this, a small plaque reads "Knowledge, Skill, Power.  The Training
+Grounds, donated by clan RAIN".
+~
+E
+tapestry blue field~
+Centered on the tapestry is the emblem of the Watchers of the changing
+Winds.  On a field of royal blue is a silver crescent moon placed upon
+its side.  Up from the centre of the crescent grows a greate flourishing
+oak tree, its branches full of life and reaching towards the sky.
+A small plaque reads "Donated by clan Wind".
+~
+E
+stone block intricate carvings~
+A massive plain stone block covered with spidery writing, much of it
+written in ancient languages.  What you can read comes out as "Hero's of
+the highland.  Strength from the Hills to power us to succeed." After
+that comes more gibberish, followed by a picture.  The picture seems to
+be of the hill dwelling races, including Dwarves, Gnomes and Halflings,
+alongside all manner of people, fighting what appears to be a black mass,
+but at closer inspection can be seen as masses of Orcs and Goblins.
+~
+E
+pitch balck wall deep inscriptions~
+A dark slab of stone with carefully handwritten inscriptions carved
+into its surface.  A title reads "To those who no longer grace us with
+their presence..."
+Beneath that, is a list- Alec, Fingolfin, Komodo, Zim, Arnea
+Zwabaire, Logger, Snapdragon, Loriel, Staven, Endymion, Hakim, Kaliban,
+Staer, Moonglum and Karalon.  All of you have a special place in our
+heritage.
+~
+E
+triptych obsidian frame~
+The base has pictures of knights in red-colored armor battling fearsome
+dragons painted across it.  The central panel depicting the Lord of the
+Knights astride a Silver Dragon leading the knights of the Eternal Flame
+against knights clad in charcoal black armor supported by a regiment of
+demons.  The left panel depicting a phoenix with its wing spread rising
+above the emblem of the eternal flame.  The right panel depicts Knights
+of the Eternal Flame fighting orcs in the war-torn streets of Medienne.
+~
+-1
+S
+
+#47269
+Nightfall's Dwelling~
+This room, clearly someone's living area, is quite plush.  Though clear
+someone lives here, it is also clear they don't inhabit it often.
+Covering the bare stone is a thick carpet that seems to glow a deep
+green, while carefully positioned golden balls of light keep the room
+well lit.  Except for a large tapestry picturing the close of a day and a
+picture with a simple wooden frame, the white walls are totally bare.  In
+the corner is a normal-sized bed that hasn't been used much.
+~
+~
+33095687 0 9 0
+D3
+solid stone door~
+solid stone door~
+391 2953 51067 10 10 5
+E
+picture~
+This is a small but well done painting of a young elven woman.  Her long
+blond hair slightly obscures the left side of her face, but not enough to
+hide the long scar running the length of her cheek.  Her icy grey-blue
+eyes seem to follow you around the room, staring directly at you no
+matter where you stand.  Her full, red lips provide a stark contrast to
+the pale milky-whiteness of her skin.  Looking closely, you notice a
+small red mark on her neck, the sign of the devil.  A small plaque at the
+bottom of the very simple frame reads simply: Kayla Sel'arvale.
+~
+2933 17 1509949540 -2 0
+-1
+S
+
+#47270
+Torgren's Office~
+This room seems large at first glance, but you realize that is only due
+to the lack of furniture.  A small mat lies in the center of the room,
+obviously worn from use.  A large sack which appears to be filled with
+several small rocks or other hard material hangs in one corner of the
+room.  Below it are a couple of large pieces of granite.
+~
+~
+33030151 0 9 0
+D2
+~
+~
+3 -1 51067 10 10 5
+-1
+S
+
+#47271
+FoBB's Treasure Room~
+Before you lies the great wealth of the Forgers.  This cavernous room
+contains a large number of chests, filled to the brim with bountiful
+treasures.  The walls of this room are created from large polished stone
+slabs, reflecting the light from the treasure like a mirror.
+~
+~
+33097735 0 9 0
+A
+enter~
+tapestry~
+act_tochar( #in, ch );
+act_notchar( #rin, ch );
+transfer( ch, find_room( 51066 ) );
+act_notchar( #hi, ch );
+~
+E
+in~
+You step into the tapestry and feel reality shift.
+~
+E
+rin~
+$n steps up to the tapestry, hesitates, then steps through.
+~
+E
+hi~
+$n materializes in the middle of the room.
+~
+!
+0 0 0
+-1
+S
+
+#47272
+Before a Great Shuvana Tree~
+Grasping for the clouds, a shuvana tree stands tall and true, rising
+above the Medienne skyline.  The base of the trunk is as wide as a sand
+wyrm is long and stretches taller than an arrow's shot.  Massive branches
+extend over the surrounding buildings and cast a great shade, creating a
+nice respite from the sun's glare.  Hanging on the trunk of the tree is a
+plaque crafted of fine silver.  Standing before the tree is a granite
+monument.
+~
+~
+33030151 0 9 0
+D1
+~
+~
+0 -1 21046 10 10 5
+E
+granite monument~
+Inscribed in humanic is the following: "In loving memory of Moonglum and
+all the members of the Followers of the Eternal Flame.  May their spirit
+be an inspiration to us all." 
+~
+E
+plaque silver~
+The plaque is inscribed with the following in humanic: "May this tree, a
+gift from the people of the Vaasa to the citizens of Medienne, herald a
+new era of peace and hope." 
+~
+E
+tree trunk~
+You see a cleverly disguised chimney snaking up the trunk and out of
+sight.
+~
+A
+whisper~
+shuvana tree~
+if( has_obj( 2962, ch ) ) {
+  act_tochar( #whisper, ch );
+  act_notchar( #rwhisper, ch );
+  wait( 1 );
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  transfer( ch, find_room( 47290 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    act_notchar( #ropen, rch );
+    transfer( rch, find_room( 47290 ) );
+    act_notchar( #arrive, rch );
+    }
+  }
+else {
+  act_tochar( #whisper, ch );
+  act_notchar( #rwhisper, ch );
+  }
+~
+E
+whisper~
+You whisper softly to the great shuvana tree.
+~
+E
+rwhisper~
+$n whispers softly in Elvish to the great Shuvana tree.
+~
+E
+open~
+A portion of the tree trunk opens, and you step quickly inside before it
+closes behind you.
+~
+E
+ropen~
+A portion of the tree trunk opens, and $n steps quickly inside before it
+closes behind $m.
+~
+E
+arrive~
+$n steps into the room through a crack in the tree trunk which swiftly
+closes.
+~
+E
+fol~
+Your group quickly jumps in behind you.
+~
+E
+rfol~
+You follow $n into the tree.
+~
+E
+bye~
+@eWORKS!!@N
+~
+!
+0 0 0
+-1
+S
+
+#47273
+The Great Hall - The Council of Winds~
+The lighting in this circular room comes from a small whirlwind of azure
+faerie fire suspended above a large circular table.  Murals at each of the
+four cardinal directions are painted on the walls.  The room is dominated
+by an enormous round table surrounded by four curving benches.  A hatch
+has been built into the ceiling in the northwest portion of the room.  A
+rope ladder hangs down from the hole.  A silver-inlaid spiral staircase
+descends further into the tree.
+~
+pot of soup here.
+~
+33030151 0 9 0
+D4
+~
+~
+0 -1 47274 10 10 5
+D5
+~
+~
+0 -1 47290 10 10 5
+E
+wooden table~
+This finely crafted table is made from solid oak.  Carved into the center
+of the table is an emblem traced in mithril, depicting a large tree
+supported by a crescent moon.
+~
+E
+murals walls~
+The mural on the north wall depicts the rugged mountains of the north. 
+On the eastern wall, the Vaasan forest is shown in all its splendor.  A
+wetland scene of marshes and swamps covers the south wall.  The west wall
+is graced with a mural of verdant rolling hills and plains.
+~
+2714 17 1509949540 -2 0
+-1
+S
+
+#47274
+The Wind Watch~
+The great shuvana tree opens up around and above you.  The floor and walls
+are nothing more than the huge branches and leaves of the tree itself.
+The extensive boughs of the shuvana tree prevent any sight of the streets
+of the city below.  The vastness of the sky seems to fill you with a great
+sense of mystical awe.  You can feel the magic of the tree as if it stood
+in the Vaasa itself.
+~
+~
+33030151 0 9 0
+D5
+~
+~
+0 -1 47273 10 10 5
+-1
+S
+
+#47275
+The Gatehouse~
+As you near the end of the road a majestic wall of milky alabaster rises
+gleaming toward the sky, sparkling veins of silver ripple through its
+smooth marble surface.  Set within the depths of a crenellated archway
+that bisects this vast expanse of ivory stone, lays an intricately
+crafted gate of mithril, its center design that of a dragon in flight
+surrounded by a ring of golden chain.  Lying just below, etched into the
+surface, lies the motto, Strength in Fellowship.
+~
+enter code here.
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47276 10 10 5
+A
+touch~
+runed gate~
+if( !is_open( room, down ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  wait( 1 );
+  send_to_room( #gate, room );
+  send_to_room( #wink, find_room( 21022 ) );
+  open( room, down );
+  wait( 3 );
+  send_to_room( #close, room );
+  send_to_room( #bye, find_room( 21022 ) );
+  close( room, down );
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+open~
+You place your hands gently on the runed gate and whisper a soft
+incantation.
+~
+E
+ropen~
+$n places $s hands gently on the runed gate and whispers a soft
+incantation.
+~
+E
+gate~
+The mithril gates swing silently open.
+~
+E
+close~
+The mithril gates swing shut and lock with a soft *click*.
+~
+E
+wink~
+A pair of pearl and mithril gates winks into existence, joined to a case
+of opalescent stairs with spiral down to the ground.
+~
+E
+bye~
+The staircase and gates fade slowly out of existence.
+~
+E
+already~
+The gates are already open.
+~
+!
+0 0 0
+-1
+S
+
+#47276
+Open Stables~
+The stables are airy and well lit.  The semi-sweet scent of fresh hay
+wafts through the air here, emanating from the stalls along both the east
+and west walls.  Along the west wall buckets of grain stand ready for
+weary horses.  Along the east wall bowls of meaty leftovers await pets of
+other persuasion.  To the north you can barely make out the gleam of ivy
+covered white latticework.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47277 10 10 5
+D2
+~
+~
+0 -1 47275 10 10 5
+-1
+S
+
+#47277
+Gazebo~
+You enter a beautiful white gazebo, covered with ivy and bright colored
+flowers.  Birds chirp among the latticework and hop about along the
+flowers and leaves.  A finely crafted bench of shuvana-wood, blanketed
+with small velvet cushions, invitingly appeals to the weary traveler.  A
+small fountain burbles merrily in the center of the gazebo, its
+aquamarine stone speckled with sparkling hints of gold.  The fountain is
+complete with a small statue of a cherub, smiling at the passerby.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47281 10 10 5
+D1
+~
+~
+0 -1 47278 10 10 5
+D2
+~
+~
+0 -1 47276 10 10 5
+D3
+~
+~
+0 -1 47279 10 10 5
+A
+~
+~
+send_to_room( #bird, room );
+~
+E
+bird~
+One of the small birds flutters down to the fountain and splashes about in
+the crystal clear water.
+~
+!
+2 350 0
+2955 17 1509949540 -2 0
+1 17 1509949540 -2 0
+-1
+S
+
+#47278
+Rose Garden~
+The gentle fragrance of roses fills the air here.  A narrow cobble stone
+path winds it's way lazily through the garden, where a brilliant calliope
+of color invites you to explore each pedal.  Small butterflies wing their
+way around from flower to flower, blending their own colors with them.  In
+the center of the garden stands a magnificent sundial, carved from a large
+block of translucent jade.  The sheer brilliance of the sundial makes it a
+fitting centerpiece for the quiet, peaceful surroundings.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47282 10 10 5
+D3
+~
+~
+0 -1 47277 10 10 5
+E
+sundial~
+This amazing piece of craftsmanship was carved from a single block of
+jade and polished till it gleams in the light.  Numerals are carved at
+even intervals around its diameter, allowing you to tell the time of day
+within even a few minutes.
+~
+A
+~
+~
+send_to_room( #rose, room );
+~
+E
+rose~
+The scent of freshly blooming roses wafts through the area.
+~
+!
+2 350 0
+-1
+S
+
+#47279
+The Aviary~
+A large canopy of intertwining branches arches overhead, providing a home
+for a riotous display of multi-hued birds.  Avains of every description
+chirp, warble, sing, hop, and rest here.  An elaborate wrought iron bench
+allows you rest here in the shade and feed the birds.  A small spring
+wells up here forming a miniature waterfall.  The birds seems to collect
+around it for splashing play and drinking.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47280 10 10 5
+D1
+~
+~
+0 -1 47277 10 10 5
+E
+waterfall~
+A small natural spring flows forth here, falling into a basin by way of a
+series of ledges.
+~
+A
+feed~
+birds~
+act_tochar( #feed, ch );
+act_notchar( #rfeed, ch );
+~
+E
+feed~
+A small cloud of birds envelops you, eating every last crumb of food, and
+then dispersing as quickly as they arrived.
+~
+E
+rfeed~
+A small cloud of birds envelops $n, eating every last crumb of food, and
+then dispersing as quickly as they arrived.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #bird, room );
+~
+E
+bird~
+The noisy chirping of the birds almost drowns out any other sounds as they
+squabble over a tasty morsel.
+~
+!
+2 350 0
+3066 17 1509949540 -2 0
+-1
+S
+
+#47280
+A Grassy Courtyard~
+As you enter this courtyard, your senses are barraged by a variety of
+smells.  Small patches of wildflowers dot this grassy area, the faint
+outlines of a path where the flowers have learnt not to grow.  In the
+northeastern corner of the courtyard is a quarter-circular fountain.  The
+centerpiece of the fountain is that of a rampant dragon, made of a silvery
+metal, the eye of the dragon a pale blue jewel that glitters is the light.
+A short hawthorn hedge is growing along the east wall, the pleasant scent
+mingling with that of the flowers.
+~
+~
+33030151 0 9 0
+D1
+~
+~
+0 -1 47281 10 10 5
+D2
+~
+~
+0 -1 47279 10 10 5
+E
+fountain~
+This quarter-circular fountain is made of a silvery metal.  Simulating a
+dragon, the eye is made of a pale blue jewel.
+~
+A
+~
+~
+send_to_room( #water, room );
+~
+E
+water~
+The soft trickle of the water mesmerizes you for a moment with its
+relaxing sound.
+~
+!
+2 350 0
+1044 17 1509949540 -2 29
+-1
+S
+
+#47281
+A Small Pond~
+This vast, well manicured lawn is perfect for a large social gathering or
+just relaxing in the shade.  Majestic elms, maples, and pines are
+scattered about, while a few willows grace a small pond with their shade. 
+Various brightly colored birds chirp happily among trees and hop about on
+the many benches and chairs that adorn this idyllic scene.  A huge
+mansion of white marble stands watch over this peaceful haven from the
+north.  To the east, west, and south you can hear the splashing of
+running water.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47284 10 10 5
+D1
+~
+~
+0 -1 47282 10 10 5
+D2
+~
+~
+0 -1 47277 10 10 5
+D3
+~
+~
+0 -1 47280 10 10 5
+E
+pond~
+This small pond has a shallow bottom of tiles depicting a soaring crimson
+dragon.  A family of ducks paddle about looking for handouts.
+~
+A
+~
+~
+send_to_room( #wind, room );
+~
+E
+wind~
+The leaves of the nearby willows wave and whisper with the wind.
+~
+!
+2 350 0
+-1
+S
+
+#47282
+A Cobbled Courtyard~
+This courtyard is set with evenly matching marbled cobblestones, though a
+few hints of greenery manage to peep through the cracks.  The gleaming
+white cobblestones are without mars or cracks, newly laid, even around
+the trunks of a few small shrubs to add color to the somber appearance of
+the area.  In the center of the courtyard is a fountain made of a
+violet-blue stone.  Around the outside perimeter of the fountain is
+embossed symbols, one dedicated to each god.  To the south, you can hear
+the gleeful chirping of birds.
+~
+~
+33030151 0 9 0
+D2
+~
+~
+0 -1 47278 10 10 5
+D3
+~
+~
+0 -1 47281 10 10 5
+A
+~
+~
+send_to_room( #chip, room );
+~
+E
+chip~
+Out of the corner of your eye you spot a small chipmunk dashing through
+the bushes.  When you turn to look, he's gone.
+~
+!
+2 350 0
+1 17 1509949540 -2 29
+-1
+S
+
+#47283
+Meditation Chamber~
+This room is completely paneled in oak.  The doors are only perceptible
+from the walls by the thin, darkly varnished frames and handles.  Against
+the south wall sits a small shrine, consecrated to each of the gods.  On
+the left of the shrine sits a seven armed silver candelabra, providing a
+dim light for the room.  On the right side sits a brazier for burning
+incense.  The floors of this room are lightly padded with meditation
+mats, and there is a small pile of pillows in the northwest corner,
+should one be required to kneel on.
+~
+~
+33030151 0 9 0
+D3
+door~
+door~
+131 -1 47284 10 10 5
+A
+pray~
+shrine~
+act_tochar( #pray, ch );
+act_notchar( #rpray, ch );
+~
+E
+pray~
+The shrine pulses before you with a dim light as you feel closer in touch
+with your god.  A feeling of peace surrounds you.
+~
+E
+rpray~
+The shrine pulses as $n kneels before it.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #incense, room );
+~
+E
+incense~
+A tendril of multi-colored smoke wafts up from the brazier, blurring your
+vision for a moment.
+~
+!
+2 350 0
+2956 17 1509949540 -2 0
+-1
+S
+
+#47284
+The Entrance Hall~
+The smooth walls of this exquisite hallway are crafted of white marble
+veined with silver.  Upon the west wall hangs a tapestry, trimmed with
+silver thread.  To the north lies a great archway, a filled and lit
+silver torch sconce burning on either side of the doorway.  The torches
+give off ample light without giving off smoke or being consumed.  To the
+east lies an oakenwood door, reinforced with mithril.  The floor of this
+hall is made from a single, unblemished piece of marble.  In the
+southeast corner of the grand hall, a great white marble staircase with
+mithril and silver railings spirals upwards.
+~
+unlock rune action
+hide west
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47287 10 10 5
+D1
+door~
+door~
+131 -1 47283 10 10 5
+D2
+~
+~
+0 -1 47281 10 10 5
+D3
+door~
+door~
+131 -1 47285 10 10 5
+D4
+~
+~
+0 -1 47292 10 10 5
+E
+tapestry~
+As you examine the tapestry more carefully, you discern scenes of knights,
+wizards, and priests of old doing battle in the land of Tarik Nor, while
+riding fantastic beasts against the armies of Temohpab.  At the bottom of
+the finely crafted piece of art you see a strange signature, looking more
+rune-like then actual writing.
+~
+A
+~
+~
+~
+E
+torch~
+The torches flicker lightly, sending a flurry of shadows dancing about
+the room.
+~
+!
+2 350 0
+-1
+S
+
+#47285
+A Grand Library~
+Upon entering this room, your nose is assailed with the smelled of aged
+leather-bound books.  Looking around, almost all of the available wallspace
+has been lined with shelves, filled to the brim with carefully filed, neat
+rows of tomes.  Even the doors are not forgotten, upon them maps of the
+realm.  However, this library does not seem cluttered, there is a lot of
+free space to move between the shelves.  In the center of the room is a
+writing desk, while a couch lies against one wall for those who wish to
+take a more relaxed approach to their study.
+~
+no way to ssit at desk
+couch matching desk?
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47288 10 10 5
+D1
+~
+door~
+131 -1 47284 10 10 5
+3067 17 1509949540 -2 0
+-1
+S
+
+#47286
+The Practice Hall~
+With padded mats for flooring, and strong hardwood walls, this practice
+room is well laid out.  The flooring mats are spotted with blood in
+places, where the friendly sparring seems to have gotten a little too
+rough.  The south wall has mirrors built on it in places, for those who
+wish to watch their own performances and practice.  A few practice dummys
+lie scattered in the corners.
+~
+~
+100139013 0 9 0
+D1
+~
+~
+0 -1 47289 10 10 5
+D3
+~
+~
+0 -1 47287 10 10 5
+-1
+S
+
+#47287
+Great Meeting Hall~
+Your footfalls echo as you enter this great hall.  The walls are finely
+crafted gray marble, giving a much darker impression then any of the
+other rooms you've seen thus far.  Suits of armor and weapons of every
+kind line the outerwalls of this room in an unparalleled display of war. 
+A large, oval, obsidian table rests in the middle of this room, every
+surface polished to a brilliant gleam.  Surrounding this table are six
+thickly cushioned, black velvet chairs.  A brilliant ball of white light
+hangs above the table emanating soft white light over everything in the
+room.
+~
+vault down
+~
+33030151 0 9 0
+D1
+~
+~
+0 -1 47286 10 10 5
+D2
+~
+~
+0 -1 47284 10 10 5
+D3
+~
+~
+0 -1 47288 10 10 5
+A
+place~
+key~
+if( has_obj( 2967, ch ) ) {
+  act_tochar( #place, ch );
+  act_notchar( #rplace, ch );
+  transfer( ch, find_room( 47291 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+place~
+You place a small shimmering silver dragon shaped key against a tiny
+silver rune engraved breastplate of a towering suit of armor.  The floor
+in the corner begins to glow, and you feel yourself pulled to another
+place.
+~
+E
+rplace~
+$n places a small shimmering silver dragon shaped key against a tiny
+silver rune engraved in the breastplate of a towering suit of armor.  The
+floor in the corner begins to glow, and $n disappears without a trace.
+~
+E
+arrive~
+$n materializes in the center of the room.
+~
+E
+nope~
+<Type 'help' for help>
+~
+!
+0 0 0
+-1
+S
+
+#47288
+An Elegant Lounge~
+This pushily decorated lounge has the same white and silver veined marble
+walls seen elsewhere in the building.  To the east, an archway hall
+concealed by red velvet drapes leads into a meeting hall.  The walls of
+this room are covered with expensive gilt-gold paintings and trophies of
+past battles.  On the west wall, a large well-stocked bar made of the same
+white marble as the rest of the room matches the elegant decor.  The south
+wall frames a cozy fireplace which has a coat rack beside it for the
+travel-worn adventurer to hang their hat.  A comfortable couch sits
+opposite the fire, and the entire floor is covered with a thick, soft
+carpet.
+~
+~
+33030151 0 9 0
+D1
+~
+~
+0 -1 47287 10 10 5
+D2
+~
+~
+0 -1 47285 10 10 5
+E
+couch~
+This luxurious couch matches the decor of the lounge perfectly.  The
+backing and seats are all covered with the supple hide of a young dragon,
+and there is ample room to seat four people.  The legs of the couch each
+end in the clawed foot of a dragon, providing an impressive looking, yet
+sturdy base.
+~
+E
+trophy~
+On the wall is mounted the head of what must have been a gigantic red
+dragon.  Its expression is locked into the battle fury of its final
+moments, and almost appears to hold a spark of life when illuminated by
+the flickering light of the fireplace.  Underneath the impressive head is
+a small silver plaque, engraved with the words "Metharrr'en, slain by
+Cassiopeia and Lyon." 
+~
+1878 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+1127 17 1509949540 -2 0
+-1
+S
+
+#47289
+The Practice Hall - West End~
+This room is a continuation of the last.  Noting the chips taken from the
+hardwood walls, this room gives the impression that more serious fighting
+has taken place here.  The mats on the floor look slightly more worn with
+scuffing and thin pierces then the previous room.  A towering set of
+mirrors is mounted on the southern wall for viewing your battles.
+~
+~
+100139013 0 9 0
+D3
+~
+~
+0 -1 47286 10 10 5
+-1
+S
+
+#47290
+A Study Chamber~
+Carved into the walls of this circular study chamber are numerous shelves
+and storage cabinets.  The quantity of books, tomes, and scrolls is
+simply astounding.  Many of them seem to be centuries old, as if
+countless detailed histories have been recorded.  Soft-glowing blue
+flames emanate from four sconces placed in correspondence to the four
+cardinal directions.  In the southeast portion of the room is a stone
+hearth with a gently burning fire.  A silver-inlaid spiral staircase
+ascends into the tree.  A simple wooden door with attached counterweights
+is south.
+~
+~
+33032199 0 9 0
+D4
+~
+~
+0 -1 47273 10 10 5
+A
+whisper~
+tree shuvana~
+act_tochar( #whisper, ch );
+act_notchar( #rwhisper, ch );
+wait( 1 );
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+transfer( ch, find_room( 47272 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  act_notchar( #ropen, rch );
+  transfer( rch, find_room( 47272 ) );
+  act_notchar( #arrive, rch );
+  }
+~
+E
+whisper~
+You whisper softly to the great shuvana tree.
+~
+E
+rwhisper~
+$n whispers softly in Elvish to the great Shuvana tree.
+~
+E
+open~
+A portion of the tree trunk opens, and you step quickly inside before it
+closes behind you.
+~
+E
+ropen~
+A portion of the tree trunk opens, and $n steps quickly inside before it
+closes.
+~
+E
+arrive~
+$n steps into the room through a crack in the tree trunk which swiftly
+closes.
+~
+!
+0 0 0
+1773 17 1509949540 -2 16
+-1
+S
+
+#47291
+The Vault~
+Massive locked chests, weapons racks and armor closets sit on the
+polished stone flooring under the many sturdy shelves adorning the walls. 
+This room is spacious, but yet seems cluttered by the vast amounts of
+bags and sacks strewn throughout it.  Yet still, the center of the room
+is devoid of items.  In this area, engraved with gold leaf on the floor,
+lies a ring of golden chain, the diameter of a man.  In the center of
+this chain engraving is the symbol of a flying dragon.  The words
+'Strength in Fellowship' are also legible on a plaque just below the
+massive symbol.
+~
+~
+33097775 0 9 0
+A
+touch~
+chain~
+act_tochar( #chain, ch );
+act_notchar( #rchain, ch );
+transfer( ch, find_room( 47287 ) );
+act_notchar( #arrive, ch );
+~
+E
+chain~
+You place your hands on the golden ring of chain and whisper a soft word.
+~
+E
+rchain~
+$n places $s hands on the golden ring of chain and whispers a soft word.
+$n fades out of existence.
+~
+E
+arrive~
+$n materializes in the middle of the room.
+~
+!
+0 0 0
+-1
+S
+
+#47292
+Upstairs Hallway - South End~
+This upstairs hallway is reminiscent of the rest of the building,
+featuring the same silver-veined white marble walls, smooth to the touch. 
+On either end of the hallway is a door flanked by a pair of torch sconces. 
+The hallway continues to the north, while the south door is open to the
+outside air and a balcony beyond.  The floor in this area is tiled with a
+mosaic pattern of inch square tiles in black and white marble.  This
+pattern extends to both walls, and continues north along the corridor
+ahead.  The silver railing of the spiral staircase leading downwards ends
+here.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47293 10 10 5
+D5
+~
+~
+0 -1 47284 10 10 5
+A
+~
+~
+send_to_room( #torch, room );
+~
+E
+torch~
+The torches flicker lightly, sending a flurry of shadows dancing about
+the room.
+~
+!
+2 350 0
+-1
+S
+
+#47293
+Upstairs Hallway - North End~
+This part of the continuing hallway is slightly more elaborate than the
+last.  A crystalline chandelier hangs from the center of the ceiling,
+illuminating the area.  Amply lit, the twin doors to the east and west are
+flanked not by torches, but by portraits of wildlife scenes.  One set
+portrays animal life near the Vaasa, the other, the gentle creatures of
+Medienne forest.  Upon the floor, the mosaic pattern of black and white
+tiles continues down the length of the hallway.
+~
+~
+33030151 0 9 0
+D2
+~
+~
+0 -1 47292 10 10 5
+A
+~
+~
+send_to_room( #chan, room );
+~
+E
+chan~
+The shimmering light from the chandelier plays across the rooms in a
+dazzling display of color.
+~
+!
+2 350 0
+-1
+S
+
+#47294
+A Vaulted Hall of Silver and Sable~
+This wide, vaulted hall is regally adorned in somber colors.  Walls of
+lustrous grey stone are lined with silver and sable banners of the finest
+silk depicting the shield and rose of the Knights.  The blazons and
+emblems of various heroes are hung over a wide hearth in the western wall.
+Carved into the shape of a writhing silver dragon, the hearth radiates
+heat and light to the entire room.  The sapphire eyes of the silver dragon
+glitter coldly with a faint light of their own.
+~
+~
+33030151 0 9 0
+D0
+~
+~
+0 -1 47295 10 10 5
+D1
+~
+~
+0 -1 47297 10 10 5
+D3
+~
+~
+0 -1 47296 10 10 5
+D4
+~
+~
+0 -1 47298 10 10 5
+E
+banner~
+The lovely black silk banners provide a rich background for the emblem of
+the Knights.  A grey shield rests in the middle of the sable silk, a
+stark contrast of dark and light.  A myriad of brightly shining stars
+sprawls across the shield, in a seemingly random pattern.  A rose of the
+deepest crimson lies across a brilliantly radiant longsword of the purest
+grey adamantine.  The shield itself is trimmed in brightly shining silver.
+~
+-1
+S
+
+#47295
+A Vaulted Hall of Silver and Sable~
+Under Construction.
+~
+~
+33030151 0 9 0
+D2
+~
+~
+0 -1 47294 10 10 5
+-1
+S
+
+#47296
+The Knight's Treasury~
+This spartan room is filled with a few well-placed cabinets for weaponry
+and chests for miscellaneous items.  The walls are a somber grey color,
+and no decoration or adornment graces the ashen walls.  Black octahedral
+tiles cover the floor in a midnight colored sea, reflecting the
+flickering light of torches in silver sconces along the sober grey walls.
+~
+~
+33097735 0 9 0
+D1
+~
+~
+0 -1 47294 10 10 5
+-1
+S
+
+#47297
+A Vaulted Hall of Silver and Sable~
+Under Construction.
+~
+~
+33030151 0 9 0
+D3
+~
+~
+0 -1 47294 10 10 5
+-1
+S
+
+#47298
+A Vaulted Hall of Silver and Sable~
+Under Construction.
+~
+~
+33030151 0 9 0
+D5
+~
+~
+0 -1 47294 10 10 5
+-1
+S
+
+#47299
+Ivory Spiral Stair~
+The spiral stair continues toward the ceiling, stopping only for a small
+landing before an ivory door.  The absence of a support pillar for the
+curving stair lends an ethereal quality to the hard stone as it arcs
+above you.  A brilliant green rune glows upon the door, elegant in its
+simplicity yet somehow curving in such a way to make one ill.
+~
+~
+33030149 0 5 0
+D3
+ivory door~
+ivory door west w~
+131 -1 47312 10 10 5
+D4
+~
+~
+0 -1 47311 10 10 5
+D5
+~
+~
+0 -1 47259 10 10 5
+A
+trace~
+rune~
+if( !is_open( room, west ) ) {
+  act_tochar( #rune, ch );
+  act_notchar( #rrune, ch );
+  wait( 1 );
+  act_room( #open, ch  );
+  open( room, west );
+  wait( 4 );
+  act_room( #close, ch );
+  close( room, west );
+  }
+~
+E
+rune~
+You trace the curves of the twisted green rune.
+~
+E
+rrune~
+$n traces the curves of the twisted green rune.
+~
+E
+open~
+The door swings silently open.
+~
+E
+close~
+The door swings silently closed.
+~
+!
+0 0 0
+A
+open close~
+~
+if( is_open( room, west ) ) {
+act_tochar( #open, ch );
+act_notchar( #ropen, ch );
+}
+~
+E
+open~
+No description.
+~
+E
+ropen~
+No description.
+~
+!
+0 0 0
+-1
+S
+
+#47300
+The Arena of Champions~
+A thick layer of fine sand covers the floor, colored a dark red in
+several places.  Wooden racks line the walls, no doubt once filled with
+all manners of weapons.  Carved above the empty weapon rack on the
+southern wall is the creed of The Training Grounds, 'Knowledge is power'.
+A quivering ball of mage light, slowly losing its power, hangs just a few
+feet below the ceiling, still bright enough to light the arena grounds. 
+The fine layer of sand stretches out as far as you can see to both the
+west and north, while a slightly rusty steel ladder leads upstairs.
+~
+~
+33030149 0 7 0
+D0
+~
+~
+0 -1 47304 10 10 5
+D3
+~
+~
+0 -1 47303 10 10 5
+D4
+~
+~
+0 -1 47262 10 10 5
+-1
+S
+
+#47301
+Preparation Room~
+What may have once been brilliant in its simplicity now makes this room
+look bare and lonely.  A small mat, now no more than a few bedraggled
+threads still feebly clinging to each other, sits in front of the
+shattered remains of a small table.  No ornaments adorn the walls, save a
+single rusted incense burner.  A thick, carved mahogany door to the west,
+blocks the only accessible passage out of this bare room.
+~
+[Adakar] first draft...done
+~
+301465733 0 6 0
+D3
+thick mahogany door~
+thick mahogany door~
+391 -1 47266 10 10 5
+E
+small mat bedraggled threads~
+This small mat is just the right for a single person to kneel on.  The
+padding is all but gone and the mat only holds it shape because no one
+has moved it recently.
+~
+E
+rusted incense burner~
+The incense burner may have once been made out of a shining steel, though
+now rust has claimed its value.  No incense remains within the burner yet
+a faint smell of the outdoors, of lilacs and roses and a cold mountain
+stream still permeates the air.
+~
+E
+shattered table~
+The table looks to have once sat a mere foot off the ground, the perfect
+height for someone kneeling before it.  It has since been broken to
+pieces do doubt in a search for valuables that may have been stored
+within it.
+~
+-1
+S
+
+#47302
+Balcony Overlooking the Altar~
+A few jagged shards of dark stained glass remain attached to the wrought
+iron framework of the circular window.  The remains of the window lie on
+the ground far below, just outside of the temple entrance.  Once fine
+silken cushions lie torn open on the floor amongst the splinters of
+wooden pews.  A full-sized wooden organ, complete with mithril pipes sits
+in an out of the way corner of the balcony.  Dark, sticky stains cover
+the organ reminiscent of spilled wine.  The mithril pipes, show evidence
+of both tarnish and abuse, no doubt someone failed in their attempt to
+detach the pipes from the organ and the wall.
+~
+[Adakar] first draft done
+~
+301465605 0 7 0
+D5
+~
+~
+0 -1 47265 10 10 5
+E
+jagged shards dark stained glass wrought iron framework circular window~
+Light streaming in through the broken window reflects oddly off of the
+silvers of stained glass still clinging to the iron framework.  Myriad
+colors in a darkened and twisted parody of a rainbow twinkle in the light
+giving the impression of great intricacy in the original pattern.
+~
+E
+silken cushions splinters of wooden pews~
+Small shreds of colorful silk from the torn open cushions once used by
+the choir lie mixed in with the wooden pews that they once sat on.  Gold
+stitching can still be seen on a few of the silken pieces, hinting at
+intricate patterns once emblazoning them.
+~
+E
+full-sized organ mithril pipes~
+A full-sized pipe organ, once used to accompany the choir sits in the
+corner of the room.  The mithril pipes attached to it and the wall show
+abuse but still twinkle near the tops of the different sized pipes.
+~
+-1
+S
+
+#47303
+The Arena of Champions~
+Having been ripped from the wall, a fully stocked weapons rack now covers
+a portion of the sandy floor.  The weapons beneath it appear to have been
+broken and bent under the weight of the massive wood rack.  The steel
+clamps that once held the rack in place are still buried deep within the
+cold stone walls.  An ephemeral ball of mage light hovers in the air just
+a few feet below the ceiling, the remnants of the powerful spells that
+were once cast upon the arena grounds.  A trail of blood-stained sand
+leads farther into the arena to the north, evidence of a tragic fight
+that took place in the not so distant path.
+~
+~
+33030149 0 8 0
+D0
+~
+~
+0 -1 47305 10 10 5
+D1
+~
+~
+0 -1 47300 10 10 5
+E
+weapons broken~
+No description.
+~
+E
+wooden rack~
+No description.
+~
+E
+ephemeral ball light~
+No description.
+~
+-1
+S
+
+#47304
+The Arena of Champions~
+A flickering ball of mage light, hovering a few feet below the ceiling,
+causes shadows to dance around in this corner of the arena.  Wooden
+training dummies, now broken, lend their forms to the dancing shadows,
+making it difficult to focus on any one shape.  A large section of the
+stone floor in the center of the room has been cleared of its fine layer
+of sand.  Light can be seen at a short distance to both the south and the
+west, perhaps emanting from more of the powerful magics worked here
+quite some time ago.
+~
+~
+33030149 0 9 0
+D2
+~
+~
+0 -1 47300 10 10 5
+D3
+~
+~
+0 -1 47305 10 10 5
+-1
+S
+
+#47305
+The Arena of Champions~
+The upper most layers of the fine sand have been turned into a hard,
+coagulated crimson mass.  No doubt a massive battle occured here, proven
+by the amount of blood that would be necessary to turn such a large
+amount of the sand into the now hardened substance.  Buried into the
+northern wall is the shattered remains of an axe head, its shaft no
+longer attached to the jagged metal embedded into the rock.  Splintered
+into a millon pieces, the remains of a weapons rack lie mixed in with the
+sand layered upon the ground.
+~
+~
+33030149 0 8 0
+D1
+~
+~
+0 -1 47304 10 10 5
+D2
+~
+~
+0 -1 47303 10 10 5
+-1
+S
+
+#47306
+Storage Room~
+The shattered remains of the storage room door lies amongst the empty,
+overturned crates that litter the room.  The crates may have once held
+exotic foods from across the lands, many bearing markings from far-away
+cities, though now they all appear to be empty.  Deep gouges have been
+hacked into the dark wooden walls, no doubt in an attempt to find hidden
+passages, obviously none were found by this destructive attempt.  A
+rusty, steel ring, wet with condensation is the only noticeable blemish
+that betrays the existence of a finely crafted trapdoor set into the 
+northern section of the floor.
+~
+~
+301465605 0 9 0
+D2
+~
+~
+0 -1 47307 10 10 5
+D5
+finely crafted trapdoor~
+finely crafted trapdoor~
+131 -1 47309 10 10 5
+-1
+S
+
+#47307
+Training Grounds Kitchen~
+A large fireplace dominates the eastern wall of the room with an
+apparently often used spit sitting over it.  The smell of decay permeates
+the air, caused by the rotting carcass of a rabbit floating in the small
+basin used as a sink.  A large preparation table spans the entire center
+of the kitchen, heavily scarred from the sharp knives used by the
+cooking staff.  A trapdoor is set into the southern section of the floor,
+just below the large open window which gives a scenic view of the outside
+training grounds.
+~
+~
+301465605 0 8 0
+D0
+~
+~
+0 -1 47306 10 10 5
+D1
+thick, stone door~
+thick stone door~
+131 -1 47310 10 10 5
+D3
+~
+~
+0 -1 47262 10 10 5
+D5
+wooden trapdoor~
+wooden trapdoor~
+131 -1 47308 10 10 5
+-1
+S
+
+#47308
+Cold Storage Room~
+Cold water sluggishly rolls down the southern wall of this storage room,
+funneled across the room in a wooden trough.  Dimly pulsing orbs of white
+light hang at equal intervals above the trough.  The water appears to be
+magically moved across the room, through the trough, towards the northern
+wall.  Large steel hooks, covered with coagulated blood hang from the
+ceiling overtop of now rotted and broken tables.  Wooden shelves lining
+every square inch of wallspace are now totally bare save cobwebs and moss. 
+A carved wooden ladder, slimy with mold and mildew, leads up to a large
+trapdoor set into the ceiling.
+~
+~
+301596677 0 5 0
+D4
+wooden trapdoor~
+wooden trapdoor~
+131 -1 47307 10 10 5
+-1
+S
+
+#47309
+Damp Wine Cellar~
+Water cascades down the southern wall, forming a small pool in the center
+of the room which continually empties into an underground stream.  Row
+upon row of wine racks line this room, once having no doubtedly housed
+some of the finest wines of the world, now sit empty.  A few barrels sit
+in a dark corner of the room, their wooden frames still perfectly water
+proof.  A fine, wooden spiral staircase, as perfect as the day it was
+crafted leads to a dark mahogany trapdoor above you.
+~
+~
+301465605 0 9 0
+D4
+finely crafted trapdoor~
+finely crafted trapdoor~
+131 -1 47306 10 10 5
+-1
+S
+
+#47310
+Food Smoking House~
+A large fireplace dominates the western wall, combined with a second
+smaller fire pit in the center of the room marks this room as the meat
+smoking room.  The entire room is made of stone, from the walls to the
+tables that meat is supposed to sit on.  Large hooks hang from the
+ceiling, to be used in the curing process of beef and chicken.  The stone
+tables that ring the firepit in the center of the room have been gouged
+deeply, ruining their value but not their practical use.  A thick, stone
+door designed to help keep all possible heat in the room, blocks your
+passage to the west.
+~
+~
+301465605 0 6 0
+D3
+thick, stone door~
+thick stone door~
+131 -1 47307 10 10 5
+-1
+S
+
+#47311
+Tower Stair~
+Under Construction.
+~
+~
+33030149 0 9 0
+D3
+~
+~
+0 -1 47313 10 10 5
+D4
+~
+~
+0 -1 47314 10 10 5
+D5
+~
+~
+0 -1 47299 10 10 5
+-1
+S
+
+#47312
+Mage Room1~
+The forces of entropy seem to have had a hand in the utter chaos of what
+looks to have formerly been a mage's workroom.  Books, scrolls, broken
+glass, and other items not easily identifiable are strewn across the
+floor and atop the large stone table in the center of the room.  The west
+wall is covered in soot, seemingly reaching out from a small fireplace as
+if in some kind of explosion.  Half-burned books lie along the edge of
+the blast radius, and it seems likely that someone was possessed of the
+bad idea to throw a spellbook into the fire.
+~
+Mental note: write a search for scrolls atop the table
+~
+33030149 0 5 0
+D1
+ivory door~
+ivory door~
+131 -1 47299 10 10 5
+A
+search~
+table scrolls books top~
+~
+!
+0 0 0
+3391 17 1509949540 -2 0
+-1
+S
+
+#47313
+Mage Room2~
+Under Construction.
+~
+~
+33030149 0 9 0
+D1
+~
+~
+0 -1 47311 10 10 5
+-1
+S
+
+#47314
+Tower Stair~
+Under Construction.
+~
+~
+33030149 0 9 0
+D3
+~
+~
+0 -1 47316 10 10 5
+D4
+~
+~
+0 -1 47315 10 10 5
+D5
+~
+~
+0 -1 47311 10 10 5
+-1
+S
+
+#47315
+Tower Stair~
+Under Construction.
+~
+~
+33030149 0 9 0
+D3
+~
+~
+0 -1 47317 10 10 5
+D5
+~
+~
+0 -1 47314 10 10 5
+-1
+S
+
+#47316
+Lab~
+Under Construction.
+~
+~
+33030149 0 9 0
+D1
+~
+~
+0 -1 47314 10 10 5
+-1
+S
+
+#47317
+High Mage's Room~
+Under Construction.
+~
+~
+33030149 0 9 0
+D1
+~
+~
+0 -1 47315 10 10 5
+-1
+S
+
+#47318
+Crushed Gravel Pathway~
+A path of fine powdery gravel, once used to cushion the footfalls of the
+residents of The Training Grounds, meanders parallel to the walls of the
+guildhall.  Sporadic trees, all having grown well into maturity, soar
+high into the sky, once providing shade for anyone traipsing down the
+path.  The limbs of the trees are no longer clothed in lush greenery and
+their barren limbs now appear to have a slight droop to them, making them
+appear depressed and sickly.  The crushed gravel path continues to the
+north, while to the south the grounds open up before the sight of an
+ivory tower.
+~
+~
+301465601 12 7 0
+D0
+~
+~
+0 -1 47319 10 10 5
+D2
+~
+~
+0 -1 47260 10 10 5
+-1
+S
+
+#47319
+Crushed Gravel Pathway~
+Under Construction.
+~
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 47320 10 10 5
+D2
+~
+~
+0 -1 47318 10 10 5
+-1
+S
+
+#47320
+Crushed Gravel Pathway~
+Faint gurgling sounds can be heard coming from the west as you stand here
+at a t-junction in the crushed gravel pathway.  A towering tree, barren
+limbed and sap dripping still stands protectivly over top a scarred and
+chipped crystalline bench.  A small marker stone sits at the base of the
+barren tree, even covered in sap its inscriptions are still easily
+readable.  The crushed gravel path travels in all directions save north,
+which is blocked by the crystalline bench and its living companion.
+limbed and sap dripping still stands protectively over top a scarred and
+~
+~
+301465601 12 9 0
+D1
+~
+~
+0 -1 47321 10 10 5
+D2
+~
+~
+0 -1 47319 10 10 5
+D3
+~
+~
+0 -1 47323 10 10 5
+3389 17 1509949540 -2 0
+-1
+S
+
+#47321
+Beside a Fountain~
+The gravel pathway has been crafted into a circular path here, ringing
+the exquisite fountain that stands before you.  The fountain captures the
+visage of a forest unicorn in mid-rear, its crafter created it in such a
+way that it is eerily lifelike.  This small circular path, complete with
+fountain looks to be untouched by time, the statue still appears to be as
+new as the day it was carved, the gravel is still fresh and clean. 
+Slight gurgling noises emanate from the fountain as if its magic's were
+still attempting to toss water up into the air for it to idly shower down
+on the unicorn.
+~
+~
+301465601 12 9 0
+D3
+~
+~
+0 -1 47320 10 10 5
+-1
+S
+
+#47322
+Pool of Shadows~
+Dark, still, water seems to draw the ambient light down into the
+seemingly bottomless pool in the center of the room.  The ivory walls are
+shadowed, as if there were simply not enough light to brighten the room,
+almost in spite of a faintly struggling mage globe hanging aloft in the
+center of the room.
+~
+~
+301465605 0 5 0
+D4
+~
+~
+0 -1 47259 10 10 5
+E
+pool dark water bottom center~
+No light is reflected off of the surface of the pool, making the inky
+blackness seem more a condensation of shadow than simple water.  The
+absence of even a hint of motion serves only to draw your eye further
+into the depths, teasing your senses with the promise of other worldly
+vision.
+~
+A
+scry stare~
+pool water blackness~
+act_tochar( #begin, ch );
+wait( 1 );
+act_tochar( #memory, ch );
+wait( 1 );
+act_tochar( #vision, ch );
+wait( 1 );
+act_tochar( #return, ch );
+wait( 1 );
+act_tochar( #blink, ch );
+act_notchar( #rblink, ch );
+~
+E
+begin~
+As your vision is drawn into the pool, you feel your will evaporating as
+to what image you wish to see.  You realize the pool will show you only
+what it wishes.
+~
+E
+vision~
+@BGreat trees soar overhead, creating a verdant canopy over the grassy
+area below.  Sunlight filters down through the leaves of many different
+kinds of trees, illuminating embroidered banners hanging from the lower
+boughs.  The murmurs of a brook dance through the area, surrounding you
+with sound.  Glimpses of structures can be seen through the trees in
+every direction, but at a great enough distance to not disturb the
+training grounds.
+~
+E
+memory~
+@bA wave of poignant sadness washes over you, as if remembering a thing
+lost which could never be recoverd...
+~
+E
+return~
+@bYou feel the image and sounds slip from your mind's eye, leaving the
+scene to exist again only in memory.
+~
+E
+blink~
+You blink quickly and shake your head, returning to yourself after the
+power of the vision.
+~
+E
+rblink~
+$n blinks quickly and shakes $s head, almost as if waking from a dream.
+~
+!
+0 0 0
+A
+splash~
+water pool~
+act_tochar( #stop, ch );
+act_notchar( #rstop, ch );
+~
+E
+stop~
+You swing your hand towards the water, but find yourself curiously
+draining of the will to disturb the silent pool and so drop your hand to
+your side.
+~
+E
+rstop~
+$n starts forward, leaning a hand towards the water, thinks better of it,
+and stops.
+~
+!
+0 0 0
+-1
+S
+
+#47323
+Crushed Gravel Pathway~
+A carefully sculpted turn in the pathway leads off to the north.  The
+track was once edged by a fine hedge, which now lies trampled and dying. 
+A large wooden structure is evident just a short distance to the north
+along the pathway.  The curving gravel trail leads off to both the east
+and the north, large trees growing to the west prevent all travel in that
+direction.
+~
+~
+301465601 12 9 0
+D0
+~
+~
+0 -1 47324 10 10 5
+D1
+~
+~
+0 -1 47320 10 10 5
+-1
+S
+
+#47324
+Before a Wooden Barn~
+The crushed gravel pathway comes to an end just as it meets up with a
+large wooden barn.  The building before you has been made entirely of a
+thick, dark wood the likes of which you have never seen.  Barely
+noticeable through the trees to the west is the wall that surrounds The
+Training Grounds' compound.  A small hitching post sits off to the east
+of the gravel path, no doubt this was mainly used for the harnessing of a
+horse till a stableboy was able to tend to the beast.  The crushed gravel
+lends itself to an easy hike to the south, while the inside of the barn
+is accessible through the large double doors to the north.
+~
+large beam/lock for the stable doors
+~
+301465601 12 9 0
+D0
+stable door~
+stable door~
+131 -1 47325 10 10 5
+D2
+~
+~
+0 -1 47323 10 10 5
+-1
+S
+
+#47325
+Inside the Stable~
+You stand at the front of a beautifully built covered stable.  Small
+candle holders dot the free space on the walls next to the stable doors
+to the both the east and west.  Remnants of tallowed candles rest in each
+of the candle holders, no doubt they were once used by the young
+stableboys when late night guests arrived at The Training Grounds.  A set
+of large double doors, bars access to the outside world beyond the stable
+itself.
+~
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 47328 10 10 5
+D1
+stable gate~
+stable gate~
+131 -1 47327 10 10 6
+D2
+stable door~
+stable door~
+131 -1 47324 10 10 7
+D3
+stable gate~
+stable gate~
+131 -1 47326 10 10 6
+-1
+S
+
+#47326
+Small Stable Stall~
+A discoloration appears in the southwestern corner of the wall in this
+stable stall.  The stain may very well have been caused by an animal that
+had been backed into that corner and summarily slaughtered, as it appears
+to be thicker near the center of the smear.  Only a few stray pieces of
+hay lie scattered across the dark wooden floor, obviously no animals have
+been kept here in quite some time.  A gate, just large enough for a full
+sized war horse to walk through blocks your access to the east and the
+stables beyond.
+~
+~
+301465605 12 6 0
+D1
+~
+~
+131 -1 47325 10 10 6
+-1
+S
+
+#47327
+Small Stable Stall~
+The sweet smell of burnt hay assaults you as you enter the stable stall. 
+A pile of ash and remnants of burnt hay lie just underneath the charred,
+yet still standing eastern wall.  A small discolored rectangle appears on
+the southern wall, possibly the only remaining proof that a plaque once
+adorned the wooden walls.  A small, empty feeding trough and a water pail
+filled with fetid water are attached to the divider between this stall
+and its northern neighbor.  The only available exit is through the wooden
+stable gate to the west, though a small child might attempt exit through
+the window in the southern wall.
+~
+~
+301465605 0 6 0
+D3
+~
+~
+131 -1 47325 10 10 6
+-1
+S
+
+#47328
+Inside the Stable~
+You stand at the back of the covered stables, a stall to both the east
+and the west.  A single bag of high quality feed lies ripped open on the
+floor, its contents spilled out across the bed of bloody hay covering the
+wooden floor.  A hastily crafted lock has been set into the stall door to the
+west, a sign written in shaky handwriting hangs crookedly above the lock. 
+Attached to the northern wall are wooden pegs, typically used by the
+stableboys to hang up their tools, hanging from one is the decomposing
+skull of an aged dwarf.
+~
+[Adakar] action for search feed
+~
+301465605 0 7 0
+D1
+stable gate~
+stable gate~
+131 -1 47329 10 10 6
+D2
+~
+~
+0 -1 47325 10 10 5
+D3
+stable gate~
+stable gate~
+131 3393 47330 10 10 6
+E
+sign~
+The sign was obviously hastily made and even more hastily hung.  It
+consists of a scorched board hanging at an odd angle with a few shaky
+words scrolled in red ink.  The words 'NevR oPen!  DAnGr!' are clearly
+visible.
+~
+-1
+S
+
+#47329
+Small Stable Stall~
+This stable appears to be kept in well maintained order.  Both the wooden
+feeding trough and the water pail, set into the divider on the southern
+wall, have been filled with fresh grain and water.  An ample supply of
+fresh hay has been spread out on the ground, next to the bail from which
+it originated.  A small picture window has been set into the eastern wall
+to allow natural light to brighten the room.  A wooden stable gate blocks
+your way back to the main stable thoroughfare to the west.
+~
+~
+301465605 12 6 0
+D3
+~
+~
+131 -1 47328 10 10 6
+-1
+S
+
+#47330
+Small Stable Stall~
+This horse sized stall appears to have been untouched by the cruel test
+of time.  A small pile of clean, yet slightly mildewy hay lies in a
+corner just underneath the small picturesque window in the western wall. 
+A small empty watering pail sits next to a feeding trough, both firmly
+attached to the wooden wall.  The only out of place object in this
+seemingly quaint horse stall is the skeleton of a goblin lying just a
+few feet from the doorway to the east.
+~
+[Adakar] note: zombie, never touched by invaders
+[Adakar] goblin skeleton
+~
+301465605 12 6 0
+D1
+~
+~
+131 -1 47328 10 10 6
+-1
+S
+
+#0
+

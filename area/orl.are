@@ -1,0 +1,1871 @@
+#AREA
+Grotington~
+Fenlyn, Rue~
+~
+
+1 0
+3
+#ROOMS
+
+#60000
+Orlumber Square~
+You stand in the middle of town before a grimy stone fountain.  Bricks
+built about a foot up the base of the fountain in a vertical plane curve
+down to a horizontal plane creating a brick walkway going off in all
+directions.  A strange amber-colored mist hovers over the town square
+providing an even and diffuse light to the fountain and its surroundings.
+~
+[Fenlyn] random acode for fountain mist.
+[Fenlyn] extras: amber mist, brick/walkway, north, east, west, south
+[Fenlyn] Guards: aggr_good (ie. kick ass)
+[Fenlyn] N: Yellow brick, S: Red brick, E: Green Brick, W: Blue Brick
+[Fenlyn] done
+[Merior] first sentence sounds odd
+[Merior] make all guards no-bash, and shouldnt see invisible or hidden
+[Merior] small goblin is just TOO small
+[Merior] why do goblins color-code their streets? doesnt seem like it would be typical
+~
+335151109 1 7 0
+D0
+~
+~
+0 -1 60001 10 10 5
+D1
+~
+~
+0 -1 60007 10 10 5
+D2
+~
+~
+0 -1 60003 10 10 5
+D3
+~
+~
+0 -1 60005 10 10 5
+E
+mist amber~
+The amber mist strangely hovers over the town square directly above the
+fountain.  Even though the mist is translucent, the source of its light
+is indeterminant.
+~
+E
+brick walkway~
+The bricks curve down from the fountain's base creating a multitude of
+different colored brick walkways.  Even though it looks like some time
+was spent constructing the walkway, large cracks already plague it.
+~
+E
+1 east~
+A walkway made of green bricks heads off to the east.
+~
+E
+1 west~
+A walkway made of light blue bricks heads off to the west.
+~
+E
+1 north~
+A walkway made of yellow bricks runs up the north road.
+~
+E
+1 south~
+The southern path leads down to a gate along a red brick road.
+~
+A
+~
+~
+ch = rand_player( room );
+act_tochar( #mist, ch );
+act_notchar( #ncmist, ch );
+modify_move( ch, 5 );
+~
+E
+mist~
+@cMist from the fountain hits your face as a quick breeze blows through the
+town square.@n
+
+You feel slightly invigorated.
+~
+E
+ncmist~
+@cMist from the fountain hits $n's face as a
+quick breeze blows through the town square.@n
+~
+!
+2 15 0
+2530 17 1509949540 -2 0
+1801 9 1509949540 3 0
+227 9 1509949540 3 0
+-1
+S
+
+#60001
+Grottington Street~
+Set into the west wall of the jagged rock, an old wooden door teeters
+open and closed regularly from the small breeze that seems to wash
+through the corridor.  Yellow brick placed together forms a
+bright-colored walkway that heads north and south.  Sounds of trickling
+water are coming from the south.
+~
+[Fenlyn] door action
+[Fenlyn] done
+~
+335151108 1 6 0
+D0
+~
+~
+0 -1 60002 10 10 5
+D2
+~
+~
+0 -1 60000 10 10 5
+D3
+old wooden door~
+old wooden door~
+1 -1 60019 10 10 5
+A
+~
+~
+if( is_open( room, west ) ) {
+  send_to_room( #closes, room );
+  send_to_room( #closes2, find_room( 60019 ) );
+  close( room, west );
+  }
+else {
+  send_to_room( #opens, room );
+  send_to_room( #opens, find_room( 60019 ) );
+  open( room, west );
+  }
+~
+E
+closes~
+A gust of wind shuts the old wooden door.
+~
+E
+opens~
+A small breeze gently opens the old wooden door.
+~
+E
+closes2~
+The old wooden door appears to close by itself.
+~
+!
+4 500 0
+1819 9 1509949540 3 0
+-1
+S
+
+#60002
+Grottington Street~
+You stand before an elegant-looking temple door.  Mounted in the elegant
+door is a multicolored stained glass window with a bit of damage to it. 
+As light shines through the glass, a rainbow cascade of light shines upon
+the otherwise dull gray stone walls.  The yellow-bricked walkway leads
+south towards an amber glow.
+~
+[Fenlyn] modifed door to look crappy.  done
+~
+335151109 1 6 0
+D0
+elegant temple door~
+elegant temple door~
+131 -1 60020 10 10 5
+D2
+~
+~
+0 -1 60001 10 10 5
+E
+stained glass door elegant window~
+The stained glass is shaped like a sunrise over a mountain scene.  Snow
+tops the mountains as the orange sun appears to be rising behind it
+giving the green grass in the foreground an almost indistinguishable tint. 
+If the glass weren't cracked and holding itself in the door by some
+divine power, it would look more beautiful than it already does.
+~
+E
+gray stone colors rainbow~
+A band of brilliant colors is displayed on the gray stone.  Several
+colors have made their way to the stone wall, but the most omnipresent
+one is a great streak of yellowish orange.
+~
+1824 169 1509949540 3 0
+1823 73 1509949540 3 0
+1823 73 1509949540 3 0
+-1
+S
+
+#60003
+Grottington Street~
+The cave walls gradually become larger as the stone archway continues
+from the south to the north.  The red brick walkway continues here, but
+there are some small sand-colored bricks that seem to form a group of
+letters.  Darkness envelops the cave to the south, but an amber glow to
+the north allows you to see a small stone fountain.
+~
+[Fenlyn] sand-colored brick extra
+[Fenlyn] glow amber extra
+[Fenlyn] etching or marking extra
+
+[Starshine] hmm... not sure evil tricksters would make a cute little brick welcome mat...
+[Fenlyn] No, but their little slaves do.  Will try to add the illusion of
+work being done by slaves.
+
+[Starshine] I'm not even sure how lawful goblins can be...I always
+thought they were mostly chaotic myself.
+[Fenlyn] Guards are CE, Citizens NE, Slaveboss NE, Shopskeepers LE.
+[Fenlyn] although I think an important thing to remember about the
+goblins is that they are far less evil than, say, vyans.  at least that's
+my perception.
+~
+335151116 1 6 0
+D0
+~
+~
+0 -1 60000 10 10 5
+D2
+~
+~
+0 -1 60004 10 10 5
+E
+amber glow north~
+An amber glow seems to be mysteriously lingering above the stone fountain
+to the north.  Closer inspection would be required to see more detail.
+~
+E
+sand-colored brick letters~
+The letters made out of sand-colored brick on the ground say, "Welcome to
+Grottington." Etched into a red brick under the sand-colored bricks is a
+small marking made with some sort of sharp object.  Most of the bricks
+appear to be finely cut and placed into the ground, but some seem to be
+cracked already.
+Next to the cave wall, a brick is missing.
+~
+E
+etching markings marks~
+The small markings read, "Death to good."
+~
+-1
+S
+
+#60004
+End of Grottington Street - Before the Gates~
+You stand at the southernmost point of Grottington Street before a small
+gate protecting the townspeople from their enemies.  The cave walls are
+very jagged and rough, but the cave floor seems to be covered in red
+brick forming a nearly smooth and level walkway.  The red-bricked walkway
+continues north into the town.  A @elever@n is embedded into the cave
+wall.
+~
+~
+335151108 1 6 0
+D0
+~
+~
+0 -1 60003 10 10 5
+E
+lever~
+The lever is embedded into the cave wall.  It doesn't look possible to
+push it given that it's set in so far, but it may be possible to pull it.
+~
+E
+walkway~
+The walkway ends here at the gate, but it continues to the north.  All of
+the bricks are red and appear to be in good condition, but some of them
+appear to be missing as if they were either stolen or not put in yet.
+~
+A
+pull~
+lever~
+if( is_open( room, south ) )
+  act_tochar( #huh, ch );
+else {
+  act_tochar( #pulls, ch );
+  act_notchar( #ncpulls, ch );
+  send_to_room( #open, find_room( 26546 ) );
+  open( room, south );
+  }
+~
+E
+huh~
+The portcullis is already open.
+~
+E
+pulls~
+As you pull the lever, the portcullis to the south opens.
+~
+E
+ncpulls~
+$n pulls the lever, and the portcullis opens.
+~
+E
+open~
+The portcullis to the north is opened from the other side.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+send_to_room( #closes, room );
+send_to_room( #closes, find_room( 26546 ) );
+close( room, south );
+send_to_room( #ent, find_room( 84 ) );
+~
+E
+closes~
+The portcullis slowly closes.
+~
+E
+ent~
+@CSomeone has entered Grottington's town gate.@n
+~
+!
+1 0 4
+1824 169 1509949540 3 0
+1823 73 1509949540 3 0
+1823 73 1509949540 3 0
+-1
+S
+
+#60005
+Buize Road~
+The cave walls appear to be slightly smaller than those to the east. 
+Light blue bricks make up the rather shabbily made walkway in this cave
+corridor.  To the south lies a dirt-covered cave floor while a strange
+amber glow lies to the east.  The blue walkway continues to the west.
+~
+[Fenlyn] done
+[Merior] say more about the walls then comparing them to the east (where
+you may not have been) 
+[Merior] here it says floor is south, yet south is a major street
+~
+335151108 1 6 0
+D1
+~
+~
+0 -1 60000 10 10 5
+D2
+~
+~
+0 -1 60013 10 10 5
+D3
+~
+~
+0 -1 60006 10 10 5
+-1
+S
+
+#60006
+Buize Road~
+The aroma of freshly-cooked foods seems to be wafting in from the north. 
+The most distinct smell is that of a freshly-baked loaf of bread.  Buize
+Road ends here as the cave makes a sharp turn heading north into a
+marketplace.  To the east, a faint amber light can be made out in the
+darkness.
+~
+[Fenlyn] sniff air action
+[Starshine] freshly-cooked. freshly-baked.
+[Fenlyn] done
+[Merior] i like the slave boss
+[Merior] the bread sounds awfully nice for goblins to eat
+[Merior] get the boss to summon help
+~
+335151108 1 6 0
+D0
+~
+~
+0 -1 60015 10 10 5
+D1
+~
+~
+0 -1 60005 10 10 5
+A
+sniff~
+air 1 north~
+act_tochar( #bread, ch );
+~
+E
+bread~
+Mmmmm.... bread.
+~
+!
+0 0 0
+A
+sniff~
+~
+acode( room, 1 );
+~
+!
+0 0 0
+227 9 1509949540 3 0
+1824 169 1509949540 3 0
+1823 73 1509949540 3 0
+1823 73 1509949540 3 0
+-1
+S
+
+#60007
+Buize Road~
+The brick coming from the fountain to the west is now a shade of light
+green forming a green walkway on this side of town.  Some of the mist
+coming from the fountain to the west has made this room a bit humid. 
+Some moss is growing at the base of the cave walls making it difficult to
+determine where the walkway begins and the wall ends.  The walkway
+branches off to a cobblestone road to the north, but the green-bricked
+path continues east.
+~
+[Fenlyn] something to do with moss.  moss extra too
+
+[Starshine] an action to make people slip on the slimy stone?
+[Fenlyn] done
+~
+335151108 1 6 0
+D0
+~
+~
+0 -1 60011 10 10 5
+D1
+~
+~
+0 -1 60008 10 10 5
+D2
+~
+~
+0 -1 60023 10 10 5
+D3
+~
+~
+0 -1 60000 10 10 5
+E
+moss~
+A light shade of green, this group of moss blends almost perfectly into
+the green-bricked walkway.  Something appears to be shining through the
+thick band of moss near the floor's edge.
+~
+A
+~
+moss green~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #noway, ch );
+  act_notchar( #ncnoway, ch );
+  }
+else {
+  remove_rflag( reset0, room );
+  if( random( 1, 100 ) == 1 ) {
+    act_tochar( #plat, ch );
+    act_notchar( #ncplat, ch );
+    obj_to_char( oload( 16 ), ch );
+    end;
+    }
+  if( random( 1, 100 ) >= 90 ) {
+    act_tochar( #gold, ch );
+    act_notchar( #ncgold, ch );
+    obj_to_char( oload( 2 ), ch );
+    end;
+    }
+  act_tochar( #noway, ch );
+  act_notchar( #ncnoway, ch );
+  }
+~
+E
+noway~
+You investigate the moss, but find only dew covering it.
+~
+E
+ncnoway~
+$n searches the moss, but doesn't appear to see anything unusual.
+~
+E
+plat~
+You find a platinum coin in the moss!
+~
+E
+ncplat~
+$n finds a platinum coin in the moss!
+~
+E
+gold~
+You find a gold coin in the moss!
+~
+E
+ncgold~
+$n finds a gold coin in the moss!
+~
+!
+9 0 0
+A
+~
+~
+if( !is_player( ch ) )
+  continue;
+if( can_fly( ch ) )
+  continue;
+else {
+  if( find_stat( ch, dex ) < random( 4, 16 ) ) {
+    act_tochar( #trip, ch );
+    act_notchar( #nctrip, ch );
+    interpret( ch, "+sit" );
+    }
+  else
+    continue;
+  }
+~
+E
+trip~
+@GAs you try to leave the room, you lose your footing and slip on the moss.
+~
+E
+nctrip~
+@GAs $n tries to leave, $e loses $s footing and slips on the moss.
+~
+!
+3 0 15
+-1
+S
+
+#60008
+Buize Road~
+In the ceiling of this part of Buize Road, a small skylight has been
+built.  The bricked walkway ends here, but the path continues to run
+southward into a very small street.  The cave walls and ceiling to the
+south appear to be closer than in this part of the cave.
+~
+[Fenlyn] extras: up/skylight
+
+[Starshine] keyword 1 on extra of skylight?
+[Fenlyn] by putting the 1 before the word up allows people to just look u.
+[Fenlyn] done
+~
+335151104 1 6 0
+D2
+~
+~
+0 -1 60009 10 10 5
+D3
+~
+~
+0 -1 60007 10 10 5
+E
+skylight 1 up~
+Crystal clear glass built into the skylight allows for peering outside
+into the elements high above the town's cave structure.
+~
+1802 9 1509949540 3 0
+1819 9 1509949540 3 0
+1824 169 1509949540 3 0
+1823 73 1509949540 3 0
+1823 73 1509949540 3 0
+-1
+S
+
+#60009
+Goblin Way~
+Upon examining the room the first thing you notice is the brightly
+painted mural on the ceiling.  All of the multiple colors of the rainbow
+used in the mural are pretty to look at, but the vapors of the fresh
+painting are giving you a new perspective on things.
+~
+[Fenlyn] code hallucinate into this room so that anyone who enters gets
+it, and anyone who leaves is neutralized.
+[Fenlyn] only reason I think this rdesc is acceptable is becaue of the room affect it has.
+[Fenlyn] look mural: dazed by the bright colors
+
+[Starshine] hmm...when you are hallucinating, you can't look at the mural...
+[Fenlyn] intersting problem.  I'll have to make an action.
+[Fenlyn] done
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 60008 10 10 5
+D1
+~
+~
+0 -1 60026 10 10 5
+D2
+~
+~
+0 -1 60010 10 10 5
+A
+~
+~
+do_spell( hallucinate, ch, ch );
+~
+!
+1 0 7
+A
+~
+~
+do_spell( neutralize, ch, ch );
+continue;
+~
+!
+3 0 7
+A
+look~
+mural colors painting~
+act_tochar( #look, ch );
+~
+E
+look~
+You are too dazed by the bright colors used in the mural to look at it
+for too long.
+~
+!
+0 0 0
+1801 9 1509949540 3 0
+-1
+S
+
+#60010
+Goblin Way~
+The foul stench of animal droppings emanates from the doorway to the west. 
+The sounds of several birds chirping from that direction seem to indicate
+that some sort of animal merchant is selling his goods there.  The shop's
+doorway marks the end of the small cave pathway allowing only a western
+or northerly exit.
+~
+[Fenlyn] faint chirping, animal noises action
+
+[Starshine] emanates
+[Starshine] extra of doorway?
+[Fenlyn] done
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 60009 10 10 5
+D3
+~
+~
+0 -1 60027 10 10 5
+E
+doorway 1 west~
+Not so much a doorway as it is an archway, the words "pet shop" are
+carved into the cave wall above it.
+~
+A
+~
+~
+send_to_room( #parakeet, room );
+~
+E
+parakeet~
+The beautiful song of a parakeet finds its way to your ear from the west.
+~
+!
+2 100 0
+227 9 1509949540 3 0
+-1
+S
+
+#60011
+Verzog Avenue~
+Square cobblestones are attached to the cave floor.  Although the
+cobblestones are not as jagged as the cave floor underneath, they are
+still rough and have edges.  Mounted on the door to the east is a door
+with some sort of yellow crest on it.  A green walkway lies to the south
+as the cobblestone walkway continues to the north.
+~
+[Fenlyn] door extra
+
+[Fenlyn] modified and done
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 60012 10 10 5
+D1
+door with a crest on it~
+door crest~
+131 -1 60024 10 10 5
+D2
+~
+~
+0 -1 60007 10 10 5
+E
+door crest~
+Inscribed on the door's yellow crest in red letters:
+@I@r"Grottington Guild of Guards"
+~
+1819 9 1509949540 3 0
+-1
+S
+
+#60012
+Verzog Avenue~
+Freshly brewed beer odors seem to be coming from the room to the east. 
+Several voices are also making their way out into the cave corridor. 
+Given all the voices and carrying on, many people must be inside this
+local tavern.  From here, exits lie to the east towards the tavern and
+south towards the center of town.
+~
+[Fenlyn] done
+~
+335151108 1 5 0
+D1
+~
+~
+0 -1 60025 10 10 5
+D2
+~
+~
+0 -1 60011 10 10 5
+-1
+S
+
+#60013
+South Market Street~
+Although this section of the South Market Street is covered with a very
+large amount of dirt, parts of the rough stone floor stick out from under
+the filth.  As the dirt path continues to the south, an unmarked doorway
+leads to a smaller room to the west.
+~
+[Fenlyn] search action: dirt
+[Fenlyn] done
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 60005 10 10 5
+D2
+~
+~
+0 -1 60014 10 10 5
+D3
+~
+~
+0 -1 60021 10 10 5
+E
+dirt~
+No description~
+A
+~
+dirt~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  obj_to_char( oload( 78 ), ch );
+  act_tochar( #finds, ch );
+  act_notchar( #ncfinds, ch );
+  }
+else
+  act_tochar( #noway, ch );
+~
+E
+finds~
+You find a pebble in the dirt.
+~
+E
+ncfinds~
+$n finds a pebble in the dirt.
+~
+E
+noway~
+You find nothing.
+~
+!
+9 0 0
+-1
+S
+
+#60014
+South Market Street~
+The dirty path ends here before a doorway to the west.  Small bits of
+junk seem to have gathered up in the corner of the cave wall evidently
+placed there by the small draft that is blowing across your face. 
+Remarkably, the cave wall to the south seems much smoother than any other
+cave wall visible from here.
+~
+[Fenlyn] wind/breeze action
+[Fenlyn] search junk/dirt action
+[Starshine] permit finding of something in junk sometimes?
+[Fenlyn] No.  This is the 'drive mortals batty' search action
+[Merior] wall extra - comparison
+[Merior] citizen mpc isnt done
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 60013 10 10 5
+D3
+~
+~
+0 -1 60022 10 10 5
+E
+smooth southern wall 1 south~
+There's nothing unusual about the wall except that it is so smooth in
+comarison to the other cave walls.  Much toiling must have been done to
+make the wall look as it does.
+~
+A
+~
+junk dirt corner~
+act_tochar( #nothing, ch );
+~
+E
+nothing~
+The junk in the corner looks worthless, so you leave it be.
+~
+!
+9 0 0
+A
+~
+~
+send_to_room( #breeze, room );
+~
+E
+breeze~
+A small breeze blows around your face making it tingle.
+~
+!
+2 100 0
+1819 9 1509949540 3 0
+1801 9 1509949540 3 0
+-1
+S
+
+#60015
+North Market Street~
+Many smooth brown cobblestones line the tunneled street.  Most of them
+appear to be at least four to five inches thick, but some are even larger. 
+The smell of freshly-baked bread is stronger to the north, and an
+irritating grinding metal noise echoes out into the corridor from the
+room to the west.
+~
+[Fenlyn] acode to prevent says, gts in this room if possible.
+[Fenlyn] nope.  I can't do this
+[Fenlyn] random inflict from loud noise.
+[Fenlyn] done
+~
+335151108 1 5 0
+D0
+~
+~
+0 -1 60016 10 10 5
+D2
+~
+~
+0 -1 60006 10 10 5
+D3
+~
+~
+0 -1 60018 10 10 5
+A
+~
+~
+if( num_in_room( find_room( 60018 ) ) >= 2 )
+  end;
+send_to_room( #grinding, room );
+loop( all_in_room ) {
+  i = 1d4+2;
+  dam_message( rch, i, "The loud noise" );
+  inflict( rch, mob, i, "massive ear trauma" );
+  }
+~
+E
+grinding~
+@RA loud grinding noise attacks your ears!@n
+~
+!
+2 500 0
+-1
+S
+
+#60016
+North Market Street~
+A doorway to the east and a jagged rock face to the north mark the end of
+North Market Street.  Several smells invade your nostrils here and they
+grow stronger as you move closer to the door.  The smells seem to be a
+mixture of baked bread and cooked meat.  A sign hangs on the cave wall
+above the doorway.
+~
+[Fenlyn] sign extra
+[Fenlyn] done
+[Merior] rock extra
+~
+335151108 1 5 0
+D1
+~
+~
+0 -1 60017 10 10 5
+D2
+~
+~
+0 -1 60015 10 10 5
+E
+sign cave wall~
+The sign attached to the cave wall reads,
+@I@I@e"Welcome to Diner's Paradise"
+
+@nA small arrow points directly to the doorway apparently indicating
+what lies on the other side of it.
+~
+1819 9 1509949540 3 0
+-1
+S
+
+#60017
+The Diner's Paradise~
+Several large wooden tables are arranged throughout the establishment. 
+The five-foot long tables look like they are made of solid oak, and the
+accompanying benches appear quite thick as well.  No visible signs of
+dirt are present in the restaurant, and the hardwood floors are so shiny
+that you can almost see your reflection in it.
+~
+[Fenlyn] table object, placard, look menu action (interpret list)
+[Fenlyn] disable list, but make look menu pop it up
+[Fenlyn] add mprog entering code.
+[Fenlyn] done
+[Merior] room seems awfully neat and clean for goblins
+[Merior] waiter has no resistances or fight code 
+~
+335155236 1 5 0
+D3
+~
+~
+0 -1 60016 10 10 5
+E
+floor hardwood~
+It looks like a slightly blurred image of yourself.
+~
+A
+list~
+~
+if( !rflag( reset0, room ) ) {
+  set_rflag( reset0, room );
+  continue;
+  }
+else
+  act_tochar( #perhaps, ch );
+~
+E
+perhaps~
+Perhaps you should take a look at the menu to see what you can buy.
+~
+!
+0 0 0
+A
+look~
+menu board~
+act_notchar( #ncmenu, ch );
+remove_rflag( reset0, room );
+interpret( ch, "list" );
+~
+E
+ncmenu~
+$n looks over the restaurant's menu.
+~
+!
+0 0 0
+1798 9 1509949540 3 0
+29 17 1509949490 -1 0
+66 17 1509949510 -1 0
+30 17 1509949470 -1 0
+129 17 1509949510 -1 0
+1399 17 1509949450 -1 0
+2593 17 1509949470 -1 0
+2594 17 1509949460 -1 0
+173 17 1509949490 -1 0
+2595 17 1509949515 -1 11
+1801 9 1509949540 3 0
+912 17 1509949540 -2 0
+845 17 1509949540 -2 0
+845 17 1509949540 -2 0
+-1
+S
+
+#60018
+Sniblik's House of Blades~
+Blades of various varieties adorn the walls of Sniblik's shop.  In the
+back of his shop, you can see some dark daggers that the merchant has
+constructed.  Some of them are pretty long, but others are rather small. 
+A glass display case is hung on the back wall behind the counter.  Inside
+are several small daggers protected by a large lock.
+~
+[Fenlyn] entering code on mob.  stops grinding
+[Fenlyn] ask sniblik daggers
+[Fenlyn] done
+[Merior] whiskers are awful silly-sounding for a goblin custom - not to
+mention the mobs are too low level 
+~
+335155236 1 5 0
+D1
+~
+~
+0 -1 60015 10 10 5
+E
+glass display case~
+Inside the case are several daggers varying in appearance.  Under each
+dagger is a label identifying when it was made.
+~
+E
+lock~
+Securing the glass display case, the iron lock appears to be so rusted
+that unlocking it now is only a fantasy.
+~
+E
+labels~
+The years on the label vary so greatly that Sniblik could not have
+possible made all of them.
+~
+A
+~
+~
+act_tochar( #stops, ch );
+~
+E
+stops~
+As you enter the shop, its proprietor stops grinding his stock of metal.
+~
+!
+1 0 2
+1797 9 1509949540 3 0
+3006 17 1509949450 -1 0
+3005 17 1509949540 -1 0
+3028 17 1509949515 -1 0
+1053 17 1509949445 -1 0
+1103 17 1509949442 -1 0
+3008 17 1509949450 -1 0
+3007 17 1509949510 -1 0
+1750 17 1509949540 -1 0
+3000 17 1509949540 -1 0
+3001 17 1509949450 -1 0
+-1
+S
+
+#60019
+Grottington Knowledge Center~
+Arranged around the room are several thick books and blunt training
+weapons.  They aren't neatly arranged, but there is a small bit of order
+to its placement in the training center.  A solitary candle on a table
+along the back wall provides a faint but adequate light to study by. 
+Covering the center of the hardwood floor, an ancient goblin rug adds the
+only bit of color to this grey-toned training center.
+~
+[Fenlyn] trainer place
+[Fenlyn] extras: rug, candle, books, weapons
+[Fenlyn] ask mob weapons... refers to Sniblik for training.
+[Fenlyn] done
+~
+335151141 1 5 0
+D1
+old wooden door~
+old wooden door~
+1 -1 60001 10 10 5
+E
+ancient rug~
+The ancient rug is colored brown with several dark red diamond shapes in
+the foreground.  Surrounding all four edges of the rug is an old faded
+yellow fringe.  Several marks and tears in the rug indicate that it is
+either very old or not very well kept.
+~
+E
+candle faint~
+Covered in wax, the small candle has burnt its way down to nearly nothing. 
+All that remains is a small piece of wick with a pitiful flame.
+~
+E
+books thick~
+Varying in size, the books each look quite old and tattered.  Closer
+examination of the books reveals that each spine's printing has been worn
+off by years of constant use.  The shelves on which the books sit are
+made of a very low quality wood with several knots all over it.  One of
+the shelves has split right around one of the knot holes.
+~
+E
+weapons training~
+In the corner of the room sits a long, tall spear with a blunt tip.  Next
+to the spear, a shiny silver dagger and a blunt iron longsword seem to
+stand next to the spear as if in a pose.
+~
+1800 9 1509949540 3 0
+-1
+S
+
+#60020
+Inside a Small Temple~
+Unlike the other parts of town, the temple walls are very smooth and
+shaped like a dome.  A fireplace on the west side of the room provides
+warmth to the temple and a fair amount of light that flickers with a
+reddish glow on the domed walls and ceiling.  The temple exit to the
+south leads to Grottington Street.
+~
+[Fenlyn] extra: fireplace, dome
+[Fenlyn] firewood action (look firewood) add a get firewood code too.  ;)
+
+[Starshine] As goblins as irreverent, should this temple be so prominently sited?
+[Fenlyn] well, it was either north, south, east or west when i made it. 
+It's placement really has no bearing on their irreverance.  Why even make
+one at all then?
+~
+335152295 1 5 0
+D2
+temple door~
+temple door elegant~
+131 -1 60002 10 10 5
+E
+dome~
+Carved out of the cave's stone and painted a very light tan, the dome's
+center point lies about 10 feet directly above the altar.
+~
+E
+altar~
+In the very middle of the room, the altar is nothing other than a growth
+of cave floor with several dark purple candles sitting on top of it.
+~
+A
+~
+~
+~
+!
+0 0 0
+A
+get take~
+firewood wood bundle~
+if( !rflag( reset1, room ) )
+  act_tochar( #nothing, ch );
+else {
+  remove_rflag( reset1, room );
+  act_tochar( #gets, ch );
+  act_notchar( #ncgets, ch );
+  obj_to_char( oload( 134 ), ch );
+  }
+~
+E
+nothing~
+The only firewood to get is burning in the fireplace.
+~
+E
+gets~
+You get a bundle of firewood lying next to the fireplace.
+~
+E
+ncgets~
+$n gets a bundle of firewood lying next to the fireplace.
+~
+!
+0 0 0
+A
+look~
+firewood fireplace~
+if( rflag( reset1, room ) )
+  act_tochar( #firewood, ch );
+else
+  act_tochar( #nofirewood, ch );
+~
+E
+firewood~
+Sparks occasionally fly out of the crackling wood onto the floor, but
+there is very little nearby that could possibly catch fire.  A small pile
+of firewood sits next to the fireplace awaiting its doom.
+~
+E
+nofirewood~
+Sparks occasionally fly out of the crackling wood onto the floor, but
+there is very little nearby that could possible catch fire.
+~
+!
+0 0 0
+1799 9 1509949540 3 0
+-1
+S
+
+#60021
+Gretow's Dry Goods~
+The store looks practically empty.  There is no counter or even any
+shelves to display the shopkeeper's wares.  A thin layer of dirt has
+collected on the old wooden planked floor near where the shopkeeper is
+standing.  The only indication that a shop still remains here is a sign
+chisled out of dark wood posted behind the shopkeeper on the wall.
+~
+[Fenlyn] sign extra
+[Fenlyn] done
+[Merior] shopkeeper has no resistances
+[Merior] first sentence of mob isnt a sentence
+~
+335155236 1 5 0
+D1
+~
+~
+0 -1 60013 10 10 5
+E
+sign dark wood~
+@Y+=------------------------------------=+
+| @GWelcome to Gretow's Dry Goods.@n@Y       |
+|                                      |
+| @GType '@elist@n@G' to see our inventory@n@Y     |
+| @GType '@ebuy <item>@n@G' to purchase@n@Y        |
+| @GType '@esell <item>@n@G' to sell@n@Y           |
+| @GType '@evalue <item>@n@G' to appraise@n@Y      |
++=------------------------------------=+
+~
+1795 9 1509949540 3 0
+26 17 1509949540 -1 0
+6 17 1509949510 -1 0
+229 17 1509949540 -1 0
+25 17 1509949540 -1 0
+230 17 1509949510 -1 0
+948 17 1509949470 -1 0
+330 17 1509949540 -1 0
+27 17 1509949465 -1 0
+5 17 1509949465 -1 0
+-1
+S
+
+#60022
+Urani's Fine Armors~
+A number of shields are hung from the ceiling of Urani's shop, each with
+a small white price tag attached.  Tools sit on top of a workbench in the
+back of the shop where strips of leather of various sizes lie discarded
+on the floor.  Smelting tools lean up against an open stone fireplace in
+the southwest corner of the room.
+~
+[Fenlyn] extras: tools, shield
+[Fenlyn] done
+[Merior] bench, leather extras also
+[Merior] obviously need to get customs approved by marek
+[Merior] even if mobs are flagged safe - give them no-bash and proper fight code/summoning - folks do find bugs
+~
+335155236 1 5 0
+D1
+~
+~
+0 -1 60014 10 10 5
+E
+tools~
+A myriad of hand tools sit atop the workbench including a small metal
+mallet and a couple of clamp tools.  Next to the tools are a
+half-finished shield.
+~
+E
+shield~
+The shield appears to be unfinished as there are still several dings in
+the bronze sheet that need to be worked out, and there are small pieces
+of leather next to the shield awaiting their time to be attached to the
+finished product.
+~
+E
+fireplace~
+Several pieces of wood burn away in the fireplace creating a nice warm
+feeling throughout the cold shop.
+~
+A
+1 look~
+price tag pricetag white~
+interpret( ch, "list" );
+~
+!
+0 0 0
+1796 9 1509949540 3 0
+2001 17 1509949540 -1 0
+2002 17 1509949540 -1 0
+2003 17 75 -1 0
+2020 17 1509949540 -1 0
+2000 17 1509949540 -1 0
+2040 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2022 17 1509949490 -1 0
+2041 17 1509949540 -1 0
+2042 17 1509949490 -1 0
+2080 17 1509949540 -1 0
+2081 17 1509949465 -1 0
+2101 17 1509949490 -1 0
+2122 17 1509949490 -1 0
+2180 17 1509949540 -1 0
+2181 17 1509949515 -1 0
+2182 17 1509949465 -1 0
+2123 17 1509949465 -1 0
+2060 17 1509949490 -1 0
+2022 17 1509949490 -1 0
+1109 17 1509949540 -1 0
+2060 17 1509949540 -1 0
+-1
+S
+
+#60023
+The Mystic's Emporium~
+Everywhere you look in the shop, phials seem to catch your eye sitting on
+countertops, shelves, and just about anywhere there is space.  Indeed the
+room is a chaos of phials.  A glass display case sits in the middle of
+the shop while an old goblin in robes leans against it.  The only exit
+from the shop appears to be to the north.
+~
+[Fenlyn] secret room here somewhere.  Storeroom maybe?
+[Fenlyn] look case action.
+[Fenlyn] move case reveals opens hole in floor
+[Fenlyn] ask gnortan phials: assign quest
+
+[Starshine] action 2: add move to commands?
+[Fenlyn] Umm, move is a command on action 2.
+[Fenlyn] done
+~
+335155237 1 5 0
+D0
+~
+~
+0 -1 60007 10 10 5
+D5
+hidden trapdoor~
+~
+203 -1 60029 10 10 5
+E
+phials~
+Most of the phials lying around the shop are in excellent condition, but
+for some reason all of them are empty.
+~
+A
+1 look~
+glass case display~
+if( is_open( room, down ) )
+  act_tochar( #open, ch );
+else
+  act_tochar( #closed, ch );
+~
+E
+open~
+The case is moved off to one side revealing an open trapdoor in the floor.
+~
+E
+closed~
+Many phials appear to be locked away inside the display case.  Some of
+them are broken as if the display case was jarred.
+~
+!
+0 0 0
+A
+move~
+glass display case~
+if( is_open( room, down ) ) {
+  act_tochar( #opened, ch );
+  end;
+  }
+act_tochar( #opens, ch );
+act_notchar( #ncopens, ch );
+send_to_room( #upopen, find_room( 60029 ) );
+open( room, down );
+~
+E
+opened~
+You attempt to move the glass case but notice the big hole in the floor
+might get in your way.
+~
+E
+opens~
+You slowly push the display case out of the way revealing an open trapdoor to
+a secret room.
+~
+E
+ncopens~
+$n slowly pushes the display case out of the way revealing an open
+trapdoor to a secret room.
+~
+E
+upopen~
+The trapdoor above you is opened from the other side.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( is_open( room, down ) ) {
+  wait( 1 );
+  close( room, down );
+  send_to_room( #closes, room );
+  send_to_room( #closes2, find_room( 60029 ) );
+  }
+~
+E
+closes~
+The display case mysteriously positions itself to cover the hole in the
+floor.
+~
+E
+closes2~
+The trapdoor above you closes.
+~
+!
+1 0 32
+1792 9 1509949540 3 0
+37 17 1509949455 -1 0
+98 17 1509949480 -1 0
+284 17 1509949490 -1 0
+243 17 1509949490 -1 0
+246 17 1509949450 -1 0
+280 17 1509949490 -1 0
+304 17 1509949450 -1 0
+206 17 1509949465 -1 0
+81 17 1509949510 -1 0
+872 17 1509949480 -1 0
+78 17 1509949540 -1 0
+78 17 1509949490 -1 0
+977 17 1509949460 -1 0
+79 17 1509949460 -1 0
+1182 17 1509949490 -1 0
+1194 17 1509949450 -1 0
+1269 17 1509949490 -1 0
+189 17 1509949510 -1 0
+210 17 1509949480 -1 0
+474 17 1509949480 -1 0
+9 17 1509949460 -1 0
+1571 17 1509949441 -1 0
+1021 17 1509949460 -1 0
+1003 17 1509949460 -1 0
+1025 17 1509949460 -1 0
+686 17 1509949445 -1 0
+-1
+S
+
+#60024
+Grottington Guard House~
+Several cabinets are mounted on the cave walls in this security area. 
+Some of them are labelled with their contents, but some of them also
+appear to be broken into.  A small, comfortable-looking mattress sits in
+the corner of the room with several tears and stains all over it.  Verzog
+Avenue lies just outside the west exit.
+~
+[Fenlyn] extras: bed, cabinets
+[Fenlyn] get feather action
+[Fenlyn] cabinet (no show)
+[Fenlyn] done
+~
+335151108 1 5 0
+D3
+wooden door~
+wooden door~
+131 -1 60011 10 10 5
+E
+bed mattress tears stains~
+Huge tears along the side of the mattress and stains on its top give away
+the mattress' old age.  Out of the tears appears to be several white
+feathers which keeps the bed's occupant comfortable when resting.
+~
+E
+cabinets labels~
+All of the cabinets appear to have had their locks broken off, but there
+is one cabinet with a big, sturdy lock attached to it.
+~
+E
+door~
+There doesn't appear to be anything special about this side of the door.
+~
+A
+~
+cabinets~
+act_tochar( #raided, ch );
+~
+E
+raided~
+All of the open cabinets appear to have been raided already.
+~
+!
+9 0 0
+A
+~
+mattress bed~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+if( random( 1, 10 ) == 7 ) {
+    act_tochar( #finds, ch );
+    act_notchar( #ncfinds, ch );
+    obj_to_char( oload( 1121 ), ch );
+    }
+  else {
+    act_tochar( #noway, ch );
+    act_notchar( #ncnoway, ch );
+    }
+  }
+else {
+  act_tochar( #noway, ch );
+  act_notchar( #ncnoway, ch );
+  }
+~
+E
+finds~
+You find a duck feather in the mattress of feathers.
+~
+E
+ncfinds~
+$n finds a duck feather in the mattress of feathers.
+~
+E
+noway~
+You find nothing out of the ordinary in the mattress.
+~
+E
+ncnoway~
+$n searches the mattress but doesn't find anything.
+~
+!
+9 0 0
+1801 9 1509949540 0 0
+1801 9 1509949540 3 0
+2591 49 1509949540 -2 0
+618 81 419430405 -2 0
+1509 81 419430410 -2 0
+1507 81 419430410 -2 0
+1508 81 419430410 -2 0
+655 81 1509949450 -2 0
+2 81 1509949465 -2 0
+2 81 1509949465 -2 0
+2 81 1509949465 -2 0
+2 81 1509949465 -2 0
+2 81 1509949465 -2 0
+-1
+S
+
+#60025
+Ye Olde Brewery~
+The smell of freshly-brewed beer is prominent as you walk into the
+brewery.  There are no tables in the brewery, but along the walls of the
+establishment is a dirty wooden bar equipped with tarnished brass rails
+for use by a thirsty patron's foot.  Although the fresh beer toys with
+your sense of smell, the beer spilled on the floor is getting so stale
+that its odor burns your nose.  The doorway to the west leads to the
+northern end of Verzog Avenue.
+~
+[Fenlyn] use shcust for nickel beers when provided a bottle
+[Fenlyn] must have reset for beer at 100% for shcust to be worthwhile.
+[Fenlyn] add entering mped to Kiopsyn about cheap beers.
+
+[Starshine] freshly-brewed
+[Starshine] hmm...i think get rid of polished and brass rails, and the
+bartender who greets me by name.  Maybe he ought to spit first, growl at
+you and tell you buy something, or leave :P 
+[Fenlyn] Very well, but I think rails should stay.  Spit, snarl, tell (good idea).
+
+[Starshine] interesting custom, a glass bottle out of a glass bottle...
+[Starshine] intoxicated gob (1822): disheveled
+[Starshine] make bar more disgusting :)
+[Fenlyn] done
+~
+335155236 1 5 0
+D3
+~
+~
+0 -1 60012 10 10 5
+E
+wooden bar~
+Situated on top of the bar is a huge keg.  Several more sit behind
+the bar for when that particular keg runs out.
+~
+E
+keg ale beer~
+The keg looks like it can hold at least 25 gallons of whatever liquid it
+contains.  Smelling this keg gives you the distinct impression that it is
+filled to the brim with beer.
+~
+E
+brass rail~
+Mounted close to the floor, the brass rails are very tarnished and
+are covered in mud and dirt.
+~
+1793 9 1509949540 3 0
+24 17 1509949540 -1 1
+1631 17 1509949490 -1 3
+227 137 1509949540 3 0
+227 9 1509949515 3 0
+1819 137 1509949540 3 0
+1819 9 1509949540 3 0
+1822 137 1509949540 3 0
+-1
+S
+
+#60026
+The Depository~
+Embedded into the walls of this depository are several hundred steel
+boxes with huge locks on them.  The size of the depository suggests that
+it takes several people to run the bank, but for some reason there is
+only one goblin bank teller around to assist you in your banking and
+storage needs.
+~
+[Fenlyn] steel boxes extras
+[Fenlyn] done
+~
+335153156 1 5 0
+D3
+~
+~
+0 -1 60009 10 10 5
+E
+steel boxes~
+Each box has a small padlock labelled "Theft-Buster" on it.  The
+depository has so many boxes that the cave walls are not even visible
+except up near the ceiling.
+~
+1819 9 1509949540 3 0
+-1
+S
+
+#60027
+Fuzen's Animal Supply~
+You stand in a large room that smells like a mixture of urine and manure. 
+Silver wired cages sit on the dirty floor awaiting someone to come and
+buy the pets inside.  A small sign is posted on the wall next to the
+shop's counter right above a little parakeet.  To the south is a holding
+pen for the many animals Fuzen has for sale while to the east is the pet
+shop's exit.
+~
+[Fenlyn] not meant to enter south room.  Is holding area
+[Fenlyn] sign extra
+~
+335159300 1 5 0
+D1
+~
+~
+0 -1 60010 10 10 5
+D2
+holding pen door~
+~
+407 62 60028 10 10 5
+E
+sign~
+@Y"Welcome to Fuzen's Animal Supply --
+Please look over our selection of pets."
+~
+E
+parakeet~
+The parakeet turns its green-colored head and looks at you curiously as
+you get closer to look at it.  Attached to the parakeet's cage is a small
+sign that says, "Me not sell green bird." 
+~
+E
+silver wired cages~
+Inside the cages are a couple of small animals Fuzen has marked for sale. 
+The cages themselves are horribly kept and appear to have not been
+cleaned in a very long time.
+~
+1794 9 1509949540 3 0
+-1
+S
+
+#60028
+Fuzen's Kennel~
+It's a kennel, silly.  This is an immortal only room, if you are here and
+are not an immortal, you should probably gossip for help now.
+~
+[Fenlyn] resets in here affect animals for sale in room to North.
+[Fenlyn] twisted wolf
+[Fenlyn] horse of some kind
+[Fenlyn] birds
+[Fenlyn] war dog
+[Fenlyn] a very rare level 20 war toothed killer pet
+[Fenlyn] or a mantis.  :P
+~
+335151108 1 9 0
+D0
+kennel door~
+~
+407 62 60027 10 10 5
+646 9 1509949515 3 0
+645 9 1509949490 3 0
+623 9 1509949465 3 0
+965 9 1509949515 3 0
+117 9 1509949515 3 0
+115 9 1509949515 3 0
+114 9 1509949515 3 0
+821 9 1509949442 3 0
+2507 9 1509949540 3 0
+755 9 1509949540 3 0
+215 9 1509949540 3 0
+-1
+S
+
+#60029
+The Mystic's Storeroom~
+The room is quite small and damp, and barely has enough space for one
+person.  Several shelves line the storeroom walls, and a table sits in
+the middle with a small apparatus on it.  Exits can only be found upwards
+back into the Mystic's Emporium through the trapdoor.  A small chain
+hangs next to the trapdoor.
+~
+[Fenlyn] chain pull to open up.
+[Fenlyn] drink beaker produces random spell affect on char/room
+[Fenlyn] done
+~
+335155238 1 9 0
+D4
+trapdoor~
+~
+203 -1 60023 10 10 5
+E
+apparatus~
+Tubes and glass beakers lead in every direction as the fluid in them is
+controlled by valves.  One beaker appears to be the output of all the
+intertwined tubing.
+~
+A
+pull~
+chain~
+if( is_open( room, up ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+act_tochar( #opens, ch );
+act_notchar( #ncopens, ch );
+send_to_room( #downopen, find_room( 60023 ) );
+open( room, up );
+~
+E
+open~
+You pull the chain, but nothing happens.
+~
+E
+opens~
+As you pull the chain, you hear a scraping sound as a trapdoor above you
+is uncovered.
+~
+E
+ncopens~
+As $n pulls the chain, you hear a scraping sound as a trapdoor above you
+is uncovered.
+~
+E
+downopen~
+The glass display case mysteriously moves by itself revealing an open
+trapdoor in the floor.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( is_open( room, up ) ) {
+  wait( 1 );
+  send_to_room( #closes, room );
+  send_to_room( #upcloses, find_room( 60023 ) );
+  close( room, up );
+  }
+~
+E
+closes~
+The trapdoor above you closes.
+~
+E
+upcloses~
+The display case mysteriously moves itself to cover the open trapdoor in
+the floor.
+~
+!
+1 0 16
+A
+drink~
+beaker~
+if( rflag( reset0, room ) ) {
+  if( find_stat( ch, level ) < 10 ) {
+    act_tochar( #noway, ch );
+    end;
+    }
+  mob = mob_in_room( 1792, find_room( 60023 ) );
+  remove_rflag( reset0, room );
+  act_tochar( #drinks, ch );
+  act_notchar( #ncdrinks, ch );
+  i = random( 1, 100 );
+  if( i == 1 ) {
+    wait( 1 );
+    act_tochar( #recall, ch );
+    act_notchar( #ncrecall, ch );
+    do_spell( recall, ch, ch );
+    end;
+    }
+  if( i <= 3 ) {
+    do_spell( invisibility, mob, ch );
+    end;
+    }
+  if( i <= 6 ) {
+    do_spell( barkskin, mob, ch );
+    end;
+    }
+  if( i <= 10 ) {
+    do_spell( mystic shield, mob, ch );
+    end;
+    }
+  if( i <= 15 ) {
+    do_spell( detect hidden, mob, ch );
+    end;
+    }
+  if( i <= 20 ) {
+    do_spell( detect invisible, mob, ch );
+    end;
+    }
+  if( i <= 25 ) {
+    do_spell( detect good, mob, ch );
+    end;
+    }
+  if( i <= 40 ) {
+    do_spell( burning hands, mob, ch );
+    end;
+    }
+  if( i <= 50 ) {
+    do_spell( magic missile, mob, ch );
+    do_spell( magic missile, mob, ch );
+    do_spell( magic missile, mob, ch );
+    end;
+    }
+  if( i <= 55 ) {
+    do_spell( blind, mob, ch );
+    end;
+    }
+  if( i <= 60 ) {
+    do_spell( sleep, mob, ch );
+    end;
+    }
+  if( i <= 70 ) {
+    do_spell( lightning bolt, mob, ch );
+    end;
+    }
+  if( i <= 80 ) {
+    do_spell( cause serious, mob, ch );
+    end;
+    }
+  if( i <= 90 ) {
+    do_spell( freeze, mob, ch );
+    end;
+    }
+  do_spell( acid blast, mob, ch );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+noway~
+You @ereally@n don't want to do that yet.
+~
+E
+nothing~
+There's not enough left in the beaker to get a good drink out of it.
+~
+E
+drinks~
+You drink from the apparatus' beaker.
+A strange feeling comes over you as its contents take effect.
+~
+E
+ncdrinks~
+$n takes a drink from the apparatus' beaker.
+After drinking the beaker's contents, $e begins to swoon a little.
+~
+E
+recall~
+You find yourself being pulled to another place.
+~
+E
+ncrecall~
+$n disappears in a flash of smoke and light.
+~
+!
+0 0 0
+-1
+S
+
+#0
+

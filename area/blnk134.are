@@ -1,0 +1,812 @@
+#AREA
+Gnomish Picnic~
+Phule~
+Gnomish Picnic~
+
+15 0
+0
+#ROOMS
+
+#71000
+Beneath the Shade of an Old Elm~
+You are in the nape of a small valley, nestled between two lush green
+hills to the east and west.  A cool, clear brook babbles alongside,
+trickling southward.  An old, serene elm stands overhead, offering a bit
+of shade near the brook.  A faint path winds its way along the stream.
+~
+[Lansharra] extra creek: creek bed
+[Lansharra] um, brook, even.
+[Lansharra] highlight brook?
+[Lansharra] can't look stream?
+[Hanel] I have it at 7
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71001 10 10 5
+D3
+~
+~
+0 -1 71015 10 10 5
+E
+old elm tree~
+The old tree casts a wide shadow, offering cool shade to those beneath
+its branches.
+~
+E
+faint path~
+The faint path follows the stream to both the north and the south.
+~
+880 17 1509949540 -2 0
+2068 9 1509949540 3 0
+-1
+S
+
+#71001
+A Faint Trail Alongside a Brook~
+A quaint trail makes its bending way alongside a clear brook, following
+every bend and not straying more than three or four feet from the water. 
+Lush green hills on either side nestle the brook, creating a narrow vale. 
+Something glitters beneath the brook's surface.
+~
+[Lansharra] highlight brook?
+[Lansharra] extra glitter: definitely
+[Lansharra] search water: only get feel around in shallow brook message once?
+[Lansharra] youth desc: curiosity
+[Lansharra] youth's hi thing random?
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71002 10 10 5
+D2
+~
+~
+0 -1 71000 10 10 5
+E
+glitter surface~
+Be it a rock or simply a reflected beam of light, something is definately
+shining in the shallow water.
+~
+E
+faint path trail~
+The faint path follows the stream to the north and the south.
+~
+A
+search~
+brook shallow glitter water~
+if( !rflag( reset0, room ) )
+  act_tochar( "You don't find anything.", ch );
+else {
+  remove_rflag( reset0, room );
+  act_tochar( "You feel around in the shallow brook.", ch );
+  act_notchar( "$n feels around in the shallow brook.", ch );
+  if( random( 0, 9 ) == 7 ) {
+    act_tochar( "You find something!", ch );
+    act_notchar( "$n puts something in $s pocket.", ch );
+    if( random( 0, 2 ) == 1 )
+      obj_to_char( oload( 1068 ), ch );
+    else
+      obj_to_char( oload( 1066 ), ch );
+    }
+  else
+    act_tochar( "You don't find anything.", ch );
+  }
+~
+!
+0 0 0
+880 17 1509949540 -2 0
+78 17 1509949500 -2 0
+-1
+S
+
+#71002
+A Quiet Clearing in a Lush Vale~
+You are in a quiet clearing in the midst of a lush vale.  Gentle, rolling
+green hills to the southeast and southwest nestle a nearby brook.  The
+brook's source can clearly be seen from here, as a small cliff of rich
+brown earth rises overhead about thirty feet.  The brook trickles down
+from a rock outcropping about two thirds of the way up the cliff.  A
+faint trail leads south along the brook, and you can walk up either
+hillside to the east or west.
+~
+[Phule] climb up
+[Phule] no.mob
+[Lansharra] highlight brook?
+~
+33030152 3 9 0
+D1
+~
+~
+0 -1 71003 10 10 5
+D2
+~
+~
+0 -1 71001 10 10 5
+D3
+~
+~
+0 -1 71004 10 10 5
+E
+faint path trail~
+The faint path follows the brook to the south.
+~
+E
+cliff up rock outcropping earth n north~
+It would take quite a bit of climbing skill to ascend straight up the
+cliff; it is steep, almost inverted, and there are no obvious handholds
+to speak of.
+~
+A
+climb~
+u up cliff~
+if( can_fly( ch ) ) {
+  act_tochar( "You fly up the cliff.", ch );
+  act_notchar( "$n flies up the cliff.", ch );
+  transfer( ch, find_room( 71011 ) );
+  act_notchar( "$n flies up from below.", ch );
+  }
+if( random( 3, 9 ) < find_skill( ch, climb ) ) {
+  act_tochar( "You climb up the cliff face.", ch );
+  act_notchar( "$n climbs up the cliff face.", ch );
+  transfer( ch, find_room( 71011 ) );
+  act_notchar( "$n climbs up from the south.", ch );
+  act_tochar( #scramble, ch );
+  }
+else
+  act_tochar( "You try to find some handholds to climb, but fail.", ch );
+~
+E
+scramble~
+@I
+@EAs you scramble over the edge, you realise that you won't be able to
+climb back down the way you came.@n
+~
+!
+0 0 0
+880 17 1509949540 -2 0
+2068 9 1509949540 3 0
+-1
+S
+
+#71003
+A Lush Green Hillside~
+This rolling hill is covered with thick, lush green grass.  It slopes
+down to the west, nearing the sound of trickling water.  To the south,
+you can make your way up the side of the hill.  To the north, a light
+forest can be seen.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71006 10 10 5
+D2
+~
+~
+0 -1 71005 10 10 5
+D3
+~
+~
+0 -1 71002 10 10 5
+E
+forest~
+The forest is a light woods, mostly comprised of old birches.
+~
+E
+hill~
+You are on the side of the hill, sloping up to the south.
+~
+E
+grass~
+The lush, thick grass is about six inches tall.
+~
+78 17 1509949480 -2 0
+-1
+S
+
+#71004
+A Lush Green Hillside~
+You are on a lush green hillside slope.  To the west, the incline is very
+steep, but to the south you can probably make your way up the hillside. 
+To the north, a light forest of pine and birch awaits you.  From the
+east, you hear the quiet trickle of a brook or stream.
+~
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71009 10 10 5
+D1
+~
+~
+0 -1 71002 10 10 5
+D2
+~
+~
+0 -1 71012 10 10 5
+E
+slope hillside~
+The hill slopes up to the south.
+~
+E
+forest~
+The forest is sparse, mostly a few old birches without much underbrush.
+~
+E
+w west incline~
+The hill rises sharply upward about sixteen feet, mostly dark earth with
+no purchase.
+~
+78 17 1509949480 -2 0
+-1
+S
+
+#71005
+The Top of a Hill~
+You are surrounded by a thick carpet of lush grass, soft and inviting. 
+You can hear a quiet brook to the west somewhere, and a gentle breeze
+caresses your cheek.  This would be a lovely spot for a nap.  You can
+make your way down the side of the hill to the north.  To the east,
+south, and west, the hillsides drop sharply.
+~
+[Lansharra] action nap?
+[Lansharra] action climb down/east/west/south - hillsides too steep?
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71003 10 10 5
+E
+carpet grass~
+The grass is thick and soft, about six inches tall.
+~
+2068 9 1509949540 3 0
+-1
+S
+
+#71006
+A Light Forest~
+Several score birch trees sparsely populate this wooded area, while steep
+grass slopes rise to the east and west.  To the south, a lush green
+hillside awaits, while to the north, the light forest continues.  There
+is not much underbrush about, only a few scraggly bushes here and there.
+~
+[Phule] added player check in search
+[Phule] added forest
+[Lansharra] search bush: don't get a search bush message, just that i don't find anything. or maybe only get message once a reset and im' not first searcher.
+[Lansharra] extra trees/underbrush?
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71007 10 10 5
+D2
+~
+~
+0 -1 71003 10 10 5
+E
+scraggly bushes~
+While none appear particularly out-of-the-ordinary, their thorny
+interiors nonetheless may warrant further investigation.
+~
+E
+hillside~
+Even from this distance, the lush green carpet of grass looks soft and
+inviting.
+~
+E
+forest birch elm trees~
+The trees are young and strong, full of life.  Their gentle green canopy
+brings the aura of fresh springtime, not the suffocating feeling of some
+of the older oak forests of the realm.
+~
+A
+search~
+bushes~
+if( !is_player( ch ) )
+  end;
+if( !rflag( reset0, room ) ) {
+  act_tochar( "You don't find anything.", ch );
+  act_notchar( "$n searches through the bushes, but doesn't find anything.", ch );
+  }
+else {
+  remove_rflag( reset0, room );
+  if( random( 0, 4 ) == 3 ) {
+    act_tochar( "You prick yourself on a thorn.", ch );
+    act_notchar( "$n pricks $mself on a thorn.", ch );
+    i = random( 0, 5 );
+    dam_message( ch, i, "Being pricked by the thorn" );
+    inflict( ch, ch, i, "Being pricked by a thorn" );
+    }
+  else {
+    if( random( 0, 10 ) > 7 ) {
+      act_tochar( "You find a long thorn and manage to not stick yourself on it.", ch );
+      act_notchar( "$n finds a long thorn in the bushes.", ch );
+      obj_to_char( oload( 2376 ), ch );
+      }
+    else
+      interpret( ch, "search bushes" );
+    }
+  }
+~
+!
+0 0 0
+2068 9 1509949540 3 0
+-1
+S
+
+#71007
+In a Light Forest Behind a Hill~
+The forest of elm and birch is framed by steep hills to the north and
+east.  To the west, you can approach the base of a very large hill, while
+to the south, the forest continues.  From somewhere close by you can hear
+the gentle babbling of a brook.
+~
+[Nereus] Extras: [ elm birch forest ]
+[Phule] but the foom is the forest ?
+[Phule] added
+~
+33030144 3 9 0
+D2
+~
+~
+0 -1 71006 10 10 5
+D3
+~
+~
+0 -1 71008 10 10 5
+E
+elm birch forest~
+Although not saplings, the trees of this forest are in their youth.
+~
+78 17 1509949500 -2 0
+-1
+S
+
+#71008
+At the Base of a Large Hill~
+You are in a small clearing amidst a light forest of elm and birch.  To
+the south, the terrain sharply rises, turning into lush green grass as it
+climbs a large hill.  To the east and west you can enter the forest,
+while to the north a thick hedge blocks the way.
+~
+[Phule] no.mob
+~
+33030152 3 9 0
+D0
+wall of brambles~
+n north wall brambles~
+203 -1 71014 10 10 5
+D1
+~
+~
+0 -1 71007 10 10 5
+D2
+~
+~
+0 -1 71011 10 10 5
+D3
+~
+~
+0 -1 71010 10 10 5
+E
+hedge~
+The thick hedge is more accurately described as a wall of brambles.  To
+get through one would probably need an axe of some sort.
+~
+E
+elm birch forest~
+The light forest expands to the east and west.
+~
+A
+~
+~
+act_tochar( "You climb up the hill.", ch );
+act_notchar( "$n climbs up the hill.", ch );
+continue;
+~
+!
+3 0 4
+A
+cut chop~
+n north hedge wall brambles~
+if( has_obj( 1516, ch ) ) {
+  act_tochar( "You chop your way through the wall of brambles.", ch );
+  act_notchar( "$n chops $s way through the wall of brambles.", ch );
+  open( room, north );
+  send_to_room( "Someone chops through the wall of brambles from the south.", find_room( 71014 ) );
+  }
+else
+  act_tochar( "It's hard to do that without the proper kind of axe!", ch );
+~
+!
+0 0 0
+-1
+S
+
+#71009
+A Light Forest~
+You are beneath the branches of a light forest of elm and birch.  Steep
+hillsides lie to either side of the forest.  You can continue onward into
+the forest to the north, or step outside onto a lush green hillside to
+the south.  There is not much underbrush to be seen, only the odd vine
+clinging to a tree trunk here and there.
+~
+[Merior] first sentence sounds odd - the forest itself doesnt have branches - the trees in it do
+[Phule] first sentence - forests have branches in my view :)
+[Merior] TREES have branches.. forests have trees
+[Phule] the FOREST as a whole entity HAS BRANCHES
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71010 10 10 5
+D2
+~
+~
+0 -1 71004 10 10 5
+E
+odd vine~
+The long vine coils around the tree, but is otherwise unremarkable.  It
+is just a simple vine.
+~
+E
+elm birch trees forest~
+None of the trees appear out of the ordinary.
+~
+E
+hillsides~
+The hillsides to the east and west are very steep, and the soil is so
+loosely-packed that they would be most difficult, if not impossible, to
+climb.
+~
+2068 9 1509949540 3 0
+-1
+S
+
+#71010
+In a Light Forest Behind a Hill~
+You are in a light forest of birch and elm with scant undergrowth.  To
+the north and west, steep hills frame a corner of the woods.  To the
+east, you can approach the base of a large hill, while to the south, the
+forest continues.  From somewhere not too far away, the babbling of a
+brook can be heard.
+~
+[Merior] need extras - but room sure sounds familiar
+[Phule] added forest birch elm
+~
+33030144 3 9 0
+D1
+~
+~
+0 -1 71008 10 10 5
+D2
+~
+~
+0 -1 71009 10 10 5
+E
+forest birch elm~
+The trees are not old; this forest is in its youth, vibrant and full of
+life.  It is as if it is eternally spring.
+~
+78 17 1509949500 -2 0
+-1
+S
+
+#71011
+Picnic Site~
+This is an absolutely beautiful spot for a picnic.  A cool breeze blows
+by, and you can hear the quiet trickling of a small stream or brook.  At
+your feet is a thick, soft carpet of lush grass, and in the center of the
+hilltop is a large oak tree.
+~
+[Phule] added
+[Lansharra] silly action - listen?
+[Lansharra] action leave north : descend hill?
+[Lansharra] action nap?
+[Lansharra] do belly pouches seem a bit common? since it's better than belt pouches and isn't a custom?
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71008 10 10 5
+E
+oak tree~
+This large oak has ample branches, offering quite a bit of shade for the
+hilltop.
+~
+E
+grass carpet~
+Soft and thick, the lush carpet of grass would be a perfect spot for a
+nap.
+~
+A
+climb~
+d down~
+if( can_fly( ch ) ) {
+  act_tochar( "You fly down the cliff.", ch );
+  act_notchar( "$n flies down the cliff.", ch );
+  transfer( ch, find_room( 71002 ) );
+  act_notchar( "$n flies in from above.", ch );
+  }
+else
+  act_tochar( "You can't climb down the cliff from here.", ch );
+~
+!
+0 0 0
+2938 49 1509949540 -2 0
+49 81 1509949535 -2 0
+49 81 1509949505 -2 0
+24 81 1509949510 -2 2
+30 81 1509949450 -2 0
+2951 81 1509949460 -2 0
+2069 9 1509949540 3 0
+-1
+S
+
+#71012
+The Top of a Hill~
+From the gentle breeze blowing by to the quiet babbling of a nearby brook
+to the soft grass at your feet, this hill would be a perfect spot for a
+nice nap.  The hill gently slopes down to the north, but drops off
+sharply in all other directions.  To the west, you can see the Elhanni
+River, beyond which lies the great plains of the west.
+~
+[Lansharra] action nap?
+~
+33030144 3 9 0
+D0
+~
+~
+0 -1 71004 10 10 5
+E
+elhanni river west w~
+The river comes down from the distant north, flowing south toward the
+Black Hills.
+~
+2068 9 1509949540 3 0
+-1
+S
+
+#71013
+The Hollow Trunk of an Enormous Oak Tree~
+You are within the hollow trunk of an enormous oak tree.  It is dry and
+warm, and while small seems quite comfortable.  A small handle is on a
+round door to the south, apparently exiting the trunk.  A strange little
+trapdoor lies in the ground.
+~
+[Phule] s is 71014
+~
+33030152 3 9 0
+D2
+small round door~
+s south~
+203 -1 71014 10 10 5
+D5
+trapdoor~
+~
+391 1262 71017 10 10 5
+E
+trunk oak tree u up around n north e east w west~
+The trunk does not seem to be rotting; in fact it seems to be full of
+life.
+~
+E
+small handle round door s south~
+The small wooden handle operates the door.
+~
+E
+strange little trapdoor ground d down~
+The little trapdoor has a small pull-ring on it.
+~
+E
+pull-ring locking mechanism~
+The pull-ring has a small locking mechanism set into it.
+~
+A
+turn crank twist~
+small handle~
+if( is_open( room, south ) ) {
+  act_tochar( "You twist the small handle.", ch );
+  act_notchar( "$n twists the small handle.", ch );
+  open( room, south );
+  send_to_room( "The small round door to the south swings open.", room );
+  send_to_room( "A small round door in the tree swings open.", find_room( 71014 ) );
+  }
+else
+  act_tochar( "The small round door is open.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#71014
+Behind a Thick Hedge~
+You are surrounded on all sides, with no apparent exit.  Steep hillsides
+rise to the east and west, and a simply @Eenormous@n oak tree stands to
+the north.  To the south, a thick hedge grows across the path.  The grass
+at your feet is thick and soft.
+~
+[Phule] chop tree is now a teaser
+[Phule] gnomi village-type thing inside tree
+[Phule] n is 71013
+~
+33030152 3 9 0
+D0
+small round door~
+~
+203 -1 71013 10 10 5
+D2
+wall of brambles~
+s south wall brambles~
+203 -1 71008 10 10 5
+E
+hedge~
+The thick hedge is more accurately described as a wall of brambles.  To
+get through one would probably need an axe of some sort.
+~
+E
+enormous oak tree~
+The tree is huge, as large as a house.
+~
+E
+grass carpet~
+The soft grass is a lush green carpet, about six inches tall.
+~
+E
+small handle round door~
+The small handle, once turned, opens the door.
+~
+A
+cut chop~
+wall brambles s south hedge~
+if( has_obj( 1516, ch ) ) {
+  act_tochar( "You chop your way through the wall of brambles.", ch );
+  act_notchar( "$n chops $s way through the wall of brambles.", ch );
+  open( room, south );
+  send_to_room( "Someone chops through the wall of brambles from the north.", find_room( 71008 ) );
+  }
+else
+  act_tochar( "It's hard to do that without the proper sort of axe!", ch );
+~
+!
+0 0 0
+A
+climb~
+oak tree~
+act_tochar( "You fail to climb the tree.", ch );
+~
+!
+0 0 0
+A
+knock~
+oak tree~
+act_tochar( "You knock on the tree, but nothing happens.", ch );
+~
+!
+0 0 0
+A
+chop~
+oak tree~
+if( has_obj( 1516, ch ) ) {
+  act_tochar( "Your axe smacks harmlessly against the side of the tree.", ch );
+  act_notchar( "$n's axe smacks harmlessly against the side of the tree.", ch );
+  }
+else
+  act_tochar( "It's hard to do that without the proper sort of axe!", ch );
+~
+!
+0 0 0
+A
+search~
+tree~
+act_tochar( "You examine the tree very closely.", ch );
+act_notchar( "$n examines the tree very closely.", ch );
+act_tochar( "You find a small handle on a barely-discernable round door.", ch );
+~
+!
+0 0 0
+A
+turn twist crank~
+small handle~
+if( !is_open( room, north ) ) {
+  act_tochar( "You twist the small handle.", ch );
+  act_notchar( "$n twists the small handle.", ch );
+open( room, north );
+  send_to_room( "The small round door to the north swings open.", room );
+  send_to_room( "A small round door in the tree swings open.", find_room( 71013 ) );
+  }
+else
+  act_tochar( "The small round door is open.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#71015
+A Faint Path East of the Elhanni~
+This faint path runs from a light bridge to the west, which crosses the
+Elhanni, and leads east toward a small brook.  You seem to be near the
+southern edge of a fertile green vale, as you can see a lot of green to
+the northeast.  The old, craggy peaks of the Cairn Mountains rise in the
+distant northeast, at the same time solemn and breathtaking.
+~
+[Phule] no.mob
+~
+33030152 3 9 0
+D1
+~
+~
+0 -1 71000 10 10 5
+D3
+~
+~
+0 -1 71016 10 10 5
+E
+bridge~
+The bridge is not of heavy construction, but looks sturdy enough.
+~
+E
+northeast green~
+Tall hills covered with thick grass, the vale seems peaceful and serene.
+~
+E
+faint path~
+The path runs west toward a bridge and east toward a brook.
+~
+203 137 1509949540 3 0
+78 17 1509949490 -2 0
+-1
+S
+
+#71016
+Light Bridge Over the Elhanni~
+This quaint bridge is light, but sturdy.  Below you, the Elhanni rushes
+by, heading south into the Black Hills.  To the west, a faint path can be
+seen, apparently following the Elhanni along its western bank.  To the
+east, a lush area of green awaits.  In the distant northeast, the crags
+of the Cairn Mountains rise above the horizon.
+~
+[Phule] no.mob
+~
+33030152 3 9 0
+D1
+~
+~
+0 -1 71015 10 10 5
+D3
+~
+~
+0 -1 39083 10 10 5
+E
+bridge~
+The bridge is not of heavy construction, but looks sturdy enough.
+~
+-1
+S
+
+#71017
+Cozy Hole - Below a Trapdoor~
+~
+~
+33030152 3 9 0
+D4
+trapdoor~
+~
+391 1262 71013 10 10 5
+-1
+S
+
+#0
+

@@ -1,0 +1,187 @@
+#AREA
+Ethereal Tower of White~
+Phule~
+~
+
+50 0
+0
+#ROOMS
+
+#51500
+A Stone-Lined Path Before the Tower of White~
+This smooth, stone-lined path approaches the smooth face of a spiraling
+tower of purest white to the south.  It has no apparent entrance, and its
+highest parapets disappear into the fluffy white clouds which flit by
+overhead across a sky which is clear and calm.  The path is lined by
+small rocks embedded into the hard ground.  Looking closer, you can see
+the faint outline of something on the wall, but what it is you cannot
+tell at first glance.
+~
+~
+301465601 1 9 0
+D0
+~
+~
+0 -1 43277 10 10 5
+D2
+white tower~
+white tower~
+235 -1 51501 10 10 5
+E
+outline tower wall face~
+The outline appears to be a round portal of some kind.  A small oval in
+its center seems to act as a pressure point of some kind.  Within the
+oval are the only markings visible on the gleaming marble tower.
+~
+E
+oval~
+Five marks, one for each finger of the right hand.
+~
+E
+stones rocks~
+The small stones and rocks are embedded deep within the ground, as if by
+magic.
+~
+A
+press touch~
+marks fingers~
+if( !is_open( room, south ) ) {
+  i = find_stat( ch, align );
+  if( i == 2 ) {
+    j = 2d40+10;
+    act_tochar( #zap, ch );
+    act_notchar( #rzap, ch );
+    dam_message( ch, j, "A divine goodness" );
+    inflict( ch, ch, j, "a divine goodness" );
+    end;
+    }
+  if( i == 5 ) {
+    j = 2d40+10;
+    act_tochar( #zap, ch );
+    act_notchar( #rzap, ch );
+    dam_message( ch, j, "A divine goodness" );
+    inflict( ch, ch, j, "a divine goodness" );
+    end;
+    }
+  if( i == 8 ) {
+j = 2d40+10;
+    act_tochar( #zap, ch );
+    act_notchar( #rzap, ch );
+    dam_message( ch, j, "A divine goodness" );
+    inflict( ch, ch, j, "a divine goodness" );
+    }
+  else {
+    act_tochar( #press, ch );
+    act_notchar( #rpress, ch );
+    open( room, south );
+    }
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+zap~
+You touch your evil hand to the marks, and are ZAPPED!!
+~
+E
+rzap~
+$n touches a hand to the marks, but is ZAPPED!!
+~
+E
+press~
+You press your hand to the marks, and a shimmering door opens.
+~
+E
+rpress~
+$n touches a hand to the marks, and a shimmering door opens to the south.
+~
+E
+already~
+The doorway into the tower is already open.
+~
+!
+0 0 0
+-1
+S
+
+#51501
+Within the White Tower~
+The walls, or at least what appear to be the walls of this mystical white
+tower, swirl with white and ivory, like clouds majestically scrolling
+around in a panoramic view of the heavens.  There appear to be no exits,
+and a great sense of calm and goodness seems to emanate from all around
+you.
+~
+[Arathorn] regal is not keyword of regal sorceror
+~
+301469703 0 7 0
+D0
+~
+~
+235 -1 51500 10 10 5
+A
+press touch~
+marks fingers~
+if( !is_open( room, north ) ) {
+  i = find_stat( ch, align );
+  if( i == 2 ) {
+    j = 2d40+10;
+    act_tochar( #zap, ch );
+    act_notchar( #rzap, ch );
+    dam_message( ch, j, "A divine goodness" );
+    inflict( ch, ch, j, "a divine goodness" );
+    end;
+    }
+  if( i == 5 ) {
+    j = 2d40+10;
+    act_tochar( #zap, ch );
+    act_notchar( #rzap, ch );
+    dam_message( ch, j, "A divine goodness" );
+    inflict( ch, ch, j, "a divine goodness" );
+    end;
+    }
+  if( i == 8 ) {
+j = 2d40+10;
+    act_tochar( #zap, ch );
+    act_notchar( #rzap, ch );
+    dam_message( ch, j, "A divine goodness" );
+    inflict( ch, ch, j, "a divine goodness" );
+    }
+  else {
+    act_tochar( #press, ch );
+    act_notchar( #rpress, ch );
+    open( room, north );
+    }
+  }
+else
+  act_tochar( #already, ch );
+~
+E
+zap~
+You touch your evil hand to the marks, and are ZAPPED!!
+~
+E
+rzap~
+$n touches a hand to the marks, but is ZAPPED!!
+~
+E
+press~
+You press your hand to the marks, and a shimmering door opens.
+~
+E
+rpress~
+$n touches a hand to the marks, and a shimmering door opens to the north.
+~
+E
+already~
+The doorway into the tower is already open.
+~
+!
+0 0 0
+1347 9 1509949540 3 0
+1775 17 1509949490 -1 0
+-1
+S
+
+#0
+

@@ -1,0 +1,4306 @@
+#AREA
+Clan Houses~
+Merior~
+~
+
+0 0
+4
+#ROOMS
+
+#51000
+The Foyer~
+A small puddle lies here at the foot of the earthen wall from which the
+cavern emerges.  Surprisingly, a breathtaking, cavernous rotunda extends
+from this small entrance as far as the eye can see.  Appearing to bound
+at infinity, the domed ceiling arches upwards into dancing shadows
+eminating from the sparse flicker of firelight.  Intricate designs that
+adorn the surrounding walls moving in a hypnotic pattern as the faint
+lights cascade over their surface.  Shimmering from high overhead, an
+enormous, majestic bronze banner glares down ominously upon all who enter. 
+A deathly silence devours this room save for the soft footsteps forever
+echoing from the marble floor, and the distant dripping echo of an
+unknown liquid forming pools in the darkness.
+~
+grae's room
+~
+301465639 0 5 0
+D1
+~
+~
+0 -1 51015 10 10 5
+E
+earthen~
+The southern wall is made entirely of moist, dark earth, and is covered
+in creeping vines which cling to its surface and extend upwards into
+blackness.  The large hole, cut into the earth above, looks well beyond
+the reach of anyone trying to enter from below.  earth above your reach.
+~
+E
+up ceiling~
+Squinting in the faint light, you manage to make out the darkest heights
+of the rotunda.  Judging the distance to be approximately 50 feet, you
+begin to realize how far below the earth the cavern lies.
+~
+E
+shadows~
+The shadows dance around you menacingly, as if to warn you of some
+terrible danger residing in this place.  One shadow is your own,
+stretching out behind you and spilling against the earthen wall, greatly
+exaggerating your size.  An intense feeling envelops you that you are
+being watched...  perhaps by the shadows themselves.
+~
+E
+bronze banner~
+A large, rectangular field of solid bronze glares down from on high. 
+Forged in the bronze is the image of a gloved fist holding a globe of
+darkness.  The details visible in the forging are incredible, making the
+hand seem to clench the darkness within tighter as the lights cause the
+shadows to dance along its surface.
+~
+E
+marble floor~
+The floor is made entirely of exquisite marble.  Though colors are
+distorted and unclear in the lighting of the rotunda, you can see the
+elaborate crimson swirls against an ivory background...  the origin of
+such rare stone a mystery.
+~
+A
+climb~
+vines~
+if( find_skill( ch, climb ) > 6 ) {
+  act_tochar( #out, ch );
+  act_notchar( #go, ch );
+  transfer( ch, find_room( 33050 ) );
+  }
+else
+  {
+act_tochar( #nope, ch );
+act_notchar( #stay, ch );
+}
+~
+E
+out~
+You hang onto the vine, and gingerly lower yourself back to the ground.
+~
+E
+go~
+You see $n grab hold of the vine and climb down towards the ground.
+~
+E
+nope~
+You grab hold of the vine, but are unable to climb out of the foyer.
+~
+E
+stay~
+You see $n grab hold of the vine, but $e isn't able to climb up it.
+~
+!
+0 0 0
+-1
+S
+
+#51001
+Great Hall~
+Dim, yellow light given off by flickering torches placed at intervals
+along tapestry-hung walls and radiant heat drifting from the maw of a
+massive stone fireplace lend a cheery warmth to the vast hall, its upper
+reaches melting into the gloom of a raftered ceiling looming high
+overhead.  Within the heart of the room, bearskins blanket the cold stone
+floor, while randomly placed about the hearth, comfortable chairs provide
+a place for study and conversation, several tables close by piled high
+with ancient tomes of knowledge.  At key points high upon the stone-laid
+walls and flanking a long, oaken trestle table, various articles of war
+hang proudly as though unseen guardians hold them still.  Poised
+majestically above the fireplace, passing judgment upon all those within
+its gaze, the red-hued statue of a large dragon emerges from a shallow
+alcove in the wall.  Several arched passageways lead off from the main
+hall, and facing the hearth a heavy, iron-banded door of age-darkened
+wood offers exit to the forest beyond.
+~
+mophus clan house
+enter from 37178
+~
+301467687 0 9 0
+D0
+~
+~
+0 -1 51092 10 10 5
+D1
+~
+~
+0 -1 51093 10 10 5
+E
+weapons war~
+Glinting in the flickering torch light, various weapons of war draw the
+attention...  large metal shields, mighty battle axes, maces, hammers,
+and a wide variety of deadly blades wrought in iron and steel, each
+polished to a shine, but maintained in whatever state of damage their
+final battle left them.
+~
+E
+tapestry~
+One particular tapestry catches the eye...  stitched in some distant,
+misty past, the fine detail and the still-bright colors mark it clearly
+as a masterpiece.  Depicted therein is a dragon, massive in size, golden
+scales glinting brightly, graceful translucent wings idle and folded
+along his sides.  The great wyrm is coiled around a treasure hoarrd, his
+enormous head at rest atop the pile.  His razor-sharp teeth are bared in
+a parody of a smile as he contemplates the objects held in each taloned
+hand - in one an antiquated suit of adamantine armor, in the other a tome
+of ancient and arcane knowledge.  By some trick of light or artistry his
+glowing red eyes seem to follow each of your movements, as if determining
+your worthiness.
+~
+E
+dragon statue~
+With an aura of wisdom and the stance of a predator, this stone-wrought
+dragon gazes calmly across the hall.  Its right claw curls possessively
+over the mantle of the fireplace, talons of untarnished stell gleaming in
+the light of the flames from below.  Upon each side of the dragon's broad
+head rest two large, expertly crafted gems...  deep crimson eyes that
+glow faintly as though light flowed between them.
+~
+E
+fireplace~
+The heady aroma of burning logs teh size of small trees drifts from the
+cavernous maw of a stone fireplace that covers the entire wall opposite
+teh door.  Fire-blackened, a pot filled with a savory mixture hangs from
+a hook poised over the white-hot coals, the small bubbles of a slow
+simmer rising and bursting on the surface.  Spitted upon an iron rod,
+casually turned by a passing hand, the haunch of some slain beast
+crackles and pops as melting fat drips into orange-blue flames.  Warmth
+radiates from the blaze, filling the room with a cheering warmth.
+~
+A
+~
+~
+act_room( #smell, ch );
+~
+E
+smell~
+The smell of the stew wafts through the room.
+~
+!
+2 800 0
+A
+exit~
+~
+act_tochar( #go, ch );
+act_notchar( #bye, ch );
+transfer( ch, find_room( 37178 ) );
+~
+E
+go~
+You leave the safety of your haven and return to the world outside.
+~
+E
+bye~
+You see $n disappear out the exit.
+~
+!
+0 0 0
+719 17 1509949540 -2 16
+-1
+S
+
+#51002
+Before the Gates of a Massive Stone Keep~
+Rising up directly to the north of here are the massive black obsidian
+stone walls of an enormous keep.  Four towers can be clearly seen resting
+high atop the battlements of the keep, each capped with a large banner
+which ripples in the constant breeze.  Set into the center of the stone
+wall is a massive wooden gate covered in thick iron bars.  Attached on
+each of the of the gates are shields with a silver dragon etched onto
+their surface.  Hanging on each side of the gates are two torches which
+flicker with an unnatural greenish flame, illuminating the entire path to
+the keep.  To the south a small footpath works its way back onto the sea
+trail.
+~
+~
+301465605 12 6 0
+D2
+~
+~
+0 -1 21070 10 10 5
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( is_follower( ch ) )
+  end;
+act_tochar( #door, ch );
+act_notchar( #door1, ch );
+close( room, north );
+lock( room, north );
+~
+E
+door~
+@WThe massive wooden gates slowly grind to a close behind you and you
+hear a loud @R*CLANK*@n @Was they lock.@n 
+~
+E
+door1~
+@WThe massive wooden gates slowly grind to a close and you hear a loud
+@R*CLANK*@n @Was they lock.@n 
+~
+!
+1 0 1
+-1
+S
+
+#51003
+Entrance Chamber~
+Large silk tapestries adorn the walls bearing the mark of the Knights of
+the Eternal Flame.  A large fireplace lies in the western wall heating
+and illuminating this small room.  A few chairs line the eastern wall
+offering visitors a place to sit and rest a moment.  A large crystal
+chandelier hangs from the ceiling sending a rainbow of colors around the
+room.  A large finely woven rug covers the floor embroidered with the
+image of a large red dragon soaring across a full moon.  Paintings of
+fully-armored knights adorn the western wall each with the name of one of
+the clan's members.  Upon the northern wall lies a large marble archway
+leading to a brightly lit room.
+~
+~
+301465639 0 6 0
+D0
+~
+~
+0 -1 51004 10 10 5
+E
+North Arch marble~
+The arch is carved from white marble and several carvings have been
+etched into its surface.  Each carving represents a sector of the clan
+and has been finely detailed by skilled hands.  The white marble shines
+brightly in the light and you can almost see your own reflection in it.
+~
+E
+rug finely woven dragon soaring moon~
+This giant masterpiece has been finely detailed in every respect for the
+image contained on it.  The dragon has been detailed right down to spikes
+on its tail and its blood-red eyes.  This appears to be a rare and true
+masterpiece.
+~
+E
+crystal chandelier~
+This massive chandelier is composed entirely of crystal and silver bits. 
+The crystals send a rainbow of colors around the room every few moments
+creating a beautiful sight.
+~
+A
+~
+~
+if( !is_player( ch ) )
+  end;
+if( is_follower( ch ) )
+  end;
+act_tochar( #door1, ch );
+act_notchar( #door, ch );
+close( room, south );
+lock( room, south );
+~
+E
+door1~
+@WThe massive wooden gates slowly grind to a close behind you and you
+hear a loud @R*CLANK*@n @Was they lock.@n 
+~
+E
+door~
+@WThe massive wooden gates slowly grind to a close and you hear a loud
+@R*CLANK*@n @Was they lock.@n 
+~
+!
+1 0 4
+-1
+S
+
+#51004
+Elegantly Furnished Living Room~
+Several plush couches and chairs fill this large room along with a few
+small maple tables.  Torches line the walls giving off an enormous amount
+of light.  A large fireplace has been set into the eastern wall and small
+coffee pots can be seen hanging over the flames.  Upon a few of the the
+tables lie elegant marble chess boards and reading books.  An elegant oak
+bookcase covers the western wall, filled completely with books and
+scrolls.  To the north an elegant redwood door has been placed into the
+wall while to the south a glyph-covered archway marks the entrance to the
+entrance chamber.
+~
+~
+301467655 0 9 0
+D0
+elegant redwood door~
+elegant redwood door~
+407 2422 51083 10 10 5
+D2
+~
+~
+0 -1 51003 10 10 5
+D3
+~
+~
+235 -1 51018 10 10 5
+E
+bookcase west~
+The bookcase appears quite old but still maintains its beautiful
+composure.  Several hundred books line its shelves ranging from books on
+the art of war to poetry.  Scrolls covering the topics of magic lie tied
+in fine silk ribbons.
+~
+E
+chess boards marble~
+The chess boards have been carved from a single slab of black-white
+streaked marble.  Each chess piece has been carved in the likeness of a
+battle-ready knight, tall, imposing kings and regular foot soldiers.
+~
+A
+Pull tilt~
+book~
+if( !is_open( room, west ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #pull1, ch );
+  open( room, west );
+  }
+else
+  act_tochar( #open?, ch );
+~
+E
+pull1~
+@W$n slides one of the books from the bookcase out a bit and suddenly the
+bookcase slides open, revealing a dark hallway.
+~
+E
+pull~
+@WYou pull one of the books from the bookcase out a bit and suddenly it
+slides open, revealing a dark a hallway.
+~
+E
+open?~
+The bookcase is already open.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( !is_player( ch ) )
+  end;
+Wait( 1 );
+send_to_room( #close, room );
+close( room, west );
+~
+E
+close~
+@WThe sound of grinding stone fills the room as you notice the bookcase
+slowly slide back into place and lock.
+~
+!
+1 0 8
+-1
+S
+
+#51005
+Within a Large Obsidian Chamber~
+Save to the north, the walls of this chamber glisten midnight black, the
+mirrorlike sheen of polished obsidian.  The dull red-orange glow of a
+lava flow flickers across the surface of the walls, illuminating the room
+with the haunting hue of the setting sun.  The north wall is rough, the
+wall of a natural cavern.  However, looking closely to the wall you can
+see that it hides a door built into the rock.  A massive staircase carved
+into the rock leads up to another large chamber.
+~
+~
+301465607 0 8 0
+D0
+hidden door~
+hidden door rock~
+415 2392 28153 10 10 5
+D4
+~
+~
+0 -1 51006 10 10 5
+E
+walls obsidian~
+The walls of obsidian are flawless and smooth.
+~
+E
+lava flow~
+The lava's glow can be seen through some cracks in the floor.
+~
+E
+north wall~
+The wall's surface is rough and worn with age.  A door is built into it.
+~
+E
+door rock~
+The door has been expertly hidden so that it blends perfectly into the
+rock around it.  A small dark keyhole lies in its center.
+~
+E
+keyhole~
+The keyhole is dark and looks to be able to lock the door of rock.
+~
+E
+staircase up~
+The steps are of black granite and lead up into a large chamber.
+~
+A
+~
+~
+wait( 1 );
+act_room( #door, ch );
+close( room, north );
+lock( room, north );
+~
+E
+door~
+@eThe door slides silently shut with a rush of air.
+~
+!
+1 0 1
+-1
+S
+
+#51006
+A Massive Hall of Shadow and Obsidian~
+The dark recesses of this massive hall are draped in shadow.  The
+mirrorlike surface of the polished obsidian walls absorb the glare of
+intruding light.  Dark banners hang from the smooth stone ceiling,
+emblems of war and heralds of destruction.  Arches lead out of the
+chamber to the east and west, while a stairway of stone leads down into a
+chamber which glows red and orange.  In the center of the room, a
+majestic fountain in the likeness of a watchful gargoyle stands guard
+over the hall.
+~
+~
+301465607 0 9 0
+D0
+~
+~
+0 -1 51022 10 10 5
+D3
+~
+~
+0 -1 51008 10 10 5
+D5
+~
+~
+0 -1 51005 10 10 5
+E
+banners~
+The banners are finely woven and decorated with the seals of the
+members of the Order to whom they belong.
+~
+1744 17 1509949540 -2 0
+-1
+S
+
+#51008
+A Long Obsidian Hall~
+Other than the open archway which leads into a large chamber to the east,
+the walls, floor, and ceiling of this room gleam with darkness itself. 
+The obsidian of the walls has been so perfectly polished that it appears
+you are adrift in a void of infinite blackness, stretching out in all
+directions.  A long table of solid black granite stretches along the
+length of the hall, with long benches on either side.  At the head of the
+table is set a large throne carved from a solid block of obsidian.
+~
+~
+301467655 0 9 0
+D1
+~
+~
+0 -1 51006 10 10 5
+E
+archway east~
+The arch is smooth and at least eighteen feet high.
+~
+1740 17 1509949540 -2 0
+1741 17 1509949540 -2 0
+1742 17 1509949540 -2 0
+1743 17 1509949540 -2 0
+-1
+S
+
+#51009
+Before a Shadowy Fortress~
+Fog from the Northern Sea lies heavily on the flagstone road that leads
+to this drawbridge.  Vines and moss cover the stone rampart that prevents
+the unwary from stepping north, off the embankment and into the vast sea.
+Standing where the flagstones end is a waist high marble pedestal.
+Looking west the view is blocked by an immense mist enshrouded
+fortress.  Separating the road and the fortress lays a deep ravine, from
+which you hear the sound of fast moving water.
+~
+e is 21029
+~
+301465605 0 9 0
+D3
+drawbridge~
+drawbridge~
+195 62 51010 10 10 5
+E
+pedestal marble~
+The angled top of the pedestal is engraved with the words The Shadow
+Knights of Ages Past - We remember.
+~
+A
+search~
+pedestal~
+act_tochar(#search, ch );
+act_notchar(#rsearch, ch );
+~
+E
+search~
+You search the marble pedestal, revealing a keyhole behind one of the
+engraved letters.
+~
+E
+rsearch~
+$n searches the marble pedestal, revealing a keyhold behind one of the
+engraved letters.
+~
+!
+0 0 0
+A
+unlock~
+letter~
+if( !is_open( room, west ) ) {
+  if( has_obj( 2502, ch ) ) {
+    act_tochar( #yep, ch );
+    act_notchar( #ryep, ch );
+    open( room, west );
+    wait( 2 );
+    send_to_room( #close, room );
+    send_to_room( #close, find_room( 51010 ) );
+    close( room, west );
+    }
+  else
+    act_tochar( #nope, ch );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+yep~
+You unlock the letter and the drawbridge raises to allow you to pass.
+~
+E
+ryep~
+$n unlocks the letter and the drawbridge raises, allowing $m to pass.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+E
+close~
+The drawbridge rumbles shut.
+~
+E
+open~
+The drawbridge is already open.
+~
+!
+0 0 0
+-1
+S
+
+#51010
+A Smokey Flagstone Courtyard~
+Gray smoke drifts from several cooking fires adding a ghostly dimness to
+the air.  The smell of some soup or stew reaches you from a large black
+pot above one of these fires.  On the east side of the courtyard is a
+drawbridge with a lever next to it.  To the west is a damp passage
+angling down into the cliff side.  Hanging next to the passage is an iron
+ring suspended from a chain.  To the south is an archway leading inside
+the fortress.  Racks of weapons and armor give this place an air of
+readiness and confidence.
+
+A small sign has been nailed crookedly to the wall.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 51031 10 10 5
+D1
+drawbridge~
+drawbridge~
+195 -1 51009 10 10 5
+D2
+~
+~
+0 -1 51012 10 10 5
+D3
+portcullis~
+portcullis~
+471 -1 51011 10 10 5
+E
+cauldron~
+A large black cauldron filled with a hearty looking soup gently bubbles
+above a cooking fire.
+~
+E
+sign~
+Scrawled in big, blocky letters are the words:
+
+"No soup for you!"
+@I-Sosumi, part-time SKAP chef and Jago, protector of the soup cauldron
+~
+A
+~
+~
+send_to_char(#west, ch );
+continue;
+~
+E
+delete~
+You carefully go down the damp passage crossing under an old rusty
+~
+E
+west~
+You carefully go down the damp passage crossing under an old rusty
+portcullis at its bottom.
+~
+!
+3 0 8
+A
+pull~
+lever~
+if( !is_open( room, east ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  send_to_room( #ropen, find_room( 51009 ) );
+  open( room, east );
+  wait( 2 );
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 51009 ) );
+  close( room, east );
+  }
+else
+  act_tochar( #dork, ch );
+~
+E
+pull~
+You pull the lever and the drawbridge raises.
+~
+E
+rpull~
+$n pulls the lever and the drawbridge raises.
+~
+E
+close~
+The drawbridge rumbles shut.
+~
+E
+dork~
+The drawbridge is already open.
+~
+E
+ropen~
+The drawbridge opens with a series of clanks and rattles.
+~
+!
+0 0 0
+A
+pull~
+chain~
+if( !is_open( room, west ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, west );
+  wait( 2 );
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 51011 ) );
+  close( room, west );
+  }
+else
+  act_tochar( #dork, ch );
+~
+E
+pull~
+You pull the chain and the portcullis raises.
+~
+E
+rpull~
+$n pulls the chain and the portcullis raises.
+~
+E
+close~
+The portcullis closes slowly.
+~
+E
+dork~
+The portcullis is already open.
+~
+!
+0 0 0
+1773 17 1509949540 -2 16
+-1
+S
+
+#51011
+A Ledge Overlooking the Beach~
+You are standing on a wide shelf of rock.  This ledge is just high enough
+to give you a good view of both the beach below and out into the sea.
+From here it looks like an easy climb down to the shoreline.  To the east
+is an old rusty portcullis, beyond which you see a damp passage that
+angles up into the rock face.
+~
+~
+301465607 0 9 0
+D1
+portcullis~
+portcullis~
+471 1767 51010 10 10 5
+A
+~
+~
+wait( 2 );
+if( !is_open( room, east ) )
+  end;
+close( room, east );
+send_to_room( #close, room );
+send_to_room( #close, find_room( 51010 ) );
+~
+E
+close~
+The portcullis closes with much rattling and creaking.
+~
+!
+1 0 2
+A
+climb~
+down cliff~
+act_tochar( #char, ch );
+act_notchar( #climb, ch );
+transfer( ch, find_room( 21099 ) );
+act_notchar( #rchar, ch );
+~
+E
+char~
+You carefully begin to climb down the steep cliff.
+~
+E
+climb~
+$n begins carefully climbing down the steep cliff.
+~
+E
+rchar~
+$n comes climbing down the steep cliff.
+~
+!
+0 0 0
+A
+unlock~
+portcullis~
+if( !is_open( room, east ) ) {
+  if( has_obj( 2502, ch ) ) {
+    act_tochar( #yep, ch );
+    act_notchar( #ryep, ch );
+    open( room, east );
+    wait( 3 );
+    send_to_room( #close, room );
+    send_to_room( #close, find_room( 51010 ) );
+    close( room, east );
+    }
+  else
+    act_tochar( #nope, ch );
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+yep~
+You place your key into the small lock and the portcullis raises.
+~
+E
+ryep~
+$n places $s key into the small lock and the portcullis raises.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+E
+close~
+The portcullis slowly closes.
+~
+E
+open~
+The portcullis is already open.
+~
+!
+0 0 0
+-1
+S
+
+#51012
+Hall of Eternal Shadows~
+You have entered a gigantic circular hall with many tall granite columns
+rising to a lofty domed ceiling.  Four large bronze braziers burn
+brightly illuminating the many tapestries adorning the walls.  A large
+circular table dominates the center of the room with a stone bench
+completely surrounding it.  In the north wall is an archway that leads
+outdoors.  Next to the archway is a spiral staircase that rises to the
+ceiling.  A swirling portal engulfs the southern wall, the bluish mist
+churning and roiling.
+~
+~
+301465607 0 9 0
+D0
+~
+~
+0 -1 51010 10 10 5
+D1
+~
+~
+0 -1 51029 10 10 5
+D3
+~
+~
+0 -1 51027 10 10 5
+D4
+~
+~
+0 -1 51014 10 10 5
+E
+granite table round~
+This round, granite table sits in the middle of the chamber, dominating
+the entire room.  The insignia of the Shadow Knights is inscribed in the
+middle of the table.
+~
+A
+enter~
+portal~
+if( has_obj( 2502, ch ) ) {
+  act_tochar( #enter, ch );
+  act_notchar( #renter, ch );
+  transfer( ch, find_room( 51013 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+enter~
+You step into the misty portal and reality shifts.
+~
+E
+renter~
+$n steps into the portal and disappears into the mist.
+~
+E
+arrive~
+$n steps out of the swirling portal.
+~
+E
+nope~
+You try to enter the portal but the mist firms, solidly blocking your path.
+~
+!
+0 0 0
+1319 17 1509949540 -2 0
+1879 17 1509949540 -2 0
+-1
+S
+
+#51013
+Shadow Knights Treasure Vault~
+This small chamber seems to have been hued from the very rock of the
+cliff.  Rough carved walls for several alcoves, each containing an iron
+bound chest.  The only lighting apparent is from a small torch at the
+rear of the chamber.  Littered about the chamber are several coins and
+gems, each reflecting a shimmering display of color.  A portal of
+swirling mist has been set into the northern wall, the bluish mist
+roiling.
+~
+~
+301533191 0 9 0
+A
+quit~
+~
+act_tochar( #nope, ch );
+act_notchar( #rnope, ch );
+transfer( ch, find_room( 51009 ) );
+continue;
+~
+E
+nope~
+@eYou try to leave the realms but are transported to another location!
+~
+E
+rnope~
+@e$n tries to leave the realms but is transported to another location.
+~
+!
+0 0 0
+A
+enter~
+portal~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+transfer( ch, find_room( 51012 ) );
+act_notchar( #arrive, ch );
+~
+E
+enter~
+You step into the misty portal and reality shifts.
+~
+E
+renter~
+$n steps into the mists and is gone.
+~
+E
+arrive~
+$n steps out of the swirling portal.
+~
+E
+nope~
+You try to enter the portal but the mist firms, solidly blocking your path.
+~
+!
+0 0 0
+-1
+S
+
+#51014
+Balcony Overlooking the Sea~
+You are standing on a stone balcony looking out over the northern sea. 
+Looking around, you see eagles flying from nest to nest in the distance. 
+At the docks west of Medienne you see a merchant ship loading its wares. 
+You smell the scent of the sea and can occasionally hear sounds from the
+courtyard below.
+~
+~
+301467655 0 9 0
+D5
+~
+~
+0 -1 51012 10 10 5
+A
+~
+~
+i = 1d3;
+if( i == 1 )
+  send_to_room(#foam, room );
+if( i == 2 )
+  send_to_room(#gulls, room );
+~
+E
+foam~
+You hear the call of a seagull in the distance.
+~
+E
+gulls~
+You hear the call of a seagull in the distance.
+~
+!
+2 150 0
+1878 17 1509949540 -2 0
+-1
+S
+
+#51015
+Meeting Hall~
+Light from a roaring fire within a large, natural hearth lights up this
+cavernous room.  A huge table, made of the same marble shot through with
+swirling crimson found in the main cavern dominates the room. 
+Distinctive chairs, gathered from the corners of the world, stand huddled
+close around the table.  Carefully rolled scrolls and leather-bound
+ledgers are kept in an oak bookcase, within easy reach of the head of the
+table.  Above the bookcase, a smaller version of the great bronze banner
+hangs quietly brooding.  On the western wall, under a grand archway,
+towering double doors made of heavy, dark-stained wood loom ominously.
+~
+[Ssleestaq] should be swirling crimson. ooops.
+~
+301465639 0 9 0
+D0
+double doors~
+double doors~
+131 -1 51017 10 10 5
+D3
+~
+~
+0 -1 51000 10 10 5
+D5
+trapdoor~
+trapsdoor~
+203 -1 51043 10 10 5
+E
+doors stained~
+The enormous double doors tower over the room, greatly unproportional to
+their very narrow width.  Keenly fashioned from rare darkenwood and
+accented with elegant polished brass handles and trim, the images of the
+room reflect from the doors' surface with a mirror-like quality. 
+Curiously, the handles are located a mere 2' above the doors' base.
+~
+A
+pull~
+book~
+if( !is_open( room, down ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+  send_to_room( #open, find_room( 51043 ) );
+  wait( 3 );
+send_to_room( #close, room );
+  send_to_room( #close, find_room( 51043 ) );
+  close( room, down );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+pull~
+You pull a book out of the shelf and a section of the floor slides away!
+~
+E
+rpull~
+$n pulls a book out of the shelf and a section of the floor slides away!
+~
+E
+open~
+The ceiling slides away with a rush of air.
+~
+E
+nothing~
+The trapdoor is already open.
+~
+E
+close~
+The trapdoor slides shut.
+~
+!
+0 0 0
+1820 17 1509949540 -2 0
+1863 17 1509949540 -2 0
+1864 17 1509949540 -2 0
+1865 17 1509949540 -2 0
+1866 17 1509949540 -2 0
+-1
+S
+
+#51016
+Smoke-Filled Kitchen~
+Shelves and cabinets run wall-to-wall in this large kitchen.  Cauldrons
+sit atop fire pits bubbling with fresh food and looking around you notice
+that you could feed an army with all the food contained within here.  A
+long obsidian table lies in the center of the room covered with loaves of
+bread, large cuttery knives, goblets and the occasional half-eaten slab
+of beef.  Streams of smoke float up towards the ceiling only to be blown
+out through a small ventilation shaft in the northeast corner of the room. 
+Set into the eastern wall is a heavy black adamantite door which is
+covered in black scorch marks.
+~
+[Terek] 51083 north
+~
+301465607 0 9 0
+D1
+heavy black adamantite door~
+heavy black adamantite door~
+407 2422 51084 10 10 5
+1818 17 1509949540 -2 16
+-1
+S
+
+#51017
+Grae's Office~
+The cold marble floor gives way in this room to a plush, white-grey fur
+carpeting, completely damping the cavernous echoes from without.  The
+rich aroma of fine tobacco lingers in the air, taunting the senses, while
+overhead a chandelier bathes the office in a soothing, dim candlelight. 
+A small but elegant desk made of heavy, dark-stained wood is centered
+against the back wall of the office, squarely facing the arched entry. 
+Adorning the wall behind the desk is an enormous painting.  A single
+tanned-leather chair resides behind the desk which overlooks three small
+overstuffed chairs that sit in silent audience.
+~
+~
+301465639 0 9 0
+D2
+double doors~
+double doors~
+131 -1 51015 10 10 5
+E
+desk~
+The large surface of the darkenwood desk is unblemished and incredibly
+tidy.  Neatly placed on the desk is an empty scroll and a small jar of
+black ink, from which a feather quill protrudes.  Displayed on the
+forward facing edge of the desk is a bronze name-plate etched with the
+words: "Grae Soul - Founder" 
+~
+E
+painting~
+The painting, which covers a large portion of the wall upon which it is
+displayed, protrays a regal, aged gnome whose eyes seem to peer into your
+soul with untold wisdom.  Quite obviously wealthy and distinguished, the
+proud gnome posed for the artist in front of a lavish estate.  The once
+brilliant colours of the painting have long since lost their luster,
+leaving the figure dismal and lifeless, save for his piercing eyes. 
+Barely legible on the bottom edge of the tarnished bronze frame is etched
+the name: Talmon Soul.
+~
+A
+none~
+~
+send_to_room( #flicker, room );
+~
+E
+flicker~
+The candles in the stately chandelier flicker slightly, causing the
+shadows in the room to dance gently.
+~
+!
+2 200 0
+1858 17 1509949540 -2 0
+-1
+S
+
+#51018
+Black Obsidian Stone Hallway~
+Torches line this large hallway, shedding a deep scarlet color upon the
+black obsidian walls.  Cobwebs hang down from the ceiling, suggesting
+this passage has not been used in some time.  Doors run the length of the
+hallway, each a different color and made of a different material.  To the
+east a small steel @b@Rlever@n rests upon the wall.
+~
+Doors in desc are for future member rooms..
+Terek 51074 south
+~
+301465637 0 9 0
+D0
+adamantite door~
+adamantite door~
+147 2422 51024 10 10 5
+D1
+~
+~
+235 -1 51004 10 10 5
+D2
+small adamantite door~
+small adamantite door~
+391 2422 51074 10 10 5
+D3
+~
+~
+0 -1 51026 10 10 5
+A
+push pull~
+lever~
+if( !is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #open1, ch );
+  Open( room, east );
+  }
+else
+  act_tochar( #open?, ch );
+~
+E
+open~
+@WYou pull the lever down and suddenly the wall slides openly silently.
+~
+E
+open1~
+@W$n pulls the lever down and suddenly the wall slides openly silently.
+~
+E
+open?~
+The secret wall is already open.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( !is_player( ch ) )
+  end;
+Wait( 1 );
+send_to_room( #close, room );
+close( room, east );
+~
+E
+close~
+@WThe sound of grinding stone fills the hallway as you notice the wall
+slide back into place and lock.
+~
+!
+1 0 2
+-1
+S
+
+#51019
+Gateway to the Dawn~
+You are standing in a red cobblestone courtyard forming a gilded pathway
+to the ivy-covered, stone walls and towering spires of the stronghold.  A
+white stone fountain splashes with crystal-clear water in the center of
+the circle.  Dark-green moss grows in an intricate pattern along the side
+of the fountain and an abundance of brightly-colored roses grow at the
+base.  Lace-leafed trees gracefully lend shade in each corner of the
+courtyard where ferns grow alongside comfortable wooded benches.
+~
+~
+301465605 0 9 0
+D2
+~
+~
+0 -1 51020 10 10 5
+D3
+~
+~
+0 -1 51021 10 10 5
+E
+fountain~
+The fountain is made out of lovely white stone.
+~
+1 17 1509949540 -2 29
+845 17 1509949540 -2 0
+-1
+S
+
+#51020
+Sanctuary~
+Richly-colored, woven tapestries, depicting triumphant battles and
+glorious quests of the Seekers For the Dawn, adorn the smooth, marble
+walls of this holy room.  Incense burning from golden holders along the
+walls imparts a heavy, but pleasant aroma to the peaceful atmosphere.
+Bordered by flaming torches, a large golden shield bearing the clan
+symbol, hangs on the wall.  The lush carpeting and colorful seating
+arrangements provide for comfortable meditating or just relaxing.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 51019 10 10 5
+E
+golden shield~
+Engraved into the shield is the symbols of the Seekers For the Dawn. 
+Upon closer examination of the symbol you see a golden sun rising above
+green rolling hills on a field of dark blue speckled with silver stars.
+~
+2013 17 1509949540 -2 0
+-1
+S
+
+#51021
+Grand Hall of the Seekers~
+A clamorous din fills the air in this main meeting hall.  The warm glow
+from the fireplace gives a homely ambience to the area.  A large
+oakenwood table fills a great portion of the room, as servants constantly
+place food and drink on and clear empty dishes from it.  The hall's high
+cathedral ceiling and tall columns take away all depth perception and
+give the room a magical aura about it.  For those not wishing to stay for
+the feast, a soup cauldron heats in the fire; while a bar provides
+refreshments for the weary clansmen.  In the far northwest corner of the
+room, a cloakroom teller stores items acquired on grandious quests.
+~
+~
+301471749 0 9 0
+D1
+~
+~
+0 -1 51019 10 10 5
+1773 17 1509949540 -2 16
+-1
+S
+
+#51022
+A Dark Obsidian Hallway~
+A somber red light reflects off the dark obsidian walls of this dark
+hallway.  Small lanterns with red lenses hang from iron brackets set into
+the stone.  The air is cool, as are the smooth obsidian walls.  A heavy
+obsidian door bound by iron bands sits midway down the hallway on the
+north wall.
+~
+where are extras
+~
+301471749 0 9 0
+D0
+heavy obsidian door~
+heavy obsidian door~
+407 2135 51023 10 10 5
+D2
+~
+~
+0 -1 51006 10 10 5
+D5
+~
+~
+0 -1 51094 10 10 5
+-1
+S
+
+#51023
+A Dark Sleeping Chamber~
+This large chamber is long and wide.  Polished walls of black obsidian
+reflect the dancing flames of a fireplace set into the north wall.  The
+floor is warm, perhaps from the proximity of the nearby lava flows and
+the heat from the fire.  The ceiling is high, and cobwebs hang in the
+corners.  A tapestry hangs next to the door on the east wall.
+~
+~
+301471749 0 9 0
+D2
+heavy obsidian door~
+heavy obsidian door~
+407 2135 51022 10 10 5
+E
+pool table~
+A pool table sits in the center of the room.  Built out of a block of
+obisidian, this pool table has a deep burgundy felt top.  Pool balls are
+spread about the table, and several cues are held in a rack built into one
+side.
+~
+2130 17 1509949540 -2 0
+2129 17 1509949540 -2 0
+-1
+S
+
+#51024
+Stormeblade's Quarters~
+This large living chamber is elegantly furnished with rare and unique
+objects.  Along the northern wall of the room lies a king-size bed made
+from rare shuvana wood.  A large, white yeti-hair rug covers the floor
+from wall to wall.  Upon the smooth, black obsidian walls of the room
+hang suits of plate armor, various weapons and large, colorful shields. 
+Standing along the eastern wall are glass cases, each containing a suit
+of armor made from the hides of several different dragons.  The stones
+which compose the ceiling have had a beautiful painting of dragons
+dueling in mid-air painted across them.  A large, heavily-reinforced
+adamantite door lies to the south.
+~
+~
+301465639 0 9 0
+D2
+adamantite door~
+adamantite door~
+147 2422 51018 10 10 5
+-1
+S
+
+#51025
+Gabrielle's Chambers~
+Forest green and silver are the dominant colors decorating this simple,
+yet elegant room.  Thick velvet drapes hang all the way down to the
+polished Vaasanwood floors.  Sconces set in the wall light the room with
+a soft glow.  A large four-poster bed stands in the corner, crafted of
+rare shuvanawood, as is the rest of the furniture in the room.  The sound
+of water bubbling draws your attention to a white marble fountain in the
+left corner.  A statue of Pan stands in the center of the fountain, water
+pouring out of his flute into a pool set in the floor.  The windows are
+left open, allowing a pleasant breeze to enter the room, occasionally
+rustling the drapes.
+~
+[Gabrielle] My sconces are in more than one wall
+~
+301465639 0 9 0
+D2
+ruby-studded pine door~
+ruby-studded pine door~
+147 2422 51026 10 10 5
+-1
+S
+
+#51026
+Black Obsidian Stone Hallway~
+Massive stone pillars line this section of the hallway, each with a torch
+set in between them.  Glancing around you see doors to the north and
+south, leading to other sections of the keep.  The black obsidian stones
+which make up the walls, floor, and ceiling have had pictures of knights
+in red-colored armor battling fearsome dragons painted across them.  To
+the east the hallway continues, heading into a more brightly light
+section.
+~
+~
+301465637 0 9 0
+D0
+ruby-studded pine door~
+ruby-studded pine door~
+147 2422 51025 10 10 5
+D1
+~
+~
+0 -1 51018 10 10 5
+D2
+blood-stained steel door~
+blood-stained steel door~
+147 2422 51033 10 10 5
+D3
+~
+~
+0 -1 51034 10 10 5
+-1
+S
+
+#51027
+West Wing Hallway~
+You stand in a dimly lit stone hallway.  Torches sputter in sconces set
+along the stone walls.  To the east is a tall archway leading into a
+grand hall, while to the west the hallway continues on.  In both the
+north and south walls are large oak doors bound in strips of iron.  The
+still dusty air surrounds you in a profound silence.
+~
+~
+301465607 0 9 0
+D1
+~
+~
+0 -1 51012 10 10 5
+D3
+~
+~
+0 -1 51028 10 10 5
+-1
+S
+
+#51028
+West Wing Hallway~
+You stand at the end of a dimly lit stone hallway.  Torches sputter in
+sconces set along the stone walls.  Large oak doors bound in strips of
+iron are set in the north, south, and west walls.  The hallway continues
+east toward a distant hall.  Set into the flagstone floor you see a large
+brass plate with writing engraved on it.
+~
+~
+301465607 0 9 0
+D0
+massive oaken door~
+massive oaken door~
+391 2245 51044 10 10 5
+D1
+~
+~
+0 -1 51027 10 10 5
+D2
+door of ebony wood~
+door ebony wood~
+407 2345 51046 10 10 5
+E
+floor brass plate writing~
+Inscribed into a large brass plate is the words, "The Shadow Knights of      
+Ages Past West Wing,  home to eternal comrades at arms."
+~
+E
+massive oaken door~
+A massive oaken door, bound in iron.  A brass knocker dominates the
+woooden expanse, above a carven sigil of the Shadow Knights.
+~
+-1
+S
+
+#51029
+East Wing Hallway~
+You stand in a dimly lit stone hallway.  Torches sputter in sconces set
+along the stone walls.  To the west is a tall archway leading into a
+grand hall, while the hallway takes a vertical slope downward.  In both
+the north and south walls are large oak doors bound in strips of iron. 
+The still dusty air surrounds you in a profound silence.
+~
+~
+301465607 0 9 0
+D3
+~
+~
+0 -1 51012 10 10 5
+D5
+~
+~
+0 -1 51070 10 10 5
+-1
+S
+
+#51031
+Rock Garden~
+You are surrounded by beautiful flowers, plants, and rock formations. 
+The foliage buzzes with the sounds of insects and birds.  A cobblestone
+path leads from an archway to the south, circles a tall stone fountain
+shaped like a bear standing on its hind legs, then heads west to the
+doors of the stable.  High stone walls separate this little paradise from
+the outside world.  A quaint little bridge of white pine stretches to the
+west, toward a stable.
+~
+~
+301465603 0 9 0
+D2
+~
+~
+0 -1 51010 10 10 5
+D3
+stable gate~
+stable gate~
+131 -1 51032 10 10 5
+E
+stone fountain bear~
+Before you stands a tall stone fountain carved in the shape of a grizzly 
+bear rearing up on its hind legs.  Water trickles from its open maw looking 
+vaguely like saliva dripping from a hungry mouth.  Along the basin of the   
+fountain are the inscribed words, "In memory of our fallen comrade Logger."
+~
+E
+bridge~
+This bridge spans a small, dark recess.  The gloomy pit is at odds with
+the cheerful little bridge.
+~
+A
+climb~
+down~
+act_tochar( #down, ch );
+act_notchar( #rdown, ch );
+transfer( ch, find_room( 51064 ) );
+act_tochar( #arrive, ch );
+act_notchar( #rarrive, ch );
+interpret( ch, "sit" );
+~
+E
+down~
+You climb down into the darkness beneath the bridge.
+~
+E
+rdown~
+$n climbs down into the darkness beneath the bridge.
+~
+E
+arrive~
+@eAs you enter the room you fall flat on your back sliding down a @Gslime
+coated@n@e ramp.
+~
+E
+rarrive~
+$n comes sliding down the slime coated ramp!
+~
+!
+0 0 0
+1 17 1509949540 -2 0
+-1
+S
+
+#51032
+The Shadow Knights' Stables~
+The smell of straw and hay permeates your nose as you enter this huge
+barn.  The barn is ringed in enough stalls to house an army of animals. 
+In front of each stall is a basin for food and water and to each side are
+hooks for hanging up equipment.  The only obvious exit is a large wooden
+double door to the east.
+~
+~
+301465607 0 9 0
+D1
+large wooden door~
+~
+131 -1 51031 10 10 5
+-1
+S
+
+#51033
+Trunks' Quarters~
+Few personal ornaments adorn this gymnasium-like room.  The whole
+atmosphere of this room is dark, forboding, and reflects the tortured
+soul that resides here.  A full-length mirror stands in the corner, ready
+to relect your gaze.  Shattered glass remains on the floor, unswept and
+covered in blood.  A rolled up mat lies next to a wall, serving as
+Trunks' simple bed.  Hanging from the ceiling are a dozen various
+punching bags, and fighting dummies scattered around the room.  Some of
+the dummies are intact, most are not.  The dummies that have been broken
+bear many viscious bloodstains and dents to mark the brutal force that
+they have withstood.  On one wall a set of sacred robes of the Paladin
+class is hung here.  The robes are bloodstained, tattered, and torn.  The
+once white robes, once decorated with gold embroidery are now decorated
+in with dried blood.  Alone in the corner of his room is a small pillar
+of pure marble.  Upon this small pillar is one small ring of pure gold,
+shining brightly, the remnant of hope left in this warrior's soul.
+~
+~
+301465637 0 9 0
+D0
+blood-stained steel door~
+blood-stained steel door~
+147 2422 51026 10 10 5
+-1
+S
+
+#51034
+Black Obsidian Stone Hallway~
+The smooth black obsidian walls of the hallway here have had several
+carvings of knights battling fearsome dragons etched into their surface. 
+In between each of the large carvings hang fine silk tapestries with the
+symbol of the Knights of the Eternal Flame delicately woven in with fine
+black thread.  Above you the ceiling has been painted with the image of a
+massive silver dragon battling an even larger red dragon in mid-air.  To
+the east the hallway continues through the keep.
+~
+West is 51052 to be connected
+~
+301465637 0 9 0
+D1
+~
+~
+0 -1 51026 10 10 5
+D2
+rune-inscribed door~
+rune-inscribed door~
+147 2422 51035 10 10 5
+D3
+~
+~
+0 -1 51052 10 10 5
+-1
+S
+
+#51035
+Maurer's Quarters~
+Soft white light from an undiscernable source give this room a pleasant
+glow.  Lying against one of the ivory-white walls is an enormous
+bookshelf containing volumes of ancient prayer books, scrolls, and
+pamphlets.  Against the facing wall is an ornate altar to the goddess
+Algesa.  The twinkle in the eye of the warrior goddess's statue and its
+captivating smile give it life-like qualities.  In a small corner of the
+room lies a comfortable, yet simple-looking cot.  Lying on the marble
+floor is a bearskin rug completing the decor of this otherwise
+modereately furnished room.  To the north lies an ivory, rune-inscribed
+door.
+~
+~
+301465637 0 9 0
+D0
+rune-inscribed door~
+rune-inscribed door~
+147 2422 51034 10 10 5
+-1
+S
+
+#51036
+A Rise in the Mountain Side~
+As you climb the rise you see before you a massive structure cut in to the
+mountainside. A perfect square, 24 hands by 24 hands, has been chiseled
+into the solid rock.  Recessed within that square is what appears to be
+the front of a great fortress.  The structure looks like the forward wall
+of any standard keep you have ever seen around the realm.  However, there
+are now other walls to this keep.  It appears as if the mountain itself
+provides the other three walls of the fortress.  Set in the middle of the
+stone masonry front are a set of massive double doors.
+~
+~
+301465605 0 9 0
+D0
+massive double doors~
+massive double doors~
+195 -1 51037 10 10 5
+D1
+~
+~
+0 -1 12612 10 10 5
+E
+door~
+The doors appear as if they would swing outward in a massive arc, one
+swinging clockwise, the other counter to it.  Made of polished steel, you
+can see your reflection in the doors, although some weird angle of light
+makes you look a lot shorter.  In the middle of the left door is an image
+of some humanoid molded into the steel.
+~
+E
+image humanoid ~
+The image is of a short humanoid, but it is hard to tell what race.  It
+has the nose and ears that are prevalent in the gnomish blood lines.  The
+figure has a full grown beard that only a dwarf could love.  It has the
+legs of neither a squat dwarf, or a short gnome.  They seem as if they
+belong to a hill-land halfling, and are set in the position of walking up
+some unseen incline.  Strangest of all is the sword the figure figure
+trudgingly holds up in its right hand.  The sword is obviously too large
+for the small creature, yet it looks like it belongs there, because its
+hands are also out of proportion compared to the rest of the body.  They
+are the hands of a human sized bi-ped.  In the figures other hand it
+looks as if it is using a monks staff to help with balance going up that
+unseen incline.  The final feature you notice is the one imperfection in
+the image, a small hole in its chest.
+~
+A
+place~
+heart~
+if( has_obj( 2223, ch ) ) {
+  act_tochar( #hole, ch );
+  act_notchar( #rhole, ch );
+  send_to_room( #open, find_room( 51037 ) );
+  open( room, north );
+  wait( 2 );
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 51037 ) );
+  close( room, north );
+  }
+else
+  act_tochar( #fail, ch );
+~
+E
+hole~
+You fit the beautifully crafted mithril heart into the hole, and the
+doors swing silently open.
+~
+E
+rhole~
+$n fits the beautifully crafted mithril heart into the hole, and the
+doors swing silently open.
+~
+E
+close~
+The opposing doors swing shut with a breath of air.
+~
+E
+fail~
+You don't seem to have the heart.
+~
+E
+open~
+The massive doors swing open.
+~
+!
+0 0 0
+-1
+S
+
+#51037
+Entry Hall~
+The entrance hall of the fortress makes it pretty apparent that this is
+like no other fortress in the realm.  The walls were all built by the
+mountain itself, and molded over centuries of shifting and shakes. 
+Although constructed by nature, the room was obviously refined by those
+less enduring.  There is neither a stray pebble on the floor, nor an
+unsightly crack in any of the walls.  There is a small circular hole in
+the ceiling which is emmiting a dim light.  The floor of the entrance
+slopes slightly, and you can either exit the fortress upward or head
+downward, deeper into the complex.
+~
+~
+301465605 0 9 0
+D2
+massive double doors~
+massive double doors~
+195 -1 51036 10 10 5
+D5
+~
+~
+0 -1 51038 10 10 5
+E
+hole ceiling~
+Within the hole is a masterpiece of highlander ingenuity.  The hole
+extends all the way to the surface of the mountain peek above.  Every
+couple of feet there is a mirror of highly polished dwarven steel set at
+varying angles.  The mirrors seem to take the light from above and pass
+it from one mirror to another, until it finally illuminates the room. 
+Fixxed below the mirrors are some sort of lenses of varying concavity and
+convexity.  During the day, the lenses are covered with blinders, but
+during the night time hours the lenses are uncovered.  The lenses help
+attract and focus the ambient light of the moon and the stars, thus
+keeping the fortress lit day and night.  On the lowest lense you see
+small script scratched in the bottom.
+~
+E
+script bottom~
+Lenses courtesy of the gnomish crafters guild.
+~
+A
+open ~
+doors south massive double~
+if( is_open( room, south ) )
+  act_tochar( #nothing, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  send_to_room( #message, find_room( 51036 ) );
+  open( room, south );
+  wait( 2 );
+  send_to_room( #close, room );
+  close( room, south );
+  send_to_room( #close, find_room( 51036 ) );
+  }
+~
+E
+open~
+You open the massive double doors.
+~
+E
+ropen~
+$n opens the massive double doors.
+~
+E
+nothing~
+The doors are already open.
+~
+E
+close~
+The doors close silently.
+~
+E
+message~
+The massive doors swing open.
+~
+!
+0 0 0
+-1
+S
+
+#51038
+Common Room~
+This room, directly down from the entry hall looks well used and worn. 
+It is quite large, and the ceiling is perfectly smooth and parabolic in
+shape.  There are giant pillows strewn all over the floor.  Along the
+east wall there is a small end table surrounded by big overstuffed and
+brilliantly colored chairs.  On the table is a small tray full of pipe
+ash, and on the floor is a spittoon made of pure lapis.  The center of
+the common room is dominated by a column of water rushing through the
+ceiling and just as quickly flowing through the floor into some
+underground river you hear rushing below.  In a shallow pool created by
+the waterfall is a small metallic wine rack keeping slightly chilled
+wines.  A spiral stair at the western edge of room leads upward into an
+unseen room, and a doorway in the northern wall leads further down into
+the fortress.  You can go upwards to the south and the entry hall.
+~
+~
+301465637 0 9 0
+D0
+~
+~
+0 -1 51040 10 10 5
+D3
+~
+~
+0 -1 51039 10 10 5
+D4
+~
+~
+0 -1 51037 10 10 5
+A
+w we wes west~
+~
+act_tochar( #west, ch );
+continue;
+~
+E
+west~
+You climb the spiral staircase to the west.
+~
+E
+rwest~
+$n heads west up the spiral staircase.
+~
+!
+0 0 0
+A
+n no nor nort north~
+~
+act_tochar( #north, ch );
+continue;
+~
+E
+north~
+You head further into the depths of the mountain.
+~
+E
+rnorth~
+$n leaves north.
+~
+E
+arrive~
+$n arrives from the south.
+~
+!
+0 0 0
+2224 17 1509949540 -2 0
+-1
+S
+
+#51039
+Mage's Library~
+This room within a dwarven seeming complex is remarkable in that there is
+not a single artifact, ornamentaion, or bit of architecture that looks
+even the slighest bit dwarvish.  Ancient pictures of ancient folk
+decorate the walls.  Where there aren't pictures there are book shelves,
+either fully wall height, or fastened to the walls half way up.  There is
+not a single space on any of the shelves not taken up by a book.  Where
+there isnt a full height bookshelf there are simple work benches covered
+with all manner of clutter and clatter, and cupboards below the benches
+overflowing with magical components and reagents.  A spiral stair case
+carved in stone leads down to the common room.  A quick look at the floor
+gives the most amazing sight of all.
+~
+[Fyli] isnt should be isn't
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 51038 10 10 5
+E
+floor~
+When you look at the floor you notice you are standing on thin air high
+above a mountain range!  Taking a step back you realize it is some sort
+of illusion.  Drawn on the floor is a giant eye, with a clear center. 
+Below the clear center you can see the images of the mountains as true as
+life.  Pointing from the center of the eye is a red arrow that looks as
+if it could be rotated to point off in various directions.
+~
+E
+book~
+Arranged on the shelves are books on all sorts of studies and
+disciplines, from the arcane to the common from the world impacting to
+from the world impacting to the trivial; from teaching to learning.
+~
+-1
+S
+
+#51040
+Hall of Heroes~
+This hall is grand in both length and height.  Upon both walls are murals
+of important highlander battles.  In between murals are portraits of
+valiant Heroes, both past and present.  Not only is there light from the
+mirror system, but eash of the portraits is lit by torchlight.  In the
+center of the hall on the east wall of pure krynite.  The placard below
+the bust labels it as simply, Thane.  In the center of the hall on the
+west wall is a painting of the captain and his sergeants in battle.  The
+only exit is south, back to the common room.
+~
+slide picture, to get into west
+[Orb] messed up line
+[Kenobi] fourth line down, eash should be each
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 51041 10 10 5
+D2
+~
+~
+0 -1 51038 10 10 5
+D3
+secret wall~
+secret wall~
+203 -1 51042 10 10 5
+A
+slide~
+picture~
+if( is_open( room, west ) ) {
+  act_tochar( #nothing, ch );
+  end; 
+  }
+else {
+  act_tochar( #slide, ch );
+  act_notchar( #rslide, ch );
+  send_to_room( #west, find_room( 51042 ) );
+  open( room, west );
+  }
+~
+E
+slide~
+You slide the picture aside and a section of the wall falls away!
+~
+E
+rslide~
+$n slides the picture aside and a section of the wall falls away!
+~
+E
+nothing~
+The secret wall is already open.
+~
+E
+west~
+The eastern wall slides away.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( !is_open( room, west ) )
+  end;
+else {
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 51042 ) );
+  close( room, west );
+  }
+~
+E
+close~
+The wall silently slides closed.
+~
+!
+1 0 8
+-1
+S
+
+#51041
+Thane's Study~
+Obviously this is a room where much work is done.  There are maps and
+documents strewn accross a large table in the center of the room.  There
+are no chairs surrounding the table, as if it is not a place to ever
+relax.  On the east wall is the Thane's desk.  Covered with scrolls and
+odd bits of parchment it is in utter disarry.  A spilled ink pot has
+created a small puddle of sticky ink over the left corner of the desk. 
+Behind the Thane's desk is a picture of the current thane, Vampy.  On the
+west wall of the room is the captain's desk.  The captain's desk is
+immaculate, with all his papers neatly placed in a light wooden rack.  A
+golden feather sticks neatly from the desk's upright ink pot.  Behind the
+captain's desk is a portrait of the current captain of the clan, Snorri. 
+On the east wall are renditions of all the past thane's of the clan,
+symbolizing the continuity of the clan, and how they have survived in the
+past and will survive in the future, regardless of who the current thane
+is.
+~
+~
+301465637 0 9 0
+D3
+~
+~
+0 -1 51040 10 10 5
+-1
+S
+
+#51042
+Storeroom~
+This is a storeroom for all manner of gear and supplies.  It appears as
+if the Heroes clan keeps its members well supplied and well prepared for
+battle.  Along one wall is huge weapons rack that is made to accomodate
+all sorts of weapons from long pikes to short hand axes.  An eight tiered
+shelf dominates another wall.  The shelves are made of the sturdiest oak,
+and various armours and garments of protection fill them to the top. 
+Along the third wall are 12 kegs labeled "Ale" and a large tub labeled
+"Dried Goods".  In the middle of the room is a large chest of oak with
+gold strapping.  Oddly the mirrored light system that affects the rest of
+the complex is not present here.  On the east wall is a small hatch,
+obviously the exit.
+~
+~
+301533221 0 9 0
+D1
+secret wall~
+secret wall~
+203 -1 51040 10 10 5
+A
+turn~
+hatch~
+if( is_open( room, east ) )
+  act_Tochar( #nothing, ch );
+else {
+  act_tochar( #hatch, ch );
+  act_notchar( #rhatch, ch );
+  send_to_room( #east, find_room( 51040 ) );
+  open( room, east );
+  }
+~
+E
+hatch~
+You turn the hatch and the eastern wall slides away!
+~
+E
+rhatch~
+$n turns the hatch and the eastern wall falls away!
+~
+E
+nothing~
+The secret wall is already open.
+~
+E
+east~
+The western wall slides open.
+~
+!
+0 0 0
+A
+~
+~
+if( is_open( room, east ) ) {
+  wait( 1 );
+  send_to_room( #close, room );
+  send_to_room( #rclose, find_room( 51040 ) );
+  close( room, east );
+  }
+~
+E
+close~
+The eastern wall slides shut.
+~
+E
+rclose~
+The western wall slides shut.
+~
+!
+1 0 2
+-1
+S
+
+#51043
+Secret Vault~
+You have descended into a large, rectangular room, carefully constructed
+from floor to ceiling of highly polished steel.  Like the rib cage of
+some fell beast, steel girders line the room, arcing up the walls into
+the ceiling above.  A semi-sphere of white protrudes from the ceiling's
+center, bathing the room in a crisp light which reflects harshly from the
+cold steel.  In stark contrast to the lush accomodations provided
+throughout the rest of the lair, it becomes obvious that this room was
+designed with one function in mind: security.
+~
+~
+301533223 0 9 0
+D4
+~
+~
+203 -1 51015 10 10 5
+E
+rib cage girder arc~
+Along the length of the room, huge steel girders thrust their way up the
+walls, arcing at their tops into the ceiling, like the rib cage of some
+titanic beast.  If the entire cavern system above were to collapese,
+perhaps this room alone would remain intact, far into eternity.
+~
+E
+write light semi-sphere~
+Originating from no discernible source, this semi-sphere of white light
+is almost certainly of magic origin.  No warmth is provided by the light,
+and the walls only reflect back coldly the contents, and occupants, of
+the room.
+~
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You climb up the girders and out of the vault.
+~
+!
+3 0 16
+A
+open~
+trapdoor door up~
+if( !is_open( room, up ) ) {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, up );
+  wait( 3 );
+  send_to_room( #close, room );
+  send_to_room( #close, find_room( 51015 ) );
+  close( room, up );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+open~
+You open the trapdoor.
+~
+E
+ropen~
+$n opens the trapdoor.
+~
+E
+nothing~
+The trapdoor is already open.
+~
+E
+close~
+The trapdoor slides closed.
+~
+!
+0 0 0
+A
+enter~
+mirror~
+if( has_obj( 1621, ch ) ) {
+act_tochar( #step, ch );
+transfer( ch, find_room( 141 ) );
+}
+else
+act_tochar( #nope, ch );
+~
+E
+step~
+You step into your reflection and emerge in another place.
+~
+E
+nope~
+You try to step into the mirror but crash into the unyielding glass.
+~
+!
+0 0 0
+-1
+S
+
+#51044
+An Austere Apartment~
+This room is bright and open, with large windows to the west and north,
+looking out over the Great North Sea.  In the southwestern corner of the
+spacious room is a simple, but beautifully crafted spiral stair, leading
+down.  A large bed, crafted of pine dominates the north wall.  A quilt of
+the softest down peeks out from underneath a light blue coverlet on the
+bed.  Two small tables bracket the bed, the same craftsmanship and
+austerity as the rest of the room pieces.  On the left one is a small
+jade box and a silver brush and comb beneath the candelabra.  The right
+is topped only by the candelabra, carefully set to the center of the
+table in such a way to make the other seem unorderly.
+~
+~
+301465607 0 9 0
+D2
+massive oaken door~
+massive oaken door~
+391 2245 51028 10 10 5
+D5
+~
+~
+0 -1 51045 10 10 5
+E
+nighttable right~
+A small table with a single drawer, this table stands close to the head
+of the bed.  The candelabra stands in the exact center of the table, so
+precicely that it could only have been carefully placed there.
+~
+E
+nighttable left~
+A small table with a single drawer, this table stands close to the head
+of the bed.  A finely wrought brass candelabra stands on the left end of
+the table to make room for a small jade box and a silver vanity set.
+~
+E
+spiral stair~
+Elegantly simple, crafted of glowing pine, this spiral stair descends
+into the floor.
+~
+A
+~
+~
+act_tochar( #down, ch );
+continue;
+~
+E
+down~
+You descend the spiral staircase, toward the cliffs below.
+~
+!
+3 0 32
+2243 17 1509949540 -2 0
+-1
+S
+
+#51045
+A Paradise Overlooking the Sea~
+Stepping off the last stair, a lush paradise awaits your pleasure.  A
+natural hotspring bubbles at the top of the cliff face to the south,
+spilling down into a basin of the same black granite, large enough to fit
+a number of people.  Exotic plants are in pots everywhere, creating a
+natural screen to the north.  The expanse of the Great Northern Sea can
+be seen to the west.  The waves can be seen silently breaking on the
+rocky shore far below, the music of the hotspring drowning out the roar
+of the waves.
+~
+~
+301465607 0 9 0
+D4
+~
+~
+0 -1 51044 10 10 5
+E
+view~
+Looking out over the edge of the platform, the vista of the Great
+Northern Sea rises to meet your gaze.  The sea crashes against the jagged
+rocks below, white froth arcing to the sky with each braking wave.  The
+tableau is strangely silent, the rush of the hotspring drowning out the
+music of the waves.
+~
+E
+plants~
+Tropical plants reach to the sky here, lush and verdant.  Several bright
+colored flowers peer out of the canopy of leaves.  Terra cotta pots,
+neatly arragned and of simple design, house the hothouse treasures.
+~
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You ascend the spiral stair.
+~
+!
+3 0 16
+2244 17 1509949540 -2 0
+-1
+S
+
+#51046
+A Chaotically Decorated Room of Pretties~
+A blinding array of colours dazzle your eyes from all angles.  The thick,
+plushy carpet is a meticulously creamy ivory tone, a pale green throw-rug
+embroidered with a deep coloured rose tossed in the centre of the room.
+A profusion of multicoloured flowers lie in a tangled heap in a corner,
+bathing in the sunlight from a large, airy window seat overlooking the
+sea.  A windchime designed of carefully cut crystalline shapes sparkles
+in the light, sending showers of rainbows cascading through the room.
+Against one wall near the window is a small cubby hole of a bed, snuggled
+into a nook in the corner.  Glittering trinkets are heaped in every nook,
+cranny and shelf, creating a wild jumble of items only their collector
+could find beautiful.  Resting in the cushioned seat of the bay window is
+a small easel, complete with miniature brushes and paints, obviously
+designed for little hands.  Tacked on the green-painted walls of the room
+are charcoal drawings, hand-painted maps, and pictures of places across
+the realm, done in a careful hand.  Beside the door is a tiny shrine set
+up to honor the goddess of love, Anor.
+~
+~
+301465607 0 9 0
+D0
+door of ebony wood~
+door ebony wood~
+407 2345 51028 10 10 5
+E
+bed~
+The bed is rather large, compared to the other furnishings of this
+elaborate room.  The coverlet is made of a blue-green satin, the shade of
+which matchs the walls.  It seems well supplied with a stock of downy
+feather pillows.
+~
+E
+shrine~
+A little altar rests by the doorway, adorned with a garland of white and
+blue and rosy pink flowers.  Atop it burns a steady flame of sweet
+smelling incense, which permeates the room with its sensual frangrance. 
+On a shelf above the altar, a small ivory figurine of the beautiful
+goddess has beeen placed.
+~
+1400 17 1509949540 -2 0
+-1
+S
+
+#51047
+The Spinning Coin~
+This is a jovial, well-lit tavern that seems to radiate good-will in the
+cheery light that reflects from the chandolier.  A bar dominates the east
+wall, and is stacked with all sorts of common pub drinks.  A sign hangs
+over the bar, as does a list of prices.  A staircase leads downward
+through a runed trapdoor to another level.
+~
+[Ssleestaq] appropriate what?  fix yer sign.
+~
+301465607 0 9 0
+D2
+pub door~
+pub door~
+23 2352 259 10 10 5
+D5
+trapdoor~
+trapdoor door~
+407 2352 51049 10 10 5
+E
+trap~
+An emerald green four leaf clover has been painted onto the door, and a
+pretty silk blindfold draped across it.
+~
+E
+sign~
+The sign reads:
+
+@e"Rumors and information may be bought at a price, contact the
+appropriate who are around at this time." 
+~
+2353 17 1509949540 -2 1
+23 17 1509949540 -2 6
+-1
+S
+
+#51049
+The Lounge~
+Comfy chairs and tables lie strewn about the room in a disorganised manner
+here. The walls are simply decorated with the symbol of Slen- A four leaf
+clover with a blindfold draped over it. An archway leads south to a small,
+well-lit room while a staircase heads upwards. A strange swing seems to
+hang from the western corner.
+~
+~
+301465607 0 9 0
+D0
+hard wood door~
+hard wood door~
+1 -1 51091 10 10 5
+D2
+~
+~
+0 -1 51050 10 10 5
+D4
+trapdoor~
+trapdoor door~
+407 2352 51047 10 10 5
+A
+sit rest~
+~
+if( rflag( status0, room ) )
+act_tochar( #swingempty, ch );
+else
+act_tochar( #dangerous, ch );
+~
+!
+0 0 0
+2351 17 1509949540 -2 0
+-1
+S
+
+#51050
+The Shrine to Slen~
+This small room is the chapel to Slen. Against the east wall lies a simple
+wooden altar upon which lies a marble four-leaf clover, with a dirty old
+cloth draped across it. Three rows of pews face the altar, as if awaiting
+a sermon.
+~
+~
+301465607 0 9 0
+D0
+~
+~
+0 -1 51049 10 10 5
+D3
+~
+~
+0 -1 51051 10 10 5
+-1
+S
+
+#51051
+General Quarters~
+This wide room houses many bunk beds, and is strewn with personal junk and
+hidden valuables alike. Only a truly strange mind would be able to find
+anything in the squalor which is the general quarters for the stronghold.
+~
+~
+301531143 0 9 0
+D1
+~
+~
+0 -1 51050 10 10 5
+-1
+S
+
+#51052
+Black Obsidian Stone Hallway~
+Several stone statues line the walls of the hallway here, each carved in
+the likeness in one of the Knights of the Eternal Flame members. 
+Mutli-colored shields hang from the walls, each bearing the name of each
+sector of the clan throughout the centuries.  Ruby-encrusted mithril
+braziers sit along the wall blazing brightly with blue and red flames
+with illuminate the hallway.  The hallway continues to span to the east
+and west from here, continuing along the black obsidian hallway.
+~
+Terek 51075 is North
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 51034 10 10 5
+D3
+~
+~
+0 -1 51053 10 10 5
+-1
+S
+
+#51053
+Below a Stone Staircase~
+This small alcove houses a magnificent set of reddish-colored stone
+stairs which spiral up above you out of view.  A lone torch hangs from
+the western wall and directly below it lies a mural of several
+heavily-armored knights standing before the corpses of black, red and
+green adult dragons.  An enormous silk tapestry depicting a lone knight
+in red armor, charging an ancient blue dragon with a glowing lance, has
+been hung on the soutern wall.  To the east the hallway continues towards
+the outer ring of the keep while to the north an elegant marble arch
+marks the start of another hallway branch.
+~
+up is 51054
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 51075 10 10 5
+D1
+~
+~
+0 -1 51052 10 10 5
+D4
+~
+~
+0 -1 51054 10 10 5
+-1
+S
+
+#51054
+Second Floor - Staircase Landing~
+Silk tapestries adorn the northern and southern walls of the landing
+here, each depicting a battle between knights in pitch-black armor
+mounted atop black dragons and knights in red-colored armor mounted atop
+bronze dragons.  In the center of the room a black obsidian staircase
+spirals down out of view and also continues up above you towards the
+third floor.  To the south lies a heavy ironwood door leading out towards
+the battlements.
+~
+up is 51062
+~
+301465605 0 9 0
+D2
+heavy ironwood door~
+heavy ironwood door~
+407 2422 51055 10 10 5
+D4
+~
+~
+0 -1 51062 10 10 5
+D5
+~
+~
+0 -1 51053 10 10 5
+-1
+S
+
+#51055
+Second Floor - Battlements~
+Rows of adamantite braziers line the walkway along the battlements here,
+each blazing brightly.  Peering out over the ledges you can see the city
+of Chiiron off to the southwest, Medienne to the southeast and the vast
+Northern Sea off to the south.  Along the western side of the battlements
+are several abandoned archer's posts.  Off to the east you spot many huge
+catapaults resting along the edge of the walls.  To the north lies a
+heavy ironwood door, leading back into the interior of the keep.
+~
+~
+301465601 0 9 0
+D0
+heavy ironwood door~
+heavy ironwood door~
+407 2422 51054 10 10 5
+-1
+S
+
+#51056
+Inside the Base of a Shuvana Tree~
+Centuries of carefully tended growth, with the magical aid of druids and
+elves, have caused a rather spacious opening to form inside this shuvana
+tree.  The same bark that covers the outside of the giant tree also
+covers the inside provide protection from insects and rot.  Adding to the
+protection, soft rushes have been strewn across the level ground formed
+by the tree to prevent moisture from causing woodrot.  Oposite an elegant
+arch inscribed into the southern wall, a natural staircase grown into the
+wood.  begins its spiral up into the higher recesses of the tree.
+~
+~
+301465607 0 9 0
+D4
+~
+~
+0 -1 51057 10 10 5
+A
+south~
+~
+if( has_obj( 2394, ch ) ) {
+  act_tochar( #invoke, ch );
+  act_notchar( #rinvoke, ch );
+  wait( 2 );
+  act_tochar( #meld, ch );
+  act_notchar( #rmeld, ch );
+  wait( 1 );
+  transfer( ch, find_room( 51061 ) );
+  act_notchar( #arrive, ch );
+  loop( followers ) {
+    ch = rch;
+    if( !is_resting( ch ) ) {
+      act_tochar( #follow, ch );
+      act_notchar( #rfollow, ch );
+      wait( 1 );
+      transfer( ch, find_room( 51061 ) );
+      act_notchar( #arrive, ch );
+      }
+    }
+  }
+else
+  act_tochar( #no, ch );
+~
+E
+invoke~
+@G    
+You gently lay your hand upon the bark of the tree within the frame of
+the inscibed arch and ask its permission to leave.
+@n
+~
+E
+rinvoke~
+@G
+$n lays $s hand against the bark of the tree with a solemn reverence.
+@n
+~
+E
+meld~
+@G    
+Feeling the tree's acknowledgement, you walk forward and the tree parts
+around you like the water of a placid lake.
+@n
+~
+E
+rmeld~
+@G   
+A look of transcendent wonder crosses $n's face as $e steps forward to
+walk through the tree.  The tree flows around $m like the waters of a
+placid lake as $e passes through it leaving no trace of $s passage behind.
+@n
+~
+E
+arrive~
+@G 
+$n steps out of the large shuvana tree to the north, its bark flowing
+around $m like a pool of water.
+@n
+~
+E
+follow~
+@G    
+Feeling from within yourself the trees acceptance, you feel no hesitation
+to follow and you also step through the tree.  It is a wonderous feeling
+that fills you with a sense of strength grounded in the earth and a
+tranquility born of timelessness.
+@n
+~
+E
+rfollow~
+@G    
+$n follows after with a look of serenity on $s face.
+@n
+~
+E
+no~
+There is no exit in that direction.
+~
+E
+test~
+@RCheck@n
+~
+!
+0 0 1
+-1
+S
+
+#51057
+Inside a Shuvana Tree~
+A widening of the winding spiral of stairs into a small room, no larger
+than ten feet in any direction, provides a convenient place to rest
+during the long journey through the tree.  Small alcoves in the wall
+provide depressions for the balls of light continually brought down to
+light the way for travellers.  On either side of the room stairs spiral
+away leading further down or higher up into the tree.
+~
+~
+301465607 0 9 0
+D4
+~
+~
+0 -1 51058 10 10 5
+D5
+~
+~
+0 -1 51056 10 10 5
+-1
+S
+
+#51058
+Town Square~
+The green leaves of carefully tended branches overhead allow the light of
+the sun, moon or stars to stream through in enchanting patterns that
+shift with every breeze.  The platform upon which the visions of light
+fall surrounds the trunk of the shuvana tree seems to have been formed
+from the natural branches.  Well-worn scuff marks show where people have
+travelled along the wide branches that lead off in many directions,
+though most often the tracks seem to come from, or to, a portal set into
+the side of the tree.  Beyond the portal you can see a tight spiral of
+stairs leading deeper into the tree.
+~
+~
+301465607 0 9 0
+D1
+~
+~
+0 -1 51060 10 10 5
+D3
+~
+~
+0 -1 51059 10 10 5
+D5
+~
+~
+0 -1 51057 10 10 5
+-1
+S
+
+#51059
+The Conclave~
+The branches of a few trees have mingled and grown together to form a
+rather large natural platform.  Through means of careful tending or magic
+the tops of the branches have been leveled and smoothed to form a
+flooring as stable and smooth as any a stone mason could ever craft.
+Smaller branches that fork away from the perimeter form natural walls
+with capacious windows.  It is almost as if you are sheltering within the
+hands of the noble giants of trees.  Wide openings offer egress along
+branches to the east and west.
+~
+~
+301465607 0 9 0
+D1
+~
+~
+0 -1 51058 10 10 5
+-1
+S
+
+#51060
+The Dancing Dryad Tavern~
+A rather comfortable nook has formed in the crux of several branches
+where they meet a shuvana tree.  Someone has taken the time and care to
+carefully shape branches into a half wall along the permiter and an
+overhanging ceiling above.  The cozy little spot has become a favorite
+among the locals, and in time turned from meeting spot into an outright
+tavern.  Someone has gone to great lengths to carefully raise and lay
+enough broad flat stones to for form a safe spot for a central fireplace
+above which hangs a heavy iron kettle.
+~
+[Poulenc] someone has gone to great lengths to carefully raise and lay enough broad flat stones to for form a safe spot...
+~
+301467655 0 9 0
+D3
+~
+~
+0 -1 51058 10 10 5
+1901 17 1509949540 -2 16
+-1
+S
+
+#51061
+Small Clearing in the Vaasa~
+A small, natural clearing has formed between the massive roots of a
+shuvana tree.  Wildflowers mingle with heather that grows in profusion
+about the huge, tangled roots.  The rich, brown bark of the ancient tree
+shows no signs of ever having been nicked or scratched as if it has been
+carefully tended over its centuries of growth.  From somewhere high in the
+canopy the sound of birdsong drifts down on the gentle breeze.
+~
+old clan hall entrance.  Save for same purpose?
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 19064 10 10 5
+-1
+S
+
+#51062
+Third Floor - Staircase Landing~
+Housed in this large alcove are several suits of knight's armor, polished
+to a bright shine and quite reflective.  Various swords, daggers, lances
+and spears hang upon the northern wall, each with a small plaque beneath
+it identifying its true name and purpose.  Several reddish-colored glyphs
+have been etched into the western wall which glow with an unnatural light. 
+Above you a small oaken trapdoor covered in mithril bands and glowing
+runes has been set into the ceiling.  In the center of the room lies a
+black obsidian staircase which spirals down out of view and up where it
+ends before the trapdoor.
+~
+~
+301465605 0 9 0
+D4
+oaken trapdoor~
+oaken trapdoor~
+407 2422 51063 10 10 5
+D5
+~
+~
+0 -1 51054 10 10 5
+-1
+S
+
+#51063
+Wizard's Tower - Aislinn's Alcove~
+Upon entering this cozy room you feel quite welcome and relaxed. 
+Floorboards made of fine vaasan oak are swept clean and polished, yet
+worn just enough to make the room look inviting and lived in, but not so
+much so that it detracts from the beauty of the wood, or the room.  Soft,
+shaggy rugs made of various animal hides cover the floor here and there
+creating a warm, homey setting that seems suitable for any occasion. 
+Shelves covered by books, scrolls, and various other items line the walls. 
+A small wooden desk sits in the right corner of the room and is covered
+by half-written scrolls, and manuscripts.  In the middle of this room
+stands a large marble fountain.  The water glistens and gurgles forth
+from an intricately carved vase held by a statuette of ivory carved in
+the form of a young, beautiful elven maiden.  Candles mounted in holdes
+and sat in various dishes glow, creating sufficient though dim lighting
+for this comfortable room.  A small bed made of shuvana wood sits towards
+the back left side of the room.  The right side is dominated by a large
+fireplace that seems to be the main heat source for the room.
+~
+[Gabrielle] sat should be set
+[Gabrielle] holdes should be holders
+~
+301465605 0 9 0
+D5
+oaken trapdoor~
+oaken trapdoor~
+407 2422 51062 10 10 5
+-1
+S
+
+#51064
+The Troll Pit~
+A single tarnished brass lantern hangs from the bridge above,
+illuminating this pit with a greenish glow.  The floor, filled with
+assorted bottles and half-devoured corpses, has a fine film of greenish
+ooze.  A pleasant aroma of rotten elf flesh mingles with the sweet
+essence of grain alcohol caresses your nostrils.  Condensation slowly
+drips from the overhanging bridge making soft splashes as the water mixes
+with the filth upon the floor.
+~
+~
+301465603 0 9 0
+A
+search move shake~
+corpse~
+act_room( #help, ch );
+~
+E
+help~
+Within the mess of corpses, an arm and legless dwarf reveals itself.
+Barely breathing the dwarf softly whispers, @YHelp. Me.@n as he falls back
+to a comatose state.
+~
+!
+0 0 0
+A
+climb~
+up out ~
+act_tochar( #up, ch );
+act_notchar( #rup, ch );
+transfer( ch, find_room( 51031 ) );
+act_notchar( #rup, ch );
+~
+E
+up~
+You scramble up the embankment and out of the troll pit.
+~
+E
+rup~
+$n scrambles up the embankment and out of the troll pit.
+~
+!
+0 0 0
+2436 17 1509949540 -2 0
+2437 17 1509949540 -2 0
+-1
+S
+
+#51065
+Before a Glimmering Steel Fortress~
+Before you stands a tall fortress, its walls covered with thick, polished
+steel plates.  Horizontally mounted high on the fortress' outer walls are
+large obsidian pikes with thick, black flags draped from the tips. 
+Inscribed on the flags are large steel swords, set ablaze with a dancing
+blue flame.  Large, ornately carved steel doors appear to be the only
+entrance into this sturdy fortress of steel.
+~
+~
+301465603 0 9 0
+D2
+~
+~
+0 -1 57082 10 10 5
+-1
+S
+
+#51066
+Inside a Glimmering Steel Fortress.~
+This room appears to be a massive gathering hall with high, domed
+ceilings.  Attached to the walls are large steel swords, ablaze in a
+magical azure aura, casting light upon the whole room.  A wide table sits
+in the middle of the room, surrounded by three long, curved benches. 
+Adorning one wall is an ornate black silk tapestry, with a large steel
+sword ablaze with blue flames.  Inscribed along the top of the tapestry
+are the words "Forgers of the Burning Blade." 
+~
+n is 47271
+~
+301465603 0 9 0
+D1
+large onyx door~
+large onyx door~
+0 -1 51067 10 10 5
+D3
+large onyx door~
+large onyx door~
+131 -1 51068 10 10 5
+E
+door~
+Before you is a very large onyx door.  Its surface is polished to a high
+sheen, devoid of any scratches or markings. Mounted in the center of this
+door is a large sword, ablaze with a magical blue flame.  Engraved at the
+top of this door are the words "Donated by Atrax"
+~
+A
+enter~
+tapestry~
+if( has_obj( 2448, ch ) ) {
+  act_tochar( #in, ch );
+  act_notchar( #rin, ch );
+  transfer( ch, find_room( 47271 ) );
+  send_to_room( #hi, find_room( 47271 ) );
+  act_notchar( #hi, ch );
+  }
+else
+  act_tochar( #help, ch );
+~
+E
+in~
+You step into the tapestry and feel reality shift.
+~
+E
+rin~
+$n steps up to the tapestry, hesitates, then steps through.
+~
+E
+hi~
+$n materializes in the middle of the room.
+~
+E
+help~
+Whatever that is you are unable to enter it.
+~
+!
+0 0 0
+2445 17 1509949540 -2 0
+2443 17 1509949540 -2 0
+2444 17 1509949540 -2 0
+1773 17 1509949540 -2 16
+1 17 1509949540 -2 0
+-1
+S
+
+#51067
+Bank of the Forgers~
+This small side room contains a long mohogany counter behind which a bank
+teller stand, waiting to take your items.  The tiled floor gleams with a
+fresh coat of polish as does the black laquered hitching post on one side
+of the room.  Hoof and claw marks can be seen in the tiles if one looks
+close, though the marbled tiles hide all but the most serious flaws.
+~
+~
+301467651 0 9 0
+D0
+door~
+door~
+3 -1 47270 10 10 5
+D1
+solid stone door~
+solid stone door~
+391 2953 47269 10 10 5
+D3
+~
+~
+0 -1 51066 10 10 5
+E
+east~
+Made of a solid piece of heavy stone, this door moves smoothly by a
+system of weights and balances.
+~
+-1
+S
+
+#51068
+Lounge~
+You are standing in a large room with a vaulted, dome-shaped ceiling. 
+All of the walls are made of highly polished onyx.  Providing light for
+this room is an overhead mural of many stars, in a swirling shape. 
+Somehow this mural glows on its own, as if by magic.  The walls are
+adorned with a number of large paintings, with an inscription on the wall. 
+In one corner of the room sits a small bookcase.
+~
+~
+301465603 0 9 0
+D0
+wall~
+wall~
+203 -1 51069 10 10 5
+D1
+large onyx door~
+large onyx door~
+131 -1 51066 10 10 5
+E
+inscription~
+The inscription shows the title of four paintings hanging on the walls. 
+Home, Love, Desire, and Fate.  Donated by Atrax in the memory of
+Leviathan.
+~
+E
+home~
+This painting is a wide-view landscape of some sort of mountain range. 
+The peaks are quite tall, and capped with snow.  The sky is a beautiful
+pale blue, with just a whisp of clouds in the sky.  Below the mountain
+range sits a strange-looking village, with somewhat tall buildings, made
+out of materials not seen in this realm.  It looks quite peaceful and
+serene.  Engraved in the frame of this picture is the word "Colorado"
+~
+E
+love~
+This painting is of a small, female human child.  She looks to be about
+two years of age, and has brown hair, brown eyes, and a beautiful smile. 
+She sits in a chair, and is wearing a beautiful pink dress.  Engraved in
+the frame of this picture is the word "Chyane".
+~
+E
+desire~
+This painting is of a beachfront landscape.  The sand is very light
+in color, almost pure white.  The water is a very light shade of blue,
+and is quite clear.  The sun is shining down from a cloudless sky, and
+appears to be a very warm climate.  Trees with strange leaves decorate
+the beach area.  Engraved in the frame of this picture is the word
+"Vacation"
+~
+E
+fate~
+This painting is of a group of men and women dressed in various
+forms of battle gear.  Burly warriors, Sparkling magic users, and the
+like all stand here.  These are the Followers of the Burning Blade of
+the future.  Great, powerful people these all are, bound by the common
+goals of the chapter of the Burning Blade, continuing a legacy started
+in realms beyond this one.
+~
+A
+pull~
+lever~
+if( !is_open( room, north ) ) {
+  if( has_obj( 2954, ch ) ) {
+    act_tochar( #pull, ch );
+    act_notchar( #rpull, ch );
+    open( room, north );
+    send_to_room( #open, find_room( 51069 ) );
+    }
+  else
+    act_tochar( #help, ch );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, north );
+  send_to_room( #close1, find_room( 51069) );
+  }
+~
+E
+pull~
+You pull the lever and a section of the wall slides away.
+~
+E
+rpull~
+$n pulls the lever and a section of the wall slides away.
+~
+E
+open~
+The southern wall slides away, revealing a room beyond.
+~
+E
+close~
+You pull the lever and the wall slides back into place.
+~
+E
+rclose~
+$n pulls the lever and the wall slides back into place.
+~
+E
+close1~
+The wall slides back into place.
+~
+E
+help~
+Whatever that is pulling it does nothing interesting.
+~
+!
+0 0 0
+2447 17 1509949540 -2 0
+-1
+S
+
+#51069
+The Storage Chamber~
+This featureless room holds all the countless treasures of the Forgers. 
+Racks of weapons and chests containing untold wealth line the plain metal
+walls.  A few smokey torches dimly illuminate the room.  A small steel
+lever protrudes from the western wall.
+~
+~
+301531139 0 9 0
+D2
+wall~
+wall~
+203 -1 51068 10 10 5
+A
+pull~
+lever~
+if( !is_open( room, south ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, south );
+  send_to_room( #open, find_room( 51068 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, south );
+  send_to_room( #close1, find_room( 51068 ) );
+  }
+~
+E
+pull~
+You pull the lever and a section of the wall slides away.
+~
+E
+rpull~
+$n pulls the lever and a section of the wall slides away.
+~
+E
+open~
+A section of the wall slides away, revealing a room beyond.
+~
+E
+close~
+You pull the lever and the wall slides back into place.
+~
+E
+rclose~
+$n pulls the lever and the wall slides back into place.
+~
+E
+close1~
+The wall slides back into place.
+~
+!
+0 0 0
+-1
+S
+
+#51070
+East Wing Hallway~
+You stand in a dimly lit stone hallway.  Torches sputter in sconces set
+along the stone walls.  The hallway comes to a halt here, though it looks
+as though it is currently under construction.  The still dusty air
+surrounds you in a profound silence.  An old, musty tome sits on a small
+lectern here.
+~
+~
+301465607 0 9 0
+D4
+~
+~
+0 -1 51029 10 10 5
+E
+tome~
+A large copper-bound tome rests on a rock lectern here.  Its cover is
+inscribed with a single mithril rune, but is otherwise unadorned. 
+Surprisingly enough, it is also free of the dust, cobwebs and moisture
+found elsewhere in the tunnel.  Although it seems unaffected by age, it
+radiates a feeling of antiquity.  A small latch on the side of the book
+keeps it securely closed.
+~
+A
+unlock~
+tome book~
+if( has_obj( 2621, ch ) ) {
+  act_tochar( #unlock, ch );
+  act_notchar( #runlock, ch );
+  wait( 1 );
+  act_tochar( #unlock2, ch );
+  act_notchar( #runlock2, ch );
+  transfer( ch, find_room( 51089 ) );
+  act_notchar( #arrive, ch );
+  wait( 1 );
+  send_to_room( #book, room );
+  send_to_room( #book, find_room( 51089 ) );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+unlock~
+@BAs you fit the tiny copper key into the tome's keyhole, the book opens,
+its pages turning rapidly.
+~
+E
+runlock~
+@BAs $n fits the tiny copper key into the tome's keyhole, the book opens,
+its pages turning rapidly.
+~
+E
+unlock2~
+@BThe book rotates off of the ledge, and explodes in a barrage of fiery
+light.  You step into the raging inferno and are transported to another
+place.
+~
+E
+runlock2~
+@BThe book rotates off of the ledge, and explodes in a barrage of fiery
+light!  $n steps into the raging inferno and is gone.
+~
+E
+arrive~
+@BThe tome explodes into a ball of flame!  $n steps out of it, seemingly
+unconcerned.
+~
+E
+book~
+The conflagration disipates and when it is gone, there lies the old tome
+back on its ledge unharmed.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+!
+0 0 0
+-1
+S
+
+#51071
+Foyer~
+The foyer of this tower is large and spacious.  The walls are finely-cut
+grey marble and hung with battle-banners from various wars.  The floor is
+a finely-polished black marble with golden flecks, and set into the center
+of it is a large, frighteningly realistic, polished steel emblem of a
+clenched fist in bas-relief.  The ceiling seems to be a single slab of
+pure white marble, and gives the room a feeling of spaciousness, even
+though there are no windows.  To each side, archways lined with silver
+lead further into the tower.
+~
+~
+301465607 0 9 0
+D0
+heavy black gate~
+heavy black gate~
+407 2512 113 10 10 5
+D1
+~
+~
+0 -1 51081 10 10 5
+D2
+~
+~
+0 -1 51072 10 10 5
+E
+emblem~
+Looking closer at the emblem, you can see that it is almost alive.  The
+metal seems more to be quicksilver, as is flexes slightly while you watch
+it.
+~
+A
+present~
+emblem~
+if( has_obj( 2513, ch ) ) {
+  act_tochar( #down, ch );
+  act_notchar( #rdown, ch );
+  transfer( ch, find_room( 51073 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+down~
+As you present the Sword emblem, the silvery pool animates into a
+human-sized, quicksilver hand and grasps you.  Before you can blink, it
+releases you and you find yourself elsewhere.
+~
+E
+rdown~
+As $n presents $s Sword emblem, the silvery pool animates into a
+human-sized, quicksilver hand and grasps $m.  Before you can blink, it
+engulfs $n and then resumes its former shape.
+~
+E
+arrive~
+$n steps out of the pool of silver.
+~
+E
+nope~
+You don't have the proper emblem.
+~
+!
+0 0 0
+A
+~
+~
+if( !is_follower( ch ) ) {
+  act_room( #close, ch );
+  send_to_room( #close, find_room( 113 ) );
+  close( room, north );
+  lock( room, north );
+  }
+else
+  end;
+~
+E
+close~
+The gate shuts quickly, without a sound.
+~
+!
+1 0 1
+-1
+S
+
+#51072
+The Grand Staircase, Ground Floor~
+This room is just a simple walkway surrounding an immense, black
+wrought-iron spiral staircase that rises upwards and decends into the
+depths of the tower.  The corners of the room have softly-glowing white
+mage-lights for illumination, and a faint warmth seems to be eminating
+from below.  The staircase is cool to the touch and so solid in its
+construction that it was probably forged on the spot, although you can
+see no weld marks of any kind.
+~
+~
+301465607 0 9 0
+D0
+~
+~
+0 -1 51071 10 10 5
+-1
+S
+
+#51073
+The Vault~
+This room is made of seamless solid black marble from floor to ceiling,
+and feels quite cold.  The walls are lined with racks of varying sizes,
+and hold a myriad of objects.  The ceiling has a shimmering steel pool
+in the design of a clenched fist floating on it, as if gravity had
+reversed and someone had poured out gallons of mercury.  The room also
+appears to be quite soundproof as no outside sounds can be heard.
+~
+~
+301533191 0 9 0
+A
+present~
+emblem~
+if( has_obj( 2513, ch ) ) {
+  act_tochar( #down, ch );
+  act_notchar( #rdown, ch );
+  transfer( ch, find_room( 51071 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+down~
+As you present your key, the quicksilver emblem animates and rises from
+the silver pool the floor has become, and grasps you, pulling you deep
+within itself.  You sink out of view. 
+~
+E
+rdown~
+As $n presents $s Sword emblem, the silvery pool animates into a
+human-sized, quicksilver hand and grasps $m.  Before you can blink, it
+engulfs $n and then resumes its former shape.
+~
+E
+arrive~
+$n steps out of the pool of silver.
+~
+E
+nope~
+You don't have the proper emblem.
+~
+!
+0 0 0
+-1
+S
+
+#51074
+Arcane's Holding Cell~
+This room is only about six feet tall and is very cramped, but cozy. 
+Along the west wall lies a bed about five feet in length and consists of
+a goose down mattress and some yeti-skin blankets, there also appears to
+be some movement under the blankets.  The floor is covered with a massive
+bear skin that has a brand on the back.  In the corner you see a small
+icebox labeled @b@W"Arcane's food KEEP OUT!"@n Next to the bed there is
+desk that is covered with little doodads and paintings of various members
+of KoEF and the rest look like family portraits.  The whole east wall
+appears to be a closet, inside you see all different types of old worn
+out armor and weapons.
+~
+[Lansharra] look bed: ...its neck...
+~
+301465637 0 9 0
+D0
+small adamantite door~
+small adamantite door~
+391 2422 51018 10 10 5
+E
+bed~
+You go to investigate the bed and push aside one of the yeti-skin
+blankets and discover a little furry creature.  It has a collar around
+it's neck that says "Bob." This seems to be the loyal pet of Arcane.
+~
+E
+brand~
+This brand is right in the center of this massive grizzly skin and in the
+center you see the letters "G A C." 
+~
+E
+desk~
+This is small desk is made of very fine oak.  In front of it you see a
+small three legged stool.  The top of this desk is covered with all kinds
+of paints and portraits.  One picture in paticular seems to catch your
+attention.  It looks like a portrait painted by the great Arcane himself. 
+You look at it and it's a picture of the members of KoEF.
+~
+-1
+S
+
+#51075
+Black Obsidian Stone Hallway~
+The smooth black obsidian stones of the hallway here have been polished
+to a magnificent shine; your reflection be clearly seen as you gaze at
+the blocks.  Large colorful banners with the insignia of the Knights of
+the Eternal Flame hang from the ceiling and drape down just above your
+head.  Tower shields made of adamantite, dyed a crimson-red color and
+each bearing the image of a silver dragon, have been hung from the
+eastern and western walls.  An elegant marble arch crosses the edge of
+the hallway to the south, seperating the hallways.  To the north and
+south the hallway continues through the vast corridors of the keep.
+~
+[Nettle] seperate should be separate
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 51076 10 10 5
+D2
+~
+~
+0 -1 51053 10 10 5
+-1
+S
+
+#51076
+Black Obsidian Stone Hallway~
+Several dozen torches hang from sconces along the black obsidian walls of
+the hallway, flickering with red-yellow flames and sending shadows
+dancing across the stonework.  Large murals have been painted across the
+black tiled ceiling depicting regal silver dragons in flight over
+snow-capped mountain peaks.  Beautifully crafted lances and spears, each
+detailed with rippling flames and striking dragons, hang from racks just
+below the ceiling.  The hallway continues its advance through the keep to
+the north and south.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 51077 10 10 5
+D2
+~
+~
+0 -1 51075 10 10 5
+-1
+S
+
+#51077
+Black Obsidian Stone Hallway~
+The black obsidian stone walls of the hallway here are nearly obscured by
+several dozen silk tapestries which drape across them.  Each of the
+tapestries depicts one of the lords of the knights since their beginning. 
+A few of the tapestries depict the lord's in battle against knights clad
+in charcoal black armor supported by regiments of demons.  A long banner
+hangs down from the ceiling on which the image of a phoenix with its
+wings spread has been embroidered with golden thread.  Carved into the
+eastern wall is a small niche within which rests a small black pearl. 
+The hallway continues to the south from this point, through the many
+corridors of the keep.
+~
+[Terek] 51709 north
+~
+301465605 0 9 0
+D0
+~
+~
+0 -1 51079 10 10 5
+D2
+~
+~
+0 -1 51076 10 10 5
+A
+press~
+pearl~
+if( !has_obj( 2422, ch ) ) {
+  act_tochar( #pretty, ch );
+  act_notchar( #pretty1, ch );
+  }
+if( has_obj( 2422, ch ) ) {
+  act_tochar( #poof, ch );
+  act_notchar( #poof1, ch );
+  transfer( ch, find_room( 51078 ) );
+  act_notchar( #appear, ch );
+  }
+~
+E
+pretty~
+@eYou touch the small black pearl and marvel at its smoothness.
+~
+E
+pretty1~
+@e$n touches the small black pearl and marvels at its smoothness.
+~
+E
+poof~
+@eAs you press the pearl into the niche the room is suddenly engulfed in
+a flash of blinding white light and suddenly you find yourself in a
+treasure-filled room.
+~
+E
+poof1~
+@e$n presses the pearl into the niche and suddenly the room is engulfed
+in a flash of blinding white light, soon afterwards you notice $n has
+vanished.
+~
+E
+appear~
+@eThe chamber is filled with a flash of blinding white light and as it
+slowly dissipates you notice $n has appeared in the chamber.
+~
+!
+0 0 0
+-1
+S
+
+#51078
+A Treasure Filled Stone Chamber~
+This large stone chamber is filled completely with mounds of gold and
+platinum coins, heavy steel chests and a few extremely large barrels. 
+Lying along the southern wall of the room are several dozen half-open
+large sacks within which you can see thousands of precious gems and
+stones.  Along the northern wall lie several steel-banded chests engraved
+with the seal of the Knights of the Eternal Flame and kept securely shut
+by heavy adamantite locks.  Carved into the north, east, and south walls
+are glyphs of warding which pulse with an unearthly crimson light and hum
+with magic.  Lying in the southeast corner of the room, nearly obscured
+by the mounds of gold coins, are several obsidian tower shields, each
+engraved with a silver dragon upon their face.  The western wall of the
+room ripples and wavers with magic, distorting its form.
+~
+[Severus] the plural of belly pouches come up as 'pouchs'
+~
+301531197 0 9 0
+A
+enter go~
+western wall ripples~
+act_tochar( #enter, ch );
+act_notchar( #enter1, ch );
+transfer( ch, find_room( 51077 ) );
+act_notchar( #appear, ch );
+~
+E
+enter~
+@eYou enter the rippling vortex of magic over the western wall and in the
+blink of an eye find yourself in a black obsidian hallway.
+~
+E
+enter1~
+@e$n enters the rippling vortex of magic over the western wall and in the
+blink of an eye vanishes.
+~
+E
+appear~
+@eA loud crackling sound fills the hallway and suddenly $n appears from
+out of nowhere.
+~
+!
+0 0 0
+-1
+S
+
+#51079
+Black Obsidian Stone Hallway~
+Finely-detailed marble statues line the walls of the hallway here, each
+fashioned in the likeness of a knight in red armor brandishing a long
+spear.  The statue's spears cross each other just above your heard
+forming an arch.  Draping down from the ceiling are silver silk
+tapestries with the image of striking golden dragon embroidered on them
+with golden thread.  Hanging from the walls in golden sconces, covered in
+flowing runes which pulse with a reddish aura, are several torches which
+flicker with bright red flames, illuminating the hallway considerably and
+causing shadows to dance across the obsidian stonework.  The hallway
+advances through the keep to the south and east from here.
+~
+~
+301465605 0 9 0
+D1
+~
+~
+0 -1 51080 10 10 5
+D2
+~
+~
+0 -1 51077 10 10 5
+-1
+S
+
+#51080
+Black Obsidian Stone Hallway~
+Several dozen statues, carved in the likeness of gold, copper, bronze,
+silver and mercury, stand on each side of the hallway here.  Each of the
+dragons have uncut diamonds for eyes, each colored the same as the dragon
+they have been set into.  Suits of dragonscale armor hang from the
+southern wall, surrounded by a fiery red aura from which a strong
+presence of magic emanantes.  Tucked in between each of the statues and
+sets of armors are framed portraits of each member of the Knights of the
+Eternal Flame.  The hallway continues to the east and west from here,
+through the neverending passages of the keep.
+~
+~
+301465605 0 9 0
+D3
+~
+~
+0 -1 51079 10 10 5
+D5
+~
+~
+203 -1 51095 10 10 5
+A
+pull~
+arm~
+if( !is_open( room, down ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, down );
+send_to_room( #up, find_room( 51095 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, down );
+send_to_room( #rup, find_room( 51095 ) );
+  }
+~
+E
+pull~
+You pull the arm of the suit of armor and a section of the floor slides
+away!
+~
+E
+rpull~
+$n pulls the arm of the suit of armor and a section of the floor slides
+away!
+~
+E
+up~
+A section of the ceiling slides away, revealing a trapdoor!
+~
+E
+close~
+You pull the arm of the suit of armor and a section of the floor slides
+up to cover the trapdoor.
+~
+E
+rclose~
+$n pulls the arm of the suit of armor and a section of the floor slides up
+to cover the trapdoor.
+~
+E
+rup~
+The trapdoor slides quietly shut.
+~
+!
+0 0 0
+-1
+S
+
+#51081
+Kitchen~
+This room is well-lit and warm.  The walls are white marble
+and lined with wrought-iron and oak racks containing various cooking
+implements and spice containers.  Against the east wall a large white
+porcelain sink is mounted, and large hearth with a spit dominates the
+northern wall.  In the south and west walls, large silver and black
+archways lead into the tower.
+~
+~
+301465605 0 9 0
+D0
+~
+~
+479 -1 226 10 10 5
+D3
+~
+~
+0 -1 51071 10 10 5
+E
+wall~
+A section of the northern wall is oddly opaque, and has a handle
+and keyhole set into it.
+~
+E
+door section~
+There appears to be a very clever door built here, completely flush with
+the wall and almost unnoticable.  The lock appears to be of exquisite
+quality as well.
+~
+A
+unlock~
+secret~
+if( is_open( room, north ) ) {
+  act_tochar( #dork, ch );
+  end;
+  }
+if( has_obj( 2512, ch ) ) {
+  act_tochar( #unlock, ch );
+  act_notchar( #runlock, ch );
+  wait( 1 );
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( room, north );
+  send_to_room( #room, find_room( 226 ) );
+  wait( 3 );
+  send_to_room( #close, room );
+  send_to_room( #rclose, find_room( 226 ) );
+close( room, north );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+open~
+You pull the handle and the door slides silently inward.
+~
+E
+unlock~
+You unlock the secret door.
+~
+E
+runlock~
+$n unlocks the secret door.
+~
+E
+ropen~
+$n pulls the handle and the door slides silently inward.
+~
+E
+close~
+The wall slides closed.
+~
+E
+room~
+A section of the southern wall slides open.
+~
+E
+rclose~
+A section of the southern wall slides closed.
+~
+E
+nope~
+You lack the key - perhaps try picking it?
+~
+E
+dork~
+Its already open.
+~
+!
+0 0 0
+2372 17 1509949540 -2 0
+1773 17 1509949540 -2 16
+-1
+S
+
+#51082
+Kitchen~
+Under Construction.
+~
+~
+301465607 0 9 0
+-1
+S
+
+#51083
+Black Obsidian Stone Hallway~
+This wide hallway is completely barren of any tapestries or decorations. 
+The smooth, black obsidian blocks of the walls have been polished to a
+high shine in which you can see your own reflection.  A few torches,
+burning with fiery red-orange flames, hang from the walls in
+ruby-encrusted sconces.  The high ceileing has been dyed a blood-red
+color which seems to intensify the light from the torches, causing the
+hallway to become brightly lit.  To the south a large, elegant redwood
+door, covered in ancient carvings depicting knights in battle, rising up
+from within the wall.  To the north the hallway continues to work its way
+through the vast corridors of the keep.
+~
+~
+301465607 0 9 0
+D0
+~
+~
+0 -1 51084 10 10 5
+D2
+elegant redwood door~
+elegant redwood door~
+407 2422 51004 10 10 5
+-1
+S
+
+#51084
+Black Obsidian Stone Hallway~
+Large dark silk tapestries depicting various dragons in flight hang down
+from the elegant black and grey tiled ceiling above.  The eastern wall
+has been turned into a giant mural; carvings depicting great dragons in
+battle and armor-clad knights battling fearsome demons.  The floor has
+been transformed into an colorful mural of autumn and winter dragons
+soaring through cloud filled skies, over mountain tops and across gentle
+rolling plains.  Set into the western wall is a heavy black adamantite
+door from which a strong wave of heat emanates.  To the north and south
+the hallway continues through the vast expanses of the knight's keep.
+~
+[Terek] 51085 north
+~
+301465607 0 9 0
+D2
+~
+~
+0 -1 51083 10 10 5
+D3
+heavy black adamantite door~
+heavy black adamantite door~
+407 2422 51016 10 10 5
+-1
+S
+
+#51085
+Black Obsidian Stone Hallway~
+Under Construction.
+~
+~
+301465607 0 9 0
+D0
+~
+~
+0 -1 51086 10 10 5
+-1
+S
+
+#51086
+Black Obsidian Stone Hallway~
+Under Construction.
+~
+~
+301465607 0 9 0
+D2
+~
+~
+0 -1 51085 10 10 5
+D3
+~
+~
+0 -1 51087 10 10 5
+-1
+S
+
+#51087
+Black Obsidian Stone Hallway~
+Under Construction.
+~
+~
+301465607 0 9 0
+D1
+~
+~
+0 -1 51086 10 10 5
+-1
+S
+
+#51088
+Cluttered Tower Laboratory~
+You stand in a large, dimly lit laboratory.  A large lab table made of
+black marble occupies the center of the room and is filled with various
+parchments, beakers, and vials.  The southern wall is bare save for a
+large ironwood cabinet, from which spill innumerable sheafs of paper and
+bound scrolls.  A tall shelf of dark wood lines the western wall, covered
+with neatly labelled specimen jars.  On the eastern wall are seemingly
+unordinary mahogany shelves, containing what appear to be spellbooks and
+laboratory volumes.  Despite the clutter noticeable all around the room,
+the dark stone floor is bare.  Through a doorway to the north you can see
+a plushly carpeted study.
+~
+~
+301531143 0 9 0
+D0
+~
+~
+0 -1 51089 10 10 5
+A
+~
+~
+send_to_room( #sound, room );
+~
+E
+sound~
+A gentle bubbling sound reaches your ears as some unidentifiable liquid
+foams inside a beaker.
+~
+!
+2 150 0
+2747 17 1509949540 -2 0
+2748 17 1509949540 -2 0
+2749 17 1509949540 -2 0
+-1
+S
+
+#51089
+Plushly-carpeted Study~
+You stand in a quiet, plushly-carpeted study.  The eastern and western
+walls are lined with bookshelves, containing volumes of all sizes and
+colors.  Hewn out of the rock to the north is a four foot tall square
+window.  The view from the window is astonishing, revealing that the
+tower is actually quite high above the castle.  Next to the window, a
+large copper-bound tome rests on a small ledge.  A doorway to the south
+leads to a dimly-lit laboratory.
+~
+~
+301465607 0 9 0
+D2
+~
+~
+0 62 51088 10 10 5
+E
+window~
+A gentle breeze floats in from the window, although it seems that bad
+weather is somehow shielded from entering the room.  To the west stands
+the glimmering expanse of the sea, the east the span of the forest, and
+far on the horizon to the north rise the Dragonspires.
+~
+E
+tome~
+A large copper-bound tome rests on a rock ledge in the wall here.  Its
+cover is inscribed with a single mithril rune, but is otherwise unadorned. 
+Surprisingly enough, it is also free of the dust, cobwebs and moisture
+found elsewhere in the tunnel.  Although it seems unaffected by age, it
+radiates a feeling of antiquity.  A small latch on the side of the book 
+keeps it securely closed.
+~
+A
+~
+~
+i = random( 1, 3 );
+if( i == 1 )
+send_to_room( #one, room );
+if( i == 2 )
+send_to_room( #two, room );
+if( i == 3 )
+send_to_room( #three, room );
+~
+E
+one~
+A cold wind blows in from the north, bringing the scent of the distant
+mountains.
+~
+E
+two~
+The wind brings the smell of pine from the forest far to the east.
+~
+E
+three~
+A gentle breeze floats up from the nearby sea, smelling of seaweed and
+brine.
+~
+!
+2 300 0
+A
+unlock~
+tome book~
+if( has_obj( 2621, ch ) ) {
+  act_tochar( #unlock, ch );
+  act_notchar( #runlock, ch );
+  wait( 1 );
+  act_tochar( #unlock2, ch );
+  act_notchar( #runlock2, ch );
+  transfer( ch, find_room( 51070 ) );
+  act_notchar( #arrive, ch );
+  wait( 1 );
+  send_to_room( #book, room );
+  send_to_room( #book, find_room( 51070 ) );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+unlock~
+@BAs you fit the tiny copper key into the tome's keyhole, the book opens, its pages turning rapidly.
+~
+E
+unlock2~
+@BThe book rotates off of the ledge, and explodes in a barrage of fiery
+light.  You step into the raging inferno and are transported to another
+place.
+~
+E
+runlock~
+@BAs $n fits the tiny copper key into the tome's keyhole, the book opens,
+its pages turning rapidly.
+~
+E
+runlock2~
+@BThe book rotates off of the ledge, and explodes in a barrage of fiery
+light!  $n steps into the raging inferno and is gone.
+~
+E
+book~
+The conflagration disipates and when it is gone, there lies the old tome
+back on its ledge unharmed.
+~
+E
+arrive~
+@BThe tome explodes into a ball of flame!  $n steps out of it, seemingly
+unconcerned.
+~
+E
+nope~
+You lack the key - perhaps try picking it.
+~
+!
+0 0 0
+2751 17 1509949540 -2 0
+2751 17 1509949540 -2 0
+-1
+S
+
+#51090
+Cluttered Tower Laboratory~
+Under Construction.
+~
+~
+301531143 0 9 0
+-1
+S
+
+#51091
+Moxies Penthouse 'o' Lurve~
+This room is small, but houses but a few major objects.  In the north-west
+corner, lies a double bed, its velvet red sheets looking VERY comfortable. 
+On the low ceiling above the bed, lies a full length mirror, its
+beautifully reflective quality making the entire corner seem red.  In the
+west side, lies a huge ornate chest of drawers.  Above the drawers lies a 
+plaque with the words 'Never forget the Past'.
+~
+~
+301465607 0 9 0
+D2
+hard wood door~
+hard wood door~
+1 -1 51049 10 10 5
+E
+bed~
+A large double bed with exotic red velvet sheets.  It appears so
+comfortable, as to entice you into its enclosing sheets.  The mirror
+above the bed seems a little odd however, as if the owner of the bed
+enjoys looking at himself. 
+~
+1763 17 1509949540 -2 0
+-1
+S
+
+#51092
+Meeting Room~
+The room has a hexagonal shape.  In the center of the room there is a
+large round table covered in a snow white table cloth with a red
+embroidered edge.  There are dark wooden chairs around the table, with
+high backs and arm rests.  Each chair has a silver-red dragon carved on
+its back.  The room is well lit with eight balls of light shimmering in
+the air, each in one corner of this unusually shaped room.
+~
+~
+301465639 0 9 0
+D2
+~
+~
+0 -1 51001 10 10 5
+-1
+S
+
+#51093
+Storage Room~
+This large room, box-like in shape, is decorated with war banners and
+magnificent paintings..  some depicting ancient dragons in all their
+prowess, others a group of friends standing victorious upon some
+battlefield or the other.  The windows, three in number, are barred and
+glow with a faint magical aura; the door is the same save it is crafted
+from a solid piece of oak twelve inches thick and reinforced with cold
+steel bands.  Lying carelessly about are a clutter of items, weapons and
+armor and various containers..  some locked and other lying open, their
+contents plainly viewed.  The door to the west leads back to the main
+hall.
+~
+~
+301533223 0 9 0
+D3
+~
+~
+0 -1 51001 10 10 5
+-1
+S
+
+#51094
+A Round Obsidian Chamber~
+This room is a gigantic round sinkhole, with walls of smoothest polished
+obsidian.  It gleams in the steady, but dim, light that emanates from
+several strategically placed orbs of light.  A spiral staircase descends
+through the centre of this huge circular room, with four catwalks heading
+off in each of the cardinal directions.  These catwalks meet up with
+another which runs around the circumference of the sinkhole.  There is a
+door at the junction of each walkway, and a symbol upon the surface of
+each door.  From where you are standing, each door looks subtly different
+from it's neighbours.  Looking down, you cannot tell where the sinkhole
+ends.  It looks like an awfully long way.  Be careful not to lose your
+footing..
+~
+~
+301471749 0 9 0
+D4
+~
+~
+0 -1 51022 10 10 5
+-1
+S
+
+#51095
+Kastle's Cave~
+Climbing down the stairs into the room, a sense of peace and tranquillity
+envelops you.  Dominating the southern corner or the room is a large idol.
+A worn meditation mat made from several woven yeti hides lays in front of
+the idol.  Across the room from the idol is a bed carved into the obsidian
+wall.  A marble desk and chair sits in the final corner of this room.
+Lining the wall over the desk is a tome covered shelf and a small candle
+holder.  The rest of the walls are covered with battle trophies.  From
+the ceiling hangs a fine crystal candle chandelier supported by a rope
+tied off at the stairs for easy lighting.
+~
+~
+301465605 0 9 0
+D4
+trapdoor~
+trapdoor~
+203 -1 51080 10 10 5
+E
+idol~
+Before you stands a granite marble statue of a large dwarf meditating on
+a stone platform.  The dwarf's hands rest on his knees, while his eyes
+peer upwards towards the holy gods.  At the base of the idol is a pile of
+incenses used to aid in focusing during meditation.
+~
+E
+bed~
+Carved into the western wall is a large square bed.  Simple dwarven
+runes are enscribed into the obsidian and filled with silver to ward
+the occupant from danger while sleeping.  Covering the bed are several
+thick hides from mountain rams and yetis to provide warmth.  A large
+goose feather pillow rests at the head of the bed.
+~
+E
+desk~
+A simple marble desk rests here.  On the desk is an assortment
+of papers and scrolls reguarding quests and adventures.  In
+front of the desk is a huge oval block of marble polished smooth
+with a shallow impression carved into the top, serving as a
+chair for the desk.
+~
+E
+tomes~
+Lining the shelf are several collections of tomes.  You can make out the
+Chronicles of the Dwarven Empire, The Histories of the Holy Order of the
+Monks and some private journals labled Klan Kildragyn.
+~
+E
+trophies~
+Many Trophies of war and battle like the walls.  Among the many
+items you see troll bones, hides from several fearsome beasts and
+tokens and awards from completed quests over the many years.
+~
+E
+chandelier~
+An intricate chandelier of fine gems and crystals hangs here from the
+ceiling of the chamber.  Placed within the crystals are enchanted candles
+that are smoke free.  The crystals and gems have been intricately cut
+so that they magnify the candle light casting it about the room with
+even clarity and brightness.
+~
+E
+stairs~
+Several thick stairs leading up have been carved into the northern corner
+of the room.  The stairs have been polished to the point that they
+reflect the light.
+~
+A
+pull~
+lever~
+if( !is_open( room, up ) ) {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, up );
+  send_to_room( #up, find_room( 51080 ) );
+  }
+else {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, up );
+  send_to_room( #rup, find_room( 51080 ) );
+  }
+~
+E
+pull~
+You pull the lever and the trapdoor above you silently slides away.
+~
+E
+rpull~
+$n pulls the lever and the trapdoor above you silently slides away.
+~
+E
+close~
+You pull the lever and the trapdoor above you silently slides closed.
+~
+E
+rclose~
+$n pulls the lever and the trapdoor above you silently slides closed.
+~
+E
+up~
+A section of the floor slides away, revealing a hidden opening.
+~
+E
+rup~
+A section of the floor slides into place, hiding a dark opening.
+~
+!
+0 0 0
+1691 17 1509949540 -2 0
+1765 17 1509949540 -2 0
+-1
+S
+
+#0
+

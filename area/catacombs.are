@@ -1,0 +1,1689 @@
+#AREA
+Naraki Catacombs~
+Phule~
+~
+
+0 0
+4
+#ROOMS
+
+#37250
+A mysterious tunnel~
+Runes glow a dull blue on the walls, but they don't appear to be a
+warding or instructions.  Instead, they appear to be a natural part to
+this rather unnatural place.  Electricity buzzes through the air,
+creating a dull hum that shakes your bones.  Perhaps whoever built these
+tunnels did not intend for mortals to walk down them.  Perhaps they did
+not notice the rampant forces of magic crackling down the tunnel.
+~
+[Merior] extras? how can runes be natural?
+means they appear in place, not out of place, here
+[Bandolin] should the runes have an extra descript?  (I know you don't
+like them, but I couldn't find anything else wrong to complain about. 
+8^) ) 
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37251 10 10 5
+D2
+~
+~
+0 -1 36128 10 10 5
+-1
+S
+
+#37251
+A mysterious tunnel~
+Gigantic doors of mirror-like black obsidian rise mightily to the east
+and west, impossible to open.  A small alcove brimming with electricity
+is set in the stone to the north, and to the south, a dark tunnel
+stretches away.
+~
+[Bandolin] personally, the doors seem to need an extra desc.  (IMHO)
+[Bandolin] The room says they are black doors, but the aedit 1 says it is
+an obsidian gate.
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37252 10 10 5
+D1
+obsidian door~
+obsidian door~
+195 -1 37253 10 10 5
+D2
+~
+~
+0 -1 37250 10 10 5
+D3
+obsidian door~
+obsidian door~
+195 -1 37254 10 10 5
+A
+~
+~
+wait( 1 );
+close( room, east );
+close( room, west );
+send_to_room( #close, room );
+send_to_room( #close, find_room( 37253 ) );
+send_to_room( #close, find_room( 37254 ) );
+~
+E
+close~
+You hear the grinding sound of stone on stone as the obsidian gate closes.
+~
+!
+0 0 0
+A
+~
+~
+acode( room, 1 );
+~
+!
+1 3 10
+70 9 1509949540 3 0
+-1
+S
+
+#37252
+A small alcove~
+Runes cover the north wall, flowing in and out of a set of handprints
+inset in the stone.  The hum of electricity flows over the wall like a
+waterfall, an impenetrable protective field.  A small black lever is set
+like a switch in the west wall, and to the south a dark tunnel disappears
+into inky black.
+~
+[Merior] need extras
+[Merior] electric field on north wall?
+[Bandolin] should "hands" be a command?  because with it, "hands hands"
+works 
+[Bandolin] i'm new, so forgive me if i'm wrong, but result "rzap" looks
+like it has an extra blank line at the end of it.
+~
+301596676 0 8 0
+D2
+~
+~
+0 -1 37251 10 10 5
+E
+wall runes electric~
+The runes glow with the white-blue of lightning.
+~
+A
+flip pull~
+lever switch~
+if( rflag( status0, room ) ) {
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+remove_rflag( status0, room );
+}
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+The electric field has already been shut off.
+~
+E
+rpull~
+$n pulls the lever easily, and the electric field on the north wall
+shimmers and is gone.
+~
+E
+pull~
+You pull the lever easily, and the electric field on the north wall
+shimmers and is gone.
+~
+!
+0 0 0
+A
+place press push hands insert~
+hands prints imprints handprints~
+if( rflag( status0, room ) ) {
+  act_tochar( #zap, ch );
+  act_notchar( #rzap, ch );
+  i = 4d5+4;
+  dam_message( ch, i, "the electric shock" );
+  inflict( ch, mob, i, "electrocution" );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( find_room( 37251 ), east );
+  open( find_room( 37251 ), west );
+  set_rflag( status0, room );
+  send_to_room( #east, find_room( 37251 ) );
+  send_to_room( #west, find_room( 37251 ) );
+  send_to_room( #west, find_room( 37253 ) );
+  send_to_room( #east, find_room( 37254 ) );
+  }
+~
+E
+east~
+The massive door of obsidian to the east opens with a grating of stone.
+~
+E
+west~
+The massive door of obsidian to the west opens with a grating of stone.
+~
+E
+ropen~
+$n's hands fit perfectly into the imprints, and you hear nearly silent
+grating as huge weights are lifted.  As $n moves away, the electric field
+zaps back to life.
+~
+E
+open~
+Your hands fit perfectly, and you hear the nearly silent grating as huge
+weights are lifted.  Bringing your hands away, the electric field hums
+back to life.
+~
+E
+rzap~
+$n is zapped by the electric field.  $n should not have tried to break
+through it.
+ 
+~
+E
+zap~
+You foolishly try to press your hands to the imprints with the electric
+field still intact, and you get zapped!
+ 
+~
+!
+0 0 0
+-1
+S
+
+#37253
+A tunnel of shifting sand~
+The hard obsidian rock has begun to give way to the soft gritty texture
+of desert sand.  Your footing is soft, but not unsure, as if somewhere
+beneath the sands firm ground anchors all safely in place.  The tunnel
+leads east, and a massive door of mirror-like obsidian rises to the west. 
+A small grey lever is inset in the wall to the west.
+~
+rextra on lever/door/sand
+[Merior] extras needed
+[Bandolin] you could use a comma after sands on line 3.
+You could probably take the one out after soft on line 2.
+[Bandolin] the action codes call the obsidian things gates, but the room
+calls them doors.
+~
+301596676 0 8 0
+D1
+~
+~
+0 -1 37255 10 10 5
+D3
+obsidian~
+obsidian~
+195 -1 37251 10 10 5
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( is_open( room, west ) ) {
+  wait( 1 );
+  act_tochar( #slam, ch );
+  close( room, west );
+  send_to_room( #east, find_room( 37251 ) );
+  }
+~
+E
+east~
+The obsidian gate to the east slams shut with the grating of stone on
+stone.
+~
+E
+slam~
+The obsidian gate to the west falls shut with the grating of stone on
+stone.
+~
+!
+1 1 10
+A
+pull~
+lever~
+if( is_open( room, west ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( is_open( find_room( 37251 ), west ) ) {
+  act_tochar( #other, ch );
+  act_notchar( #rother, ch );
+  end;
+  }
+open( room, west );
+act_tochar( #you, ch );
+act_notchar( #not, ch );
+send_to_room( #opens, find_room( 37251 ) );
+~
+E
+rother~
+$n pulls on the lever, but nothing happens.  Perhaps there is another way
+out.
+~
+E
+opens~
+The obsidian door to the west opens with the grating of stone on stone.
+~
+E
+not~
+$n pulls the small grey lever, and the obsidian door raises with the
+grating sound of stone on stone.
+~
+E
+you~
+You pull the lever, and the obsidian door raises with the grating sound
+of stone on stone.
+~
+E
+other~
+You pull the lever, but nothing happens.  Perhaps there is another way
+out.
+~
+E
+already~
+The obsidian door is already open.
+~
+!
+0 0 0
+-1
+S
+
+#37254
+A tunnel of red heat~
+You are standing in a tunnel of red, hot rock.  Waves of heat from an
+unknown source to the west wash over you in full force.  To the east is a
+large slab of mirror-like obsidian which acts as a gate to block any
+passage.  A second look to the west makes the walls themselves to appear
+like they are no longer made of rock, but of pure fire.  A small gray
+lever is inset in the east wall.
+~
+don't forget rextras all through here and change rflags and rstats
+[Bandolin] not sure, but the "themselves to" on line 4, doesn't need the
+"to" and i think it should be "themself".
+~
+301596677 0 8 0
+D1
+obsidian~
+obsidian~
+195 -1 37251 10 10 5
+D3
+~
+~
+0 -1 37263 10 10 5
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( is_open( room, east ) ) {
+  wait( 1 );
+  send_to_room( #slam, room );
+  close( room, east );
+  send_to_room( #west, find_room( 37251 ) );
+  }
+~
+E
+west~
+The obsidian gate to the west slowly slams shut.
+~
+E
+slam~
+The obsidian gate to the east slams shut with the grating of stone on
+stone.
+~
+!
+1 3 10
+A
+pull~
+lever~
+if( is_open( room, east ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( is_open( find_room( 37251 ), east ) ) {
+  act_tochar( #else, ch );
+  act_notchar( #relse, ch );
+  end;
+  }
+open( room, east );
+act_tochar( #you, ch );
+act_notchar( #not, ch );
+send_to_room( #opens, find_room( 37251 ) );
+~
+E
+relse~
+$n pulls on the lever, but nothing happens.  Perhaps there is another way
+out.
+~
+E
+opens~
+The obsidian gate to the west opens with the grinding of stone on stone.
+~
+E
+not~
+$n pulls on the lever, and the obsidian gate rises with the grinding of
+stone on stone.
+~
+E
+you~
+You pull the lever, and the obsidian gate rises with the grinding of
+stone on stone.
+~
+E
+else~
+You pull the lever, but nothing happens.  Perhaps there is another way
+out.
+~
+E
+already~
+The obsidian gate is already open!
+~
+!
+0 0 0
+-1
+S
+
+#37255
+A room of shifting sand~
+This small chamber swirls and changes before your eyes as mounds of sand
+move all about, seemingly alive.  The sand is endless, reaching into the
+heart of the earth with its depth, threatening to swallow you whole. 
+Tunnels escape the chamber to the north and west.
+~
+[Bandolin] nothing wrong here.  the room might could use a random for
+sand getting in their clothes or something.
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37256 10 10 5
+D3
+~
+~
+0 -1 37253 10 10 5
+72 9 1509949540 3 0
+-1
+S
+
+#37256
+A tunnel of shifting sand~
+The walls and floor of this tunnel shift and move, making your footing
+perilous as the ground moves as if to devour you.  The morphing movements
+of the rock seem to increase to the south, while to the north the rock
+seems more stable.
+~
+[Bandolin] any chance of a random action to make them trip on the hungry
+sand?
+[Bandolin] the 3rd line seems to indicate that the tunnel is a malleable
+rock, but the title of the room is "shifting sand" 
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37257 10 10 5
+D2
+~
+~
+0 -1 37255 10 10 5
+-1
+S
+
+#37257
+A tunnel of shifting sand~
+The walls of this tunnel waver slightly, but appear to be stable enough. 
+The circumstances are different to the south, where the violent motions
+of the rock threaten to swallow any adventurer that enters that tunnel. 
+To the west, a tunnel of solid obsidian leads away from the mysterious
+sands to unknown darkness.
+~
+[Merior] south is rock or sand moving?
+[Bandolin] the impression i get here also is a) from the title, a room of
+sand that moves, and b) from the desc, walls that are malleable 
+~
+301596676 0 8 0
+D2
+~
+~
+0 -1 37256 10 10 5
+D3
+~
+~
+0 -1 37258 10 10 5
+-1
+S
+
+#37258
+A mysterious tunnel~
+The obsidian rock of the tunnel is flawlessly smooth, polished to the
+point of giving it mirror-like qualities.  To the east the ground seems
+very unstable, while to the west, more black obsidian tunnel stretches
+away endlessly.
+~
+[Bandolin] sorry, nothing wrong here.  just short.  could use another
+sentence or two.
+~
+301596676 0 8 0
+D1
+~
+~
+0 -1 37257 10 10 5
+D3
+~
+~
+0 -1 37259 10 10 5
+-1
+S
+
+#37259
+A mysterious tunnel~
+While the tunnel running east and west is a mighty one indeed, the
+rune-streaked obsidian passage to the north is obviously the main one. 
+The tunnels show no physical signs of passage; the rock beneath your feet
+shows no wear, nothing litters the ground in any direction.  It is as if
+the inhabitants of this tunnel do not require the base physical mode of
+transportation to which you may be accustomed.
+~
+rextra on rune here and elsewhere
+Great desc phule.
+[Bandolin] the 2nd sentence would be better if broken into two sentences. 
+Period where the semi-colon is and an and where the comma is.  (it's only
+a suggestion) 
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37264 10 10 5
+D1
+~
+~
+0 -1 37258 10 10 5
+D3
+~
+~
+0 -1 37260 10 10 5
+-1
+S
+
+#37260
+A mysterious tunnel~
+A faint heat can be felt down the corridor to the west, while a lightless
+void of black stretches to the east without discernable shape.  The walls
+are smooth and hard, too perfectly shaped to be the work of men. Perhaps
+magic instead.
+~
+[Bandolin] "Perhaps magic instead." is a sentence fragment.
+[Bandolin] it's also a bit short, being only two sentences.
+~
+301596676 0 8 0
+D1
+~
+~
+0 -1 37259 10 10 5
+D3
+~
+~
+0 -1 37261 10 10 5
+-1
+S
+
+#37261
+A tunnel of red heat~
+The black obsidian rock of the tunnel walls has been cracked by some
+great heat, the source of which appears to be to the south, from which a
+red glow and the sound of crackling flame issues.  A tunnel of black
+obsidian leads east.
+~
+[Bandolin] ow ow ow.  the first sentence hurts my head.  Maybe you could
+break it into two or even three sentences?  8^) 
+~
+301596677 0 8 0
+D1
+~
+~
+0 -1 37260 10 10 5
+D2
+~
+~
+0 -1 37262 10 10 5
+-1
+S
+
+#37262
+A tunnel of red heat~
+The walls of this tunnel are alive with fire, flickering with heat.  The
+source of the flames is a small chamber to the south.  Tilting your head,
+you can also hear a definite crackling sound as well.  The tunnel appears
+to be somewhat cooler to the north.
+~
+[Bandolin] i'd recommend an extra desc for fire/heat/flickering so that
+you can better explain why rock is on fire 
+~
+301596677 0 8 0
+D0
+~
+~
+0 -1 37261 10 10 5
+D2
+~
+~
+0 -1 37263 10 10 5
+A
+tilt~
+head~
+act_tochar( #tilt, ch );
+~
+E
+tilt~
+You tilt your head and listen to the sound of crackling flame and
+snapping explosions.
+~
+!
+0 0 0
+-1
+S
+
+#37263
+A room of red heat~
+The walls of this chamber seem alive with fire, as if the stone has been
+melted, one element after another, leaving only pillars of flame and
+rivers of molten lava.  Heat-filled tunnels lead north and east, away
+from this unnatural place of fire.
+~
+[Bandolin] on the fire elemental: "and a humanoid form's outlines" might
+be better as "and the outline of a humanoid's form" otherwise, "... 
+outline" 
+[Bandolin] not sure if i'm right here, but, this room does only have two
+sentences and while they aren't short, the overall room is barely four
+lines 
+~
+301596677 0 8 0
+D0
+~
+~
+0 -1 37262 10 10 5
+D1
+~
+~
+0 -1 37254 10 10 5
+597 137 1509949540 3 0
+-1
+S
+
+#37264
+A mysterious tunnel~
+The alien runes on the east and west walls of this massive tunnel of
+obsidian connect overhead, forming a weblike covering of the stone.  It
+is almost as if the builders thought that the tons of impenetrable rock
+were not enough, that a magical barrier was necessary to protect their
+creation.  The rune-covered hall continues to the north and south.
+~
+[Merior] of course, still need extras
+[Bandolin] 2nd line "covering of the stone." is a bit awkward.  maybe
+"covering on the stone."?
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37265 10 10 5
+D2
+~
+~
+0 -1 37259 10 10 5
+-1
+S
+
+#37265
+A mysterious tunnel~
+Gigantic doors of mirror-like black obsidian rise mightily to the east
+and west, impossible to open.  A small alcove brimming with electricity
+is set in the stone to the north, and to the south a dark tunnel
+stretches.
+~
+things to do:
+[Bandolin] i'm easily confused.  why is there an aedit [1] None  ?
+[Bandolin] also, the aedit says that a gate closes while the room calls
+them doors 
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37266 10 10 5
+D1
+obsidian door gate~
+obsidian door gate~
+195 -1 37267 10 10 5
+D2
+~
+~
+0 -1 37264 10 10 5
+D3
+obsidian door gate~
+obsidian door gate~
+195 -1 37268 10 10 5
+A
+~
+~
+close( room, east );
+close( room, west );
+send_to_room( #close, room );
+send_to_room( #close, find_room( 37267 ) );
+send_to_room( #close, find_room( 37268 ) );
+~
+E
+close~
+You hear the grinding sound of stone on stone as the obsidian gate closes.
+~
+!
+0 0 0
+A
+~
+~
+acode( room, 1 );
+~
+!
+1 3 10
+70 9 1509949540 3 0
+-1
+S
+
+#37266
+A small alcove~
+Runes cover this small alcove of obsidian with a nearly solid scrawl of
+indecipherable magic.  A strage statue made from apparently the same
+black obsidian as the walls stands near the northern wall of the alcove,
+and the caver resumes its rather large dimensions to the south.
+~
+[Merior] in statue extra.. immensely
+[Merior] in rdesc strange, and cave?
+[Bandolin] line two: "strage" should be "strange"
+[Bandolin] line 4: "caver" should be "cavern"
+~
+301596676 0 8 0
+D2
+~
+~
+0 -1 37265 10 10 5
+E
+strange statue~
+The small black statue appears to be humanoid, but that is hard to
+discern, as is the intended sex of the iummensely solid carved block of
+obsidian.  A rather prominent nose sits strangely on the forehead of the
+statue, covering imposing-looking eyes that seem to glow with some
+strange power.
+~
+E
+nose~
+The nose appears to be on a bit of a track, obviously able to slide
+downward on the statue's face to reveal the eyes.
+~
+A
+slide move lower press push pull~
+nose nostril~
+if( rflag( status0, room ) ) {
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+remove_rflag( status0, room );
+}
+else
+act_tochar( #nope, ch );
+~
+E
+nope~
+The statue's nose has already been pressed down.
+~
+E
+rpull~
+$n presses cautiously against the bridge of the statue's nose and it
+slides downward into place.
+~
+E
+pull~
+You press cautiously againt the bridge of the statue's nose and it slides
+downward into place.
+~
+!
+0 0 0
+A
+look stare peer gaze~
+eyes orbs~
+if( rflag( status0, room ) ) {
+  act_tochar( #zap, ch );
+  act_notchar( #rzap, ch );
+  }
+else {
+  act_tochar( #open, ch );
+  act_notchar( #ropen, ch );
+  open( find_room( 37265 ), east );
+  open( find_room( 37265 ), west );
+  set_rflag( status0, room );
+  send_to_room( #east, find_room( 37265 ) );
+  send_to_room( #west, find_room( 37265 ) );
+  send_to_room( #east, find_room( 37268 ) );
+  send_to_room( #west, find_room( 37267 ) );
+  }
+~
+E
+west~
+The obsidian gate to the west opens with the grinding of stone on stone.
+~
+E
+east~
+The obsidian gate to the east opens with the grinding of stone on stone.
+~
+E
+ropen~
+$n stares into the statue's eyes, and after a moment they glow with a
+strange light.  A booming sound is accompanied by the soft 'click' of the
+statue's nose sliding back up in front of the statue's eyes.
+~
+E
+open~
+You stare into the statue's eyes, and after a moment they glow with a
+strange light.  A booming sound is accompanied by the soft 'click' of the
+statue's nose sliding back up in front of the statue's eyes.
+~
+E
+rzap~
+$n tries to stare into the strange statue's eyes, but cannot.
+~
+E
+zap~
+You try to stare into the strange statue's eyes, but you find that
+impossible with the thing's large nose mysteriously covering its orbs.
+~
+!
+0 0 0
+-1
+S
+
+#37267
+A tunnel of raging ocean~
+The walls of this tunnel appear to be made of rushing water.  The blues
+and whites rush by your head and arms, rolling around in all directions. 
+At your feet the water seems to have frozen into ice, making footing
+slippery but stable.  A small gray lever is inset in the west wall.
+~
+check in other rooms that are similar, but shouldn't "raises" be "rises"
+your call! :)
+also, not sure about your rnames, is there a standard for capitalization?
+^^ No there isn't a standard.  The rnames are usually a hallmark of the
+builder, as long as they don't get out of hand. - Amon
+[Bandolin] line three: "At your feet" needs a comma after the feet.
+[Bandolin] even though the obsidian gate has an action, it isn't
+mentioned in the main room desc.  (the gate isn't mentioned)
+[Bandolin] again, the aedits list gates, but the room west calls them
+doors.
+~
+301596676 6 8 0
+D1
+~
+~
+0 -1 37277 10 10 5
+D3
+obsidian~
+obsidian~
+195 -1 37265 10 10 5
+A
+~
+~
+if( is_open( room, west ) ) {
+  close( room, west );
+  act_tochar( #slam, ch );
+  act_notchar( #rslam, ch );
+  send_to_room( #east, find_room( 37265 ) );
+  }
+~
+E
+east~
+The obsidian gate to the east falls shut with the grinding of stone on
+stone.
+~
+E
+rslam~
+The obsidian gate to the west grinds shut.
+~
+E
+slam~
+The obsidian gate slams shut behind you, cutting off all hope of exit.
+~
+!
+1 1 10
+A
+pull~
+lever~
+if( is_open( room, west ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( is_open( find_room( 37265 ), west ) ) {
+  act_tochar( #other, ch );
+  end;
+  }
+open( room, west );
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+send_to_room( #east, find_room( 37265 ) );
+~
+E
+east~
+The obsidian gate to the east raises open with the grinding of stone on
+stone.
+~
+E
+rpull~
+$n pulls the gray lever, and the obsidian gate raises open with the
+grinding of stone on stone.
+~
+E
+pull~
+You pull the gray lever, and the obsidian gate raises open with the
+grinding of stone on stone.
+~
+E
+other~
+You pull the lever, but nothing happens.  Perhaps there is another way
+out.
+~
+E
+already~
+The obsidian gate is already open.
+~
+!
+0 0 0
+-1
+S
+
+#37268
+A tunnel of swirling wind~
+You feel no solidity beneath your feet, no comfortable rock upon which to
+rest your weight.  You stand on a firmament of swirling winds, of ocean
+breeze and desert gale.  To the west, the winds seem to gather into a
+ferocious storm.  A small gray lever is set into the eastern wall of
+obsidian rock.
+~
+Nice desc.
+[Bandolin] only thing i see that might be wrong is that you don't mention
+the obsidian gate/door 
+~
+301596676 0 8 0
+D1
+obsidian~
+obsidian~
+195 -1 37265 10 10 5
+D3
+~
+~
+0 -1 37269 10 10 5
+A
+~
+~
+if( is_open( room, east ) ) {
+  close( room, east );
+  act_tochar( #slam, ch );
+  act_notchar( #rslam, ch );
+  send_to_room( #west, find_room( 37265 ) );
+  }
+~
+E
+west~
+The obsidian gate to the west crashes shut.
+~
+E
+rslam~
+The obsidian gate crashes shut.
+~
+E
+slam~
+~
+!
+1 3 10
+A
+pull~
+lever~
+if( is_open( room, east ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( is_open( find_room( 37265 ), east ) ) {
+  act_tochar( #other, ch );
+  end;
+  }
+open( room, east );
+act_tochar( #pull, ch );
+act_notchar( #not, ch );
+send_to_room( #west, find_room( 37265 ) );
+~
+E
+west~
+The obsidian gate to the west rises with the grating of stone on stone.
+~
+E
+not~
+$n pulls the lever, and the obsidian gate rises with the grating of stone
+on stone.
+~
+E
+pull~
+You pull the lever, and the obsidian gate rises with the grating of
+stone on stone.
+~
+E
+other~
+You pull the lever, but nothing happens.  Perhaps there is another way
+out.
+~
+E
+already~
+The obsidian gate is already open.
+~
+!
+0 0 0
+-1
+S
+
+#37269
+A room of swirling wind~
+The room about you swirls in a frenzy of wind, whipping you about like a
+discarded rag doll.  A mighty tornado howls in your ears, and hurls bits
+of sand into your eyes as well.  Tunnels of swirling air lead north and
+east.
+~
+add another descriptive sentence in the middle here
+[Merior] in mob enormous
+-- thanks
+[Bandolin] sorry, i can't find anything new wrong here.
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37270 10 10 5
+D1
+~
+~
+0 -1 37268 10 10 5
+823 9 1509949540 3 0
+-1
+S
+
+#37270
+A tunnel of swirling wind~
+The world about you spins and whirls as winds as strong as the Great
+Winds that shaped the world, hold you easily aloft amidst a sea of clouds
+and mist.  A wind storm rages in full force to the south, and to the
+north, the winds seem to die down somewhat.
+~
+[Bandolin] sorry, nothing wrong here.
+[Bandolin] Unless you really want to be nit-picky, in which case, this
+room only has 2 sentences.  It wouldn't hurt to get a 3rd...
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37271 10 10 5
+D2
+~
+~
+0 -1 37269 10 10 5
+-1
+S
+
+#37271
+A tunnel of swirling wind~
+Misty winds blow easily by, caressing your cheek with the cool touch of
+an ocean breeze.  Desert winds form a path upon which to walk, whether it
+leads to the firm rock to the east or into a tunnel filled with swirling
+winds to the south.
+~
+[Merior] winds form a path?
+[Bandolin] the raw impression i get is that there are several types of
+winds here, one of which holds you up in this spot.  But the seperation
+between the misty wind and desert wind is vague.
+~
+301596676 0 8 0
+D1
+~
+~
+0 -1 37272 10 10 5
+D2
+~
+~
+0 -1 37270 10 10 5
+-1
+S
+
+#37272
+A mysterious tunnel~
+Cold, hard, lifeless obsidian surrounds you with its impenetrable
+embrace, as black as the shadow itself making you unsure where the rock
+ends.  The shadows begin to form a tunnel leading to the east.  A path
+that seems to lead onto air itself stretches to the west.
+~
+The shadow thing confuses me a bit - amon
+[Bandolin] Is there a light source that is allowing the shadows here? 
+And are the shadows the actual walls to the east?
+~
+301596676 0 8 0
+D1
+~
+~
+0 -1 37273 10 10 5
+D3
+~
+~
+0 -1 37271 10 10 5
+-1
+S
+
+#37273
+A mysterious tunnel~
+A tunnel leading to the north intersects the east-west tunnel of obsidian. 
+While the tunnels to the east and west seem somewhat unremarkable, to the
+north the black walls are streaked with ancient runes, perhaps of warding.
+~
+why do you say "perhaps of warding" here when you said at the 1st room,
+that the runes and such weren't wardings or instructions
+^^ I would leave it, but she has a point, in that first room, the purpose
+of the runes is confusing sorta.
+  
+also, add another sentence or two, possibly state what they see to the
+east and west 
+^^ don't agree. 3 is fine in an unimportant filler room.
+[merior] why do you think they are warding?
+[Bandolin] i'd recommend an extra desc for the runes
+~
+301596676 0 8 0
+D0
+~
+~
+0 -1 37278 10 10 5
+D1
+~
+~
+0 -1 37274 10 10 5
+D3
+~
+~
+0 -1 37272 10 10 5
+-1
+S
+
+#37274
+A mysterious tunnel~
+A tunnel of black obsidian gapes open to the west, its features
+undiscernable.  To the east, powerful currents overtake the rock, forming
+a world of their own amidst ice and thrashing waves.
+~
+Change 'currents' to 'forces'?
+You can't see waves from here i don't think. Maybe "ice and water"?
+change "features" to "details"?
+[Merior] overtake what rock? the obsidian?
+~
+301596676 0 8 0
+D1
+~
+~
+0 -1 37275 10 10 5
+D3
+~
+~
+0 -1 37273 10 10 5
+-1
+S
+
+#37275
+A tunnel of raging ocean~
+The water beneath you has frozen into a stable platform of ice, but
+beneath that outer layer, you can feel powerful forces flowing.  The
+water to the south is flowing strongly as if the walls are made of
+nothing but rushing water.  To the west can be seen a tunnel of hard
+black obsidian.
+~
+change plateform to surface?
+"beneath this fragile layer,"?
+~
+301596676 6 8 0
+D2
+~
+~
+0 -1 37276 10 10 5
+D3
+~
+~
+0 -1 37274 10 10 5
+-1
+S
+
+#37276
+A tunnel of raging ocean~
+Water sleets down and all around carried upon a fierce autumn breeze,
+whipping your face and body with sheets of icy cold wetness.  You are
+unsure of the dimensions of this place, but you can see a raging inferno
+of a storm, unleashed in all its fury to the south.  While north the
+water becomes ice.
+~
+~
+301596676 6 8 0
+D0
+~
+~
+0 -1 37275 10 10 5
+D2
+~
+~
+0 -1 37277 10 10 5
+-1
+S
+
+#37277
+A place of raging ocean~
+This room, if it can be named as such, is a raging inferno of ocean
+waves, rain, and whirlpool.  All semblance of earth has disappeared,
+replaced by the torrent of water before you.  The sound alone is
+deafening, that of one hundred hundred waterfalls, and the smell is of
+the open sea during a fierce storm.  Tunnels of more stable water lead
+north and south.
+~
+ice elemental
+[Merior] did the ice guy belong here or further up where it is colder?
+[merior] seems like your ice guy should be bothered by fire, and not cold spells
+-- fixed, thanks merior
+~
+301596676 6 8 0
+D0
+~
+~
+0 -1 37276 10 10 5
+D3
+~
+~
+0 -1 37267 10 10 5
+1043 9 1509949540 3 0
+-1
+S
+
+#37278
+Before the Wizard-Gate~
+The mysterious tunnels have come to a massive gate of inscribed obsidian
+located directly in front of you.  Strange sounds, similar to chanting
+can be heard faintly from beyond, but it seems the sounds are conducting
+through the tunnel walls rather than passing the mass of the gate.  A
+dark tunnel leads back away south.
+~
+MOST RECENT NOTE :: gate is CLOSED. No area beyond as yet.
+ 
+give gate more mpcode, check standard
+another rbug in room north of here
+...'gate' also needs to be in keywords for the door.
+
+There were a lot of rbugs here, so i just did a lot of it.  So if i
+errored, come to me.  - Amon 
+BTW, I think a lot of these mobs are pretty wimpy.  And when you do
+marmor, put those numbers up on a par with the players that will be
+comming through here.  Ppl comming here will have mith, if not adamtite. 
+I changed the door's marmor a little.
+[merior] do you have to enter via the tunnel to the south?
+[merior] sounds are conducting? conducted?
+[merior] obviously didnt go north... let me know when/if i need to
+~
+301596676 0 8 0
+D0
+Wizard-Gate door gate~
+Wizard-Gate door gate~
+195 -1 37279 10 10 5
+D2
+~
+~
+0 -1 37273 10 10 5
+E
+wizard-gate wizard gate~
+The Wizard-Gate is of the same obsidian rock of the tunnels, but unlike
+the many other featureless mirrors, strange runes of glowing purple and
+blue cover this great slab of stone.
+~
+A
+knock pound bang~
+gate door obsidian wizard wizard-gate~
+if( is_open( room, north ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+if( mob_in_room( 67, room ) ) {
+  act_tochar( #nope, ch );
+  end;
+  }
+else {
+  act_tochar( #knock, ch );
+  act_notchar( #rknock, ch );
+  if( char_in_room( ch, room ) ) {
+    act_tochar( #gate, ch );
+    act_notchar( #gate, ch );
+    if( char_in_room( ch, room ) ) {
+      mload( 67, room );
+      act_tochar( #speech, ch );
+      act_notchar( #speech, ch );
+      }
+    }
+  }
+~
+E
+already~
+The Wizard-Gate is already open.
+~
+E
+nope~
+You knock on the gate, but only succeed in angering it further.
+~
+E
+speech~
+@M@bThe Wizard-Gate, with a final burst of magical energy, rips free of
+the tunnel around it and fixes a cold gaze devoid of feeling upon you.@n
+@b"You are not my master!" @nit booms. @b"You will not pass me."
+~
+E
+rknock~
+$n knocks firmly on the Wizard-Gate's obsidian surface.
+~
+E
+gate~
+@M@bThe Wizard-Gate's markings swirl and flash, and you hear the sound
+of stone creaking and cracking.  The glyphs eventually form a pair of
+large eyes and a cavernous maw ringed with magical fangs.
+~
+E
+knock~
+You knock firmly on the Wizard-Gate's obsidian surface.
+~
+E
+nothing_happens~
+You knock on the gate, but nothing happens.
+~
+!
+0 0 0
+-1
+S
+
+#37279
+Beyond the Wizard-Gate~
+Electricity zigzags across the walls, lighting this dark corridor in
+brilliant light.  The scent of ozone is heavy in the air.  Bright flashes
+of light curuscate up and down the length of the tunnel.  You can see a
+branch in the tunnel to the north.
+~
+[Phule] sparks. badasses. oh yeah.
+[Phule] fix knock action
+~
+301596677 0 8 0
+D0
+~
+~
+0 -1 37280 10 10 5
+D2
+Wizard-Gate gate door~
+Wizard-Gate gate door~
+195 -1 37278 10 10 5
+A
+knock pound bang~
+gate obsidian door wizard wizard-gate~
+act_tochar( #knock, ch );
+act_notchar( #rknock, ch );
+open( room, south );
+~
+E
+rknock~
+$n pounds and the Wizard-Gate, and it opens slowly.
+~
+E
+knock~
+You pound on the Wizard-Gate, and it opens slowly.
+~
+!
+0 0 0
+-1
+S
+
+#37280
+Before an archway of lightning~
+A shimmering field of crackling lightning lies to the north, blocking a
+massive archway.  Dark tunnels, lit by crackling electricity, head east
+and west from this point.  Another tunnel leads south toward a gigantic
+door.
+~
+acolyte/weak wizard area
+[Phule] electric field n, cannot pass without killing 2 sparks
+[Phule] nomob
+~
+301596685 0 8 0
+D0
+~
+~
+0 -1 37283 10 10 5
+D1
+~
+~
+0 -1 37281 10 10 5
+D2
+~
+~
+0 -1 37279 10 10 5
+D3
+~
+~
+0 -1 37282 10 10 5
+A
+~
+~
+if( mob_in_room( 320, find_room( 37282 ) ) ) {
+  act_tochar( #step, ch );
+  act_notchar( #rstep, ch );
+  end;
+  }
+if( mob_in_room( 320, find_room( 37281 ) ) ) {
+  act_tochar( #step, ch );
+  act_notchar( #rstep, ch );
+  end;
+  }
+act_tochar( #go, ch );
+continue;
+~
+E
+rstep~
+$n tries to step through the lightning field, but is thrown back.
+~
+E
+step~
+You try to step through the lightning field, but are thrown back.
+~
+E
+go~
+The lightning field safely deactivated, you step through.
+~
+!
+3 0 1
+-1
+S
+
+#37281
+An alcove crackling with electricity~
+This large, bowl-shaped alcove crackles with electricity.  The ebbing
+tendrils of lightning seem to remain housed in the walls, as if some
+other field keeps the electricity at bay.  Even so, your hairs stand on
+end.  You can exit the alcove to the west.
+~
+~
+301596677 0 8 0
+D3
+~
+~
+0 -1 37280 10 10 5
+320 9 1509949540 3 0
+-1
+S
+
+#37282
+An alcove crackling with electricity~
+This large, bowl-shaped alcove crackles with electricity.  The ebbing
+tendrils of lightning seem to remain housed in the walls, as if some
+other field keeps the electricity at bay.  Even so, your hairs stand on
+end.  You can exit the alcove to the east.
+~
+~
+301596677 0 8 0
+D1
+~
+~
+0 -1 37280 10 10 5
+320 9 1509949540 3 0
+-1
+S
+
+#37283
+Beyond an archway of lightning~
+You are just to the north of a shimmering field of crackling lightning
+which blocks a massive stone arch to the south.  A large underground
+chamber opens up to the east.  The ancient obsidian on which you now
+stand has been here for ages.  It throbs with electricity.
+~
+~
+301596677 0 8 0
+D1
+~
+~
+0 -1 37284 10 10 5
+D2
+~
+~
+0 -1 37280 10 10 5
+A
+~
+~
+act_tochar( "You step through the lightning field.", ch );
+act_notchar( "$n steps through the lightning field.", ch );
+continue;
+~
+!
+3 0 4
+-1
+S
+
+#37284
+An underground chamber - puzzle room~
+A large handprint lies in the center of a complex mechanism on the north
+wall.  Presumably, the massive machine acts as a locking device for the
+heavy obsidian door inset in the east wall.  To the west, you can see a
+room glowing with electricity.
+~
+[Phule] puzzle here
+[Phule] clues are in narak
+~
+301596676 0 8 0
+D1
+heavy obsidian door~
+~
+195 -1 37296 10 10 5
+D3
+~
+~
+0 -1 37283 10 10 5
+E
+handprint center~
+The handprint is small, roughly the size of a human's hand.  It is set
+onto some kind of square panel which might slide back if you pressed it.
+~
+E
+complex mechanism machine device~
+The machine consists of five knobs, each of which can be pressed down. 
+The heads each have engravings upon them.  The engravings are (in order):
+a lion, a dragon, a dagger, a peal of fire, and a jellyfish.  The machine
+is obviously dangerous, and perhaps deadly.  Fiddling with it without
+proper knowledge could be fatal.
+~
+A
+***TRAP***~
+***CODE***~
+act_tochar( "Oops.", ch );
+act_notchar( "$n looks around in confusion.", ch );
+send_to_room( #rumble, room );
+i = 10d60+100;
+loop( all_in_room ) {
+  dam_message( rch, i, "The electric pulse" );
+  inflict_shock( rch, mob, i, "Electrocution" );
+  }
+send_to_room( "The machine locks up.", room );
+remove_rflag( reset2, find_room( 37296 ) );
+~
+E
+rumble~
+@EThe room rumbles and the machine hisses in anger.  This could be bad.@n
+@ESuddenly the room glows bright with electricity, and pulses!!@n
+~
+!
+0 0 0
+A
+press depress~
+lion peal fire~
+if( !rflag( reset2, find_room( 37296 ) ) ) {
+  act_tochar( "The machine has locked up.", ch );
+  end;
+  }
+acode( room, 1 );
+~
+!
+0 0 0
+A
+press depress~
+jellyfish~
+if( !rflag( reset2, find_room( 37296 ) ) ) {
+  act_tochar( "The machine has locked up.", ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  act_tochar( "You depress the seal of the jellyfish.", ch );
+  act_notchar( "$n depresses the seal of the jellyfish.", ch );
+  remove_rflag( reset0, room );
+  }
+else
+  acode( room, 1 );
+~
+!
+0 0 0
+A
+press depress~
+dagger~
+if( !rflag( reset2, find_room( 37296 ) ) ) {
+  act_tochar( "The machine has locked up.", ch );
+  end;
+  }
+if( rflag( reset0, room ) )
+  acode( room, 1 );
+else {
+  if( rflag( reset1, room ) ) {
+    act_tochar( "You depress the seal of the dagger.", ch );
+    act_notchar( "$n depresses the seal of the dagger.", ch );
+    remove_rflag( reset1, room );
+    }
+  else
+    acode( room, 1 );
+  }
+~
+!
+0 0 0
+A
+press depress~
+dragon~
+if( !rflag( reset2, find_room( 37296 ) ) ) {
+  act_tochar( "The machine has locked up.", ch );
+  end;
+  }
+if( rflag( reset0, room ) )
+  acode( room, 1 );
+else {
+  if( rflag( reset1, room ) )
+    acode( room, 1 );
+  else {
+    if( rflag( reset2, room ) ) {
+      act_tochar( "You depress the seal of the dragon.", ch );
+      act_notchar( "$n depresses the seal of the dragon.", ch );
+      remove_rflag( reset2, room );
+      send_to_room( #click, room );
+      }
+    else
+      acode( room, 1 );
+    }
+  }
+~
+E
+click~
+@EYou hear a slight *click*, and the machine starts to hum.@n
+~
+!
+0 0 0
+A
+press push depress~
+handprint~
+if( !rflag( reset2, find_room( 37296 ) ) ) {
+  act_tochar( "The machine has locked up.", ch );
+  end;
+  }
+if( rflag( reset2, room ) )
+  acode( room, 1 );
+else {
+  act_tochar( "You press firmly down upon the handprint.", ch );
+  act_notchar( "$n presses firmly down upon the handprint.", ch );
+  send_to_room( #open, room );
+  send_to_room( #opens, find_room( 37296 ) );
+  open( room, east );
+  send_to_room( "The machine locks up.", room );
+  remove_rflag( reset2, find_room( 37296 ) );
+  }
+~
+E
+open~
+The massive obsidian door to the east slowly swings open.
+~
+E
+opens~
+The massive obsidian door to the west slowly swings open.
+~
+!
+0 0 0
+-1
+S
+
+#37292
+The Underground Chambers of Narak~
+Under Construction.
+~
+~
+301596676 0 8 0
+-1
+S
+
+#37296
+The lair of Typhoeus~
+A hissing pool of green acid burns against the solid obsidian rock of
+this chamber.  The cavern is huge, perhaps a half-mile wide, and
+enshrouded in total darkness.  A giant door of obsidian leads west, out
+of the cavern.  There are no other side-tunnels or exits.
+~
+~
+301596676 0 9 0
+D3
+heavy obsidian door~
+~
+195 -1 37284 10 10 5
+A
+open~
+w west heavy obsidian door~
+if( !is_open( room, west ) ) {
+  act_tochar( "You open the heavy obsidian door.", ch );
+  act_notchar( "$n opens the heavy obsidian door.", ch );
+  send_to_room( "The door to the east opens.", find_room( 37284 ) );
+  open( room, west );
+  }
+else
+  act_tochar( "The door is already open.", ch );
+~
+!
+0 0 0
+1319 9 1509949540 3 0
+-1
+S
+
+#0
+

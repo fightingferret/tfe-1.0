@@ -1,0 +1,1353 @@
+#AREA
+The Rift~
+Phule~
+The Rift~
+
+20 0
+0
+#ROOMS
+
+#52000
+Within the Rift~
+This vertical passage is a glowing juncture between the physical world
+and another, less solid plane.  While above you lies rock, lined with
+jutting rocks as handholds, below you is nothing but swirling @Mpurple@n mist. 
+More than mist, actually, as it is so thick as to be solid, a wall of
+mist.  It is as if a rift has opened here, between this world and the one
+below.
+~
+up is 28154
+~
+301629444 0 5 0
+D4
+~
+~
+234 -1 28154 10 10 5
+D5
+~
+~
+0 -1 52001 10 10 5
+E
+up handholds rock~
+The handholds lead up and out of the rift.
+~
+E
+down below mist rift~
+What is beyond cannot be seen; the mists obscure the view below.
+~
+A
+climb~
+up out rocks handholds~
+act_tochar( #leave, ch );
+act_notchar( #rleave, ch );
+transfer( ch, find_room( 28154 ) );
+act_notchar( #rleaves, ch );
+~
+E
+rleaves~
+$n appears in a flash of purple light, emerging from the rift.
+~
+E
+rleave~
+$n climbs up the handholds and leaves the rift.
+~
+E
+leave~
+You climb the handholds and leave the rift.
+~
+!
+0 0 0
+A
+u up~
+~
+interpret( ch, "climb handholds" );
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( "You climb down the easily scaled terrain.", ch );
+continue;
+~
+!
+3 0 32
+-1
+S
+
+#52001
+Beyond the Rift~
+Black shadows crouch on the periphery of your vision, their voices a
+cacophony of disorienting hisses, growls, and whispers.  At first they
+surround you, threateningly close, but then the darkness parts to the
+west, widening into a more open passage.  The rift seems to thin
+overhead, entering a vertical stone tunnel.
+~
+nomob
+~
+301629452 0 5 0
+D3
+~
+~
+0 -1 52002 10 10 5
+D4
+~
+~
+0 -1 52000 10 10 5
+E
+shadows periphery west passage~
+The shadows flicker, midnight upon black, creeping ever forward.
+~
+E
+rift up tunnel~
+Stone handholds offer easy purchase into the rift overhead.
+~
+A
+~
+~
+act_tochar( "You climb up the easily scaled terrain.", ch );
+continue;
+~
+!
+3 0 16
+A
+listen~
+~
+act_tochar( "The voices seem to be getting closer, and more insistent.", ch );
+~
+!
+0 0 0
+-1
+S
+
+#52002
+The Edge of the Underworld - Near the Rift~
+A great dark plane stretches into the grey northwest, the murky sky
+meeting the unseen horizon in a dull, colourless void.  To the south, a
+strange fissure awaits, the cold granite of a solid wall of rock split
+down its center, forming a forbidding passage into the unknown beyond. 
+To the east, a passage leads through the shadows which border the
+underworld.
+~
+nomob
+~
+301629452 0 9 0
+D0
+~
+~
+0 -1 52003 10 10 5
+D1
+~
+~
+0 -1 52001 10 10 5
+D2
+~
+~
+0 -1 52006 10 10 5
+D3
+~
+~
+0 -1 52004 10 10 5
+E
+south fissure passage~
+The fissure is tight, yet more than enough room to maneuver comfortably,
+even to brandish a sword or cast a spell, if need be.
+~
+E
+east border~
+The shadows shrink away from the rift, as if something is holding them
+back.
+~
+A
+~
+~
+act_tochar( #enter, ch );
+act_notchar( #renter, ch );
+continue;
+~
+E
+enter~
+You squeeze into the narrow fissure.
+~
+E
+renter~
+$n squeezes into the fissure to the south.
+~
+!
+3 0 4
+1380 137 1509949540 3 0
+-1
+S
+
+#52003
+The Edge of the Underworld~
+The misty plane is bordered by dark shadows, nearly solid barriers which
+house foul wraiths and ghosts, all thirsting for living blood.  They seem
+to be gathering even closer, sensing the tentative barrier which is the
+Rift, getting as close as they can in preparation for such a time when
+the Rift is opened and they can slip through to the living world.
+~
+~
+301629444 0 9 0
+D2
+~
+~
+0 -1 52002 10 10 5
+D3
+~
+~
+0 -1 52005 10 10 5
+A
+~
+~
+if( mob_in_room( 1382, room ) )
+  end;
+else {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  }
+~
+E
+form~
+@h@MA dark shape emerges from the shadowed borders of your vision...@n
+~
+!
+2 350 0
+A
+n e north east~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+As you start to walk directly into the shadows, your anima speaks up
+nervously and talks you out of it.
+~
+!
+0 0 0
+-1
+S
+
+#52004
+The Underworld - Along the Line of Shadows~
+To the south, a long line of wraiths and ghosts lurk in a wall of shadow,
+waiting, hoping, thirsting for unwary travellers who stumble into their
+domain.  They are nearly in a frenzy now, sensing the Rift which offers a
+passage out of the underworld and into the world of the living.  To the
+west, the narrowest of passages lurks between two rising walls of shadow,
+like a set of jaws ready to clamp down on whatever enters the darkness of
+iits mouth.
+~
+[Starshine] extra passage/rising?
+[Phule] grumble.
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52005 10 10 5
+D1
+~
+~
+0 -1 52002 10 10 5
+D3
+~
+~
+0 -1 52007 10 10 5
+E
+s south wall shadow~
+The darkness has a murky purple hue; the disfigured shapes of evil things
+swirl around within it.
+~
+A
+~
+~
+if( mob_in_room( 1382, room ) )
+  end;
+else {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  }
+~
+E
+form~
+@h@MA dark shape emerges from the shadowed borders of your vision...@n
+~
+!
+2 350 0
+A
+s south~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+As you start to walk directly into the shadows, your anima speaks up
+nervously and talks you out of it.
+~
+!
+0 0 0
+-1
+S
+
+#52005
+The Underworld - Ring of Shadows~
+The circle of shadows is drawn very tight here, as close as possible to
+the Rift.  Hundreds of shapes swim around in the shadows, and at your
+approach a tumultuous clamor of whispers and scratchy voices can be heard. 
+The grey plane which is the underworld, dreary, murky, lifeless grey,
+continues to the east and south.  To the north and west, the shadows form
+an impenetrable barrier of death.  The mists underfoot are quite thick.
+~
+[Phule] d is 52018
+~
+301629444 0 9 0
+D1
+~
+~
+0 -1 52003 10 10 5
+D2
+~
+~
+0 -1 52004 10 10 5
+D5
+tunnel~
+~
+139 -1 52018 10 10 5
+E
+mists down ground underfoot~
+The thick mists are not thick enough to hide the dark passage leading
+down, which would be revealed if the mists were cleared.
+~
+A
+~
+~
+if( mob_in_room( 1382, room ) )
+  end;
+else {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  }
+~
+E
+form~
+@h@MA dark shape emerges from the shadowed borders of your vision...@n
+~
+!
+2 350 0
+A
+n w north west~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+As you start to walk directly into the shadows, your anima speaks up
+nervously and talks you out of it.
+~
+!
+0 0 0
+A
+clear~
+mist~
+if( !is_open( room, down ) ) {
+  act_tochar( "You clear aside the mists, revealing a passage down.", ch );
+  act_notchar( "$n clears aside the mists underfoot.", ch );
+  open( room, down );
+  send_to_room( "The mists overhead dissipate.", find_room( 52018 ) );
+  }
+else
+  act_tochar( "The mists have been cleared.", ch );
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, down ) ) {
+  send_to_room( "The mists quickly reform overhead.", room );
+  send_to_room( "The mists quickly reform underfoot.", find_room( 52018 ) );
+  close( room, down );
+  }
+~
+!
+1 0 32
+-1
+S
+
+#52006
+Narrow Fissure - Encased by Rock~
+There is almost no room to maneuver in this narrow passage, where
+blackness and cold swirl around you as palpable entities.  In the
+absolute chill of the passage, the heat of your breath creates miniature
+clouds of fog as it leaves your mouth and sinks to the floor.  It is
+colder still to the south, where purple clouds swirl in a frenzy.  Within
+the clouds, hundreds of pairs of evil black eyes stare, unblinking,
+waiting.  You can exit the narrow passage to the north.
+~
+nomob
+south is the feeding zone
+~
+301629452 0 5 0
+D0
+~
+~
+0 -1 52002 10 10 5
+D2
+~
+~
+0 -1 52015 10 10 5
+E
+s south eyes~
+The black eyes look hungrily for any sign of warmth, waiting to feast and
+drink hot blood.
+~
+A
+~
+~
+act_tochar( #you, ch );
+continue;
+~
+E
+you~
+You squeeze out of the narrow fissure.
+~
+!
+3 0 1
+-1
+S
+
+#52007
+The Underworld - Narrow Passage Through Shadow~
+The lines of shadow press in tightly, nearly closing off this narrow
+passage.  Murky, indistinct shapes swirl about in the shadows, detected
+only by slight variations in the mad twisting darkness.  You can escape
+the pass to the east or west, but in those directions the shadows still
+lurk in patient masses, hungering for your flesh.
+~
+nomob
+[Merior] riftshadow may need to be beefed up some
+[Phule] i think riftshadow is good....
+[Starshine] narrow passage is size ogre? :)
+[Phule] narrow for dragon-types
+[Phule] and anything smaller and ogre/ent/troll can't visit area
+~
+301629444 0 5 0
+D1
+~
+~
+0 -1 52004 10 10 5
+D3
+~
+~
+0 -1 52008 10 10 5
+A
+~
+~
+if( mob_in_room( 1382, room ) )
+  end;
+else {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  if( rflag( reset2, room ) ) {
+    remove_rflag( reset2, room );
+    set_rflag( reset0, room );
+    set_rflag( reset1, room );
+    send_to_room( #form, room );
+    mload( 1382, room );
+    end;
+    }
+  }
+~
+E
+form~
+@h@MA dark shape emerges from the shadowed borders of your vision...@n
+~
+!
+2 350 0
+A
+n s north south~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+As you start to walk directly into the shadows, your anima speaks up
+nervously and talks you out of it.
+~
+!
+0 0 0
+-1
+S
+
+#52008
+The Underworld - Behind the Narrow Passage~
+The nearly solid walls of mist press close to the east, nearly blocking
+the way.  In all other directions, the dark plane widens, purple horizons
+beckoning like an open abyss.  The mist clings underfoot, enshrouding the
+ground in a blanket of fog.
+~
+nomob
+[Phule] read carefully pls.
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52009 10 10 5
+D1
+~
+~
+0 -1 52007 10 10 5
+D2
+~
+~
+0 -1 52010 10 10 5
+D3
+~
+~
+0 -1 52011 10 10 5
+1381 137 1509949540 3 0
+-1
+S
+
+#52009
+The Underworld - Beyond the Narrow Passage~
+This seems to be a somewhat central point of the abyss.  The shadows,
+while not converging, press closely around in a swirling vortex of
+midnight.  The mists form a massive wall to the east, while the abyss
+stretches into the grey nether to the west, north, and south.  Heavy fog
+cloaks the ground.
+~
+[Starshine] extra of vortex? fog?
+[Starshine] action for walking east?
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52022 10 10 5
+D2
+~
+~
+0 -1 52008 10 10 5
+D3
+~
+~
+0 -1 52012 10 10 5
+1381 137 1509949540 3 0
+-1
+S
+
+#52010
+The Underworld - Beyond the Narrow Passage~
+The dark purple abyss stretches into the midnight black sky of the
+northwest, away from rolling walls of mist and fog which have formed to
+the east and south.  The air is cold and empty, almost a vacuum, a
+nothingness which gnaws at your lungs.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52008 10 10 5
+D3
+~
+~
+0 -1 52013 10 10 5
+1381 137 1509949540 3 0
+-1
+S
+
+#52011
+The Underworld - Beyond the Narrow Passage~
+A breach in the purple mist walls to the west gives access to a dark
+room, siphoned off from the rest of the abyss.  Dense mists blanket the
+ground, spreading in all other directions under a midnight sky.  The
+heavens lie dark, bereft of stars or moon.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52012 10 10 5
+D1
+~
+~
+0 -1 52008 10 10 5
+D2
+~
+~
+0 -1 52013 10 10 5
+D3
+~
+~
+0 -1 52014 10 10 5
+E
+breach wall w west~
+There is silence, like that of the center of a storm, in the breach to
+the west.
+~
+1381 137 1509949540 3 0
+-1
+S
+
+#52012
+The Underworld - Beyond the Narrow Passage~
+The underworld lies around you, an amorphous purple mass.  Skies fade
+into the infinite nether beyond the reaches of sight.  Heavy mists choke
+the ground out of your vision.  The abyss falls away from a dense wall of
+midnight fog to the west, expanding in all other directions.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52025 10 10 5
+D1
+~
+~
+0 -1 52009 10 10 5
+D2
+~
+~
+0 -1 52011 10 10 5
+1380 137 1509949540 3 0
+-1
+S
+
+#52013
+The Underworld - Beyond the Narrow Passage~
+A thick blanket of mist cloaks the cold ground, the same midnight purple
+as the thick walls of shadow to the south and west.  The abyss stretches
+into the black horizon to the northeast, the heavens unlit by star or sun.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52011 10 10 5
+D1
+~
+~
+0 -1 52010 10 10 5
+1380 137 1509949540 3 0
+-1
+S
+
+#52014
+The Underworld - Dark Chamber~
+The patterns of darkness converge here, a swirling mad vertigo of black,
+midnight, and purple.  In a pool of blood in the center of the storm lies
+a broken body, torn to pieces.  From the shadows come cackles and
+murmurings as the body convulses in pain, not living, yet not granted the
+rest of death.  The nether widens to the east, a more open plane amidst
+the constant purple gloom.
+~
+no.mob
+~
+301629452 0 9 0
+D1
+~
+~
+0 -1 52011 10 10 5
+E
+body~
+While torn to pieces, the body is wrapped still in a silken shroud.
+It is barely recognizeable as that of a young woman.
+~
+A
+l look search take~
+silken death shroud~
+if( is_player( ch ) ) {
+  if( !mob_in_room( 1382, room ) ) {
+    if( rflag( reset0, room ) ) {
+      remove_rflag( reset0, room );
+      if( random( 0, 10 ) < 7 ) {
+        act_tochar( #take, ch );
+        act_notchar( #rtake, ch );
+        obj_to_char( oload( 1861 ), ch );
+        }
+      else
+        act_tochar( #already, ch );
+      }
+    else
+      act_tochar( #already, ch );
+    }
+  else
+    act_tochar( #rift, ch );
+  }
+~
+E
+already~
+The death shroud is gone.
+~
+E
+rtake~
+$n takes the silken death shroud from the body.
+~
+E
+take~
+You take the silken death shroud from the body.
+~
+E
+rift~
+@MA riftshadow howls in anger as you attempt to take the shroud.@n
+~
+!
+0 0 0
+A
+listen~
+~
+act_tochar( "You hear the tale of your own death.", ch );
+~
+!
+0 0 0
+1382 137 1509949540 3 0
+1382 137 1509949540 3 0
+1382 137 1509949540 3 0
+-1
+S
+
+#52015
+Encased By Rock and Shadow~
+Hundreds of pairs of black eyes stare, unblinking, waiting, hungry, ready
+to feed on your warmth.  The narrow fissure continues to the north and
+south, away from this central zone below the frenzied swirl of purple
+clouds.
+~
+without death shroud, ya get etten up here
+[Merior] when i enter room.. only one attacks me
+[Phule] they all don't attack you because you're an imm
+~
+301629444 0 5 0
+D0
+~
+~
+0 -1 52006 10 10 5
+D2
+~
+~
+0 -1 52016 10 10 5
+E
+eyes~
+Movement may provoke their hunger past the point of resistance.
+~
+A
+~
+~
+if( has_obj( 1861, ch ) )
+  act_tochar( #fine, ch );
+else {
+  if( rflag( reset1, room ) ) {
+    remove_rflag( reset1, room );
+    act_tochar( #swarm, ch );
+    act_notchar( #rswarm, ch );
+    send_to_room( #swarms, room );
+    loop( num_mob( 1382, room ) < 10 ) {
+      attack( mload( 1382, room ), rand_player( room ), 2d5+5, "hungry fangs" );
+      }
+    }
+  }
+~
+E
+fine~
+Safely protected by the guise of the death shroud, you pass unhindered
+through the crevice.
+~
+E
+swarm~
+Your warmth stands out against the contrast of the chill crevice.
+~
+E
+rswarm~
+$n's warmth stands out in stark contrast to the chill crevice.
+~
+E
+swarms~
+@MDark shapes begin to surround you, hundreds of shadows in a swarm!@n
+~
+!
+1 0 5
+A
+~
+~
+mob = mob_in_room( 1382, room );
+if( mob ) {
+  if( !is_fighting( mob ) ) {
+    send_to_room( #disperse, room );
+    junk_mob( mob );
+    }
+  }
+~
+E
+disperse~
+@MThe shadows disperse a little.@n
+~
+!
+4 500 0
+A
+~
+~
+if( mob_in_room( 1382, room ) )
+  act_tochar( #shadows, ch );
+else
+  continue;
+~
+E
+shadows~
+@MYou try to move past the shadows, but they quickly swarm to block your
+path.@n
+~
+!
+3 0 4
+-1
+S
+
+#52016
+Narrow Fissure - Encased in Rock~
+There is almost no room to maneuver in this narrow passage, where
+blackness and cold swirl around you as palpable entities.  In the
+absolute chill of the passage, the heat of your breath creates miniature
+clouds of fog as it leaves your mouth and sinks to the floor.  It is
+colder still to the north, where purple clouds swirl in a frenzy.  Within
+the clouds, hundreds of pairs of evil black eyes stare, unblinking,
+waiting.  You can exit the narrow passage to the south.
+~
+n is da feedin zone
+~
+301629452 0 5 0
+D0
+~
+~
+0 -1 52015 10 10 5
+D2
+~
+~
+0 -1 52017 10 10 5
+E
+n north eyes~
+The black eyes look hungrily for any sign of warmth, waiting to feast and
+drink hot blood.
+~
+-1
+S
+
+#52017
+Beyond the Narrow Fissure~
+A circular dome rises into the whirling purple clouds, creating a
+cathedral-like room of vaulted ceilings and swirling black columns.  In
+the center of the room stands a small triangular dais.  A narrow fissure
+enters a chamber of rock to the north.
+~
+[Lansharra] should whole group complete quest? or just one who kills the betrayer? :P
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52016 10 10 5
+E
+dais triangular~
+The dais has three faces, one black, another midnight blue, and the last
+the dark purple of the surrounding mists.
+~
+E
+dome~
+The dome is of solid shadow, swirling midnight black and purple.
+~
+1787 9 1509949540 3 0
+-1
+S
+
+#52018
+The Underworld - Dark Passage~
+Heavy mists cloak the room, chill, damp, and dark.  A tunnel leads north
+amidst walls of swirling shadow.  The mists overhead are extremely thick
+and may hide a vertical passage.  Swirls of violet and grey churn in the
+mists of the walls.
+~
+[Phule] u is 52005
+[Fraelith] clear up but mists under dissipate
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52019 10 10 5
+D4
+~
+~
+139 -1 52005 10 10 5
+E
+mists up ceiling~
+The thick mists are not thick enough to hide the dark passage leading
+up, which would be revealed if the mists were cleared.
+~
+A
+clear~
+mists~
+if( !is_open( room, up ) ) {
+  act_tochar( "You clear the mists aside, revealing a passage up.", ch );
+  act_notchar( "$n clears aside the mists overhead.", ch );
+  open( room, up );
+  send_to_room( "The mists underfoot dissipate.", find_room( 52018 ) );
+  }
+else
+  act_tochar( "The mists have been cleared.", ch );
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, up ) ) {
+  send_to_room( "The mists quickly reform overhead.", room );
+  send_to_room( "The mists quickly reform underfoot.", find_room( 52005 ) );
+  close( room, up );
+  }
+~
+!
+1 0 16
+-1
+S
+
+#52019
+The Underworld - Dark Passage~
+This dark fold within the nether bends sharply to the east, purple shadow
+walls twisting, confusing the vertical.  Heavy mists cloak the ground,
+huddling around your knees, obscuring the terrain.  The dark passage
+leads through swirling night to the south and east.
+~
+~
+301629444 0 9 0
+D1
+~
+~
+0 -1 52020 10 10 5
+D2
+~
+~
+0 -1 52018 10 10 5
+1812 9 1509949540 3 0
+-1
+S
+
+#52020
+The Underworld - Dark Passage~
+The shadows twist, the passage bending as does the fabric of the nether. 
+A strange tunnel leads up and out of this dark passage, but the grim
+purple sky beyond its opening looks no cheerier than the misty black
+surroundings in which you currently stand.  The dark passage leads west.
+~
+[Phule] d is 52034
+~
+301629444 0 9 0
+D3
+~
+~
+0 -1 52019 10 10 5
+D4
+~
+~
+0 -1 52021 10 10 5
+D5
+~
+~
+139 -1 52034 10 10 5
+E
+mists down ground~
+The thick mists are not thick enough to hide the dark passage leading
+down, which would be revealed if the mists were cleared.
+~
+A
+clear~
+mists~
+if( !is_open( room, down ) ) {
+  act_tochar( "You clear the mists aside, revealing a passage down.", ch );
+  act_notchar( "$n clears aside the mists underfoot.", ch );
+  open( room, down );
+  send_to_room( "The mists overhead dissipate.", find_room( 52018 ) );
+  }
+else
+  act_tochar( "The mists have been cleared.", ch );
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, down ) ) {
+  send_to_room( "The mists quickly reform underfoot.", room );
+  send_to_room( "The mists quickly reform overhead.", find_room( 52034 ) );
+  close( room, down );
+  }
+~
+!
+1 0 32
+-1
+S
+
+#52021
+The Underworld - Walls of Mist~
+Below you, the nether bends into a dark tunnel which burrows into the
+mists at your feet.  Above you, a midnight-purple sky seems infinite, yet
+as near as a soft cloth draped overhead just out of reach.  Walled by
+mist, a passage leads north into the nether.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52032 10 10 5
+D5
+~
+~
+0 -1 52020 10 10 5
+1812 9 1509949540 3 0
+-1
+S
+
+#52022
+The Underworld - Beyond the Narrow Passage~
+Netherous fumes flare up from time to time, glowing a strange purple that
+illuminates and fades with a randomness reminiscent of lightning bugs. 
+Silken wals of purple cloud enshroud you, fading just before you
+suffocate.  Infinitely deep skies invade with their storm-like purple
+thunders and lightnings, but their flashes come from afar, their cold
+gaze bereft of a powerful threat, but chilling all the same.
+~
+[Sosumi] wals should be walls
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52023 10 10 5
+D1
+~
+~
+0 -1 52027 10 10 5
+D2
+~
+~
+0 -1 52009 10 10 5
+D3
+~
+~
+0 -1 52025 10 10 5
+1380 137 1509949540 3 0
+-1
+S
+
+#52023
+The Underworld - Beyond the Narrow Passage~
+Strange walls of thick shadow swirl to the north and east, their purple
+mists gathered in strength at your approach.  The abyss stretches to the
+southwest, dense fog clinging to the ground.  No light mars the sky's
+perfect midnight darkness.
+~
+~
+301629444 0 9 0
+D2
+~
+~
+0 -1 52022 10 10 5
+D3
+~
+~
+0 -1 52024 10 10 5
+1812 137 1509949540 3 0
+-1
+S
+
+#52024
+The Underworld - Beyond the Narrow Passage~
+Walls of purple shadow have formed to the north and west, framing the
+black abyss which stretches into a midnight horizon to the southwest. 
+Heavy mists cling underfoot, obscuring your view of the ground below. 
+Cold, empty air freezes in your lungs.
+~
+~
+301629444 0 9 0
+D1
+~
+~
+0 -1 52023 10 10 5
+D2
+~
+~
+0 -1 52025 10 10 5
+1381 137 1509949540 3 0
+-1
+S
+
+#52025
+The Underworld - Beyond the Narrow Passage~
+A deep violet haze surrounds you, a nebula of mist and fog.  The strange
+cloak is impenetrable visually; even the floor beneath you is enshrouded
+in thick clouds of purple which hug your lower extremities with a chill,
+almost tangible aura, of death and decay.  A thick wall of purple fog
+prevents movement to the west, its cloud-like tendrils flashing a bright
+purple from time to time, an eerie thunderstorm of supernatural power.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52024 10 10 5
+D1
+~
+~
+0 -1 52022 10 10 5
+D2
+~
+~
+0 -1 52012 10 10 5
+1812 137 1509949540 3 0
+-1
+S
+
+#52026
+the Underworld - Behind the Narrow Passage~
+Under Construction.
+~
+~
+301629444 0 9 0
+-1
+S
+
+#52027
+The Underworld - Beyond the Narrow Passage~
+Midnight ripples across purple, the mists a shimmering field of
+substantial fog to the north and south.  The passage continues to the
+east, folding around itself as it disappears into the nether.  To the
+west, the abyss opens, waiting.
+~
+no.mob (for separation)
+~
+301629452 0 9 0
+D1
+~
+~
+0 -1 52031 10 10 5
+D3
+~
+~
+0 -1 52022 10 10 5
+1381 137 1509949540 3 0
+-1
+S
+
+#52031
+The Underworld - Bend in the Nether~
+Mists warp and bend, forming strange slanted walls which twist around
+you, confusing the horizontal.  All is darkness, from sky to ground and
+back again.  Flashes of midnight range across the mists and fog, a dancing
+storm of darkness.
+~
+~
+301629444 0 9 0
+D0
+~
+~
+0 -1 52033 10 10 5
+D3
+~
+~
+0 -1 52027 10 10 5
+1812 9 1509949540 3 0
+-1
+S
+
+#52032
+The Underworld - Walls of Mist~
+The fabric of the nether folds, twisting to the west and south amidst
+walls of purple darkness.  The forboding, draping sky above distorts, as
+if through a lens.  It is like the sky is tearing like cloth.  Heavy
+mists cloak the ground, obscuring the terrain below.
+~
+~
+301629444 0 9 0
+D2
+~
+~
+0 -1 52021 10 10 5
+D3
+~
+~
+0 -1 52033 10 10 5
+1812 9 1509949540 3 0
+-1
+S
+
+#52033
+The Underworld - Walls of Mist~
+Walls of mist rise on either side, framing a bend in the folds of the
+nether.  Thick fog billows at your feet, its purple form undulating like
+a serpent.  The folding passage leads east and south into the darkness of
+the abyss.
+~
+~
+301629444 0 9 0
+D1
+~
+~
+0 -1 52032 10 10 5
+D2
+~
+~
+0 -1 52031 10 10 5
+1812 9 1509949540 3 0
+-1
+S
+
+#52034
+The Underworld - Hollow in the Nether~
+This strange bowl-shaped room seems a kind of hollow amidst the dark
+mists of the nether.  Heavy mists lie overhead, perhaps concealing a
+hidden vertical passage.  The purple shadows of the walls are an intense,
+almost mirror-like black.
+~
+[Phule] u is 52020
+~
+301629444 0 9 0
+D4
+~
+~
+139 -1 52020 10 10 5
+E
+mists up ceiling~
+The thick mists are not thick enough to hide the dark passage leading
+up, which would be revealed if the mists were cleared.
+~
+A
+clear~
+mists~
+if( !is_open( room, up ) ) {
+  act_tochar( "You clear the mists aside, revealing a passage up.", ch );
+  act_notchar( "$n clears aside the mists overhead.", ch );
+  open( room, up );
+  send_to_room( "The mists underfoot dissipate.", find_room( 52020 ) );
+  }
+else
+  act_tochar( "The mists have been cleared.", ch );
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, up ) ) {
+  send_to_room( "The mists quickly reform overhead.", room );
+  send_to_room( "The mists quickly reform underfoot.", find_room( 52020 ) );
+  close( room, up );
+  }
+~
+!
+1 0 16
+A
+search~
+mists shadows~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 0, 7 ) == 5 ) {
+    act_tochar( #strand, ch );
+    act_notchar( #rstrand, ch );
+    obj_to_char( oload( 1859 ), ch );
+    }
+  else {
+    if( random( 0, 2 ) == 1 ) {
+      act_room( #some, ch );
+      mload( 1812, room );
+      }
+    else {
+      act_tochar( #no, ch );
+      act_notchar( #rno, ch );
+      }
+    }
+  }
+else {
+  act_tochar( #no, ch );
+  act_notchar( #rno, ch );
+  }
+~
+E
+no~
+You search the mists, but find nothing.
+~
+E
+some~
+The mists converge into evil shapes...
+~
+E
+rno~
+$n searches the mists, but comes up empty-handed.
+~
+E
+rstrand~
+$n searches the mists, and finds something.
+~
+E
+strand~
+You find a dark strand.
+~
+!
+0 0 0
+1812 137 1509949540 3 0
+1812 137 1509949540 3 0
+-1
+S
+
+#0
+

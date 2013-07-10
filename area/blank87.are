@@ -1,0 +1,2665 @@
+#AREA
+Voaleth Palace~
+Merior~
+Voaleth Palace~
+
+50 0
+0
+#ROOMS
+
+#50250
+Palace Courtyard~
+To the north lies a wide, dark tunnel and the city of Voaleth; the palace
+courtyard stretches out in all other directions.  The courtyard is paved
+with red bricks; surprising in this rocky cavern.  There is no plant life
+around here, or anything else to brighten the atmosphere; though several
+life-like statues are placed in the corners of the courtyard.
+~
+~
+301465605 1 6 0
+D0
+~
+~
+0 -1 20081 10 10 5
+D1
+~
+~
+0 -1 50252 10 10 5
+D2
+~
+~
+0 -1 50254 10 10 5
+D3
+~
+~
+0 -1 50251 10 10 5
+E
+statue~
+The statues are too far away to examine them from here.
+~
+E
+red brick~
+Hundreds of small red bricks have been layed flat along the rocky surface
+of the cavern floor.  Above-ground, bricks on a patio or veranda are
+quite common; less so when the ground is hard and flat.
+~
+-1
+S
+
+#50251
+Palace Courtyard~
+The northwest corner of the palace courtyard is only dimly lit, and shows
+little signs of use.  A thin layer of dust coats the bricks, making them
+appear to be pink, rather then the dark red found elsewhere in this area.
+~
+~
+301465605 1 9 0
+D1
+~
+~
+0 -1 50250 10 10 5
+D2
+~
+~
+0 -1 50255 10 10 5
+E
+dust brick~
+Fine white dust covers the bricks here.  There is no obvious source for
+the dust other then perhaps lack of traffic in this portion of the
+courtyard.
+~
+A
+move touch search~
+dust brick~
+act_tochar( #nope, ch );
+act_notchar( #move, ch );
+~
+E
+nope~
+You stir up a bit of dust, causing it to tickle your nose.
+~
+E
+move~
+You see $n touch the bricks, and stir up the dust.
+~
+!
+0 0 0
+1235 9 1509949540 3 0
+-1
+S
+
+#50252
+Palace Courtyard~
+The bricks in this corner of the palace courtyard are stained with large
+spots of some dark red-brown matter.  The black cavern walls here are
+pitted, and have long, thin scratches much like those a sword would make. 
+The courtyard spreads out to the west and south, leading away from the
+black enclosing walls.
+~
+~
+301465605 1 9 0
+D2
+~
+~
+0 -1 50253 10 10 5
+D3
+~
+~
+0 -1 50250 10 10 5
+E
+brick matter red-brown~
+Large dark splotches stain the bricks in this area.  The color is very
+similar to that of blood.
+~
+E
+walls scratches~
+The state of the walls in this area indicates that some heavy battles
+have occurred here.  Pits and scratches like those made of axes and heavy
+swords abound.
+~
+1240 9 1509949540 3 0
+-1
+S
+
+#50253
+Palace Courtyard~
+The southeast corner of the palace courtyard is dominated by a large
+sconce built into the intersection of the east and south walls.  The
+light plays games with your shadow, making it appear first larger, and
+smaller than it really is.
+~
+~
+301465605 1 9 0
+D0
+~
+~
+0 -1 50252 10 10 5
+D3
+~
+~
+0 -1 50254 10 10 5
+E
+sconce~
+A large sconce made of brass is firmly attached to the walls of the
+cavern that surround the palace courtyard.
+~
+1239 9 1509949540 3 0
+-1
+S
+
+#50254
+Palace Courtyard~
+You find yourself in the southern portion of the palace courtyard.  The
+brick paving is rutted here, showing signs of heavy use.  Far to the
+north stand the gates of the fortress city; a narrow passage to the south
+marks the entry into the palace proper.
+~
+~
+301465605 1 9 0
+D0
+~
+~
+0 -1 50250 10 10 5
+D1
+~
+~
+0 -1 50253 10 10 5
+D2
+~
+~
+0 -1 50256 10 10 5
+D3
+~
+~
+0 -1 50255 10 10 5
+-1
+S
+
+#50255
+Palace Courtyard~
+The dark black walls of the cavern to your west and south seem to absorb
+all the light from the area, making it difficult to see.  The brick
+pavement is uneven, making movement tricky and slow.  The courtyard
+stretches out to your north and east.
+~
+~
+301465605 1 9 0
+D0
+~
+~
+0 -1 50251 10 10 5
+D1
+~
+~
+0 -1 50254 10 10 5
+1237 9 1509949540 3 0
+-1
+S
+
+#50256
+Palace Gateway~
+The slate of the cavern forms a high arch above your head, and delineates
+the separation of the palace from its courtyard.  To the north spreads
+the palace courtyard, a large open area covered with red bricks.  To the
+south is a small guardpost, providing a resting spot for those checking
+visitors in and out of the palace.
+~
+~
+301465613 1 9 0
+D0
+~
+~
+0 -1 50254 10 10 5
+D2
+~
+~
+0 -1 50257 10 10 5
+E
+arch~
+The dark arch has been carved into the rock of the cavern.  It is about
+20 feet high, and the polished rock glistens in the light.
+~
+A
+~
+~
+act_tochar( #enter, ch );
+act_notchar( #enter2, ch );
+transfer( ch, find_room( 50257 ) );
+act_notchar( #arrives, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+fear~
+The way south looks just too intimidating.  You just can't bring yourself
+to enter.
+~
+E
+enter~
+You slowly move south.
+~
+E
+enter2~
+You see $n gulp, and head south.
+~
+E
+arrives~
+$n appears, looking just a little bit uncertain.
+~
+!
+3 0 4
+-1
+S
+
+#50257
+Palace Checkpoint~
+The remnants of a large filigreed gate stand to the sides of the palace
+entrance, this small barrier is by live guards.  To the south you can
+just glimpse the splendor of the palace; to the north is the formal
+entrance and the open courtyard.  This checkpoint is more reminiscent of
+a military outpost then of a royal residence.
+~
+~
+301465613 1 6 0
+D0
+~
+~
+0 -1 50256 10 10 5
+D2
+~
+~
+128 -1 50260 10 10 5
+A
+~
+~
+if( mob_in_room( 1241, room ) ) 
+  act_tochar( #stop, ch );
+else
+  continue;
+~
+E
+stop~
+The guard will not let you pass without giving today's password.
+~
+!
+3 0 4
+1241 9 1509949540 3 0
+-1
+S
+
+#50258
+Receiving Room~
+A large room designed to provide a place for visitors to wait to see
+palace dignitaries stretches from here westward.  The walls in this
+portion of the room contain several large portraits of the ancient royal
+family, there is no furniture in this part of the room; though you can
+see some benches to the west.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50260 10 10 5
+D3
+~
+~
+0 -1 50267 10 10 5
+E
+picture portrait~
+Several large portraits portray members of the ancient royal family of
+Voaleth.  The largest portrait of all shows a large ogre dressed in
+heavily brocaded purple robes.  The others displayed are also ogres, one
+more ornately dressed then the next.
+~
+-1
+S
+
+#50259
+Cloak Room~
+This small room serves as a place for guests to hang up their cloaks and
+other articles of outer clothing.  Many hooks have been hammered into the
+oak walls, providing hangers for close to one hundred visitors.  A small
+door to the east provides entry into another room.
+~
+~
+301465605 1 5 0
+D1
+small door~
+~
+131 -1 50263 10 10 5
+D2
+~
+~
+0 -1 50262 10 10 5
+D3
+~
+~
+0 -1 50260 10 10 5
+A
+hang~
+hook coat cloak~
+if( rflag( reset0, room ) ) {
+  act_tochar( #hang, ch );
+  if( !mob_in_room( 1295, room ) ) {
+    mob = mload( 1295, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #yell, ch );
+  act_notchar( #nohang, ch );
+  mob = mob_in_room( 1295, room );
+victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+hang~
+You start to hang your belongings on a hook.
+~
+E
+yell~
+@RA maid suddenly rushes out, accusing you of not being an invited
+guest!@n 
+~
+E
+nohang~
+@RA maid rushes out, and accuses $n of not being an invited guest!@n
+~
+E
+nope~
+You cannot hang anything on the hook.
+~
+!
+0 0 0
+1258 9 1509949540 3 0
+-1
+S
+
+#50260
+Palace Entrance~
+The splendor of the royal palace spreads out before you.  A grand hallway
+runs south, lit with blazing sconces.  To the north is the checkpoint
+where guards examine their visitor's credentials.  To the east and west
+are large, sparsely furnished rooms.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+128 -1 50257 10 10 5
+D1
+~
+~
+0 -1 50259 10 10 5
+D2
+~
+~
+0 -1 50261 10 10 5
+D3
+~
+~
+0 -1 50258 10 10 5
+1251 9 1509949540 3 0
+-1
+S
+
+#50261
+Palace Hall~
+This wide hall stretches south into the rest of the palace, or north
+towards its exit.  To the east and west are open doorways leading to
+richly carpeted rooms.  The walls are bare of decorations, although bare
+spots indicate areas where something once hung. 
+~
+[Staer] opens the what to the north
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50260 10 10 5
+D1
+~
+~
+0 -1 50262 10 10 5
+D2
+~
+~
+0 -1 50268 10 10 5
+D3
+~
+~
+0 -1 50265 10 10 5
+E
+spots bare~
+Rectangular spots are placed evenly on the walls, marking where pictures
+of some sort once hung.
+~
+-1
+S
+
+#50262
+Music Room~
+This room has been used as a place to play various musical instruments. 
+Small chairs and music stands are scattered about the carpeted floor, and
+a large painting on the wall depicts the notes of the musical scale. 
+There is no sign of actual instruments in here, however, nor any
+indication where they may have gone.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50259 10 10 5
+D1
+~
+~
+0 -1 50264 10 10 5
+D3
+~
+~
+0 -1 50261 10 10 5
+E
+painting~
+The painting shows the notes of the musical scale.  
+~
+E
+music stand~
+Half a dozen small chairs are placed behind music stands in perfect
+position for a small ensemble to perform.
+~
+1824 17 1509949540 -2 0
+1824 17 1509949540 -2 0
+-1
+S
+
+#50263
+Sitting Room~
+This small room is comfortably furnished with several couches and end
+tables.  A large torchiere stands in the northeast corner, providing much
+light.  A fireplace has been built into the southern wall, and wood lies
+unlit in the fireplace.  A small door separates this room from one to the
+west; a larger one leads south.
+~
+~
+301465605 1 5 0
+D2
+wooden door~
+~
+131 -1 50264 10 10 5
+D3
+small door~
+~
+131 -1 50259 10 10 5
+E
+fireplace~
+A small fireplace covered with dark green tiles has been built into the
+southern all of the room.  Several logs are laid on the grate, ready for
+lighting.
+~
+E
+torchiere~
+This tall fixture holds a large candelabra which sheds light over the
+entire room.
+~
+E
+couch table~
+Two long couches and one smaller one are placed in a semi-circle facing
+the fireplace.  In addition, small end tables are placed between them,
+providing a spot to place cups and other items.
+~
+A
+touch move search~
+fireplace~
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 1295, room ) ) {
+    mob = mload( 1295, room );
+    remove_rflag( reset0, room );
+    }
+  act_room( #maid, ch );
+  mob = mob_in_room( 1295, room );
+victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+else
+  continue;
+~
+E
+maid~
+@Y@bA maid comes rushing into the room and yells about making a mess!@n
+~
+!
+0 0 0
+A
+light~
+fire wood~
+act_tochar( #nope, ch );
+act_notchar( #try, ch );
+~
+E
+nope~
+The wood seems to be covered with something that prevents it from being
+lit.
+~
+E
+try~
+You see $n try to light the fire, then stand up in frowning.
+~
+!
+0 0 0
+A
+climb~
+fireplace chimney flue~
+act_tochar( #up, ch );
+transfer( ch, find_room( 50295 ) );
+~
+E
+up~
+You carefully enter the flue and climb up.
+~
+!
+0 0 0
+1295 9 1509949540 3 0
+-1
+S
+
+#50264
+Trophy Room~
+The walls of this room are covered with war trophies.  The eastern wall
+contains shields of many different knights, representing vanquished foe
+from around the land.  The northern wall contains many types of weapons,
+all well-affixed to the plaster.  To the south, the wall is covered with
+treasures from many foreign lands, including packets of faerie dust and
+other magical artifacts.  The final wall displays the most grizzly of
+artifacts: heads and scalps from humanoids found throughout the land.
+~
+~
+301465605 1 5 0
+D0
+wooden door~
+~
+131 -1 50263 10 10 5
+D3
+~
+~
+0 -1 50262 10 10 5
+E
+north weapon~
+This wall is covered with a wide range of weapons, from a basic stone
+dagger to a highly ornate broadsword.  All the weapons are in immaculate
+condition, and seem to be firmly attached to the walls.
+~
+E
+south treasure~
+Many unusual items are displayed on the south wall.  Large golden goblets
+hang near tiny silver rings, and gems of all sizes and colors are grouped
+together.
+~
+E
+east shield~
+Over fifty shields are closely packed together and completely cover the
+eastern wall.  Each one has a different heraldic emblem on it; the most
+famous of them come from the House of the Starkadders.
+~
+E
+west artifacts heads scalps~
+The western wall has heads which can be recognized to be from all the
+races known in the world.  Orcs and trolls are mixed with elves and
+centaurs, closer in death then they ever were in life.  Scalps and other
+less-recognizable body parts also hang from this wall.
+~
+A
+get take touch~
+weapon shield treasure head~
+act_tochar( #nope, ch );
+act_notchar( #noget, ch );
+~
+E
+nope~
+You aren't able to remove anything from the walls in this room.
+~
+E
+noget~
+You see $n try to remove something from the wall, but they are
+unsuccessful.
+~
+!
+0 0 0
+1251 9 1509949540 3 0
+-1
+S
+
+#50265
+Rooms of State~
+This huge room spreads out far to the west.  The furnishings are quite
+fabulous, delicately carved chairs placed near small mahagony tables. 
+Far to the west end of the room, you can just see one enormous chair that
+sits upon a raised dais.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50261 10 10 5
+D3
+~
+~
+0 -1 50266 10 10 5
+E
+chair~
+Half a dozen fine chairs made of fine wood are place around the room. 
+Burgundy silk covers the seats, while the backs are plain and hard.
+~
+E
+mahagony table~
+These small tables are made of fine mahagony.  Their dark wood is highly
+polished.
+~
+1700 17 1509949540 -2 0
+-1
+S
+
+#50266
+Rooms of State~
+The western portion of this large room contains a raised dais almost
+completely filled with an enormous throne.  Small chairs and tables are
+sprinkled about the eastern side of the room, providing an area for the
+common folks to sit.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50267 10 10 5
+D1
+~
+~
+0 -1 50265 10 10 5
+E
+dais~
+The dais is about four feet high, and has a single step leading to it
+placed approximately half way up.  It is covered with a black silk
+carpet, and provides a resting place for an enormous throne.
+~
+A
+sit~
+throne~
+if( rflag( reset0, room ) ) {
+  act_tochar( #sit, ch );
+  if( !mob_in_room( 1251, room ) ) {
+    mob = mload( 1251, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #yell, ch );
+  act_notchar( #nosit, ch );
+  mob = mob_in_room( 1251, room );
+  victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+else
+  continue;
+~
+E
+sit~
+As you start to try out the throne, a @gpalace footman@n comes rushing out!
+~
+E
+yell~
+@GThe footman yells at you, and attacks!@n
+~
+E
+nosit~
+You see a palace footman enter, and yell at $n to get away from the
+throne!
+~
+E
+nope~
+You start to sit on the throne, then reconsider your actions and stop.
+~
+!
+0 0 0
+1736 17 1509949540 -2 0
+1563 9 1509949540 3 0
+-1
+S
+
+#50267
+Receiving Room~
+The western side of this large receiving room is decorated by large
+tapestries.  A few small, hard benches are placed near the walls for
+weary petitioners to rest upon.  The hard oak floors show signs of heavy
+use over the years; although a fine layer of dust on the furniture
+indicates that few pass this way any more.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50258 10 10 5
+D2
+~
+~
+0 -1 50266 10 10 5
+E
+tapestry~
+The tapestries depict battle scenes of an underground battle.  The action
+seems to take place in a large palace, with many ogre guards engaged in
+heavy battle against a varied group of warriors.  Slender figures in
+shimmering dark capes seem to be watching the battle, and small goblins
+hover near them, as if ready to pass on their orders.
+~
+A
+sit~
+bench down~
+if( rflag( reset0, room ) ) {
+  act_tochar( #sit, ch );
+  if( !mob_in_room( 1251, room ) ) {
+    mob = mload( 1251, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #yell, ch );
+  act_notchar( #nosit, ch );
+  mob = mob_in_room( 1251, room );
+  victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+else
+  continue;
+~
+E
+sit~
+As you start to sit down, a @Gpalace servant@n suddenly rushes out to
+prevent you!@n 
+~
+E
+yell~
+@RThe servant shrieks madly, and rushes to protect the furniture!@n
+~
+E
+nope~
+You start to sit down, then find yourself unable to disturb the furniture.
+~
+E
+nosit~
+You see $n start to sit on the bench, then jump up as the servent enters.
+~
+!
+0 0 0
+1251 9 1509949540 3 0
+1145 17 1509949540 -2 0
+-1
+S
+
+#50268
+Palace Hall~
+This wide hall stretches south into the rest of the palace, or north
+towards its exit.  To the east and west are open doorways leading to
+richly carpeted areas.  Far to the south you can see what appears to be
+the end of the hallway.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50261 10 10 5
+D1
+~
+~
+0 -1 50272 10 10 5
+D2
+~
+~
+0 -1 50276 10 10 5
+D3
+~
+~
+0 -1 50269 10 10 5
+1563 9 1509949540 3 0
+-1
+S
+
+#50269
+Palace Dining Room~
+A large dark mahagony table dominates the room, with at least thirty
+straight chairs placed around it.  A large sideboard hugs the southern
+wall, with dozens of serving platters standing ready for service.
+~
+[Merior] messing with sideboard action
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50268 10 10 5
+D3
+~
+~
+0 -1 50270 10 10 5
+E
+table chair~
+A large table, made out of a giant piece of the finest mahogany dominates
+this room.  Over two dozen chairs of the same dark wood have been placed
+about the table.  The chairs are straight and without any sort of
+padding; it would be quite uncomfortable to sit on them for very long.
+~
+E
+sideboard platter~
+A mahagony sideboard, of the same wood as the table and chairs, stands
+against the southern wall of this room.  A dozen large silver serving
+trays cover its surface; all are empty now awaiting preparation for a
+feast.
+~
+1251 137 1509949540 3 0
+1824 17 1509949540 -2 0
+1824 17 1509949540 -2 0
+-1
+S
+
+#50270
+Palace Kitchen~
+This large room hosts half a dozen tables laden with all kinds of food. 
+A huge fireplace dominates the northern wall, providing space for at
+least two dozen rotisseries.  The southern wall of the room is lined with
+cabinets and shelves, all filled with provisions.  A small door leads off
+to the west.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50269 10 10 5
+D3
+conservatory door~
+~
+131 -1 50271 10 10 5
+E
+cabinet shelves shelf~
+The entire southern wall is filled with wooden cabinets and shelves.  The
+cabinets are painted a bright blue, and the shelves a pale green.  You
+can see various foodstuffs on the shelves.
+~
+A
+get take~
+provisions food~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You cannot get any of the provisions.
+~
+!
+0 0 0
+1294 9 1509949540 3 0
+1302 9 1509949540 3 0
+-1
+S
+
+#50271
+Palace Herb Garden~
+The walls of the cavern seem to glow from some strange, artificial light
+as they provide a healthy environment for the herbs used by the palace
+chef and his staff.  Savory smells of herbs waft through the air, making
+it difficult to realize that you are far underground.
+~
+~
+301465605 1 5 0
+D1
+conservatory door~
+~
+131 -1 50270 10 10 5
+E
+herbs~
+Many types of herbs grow in this pleasant nook, providing a handy source
+for flavoring meals.
+~
+E
+wall light~
+The smooth stone walls of the cavern are covered with a pale layer of
+luminscent moss.  This plant provides light for the herbs growing in the
+garden.
+~
+A
+pick get take~
+herb plant thyme sprig~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 5 ) == 1 ) {
+    act_tochar( #pick, ch );
+    room = find_room( 50270 );
+    if( mob_in_room( 1294, room ) ) {
+      open( room, east );
+      mob = mob_in_room( 1294, room );
+      transfer( mob, find_room( 50271 ) );
+      act_tochar( #yell, ch );
+      act_notchar( #nopick, ch );
+      mob = mob_in_room( 1294, room );
+      victim = ch;
+      attack_weapon( mob, victim, 5d8+15, "swift jab" );
+      }
+    }
+  else
+    act_tochar( #get, ch );
+  act_notchar( #gets, ch );
+  obj_to_char( oload( 755 ), ch );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+nopick~
+@bThe chef comes running out to stop $n from picking his herbs!@n
+~
+E
+pick~
+You bend down to pick some herbs.
+~
+E
+yell~
+@bThe chef suddenly appears, rushing to protect his precious
+ingredients!@n 
+~
+E
+nope~
+There are no remaining herbs.
+~
+E
+get~
+You stoop and pick some herbs.
+~
+E
+gets~
+You see $n stoop and quickly grab a bunch of herbs.
+~
+!
+0 0 0
+-1
+S
+
+#50272
+Palace Ballroom~
+The grand ballroom is the largest room in the entire palace.  Large
+crystal chandeliers hang from high ceilings, each having room for
+hundreds of candles.  The hard wood floor is polished a smooth, polished
+brown, and light reflects off of its sparkling finish.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50273 10 10 5
+D2
+~
+~
+0 -1 50275 10 10 5
+D3
+~
+~
+0 -1 50268 10 10 5
+E
+crystal chandelier~
+Over a dozen huge chandeliers hang from the ceiling in this massive room. 
+Each one has holders for hundreds of candles.  The crystal reflects just
+the little bit of light currently in the room; if they all were lit, the
+room would be brighter than the brightest day.
+~
+-1
+S
+
+#50273
+Palace Ballroom~
+The northeast corner of the grand ballroom is the only portion of the
+room to contain any furniture for the dancers to rest their weary bones. 
+Several dozen small, straight chairs are lined neatly against the wall,
+waiting patiently for wallflowers.
+~
+~
+301465605 1 5 0
+D2
+~
+~
+0 -1 50274 10 10 5
+D3
+~
+~
+0 -1 50272 10 10 5
+E
+chair~
+These chairs are small, straight, and quite hard.  They do not look very
+comfortable at all.
+~
+1824 17 1509949540 -2 0
+1824 17 1509949540 -2 0
+-1
+S
+
+#50274
+Palace Ballroom~
+This corner of the ballroom contains a small raised platform probably
+intended to provide a place for the musicians to perform.  The platform
+is made of a different wood of a much lower quality, probably because of
+the lower traffic in this area.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50273 10 10 5
+D3
+~
+~
+0 -1 50275 10 10 5
+E
+platform~
+The platform, made of plain pine, is large enough for about a dozen
+trolls to stand on.  However, it does not appear to be strong enough to
+hold that much weight.
+~
+1298 9 1509949540 3 0
+1298 137 1509949540 3 0
+-1
+S
+
+#50275
+Palace Ballroom~
+To the west is a large archway leading to the palace hallway; the grand
+ballroom spreads out in all other other directions.  The highly polished
+hardwood floor shows definite scratches as if spurs or other sharp
+objects had been dragged across it.
+~
+old guest reset
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50272 10 10 5
+D1
+~
+~
+0 -1 50274 10 10 5
+D3
+~
+~
+0 -1 50276 10 10 5
+-1
+S
+
+#50276
+Palace Hall~
+The hall of the palace extends far to the north, but ends its southward
+progress with a large bay window that overlooks an underground garden. 
+To the east is the grand palace ballroom; a room full of books lies just
+to the west.
+~
+[Corde] Door to maid upstairs not named.
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50268 10 10 5
+D1
+~
+~
+0 -1 50275 10 10 5
+D3
+~
+~
+0 -1 50277 10 10 5
+D4
+~
+~
+0 -1 50280 10 10 5
+E
+south window garden~
+A small garden can be seen outside the southern window.  Tall weeds
+abound, choking whatever once might have grown there.
+~
+1241 9 1509949540 3 0
+-1
+S
+
+#50277
+Palace Library~
+The walls in this room are covered with bookshelves.  A large mahogany
+table takes up a good portion of the southwest corner of the room, with
+four padded chairs placed strategically around it.  A large loveseat
+stands in the southeast corner of the room, a small table with a large
+lamp sits nearby.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50276 10 10 5
+D3
+~
+~
+0 -1 50278 10 10 5
+E
+bookshelf bookshelves~
+Every inch of wallspace is filled by large wooden bookshelves.  The
+structures are only about half full, leaving sufficient room for many
+more years of learning to be represented.
+~
+E
+loveseat table chair~
+The library furniture was designed to be more functional then attractive. 
+However, they do provide a place to sit and read or study.
+~
+E
+lamp~
+A large oil lamp sits on the end table.
+~
+A
+get take touch~
+book bookshelf~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #book, ch );
+  if( !mob_in_room( 1303, room ) ) {
+    mob = mload( 1303, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #yell, ch );
+  act_notchar( #nobook, ch );
+  mob = mob_in_room( 1303, room );
+  victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+yell~
+@bThe librarian rushes towards you, insisting they are HIS books!@n
+~
+E
+book~
+You reach out to take one of the books.
+~
+E
+nobook~
+@bAs $n moves to take one of the books, the librarian shrieks and tries to
+stop $m.@n
+~
+E
+nope~
+You seem unable to get any of the books.
+~
+!
+0 0 0
+1303 9 1509949540 3 0
+1829 17 1509949540 -2 0
+-1
+S
+
+#50278
+Palace Conservatory~
+Hundreds of plants almost entirely fill this space.  Huge chandeliers
+stuffed with candles provide a light almost equivalent to the brightest
+day, affording these inhabitants a chance to survive.  Most of the plants
+are types found on the surface of the planet, but several are most
+unusual.  A small door leads west and outside the palace.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50277 10 10 5
+D3
+conservatory door~
+~
+131 -1 50279 10 10 5
+E
+chandelier~
+Half a dozen huge bronze chandeliers hang from the ceiling.  Each one
+holds about a hundred candles.  These fixtures, when lit, make the room
+as bright as day.
+~
+A
+get take touch~
+plant~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #bother, ch );
+  mload( 321, room );
+  }
+~
+E
+bother~
+You seem to have disturbed a plant!!
+~
+E
+oops~
+$n seems to have disturbed a plant!
+~
+!
+0 0 0
+321 9 1509949540 3 0
+-1
+S
+
+#50279
+Palace Greenhouse~
+This small room has been built off the side of the conservatory to house
+extra-large plants.  Its glass roof is reminiscent of that used in
+greenhouses, but of course, sunlight cannot reach this far under the
+ground.
+~
+~
+301465605 1 5 0
+D1
+conservatory door~
+~
+131 -1 50278 10 10 5
+E
+glass roof~
+This fine glass is actually painted a dark blue, to imitate the color of
+a summer sky.
+~
+966 9 1509949540 3 0
+966 9 1509949540 3 0
+-1
+S
+
+#50280
+Palace Hall~
+The upper hallway of the palace stretches northwards from here.  To the
+east and west lie small rooms, both of which seem almost completely
+filled by beds.  To the south is a curtained door which leads out to a
+small chapel.
+~
+[Merior] nomob
+~
+301465613 1 5 0
+D0
+~
+~
+0 -1 50283 10 10 5
+D1
+~
+~
+1 -1 50281 10 10 5
+D2
+curtained door~
+~
+1 -1 50289 10 10 5
+D3
+~
+~
+1 -1 50282 10 10 5
+D5
+~
+~
+0 -1 50276 10 10 5
+1241 9 1509949540 3 0
+-1
+S
+
+#50281
+Palace Guest Chamber~
+Two slim beds lie side-by-side against the north wall of this room.  The
+southern wall contains a large fireplace, currently empty of wood or
+ashes.  A dresser is squeezed against the east wall, providing a place
+for guests to store their goods.
+~
+~
+301465605 1 5 0
+D3
+palace guest chamber~
+~
+1 -1 50280 10 10 5
+E
+bed~
+Both beds are neatly-made, and have rose-colored comforters neatly folded
+at their feet.
+~
+E
+dresser~
+A large oak dresser stands open and empty.
+~
+E
+fireplace~
+A large fireplace covers most of the southern wall of this room.  The
+mantle is of fine maple, and it is surrounded by golden tiles.
+~
+1295 9 1509949540 3 0
+1384 17 1509949540 -2 0
+1384 17 1509949540 -2 0
+-1
+S
+
+#50282
+Palace Guest Chamber~
+This lavishly decorated chamber is bare of any signs of habitation.  A
+neatly-made bed dominates the room, and a clothes cupboard stands open
+and ready to store personal items.  A small table sits by the side of the
+bed; a washbasin takes up most of its surface.
+~
+~
+301465605 1 5 0
+D1
+guest chamber door~
+~
+1 -1 50280 10 10 5
+E
+washbasin~
+A ceramic washbasin covers most of the small table.
+~
+A
+pick~
+a closed clothes cupboard~
+mob = mob_in_room( 1295, room );
+if( mob ) {
+  act_tochar( #mob, ch );
+  end;
+  }
+else
+  continue;
+~
+E
+nope~
+You can't seem to get the cupboard open right now.
+~
+E
+mob~
+You cannot pick the cupboard while someone is in the room.
+~
+!
+0 0 0
+1392 17 1509949540 -2 0
+1700 17 1509949540 -2 0
+1780 49 1509949540 -2 0
+16 81 1509949540 -2 0
+16 81 1509949540 -2 0
+16 81 1509949540 -2 0
+1531 81 1509949460 -2 0
+328 81 1509949442 -2 0
+1295 137 1509949540 3 0
+-1
+S
+
+#50283
+Palace Hall~
+Lights from sconces built into the walls keeps the hallway quite bright. 
+Doors open to the east and west; the hallway continues to the north and
+south.  Thick carpeting muffles the sound of footsteps and its red color
+makes the otherwise white walls appear pink.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50286 10 10 5
+D1
+~
+~
+1 -1 50284 10 10 5
+D2
+~
+~
+0 -1 50280 10 10 5
+D3
+~
+~
+1 -1 50285 10 10 5
+-1
+S
+
+#50284
+Palace Bedchamber~
+This room might be called the green room, due to the color of all of its
+decorations.  The high bed is covered with an emerald green coverlet, and
+a small hooked rug of forest green lies just to the side of the bed.  A
+large picture decorates the southern wall.
+~
+~
+301465605 1 5 0
+D3
+~
+~
+1 -1 50283 10 10 5
+E
+picture~
+This forest scene depicts several small animals frollicking under a
+number of very green trees.
+~
+E
+high bed~
+This large bed stands on a tall bedframe, keeping it a good 4 feet off
+the ground.  Its dark emerald green coverlet has tiny roses embroidered
+around its edges.
+~
+1765 17 1509949540 -2 0
+1563 9 1509949540 3 0
+-1
+S
+
+#50285
+Palace Bed Chamber~
+This room holds a grand four-poster bed, decorated with dark blue silk. 
+Dark feet peek from beneath the sky-blue bedspread, made of the same
+black wood as the posts.  The walls are painted a light blue, reminiscent
+of the sky just after dawn.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+1 -1 50283 10 10 5
+1763 17 1509949540 -2 0
+-1
+S
+
+#50286
+Palace Hall~
+The hall stretches north and south for quite some distance.  You can see
+doorways to your east and west; doors are also visible in all directions
+along the hallway.  The thick burgundy carpet here shows little signs of
+use, though it does not appear to be particularly new.
+~
+old guest reset
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50290 10 10 5
+D1
+~
+~
+1 -1 50287 10 10 5
+D2
+~
+~
+0 -1 50283 10 10 5
+D3
+~
+~
+1 -1 50288 10 10 5
+-1
+S
+
+#50287
+Royal Bedchamber~
+A small bed sits in the northeast corner of this room; the rest of the
+space has been set up to act as a small sitting room.  Two comfortable
+chairs face the tiled fireplace, a small table set between them.
+~
+old guest reset
+~
+301465605 1 5 0
+D3
+~
+~
+1 -1 50286 10 10 5
+-1
+S
+
+#50288
+Royal Bedchamber~
+The furnishings of this large room indicate that whoever lives here is of
+great importance within this household.  Satin sheets cover the immense
+bed, and silk hangings with delicate embroidery hang from the bedposts. 
+A small carpet is placed on the floor by the bed, its nap is deep and
+luxurious.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+1 -1 50286 10 10 5
+E
+carpet~
+This carpet is made of silk, and has a pattern woven into it which
+depicts a garden of flowers.
+~
+A
+touch move sit~
+bed sheet drapes~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #sit, ch );
+  if( !mob_in_room( 1315, room ) ) {
+    mob = mload( 1315, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #yell, ch );
+  act_notchar( #nosit, ch );
+  mob = mob_in_room( 1315, room );
+victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+else
+  continue;
+~
+E
+sit~
+@bAs you start to touch the bed, a woman jumps out from behind the drapery!@n
+~
+E
+nosit~
+@bAs $n touches the draperies, a vyan woman jumps out!@n
+~
+E
+yell~
+@B@bThe woman begins to yell at you for touching her posessions, then
+attacks!@n 
+~
+!
+0 0 0
+1258 9 1509949540 3 0
+1765 17 1509949540 -2 0
+-1
+S
+
+#50289
+Palace Chapel~
+This chapel has been built into the solid rock of the cavern, and draws
+the chill from the surrounding stone.  Two rows of pews face a small
+altar, providing just enough space for the royal family to commune with
+their god.  Stained glass, depicting demons and angels clashing, cover
+the walls.
+~
+~
+301465733 1 5 0
+D0
+~
+~
+1 -1 50280 10 10 5
+D3
+stained glass~
+~
+171 -1 50296 10 10 5
+E
+pew~
+Simple wooden pews are covered with burgundy cushions, providing a more
+comfortable place to sit.
+~
+E
+altar~
+A small altar made of simple pine stands at the western end of the room.
+~
+E
+stained glass~
+These large-paned windows face the black walls of the cavern.  Demons
+breathing fire battle small-winged angels in each of the frames, the
+demons seemingly getting the better of it.  The glass behind the altar
+seems a little lighter then the rest.
+~
+1112 9 1509949540 3 0
+1830 17 1509949540 -2 0
+1830 17 1509949540 -2 0
+1830 17 1509949540 -2 0
+-1
+S
+
+#50290
+Royal Apartments~
+The upper hallway extends to your south; in all other directions you are
+surrounded by a massive room which serves to house the ruler of the city. 
+A thick green carpet covers the entire floor, creating a forest-like
+effect in this underground room.  To the east is a massive bed; to the
+west a small sitting room has been established.  A large closet to the
+north provides a spot for storage of clothes as well as a large tub.
+~
+~
+301465605 1 5 0
+D0
+~
+~
+0 -1 50293 10 10 5
+D1
+~
+~
+0 -1 50291 10 10 5
+D2
+~
+~
+0 -1 50286 10 10 5
+D3
+~
+~
+0 -1 50292 10 10 5
+-1
+S
+
+#50291
+Royal Apartments~
+A bed large enough to sleep half a dozen trolls quite comfortably fills
+this area almost completely.  The thick green carpeting muffles the sound
+of your footsteps as you move; this would be a very peaceful spot to rest.
+~
+[Terek] Acode fixed, that'll be 19.95
+Room is still buggy for some reason
+~
+301465605 1 5 0
+D3
+~
+~
+0 -1 50290 10 10 5
+A
+~
+~
+if( mob_in_room( 1258, room ) )
+  end;
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 1258, room ) ) {
+    mload( 1258, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #yell, ch );
+  act_notchar( #nosit, ch );
+  mob = mob_in_room( 1258, room );
+  victim = ch;
+  attack_weapon( mob, victim, 5d8+15, "swift jab" );
+  }
+~
+E
+yell~
+@Y@bA palace servant appears out of nowhere, warning you away!@n
+~
+E
+nosit~
+@Y@bA palace servant appears out of nowhere, and starts yelling at $n to
+leave.@n 
+~
+!
+1 0 8
+1763 17 1509949540 -2 0
+-1
+S
+
+#50292
+Royal Apartments~
+This portion of the large room has been turned into a combination sitting
+room and office.  Several chairs are clustered around a large table,
+offering a spot for folks to sit around and examine important papers.  A
+oak desk takes up much of the western wall, its nooks and crannies
+stuffed with pieces of paper.
+~
+~
+301465605 1 5 0
+D1
+~
+~
+0 -1 50290 10 10 5
+E
+large table~
+A large oval table takes up quite a bit of space in this part of the room. 
+A small pile of papers has been spread out over one end of the table.
+~
+A
+search~
+desk~
+act_tochar( #nope, ch );
+act_notchar( #none, ch );
+~
+E
+nope~
+You search the desk, but find nothing interesting.
+~
+E
+none~
+You see $n search the desk, and slowly frown.
+~
+!
+0 0 0
+1824 17 1509949540 -2 0
+1824 17 1509949540 -2 0
+-1
+S
+
+#50293
+Royal Apartments~
+This portion of the apartment has been set up as a closet.  A wardrobe
+stands open against the northern wall, stuffed full of clothing.  A large
+wooden tub sits empty on the floor, just about the right size for an ogre
+to bathe in peace.  The walls are covered with wooden paneling.
+~
+[Merior] tyrant behind secret door
+~
+301465605 1 5 0
+D2
+~
+~
+0 -1 50290 10 10 5
+D3
+loose panel~
+~
+431 1755 50294 10 10 5
+E
+wooden paneling~
+Fine wood has been used to create this vertical paneling.
+~
+E
+wardrobe~
+This massive piece of maple is stuffed full of fine clothes.
+~
+E
+tub~
+A large wooden tub used for bathing on the eastern side of this room. 
+Large metal slats around its center provide a strong framework; this tub
+could easily provide room for a troll to wash themselves.
+~
+A
+search~
+wooden paneling~
+i = random( 1, 10 );
+if( find_skill( ch, searching ) > i ) {
+  act_tochar( #door, ch );
+  act_notchar( #looks, ch );
+  }
+else {
+  act_tochar( #nodoor, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+door~
+You search the paneling carefully, and find that one piece is quite loose!
+~
+E
+looks~
+You see $n carefully examine the paneling.
+~
+E
+nodoor~
+You see nothing unusual about the paneling.
+~
+E
+nope~
+You see $n carefully examine the paneling, then stand up frowning.
+~
+!
+0 0 0
+A
+sit enter~
+tub~
+if( mob_in_room( 1313, room ) ) {
+  act_tochar( #attack, ch );
+  act_notchar( #hits, ch );
+  mob = mob_in_room( 1313, room );
+  victim = ch;
+  attack( mob, victim, 20d5, "the valet's wild swing" );
+  }
+else {
+  act_tochar( #ok, ch );
+  act_notchar( #empty, ch );
+  }
+~
+E
+attack~
+@B@bThe valet leaps to attack you for daring to touch his master's belongings!@n
+~
+E
+hits~
+@B@bThe valet attacks $n for daring to touch his master's possessions!@n
+~
+E
+ok~
+You start to enter the tub, but have second thoughts and stop.
+~
+E
+empty~
+You see $n start to climb into the tub, then stop.
+~
+!
+0 0 0
+1258 9 1509949540 3 0
+1313 9 1509949540 3 0
+-1
+S
+
+#50294
+Royal Apartments~
+This tiny space has been cut out of the very rock of the cavern to
+provide a spot for someone to hide in.  The walls are made of inexpensive
+wood, and are barely attached to the side of the original palace building.
+A barrier of wood separates this nook from the palace itself.
+~
+[Merior] finish tyrant
+~
+301465605 1 5 0
+D1
+wooden board~
+~
+431 -1 50293 10 10 5
+E
+barrier wood~
+Wooden boards have been placed against the east wall, but look as if they
+can be easily moved.
+~
+1304 9 1509949540 3 0
+-1
+S
+
+#50295
+In the Flue~
+This cramped space was clearly designed for the smallest of
+chimney-sweeps.  The walls are covered with black soot, reminders of
+ancient fires, and the top of the flue appears to be blocked, prevently
+further travel up.
+~
+~
+301465605 1 3 0
+A
+climb~
+down~
+act_tochar( #down, ch );
+transfer( ch, find_room( 50263 ) );
+~
+E
+down~
+You carefully climb back down the flue to the room below.
+~
+!
+0 0 0
+A
+search~
+soot~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( find_skill( ch, searching ) > random( 1, 7 ) ) {
+    act_tochar( #found, ch );
+    act_notchar( #hefound, ch );
+    i = random( 0, 10 );
+    if( i == 0 )
+      obj_to_char( oload( 716 ), ch );
+    else if( i == 1 )
+      obj_to_char( oload( 575 ), ch );
+    else
+      obj_to_char( oload( 16 ), ch );
+    }
+  }
+else {
+  act_tochar( #nope, ch );
+  act_notchar( #nothing, ch );
+  }
+~
+E
+found~
+You search in the soot, and find something interesting!
+~
+E
+hefound~
+You see $n scrape at the soot, and stand up smiling.
+~
+E
+nope~
+You poke at the soot, but can find nothing of interest.
+~
+E
+nothing~
+You see $n poke at the soot, then stand up frowning.
+~
+!
+0 0 0
+-1
+S
+
+#50296
+Priest's Hole~
+This tiny chamber behind the altar was probably designed to hide someone.. 
+or something.  Even today it shows signs of use, footprints heavy in the
+dust.  A plate with a dry crust of bread sits forgotten in one corner.  A
+small passageway leads west into darkness.
+~
+~
+301465732 1 5 0
+D1
+altar~
+~
+171 -1 50289 10 10 5
+D3
+~
+~
+0 -1 50297 10 10 5
+E
+plate bread~
+The plate is old and chipped.  The bread on it has dried out and cannot
+be removed.
+~
+A
+~
+~
+if( rflag( reset0, room ) ) {
+  if( random( 1, 3 ) == 1 ) {
+    if( !mob_in_room( 1337, room ) )
+      mload( 1337, room );
+    remove_rflag( reset0, room );
+    }
+  }
+~
+!
+1 0 2
+-1
+S
+
+#50297
+Dark Tunnel~
+A long, low tunnel extends to your east and west.  Cobwebs lie off to the
+sides, testament to recent use of a long-forgotten passageway.  The
+ground is covered with a fine coat of dust, and large footprints point
+west.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50296 10 10 5
+D3
+~
+~
+0 -1 50298 10 10 5
+-1
+S
+
+#50298
+Dark Tunnel~
+The dark tunnel curves into a 'L' as it points directly north and east. 
+The surface of the tunnel is rough here, and it would be easy to snag
+your clothing on the sharp edges.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50299 10 10 5
+D1
+~
+~
+0 -1 50297 10 10 5
+-1
+S
+
+#50299
+Dark Tunnel~
+The air is quite cool here, and a bit damp, and you can hear the sound of
+water dripping far to your north.  A small trickle of water heads south
+between your feet.  The black rocks that have been hewn to form a narrow
+tunnel are ice-cold, much more so then would be expected at this depth.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50300 10 10 5
+D2
+~
+~
+0 -1 50298 10 10 5
+1357 9 1509949540 3 0
+-1
+S
+
+#50300
+Dark Tunnel~
+Water drips loudly to your north, and a large puddle has formed on the
+floor of the tunnel here.  The water appears ink-black, thought whether
+it is actually that color or just absorbing the darkness of the stone is
+impossible to tell.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50301 10 10 5
+D2
+~
+~
+0 -1 50299 10 10 5
+434 9 1509949540 3 0
+-1
+S
+
+#50301
+Dark Tunnel~
+A small crack in the ceiling allows water to seep down and into the
+tunnel.  A loud dripping sound echos around the area as each drop
+splashes into several inches of water.  The tunnel heads south and west
+here, further into darkness.
+~
+~
+301465732 1 9 0
+D2
+~
+~
+0 -1 50300 10 10 5
+D3
+~
+~
+0 -1 50302 10 10 5
+-1
+S
+
+#50302
+Dark Tunnel~
+Several inches of water swirl on the ground, seeming to be coming from
+the dripping sound to the east.  The air moves slowly, but steadily,
+causing small eddies to form on the surface of the over-sized puddle.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50303 10 10 5
+D1
+~
+~
+0 -1 50301 10 10 5
+-1
+S
+
+#50303
+Dark Tunnel~
+The dark tunnel continues to wind its way inside the icy cavern.  This
+portion is quite narrow, and only provides just enough room for a
+medium-sized troll to squeeze through.  Chopping into the hard rocks must
+have been a very difficult feat; it is not surprising the the builders
+made this no wider then necessary.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50304 10 10 5
+D2
+~
+~
+0 -1 50302 10 10 5
+434 9 1509949540 3 0
+-1
+S
+
+#50304
+Dark Tunnel~
+The tunnel takes a sharp turn here, allowing movement either directly
+south or west.  The inner corner clearly shows the marks of the axes used
+to hack this underground passageway.  The other sides of the tunnel also
+show evidence of their rough origin.
+~
+~
+301465732 1 9 0
+D2
+~
+~
+0 -1 50303 10 10 5
+D3
+~
+~
+0 -1 50305 10 10 5
+-1
+S
+
+#50305
+Dark Tunnel~
+A steep slope heads down here into pitch darkness.  The route east is
+equally dark, but the footing appears to be a bit better.  A small
+handrail has been built into the sides of the tunnel heading down, but it
+looks none too sturdy or trustworthy.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50304 10 10 5
+D5
+~
+~
+0 -1 50306 10 10 5
+-1
+S
+
+#50306
+Dark Tunnel~
+You can travel up a steep slope here, or north towards what may reach the
+gates of Voaleth.  A flimsy handrail has been bolted to the rocks to help
+those wishing to go up, but it may not provide much support.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50307 10 10 5
+D4
+~
+~
+0 -1 50305 10 10 5
+-1
+S
+
+#50307
+Dark Tunnel~
+The rock seems a bit softer here, and the axe marks are not as visible as
+they often are.  The passage is wider here also, as if the builders took
+bit softer here advantage of the different sediment.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50308 10 10 5
+D2
+~
+~
+0 -1 50306 10 10 5
+1357 9 1509949540 3 0
+-1
+S
+
+#50308
+Dark Tunnel~
+The black walls of the tunnel are covered with small etchings.  Upon
+closer examination, they prove not to be etchings, but rather just the
+scratches made by the axes used to hollow out this tunnel.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50309 10 10 5
+D2
+~
+~
+0 -1 50307 10 10 5
+-1
+S
+
+#50309
+Dark Tunnel~
+The ground here is littered with tiny black pebbles, just the same color
+and texture as the rock that surrounds you.  Tiny holes in the sides of
+the cavern match the approximate size and shape of the pebbles.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50310 10 10 5
+D2
+~
+~
+0 -1 50308 10 10 5
+434 9 1509949540 3 0
+-1
+S
+
+#50310
+Dark Tunnel~
+A gentle turn in the tunnel walls creates a route which involves moving
+either northwest or southeast.  A large boulder of a light green rock in
+the southwest corner of the wall indicates a possible reason for the
+shape of the bend.
+~
+~
+301465732 1 9 0
+D2
+~
+~
+0 -1 50309 10 10 5
+D3
+~
+~
+0 -1 50311 10 10 5
+-1
+S
+
+#50311
+Dark Tunnel~
+This long underground route takes yet another turn, forcing you to the
+north or east.  There is no light in either direction, and only memory
+can aid you in determining which way is north.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50312 10 10 5
+D1
+~
+~
+0 -1 50310 10 10 5
+-1
+S
+
+#50312
+Dark Tunnel~
+A swift breeze moves through the passage here, carrying with it the scent
+of death and despair.  The breeze is cold and bears no hint of fresh air. 
+You can either move north towards the source of the wind, or south away
+from it.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50313 10 10 5
+D2
+~
+~
+0 -1 50311 10 10 5
+434 9 1509949540 3 0
+-1
+S
+
+#50313
+Dark Tunnel~
+A strong odor of death and decay comes from the north.  The ground here
+is littered with drops of a dark sticky substance, much like dried blood. 
+The walls of the tunnel are also streaked with the same flecks of matter.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50314 10 10 5
+D2
+~
+~
+0 -1 50312 10 10 5
+1357 9 1509949540 3 0
+-1
+S
+
+#50314
+Dark Tunnel~
+This portion of the tunnel must have been the site of some serious battle. 
+Several rotting corpses litter the floor, and blood and several
+dismembered body parts are strewn about.  The stench from the decomposing
+bodies is verystrong, the slight breeze picking it up and sending it
+south down the tunnel.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50315 10 10 5
+D2
+~
+~
+0 -1 50313 10 10 5
+1558 17 1509949540 -2 0
+1558 17 1509949540 -2 0
+757 17 1509949540 -2 0
+-1
+S
+
+#50315
+Dark Tunnel~
+The tunnel takes a sharp turn here, heading west and south.  The walls
+are quite close here, as if those who hacked this from the rocks had some
+special difficulty in this area.  Small flecks of granite speckle the
+slate of the cavern, giving the tunnel a polka-dot appearance.
+~
+~
+301465732 1 9 0
+D2
+~
+~
+0 -1 50314 10 10 5
+D3
+~
+~
+0 -1 50316 10 10 5
+-1
+S
+
+#50316
+Dark Tunnel~
+The long tunnel continues its dark course through the slate, here heading
+north and east.  It is far too dark to see what lies ahead, though the
+faint reverberations of the rock indicate that you are near a busy city.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50317 10 10 5
+D1
+~
+~
+0 -1 50315 10 10 5
+-1
+S
+
+#50317
+Dark Tunnel~
+A long, dark tunnel stretches endlessly to your north, a wall is just
+barely visible far to your south.  A fine layer of dust coats the ground,
+and bookmarks of various sizes can be clearly seen.  Individual
+footprints in the southern portion of this spot are obscured, due to
+heavy traffic.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50318 10 10 5
+D2
+~
+~
+0 -1 50316 10 10 5
+434 9 1509949540 3 0
+-1
+S
+
+#50318
+Dark Tunnel~
+A thin layer of dark gravel crunches underfoot as you move about.  Upon
+further inspection, although the gravel is dark, it is not the same black
+slate as the walls or floor of the tunnel which surrounds you.
+The ceiling of the tunnel is too high to examine.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50319 10 10 5
+D2
+~
+~
+0 -1 50317 10 10 5
+-1
+S
+
+#50319
+Dark Tunnel~
+The walls here are of a slightly different type of stone then of the
+ground and ceiling of the tunnel.  Their pale gray sheen stand in clear
+contrast to the darkness above and below.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50320 10 10 5
+D2
+~
+~
+0 -1 50318 10 10 5
+-1
+S
+
+#50320
+Dark Tunnel~
+Pale gray walls to the south suddenly turn into dark black slate, cold
+and hard to the touch.  A faint tremor can be felt along the lighter
+rock, whereas the slate is still and quiet.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50321 10 10 5
+D2
+~
+~
+0 -1 50319 10 10 5
+434 9 1509949540 3 0
+-1
+S
+
+#50321
+Dark Tunnel~
+Long, vertical scratches are etched into the rock walls of this portion
+of the tunnel.  Each scratch is about half an inch wide, and runs from
+ceiling to floor.  The ceiling is too dark to examine, but the gashes can
+be seen running across the floor as they form a giant 'U'.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50322 10 10 5
+D2
+~
+~
+0 -1 50320 10 10 5
+-1
+S
+
+#50322
+Dark Tunnel~
+A slow trickle of water seeps in from the west, creating a tiny river
+that crosses towards the east.  A miniscule hole in the floor to the east
+allows the rivulet to seep into the ground and out of sight.  The sound
+of a tiny drip, drip, as the water trickles in is easily masked by your
+movement.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50323 10 10 5
+D2
+~
+~
+0 -1 50321 10 10 5
+-1
+S
+
+#50323
+Dark Tunnel~
+The tunnel widens a bit as it goes east and south.  Large gashes on the
+'inside' southeastern wall mark where the builders quickly hacked the
+sharp turn.  The northwest wall is quite smooth, signs of its creation
+can not be seen.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50324 10 10 5
+D2
+~
+~
+0 -1 50322 10 10 5
+-1
+S
+
+#50324
+Dark Tunnel~
+The floor in this area is quite worn, and a wide groove has been formed
+in the solid rock.  The walls are made of solid slate, and are cold to
+the touch.  The ceiling is quite low here, barely 8 feet high.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50325 10 10 5
+D3
+~
+~
+0 -1 50323 10 10 5
+1357 9 1509949540 3 0
+-1
+S
+
+#50325
+Dark Tunnel~
+The tunnel runs to the north and south here, though it is too dark to see
+what lies in the distance.  The transition from floor to wall to ceiling
+here is quite smooth, giving the tunnel more the appearance of a large
+tube.
+~
+~
+301465732 1 9 0
+D0
+~
+~
+0 -1 50326 10 10 5
+D2
+~
+~
+0 -1 50324 10 10 5
+-1
+S
+
+#50326
+Dark Tunnel~
+You can move either east or south from this point within the dark,
+confining tunnel.  Small flecks of slate lie on the ground, tiny holes on
+the walls their former homes.  Far overhead, the dark ceiling reflects
+your light.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50327 10 10 5
+D2
+~
+~
+0 -1 50325 10 10 5
+1357 9 1509949540 3 0
+-1
+S
+
+#50327
+Dark Tunnel~
+You can just barely make out a wall far to your west; then tunnel
+stretches off to the east into darkness.  The walls to your north and
+south are close and slick with dampness, the moisture feeling more like
+oil then water.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50328 10 10 5
+D3
+~
+~
+0 -1 50326 10 10 5
+-1
+S
+
+#50328
+Dark Tunnel~
+Three sets of parallel grooves mar the northern wall.  The highest is
+about six feet off the ground, the middle about four feet, and the lowest
+barely a foot off the ground.  Each groove varies from a fraction of an
+inch deep to about three inches deep, and seems to start and stop
+suddenly.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50329 10 10 5
+D3
+~
+~
+0 -1 50327 10 10 5
+-1
+S
+
+#50329
+Dark Tunnel~
+Off to the east you can detect just a speck of light seeping in from some
+undetectable opening.  The tunnel continues into pitch blackness to your
+west.  The solid walls to your north and south are close and lightly
+covered by a pale-green moss.
+~
+~
+301465732 1 9 0
+D1
+~
+~
+0 -1 50330 10 10 5
+D3
+~
+~
+0 -1 50328 10 10 5
+1357 9 1509949540 3 0
+-1
+S
+
+#50330
+Dark Tunnel~
+A small crack in the eastern wall allows a bit of light into this tunnel. 
+Darkness stretches off to the west; it is impossible to determine how far
+it goes.  The northern and southern walls are lightly covered with moss,
+and it has covered most of the floor as well.
+~
+~
+301465740 1 9 0
+D1
+crack~
+~
+171 -1 20088 10 10 5
+D3
+~
+~
+0 -1 50329 10 10 5
+E
+crack~
+A thin crack runs up and down the entire eastern wall.  There appears to
+be just enough room for your fingers to grasp it.
+~
+A
+~
+~
+if( find_stat( ch, level ) < 30 )
+act_tochar( #nope, ch );
+else
+continue;
+~
+E
+nope~
+The way further into the tunnel is far too difficult for you to travel.
+~
+!
+3 0 8
+-1
+S
+
+#0
+

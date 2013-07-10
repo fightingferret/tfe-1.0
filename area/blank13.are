@@ -1,0 +1,5285 @@
+#AREA
+K'ssk Swamp~
+Nightshade, Sssar~
+~
+
+0 0
+0
+#ROOMS
+
+#31000
+K'ssk Swamp~
+You are standing knee-deep in the dark, murky waters of a section of
+K'ssk swamp.  Various bugs fly around your face, making a nuisance of
+themselves.  The sky is a dull, depressing gray color, full of massive
+storm clouds that threaten to rain at any given moment.  The only
+indigenous vegetation you can see are small, dirty shrubs and drooping
+trees.  Although the fog clouds your vision, you can see that the pool of
+water continues far to the south and west, and to the north, you can see
+the village of Sos-Kul.  Out from the center of the waters is a hollow
+stone.  The stone seems to lead to a chamber under the water.
+~
+aedit get/pick shrub (reagent) - D
+need a ton of rextras here
+aedit leaving room, you clamber on to a rock - D
+map
+*Fire Alter
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31018 10 10 5
+D2
+~
+~
+0 -1 31001 10 10 5
+D3
+~
+~
+0 -1 31006 10 10 5
+D5
+stone door~
+stone~
+235 -1 45501 10 10 5
+E
+5 shrubs~
+Although these shrubs look to be in their natural environment here, they
+look like they have been struggling to survive.  You notice many bite
+marks in the leaves; these have obviously been used as food.  
+~
+E
+4 trees~
+These knotty, wilting trees grow no higher than a tall human.  They droop
+towards the water, adding to the depressive feeling you get from the
+swamp.  
+~
+E
+3 bugs~
+The bugs buzz around your face and ears, feeding off your irritation. 
+They are mostly gnats, and are easily swatted away.  
+~
+E
+5 waters~
+It is impossible to walk freely through the water; each step is an effort
+to remove your foot from the mud.  You can see blurred shapes moving
+about, possibly fish.
+~
+E
+5 clouds~
+The dark clouds look to be full of rain.  The last thing one would need
+in a swamp is more moisture.  Other than that, they're nothing you
+haven't seen before.  
+~
+E
+sky~
+The dark clouds look to be full of rain.  The last thing one would need
+in a swamp is more moisture.  Other than that, they're nothing you
+haven't seen before.  
+~
+E
+stone~
+The stone sticks up out of the water and looks like you would be able to
+climb it.  There is also a hollow in the stone that begs for completion. 
+Around the rim of the hollow is a fiery design of flame.
+~
+A
+climb~
+stone rock~
+if( is_open( room, down ) )
+  act_tochar( #alr, ch );
+if( !is_open( room, down ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #ncclimb, ch );
+  open( room, down );
+  }
+~
+E
+alr~
+As you climb on top of the stone, you see that an open stone door leads
+down into a hole.
+~
+E
+climb~
+As you climb onto the stone, a door in the top of it swings open.
+~
+E
+ncclimb~
+As $n climbs onto the stone, a door in the top of it swings open.
+~
+!
+0 0 0
+A
+sacrifice place put drop~
+lump coal~
+if( rflag( reset0, room ) )
+if( has_obj( 1999, ch ) ) {
+act_tochar( #place, ch );
+act_notchar( #rplace, ch );
+wait( 2 );
+act_room( #sink, ch );
+remove_rflag( reset0, room );
+}
+else
+continue;
+else
+act_tochar( #already, ch );
+~
+E
+place~
+You place a lump of coal atop the stone.
+~
+E
+rplace~
+$n places a lump of coal atop the stone.
+~
+E
+sink~
+The lump of coal bursts into flame, heating the stone beneath it.  The
+stone begins to hum with unseen power.
+~
+E
+already~
+Traces of burned coal lie atop the stone.  Its rocky surface hums with
+unseen power.
+~
+!
+0 0 0
+418 9 1509949540 3 0
+-1
+S
+
+#31001
+K'ssk Swamp~
+The swamp is slightly more rocky here, letting you hop from stone to
+stone to avoid stepping in the dark mud.  Clouds continue to hang
+overhead like a bad omen, but remain silent.  The vegetation looks more
+healthy to the south, and to the west, closer to the center of the swamp,
+you can see signs of life.  Through the fog, you can barely make out a
+village to the north.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 31000 10 10 5
+D2
+~
+~
+0 -1 31002 10 10 5
+D3
+~
+~
+0 -1 31007 10 10 5
+E
+4 rocks~
+These flat rocks look perfect for sitting on, but otherwise are just
+rocks.  
+~
+E
+5 clouds~
+The clouds are dark, and full of rain.  It looks as though there could be
+a cloudburst at any moment.  
+~
+E
+vegetation~
+The plant life to your northwest looks like it has been having trouble
+surviving, but the plants to the south have been doing considerably
+better.  
+~
+E
+movement~
+You can't make out very much; the visibility is very poor.  You can see
+an outline of a toad here and there, though.  
+~
+419 9 1509949540 3 0
+-1
+S
+
+#31002
+K'ssk Swamp~
+The water level in this area of the swamp has dropped significantly; you
+can walk more comfortably here.  The trees are taller than the other ones
+you've seen in the swamp, and look stronger.  To the east, you see a
+particularly large tree, and the swamp continues to the west and south. 
+An odd-looking rock, part white and part grey, rises up out of the ground.
+~
+*acid altar
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31001 10 10 5
+D1
+~
+~
+0 -1 31004 10 10 5
+D2
+~
+~
+0 -1 31003 10 10 5
+D3
+~
+~
+0 -1 31008 10 10 5
+E
+4 trees~
+To the east, you can make out the faint outline of the largest tree you've
+seen in this swamp yet.  The mist obscures your vision; you can't see any
+more.  
+~
+E
+odd-looking rock~
+A strange rock, part white and part grey, sticks up out of the ground
+like a bump on a log.  Its surface is rough and pitted, as though acid
+has sunk down and scoured its exterior.
+~
+A
+sacrifice place put drop~
+lemon~
+if( rflag( reset0, room ) )
+if( has_obj( 1460, ch ) ) {
+act_tochar( #place, ch );
+act_notchar( #rplace, ch );
+wait( 2 );
+act_room( #sink, ch );
+remove_rflag( reset0, room );
+}
+else
+continue;
+else
+act_tochar( #already, ch );
+~
+E
+place~
+You squeeze a lemon over the odd-looking rock.
+~
+E
+rplace~
+$n squeezes a lemon over the odd-looking rock.
+~
+E
+sink~
+The pale juice from the lemon sinks into the odd-looking stone, causing
+it to hum with power.
+~
+E
+already~
+A faint odor of lemon hangs about the stone, which hums with unseen power.
+~
+!
+0 0 0
+418 9 1509949540 3 0
+523 9 1509949540 3 0
+-1
+S
+
+#31003
+K'ssk Swamp~
+The rocks look to have piled up here, for there is little room where
+rocks do not cover the ground.  You easily make your way over the
+many-colored stones, although some tremble precariously at your passing. 
+You can barely make out the beginnings of a southward trail to the west,
+and to the northeast, the trees grow larger and stronger.  
+~
+[Lansharra] southward trail?
+[Terek] I didn't put a trail there but think I will
+[Terek] Spot reserved for llama Inc. Southern Swamp Road ;)
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31002 10 10 5
+D1
+~
+~
+0 -1 31005 10 10 5
+E
+hole~
+You look at the hole carefully and even reach down into it, but
+unfortunately, you don't find anything.  
+~
+E
+4 rocks~
+Looking around the rocks, you notice a hole that goes all the way down to
+the water, a several foot drop.  
+~
+E
+rocks~
+The rocks may be leftovers from the creation of the village square.  You
+have seen other small piles of rocks lying about, but have ignored them.
+~
+418 9 1509949540 3 0
+418 9 1509949540 3 0
+-1
+S
+
+#31004
+K'ssk Swamp~
+The ground level here has risen considerably, now you are standing on
+almost solid ground.  The bushes are waist-high, and the trees rise far
+above your head.  One in particular catches your eye; it is taller than
+the others and dominates the area, casting a shadow over everything in
+the area.  The rocky ground extends to the south and west, bordered by
+the deep foliage of the swamp.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 31005 10 10 5
+D3
+~
+~
+0 -1 31002 10 10 5
+E
+4 trees~
+Out of the several trees in this relatively dry area, there is one that
+rises above the rest.  It is very knobby, with many possible footholds
+and low branches.  It doesn't look too difficult to climb, but your
+vision through the fog only allows you to see about 30 feet up.
+~
+E
+4 bushes~
+The bushes are very thick and look healthy, but are otherwise
+uninteresting.  
+~
+E
+ground~
+Much to your relief, the ground is much drier in this section of the
+forest.  You surmise that you must be on a very small hill.  
+~
+A
+2 climb~
+1 up tree~
+if( is_mounted( ch ) ) {
+  send_to_char( "You can't do that while mounted", ch );
+  end;
+  }
+if( can_fly( ch ) ) {
+  send_to_char( #fly, ch );
+  act_notchar( #flew, ch );
+  transfer( ch, find_room( 31013 ) );
+  act_notchar( #arrfly, ch );
+  end;
+  }
+send_to_char( #char_climb, ch );
+act_notchar( #room_climb, ch );
+if( find_skill( ch, climb ) > random( 0, 2 ) ) {
+  transfer( ch, find_room( 31013 ) );
+  act_notchar( #char_arrive, ch );
+  }
+else {
+  send_to_char( #char_fall, ch );
+  act_notchar( #room_fall, ch );
+  i = dice( 1, 4 );
+  dam_message( ch, i, #fall_damage );
+  inflict( ch, mob, i, "falling" );
+  }
+~
+E
+arrfly~
+$n comes flying up from below.
+~
+E
+flew~
+$n flies gracefully up into the tree.
+~
+E
+fly~
+You fly gracefully up into the tree.
+~
+E
+char_arrive~
+$n arrives from below.
+~
+E
+fall_damage~
+The fall
+~
+E
+room_fall~
+$n gets about halfway up the tree when $e slips and goes tumbling down,
+landing on the ground with a thud.  
+~
+E
+char_fall~
+Halfway up the tree, your foot slips on some slippery moss, and you go
+tumbling down!  Fortunately, you land on soft ground, reducing the force
+of the impact.  
+~
+E
+room_climb~
+$n grabs hold of a protruding branch and makes $s way up the large tree.  
+~
+E
+char_climb~
+You grab hold of a protruding branch and make your way up the tree.  
+~
+!
+0 0 0
+-1
+S
+
+#31005
+K'ssk swamp~
+This southeast corner of this section of the swamp is relatively
+uninteresting.  A few moderately healthy plants grow around rocks of
+various shapes, and an occasional dragonfly or toad enters the room.  To
+the north, you see a large tree that rises above the others, and to the
+northwest, the swamp is rockier.  
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31004 10 10 5
+D3
+~
+~
+0 -1 31003 10 10 5
+E
+tree~
+You assume it is a tree as it stands taller than anyting else in the area. 
+You can get no detail other than a vague outline though due to the fog.
+~
+E
+rock~
+The rocks are greyish granite with moss just starting to cover them.
+~
+-1
+S
+
+#31006
+K'ssk Swamp~
+The water here has risen slightly, almost reaching to your waist.  There
+must be a depression in the ground, it feels as if it grows deeper to the
+west.  The only plant life here are bits and pieces of moss floating on
+the water's surface.  To the northeast, you can barely make out the
+village of Sos-Kul through the fog, and the swamp extends past the limit
+of your vision to the south and west.
+~
+need some rextras here - D
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 31000 10 10 5
+D2
+~
+~
+0 -1 31007 10 10 5
+D3
+~
+~
+0 -1 31010 10 10 5
+419 9 1509949540 3 0
+-1
+S
+
+#31007
+K'ssk Swamp - Sinking Circle Stones~
+You are in a central area of the swamp that is busy with activity.  Toads
+sit idle on mossy rocks, watching dragonflies that absently gnaw on the
+leaves of the short, water plants that inhabit this swamp.  Small fish
+swim around the murky waters, occasionally snapping up a bug that flew
+too close to the water.  Some of the rocks are large enough for you to
+sit on comfortably, and if not for the ominous clouds overhead, this
+place would actually be rather pleasant.  To the west, the water grows
+deeper, and to the south and east, the swamp is a bit more rocky.  A
+circle of stones, half-sunk in the ground, stick up like teeth from the
+boggy swamp.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 31006 10 10 5
+D1
+~
+~
+0 -1 31001 10 10 5
+D2
+~
+~
+0 -1 31008 10 10 5
+D3
+~
+~
+0 -1 31011 10 10 5
+E
+fish~
+The fish are quite small, and wouldn't be worth the trouble it would take
+to catch them and prepare them for food.  
+~
+E
+5 clouds~
+The dark clouds are full of rain, and look ready to pour themselves all
+over you at any moment.  
+~
+E
+4 rocks~
+Most of the rocks are slimey with moss, but some are bare.  A few of the
+uncovered ones are large enough for you to sit on, giving you a chance to
+keep your feet out of the mud.  
+~
+A
+sit~
+rock~
+send_to_char( #rock, ch );
+~
+E
+rock~
+The rock looked comfortable until you sat down and realized that the soft
+moss covering it is soaked with water.
+~
+!
+0 0 0
+A
+sacrifice~
+emerald heart stone heartstone jewel gem green~
+if( !mob_in_room( 552, room ) )
+  if( !mob_in_room( 2204, room ) )
+  if( !rflag( reset0, find_room( 31010 ) ) )
+  if( !rflag( reset0, find_room( 31000 ) ) )
+  if( !rflag( reset0, find_room( 31002 ) ) )
+  if( !rflag( reset0, find_room( 31012 ) ) )
+  if( has_obj( 2416, ch ) ) {
+  junk_obj( has_obj( 2204, ch ), 1 );
+  act_tochar( #hold, ch );
+  act_notchar( #rhold, ch );
+  wait( 2 );
+  act_room( #glow, ch );
+  wait( 1 );
+  act_tochar( #smash, ch );
+  act_notchar( #rsmash, ch );
+  wait( 1 );
+  act_room( #raise, ch );
+  wait( 2 );
+  act_room( #summon, ch );
+  transfer( mob_in_room( 2204, find_room( 48245 ) ), room );
+  }
+else
+  continue;
+else
+  act_tochar( #notcomplete, ch );
+else act_tochar( #notcomplete, ch );
+  else act_tochar( #notcomplete, ch );
+  else act_tochar( #notcomplete, ch );
+  else act_tochar( #already, ch );
+  else act_tochar( #frog, ch );
+~
+E
+hold~
+@gYou hold the throbbing green stone over your head.@n
+~
+E
+rhold~
+@g$n holds a throbbing green stone over your head.@n
+~
+E
+glow~
+@GA brilliant green aura fills the stone circle.@n
+~
+E
+smash~
+@cAs the light escapes from the stone, the emerald jewel crumbles in your
+grasp.@n 
+~
+E
+rsmash~
+@cAs the light escapes from the stone, the emerald jewel crumbles in $n's grasp.@n
+~
+E
+raise~
+The ground rumbles as the standing stones, once half-sunken, rise up out
+of the ground.
+~
+E
+summon~
+The green light becomes blinding.  When at last you can see, a man
+dressed in earthen robes stands before you, staring at the standing
+stones that have already sunk halfway back into the ground.
+~
+E
+notcomplete~
+Something tells you that the time for the sacrifice is not at hand.
+~
+E
+already~
+There is no need to begin the sacrifice.  The master of the elements is
+already here.
+~
+E
+frog~
+The Froghemoth would probably object, considering you'd have to stand
+atop him to complete the sacrifice.
+~
+!
+0 0 0
+419 9 1509949540 3 0
+419 9 1509949540 3 0
+418 9 1509949540 3 0
+552 9 1509949540 3 0
+-1
+S
+
+#31008
+K'ssk Swamp~
+The swamp here has many rocks in it, allowing you to walk freely over
+them, without sinking several inches in mud.  The swamp plants are much
+less sparce to the east, and to the northwest, the pool gets deeper. 
+Just to your west, the land rises to a small hill, and the rocky swamp
+continues south.  
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 31007 10 10 5
+D1
+~
+~
+0 -1 31002 10 10 5
+D3
+~
+~
+0 -1 31012 10 10 5
+A
+~
+~
+send_to_char( #char_west, ch );
+continue;
+~
+E
+char_west~
+Your progress to the west is steadily upward, reaching dry land a foot or
+two above water level.  
+
+~
+!
+3 3 8
+419 9 1509949540 3 0
+-1
+S
+
+#31010
+K'ssk Swamp~
+You are wading through a pool of stagnant water that comes up to
+your chest.  You are having a very difficult time moving about, and you
+have to hold your belongings up to avoid them getting soaked.  Dark
+shapes move about in the water, sending a chill through your bones every
+time they brush against your legs.  The depression in the land gets
+deeper to the south, but more solid land can be seen to the southeast.  
+A flat stone of glossy black glass sticks halfway out of the ground here.
+~
+*Ice Altar
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 31006 10 10 5
+D2
+~
+~
+0 -1 31011 10 10 5
+D3
+~
+~
+0 -1 31135 10 10 5
+E
+glossy black flat stone~
+A glossy black stone sticks up out of the ground.  It looks to be slowly
+sinking into the swamp.  Given another few years, it might disappear
+completely.  Towards the center of the flat black stone there is a small
+hollow, around which is carved a design of an ice dragon.
+~
+A
+place sacrifice put drop~
+ball ice~
+if( rflag( reset0, room ) )
+  if( has_obj( 2840, ch ) ) {
+  act_tochar( #place, ch );
+  act_notchar( #rplace, ch );
+  wait( 2 );
+  act_room( #sink, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  continue;
+else
+  act_tochar( #already, ch );
+~
+E
+already~
+A puddle of ice water lies on top of the stone.  Its surface hums with
+unseen power.
+~
+E
+place~
+You place the ball of ice atop the stone.
+~
+E
+rplace~
+$n places a ball of ice atop the stone.
+~
+E
+sink~
+The ball of ice slowly melts atop the stone.  Its stone surface begins to
+hum faintly.
+~
+!
+0 0 0
+421 9 1509949540 3 0
+421 9 1509949540 3 0
+-1
+S
+
+#31011
+K'ssk Swamp~
+By now, the flooded depression has grown into a deep hole, and you are
+practically treading water to keep your head dry.  To the west, the hole
+widens out to the size of a small river, flanked on either side by a
+forest of water reeds.  The land just to the south rises up sharply,
+higher than the water level and looks to be on firmer ground.  To the
+southeast, the water grows shallower, and to the north, the deep water
+continues.
+~
+this rdesc is confusing  k
+give this leech the same mpedit as my leech that i made
+aedit leaving room to west you clamber up an incline into knee deep water. - D
+[Lansharra] why isn't any of this terrain wet?
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 31010 10 10 5
+D1
+~
+~
+0 -1 31007 10 10 5
+D2
+~
+~
+0 -1 31012 10 10 5
+D3
+~
+~
+0 -1 31019 10 10 5
+A
+~
+~
+send_to_char( #char_south, ch );
+continue;
+~
+E
+char_south~
+Going south, you stumble up a sharp climb to find yourself on dry land.
+
+~
+!
+3 2 4
+421 9 1509949540 3 0
+-1
+S
+
+#31012
+K'ssk Swamp~
+You have reached a small plateau of the swamp, higher than the normal
+ground level.  The familiar feel of firm ground beneath your feet
+reassures you considerably.  Plant life is abundant here, obviously
+having thrived on slightly less moist areas.  You notice markings of
+something having moved through the grass here recently, but you can't
+tell without inspecting it more closely.  The north drops abruptly into
+deep waters of the swamp, but it grows lower much more gradually to the
+east.  A pale orange stone rises up out of the ground here.
+~
+[Lansharra] mother serpent should be aggro? (can't remember if i reported this before :P)
+*Shock altar
+~
+301465600 5 8 0
+D0
+~
+~
+0 -1 31011 10 10 5
+D1
+~
+~
+0 -1 31008 10 10 5
+E
+nest~
+The nest, covered in egg chards and full of broken and unbroken eggs, is
+unoccupied at the moment.  You hope that it was abandoned; these types of
+treasures are usually well-guarded.
+~
+E
+3 eggs~
+The eggs are shiny, and very smooth.  One would bring quite a price on
+the market; eggs in these parts are very rare, and typically, quite
+valuable.  
+~
+E
+4 bushes~
+You search through the bushes, and to your surprise, you find a hidden
+nest, full of eggs!  Although most of them have already hatched, several
+are still intact.  Whatever species they may be, eggs in good condition
+are worth quite a bit on the market.  
+~
+E
+4 marking grass~
+Even when looking closer at the markings, they are like none you have
+seen before.  However, most of them are around the bushes, perhaps the
+answers lies there.
+~
+E
+pale orange stone~
+Rising up out of the ground here is a large rock.  Its face orange
+surface is pitted and weathered from many seasons of exposure.  Across
+its surface is evidence of multiple lightning strikes.
+~
+A
+~
+~
+send_to_char( #char_north, ch );
+continue;
+~
+E
+char_north~
+You almost trip and fall as you drop down several feet, almost neck-deep
+in the familiar swamp water.  
+
+~
+!
+3 0 1
+A
+~
+~
+send_to_char( #char_east, ch );
+continue;
+~
+E
+char_east~
+You make your way down a gentle slope of the land, stepping into
+knee-deep swamp water once again.  
+
+~
+!
+3 1 2
+A
+get take~
+3 eggs~
+if( mob_in_room( 99, find_room( 31012 ) ) ) {
+  act_tochar( #char_no_take, ch );
+  act_notchar( #room_no_take, ch );
+  }
+else {
+  if( has_obj( 351, ch ) ) {
+    act_tochar( #char_no_take2, ch );
+    act_notchar( #room_no_take2, ch );
+    }
+  else {
+    if( rflag( reset1, room ) ) {
+      act_tochar( #char_get, ch );
+      act_notchar( #room_get, ch );
+      obj_to_char( oload( 351 ), ch );
+      mob = mload( 99, room );
+      remove_rflag( reset1, room );
+      wait( 1 );
+      }
+    else
+      act_tochar( #disturbed, ch );
+    }
+  }
+~
+E
+disturbed~
+It appears this snake nest has been disturbed already.
+~
+E
+snake_leave~
+The serpent, satisfied that her eggs are in no danger anymore, slithers
+away through the brush towards the water.
+~
+E
+room_get~
+$n pokes around the nest, and finding a good-sized egg that is still
+intact, carefully picks it up.  
+
+@YYou can only imagine how $n must feel when $e comes face-to-face
+with a huge serpent, evidently the owner of the nest.  Now would be a
+good time to leave.  @R@bFAST.
+~
+E
+char_get~
+You poke around the nest, and finding a good-sized egg that is still
+intact, you carefully pick it up.  
+
+@YYour heart almost leaps out of your chest when you come face-to-face with
+a huge serpent, evidently the owner of the nest.  Now would be a good
+time to leave.  @R@bFAST.
+~
+E
+room_no_take2~
+$n pokes around, looking for a second egg, but comes up without one. 
+~
+E
+char_no_take2~
+You poke around, but you can't find any other eggs that look intact.
+~
+E
+room_no_take~
+$n almost reaches out to the nest, but being fully aware of the
+serpent's presence, decides better of it.
+~
+E
+char_no_take~
+Considering you have a bloodthirsy, raging serpent between you and the
+nest, you decide not to risk putting your hand in her way.  
+~
+!
+0 0 0
+A
+inspect~
+grass ground~
+act_tochar( #grass, ch );
+~
+E
+grass~
+The grass is trampled down across a wide path.  Either something was
+dragged through here, or many animals have come through recently.
+~
+!
+0 0 0
+A
+sacrifice place put drop~
+rabbit skin~
+if( rflag( reset0, room ) )
+  if( has_obj( 40, ch ) ) {
+  act_tochar( #place, ch );
+  act_notchar( #rplace, ch );
+  wait( 2 );
+  act_room( #sink, ch );
+  remove_rflag( reset0, room );
+  }
+else
+  continue;
+else
+  act_tochar( #already, ch );
+~
+E
+place~
+You drape the rabbit skin over the stone.
+~
+E
+rplace~
+$n drapes a rabbit skin over the stone.
+~
+E
+sink~
+A bolt of lightning strikes the skin, consuming it entirely.
+~
+E
+already~
+The pale orange rock hums with unseen power.
+~
+!
+0 0 0
+-1
+S
+
+#31013
+In a Tree, K'ssk Swamp~
+You are standing on a very thick branch of a tree in the K'ssk swamp. 
+The bark of the tree is wet and crumbles in your hand; you begin to
+question how sturdy this tree is.  The fog completely surrounds you on
+all sides, effectively blocking your ability to make out more of the
+tree.  The branch you are standing on continues to the north, a slightly
+smaller one that looks almost as strong goes to the east, and you can
+make out the soggy ground down below.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31014 10 10 5
+D1
+~
+~
+0 -1 31015 10 10 5
+E
+6 branches~
+The large branch you are standing on continues north, and with a short
+jump you can make it to a smaller branch to the east.  The branches above
+you aren't close enough nor strong enough for you to climb.  
+~
+E
+fog~
+The fog is quite thick, and preventing you from seeing the rest of the
+tree, and any farther past the foliage of the tree itself.  
+~
+E
+bark~
+The bark is damp and crumbly.  You'll have to be careful if you want to
+climb any higher.  
+~
+A
+2 climb~
+1 down~
+send_to_char( #char_climb, ch );
+act_notchar( #room_climb, ch );
+transfer( ch, find_room( 31004 ) );
+act_notchar( #room_climb2, ch );
+~
+E
+room_climb2~
+$n climbs down the large tree from above.
+~
+E
+room_climb~
+$n carefully makes $s way down the tree.
+~
+E
+char_climb~
+You easily make your way down the tree.
+~
+!
+0 0 0
+A
+2 climb~
+1 up~
+send_to_char( #no_climb, ch );
+~
+E
+no_climb~
+You look for something to grab onto, but there are no branches strong
+enough for climbing.  
+~
+!
+0 0 0
+420 9 1509949450 3 0
+-1
+S
+
+#31014
+In a tree, K'ssk Swamp~
+Here, the branch narrows quite a bit, obstructing any further progress to
+the north.  It still feels sturdy, but you wouldn't want to test its
+limits; it's quite a drop to the ground from here.  Several branches
+above you look strong enough to support your weight, but you can't see
+how high up in the tree they lead.  
+~
+says on the second line you @blose your balance!@n 
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 31013 10 10 5
+E
+6 branches~
+The branches above you look strong enough to climb, though it won't be
+easy.  One slip up and you would fall over 30 feet to the ground.  
+~
+A
+2 climb~
+6 branch tree 1 up~
+if( can_fly( ch ) ) {
+  act_tochar( #char_fly, ch );
+  act_notchar( #room_fly, ch );
+  transfer( ch, find_room( 31016 ) );
+  act_notchar( #fly_arrive, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  act_tochar( #char_climb, ch );
+  act_notchar( #room_climb, ch );
+  transfer( ch, find_room( 31016 ) );
+  act_notchar( #char_arrive, ch );
+  }
+else {
+  if( random( 0, 3 ) > 2 ) {
+    act_tochar( #char_fail, ch );
+    act_notchar( #room_fail, ch );
+    i = dice( 2, 2 );
+    dam_message( ch, i, #char_fall );
+    inflict( ch, mob, i, "falling" );
+    }
+  else {
+    act_tochar( #char_fail2, ch );
+    act_notchar( #room_fail2, ch );
+    transfer( ch, find_room( 31004 ) );
+    act_notchar( #char_arrive2, ch );
+    i = dice( 4, 4 );
+    dam_message( ch, i, #char_fall );
+    inflict( ch, mob, i, "falling" );
+    }
+  }
+~
+E
+fly_arrive~
+$n enters, flying up from below.
+~
+E
+room_fly~
+$n gracefully flies up the tree.
+~
+E
+char_fly~
+You effortlessly fly to the top of the tree.
+~
+E
+char_arrive2~
+$n suddenly appears out of nowhere, hitting the ground with a resonating
+thud.  Apparently $e fell from the tree.  
+~
+E
+room_fail2~
+$n takes hold of a branch and begins to swing up into the top of the
+tree, but loses $s grip and falls, hitting the ground below you
+painfully.  
+~
+E
+char_fail2~
+You take hold of a branch and begin to swing up into the top of the tree,
+but your grip slips and you @close your balance!@n You fall, hitting the
+ground beneath the tree with a tremendous impact.  
+~
+E
+char_fall~
+The fall
+~
+E
+room_fail~
+$n takes hold of a branch and begins to swing up into the top of the
+tree, but loses $s grip and falls, landing stomach-first on the branch
+you are on.  
+~
+E
+char_fail~
+You take hold of a branch and begin to swing up into the top of the tree,
+but your grip slips and you lose your balance!  Luckily, you land
+stomach-first on the lower, thicker branch, knocking the air from your
+lungs.  
+~
+E
+char_arrive~
+$n swings up from lower in the tree.
+~
+E
+room_climb~
+$n takes hold of a branch and swings up to the top of the tree.
+~
+E
+char_climb~
+You take hold of a branch and swing yourself up to the top of the tree.
+~
+!
+0 0 0
+420 9 1509949530 3 0
+-1
+S
+
+#31015
+In a Tree, K'ssk Swamp~
+The branch you are on creaks under your weight, making you have second
+thoughts about walking here.  Looking around, you see that you are near
+the end of the tree, where there is little or no foliage to block your
+sight.  The fog, too, is slightly less dense here, and if you strain to
+see, you can get a clear look through a hole in the haze.  
+~
+~
+301465600 3 6 0
+D3
+~
+~
+0 -1 31013 10 10 5
+E
+6 branches~
+The branch creaks unsteadily, but shows no other signs of breaking.  It
+reaches to the far east side of the tree, where no other branches are in
+reach.  
+~
+E
+haze hole~
+Peering through a large gap in the fog, you have a clear view of the
+east.  As far as your eye can see to the horizon, there is only swamp. 
+It is quite a dismal sight, and there are hardly any signs of life of any
+kind.  You figure the ocean must be out there somewhere, but you can't
+see where the swamp ends.  
+~
+E
+fog~
+Peering through a large gap in the fog, you have a clear view of the
+east.  As far as your eye can see to the horizon, there is only swamp.
+It is quite a dismal sight, and there are hardly any signs of life of any
+kind.  You figure the ocean must be out there somewhere, but you can't
+see where the swamp ends.
+~
+420 9 1509949490 3 0
+-1
+S
+
+#31016
+Top of a Tree, K'ssk Swamp~
+Having reached the top of the tree, you find yourself above the fog
+level, and you have a clear view of miles around you in any direction. 
+The view is quite amazing; to the east, you can see the swamp eventually
+meets the ocean.  To the north, you see a long road stretching to the
+horizon, meeting several large mountain ranges.  A plain of endless
+grasslands can be seen to the west, and to the south, you see endless
+swamp.  Other than a marvelous view, though, there is little else in the
+top of the tree worth seeing.  To get back to ground level, you'll have
+to climb down the ladder of branches.
+~
+~
+301465600 3 6 0
+A
+2 climb~
+1 down~
+if( can_fly( ch ) ) {
+  send_to_char( #char_fly, ch );
+  act_notchar( #room_fly, ch );
+  transfer( ch, find_room( 31004 ) );
+  act_notchar( #fly_arrive, ch );
+  end;
+  }
+if( find_skill( ch, climb ) > random( 0, 7 ) ) {
+  send_to_char( #char_climb, ch );
+  act_notchar( #room_climb, ch );
+  transfer( ch, find_room( 31014 ) );
+  act_notchar( #room_arrive, ch );
+  }
+else {
+  act_tochar( #char_fail, ch );
+  act_notchar( #room_fail, ch );
+  transfer( ch, find_room( 31004 ) );
+  act_notchar( #room_arrive2, ch );
+  i = dice( 3, 6 );
+  dam_message( ch, i, #damage_char );
+  inflict( ch, mob, i, "falling" );
+}
+~
+E
+fly_arrive~
+$n floats down from above.
+~
+E
+room_fly~
+$n slowly floats down the tree.
+~
+E
+char_fly~
+You slowly float down the tree.
+~
+E
+damage_char~
+The fall
+~
+E
+room_arrive2~
+$n suddenly appears out of nowhere, hitting the ground with a resonating
+thud, having dropped from some great height.  
+~
+E
+room_fail~
+$n cautiously takes a branch and starts to make $s way down the tree, but
+the branch snaps, sending $n spinning through the air!  
+~
+E
+char_fail~
+You cautiously take a branch and start to make your way down the tree,
+but the branch snaps, sending you spinning through the air!  You hit the
+ground below the tree with a sickening @R@bcrunch@n that resembles the
+sound of ribs breaking.  
+~
+E
+room_arrive~
+$n climbs down to the branch you are on, from the top of the tree.  
+~
+E
+room_climb~
+$n takes hold of a branch and makes $s way down the tree.
+~
+E
+char_climb~
+You cautiously take a branch and make your way down the tree.
+~
+!
+0 0 0
+-1
+S
+
+#31018
+Wet Trail~
+You are standing at an intersection between a trail which branches to the
+north, south and west.  This trail is quite narrow, and squishes under
+your feet as you walk along.  It ends to the north at the village
+Sos-Kul, and widens to the south until it disappears completely into a
+large pool of water which seems to pervade this area of the K'ssk swamps. 
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31020 10 10 5
+D2
+~
+~
+0 -1 31000 10 10 5
+D3
+~
+~
+0 -1 31131 10 10 5
+-1
+S
+
+#31019
+Flooded Trail~
+This looks like it was once a path, but it appears that the ground had
+shifted, creating a small flood here.  The water is now about knee deep,
+shallow enough for you to wade through with no problems.  The water flows
+east through a standing of reeds into a shallow pool.  What is left of
+the path continues to the east and west.
+~
+make the depth of water a random action; it wouldn't be the same for ogres and gnomes... -k
+describe the depression to e or give some tipoff as to its existence 
+should terrain really be 'mountain' here? need to check the rooms
+aedit leaving room you fall into a pool of water (because they couldn't see the ground.) - D
+~
+301465608 5 9 0
+D1
+~
+~
+0 -1 31011 10 10 5
+D3
+~
+~
+0 -1 31136 10 10 5
+-1
+S
+
+#31020
+Wet Trail~
+Just to the north, you can see the south gate of the village of Sos-Kul. 
+To the south are the K'ssk swamps.  Many primordial horrors live in those
+swamps, and travelers should take care.  You can feel the soggy dampness
+of the swamp clinging to your skin.
+~
+did you want this gate to work?  i fixed the code, but left the gate
+dflags alone.  i mean is it fair to keep out all but lizardmen?-Dragos 
+~
+301465608 2 9 0
+D0
+~
+~
+0 -1 30789 10 10 5
+D2
+~
+~
+0 -1 31018 10 10 5
+A
+knock bash bang pound~
+door wood gate~
+if( !is_open( room, north ) ) {
+if( race( ch ) == lizardman ) {
+    send_to_char( #char_open, ch );
+    act_notchar( #room_open, ch );
+    send_to_room( #all_open, room );
+    }
+  else {
+    send_to_char( #char_open, ch );
+    act_notchar( #room_open, ch );
+    send_to_room( #all_not_open, room );
+    }
+  }
+else
+  send_to_char( #char, ch );
+~
+E
+char~
+The gates are already open.
+~
+E
+all_not_open~
+A moment later, several reptilian heads appear above the gate with
+crossbows aimed straight at your heart.  One of them shouts something to
+the effect that you're not welcome in K'ssk.  
+~
+E
+all_open~
+A reptilian head pops out of a watchtower, looking you over.  Eventually,
+he ducks back in and the gates swing open with a loud creak.  
+~
+E
+room_open~
+$n bangs on the gate, sending the hinges shuddering.
+~
+E
+char_open~
+You bang on the gate, sending a rippling reverberation through the door.
+~
+!
+0 0 0
+-1
+S
+
+#31021
+Swimming in Large Lake~
+You are swimming in a lake of dirty black water.  There are fish and
+insects all around you.  The lake seems deep here, since you cannot touch
+the bottom when you try.
+~
+if you get a chance ever (HAHAHA!), put the aedits in each room that say,
+"You swim blah blah blah." - D
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31023 10 10 5
+D1
+~
+~
+0 -1 31024 10 10 5
+D2
+~
+~
+0 -1 31025 10 10 5
+D3
+~
+~
+0 -1 30787 10 10 5
+D5
+~
+~
+0 -1 31077 10 10 5
+605 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31022
+Path Outside West Gate~
+You are in a small clearing outside the west gate of Sos-Kul.  A narrow
+path leads off to the west through K'ssk swamp, while the gate to the
+village stands to the east.  
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31087 10 10 5
+D1
+~
+~
+0 -1 30752 10 10 5
+D2
+~
+~
+0 -1 31086 10 10 5
+D3
+~
+~
+0 -1 31088 10 10 5
+-1
+S
+
+#31023
+Swimming in Large Lake~
+You are swimming in a large stretch of open black water.  To the west,
+you can see the village walls, while to the north, south and east, the
+lake spreads out around you.  
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31035 10 10 5
+D1
+~
+~
+0 -1 31026 10 10 5
+D2
+~
+~
+0 -1 31021 10 10 5
+D3
+~
+~
+0 -1 31070 10 10 5
+1872 17 1509949540 -2 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31024
+Swimming in Large Lake~
+You are swimming in the exact center of a large, dark lake.  To your
+west is the wall of the village, while in all other directions is the
+lake surrounded by the K'ssk swamp.
+~
+K'ssk? - D
+[Kastle] LAUGH!!! the lake i emptied into my skin is empty, you cant drink from the lake, its empty
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31026 10 10 5
+D1
+~
+~
+0 -1 31027 10 10 5
+D2
+~
+~
+0 -1 31028 10 10 5
+D3
+~
+~
+0 -1 31021 10 10 5
+D5
+~
+~
+0 -1 31078 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31025
+Swimming in Large Lake~
+You think the lake is fairly shallow here, though you have to guess since
+you can't see the bottom.  To the northwest is a pile of stones and the
+village gate.  
+~
+do you want "turtle" or "snapping turtle" in the mset long?
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31021 10 10 5
+D1
+~
+~
+0 -1 31028 10 10 5
+D2
+~
+~
+0 -1 31034 10 10 5
+D3
+~
+~
+0 -1 31043 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31026
+Swimming in Large Lake~
+The water seems deeper here, though it is hard to tell since you can't
+see the bottom.  You guess it is rather deep because your feet are not
+getting caught on anything.  
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31048 10 10 5
+D1
+~
+~
+0 -1 31029 10 10 5
+D2
+~
+~
+0 -1 31024 10 10 5
+D3
+~
+~
+0 -1 31023 10 10 5
+D5
+~
+~
+0 -1 31082 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31027
+Swimming in Large Lake~
+The lake here is covered with a thick layer of vines and plants.  They
+are not as thick as they are to the east, but they are still too thick to
+see what is below.  Swimming is difficult as you keep getting tangled in
+the vines.  
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31029 10 10 5
+D1
+~
+~
+0 -1 31071 10 10 5
+D2
+~
+~
+0 -1 31030 10 10 5
+D3
+~
+~
+0 -1 31024 10 10 5
+578 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31028
+Swimming in Large Lake~
+The water here is slightly clearer than is is in the rest of the lake. 
+You can actually see the bottom of the lake, a long ways below you. 
+Around you, the water stretches away to meet the edges of the swamp.
+~
+down, clear rextras - D
+don't capitalize all of your mobs, go through and make sure they are in
+lowercase.  - D 
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31024 10 10 5
+D1
+~
+~
+0 -1 31030 10 10 5
+D2
+~
+~
+0 -1 31033 10 10 5
+D3
+~
+~
+0 -1 31025 10 10 5
+D5
+~
+~
+0 -1 31081 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31029
+Swimming in Large Lake~
+The lake is very dark, and you can't make out much detail below the
+surface.  There are a myriad of bugs on the surface, and every once in a
+while, a fish will surface to eat one.  
+~
+bugs, surface rextras - D
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31061 10 10 5
+D1
+~
+~
+0 -1 31069 10 10 5
+D2
+~
+~
+0 -1 31027 10 10 5
+D3
+~
+~
+0 -1 31026 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31030
+Swimming in Large Lake~
+You are swimming on a smooth lake of extremely dark water.  The water is
+so dark, you can't even see your hands below the water as you swim.  You
+can feel cold water seeping up from deep below.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31027 10 10 5
+D1
+~
+~
+0 -1 31031 10 10 5
+D2
+~
+~
+0 -1 31032 10 10 5
+D3
+~
+~
+0 -1 31028 10 10 5
+D5
+~
+~
+0 -1 31080 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31031
+Wading in The Large Lake~
+The water has become rather shallow, allowing you to walk along the
+bottom.  Under the dark water, you can barely make out several large
+footprints in the mud.
+~
+footprints, mud rextras - D
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31071 10 10 5
+D1
+~
+~
+0 -1 31064 10 10 5
+D2
+~
+~
+0 -1 31062 10 10 5
+D3
+~
+~
+0 -1 31030 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31032
+Swimming in Large Lake~
+You are wading through a shallow area, the water is only up to your
+shoulders.  As you walk along, you keep sinking into the deep mud which
+sucks at your feet beneath the dark waters.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31030 10 10 5
+D1
+~
+~
+0 -1 31062 10 10 5
+D2
+~
+~
+0 -1 31059 10 10 5
+D3
+~
+~
+0 -1 31033 10 10 5
+A
+~
+1000~
+act_tochar( #sink, ch );
+act_notchar( #sinking, ch );
+~
+E
+sinking~
+%n sinks out of sight suddenly.
+~
+E
+sink~
+You step in a hole and sink over your head.
+~
+!
+2 1000 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31033
+Swimming in Large Lake~
+The water is very shallow here, allowing you to wade rather than swim. 
+Unfortunately, when you try to wade through the muck your feet become
+tangled in something.  To the south, you see a clump of vines which could
+possibly be the reason for the mud you can see to the southwest.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31028 10 10 5
+D1
+~
+~
+0 -1 31032 10 10 5
+D2
+~
+~
+0 -1 31058 10 10 5
+D3
+~
+~
+0 -1 31034 10 10 5
+E
+thing muck tangle~
+You dive under the water to see what is tangling your feet only to find
+that a mass of vines have sunk into the mud and have not yet decayed.
+~
+1872 17 1509949540 -2 0
+-1
+S
+
+#31034
+Swimming in Large Lake~
+You are swimming on the surface of a large, black lake.  The water is
+very dark, and you can't see what lies below the surface.  To the south,
+the water subsides and gives way to dark mud.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31025 10 10 5
+D1
+~
+~
+0 -1 31033 10 10 5
+D2
+~
+~
+0 -1 31057 10 10 5
+D3
+~
+~
+0 -1 31044 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31035
+Swimming in Large Lake~
+You are swimming in a large body of very dark water.  The main lake is to
+your south, while a narrow channel continues to the north.  All around
+you, the air feels almost alive.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31042 10 10 5
+D1
+~
+~
+0 -1 31048 10 10 5
+D2
+~
+~
+0 -1 31023 10 10 5
+D3
+~
+~
+0 -1 31036 10 10 5
+609 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31036
+Edge of Large Lake at Village Wall~
+The wall you are following turns west and south here.  The lake stays at
+a consistent depth as it follows the wall.  The reason is probably
+because the people of the village planted the vines along the shoreline. 
+To the west, you can sense a dangerous creature hiding in the wall.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31037 10 10 5
+D1
+~
+~
+0 -1 31035 10 10 5
+D2
+~
+~
+0 -1 31070 10 10 5
+D3
+~
+~
+0 -1 31073 10 10 5
+-1
+S
+
+#31037
+Swimming in Large Lake~
+You have to swim here because you can't touch the bottom.  The narrow
+channel you are swimming in continues on to the east, while to the south
+the lake encounters the village wall.  All around you, the water is
+surprisingly still.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31038 10 10 5
+D1
+~
+~
+0 -1 31042 10 10 5
+D2
+~
+~
+0 -1 31036 10 10 5
+D3
+~
+~
+0 -1 31074 10 10 5
+A
+~
+~
+act_tochar( #jump, ch );
+~
+E
+jump~
+You flinch as you feel something brush against your leg.
+~
+!
+1 -1 15
+1872 17 1509949540 -2 0
+-1
+S
+
+#31038
+Swimming in Large Lake~
+You can barely touch the bottom of the lake here, but it is so muddy, you
+probably wouldn't want to.  
+~
+[Kastle] fill water lake -- You empty a lake containing a clear liquid into a slick green waterskin.   boy that skin holds alot.
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31039 10 10 5
+D1
+~
+~
+0 -1 31041 10 10 5
+D2
+~
+~
+0 -1 31037 10 10 5
+D3
+~
+~
+0 -1 31075 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31039
+Edge of Large Lake~
+A small stream comes out of the swamp to the north here, and enters into
+the lake to the south.  The swamp is so overgrown though that you can't
+follow the stream to its source.  
+~
+aedit enter stream - D
+stream rextra - D
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 31040 10 10 5
+D2
+~
+~
+0 -1 31038 10 10 5
+D3
+~
+~
+0 -1 31076 10 10 5
+-1
+S
+
+#31040
+Edge of Large Lake~
+This is the northern end of the lake.  To the south, you can see the
+entire lake stretching out like a mirror.  
+~
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 31041 10 10 5
+D3
+~
+~
+0 -1 31039 10 10 5
+-1
+S
+
+#31041
+Edge of Large Lake~
+You are nearing the northern end of the lake.  Across a narrow stretch of
+water to the west, you can see the village wall turn away from the lake.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31040 10 10 5
+D1
+~
+~
+0 -1 31084 10 10 5
+D2
+~
+~
+0 -1 31042 10 10 5
+D3
+~
+~
+0 -1 31038 10 10 5
+-1
+S
+
+#31042
+Swimming in Large Lake~
+The water is getting darker here as you near the center of the lake.  As
+you swim along, you keep getting caught on weeds growing upon the surface
+of the water.  You can see a willow tree to the east.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31041 10 10 5
+D1
+~
+~
+0 -1 31049 10 10 5
+D2
+~
+~
+0 -1 31035 10 10 5
+D3
+~
+~
+0 -1 31037 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31043
+Edge of Lake at Village Wall~
+You are following the shallow edge of the lake where it encounters the
+wall of the village.  The vines that compose the wall actually grow into
+the lake.  The wall continues to the north and south while the lake
+stretches away to the east.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 30787 10 10 5
+D1
+~
+~
+0 -1 31025 10 10 5
+D2
+~
+~
+0 -1 31044 10 10 5
+582 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31044
+Edge of Lake at Village Wall~
+This is a narrow strip of shallow water that follows the wall of the
+village.  The vines that compose the wall don't grow in the deeper water
+leaving this little strip of semi-shallow water.  However, since patches
+of mud and grass are popping up sporadically in places here and to the
+south, lake might not be the proper term.  The vines look unkempt here,
+and need to be trimmed.
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31043 10 10 5
+D1
+~
+~
+0 -1 31034 10 10 5
+D2
+~
+~
+0 -1 31055 10 10 5
+D3
+~
+~
+0 -1 31045 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31045
+Edge of Lake at Village Wall~
+The thorny vines that create the walls of the village of Sos-Kul are
+growing into the lake here.  They are becoming overgrown and need to be
+trimmed.  You pause a moment to gaze upon your reflection in the still,
+dark water.
+~
+water, reflection, vines rextras - D
+p
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 31044 10 10 5
+D2
+~
+~
+0 -1 31046 10 10 5
+540 9 1509949540 3 0
+572 9 1509949540 3 0
+-1
+S
+
+#31046
+Edge of Lake at Village Wall~
+The vines which make the wall of Sos-kul are dying here for an unknown
+reason.  Perhaps nobody was able to groom them since the mud encircles
+this whole area.  All around you, the stench of mud seems to wrench your
+sanity from you.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31045 10 10 5
+D1
+~
+~
+0 -1 31055 10 10 5
+D2
+~
+~
+0 -1 31053 10 10 5
+D3
+~
+~
+0 -1 31047 10 10 5
+418 9 1509949540 3 0
+-1
+S
+
+#31047
+Muddy Spot at Village Wall~
+The lake has dropped in level here exposing a patch of muddy ground.  The
+wall of the village is to the north blocking passage in those directions. 
+You can see many animal tracks, large and small, in the mud, leading off
+in all directions.
+~
+muddy/ground/patch rextra - D
+perhaps an aedit search/examine/dig ground and find something - D
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 31046 10 10 5
+D2
+~
+~
+0 -1 31052 10 10 5
+D3
+~
+~
+0 -1 30869 10 10 5
+E
+mud ground patch~
+The mud reeks of decay and seems to extend under the wall.  When it
+sticks to you feet, a top layer pulls off revealing a layer of sand.
+~
+-1
+S
+
+#31048
+Edge of Large Lake~
+There is a narrow channel of the lake to the northwest of here, while
+the main lake is to the south.  To the north, you can see a large tree.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31049 10 10 5
+D1
+~
+~
+0 -1 31061 10 10 5
+D2
+~
+~
+0 -1 31026 10 10 5
+D3
+~
+~
+0 -1 31035 10 10 5
+-1
+S
+
+#31049
+Edge of Large Lake~
+A large willow tree is growing at the edge of the lake here.  The area is
+shaded, and the lake is smooth as a mirror, making for a very peaceful
+scene.  
+~
+willow/tree rextra - D
+aedit climb tree - D
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31084 10 10 5
+D2
+~
+~
+0 -1 31048 10 10 5
+D3
+~
+~
+0 -1 31042 10 10 5
+-1
+S
+
+#31052
+Muddy Spot at Edge of Lake~
+The lake had dropped in level a long time ago just enough to expose this
+patch of land.  You sink up to your knees in the deep, smelly mud. 
+Animal tracks of many sizes, abound in this area.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31047 10 10 5
+D1
+~
+~
+0 -1 31053 10 10 5
+D3
+~
+~
+0 -1 30868 10 10 5
+-1
+S
+
+#31053
+Edge of Large Lake~
+You are at the southern end of the lake, although there is now only mud
+in this section of it.  To the northeast, the lake stretches out, while
+to the south is the swamp.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31046 10 10 5
+D1
+~
+~
+0 -1 31054 10 10 5
+D3
+~
+~
+0 -1 31052 10 10 5
+-1
+S
+
+#31054
+Edge of Large Lake~
+You are walking along the edge of a large, black lake.  The mud looks
+somewhat dangerous, sucking at the lip of the trail.  Behind you, the
+swamp encircles you, mocking your every move.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31055 10 10 5
+D1
+~
+~
+0 -1 31056 10 10 5
+D3
+~
+~
+0 -1 31053 10 10 5
+-1
+S
+
+#31055
+Shallow End of Lake~
+The water level of the lake has dropped recently, cutting off this little
+section of the lake from the rest.  The water is shallow here, allowing
+you to walk rather than swim.  Swimming may be easier though as your feet
+are getting stuck in the mud.  
+~
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 31044 10 10 5
+D1
+~
+~
+0 -1 31057 10 10 5
+D2
+~
+~
+0 -1 31054 10 10 5
+D3
+~
+~
+0 -1 31046 10 10 5
+A
+swim~
+~
+act_tochar( #ccc, ch );
+~
+E
+ccc~
+You lift your feet from the mud and swim around in the pool, making
+travel a bit easier.
+~
+!
+0 0 0
+18 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31056
+Edge of Large Lake~
+The water has receded here, making a narrow muddy path between the lake
+and the impenetrable swamp.  The path continues to the west, skirting the
+foul smelling mud.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31057 10 10 5
+D3
+~
+~
+0 -1 31054 10 10 5
+-1
+S
+
+#31057
+Edge of Large Lake~
+The swamp has grown right up to the edge of the lake here, forcing you to
+wade through waist-deep mud in order to get past.  The swamp appears to
+be difficult to traverse.  Even a snake would probably have trouble
+moving around in it.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31034 10 10 5
+D1
+~
+~
+0 -1 31058 10 10 5
+D2
+~
+~
+0 -1 31056 10 10 5
+D3
+~
+~
+0 -1 31055 10 10 5
+-1
+S
+
+#31058
+Edge of Large Lake~
+The vines that compose the wall of the village must have gone to seed at
+one point, since they are growing here.  They have grown to make a huge
+mound to the south that stretches on to the east.  To the north, the lake
+stretches out into the distance.  
+~
+vines rextra - D
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31033 10 10 5
+D1
+~
+~
+0 -1 31059 10 10 5
+D3
+~
+~
+0 -1 31057 10 10 5
+578 9 1509949540 3 0
+-1
+S
+
+#31059
+Edge of Large Lake~
+The passage into the swamp to the south is blocked by a wall of thorny
+vines.  They look like they are not as big to the east.  However, the
+still lake stands quietly before you to the north.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31032 10 10 5
+D1
+~
+~
+0 -1 31060 10 10 5
+D3
+~
+~
+0 -1 31058 10 10 5
+578 9 1509949540 3 0
+-1
+S
+
+#31060
+Edge of Large Lake~
+The vines you can see to the west do not grow here, but you still cannot
+enter the swamp.  The lake shore stretches out to the north and west,
+providing your only exits.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31062 10 10 5
+D3
+~
+~
+0 -1 31059 10 10 5
+-1
+S
+
+#31061
+Edge of Large Lake~
+The ground rises here a little bit, making it a little drier.  The swamp
+to the north looks unpassable, while the lake to the south looks dark and
+dangerous.  
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 31066 10 10 5
+D2
+~
+~
+0 -1 31029 10 10 5
+D3
+~
+~
+0 -1 31048 10 10 5
+-1
+S
+
+#31062
+Edge of Large Lake~
+You are trying to walk along a mass of floating vines that have covered
+the shoreline around here.  
+~
+these three rooms here and to the west need more room redit - D
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31031 10 10 5
+D1
+~
+~
+0 -1 31063 10 10 5
+D2
+~
+~
+0 -1 31060 10 10 5
+D3
+~
+~
+0 -1 31032 10 10 5
+-1
+S
+
+#31063
+Edge of Large Lake~
+You have found a turn in the shoreline, it turns north and west here. 
+The water to your west is extremely shallow and you can see many large
+footprints in the mud under the water.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31064 10 10 5
+D3
+~
+~
+0 -1 31062 10 10 5
+E
+mud footprints~
+The mud is very sofy and the prints are fairly deep.  They appear to be
+humanoid from their shape.
+~
+18 9 1509949540 3 0
+-1
+S
+
+#31064
+Edge of Large Lake~
+A stream flows out of the swamp into the lake here.  The water looks very
+clean, there must be a spring nearby.  
+~
+aedit enter stream - D
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31072 10 10 5
+D2
+~
+~
+0 -1 31063 10 10 5
+D3
+~
+~
+0 -1 31031 10 10 5
+344 17 1509949540 -2 0
+582 9 1509949540 3 0
+-1
+S
+
+#31066
+Edge of Large Lake~
+The swamp is encroaching on the lake here, forcing you to wade through
+the lake to pass.  In the distance across the lake, you can see the wall
+of the village.
+~
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 31069 10 10 5
+D3
+~
+~
+0 -1 31061 10 10 5
+-1
+S
+
+#31069
+Edge of Large Lake~
+The swamp is very thick to the east, with vines and sinkholes making it
+impassable.  To the south, you see a mass of vines have grown out over
+the lake.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31066 10 10 5
+D2
+~
+~
+0 -1 31071 10 10 5
+D3
+~
+~
+0 -1 31029 10 10 5
+-1
+S
+
+#31070
+Edge of Large Lake at Village Wall~
+You are wading along the walls of the village.  The water is about knee
+deep and the walls grow into the lake.  You wonder how far the lake
+extends into the village when it rises.  
+~
+set the rflag no_mobs, so that some of these creatures don't end up in
+the same rooms...cordone them off into smaller areas - D 
+don't forget reagents if you can
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31036 10 10 5
+D1
+~
+~
+0 -1 31023 10 10 5
+D2
+~
+~
+0 -1 30787 10 10 5
+-1
+S
+
+#31071
+Edge of Large Lake~
+This is not really the shoreline of the lake, but actually a mass of
+vines and floating weeds that have become so overgrown that you can walk
+on it.  You have to keep moving though, because the plants start to pull
+you under if you stand still.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31069 10 10 5
+D1
+~
+~
+0 -1 31072 10 10 5
+D2
+~
+~
+0 -1 31031 10 10 5
+D3
+~
+~
+0 -1 31027 10 10 5
+A
+~
+500~
+act_tochar( #sink, ch );
+act_notchar( #rsink, ch );
+~
+E
+rsink~
+$n sinks into the water up to $s knees, then quickly moves to another
+part of the mass.  
+~
+E
+sink~
+You begin to sink through the mass of vines.  You struggle to keep your
+balance in this murky water.
+~
+!
+2 500 0
+A
+~
+~
+wait( 1 );
+acode( room, 1);
+~
+!
+1 -1 15
+578 9 1509949540 3 0
+-1
+S
+
+#31072
+Edge of Large Lake~
+This section of the shoreline is one large solid stone.  To the north and
+east the rock becomes covered with soil and plants, while to the west the
+rock ends in mud.  It looks to be very old, as there are fossils visible
+in the surface.
+~
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 31064 10 10 5
+D3
+~
+~
+0 -1 31071 10 10 5
+E
+rock fossil~
+The fossils are mostly water plants with the occasional small fish.
+~
+15 9 1509949540 3 0
+-1
+S
+
+#31073
+Edge of Large Lake at Village Wall~
+The vines of the wall are mixed with some other type of vine here.  The
+other vine seems to grow very quickly, as it appears to be completely
+overpowering the wall vine.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31074 10 10 5
+D1
+~
+~
+0 -1 31036 10 10 5
+577 9 1509949540 3 0
+-1
+S
+
+#31074
+Edge of Large Lake at Village Wall~
+The wall of the village is following the shoreline here.  To the north,
+the wall turns west.  To the south, you can sense a disturbing presence
+which sends chills up and down your spine.  A large lake stretches out to
+the east.
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31075 10 10 5
+D1
+~
+~
+0 -1 31037 10 10 5
+D2
+~
+~
+0 -1 31073 10 10 5
+-1
+S
+
+#31075
+Edge of Large Lake at Village Wall~
+The wall turns away from the lake shore here.  The wall continues to the
+west and south, while the shoreline continues to the north and south
+along the wall.  You see a path climbing out of the water to the west,
+following the vine wall.  
+~
+~
+301465600 3 6 0
+D0
+~
+~
+0 -1 31076 10 10 5
+D1
+~
+~
+0 -1 31038 10 10 5
+D2
+~
+~
+0 -1 31074 10 10 5
+D3
+~
+~
+0 -1 31085 10 10 5
+-1
+S
+
+#31076
+Dry Spot at Edge of Large Lake~
+Without the wall here, you can walk on the dry land which surrounds the
+lake.  The plants you are walking on are dying because the lake level has
+dropped recently and the ground is drying out.  
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 31039 10 10 5
+D2
+~
+~
+0 -1 31075 10 10 5
+-1
+S
+
+#31077
+Under the Surface~
+This is one of the deeper areas of the lake, but you can see the bottom. 
+The water is very murky and it is hard to make out any details.  To the
+west, you can just make out a pile of stones.  
+~
+stone rextra - D
+[Galante] You skin the corpse of A small fish
+~
+301465604 7 6 0
+D1
+~
+~
+0 -1 31078 10 10 5
+D4
+~
+~
+0 -1 31021 10 10 5
+576 9 1509949540 3 0
+576 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31078
+Under the Surface~
+This is the deepest part of the lake.  Above you, you see the glow that
+is the surface, and below, all you can see is darkness.  
+~
+~
+301465604 7 6 0
+D0
+~
+~
+0 -1 31082 10 10 5
+D1
+~
+~
+0 -1 31079 10 10 5
+D2
+~
+~
+0 -1 31081 10 10 5
+D3
+~
+~
+0 -1 31077 10 10 5
+D4
+~
+~
+0 -1 31024 10 10 5
+D5
+~
+~
+0 -1 31083 10 10 5
+576 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31079
+Under the Surface~
+As you swim under the wurky water, you notice new things about the life
+in the swamp, mainly that there is so much of it.  There are fish
+swimming around, and roots hanging down from above.  The water above you
+is covered with some type of floating plant, so much so, that you can't
+get up.  
+~
+rextras - D
+~
+301465604 7 6 0
+D2
+~
+~
+0 -1 31080 10 10 5
+D3
+~
+~
+0 -1 31078 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31080
+Under the Surface~
+The water is very murky, making it hard to see anything.  By feeling the
+bottom, you can tell the lake seems to get deeper to the northwest.  
+~
+~
+301465604 7 6 0
+D0
+~
+~
+0 -1 31079 10 10 5
+D3
+~
+~
+0 -1 31081 10 10 5
+D4
+~
+~
+0 -1 31030 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31081
+Under the Surface~
+The water seems clearer here.  When you look to discover why, you notice
+a small spring welling up clear water from a hole in the mud.  
+~
+rextras - D
+aedit enter hole - D
+~
+301465604 7 6 0
+D0
+~
+~
+0 -1 31078 10 10 5
+D1
+~
+~
+0 -1 31080 10 10 5
+D4
+~
+~
+0 -1 31028 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31082
+Under the Surface~
+This part of the lake is getting much shallower.  There are beams of
+light tunneling through the murky water.  To the north and west, the lake
+gets shallower.
+~
+[Severus] You try to breath but just swallow water. (should be "breathe")
+~
+301465604 7 6 0
+D2
+~
+~
+0 -1 31078 10 10 5
+D4
+~
+~
+0 -1 31026 10 10 5
+1872 17 1509949540 -2 0
+-1
+S
+
+#31083
+Deep Under The Surface~
+You can barely see here it is so dark.  The water around you is black
+with little tendrils of something floating in it.  You feel the water
+move.  Unfortunately, not by your doing.
+~
+~
+301465604 7 6 0
+D4
+~
+~
+0 -1 31078 10 10 5
+576 9 1509949540 3 0
+8 9 1509949540 3 0
+1872 17 1509949540 -2 0
+-1
+S
+
+#31084
+Edge of Large Lake~
+A snake is feeding on a rotting fish corpse here, but when you arrive it
+slithers away into the swamp.  The swamp stretches out in every
+directions.  However, the encroaching grass and vines to the east and
+north make it impossible to go in either of those two directions.
+~
+uh...where is the snake?  make a sentinel snake in here...remove the
+cloud of insects - D 
+snake, fish corpse rextras - D
+~
+301465600 3 6 0
+D2
+~
+~
+0 -1 31049 10 10 5
+D3
+~
+~
+0 -1 31041 10 10 5
+-1
+S
+
+#31085
+Path Along Village Wall~
+You are following a small path around the wall of the village.  The wall
+is made from large thorny vines that look too painful to touch.  To the
+east, you can see a lake, while the wall continues to the west.
+~
+~
+301465600 3 6 0
+D1
+~
+~
+0 -1 31075 10 10 5
+D3
+~
+~
+0 -1 30844 10 10 5
+-1
+S
+
+#31086
+K'ssk Swamp~
+This is a small clearing outside the west gate of Sos-Kul.  You can see
+the swamp to your south, and the village walls to the east.  To the
+northeast, paths appear to criss-cross, heading in each direction.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31022 10 10 5
+D1
+~
+~
+0 -1 30792 10 10 5
+-1
+S
+
+#31087
+K'ssk Swamp~
+You are standing in the northwest corner of a small clearing.  To the
+east, you can see the walls of Sos-Kul, while to your south, you can see
+a well traveled path.  There is a firepit here that looks recently used,
+making you wonder why someone would camp here.
+~
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 30791 10 10 5
+D2
+~
+~
+0 -1 31022 10 10 5
+E
+firepit~
+You blacken your hands searching the firepit, finding nothing of intrest.
+~
+A
+search examine~
+firepit~
+act_tochar( #ash, ch );
+~
+E
+ash~
+You blacken your hands looking in the ashes but find nothing of intrest.
+~
+!
+0 0 0
+916 17 1509949540 -2 0
+-1
+S
+
+#31088
+Well-Traveled Path~
+You are very close to the village of Sos-Kul.  You can hear voices above
+the steady noise of the swamp around you.  A little ways to the east, you
+can see the gate of the village.
+~
+need to work out the ? to south
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 31022 10 10 5
+D2
+~
+~
+0 -1 25552 10 10 5
+D3
+~
+~
+0 -1 31089 10 10 5
+E
+gate~
+The simple wooden gate looks very solid and well maintained.
+~
+A
+listen~
+~
+act_tochar( #list, ch );
+~
+E
+list~
+You can tell that there are voices coming from the other side of the
+wall, but you can't make out anything more.
+~
+!
+0 0 0
+-1
+S
+
+#31089
+Well-Traveled Path~
+The path you are following looks most traveled to the north and the east. 
+In the distance to the east, you can see the wall of the village of
+Sos-Kul.  To the west, you can faintly see a small animal trail leading
+off into the swamp, curving around a large mound of vines which grows to
+the south.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31090 10 10 5
+D1
+~
+~
+0 -1 31088 10 10 5
+D3
+~
+~
+0 -1 25500 10 10 5
+E
+trail west~
+The animal trail dissapears into the thoick undergrowth.  The only way to
+determine where it leads would be to follow it.
+~
+-1
+S
+
+#31090
+Well-Traveled Path~
+You are following a rather large path through K'ssk swamp.  There are
+many different types of footprints in the muddy ground, indicating just
+how much traffic this path gets.  
+~
+[Olah] i rflagged this room as no.mob to prevent skliss from wandering
+along this path and blocking newbies and whiners alike 
+~
+301465608 4 6 0
+D2
+~
+~
+0 -1 31089 10 10 5
+D3
+~
+~
+0 -1 31166 10 10 5
+E
+ground mud footprints tracks~
+There are tracks from horses, mules, boots, bare feet, and many other
+things you can't identify imprinted in the soft mud.  
+~
+-1
+S
+
+#31091
+Well-Traveled Path~
+You are travelling around a curve in the path through the swamp.  The
+sounds of frogs and birds are all around you, eminating from the swamp. 
+There are many sets of footprints in the mud, most of them leading to the
+east.
+~
+~
+301465600 4 6 0
+D1
+~
+~
+0 -1 31144 10 10 5
+D3
+~
+~
+0 -1 31092 10 10 5
+-1
+S
+
+#31092
+Well-Traveled Path~
+The path turns east and south to avoid a large hole that had formed to
+the west.  And looking into the hole, you see that the bottom of the hole
+is filled with stagnant water.  You might be able to climb down into the
+hole here, as the edge is sloped enough.
+~
+hole rextra - D
+~
+301465608 4 6 0
+D1
+~
+~
+0 -1 31091 10 10 5
+D2
+~
+~
+0 -1 31093 10 10 5
+D5
+~
+~
+0 -1 31102 10 10 5
+-1
+S
+
+#31093
+Well-Traveled Path~
+The path is winding its way around a sinkhole that has devoured part of
+the original path to the north.  The edge of the sinkhole looks somewhat
+climbable.  The path continues to the west and north.
+~
+sinkhole rextra - D
+climbable is confusing to players, seems they think there is an action in
+here to climb or something...alter or add function or something - D 
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31092 10 10 5
+D3
+~
+~
+0 -1 31094 10 10 5
+-1
+S
+
+#31094
+Well-Traveled Path~
+The well traveled path is winding its way around a large hole that has
+formed in the middle of the path.  In all directions, you look out over
+the massive swamp, noticing its dark and forbidding look.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31095 10 10 5
+D1
+~
+~
+0 -1 31093 10 10 5
+-1
+S
+
+#31095
+Well-Traveled Path~
+The path used to turn to the east here, but a large sinkhole has since
+collapsed under the path.  Instead, the path meanders to the south around
+the hole.  While to the east, on the other side of the hole, you can see
+the trail continue.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31096 10 10 5
+D2
+~
+~
+0 -1 31094 10 10 5
+-1
+S
+
+#31096
+Well-Traveled Path~
+The path looks like it spreads out to the south.  While to the north it
+jogs to the west a little.  Flanking you on the sides lies a dark and
+forbidding swamp.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31097 10 10 5
+D2
+~
+~
+0 -1 31095 10 10 5
+-1
+S
+
+#31097
+Well-Travelled Path~
+Large reptillian footprints dot the soft mud of this well traveled path
+through K'ssk swamp.  The well-worn path turns to the north and west as
+it avoids a large tangle of vines.
+~
+I would like to see footprints and vines as rextras - Sprout
+where is the swamp? you should be able to wander in the swamp!
+[Lansharra] lots of room titles in here are "Well-Traveled Path" with one
+L.  this one has two L's.  fix for consistency?
+~
+301465600 4 6 0
+D2
+~
+~
+0 -1 31096 10 10 5
+D3
+~
+~
+0 -1 31098 10 10 5
+-1
+S
+
+#31098
+Well-Traveled Path~
+The path turns here to avoid a large tangle of vines and trees to the
+south.  In the distance to the north, you can see the trail end at a
+sheer cliff.  Around you, soft mud reveals a stone slab surrounded by the
+shifting edges of a swamp.
+~
+vine/tree/south rextra - D
+alter the one redit i did in this room to whatever you feel it should say
+- D 
+i really think there is a lot going for this place but
+it is really hit-and-miss when it comes to being done
+Kiian
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31099 10 10 5
+D1
+~
+~
+0 -1 31097 10 10 5
+E
+stone slab~
+Time-weathered engravings on the stone slab depict a bipedal humanoid
+with what appears to be ridges, or a fin, forming a crest along its head
+and running down its back.  The figure holds a dagger or short sword
+raised above its head while underfoot several non-ridged humanoids rest
+with their heads quite clearly removed from their bodies.
+~
+-1
+S
+
+#31099
+Well-Traveled Path~
+You are travelling along a well used path through a swamp that is teeming
+with life.  The sounds of the swamp can be heard echoing all around you. 
+And a small path leads to the north and south.
+~
+if the sounds of the swamp can be heard all around you,
+why isn't it around you? why can't you go off of this path
+[Groin] improper english to start the final sentance with an 'And'.
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 31100 10 10 5
+D2
+~
+~
+0 -1 31098 10 10 5
+-1
+S
+
+#31100
+Trails End at Bottom of Cliff~
+You are at the bottom of a steep cliff.  A small path leads away to the
+south, while the overgrown swamp blocks passage in other directions.  A
+small ledge also winds its way up the cliff.  
+~
+ok...it looks better than it did before, at least the north and south
+portions, the west portion still needs to twist and turn some, maybe
+stick in some deadend off shoots too 
+
+forget trails make some realistic terrain
+~
+301465600 4 6 0
+D2
+~
+~
+0 -1 31099 10 10 5
+D4
+~
+~
+0 -1 31101 10 10 5
+-1
+S
+
+#31101
+Midway on Cliff Above Swamp~
+You are traveling on a narrow ledge that leads down into K'ssk swamp and
+up towards some trees.  The trail along this ledge appears to have been
+carved into the side of the cliff hastily.  The ledge continues to the
+east.
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 31142 10 10 5
+D4
+~
+~
+0 -1 23102 10 10 5
+D5
+"cliff trail"~
+"cliff trail"~
+0 -1 31100 10 10 5
+-1
+S
+
+#31102
+In a Pool of Stagnant Water~
+You are standing in waist deep water.  The water really stinks as there
+are many dead animals floating in it.  The walls are rather steep except
+to the east, where you might be able to climb out.  
+~
+aedit smell?
+dead animals rextra - D
+~
+301465600 4 6 0
+D4
+~
+~
+0 -1 31092 10 10 5
+18 9 1509949540 3 0
+18 9 1509949470 3 0
+-1
+S
+
+#31103
+K'ssk Swamp~
+You are wandering through the lush K'ssk swamp.  The plant life around
+you is widely varied, from trees, to vines, to small ferns.  The animals
+seem to be just as varied, as you can see many different small lizards
+and rodents scampering for cover.  To the east, a large clump of vines
+have overgrown the path.  Otherwise, paths extend in all other directions.
+~
+trees/vines/ferns/plantlife and animals/lizards/rodents rextras - D
+in fact, reset a few of those mongrels for players to kill and load some
+reagents about the swamp or something - D 
+aedit cut vines - D
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31105 10 10 5
+D2
+~
+~
+0 -1 31167 10 10 5
+D3
+~
+~
+0 -1 31106 10 10 5
+A
+1 east~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The vines are too thick to pass, even if you were to cut at them.
+~
+!
+0 0 0
+196 9 1509949540 3 0
+2511 9 1509949540 3 0
+-1
+S
+
+#31104
+Trails End at Sheer Cliff~
+You have come to the edge of a steep cliff.  The forest grows right up to
+the edge and some of the trees are ready to fall off.  Looking out over
+the edge you can see a vast swamp with a tiny village in the center. 
+There is a narrow path leading down the cliff, that doesn't look too
+dangerous.  
+~
+~
+301465600 4 9 0
+D3
+~
+~
+0 -1 21212 10 10 5
+-1
+S
+
+#31105
+K'ssk Swamp~
+You have reached a dead end in the path.  A large tree has fallen across
+the path and the vines that were growing in it have created a very
+effective barrier against entry, at least for anything larger than a
+snake or rodent.
+~
+aedit climb tree, enter tree, break vines, and etc...- D
+tree, vines, barrier rextras - D
+aedit search/examine hole - D
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31103 10 10 5
+-1
+S
+
+#31106
+K'ssk Swamp~
+The ground here is considerably drier than you have seen in other areas
+of the swamp.  There is also a definite slope leading up towards the
+northwest.  The slope is probably the cause of the drier ground.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31107 10 10 5
+D1
+~
+~
+0 -1 31103 10 10 5
+-1
+S
+
+#31107
+K'ssk Swamp~
+Something has knocked down many of the trees around here, leaving a
+tangled mess on the ground.  Whatever knocked these trees down must have
+been tremendously strong, trees with trunks 4 feet across have been
+splintered into tinder.  The path continues to the south and west.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31106 10 10 5
+D3
+~
+~
+0 -1 31108 10 10 5
+609 9 1509949540 3 0
+-1
+S
+
+#31108
+K'ssk Swamp~
+The swamp is getting drier as you follow the path.  It would appear that
+enough soil has fallen off of the cliff to raise the swamp above the
+waterline.  The swamp gets even drier to the north and west.  Otherwise,
+a small path branches away to the east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31109 10 10 5
+D1
+~
+~
+0 -1 31107 10 10 5
+D3
+~
+~
+0 -1 31126 10 10 5
+E
+soil dirt ground~
+The ground here is very dry and sandy.  There are small chunks of rock
+mixed in with the sand and dirt, probably from the face of the cliff.
+~
+-1
+S
+
+#31109
+K'ssk Swamp~
+You are on a narrow path that leads through a maze of trees to the east
+and south.  The ground is remarkably clear of vines, but many of the
+trees are growing so close together that you cannot fit between them.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31110 10 10 5
+D2
+~
+~
+0 -1 31108 10 10 5
+-1
+S
+
+#31110
+K'ssk Swamp~
+The path you are following is very narrow and twisted here as it winds
+between some huge trees.  Looking up, you see that the vines are woven
+between the trees (all the way to their tops), blocking most light and
+leaving the ground relatively clear.  If it wasn't for all the trees, you
+might be able to wander in any direction.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31111 10 10 5
+D3
+~
+~
+0 -1 31109 10 10 5
+E
+3 vines~
+The vines are very thick and covered with broad leaves to catch the sun. 
+The leaves catch enough of the sun that very little can grow on the
+ground.  In places the vines are choking out the trees in which they grow.
+~
+-1
+S
+
+#31111
+K'ssk Swamp~
+You are wandering along a dry path that winds its way through K'ssk swamp. 
+Around you, the swamp is relatively open here, allowing passage in most
+directions, except north.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31113 10 10 5
+D2
+~
+~
+0 -1 31110 10 10 5
+D3
+~
+~
+0 -1 31112 10 10 5
+-1
+S
+
+#31112
+K'ssk Swamp~
+The trail ends in a wall of vines that have strung themselves between the
+trees.  The vines are covered with thorns that look painful, so you don't
+want to try to cut through them.  The path leads back to the east.
+~
+aedit cut vines...make it hurt them - D (bwuhahaha!)
+vines/wall/thorns rextra - D
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31111 10 10 5
+577 9 1509949540 3 0
+-1
+S
+
+#31113
+K'ssk Swamp~
+The trail splits off here, leading through a canopy of trees heading the
+north.  Far to the north, you can also see a wall of stone.  Standing
+still, you can faintly hear sounds of running water to the east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31114 10 10 5
+D1
+~
+~
+0 -1 31118 10 10 5
+D3
+~
+~
+0 -1 31111 10 10 5
+E
+3 tree 5 canopy~
+The trees look very old, as they are easily 50 feet tall and very thick. 
+Shaggy moss hangs from most of the branches and covers the trunks.
+~
+E
+moss~
+There are many different varieties of moss on the trees, from long,
+stranded moss hanging from the branches, to a slight fuzz covering the
+trunks.
+~
+613 9 1509949540 3 0
+-1
+S
+
+#31114
+K'ssk Swamp~
+You are on a small path that winds its way through K'ssk swamp.  To the
+north, the path ends at the base of a huge cliff, while to the south, it
+continues through the maze of the swamp.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31115 10 10 5
+D2
+~
+~
+0 -1 31113 10 10 5
+523 9 1509949540 3 0
+-1
+S
+
+#31115
+Swamp at Cliff Face~
+You have come to the base of a great cliff.  The cliff is almost
+perfectly smooth, and very steep.  It looks like the entire swamp area
+just decided to sink 50 feet one day.  A little ways up, you can see a
+small ledge jutting out from the cliff face.  Small trails lead away to
+the south, east and west.  A small crevice can be faintly seen within the
+northern wall of the cliff, heading into darkness.
+~
+[Terek] Site approved for adakar's swamp
+~
+301465608 3 9 0
+D0
+~
+~
+75 -1 67500 10 10 5
+D1
+~
+~
+0 -1 31117 10 10 5
+D2
+~
+~
+0 -1 31114 10 10 5
+D3
+~
+~
+0 -1 31116 10 10 5
+D4
+~
+~
+0 -1 31141 10 10 5
+A
+climb~
+wall cliff up~
+if( can_fly( ch ) ) {
+  act_tochar( #zoom, ch );
+  act_Notchar( #rzoom, ch );
+transfer( ch, find_room( 31141 ) );
+  act_notchar( #azoom, ch );
+  }
+else {
+  i = find_skill( ch, climb );
+  if( i < 2 ) {
+    act_tochar( #noway, ch );
+    end;
+    }
+  mob = mob_in_room( 613, find_room( 31141 ) );
+  if( mob ) 
+    if( !is_fighting( mob ) )
+    if( random( 1, 2 ) < 2 ) {
+    i = 1d10+5;
+    dam_message( ch, i, #fall );
+    inflict( ch, mob, i, "falling rocks" );
+    act_tochar( #down, ch );
+    act_notchar( #room, ch );
+    act_room( #throw, mob );
+    end;
+    }
+  act_notchar( #leav, ch );
+  transfer( ch, find_room( 31141 ) );
+  act_tochar( #up, ch );
+  act_notchar( #arr, ch );
+  }
+~
+E
+arr~
+$n climbs up to the ledge from below.
+~
+E
+up~
+You climb up to the ledge.
+~
+E
+leav~
+$n climbs up the cliff.
+~
+E
+throw~
+The Slarg throws a rock over the ledge.
+~
+E
+room~
+$n tries to climb the cliff, but is knocked back down by a falling rock.
+~
+E
+down~
+The rock knocks you back down the cliff.
+~
+E
+fall~
+A large rock falling from the ledge above
+~
+E
+noway~
+Looking up, you realize you don't have the skill to climb the cliff.
+~
+E
+rzoom~
+$n flies up and over the cliff.
+~
+E
+azoom~
+$n comes flying up from below.
+~
+E
+zoom~
+You fly up and over the cliff face.
+~
+!
+0 0 0
+A
+~
+~
+acode( room, 1);
+~
+!
+3 4 16
+-1
+S
+
+#31116
+Swamp at Cliff Face~
+The trail ends here where a large mass of trees and dirt has fallen from
+the cliff above, blocking any further passage.  The cliff to your north
+is almost completely vertical and very smooth, making it unclimbable. 
+The trail returns to the east.
+~
+need aedits and rextras in here - D
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31115 10 10 5
+-1
+S
+
+#31117
+Cliff Face At Waterfall~
+A river tumbles over the cliff far above you, forming a majestic
+waterfall.  Here at the bottom, the sound is almost deafening as the
+water pours down into a large pool.  The water does not seem to drain
+away from the pool, so must flow away underground.  The trail returns to
+the west.
+~
+need rextras and aedits for waterfall, pool, river and such - D
+the aedit is in place in room 1010 - D =)
+as soon as this area is open, remove line 1 from the aedit in room 1010 -
+D 
+[Kastle] sorta, enter waterfall(you goto the creaky briedge) but you cant fill wa water container from the waterfall...
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 31115 10 10 5
+A
+enter~
+waterfall~
+if( random( 1, 10 ) < 5 ) {
+  act_tochar( #water, ch );
+  act_notchar( #nwater, ch );
+  transfer( ch, find_room( 1010 ) );
+  }
+else
+  act_tochar( #nope, ch );
+~
+E
+water~
+You enter the water, and find yourself scrambling back up on the bridge.
+~
+E
+nwater~
+You see $n enter the waterfall and disappear.
+~
+E
+nope~
+You start to enter the waterfall, then change your mind.
+~
+!
+0 0 0
+-1
+S
+
+#31118
+K'ssk Swamp~
+A small stream emerges from the brush to the north and winds its way
+along to the south.  The trail turns to follow the course of the stream. 
+To the west, a small path enters an intersection.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31119 10 10 5
+D3
+~
+~
+0 -1 31113 10 10 5
+-1
+S
+
+#31119
+K'ssk Swamp~
+You are following a small stream that twists its way through the swamp. 
+A small path leads off to the west, away from the stream, while the
+stream continues to the north and east.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31118 10 10 5
+D1
+~
+~
+0 -1 31121 10 10 5
+D3
+~
+~
+0 -1 31120 10 10 5
+-1
+S
+
+#31120
+K'ssk Swamp~
+The path used to continue to the south, but a large tree has fallen and
+blocked it.  Travel in any direction other than the one from which you
+came is impossible.
+~
+tree rextra - D
+aedit enter tree/hole/trunk or climb/traverse tree to go to one room
+south - D 
+maybe make a padding for the slarg to sleep in, or in the tree trunk? 
+under? - D
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31119 10 10 5
+-1
+S
+
+#31121
+K'ssk Swamp~
+You have to slosh through the stream to follow the path along here.  The
+stream has carved a narrow channel through the swamp that is about six
+feet deep.  The sides of the channel are too soft and crumbly to climb,
+forcing you to follow the stream.
+~
+aedit jump across/ravine/stream/etc. - D
+stream/channel/sides rextra - D
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31122 10 10 5
+D3
+~
+~
+0 -1 31119 10 10 5
+-1
+S
+
+#31122
+K'ssk Swamp~
+You are walking along the bank of a small stream.  The stream continues
+to the north and east, while a path leads off through the swamp to the
+south, heading through the large trees and vines which are quite
+prominent in this area.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31121 10 10 5
+D1
+~
+~
+0 -1 31125 10 10 5
+D2
+~
+~
+0 -1 31123 10 10 5
+-1
+S
+
+#31123
+K'ssk Swamp~
+You are following a narrow path that twists through vine laden trees.  To
+the north, you can see a small stream that the path follows.  To the
+west, you can see a dead end created by thorny vines which grow in
+abundance amongst the trees here.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31122 10 10 5
+D3
+~
+~
+0 -1 31124 10 10 5
+613 9 1509949540 3 0
+-1
+S
+
+#31124
+K'ssk Swamp~
+You have come to the end of the path which extends back to the east. 
+After looking at the large tangle of vines, you determine that you might
+be able to cut your way through the vines to the west and continue.
+~
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31123 10 10 5
+D3
+"wall of vines"~
+"wall of vines"~
+227 -1 31103 10 10 5
+A
+cut chop~
+wall vines plants~
+act_tochar( #ccut, ch );
+act_notchar( #rcut, ch );
+open( room, west );
+~
+E
+rcut~
+$n cuts a path through the vines to the west.
+~
+E
+ccut~
+You manage to cut a passage through the thick vines
+~
+!
+0 0 0
+-1
+S
+
+#31125
+K'ssk Swamp~
+The streambed flattens out here and the stream sinks into the ground. 
+The plants are very lush as there is a constant source of water.  The
+plants have become so overgrown that there is no way to get through them
+to continue the direction you were going.
+~
+slarg padding? - D
+aedit pick plant...and/or something else/more
+flower, stream, bed rextras - D
+~
+301465600 3 9 0
+D3
+~
+~
+0 -1 31122 10 10 5
+610 9 1509949540 3 0
+-1
+S
+
+#31126
+K'ssk Swamp~
+The trail meanders through the trees here.  The swamp in this area seems
+to be much drier than the rest.  You derive this from the fact that you
+haven't seen much mud around here and some pine trees are growing here,
+along with a few oak and other trees usually more suited to drier areas.
+~
+pine/oak/trees rextras - D
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 31108 10 10 5
+D3
+~
+~
+0 -1 31127 10 10 5
+-1
+S
+
+#31127
+K'ssk Swamp~
+The trail splits here.  The main path continues south and east, while a
+smaller path leads off to the north.  You can hear some animals moving
+around in the swamp to the north.
+~
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 31129 10 10 5
+D1
+~
+~
+0 -1 31126 10 10 5
+D2
+~
+~
+0 -1 31128 10 10 5
+-1
+S
+
+#31128
+K'ssk Swamp~
+The path ends in a tangle of vines and fallen trees.  If you were the
+size of a nerat you might have been able to pass through, but as it is,
+you are forced to turn around.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31127 10 10 5
+-1
+S
+
+#31129
+K'ssk Swamp~
+This is a small animal path that winds its way through the swamp.  Around
+you are sounds of many different animals, birds, squirrels, and even a
+few sounds which are unidentifiable.
+~
+you may want to set the mflags on each of these two mobs to be sentinel? 
+- D 
+aedit listen? - D
+are you going to give this lizardman a purpose for being out here in the
+middle of the swamp?  - D 
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31127 10 10 5
+D3
+~
+~
+0 -1 31130 10 10 5
+394 9 1509949540 3 0
+-1
+S
+
+#31130
+K'ssk Swamp~
+The animal trail ends here as it enters a mass of vines that have woven
+themselves between the trees.  The trail actually continues, but is too
+small to follow anymore.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 27277 10 10 5
+D1
+~
+~
+0 -1 31129 10 10 5
+572 9 1509949540 3 0
+-1
+S
+
+#31131
+K'ssk Swamp~
+The path you are following is getting muddier all the time.  The path
+appears to continue to the east and west through the damp and dismal
+swamp.  No matter what direction you move, the mud seems to get deeper
+and smellier.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31018 10 10 5
+D3
+~
+~
+0 -1 31132 10 10 5
+A
+~
+~
+act_tochar( #mud, ch );
+~
+E
+mud~
+You have to stop and scrape clumps of mud off your feet.
+~
+!
+2 2 0
+-1
+S
+
+#31132
+K'ssk Swamp~
+Through a small break in the plants to the south, you can see a large
+pool of stagnant water.  The break is not big enough to travel through
+though, so you will have to find another way to get to the pool, or to
+get around it.  Otherwise, the path through the swamp extends to the
+north, east and west.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31133 10 10 5
+D1
+~
+~
+0 -1 31131 10 10 5
+D3
+~
+~
+0 -1 31134 10 10 5
+E
+pool~
+none~
+E
+pool~
+The pool is dark and quiet.  It also stinks.
+~
+-1
+S
+
+#31133
+K'ssk Swamp~
+This is a small muddy path winding through the less overgrown parts of
+the swamp.  It widens out to the south into a larger path, while to the
+west, it gets even tighter.  To the north, you can see the vine wall of
+Sos-kul.  All around you, you can hear the murmurs of swamp life.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 31132 10 10 5
+D3
+~
+~
+0 -1 31140 10 10 5
+-1
+S
+
+#31134
+K'ssk Swamp~
+You are standing at the edge of a bamboo forest to the west.  The ground
+here is still rather wet and muddy, but it is much drier here than to the
+south.  The only standing water here is in old footprints.  Some of the
+prints are rather large, making you worry about what is lurking out of
+sight in the swamp.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31132 10 10 5
+D2
+~
+~
+0 -1 31135 10 10 5
+D3
+~
+~
+0 -1 25544 10 10 5
+E
+footprints~
+The footprints are mostly humanoid, Though most were not made from boots. 
+Stagnant water now stands in the inches deep prints.
+~
+-1
+S
+
+#31135
+K'ssk Swamp~
+You are standing in a pool of water which is bordered by a bamboo forest
+which extends to the west.  The water in the pool is about waist deep
+here, if you include the mud underneath.  The water gets even deeper to
+the east, while to the north you can see some semi-dry ground.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31134 10 10 5
+D1
+~
+~
+0 -1 31010 10 10 5
+-1
+S
+
+#31136
+Flooded Trail~
+You are wading through a flooded path that leads east and west through
+K'ssk swamp.  To the north, you can clearly see the edge of a bamboo
+forest which extends away to the north and west.  The plants on either
+side of the path create an impenetrable barrier, preventing you from
+straying from the path.
+~
+perhaps describe the plants? -k
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 31019 10 10 5
+D3
+~
+~
+0 -1 31137 10 10 5
+-1
+S
+
+#31137
+Flooded Trail~
+You are walking along the edge of a bamboo forest which lies directly to
+the north.  The water covering the path is getting shallow here where
+there are patches of grass growing through it.  To the south, it looks
+even more shallow, while to the east, you can see a large pool where the
+path drains.
+~
+The water here becomes shallow, as patches of grass poke out from below the surface...
+shallow used 2x
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 31136 10 10 5
+D2
+~
+~
+0 -1 31138 10 10 5
+E
+west pool~
+To the west the path opens into a large pool of very still, very dark water.
+~
+-1
+S
+
+#31138
+Flooded Trail~
+The path is getting fairly dry here.  You can avoid the water by walking
+on the clumps of grass growing in the path.  To the west, the water has
+receded completely, leaving a pool of mud that you can smell from here. 
+The trees and vines appear to create an impervious boundary to the south.
+~
+perhaps random actions describing chars slogging thru mud? k
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 31137 10 10 5
+D3
+~
+~
+0 -1 31139 10 10 5
+-1
+S
+
+#31139
+Flooded Trail~
+The water covering the path gives way to smelly mud here.  It appears
+that the water that you can see to the east must have risen to cover this
+area at one point.  Yet to the west, you can see dry sand dotted by an
+occasional bamboo shoot covering the whole of the ground.  Around you,
+the trees and vines of the swamp cover every surface.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 25534 10 10 5
+D1
+~
+~
+0 -1 31138 10 10 5
+E
+plants~
+The plant life covers every available surface.  There is a fuzzy moss of
+the tree trunks and rocks.  Vines hang from branches in the trees, while
+a thick algae grows on top of the mud.
+~
+A
+~
+~
+if( random( 1, 7) == 1 ) 
+act_tochar( #gag, ch );
+continue;
+~
+E
+gag~
+The stench of the mud overwhelms you, making you gag.
+~
+!
+1 -1 3
+-1
+S
+
+#31140
+K'ssk Swamp~
+The path is very wet and muddy as it winds through trees and vines.  To
+the north, you can see the wall of the village, while the path continues
+into the swamp to the east.  To the west, you can see the edges of a
+large grouping of bamboo shoots.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 30801 10 10 5
+D1
+~
+~
+0 -1 31133 10 10 5
+E
+bamboo~
+The bamboo is very tall and has formed a solid clump, blocking all
+passage to the west.
+~
+-1
+S
+
+#31141
+Small Ledge~
+You are on a small ledge jutting out from the face of a sheer cliff. 
+From this vantage you can look out over the entire swamp.  There is a
+slight mist hanging over the swamp, so you can't get much detail. 
+However, you can see the village of Sos-Kul in the center, with a good
+sized lake to the east side.
+~
+A cave can lead into the cliff face here , otherwise, make the slarg's
+lair right here on the ledge - D 
+ 
+can't remember how myself(look it up), but reminiscient is spelled
+wrong...also, don't you want a sentence snazzier than "A slarg is here."
+for the mset long?
+
+Disabled the cliff edge command.  Sleeping slargs were still attacking
+people, no way to fix.  -Talis 
+~
+301465600 3 9 0
+D5
+~
+~
+0 -1 31115 10 10 5
+A
+~
+~
+continue;
+end;
+
+act_tochar( #imm_note, ch );
+
+
+mob = mob_in_room( 613, room );
+if( mob ) 
+  if( random( 1, 2 ) < 2 ) {
+  act_tochar( #fall, ch );
+  act_notchar( #push, ch );
+  transfer( ch, find_room( 31115 ) );
+  act_notchar( #thump, ch );
+  i = 2d10+10;
+  dam_message( ch, i, #land );
+  inflict( ch, mob, i, "being pushed off a cliff" );
+  end;
+  }
+continue;
+~
+E
+land~
+The long fall from the ledge
+~
+E
+thump~
+$n falls from the cliff above and lands with a loud thump.
+~
+E
+push~
+The slarg pushes $n off the cliff as $s starts down.
+~
+E
+fall~
+The slarg pushes you as you go over the edge, making you fall to the
+swamp floor below.
+
+~
+E
+imm_note~
+This action was intentionally disabled due to inconsistencies.  Since we
+can't check to see if a mob is asleep, we had a problem with sleeping
+slargs pushing people off the cliff and tossing boulders at them.  Might
+be feasible if they did it in their sleep, but again, we can't check if
+its asleep to give a different message.  We could make it unsleepable,
+but that's sort of cheesy to change all the mobs for one non-essential
+room code.
+
+If you are a mortal seeing this, it means some imm just reactivated the
+room code without bothering to check this note.  Please inform an imm as
+soon as possible, thank you.  :) 
+~
+!
+3 5 32
+613 9 1509949540 3 0
+-1
+S
+
+#31142
+Midway on Cliff Above Swamp~
+With your back to the wall, you clamber along the ledge which extends to
+the east and west.  Uncertain of what could possibly lie to the east,
+your gut feelings tell you to return to the west.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 31143 10 10 5
+D3
+~
+~
+0 -1 31101 10 10 5
+-1
+S
+
+#31143
+Midway on Cliff Above Swamp~
+The ledge has become ridiculously narrow here.  Below you, you can see
+the swamp.  However, you dare not chance trying to look up for fear of
+losing your balance.  The ledge continues to the east and west.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 1041 10 10 5
+D3
+~
+~
+0 -1 31142 10 10 5
+-1
+S
+
+#31144
+Well-Traveled Path~
+The trees of the swamp tower over this section of the path, creating a
+tunnel.  You cannot see the sky due to a network of intertwined plants. 
+To the south, the tunnel gets even darker as the plants get thicker.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 31145 10 10 5
+D3
+~
+~
+0 -1 31091 10 10 5
+E
+trees tunnel sky plants~
+The trees are not what is really covering the sky, but a network of leafy
+vines have managed to string themselves between the trees well overhead.
+~
+-1
+S
+
+#31145
+Well-Traveled Path~
+This section of the path is very dark due to a canopy of branches and
+vines.  You stumble over roots and sink in puddles because you cannot
+see them in the near total darkness.  The canopy thins out to the east,
+allowing a little light to reach the path.
+~
+[Zot] Ahem.  description needs to be redone.  I happen to be carrying my
+own light, so I should think I would be able to see.
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31144 10 10 5
+D1
+~
+~
+0 -1 31146 10 10 5
+E
+roots puddles~
+You look closer at the ground, and see only normal mud and plants.
+~
+E
+canopy branches vines~
+The canopy of plants overhead is almost total, blocking nearly every bit
+of light.  This looks to be the thickest area of the canopy, as the path
+lightens as it leaves this spot.
+~
+-1
+S
+
+#31146
+Well-Traveled Path~
+You are following a seemingly endless path that winds through K'ssk swamp. 
+Around you, you can hear cries from a variety of animals echoing out of
+the trees.  The path continues to the east and west, leading slightly
+downward to the east.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31150 10 10 5
+D3
+~
+~
+0 -1 31145 10 10 5
+-1
+S
+
+#31150
+Well-Traveled Path~
+The plant life of the swamp is dying out here for some reason.  Many of
+the larger trees are already dead.  Only the vines seem to be able to
+survive here.  Looking around for a reason you notice that the ground is
+very dry here, though as this is not a high spot you can't understand why
+it might be.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31151 10 10 5
+D3
+~
+~
+0 -1 31146 10 10 5
+E
+ground dry~
+The ground is very dry and dusty right in this spot only.  You can find
+no good reason for it.
+~
+E
+vines~
+Looking closer at the vines you find the reason for the dryness of this
+area.  The leaves of the vines are like large funnels, catching and
+holding any rain before it can reach the ground.
+~
+E
+trees plants~
+The trees are all dead around here, all but one that is.  The one living
+tree has no vines on it leading you to thing that maybe the vines are the
+cause.
+~
+-1
+S
+
+#31151
+Well-Traveled Path~
+The path splits here, leading east, west, and south.  The eastern and
+southern branches look to be the most travelled portions as they have the
+most footprints.  The western branch is little more than a small break in
+the vines and trees of the swamp.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31173 10 10 5
+D2
+~
+~
+0 -1 31152 10 10 5
+D3
+~
+~
+0 -1 31150 10 10 5
+-1
+S
+
+#31152
+Well-Traveled Path~
+The path is slowly winding its way through the swamp, weaving between
+trees and stagnant pools of water.  The path continues to the east and
+north through the swamp.
+~
+[Hollie] r/w - L
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31151 10 10 5
+D1
+~
+~
+0 -1 31153 10 10 5
+-1
+S
+
+#31153
+Well-Traveled Path~
+Something does not feel right.  The swamp is too quiet.  Perhaps it is
+just not knowing what may be watching from the swamp that is causing the
+feeling of doom as you walk along a path which extends away to the south
+and west.  But then again maybe it isn't...
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 31155 10 10 5
+D3
+~
+~
+0 -1 31152 10 10 5
+A
+~
+~
+if( random( 1, 4 ) == 1 )
+act_tochar( #scr, ch );
+~
+E
+scr~
+A shrill scream echos out of the swamp from the east.
+~
+!
+1 -1 12
+A
+listen~
+~
+act_tochar(#list, ch );
+~
+E
+list~
+Everything seems to be normal except for the lack of sound.
+~
+!
+0 0 0
+-1
+S
+
+#31155
+Well-Traveled Path~
+The swamp seems thinner around here, more grassy.  You are afraid to
+leave the path though as you keep hearing screams come from the swamp to
+the northeast.  Straining to see through the tall weeds and straggling
+vines, you are unable to see the source of them.
+~
+The swamp seems thinner? Huh?
+I think that writing that someone is afraid to leave the path is a feeble
+justification for an awkward path.
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31153 10 10 5
+D1
+~
+~
+0 -1 31156 10 10 5
+-1
+S
+
+#31156
+Well-Traveled Path~
+The sounds of the swamp that have become a part of the background are
+noticably missing around here.  The swamp is deathly silent, the only
+sounds are your footsteps.  To the east a little ways, you can see that
+something drastic has happened to the swamp.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31157 10 10 5
+D3
+~
+~
+0 -1 31155 10 10 5
+-1
+S
+
+#31157
+Well-Traveled Path~
+Something has knocked down many of the trees around here, leaving a
+tangled mess on the ground.  The trees are just now becoming covered with
+vines, so they couldn't have been down for too long.  The path continues
+to the west and the south.
+~
+mess rextra - D
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 31158 10 10 5
+D3
+~
+~
+0 -1 31156 10 10 5
+609 9 1509949540 3 0
+-1
+S
+
+#31158
+Well-Traveled Path~
+The plants along here have been crushed and trampled by some large
+animal, but nowhere near as badly as to the north.  You wonder where the
+animal that caused such damage could be hiding.  The path continues to
+the north and south.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31157 10 10 5
+D2
+~
+~
+0 -1 31159 10 10 5
+A
+~
+~
+if( random( 1, 100) == 5) { 
+  if( !mob_in_room( 610, room ) ) {
+    send_to_room( #oops, room );
+    mob = mload( 610, room );
+    attack( mob, ch, 25, "terrifying charge");
+    }
+  }
+~
+E
+oops~
+You hear something crashing around in the bushes.
+
+Suddenly a Skliss comes crashing out of the swamp and attacks.
+~
+!
+1 -1 5
+-1
+S
+
+#31159
+Well-Traveled Path~
+A large tree has fallen across the path to the east, completely blocking
+it.  A new path is developing to the west, flowing around the fallen mass
+of vines and branches.  Otherwise, the main path extends away to the
+north, riddled with sunken footsteps.
+~
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31158 10 10 5
+D3
+~
+~
+0 -1 31160 10 10 5
+E
+tree~
+The tree was very large, and even on the ground it lays over six feet
+tall.
+~
+-1
+S
+
+#31160
+Path Around a Fallen Tree~
+The path is very narrow and grassy here as it flows around the fallen
+tree.  The grass is welcome, as it keeps the soft ground from becoming a
+sticky pool of mud.
+~
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31159 10 10 5
+D2
+~
+~
+0 -1 31161 10 10 5
+-1
+S
+
+#31161
+Path Around a Fallen Tree~
+There is not much of a path here.  You have to cut your way through the
+tangle of vines and branches from the fallen tree to pass.
+~
+aedit cut path/vines/branches ? - D
+~
+335020032 5 9 0
+D0
+~
+~
+0 -1 31160 10 10 5
+D1
+~
+~
+0 -1 31162 10 10 5
+-1
+S
+
+#31162
+Path Around a Fallen Tree~
+You are beginning to reconsider taking this path.  Vines and branches
+must be cut to pass, slowing your movement to a crawl.  Many times you
+get stuck in the tangle of plants as you try to climb through them.
+~
+since you just rounded tree, shouldn't you be able to see roots/top from
+here and/or room to the east?  - D 
+This is the top of the tree.
+[Hollie] if there are thorns, let there be thorns loaded sometimes.
+~
+335020032 5 9 0
+D1
+~
+~
+0 -1 31163 10 10 5
+D3
+~
+~
+0 -1 31161 10 10 5
+A
+~
+~
+if( random( 1, 5 ) == 3 )
+act_tochar( #stuck, ch );
+else
+continue;
+~
+E
+stuck~
+You get stuck on some thorns.
+~
+!
+3 -1 10
+-1
+S
+
+#31163
+Path Around a Fallen Tree~
+The path is hard to pass along here, being nearly completely overgrown. 
+You realize there is no way a mounted person or a cart could get past
+here.  The ground is covered with short grass probably due to the lack of
+travel through these parts.
+~
+~
+335020032 5 9 0
+D0
+~
+~
+0 -1 31164 10 10 5
+D3
+~
+~
+0 -1 31162 10 10 5
+-1
+S
+
+#31164
+Well-Traveled Path~
+A large tree has fallen across the path to the west, completely blocking
+access.  A new path is developing to the south, flowing around the fallen
+mass of vines and branches.
+~
+aedit climb tree - D do same for otherside
+tree rextra - D same from otherside 
+[Xico] look tree and look west do nothing
+~
+301465600 4 9 0
+D1
+~
+~
+0 -1 31165 10 10 5
+D2
+~
+~
+0 -1 31163 10 10 5
+-1
+S
+
+#31165
+Well-Traveled Path~
+The path needs to be maintained along this stretch.  To the east, it is
+completely blocked by a fallen tree, and to the south, standing water has
+created a muddy mess.
+~
+~
+301465600 4 9 0
+D2
+~
+~
+0 -1 31166 10 10 5
+D3
+~
+~
+0 -1 31164 10 10 5
+-1
+S
+
+#31166
+Well-Traveled Path~
+It is hard to walk here as your feet keep sinking in the sticky mud, but
+you manage to force your way.  The path is hemmed in by thick tangles of
+thorny vines, blocking passage in all directions off the path.
+~
+aedit random for sinking into mud? - D
+~
+301465600 4 9 0
+D0
+~
+~
+0 -1 31165 10 10 5
+D1
+~
+~
+0 -1 31090 10 10 5
+-1
+S
+
+#31167
+K'ssk Swamp~
+The path widens here as it enters an intersection to the north.  To the
+south, it becomes narrow as it weaves between vines and trees.  Travel
+off of the path is not possible due to the dense undergrowth.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31103 10 10 5
+D2
+~
+~
+0 -1 31168 10 10 5
+-1
+S
+
+#31168
+K'ssk Swamp~
+You have to fight your way through a tangle of vines to get here, but it
+was worth it.  This is a small clearing on the path, open enough that you
+can see the sky.  Someone has used this spot as a campsite, as there are
+remains of a fire in the center.  The clearing is very peaceful, allowing
+you to rest for a moment and listen to the swamp live around you.  The
+path disappears through the vines and branches to the north and east.
+~
+aedit search/examine campsite/fire...give then ration or something - D
+clearing, path, campsite, fire/center rextras - D
+aedit leaving room, random on getting caught on vines - D
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31167 10 10 5
+D1
+~
+~
+0 -1 31169 10 10 5
+-1
+S
+
+#31169
+K'ssk Swamp~
+The path continues to wind its way through the swamp.  To the north, you
+can hear a low rumbling over the sounds of the swamp.  The path continues
+west and south.
+~
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31170 10 10 5
+D3
+~
+~
+0 -1 31168 10 10 5
+-1
+S
+
+#31170
+K'ssk Swamp~
+The path slopes upward from the east, making the ground a little drier
+here.  To the east, the ground becomes covered with a heavy mist, while
+to the north, the path continues deeper into the swamp.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31169 10 10 5
+D1
+~
+~
+0 -1 31171 10 10 5
+-1
+S
+
+#31171
+K'ssk Swamp~
+A heavy mist has settled over the ground here, preventing you from seeing
+where you are stepping.  The ground is still very muddy though, as you
+keep slipping on it.  To the west, the mist thins out, and you can see
+the path is a little drier.
+~
+mist rextra - D
+~
+301465600 3 9 0
+D2
+~
+~
+0 -1 31172 10 10 5
+D3
+~
+~
+0 -1 31170 10 10 5
+E
+mist~
+The mist is very thick and heave, sinking and collecting in any low spots
+in the trail.
+~
+-1
+S
+
+#31172
+K'ssk Swamp~
+You are on a muddy little path that winds its way into the depths of
+K'ssk swamp.  To the north, the path becomes darker as it delves deeper
+into the swamp, while to the south, you can see the relative safety of
+the village wall.
+~
+~
+301465600 3 9 0
+D0
+~
+~
+0 -1 31171 10 10 5
+D2
+~
+~
+0 -1 30837 10 10 5
+-1
+S
+
+#31173
+Well-Traveled Path~
+The path travels a few feet into the swamp and ends.  The only exit is
+back onto the main trail to the west.  To the north, south and east,
+large vines and trees block any further passage or sight.
+~
+possible aedit in here? - D
+This will become an entrance intop the swamp as the swamp grows
+[Hollie] shortcut/action here
+~
+301465600 4 9 0
+D3
+~
+~
+0 -1 31151 10 10 5
+-1
+S
+
+#0
+

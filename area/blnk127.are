@@ -1,0 +1,2292 @@
+#AREA
+Tireth's Swamp~
+Adakar~
+Tireth's swamp~
+
+45 0
+0
+#ROOMS
+
+#67500
+Before The Encompassing Darkness~
+You stand near the edge of a jagged cliff, not quite close enough to see
+over the edge.  Floating off to the north, just above eye level, is a
+roiling cloud of shadows and darkness.  Pungent odors seemingly brought
+forth from the ominous cloud assault your senses.  The smells of death
+and decay mingled with the acrid scent of sulfur burn your nose.  The
+darkness brought on by the massive cloud deepens as it radiates out from
+the edge of the cliff to the north.  A deep crevice can be seen within
+the southern wall of the cliff, heading into darkness.
+~
+~
+301465601 2 9 0
+D0
+~
+~
+0 -1 67502 10 10 5
+E
+massive cloud~
+A deep blackness, that appears to be slowly building as it edges closer
+and closer to you, hovers just above eye level to the north.  While hard
+to truly focus on this cloud, as all natural light that manages to pass
+through it is scattered and distorted, the cloud appears to be more than
+just amassed common vapors.
+~
+E
+cliff edge~
+Just a short distance to the north is the edge of the cliff upon which
+you stand.  While hard to gather any details, it is obvious that to get a
+closer look at the roiling cloud you will have to venture much closer to
+the edge of the cliff.
+~
+A
+enter~
+crevice 1 southern cliff fracture~
+act_tochar( #enter1, ch );
+act_notchar( #enter2, ch );
+wait( 2 );
+transfer( ch, find_room( 30877 ) );
+act_notchar( #arrival, ch );
+~
+E
+enter1~
+You crawl into the dark crevice in the cliff face and hope to leave the
+roiling cloud behind.
+~
+E
+enter2~
+$n crawls into the dark crevice in the cliff face.
+~
+E
+arrival~
+Crawling forth on $s knees, $n emerges from the dark crevice in the
+northern cliff face.
+~
+!
+0 0 0
+A
+remove~
+~
+remove_cflag( 86, ch );
+remove_cflag( 88, ch );
+~
+!
+0 0 0
+-1
+S
+
+#67502
+Entering The Darkness -- Jagged Cliff~
+Standing on the edge of the jagged cliff, you are now able to look out
+over the dismal swamp.  No living creatures can be seen from this height,
+though a few errant ripples can be viewed in the murky water.  The few
+trees that remain standing appear as if they are mere skeletons of their
+former selves.  An occasional, faint crackling sound can be heard,
+reminiscent of a distant fire being squelched.
+~
+~
+301465601 2 9 0
+D2
+~
+~
+0 -1 67500 10 10 5
+E
+murky water~
+A deep grey landscape looms below you, only the occasional ripple allows
+you to distinguish that the ground is in fact covered by water.
+~
+E
+trees~
+The trees of this swamp have not fared well over the years; all of them
+now appear to be dead.  Those that are standing speak of the strength the
+tree must have posessed in past years, as even in death they have not
+succumbed to the elements and fallen.
+~
+E
+jagged cliff~
+Looking carefully at and over the jagged cliff, it appears to be quite
+easily climbable.  Convenient hand and footholds seem to be placed at
+heights just right for an average human male.  The jagged protrusions of
+the rough granite have been noticeably smoothed away near each of the
+handholds.
+~
+E
+dismal swamp~
+A feeling of dread begins to creep over you as you stare out over the
+dismal swamp that looms before you.  Combinations of the roiling cloud,
+acrid scents and odd, indescribable noises force you to believe that all
+is not normal in this swamp.
+~
+A
+climb~
+1 down cliff~
+if( find_skill( ch, climb ) >= random(5, 7 ) ) {
+  act_tochar(#climb1, ch );
+  act_notchar( #climb2, ch );
+  transfer( ch, find_room( 67503 ) );
+  act_notchar( #arrival, ch );
+  }
+else {
+  act_tochar( #fail1, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+climb1~
+You slide over the edge of the cliff and lower yourself down the jagged
+cliff.
+~
+E
+climb2~
+$n slides over the edge of the cliff and lowers $mself down the jagged
+cliff.
+~
+E
+arrival~
+Thankful to be done with the climb, $n drops the last few feet down to
+land standing in swamp water.
+~
+E
+fail1~
+Looking at the steep climb ahead of you, you decide that you lack the
+skill to successfully descend the cliff face.
+~
+E
+fail2~
+Looking at the steep climb ahead of $m, $n backs away from the cliff.
+~
+!
+0 0 0
+-1
+S
+
+#67503
+Below The Jagged Cliff~
+A jagged cliff soars high overhead off towards the east as it curves
+around in a northerly direction.  The soft, mushy ground beneath the
+depths of stagnant water seems to be wrought with remnants of vines and
+tree roots.  Undoubtably the swamp used to be a much healthier ecosystem,
+though now it appears to be virtually dead of natural life.  The shallow
+waters stretch to the base of a granite cliff to the east, while to the
+northwest the shadows deepen over the heart of the swamp.
+~
+[Starshine] remove no.mob? area high enough level. seems bad to break it in two so people can gather.
+removing the no.mob and having players arrive via climb down could lead to players walking into 3 or 4 mobs, and creating a dt
+[Starshine] walking into 3-4 mobs is not an automatic death trap if they're prepared. will only be a death trap the first time, like boars are to newbies.
+[Adakar] Terek backed me up, That if this room were no.mob, it could
+*and* would eventually be a Deathtrap.
+~
+301465609 13 9 0
+D1
+~
+~
+0 -1 67507 10 10 5
+D3
+~
+~
+0 -1 67504 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+bubbles~
+Small greenish bubbles occasionally surface from beneath the stagnant
+water.  The bubbles do not appear to be anything more than trapped sulfuric
+gases escaping from some pocket of air deep beneath the ground.
+~
+E
+jagged cliff~
+The jagged cliff appears quite easily climbable: protrusions that can
+serve as handholds are conveniently placed at distances just right for an
+average human male to navigate up the cliff.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+A
+climb~
+up u cliff~
+if( find_skill( ch, climb ) >= random(5, 7 ) ) {
+  act_tochar(#climb1, ch );
+  act_notchar( #climb2, ch );
+  transfer( ch, find_room( 67502 ) );
+  act_notchar( #arrival, ch );
+  }
+else {
+  act_tochar( #fail1, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+climb1~
+Sliding your hands into a convenient handhold, you climb up the jagged cliff.
+~
+E
+climb2~
+$n uses a convenient handhold and ascends the jagged cliff face.
+~
+E
+arrival~
+With a final last effort, $n pulls $mself up over the jagged cliff's edge.
+~
+E
+fail1~
+Attempting to use the handholds available, you find you lack the skill
+and strength to pull yourself up the cliff face.
+~
+E
+fail2~
+Attempting to use the handholds available, $n seems unable to scale the
+cliff face.
+~
+!
+0 0 0
+A
+none~
+~
+Send_to_room( #bubble, room );
+~
+E
+bubble~
+A small green bubble bursts from below the stagnant water, sending acrid
+vapors past your nose.
+~
+!
+2 150 0
+-1
+S
+
+#67504
+Along the Granite Cliff~
+The cliff walls sweep around you from the east and continue around you to
+the northwest.  You are in a small, protected cubby formed by the curving
+of a granite cliff, offering you some protection from the wind.  The
+depth of the water seems to dramatically change from just a few inches up
+close to the cliff to a few feet as you head away from the cliff to the
+northeast.  You can see a faint yellowish stain on the face of the cliff
+at a height just above the level of the water.
+~
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 67505 10 10 5
+D1
+~
+~
+0 -1 67503 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+cliff fissure~
+The granite cliff is grey in color and shows obvious signs of harsh
+weathering.  Blasted by the winds over the years, the only breaks in the
+near-perfect smoothness of the cliff face are the tiny fissures forming
+along weak points in the rock.
+~
+E
+yellowish stain~
+A sickly yellowish stain mars the surface of the cliff.  Judging by the
+acrid vapors and the occasional bubble welling up from the dark depths of
+the water, the stain could very well be a residue of sulfur left on the
+rocks.
+~
+2061 9 1509949540 3 0
+-1
+S
+
+#67505
+Along the Granite Cliff~
+A towering granite cliff dominates your view to the west, and can be seen
+curving around you a short distance to the south.  The granite here
+appears to be well worn by the water and is generally smooth, though odd
+pockmarks mar its surface in a few places.  Small boulders litter the
+area, apparently pieces of the cliff that have sheared off over the past. 
+The deepening of the water, from the cliff face eastward seems to halt at
+a tangle of vines that bars your passage.
+~
+[Starshine] entry - trip over rocks, hurts you?
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 67506 10 10 5
+D2
+~
+~
+0 -1 67504 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+granite cliff odd pockmarks holes 1 west~
+Small holes, each approximately four to six inches around and two inches
+in depth seem to have been randomly carved out of the cliff face.  At
+closer inspection the holes seem to have been more burned into the rock
+face by acid, as they are all perfectly smooth.
+~
+E
+tangle vines~
+An impassable mire of vines and tree trunks thwart any progress to the
+east.  From this distance the trees, each more than seven feet around,
+seem to have deep gouges cut into them.
+~
+E
+rocks boulders~
+These small boulders appear to be pieces of the cliff that have fallen
+off in days past.  None show anything more interesting than simple wear
+from the weather.
+~
+2061 9 1509949540 3 0
+-1
+S
+
+#67506
+A Crumbling Granite Cliff~
+Large chunks of the granite cliff litter the area.  The granite boulders
+enclose a pool of dark water that seems to be cut off from the rest of
+the swamp.  The great cliff soars high overhead to the west; to the north
+it wraps around, blocking all movement in that direction.  As if thrown
+about by an enraged giant, large tree trunks lie amongst the tangle of
+vines to the east.  Your only available path lies to the south, making
+your way along the granite cliffs and from there back into the heart of
+the swamp.
+~
+[Starshine] do the chunks also block the way south? did you have to climb boulders to enter? if so, use leaving acode please in 67505. and leaving acode here.
+[Starshine] dummy acode clim trees 1 east cliff 1 west?
+[Starshine] add acode down that calls acode 1?
+i wanted the dive down to be a much more concious move, then just typind down
+~
+301465601 13 9 0
+D2
+~
+~
+0 -1 67505 10 10 5
+E
+chunks pool~
+These large boulders seem to have been displaced from the cliff quite
+some time ago.  Forming a small ring, they have been able to capture a
+large amount of water in them.
+~
+E
+water ring~
+Upon closer inspection of the water in the pool, you notice a slight
+swirling effect in it.  The movement of the pool suggests that the water
+may be escaping to somewhere under the surface of the land.
+~
+E
+large tree trunks tangle vines~
+An impassable mire of vines and tree trunks thwart any progress to the
+east.  From this distance the trees, each more than seven feet around,
+seem to have deep gouges cut into them.
+~
+E
+granite cliff~
+The granite cliff has suffered from some great force sometime in the
+distant past.  Large chunks of the face have been shattered away, and now
+lie in the murky water at its base.
+~
+A
+dive enter~
+pool ring~
+if( find_skill( ch, swimming ) >= random( 7, 10 ) ) {
+  act_tochar( #swim1, ch );
+  act_notchar( #swim2, ch );
+  wait( 1 );
+  act_tochar( #swim3, ch );
+  wait( 1 );
+  act_tochar( #arrival2, ch );
+  transfer( ch, find_room( 67523 ) );
+  act_notchar( #arrival, ch );
+  }
+else {
+  act_tochar( #fail1, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+swim1~
+You take a deep breath and dive down into the deep pool.
+~
+E
+swim2~
+$n takes a deep breath and dives down into the dark pool.
+~
+E
+arrival~
+Gasping for breath, $n breaks the surface of the dark water and climbs
+out, dripping wet.
+~
+E
+fail1~
+You look at the dark pool of water and decide that the murky depths is
+not a place you want to go.
+~
+E
+fail2~
+Looking at the dark pool of water, $n slowly backs away from it.
+~
+E
+arrival2~
+You break the surface of the water, arriving inside of a large cave.
+~
+E
+swim3~
+Swimming for what seems far to long you begin to worry if perhaps this
+deep pool has no end.
+~
+!
+0 0 0
+2059 9 1509949540 3 0
+-1
+S
+
+#67507
+Tireth's Swamp~
+To the southwest, granite cliffs dominate the landscape at this distance,
+even as the base of the cliffs is lost under the horizon of the stagnant
+water.  Tangled vines poke out ranomly from beneath the depths, further
+hindering attempts to traverse the swamp.  The roiling cloud which hangs
+above you appears to be pulsing in a horrid mimicry of a heartbeat. 
+Further amplifying the effect is a dull rhythmic thumping that seems to
+resonate from the north.  The granite cliffs angle away from you towards
+the south, the path to them blocked by thistle and vines.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 67508 10 10 5
+D3
+~
+~
+0 -1 67503 10 10 5
+E
+tangled vines~
+Vines of an undetermined type poke out from beneath the water's surface. 
+The vines all appear to be dead though by no means has their lack of life
+weakened them.  Wrapping around themselves, they create an obstacle
+course that seems to have been created just to trip up a passerby.
+~
+E
+roiling cloud 1 up~
+As you look up at the skies above you, the cloud continually shifts,
+scattering the natural light and making it difficult to focus.  The cloud
+appears to be a manifestation of the swamp gases and perhaps whatever
+evil is lurking around.
+~
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous then clean water.
+~
+E
+granite cliffs~
+The granite cliffs are a dark grey in color, showing obvious signs of
+harsh weathering.  From this distance, the cliffs appear to be perfectly
+smooth, though well rounded from the gusting winds.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+2059 9 1509949540 3 0
+-1
+S
+
+#67508
+Tireth's Swamp~
+Tangled vines and thistle halt any advancement towards the east and the
+cliffs that lie beyond.  Granite cliffs, seemingly the only refuge from
+the gusty wind, stand silently in shadows far off to the west.  The
+shattered remnants of a once mighty tree lie half-buried in the muck of
+the stagnant water.  It looks like the swamp opens up a bit to the north
+once you can get past the mire of vines to the northwest.  The towering
+cliffs lie far off to the south, blocked by underbrush and vines.
+~
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 67509 10 10 5
+D3
+~
+~
+0 -1 67507 10 10 5
+E
+shattered remnants tree~
+The great tangle of the tree's roots lie exposed to the elements just a
+few feet from where they once made their home in the ground.  The upper
+crown of the tree is quite a distance off to the north.
+~
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+tangled vines thistle~
+A great tangle of vines stands over five feet tall just a few feet to the
+east.  Upon closer inspection it is possible to see that the vines and
+thistle have grown up and around the decaying remains of a young sapling.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+2059 9 1509949540 3 0
+-1
+S
+
+#67509
+Tireth's Swamp~
+The water ripples out in circular patterns as a droplet of condensation
+falls silently from the skeletal remains of a once grand tree.  A slight
+curvature of the trunk and the bare twisted limbs give the impression
+that the tree was writhing in agony as the leaves of its last bloom fell. 
+Standing as if a ghastly sentinel in the midst of the open swamp, it acts
+as a landmark for the local area.  The only direction that seems
+impassable is towards the west where a great tangle of vines and toppled
+tree trunks lie.
+~
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 67510 10 10 5
+D1
+~
+~
+0 -1 67514 10 10 5
+D2
+~
+~
+0 -1 67508 10 10 5
+E
+skeletal grand tree~
+As the shadows pulse back and forth, they scatter the natural light
+causing the tree to take on an even more malevolent appearance.  The
+vines entwining the twisted shape of the tree trunk make it appear as if
+they choked the very life from the once great oak.
+~
+E
+tangle vines trunks~
+An impassable mire of vines and tree trunks thwart any progress to the
+west.  From this distance the trees, each more then seven feet around,
+seem to have deep gouges cut into them.
+~
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+gouges~
+Large chunks of wood have been separated from the tree trunks along the
+lines of the deep gouges.  The jagged cuts appear to be in sets of
+fours, giving the impression that their origin was caused by a huge,
+clawed hand.
+~
+A
+search~
+stagnant water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #dive, room );
+~
+E
+dive~
+You could swear you just saw something, caught out of the corner of your
+eye, diving down at you from the roiling cloud above.
+~
+!
+2 350 0
+2061 9 1509949540 3 0
+-1
+S
+
+#67510
+Tireth's Swamp~
+The water levels have risen significantly at this point, approaching a
+depth to where you may have to begin swimming.  Walking through the
+viscous water is not an easy task as the muck beneath your feet threatens
+to drag you under.  You can hear the faint crackling sound of fires
+echoing through the swamp; the sound seems to originate from the
+northwest.  The shadowy cloud above you hides any light that may be
+coming from the fire.
+~
+~
+301465601 13 9 0
+D2
+~
+~
+0 -1 67509 10 10 5
+D3
+~
+~
+0 -1 67511 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+roiling cloud~
+As you stare up at the skies above you, the cloud continually shifts,
+scattering the natural light making it difficult to focus.  The cloud
+appears to be a manifestation of the swamp gases and perhaps whatever
+evil is lurking around.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+2061 9 1509949540 3 0
+-1
+S
+
+#67511
+Tireth's Swamp~
+The ground beneath your feet is little more than thin mud.  Walking is
+near impossible as each step you take creates a suction against which you
+are forced to fight.  The virtually rotted out husk of a tree lies just
+above the surface of the water, creating the perfect breeding ground for
+millions of small, irritating bugs.  The water seems to deepen even more
+to the north, while brambles cut off any chance of moving to the south. 
+The only possible routes are to the east and west, both appearing to
+travel yet further into different portions of the swamp.
+~
+~
+301465601 13 9 0
+D1
+~
+~
+0 -1 67510 10 10 5
+D3
+~
+~
+0 -1 67512 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+rotted husk tree~
+Having fallen prey to the elements quite some time ago, this tree is now
+little more than brittle wood.  The center is all but gone, and the trunk
+is almost ready to fall in upon itself.
+~
+E
+brambles~
+A mire of vines and dead trees lie a short distance to the south.  The
+trunks are all huge, most at least seven feet or more in diameter, giving
+the impression that a small blockade had been set up to keep people out.
+~
+E
+bug trunk~
+Millions of tiny bugs have made this trunk their home as they feed off
+the nutrients left in the wood.  All manners of bugs, from grubs to
+termites crawl over themselves, each on the eternal hunt for food.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+2059 9 1509949540 3 0
+609 9 1509949540 3 0
+-1
+S
+
+#67512
+Tireth's Swamp~
+The cliffs that form the walls that surround this swamp are once again in
+full view, both to the west and the north.  A large boulder lies here
+partially submerged in the water; the smell of decay permeates the air
+coming from the small shape that has been dropped on top of the rock.  A
+white film floats atop the stagnant water, bubbling up as gaseous pockets
+form beneath it.  The cliff appears to be accessible to the north, and
+the swamp to the east.
+~
+[Starshine] hmm...would be interesting to have leaving actions in rooms 67513 and 67511 into here that say something like - you leave <direction> and end up next to a giant boulder.
+deferring on more acodes, in an attempt to limit the number of memory eating codes in this zone
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 67513 10 10 5
+D1
+~
+~
+0 -1 67511 10 10 5
+E
+boulder shape~
+This large boulder is approximately the size of a small giant.  While
+difficult to see on top of it, it is still possible.  Lying on top of the
+boulder is the half-smashed decomposing head of a small human child.
+~
+E
+white film~
+Upon closer inspection of the white film, you have a sinking feeling that
+it may actually be a layer of flayed skin.
+~
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    if( i == 1 )
+      obj = oload( 2910 );
+    else
+      obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+A
+climb~
+boulder~
+act_tochar( #climb1, ch );
+act_notchar( #climb2, ch );
+interpret( ch, "sit" );
+~
+E
+climb1~
+You try to climb up on top of the boulder but, lacking any grip, you fall
+back down into the water.
+~
+E
+climb2~
+$n tries to climb up the boulder, but only succeeds in falling down into
+the water.
+~
+!
+0 0 0
+A
+get take grab~
+flayed skin film~
+act_tochar( #take1, ch );
+act_notchar( #take2, ch );
+~
+E
+take1~
+As you begin to lift the flayed skin from the surface of the water, it
+quickly disintegrates into nothing more than miniscule flecks.
+~
+E
+take2~
+As $n begins to lift the flayed skin from the surface of the water, it
+quickly disintegrates into nothing more than miniscule flecks.
+~
+!
+0 0 0
+A
+take get grab~
+head skull~
+act_tochar( #nono, ch );
+act_notchar( #nono2, ch );
+~
+E
+nono~
+You are unable to reach the skull from your position on the ground,
+perhaps if you climbed the boulder.
+~
+E
+nono2~
+$n reaches up, trying to get the skull on top of the boulder.
+~
+!
+0 0 0
+2059 9 1509949540 3 0
+-1
+S
+
+#67513
+The Base of A Scorched Cliff~
+The granite cliff once again dominates your view, sweeping around from
+the west, the formation is a perfect natural alcove.  Reminiscent of a
+painter's sweeping brush strokes, scorch marks have been burned into the
+rocky heights.  The patterns of the burn marks lead you to believe that
+the rock has been damaged from some explosive force emanating from higher
+up on the cliff.  A fine layer of silt floats on top of the stagnant
+water near the rock wall, thinning out as the swamp opens up to the south.
+~
+~
+301465601 13 9 0
+D2
+~
+~
+0 -1 67512 10 10 5
+E
+fine layer silt top~
+Ash and small fragments of rock collect on top of the viscous, stagnant
+water.  The rock seems to be blackened shards of the granite cliff which
+surrounds you.
+~
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+granite cliff formation crevices~
+Scorched and soot-covered, the granite cliff has a few shallow crevices
+forming in its surface.  The crevices appear to be more like stress
+fractures along the weak points of the granite.  The structural integrity
+of the cliff appears to still be intact, as the crevices are no more than
+mere inches deep.
+~
+E
+scorch marks~
+Blackened scorch marks mar the surface of the rocky cliff.  Sweeping down
+the cliff face, the scorch marks appear to be much thicker, and darker
+the farther up the cliff you look.
+~
+A
+climb~
+cliff wall up~
+if( find_skill( ch, climb ) >= random( 5, 10 ) ) {
+  act_tochar( #climb1, ch );
+  act_notchar( #climb2, ch );
+  wait( 1 );
+  transfer( ch, find_room( 67520 ) );
+  act_notchar( #arrival, ch );
+  }
+else {
+  act_tochar( #fail1, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+climb1~
+Sliding your hand into a soot-filled crevice, you climb up the cliff wall.
+~
+E
+climb2~
+$n slides $s hand into a small crevice and climbs up the cliff face.
+~
+E
+arrival~
+With a final last effort, $n pulls $mself onto the ledge.
+~
+E
+fail1~
+With soot-covered hands and few proper hand holds, you are unable to
+climb the cliff face.
+~
+E
+fail2~
+Struggling with the few hand holds available, $n attemps to climb the
+cliff face, covering $mself with soot in the process.
+~
+!
+0 0 0
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+2061 9 1509949540 3 0
+-1
+S
+
+#67514
+Tireth's Swamp~
+Disappearing beneath shadowy clouds, a vast ocean of murky water devoid
+of plant life spans out to the east.  Great tangles of vines and
+half-rotted tree roots underneath the surface of the water force you to
+move at a snail's pace for fear of falling headfirst into the murky
+water.  Slight ripples radiate out through the swamp water away from your
+feet, displacing a thin green crust that has settled atop the water.
+~
+[Starshine] enter room - occasionally trip on vines?
+~
+301465601 13 8 0
+D0
+~
+~
+0 -1 67515 10 10 5
+D3
+~
+~
+0 -1 67509 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+tangles vines rotted tree roots~
+The remains of long dead trees, coupled with the still very strong vines
+that helped squeeze the life out of them before they died, make this a
+perilous trip.  The vines have twisted and wrapped themselves around the
+roots of the trunks in such a way as to make it extremely easy to wrap
+your ankle in one and fall head first into the murky water.
+~
+E
+thin green crust~
+This thin crust seems to be extremely fragile.  As the water ripples under
+it, it disintegrates into light green dust.  Apparently alive as it seems
+to grow on top of the water in a large quantity, its grasp on life seems
+to be weak as death comes with the faintest touch.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+-1
+S
+
+#67515
+Tireth's Swamp~
+Seemingly invisible bugs bite at you, making comfort impossible as you
+trudge through the murky water.  The shadowy cloud above seems to pulsate
+with energy, as dark shapes dive at you, seen just out of the corner of
+your eyes.  Nearby a gaseous bubble erupts from the water, sending acrid
+vapors past your nose and ripples across the oft-stagnant water.  Acting
+as a point of reference, the twisted remnant of a large tree can be seen
+not far off to the southwest.
+~
+~
+301465601 13 7 0
+D1
+~
+~
+0 -1 67516 10 10 5
+D2
+~
+~
+0 -1 67514 10 10 5
+E
+stagnant water bubble~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+twisted remnant large tree~
+The twisted remains of a dead tree stands out as a perfect point of
+reference for this dismal land.  Surrounded by cliffs and standing in the
+ever present swamp water makes it easy to surmise that without its
+presence, becoming lost would be more than easy.
+~
+E
+roiling cloud~
+As you stare up at the skies above you, the cloud continually shifts,
+scattering the natural light making it difficult to focus.  The cloud
+appears to be a manifestation of the swamp gases and perhaps whatever
+evil is lurking around.
+~
+A
+search~
+water~
+if( rflag( reset0, room ) ) {
+  i = random( 1, 5 );
+  if( i <= 3 ) {
+    obj = oload( 2925 );
+    act_tochar( #succ, ch, obj );
+    act_notchar( #succ2, ch, obj );
+    obj_to_char( obj, ch );
+    remove_rflag( reset0, room );
+    end;
+    }
+  }
+send_to_char( #fail, ch );
+~
+E
+succ~
+Searching through the water, you grasp ahold of something and pull it out
+of the water.
+~
+E
+succ2~
+Sliding $s hands through the murky water, $n finds something on the
+bottom and pulls it up.
+~
+E
+fail~
+Soaking your hands and arms in the stagnant water, you manage to find
+nothing worthwhile.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #bubble, room );
+~
+E
+bubble~
+A scent of decay wafts past you as a small gaseous bubble pops from
+beneath the stagnant water.
+~
+!
+2 300 0
+2061 9 1509949540 3 0
+-1
+S
+
+#67516
+Edge of a Swampy Ocean~
+A definitive slope to the ground towards the south is evident here.  The
+level of the water certainly follows the slope and appears to deepen
+along with the slant.  As the depth of the water increases the ground
+underfoot seems to soften with it.  Spotted clumps of odd-looking green
+moss seems to be growing on top of the water here and in much greater
+quantities on the vast ocean of swamp water to the south.  The only
+traversable paths seem to be a slight incline to the east and the path to
+the west, either way edging the nearby oceanic depths of stagnant water.
+~
+~
+301465601 13 7 0
+D1
+~
+~
+0 -1 67517 10 10 5
+D3
+~
+~
+0 -1 67515 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+odd-looking green moss~
+A sickly green in color, this moss has the texture of a dried rag that
+was soaked in blood and beer for two days.  The moss does not appear to
+be a very healthy plant, as with the slightest touch it disintegrates and
+scatters along the top of the water.
+~
+A
+get take grab~
+odd green moss~
+act_tochar( #take1, ch );
+act_notchar( #take2, ch );
+~
+E
+take1~
+As your hand makes contact with the odd-looking green moss, it quickly
+disintegrates into nothing more than miniscule flecks.
+~
+E
+take2~
+As $n's hand makes contact with the odd-looking green moss, it quickly
+disintegrates into nothing more than miniscule flecks.
+~
+!
+0 0 0
+2059 9 1509949540 3 0
+-1
+S
+
+#67517
+Edge of a Swampy Ocean~
+The ground beneath your feet seems to be solidifying into a less mud-like
+substance, though by no means is it packed earth which you could stand on
+without sinking.  Some of the ground here is above the water level,
+although large puddles of swamp water pollute the grounds around you, most
+connected by small river-like trickles of murky water.  The grounds to
+the south quickly disappear beneath the seemingly endless, ever-deepening
+ocean of stagnant water.  A small patch of rock rises up out of the
+waters to the southeast, the only break in the vast ocean.
+~
+~
+301465601 2 7 0
+D1
+~
+~
+0 -1 67518 10 10 5
+D3
+~
+~
+0 -1 67516 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+puddle~
+Large puddles have collected in the lowest portions of the surrounding
+area.  Combined with the soft, muddy ground, the puddles prove that this
+small plot of land is, at best mere inches above the water table.
+~
+E
+mud ground~
+The ground beneath your feet is a dark, unhealthy looking black mud.  The
+muck has a gritty texture to it, perhaps part of the reason no living
+plants seem to have taken root.
+~
+2059 9 1509949540 3 0
+-1
+S
+
+#67518
+Tireth's Swamp~
+The ever oppressive roiling cloud seems to pulse with anger as it hangs
+over the slightly raised area to the south.  Accompanying the shifting
+shadows is the putrid stench of burnt flesh mingled with the constantly
+present smells of the swamp water around you.  The depth of the swamp
+water is mere inches deep; it only barely covers the ground even at its
+deepest spots.  A slight climb to the south will take you completely out
+of the swamp water, while to the west the swamp begins to sink beneath the
+waters once again.
+~
+~
+301465601 13 7 0
+D2
+~
+~
+1024 -1 67519 10 10 5
+D3
+~
+~
+0 -1 67517 10 10 5
+E
+stagnant water~
+The water is nearly black in color, and visibility through it is less
+than an inch.  It's hard to imagine that anything living could stay that
+way for long in it, as it seems to be much more viscous than clean water.
+~
+E
+roiling cloud~
+The natural light flickers and dances as it passes through the thick mass
+of shadows and darkness above you.  While hard to truly focus on the
+cloud, it appears to thicken in mass over the area to the south.
+~
+A
+sniff smell~
+~
+act_tochar( #sniff, ch );
+act_notchar( #sniff2, ch );
+~
+E
+sniff~
+You draw in a deep breath of the swamp air, and quickly wish you hadn't as
+the highly sulfuric smell of the air burns your nose.  The acrid scent of
+burnt flesh causes an acidic burning sensation in your guts that quickly
+travels up your body.
+~
+E
+sniff2~
+$n draws in a deep breath of the swamp air, and quickly turns a sickly
+green color.
+~
+!
+0 0 0
+2061 9 1509949540 3 0
+-1
+S
+
+#67519
+Blackened Battlefield~
+This small plateau of rock sits just above the stagnant waters of the
+swamp.  Blackened and scorched, the rock shows evidence of having melted
+under some extreme heat.  To say a massive battle occurred here would be
+an understatement; shattered weapons and breastplates litter the area. 
+Scorched flesh still adheres to a few of the breastplates and the
+blackened rocks littering the area.  Looking down over the sides of the
+rock, no slope can be detected, giving the impression that a mighty force
+pulled the rock out of the dark swamp itself.  The only apparently
+traversable path is back to the north, leading once again into the swamp.
+~
+[Starshine] does rock stand high? if so, perhaps a clim up the side of the rock leaving room action in 67518.
+[Starshine] and a climb off rock as you go north leaving action here.
+hmmm deferring to save memory, may change it when im done the rest of the rbugs
+~
+301465601 5 9 0
+D0
+~
+~
+1024 -1 67518 10 10 5
+E
+breastplates~
+Some of these were obviously of the highest quality before the battle. 
+Judging from the sizes of the few breastplates that still hold their form,
+many different kinds of creatures fought here.  Fragments of elven chain
+can be seen alongside human to ogre sized steel and mithril plate armor.
+~
+E
+shattered weapons~
+Fragments of sword blades gleam amongst the dark shards of mace and
+axe handles.  The twisted remains of a once-fine knife lie half
+entombed in the hardened soil, a runed sigil still evident on its pommel.
+~
+E
+scorched flesh~
+Burnt and scorched flesh lie in clumps on the rocks and in a few cases
+still attached to its owner's breastplate.  Though charred and burnt, the
+flesh appears to be rather recent, perhaps hinting that the battle wasn't
+quite such a long time ago.
+~
+E
+runed sigil pommel dagger knife~
+As vibrant as the day it was enscribed, the sigil of the Lord of
+Darkhaven can still be seen on the pommel of the dagger.
+~
+A
+search take get~
+breastplates~
+if( !mob_in_room( 2063, room ) ) {
+  act_tochar( #sear, ch );
+  act_notchar( #sear1, ch );
+  }
+else {
+  act_tochar( #turn, ch );
+  act_notchar( #turn1, ch );
+  }
+~
+E
+sear~
+Searching through the breastplates results in finding nothing but
+crumbling, rusted metal.
+~
+E
+sear1~
+$n searches through the charred breastplates, finding nothing but
+crumbling, rusted metal.
+~
+E
+turn~
+As you being picking through the breastplates, Xarleek steps in front of
+you!
+~
+E
+turn1~
+As $n begins picking through the breastplates, Xarleek steps in front of
+$m!
+~
+!
+0 0 0
+A
+get take search~
+shattered weapons~
+if( mob_in_room( 2063, room ) ) {
+  act_tochar( #turn, ch );
+  act_notchar( #turn1, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  if( random( 1, 100 ) > 3 ) {
+    remove_rflag( reset0, room );
+    act_tochar( #fail, ch );
+    act_notchar( #fail2, ch );
+    }
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #succ, ch );
+    act_notchar( #succ2, ch );
+    obj_to_char( oload( 2924 ), ch );
+    }
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+succ~
+After searching through the shattered remnants of once fine weapons, you
+find something that may still be usable!
+~
+E
+succ2~
+After searching through the shattered remnants of once fine weapons, $n
+finds something that may still be usable!
+~
+E
+fail~
+After picking through the shattered remnants of the once fine weapons,
+you realize nothing worthwhile survived the battle.
+~
+E
+turn~
+As you begin picking through the shattered remains of the weapons,
+Xarleek steps in front of you!
+~
+E
+turn1~
+As $n begins picking through the shattered remains of the weapons,
+Xarleek steps in front of $s.
+~
+E
+fail2~
+After picking through the shattered remnants of the once fine weapons, $n
+gives up trying to find anything useful.
+~
+!
+0 0 0
+A
+get take~
+dagger pommel sigil~
+if( !mob_in_room( 2063, room ) ) {
+  act_tochar( #sear, ch );
+  act_notchar( #sear1, ch );
+  }
+else {
+  act_tochar( #turn, ch );
+  act_notchar( #turn1, ch );
+  }
+~
+E
+sear~
+As you try and wrench the dagger from its rock home, you realize it's
+stuck in the rock too deep to get out.
+~
+E
+sear1~
+$n tries to wrench the dagger from its rocky home, quickly giving up the
+fruitless effort.
+~
+E
+turn~
+As you reach out for the dagger, Xarleek steps in front of you!
+~
+E
+turn1~
+As $n reaches out for the dagger, Xarleek steps in front of $m!
+~
+!
+0 0 0
+2063 9 1509949540 3 0
+-1
+S
+
+#67520
+Ledge~
+Little natural light is able to filter through the roiling cloud hovering
+around and above you.  The combination of scattered light and natural
+rock crevices adds a mystery to the granite cliff.  Many cracks and small
+holes surround the void that has been seemingly blasted out of the cliff
+face to the west.  A large cavern seems to be accessible just beyond the
+freshly created opening set into the western cliff face.  Looking out
+over the ledge, the swampy ground lies quite a distance below you, though
+the cliff face appears to be climbable.
+~
+~
+301465601 5 9 0
+D3
+~
+~
+0 -1 67521 10 10 5
+E
+cliff hole void~
+A five foot wide hole leads directly into the face of the cliff.  Scorch
+marks surround the opening, filling some of the natural crevices with a fine
+soot.
+~
+E
+crevices cracks~
+These small crevices appear to be natural formations caused by the
+weathering of an imperfect rock face.  Most of these are half full of
+soot and granulated rock, that was probably created when the void was
+blasted out of the cliff face.
+~
+E
+swamp~
+A feeling of dread begins to creep over you as you stare out over the
+dismal swamp that looms before you.  The watery ground, held in the dark
+shadows created by the roiling cloud stretch out below you.
+~
+E
+cavern~
+A large cavern seems to be accessible just beyond the void that was
+blasted out of the cliff face.  The contents of the cavern remain a
+mystery since there is no light evident within.
+~
+E
+roiling cloud~
+As you stare up at the skies above you, the cloud continually shifts,
+scattering the natural light and making it difficult to focus.  The cloud
+appears to be a manifestation of the swamp gases and perhaps whatever
+evil is lurking around.
+~
+A
+climb~
+down cliff~
+if( find_skill( ch, climb ) >= random( 5, 10 ) ) {
+  act_tochar( #climb1, ch );
+  act_notchar( #climb2, ch );
+  wait( 1 );
+  transfer( ch, find_room( 67513 ) );
+  act_notchar( #arrival, ch );
+  }
+else {
+  if( random( 1, 10 ) > 5 ) {
+    act_tochar( #fail1, ch );
+    act_notchar( #fail2, ch );
+    transfer( ch, find_room( 67513 ) );
+    act_notchar( #arrival2, ch );
+    i = 10d10+75;
+    dam_message( ch, i, "The plummeting fall" );
+    inflict( ch, mob, i, "A plummeting fall" );
+    }
+  else {
+    act_tochar( #fail3, ch );
+    act_notchar( #fail4, ch );
+    }
+  }
+~
+E
+climb1~
+Carefully sliding over the edge of the ledge, you pick your way down the
+cliff face.
+~
+E
+climb2~
+$n carefully slides over the edge of the ledge, picking $s way down the
+cliff face.
+~
+E
+arrival~
+$n finishes $s climb down the cliff face, dropping the last few feet to
+the ground.
+~
+E
+fail1~
+Swinging out over the edge of the ledge, you suddenly lose your grasp and
+plummet to the ground.
+~
+E
+fail2~
+As $n swings out over the ledge, $e suddenly loses $s grasp and plummets
+towards the ground.
+~
+E
+fail3~
+As you start to swing out over the ledge the rock begins to crumble, you
+quickly scurry back from the edge.
+~
+E
+fail4~
+As $n starts to swing $s body over the ledge the rocks begin to crumble,
+quickly $e scurries back from the ledge.
+~
+E
+arrival2~
+With a startled yelp, $n loses $s grasp and plummets to the ground.
+~
+!
+0 0 0
+-1
+S
+
+#67521
+Fire-Blackened Cavern~
+The ground beneath your feet is warm, which is odd, as no fires appear to
+have been set here for many months.  The air is absolutely calm, though
+ash still swirls around as if caught in the memory of a windy night.  A
+raised dais sits in a quiet corner of the cave, partially blocked by a
+few boulders that have been displaced from the ceiling.  Set atop the
+raised platform is a soot-covered, blackened altar.  A rune-inscribed
+archway leads off to the north to what appears to be a faintly lit room,
+while to the east is the ledge outside of the cave.
+~
+~
+301597828 11 9 0
+D0
+~
+~
+0 -1 67522 10 10 5
+D1
+~
+~
+0 -1 67520 10 10 5
+E
+rune enscribed archway 1 north~
+The archway has been carved directly out of the natural rock walls of
+the cavern.  Heavily enscribed with runic sigils, the archway has a faint
+@Bblue glow@n around some of the magical symbols.
+~
+E
+sigils magical symbols~
+The inscriptions are slightly more than a half-inch deep and seem to have
+a powdery red substance sprinkled into them.  The most noticeable sigil
+is a blazing lightning bolt that is carved directly at the top of the
+runed archway.
+~
+E
+dais corner~
+This raised dais has been carved out of the natural rock of the cavern,
+rising only about two feet in height and four feet around.  A scorched,
+white marble altar has been set atop it, forcing a person to look up at
+anybody that stands before it.
+~
+E
+boulders rocks~
+These boulders are much too large for anyone to even attempt to lift.
+They appear to be simply large chunks of the ceiling and walls which have
+separated and come crashing down to the floor.
+~
+A
+north~
+~
+loop( all_in_room ) {
+  act_room( #blast, ch );
+  if( race( rch ) != demon ) {
+    do_spell( lightning bolt, rch, rch );
+    send_to_room( #flare, find_room( 67522 ) );
+    continue;
+    }
+  }
+continue;
+~
+E
+blast~
+@RAs you pass through the rune-inscribed archway, the sigils flare with a
+blue-white light!@n 
+~
+E
+flare~
+@BThe runes covering the archway to the south flare with a blue-white
+light as something emerges from the other side.@n
+~
+!
+3 0 0
+2059 9 1509949540 3 0
+2961 17 1509949540 -2 0
+-1
+S
+
+#67522
+Infernalist's Chamber~
+@CSoftly glowing runes@n fill your sight as your gaze travels across the
+walls of this chamber.  The runes etched into the natural cavern wall
+seem to consume all light that threatens to dim their own.  An unnatural
+@Bblue flame@n burns in the middle of the room, radiating oppressive heat
+and little light.  Dark splotches stain the rock in many different places
+surrounding the flame.  The only noticeable exit is to the south, through
+the heavily runed archway.
+~
+mob # 2058 is summoned by the infernalist, - bound demon
+
+The infernalist is a human, though his race is set to demon for the
+purpose of his area attack not hurting him, as near as i can tell a
+player will never see the difference, and it makes the attack much nicer.
+[Starshine] more extras for the book would be nice.
+~
+301596677 11 7 0
+D2
+~
+~
+0 -1 67521 10 10 5
+E
+glowing runes walls~
+Intricate runes have been carved into almost every available surface of
+the cavern walls.  Each is slowly pulsing with a pale light, no two of
+these runes seems to be duplicated, though they each appear to be part of
+a master sigil.
+~
+E
+blue flame~
+Emanating from a circular runic pattern, this small flame flickers at a
+height of about two feet off the ground.  Oppressive heat fills the room
+and as you near the flame, breathing becomes increasingly difficult.
+~
+E
+splotches rock~
+Deep red in color, these splotches look very much like mostly coagulated
+blood.  The blood surrounds the flame in half a dozen separate places.
+~
+A
+touch get take~
+flame~
+act_tochar( #flame1, ch );
+act_notchar( #flame2, ch );
+do_spell( conflagration, ch, ch );
+~
+E
+flame1~
+As you reach out to touch the @Bblue flame@n, a dazzling shaft of
+@Rhell's flame@n engulfs you!
+~
+E
+flame2~
+As $n reaches out for the @Bblue flame@n, a dazzling shaft of @Rhell's
+flame@n engulfs $m.
+~
+!
+0 0 0
+A
+trace touch~
+rune~
+act_tochar( #trace1, ch );
+act_notchar( #trace2, ch );
+act_room( #surge1, ch );
+loop( all_in_room ) {
+if( race( rch ) != demon ) {
+    j = 5d10+100;
+    dam_message( rch, j, "the runic blast" );
+    inflict( rch, mob, j, "the runic blast" );
+    }
+  }
+~
+E
+trace1~
+You reach out your hand and trace the slightly glowing sigil on the
+chamber wall.
+~
+E
+trace2~
+$n reaches out $s hand and slowly traces the slightly glowing sigil on
+the chamber wall.
+~
+E
+surge1~
+@YThe runic patterns glow a vibrant yellow!@n
+~
+!
+0 0 0
+2057 9 1509949540 3 0
+-1
+S
+
+#67523
+An Unstable Underground Cavern~
+This cave appears to be part of a once larger cavern, as the walls all
+around show evidence of cave-ins.  A small dark pool of water dominates
+the middle of the room, and the only other noticeable object is a small
+treasure chest sitting by the western wall.  Small bubbles surface
+occasionally in the dark pool, perhaps evidence that there is some
+circulation of the water in the pool.
+~
+~
+301596672 13 9 0
+E
+cave-in cavern wall~
+Great quantities of rubble ring this cavern in every direction.  Evidence
+of cave-ins, both from the distant past and quite recently, prove that
+this cave is far from stable.  A fine dust seems to be constantly falling
+from the ceilings over what appears to be the more recent cave-ins.
+~
+E
+boulder rock~
+Glancing around the room, a single boulder takes precedence in your
+thoughts.  This large boulder has fallen from the ceiling and landed
+perfectly perched on top of the small chest.  Looking at the large
+granite rock, it's easy to surmise that it would take quite a feat of
+strength to move it.  Once moved, however, access to the treasures within
+the chest would be feasible.
+~
+E
+pool water~
+Dominating the center of the room is a dark pool of water.  The pool,
+aproximately 12 feet wide and twice that in length appears to be a
+fathomless pit.  The dark waters seem to have a slight swirl to them, and 
+small bubbles occasionally break its surface.
+~
+A
+dive enter~
+pool ring~
+if( find_skill( ch, swimming ) >= random(7, 10 ) ) {
+  act_tochar( #swim1, ch );
+  act_notchar( #swim2, ch );
+  wait( 1 );
+  act_tochar( #swim3, ch );
+  wait( 1 );
+act_tochar( #arrival2, ch );
+  transfer( ch, find_room( 67506 ) );
+  act_notchar( #arrival, ch );
+  }
+else {
+  act_tochar( #fail1, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+swim1~
+You take a deep breath and dive down into the deep pool, hoping to find
+your way out of the cavern.
+~
+E
+swim2~
+$n takes a deep breath and dives down into the dark pool.
+~
+E
+arrival~
+Gasping for breath, $n breaks the surface of the dark water and climbs
+out, dripping wet.
+~
+E
+fail1~
+You look at the dark pool of water and decide that the murky depths is
+not a place you want to go.
+~
+E
+fail2~
+Looking at the dark pool of water, $n slowly backs away from it.
+~
+E
+swim3~
+Swimming for what seems far too long, you begin to worry if somehow you
+lost your way.
+~
+E
+arrival2~
+You break the surface of the water, arriving in the swamp.
+~
+!
+0 0 0
+A
+inspect examine~
+closed steel-banded blackened chest lock~
+if( find_skill( ch, inspect ) > random( 6, 10 ) ) {
+  act_tochar( #inspect, ch );
+  act_notchar( #inspect2, ch );
+  }
+else {
+  act_tochar( #fail1, ch );
+  act_notchar( #fail2, ch );
+  }
+~
+E
+inspect~
+You examine the tiny lock carefully, finding a small figurine of a
+crimson dragon, its tail cunningly wrapped around the locking mechanism.
+~
+E
+inspect2~
+$n carefully examines the lock.
+~
+E
+fail1~
+You examine the small lock, finding nothing out of the ordinary.
+~
+E
+fail2~
+$n carefully examines the lock.
+~
+!
+0 0 0
+A
+pick unlock~
+closed steel-banded blackened chest~
+if( rflag( reset1, room ) ) {
+  act_tochar( #boulder, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  act_tochar( #flame1, ch );
+  act_notchar( #flame2, ch );
+  do_spell( flame strike, ch, ch );
+  }
+else
+continue;
+~
+E
+boulder~
+With the boulder still perched on top of the chest, you find it
+impossible to get into position to pick the lock.
+~
+E
+flame1~
+As you attempt to pick the chest's lock, you accidently trigger the
+emission of a billowing flame.
+~
+E
+flame2~
+As $n attempts to pick the chest's lock, a billowing flame emanates from
+the small lock.
+~
+!
+0 0 0
+A
+untrap~
+closed steel-banded blackened chest lock~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #done, ch );
+  end;
+  }
+act_tochar( #attempt, ch );
+act_notchar( #attempt1, ch );
+if( find_skill( ch, untrap ) > random( 6, 10 ) ) {
+  act_tochar( #success, ch );
+  act_notchar( #success2, ch );
+  remove_rflag( reset0, room );
+  }
+else {
+  act_tochar( #fail, ch );
+  act_tochar( #flame, ch );
+  act_notchar( #flame2, ch );
+  do_spell( flame strike, ch, ch );
+  }
+~
+E
+done~
+As you attempt to disarm the trap, you notice that the tail of the small
+dragon has already been detached from the locking mechanism.
+~
+E
+attempt~
+You calm your nerves and attempt to disarm the small trap.
+~
+E
+attempt1~
+$n pauses for a short moment, before attempting to disarm the trap.
+~
+E
+success~
+You carefully detach the small crimson tail from the locking mechanism,
+rendering the trap ineffective.
+~
+E
+success2~
+$n successfully disarms the dangerous trap.
+~
+E
+fail~
+As you attempt to disarm the trap, you notice the crimson dragon's small
+mouth open wide!
+~
+E
+flame~
+@RA billowing flash of fire emanates from the lock, engulfing you in
+flames!@N 
+~
+E
+flame2~
+@RA billowing flash of fire emanates from the lock, engulfing $n in
+flames!@n 
+~
+!
+0 0 0
+A
+lift heave push move shove~
+boulder rock~
+if( class( ch ) != thief ) {
+  if( find_stat( ch, str ) >= 18 ) {
+    act_tochar( #lift1, ch );
+    act_notchar( #lift2, ch );
+    remove_rflag( reset1, room );
+    wait( 1 );
+    act_tochar( #drop1, ch );
+    act_notchar( #drop2, ch );
+    obj_to_room( oload( 2963 ), room );
+    }
+  else {
+    act_tochar( #weak, ch );
+    end;
+    }
+  }
+else {
+  act_room( #voice, ch );
+  act_tochar( #flame1, ch );
+  act_notchar( #flame2, ch );
+  do_spell( flame strike, ch );
+  }
+~
+E
+lift1~
+You strain your muscles against the weight of the large boulder, powering
+it up off the top of the chest.
+~
+E
+lift2~
+$n strains $s muscles against the weight of the large boulder, powering
+it up off the top of the chest.
+~
+E
+drop1~
+You drop the large boulder onto the ground, thankful to free yourself of
+its weight.
+~
+E
+drop2~
+$n drops the large boulder onto the ground.
+~
+E
+weak~
+You strain with all your might, but lack the strength to move the large
+boulder.
+~
+E
+voice~
+@RA deep throaty voice booms through the room, "I will not allow one,
+skilled as you are, to gain access to the masters's treasures!".@n 
+~
+E
+flame1~
+A burst of flame emanates from beneath you, wrapping you in searing pain!
+~
+E
+flame2~
+A burst of flame emanates from beneath $n, wrapping around $m!
+~
+!
+0 0 0
+2931 49 1509949540 -2 0
+2935 81 1509949442 -2 0
+16 81 1509949490 -2 0
+2 80 1509962240 -2 0
+2929 114 1509962240 -2 0
+2928 84 1512112128 -2 0
+2959 80 1511587840 -2 0
+2958 80 1510932480 -2 0
+2960 80 1510080512 -2 0
+2930 80 1511456768 -2 0
+2975 80 1510080512 -2 0
+-1
+S
+
+#67524
+Inside the Wagon~
+While tightly cramped, the inside of this wagon is quite practical.  A
+small bed sits at the back of the wagon, while a four person table
+dominates the center.  Surrounding the small table are two benches that
+show little wear.  Cupboards line the wall directly adjacent from the
+door that leads to the outside.  Small shutters have been nailed shut,
+blocking any light from shining in through the window set just over the
+small bed.
+~
+~
+301465606 0 5 0
+E
+cupboards~
+The cupboards, much like the rest of the wagon, have been crafted from
+fine oak.  Possibly once containing food and other items for the owner of
+the wagon, the cupboards have all been picked clean.
+~
+E
+shutters~
+The wood of these shutters perfectly matches the color of the natural
+frame of the oaken wagon.  A design of a dazzling sun over a small meadow
+has been carved into the wood, perhaps crafted to create a sense of irony.
+~
+A
+exit leave~
+wagon door~
+act_tochar( #leaving, ch );
+act_notchar( #leaving2, ch );
+transfer( ch, find_room( 30877 ) );
+act_notchar( #arrival, ch );
+~
+E
+leaving~
+Heading out through the small door, you exit the cramped wagon.
+~
+E
+leaving2~
+Heading out through the small door, $n exits the cramped wagon.
+~
+E
+arrival~
+$n enters the room, exiting from the large wagon.
+~
+!
+0 0 0
+A
+search~
+cupboard~
+act_tochar( #rummage1, ch );
+act_notchar( #rummage2, ch );
+~
+E
+rummage1~
+You rummage through all of the cupboards, but find that they have been
+picked clean.
+~
+E
+rummage2~
+$n begins rummaging through the cupboards, looking for anything valuable.
+~
+!
+0 0 0
+2979 17 1509949540 -2 0
+2980 17 1509949540 -2 0
+2980 17 1509949540 -2 0
+2981 17 1509949540 -2 0
+-1
+S
+
+#0
+

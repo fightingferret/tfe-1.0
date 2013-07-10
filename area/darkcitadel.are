@@ -1,0 +1,2166 @@
+#AREA
+Dark Citadel~
+Phule~
+citadel of the black dragon~
+
+50 0
+0
+#ROOMS
+
+#40000
+Before the Gates of a Dark Keep~
+A mighty portcullis stands open to the north, allowing entrance within
+the high stone walls of a fortress.  Not quite a castle, it has no
+parapets or turrets to speak of.  Rather, it is some sort of massive
+square tower, a citadel of some kind.  Dark clouds gather overhead in an
+ominously dark storm, almost merging with the upper walls.
+~
+white wizard warder?
+~
+301465600 12 9 0
+D0
+heavy portcullis~
+heavy portcullis~
+1 -1 40001 10 10 5
+D2
+~
+~
+0 -1 23075 10 10 5
+E
+dark clouds~
+They look almost like ordinary storm clouds, complete with lightning and
+the occasional torrential downpour of cold rain.  However they seem to be
+circling the top of the keep in an ever-building storm which threatens to
+explode in tornado and thunder.
+~
+E
+tower keep citadel walls granite fortress~
+The walls rise up into the sky, disappearing into massive, dark clouds
+overhead.  All in all, though, not a very inviting place.
+~
+A
+~
+~
+if( find_stat( ch, level ) < 25 )
+act_tochar( #fear, ch );
+else
+continue;
+~
+E
+fear~
+You start to approach the dark citadel, but a wave of fear overcomes you. 
+You are not ready.
+~
+!
+3 0 1
+-1
+S
+
+#40001
+A Massive Entryway Within a Dark Keep~
+To the south is a massive portcullis, while all other directions take you
+further into a large dark tower.  A large chandelier hangs from the
+ceiling above you, its score or so of candles lighting the room
+adequately.  The chandelier is the only reprise from the dark granite of
+the walls.  The room is very cold, as not even a simple fireplace offers
+warmth.  Open archways lead north, east, and west, heading further into
+the keep.
+~
+nomob
+[Merior] is the human hair gonna be used for something?
+~
+301465613 0 7 0
+D0
+~
+~
+0 -1 40002 10 10 5
+D1
+~
+~
+0 -1 40003 10 10 5
+D2
+~
+~
+1 -1 40000 10 10 5
+D3
+~
+~
+0 -1 40004 10 10 5
+E
+chandelier~
+Made of gold and crystal, the chandelier is obviously of no small value. 
+About twenty or so candles form a circle around it, lighting the room.
+~
+E
+north east west archway~
+What is beyond the archways is concealed in shadow.
+~
+A
+count~
+candles~
+act_tochar( #dizzy, ch );
+act_notchar( #rdizz, ch );
+interpret( ch, "sit" );
+~
+E
+dizzy~
+Trying to count the candles, you get disoriented and fall to the ground.
+~
+E
+rdizz~
+$n loses his balance and....
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 1309, room ) ) {
+  if( find_skill( ch, sneak ) > 0 ) {
+    act_tochar( #sneak, ch );
+    continue;
+    }
+  act_tochar( #halt, ch );
+  act_notchar( #rhalt, ch );
+  }
+else
+  continue;
+~
+E
+halt~
+You try to step past the dark pikeman, but he deftly maneuvers himself in
+front of you.
+~
+E
+rhalt~
+$n tries to step past the dark pikeman, but the pikeman deftly steps in
+$s way.
+~
+E
+sneak~
+You sneak past the pikeman.
+~
+!
+3 0 11
+1309 9 1509949540 3 0
+-1
+S
+
+#40002
+A Dark Hallway Within a Dark Keep~
+This dark hallway connects a well-lit room to the south with another
+chamber to the north.  Something glows in the room to the north, but what
+exactly it is you cannot tell from here.  The walls of this hall are made
+of dark black granite, and feel chill to the touch.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40005 10 10 5
+D2
+~
+~
+0 -1 40001 10 10 5
+-1
+S
+
+#40003
+A Dark Hallway Within a Dark Keep~
+This dark hallway is barely illuminated, the only light source being to
+the west of here.  The black granite which makes up the walls seems to
+absorb what light there is in the area.  The hallway runs to the east and
+west.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 40008 10 10 5
+D3
+~
+~
+0 -1 40001 10 10 5
+-1
+S
+
+#40004
+A Dark Hallway Within a Dark Keep~
+The dark grey granite of the walls is cast in dark shadow, making it
+appear almost black.  This hallway leads east toward an intersection, and
+west into darkness.  The granite is cold, even chill to the touch, and
+each footstep echoes down the dark hall, seemingly endlessly.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 40001 10 10 5
+D3
+~
+~
+0 -1 40009 10 10 5
+-1
+S
+
+#40005
+A Chamber Bathed in Pale White Light~
+The dark granite walls of this circular chamber are bathed in a pale
+white light coming from a glowing white section of the north wall.  The
+light pulsates and fills the room.  A dark hallway leads away from the
+strange chamber to the south.
+~
+[Merior] how do we know the chamber to the south is strange if we came from the north?
+[Phule] THIS is the strange changer. the dark hall leads away from it to the south
+[Merior] then re-word last sentence like a dark hallways leads south away from this strange chamber
+~
+301465604 0 6 0
+D0
+glowing granite wall~
+glowing granite wall~
+203 -1 40006 10 10 5
+D2
+~
+~
+0 -1 40002 10 10 5
+E
+white glow section north wall light~
+The light grows dim, then intensely bright in a cycle of white
+fluorescence.  You can see a small handprint in the center of the wall.
+~
+A
+~
+~
+if( mob_in_room( 1309, room ) ) {
+  if( find_skill( ch, sneak ) > 0 ) {
+    act_tochar( #sneak, ch );
+    continue;
+    }
+  act_tochar( #halt, ch );
+  act_notchar( #rhalt, ch );
+  }
+else
+  continue;
+~
+E
+halt~
+You try to step past the dark pikeman, but he deftly maneuvers himself in
+front of you.
+~
+E
+rhalt~
+$n tries to step past the dark pikeman, but the pikeman deftly maneuvers
+himself in front of $m.
+~
+E
+sneak~
+You sneak past the pikeman.
+~
+!
+3 0 1
+A
+press touch push~
+section wall north~
+if( is_open( room, north ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #press, ch );
+  act_notchar( #rpress, ch );
+  send_to_room( #melt, room );
+  open( room, north );
+  send_to_room( #opens, find_room( 40006 ) );
+  }
+~
+E
+already~
+The glowing section of wall is already open.
+~
+E
+opens~
+The glowing section of wall to the south melts away...
+~
+E
+press~
+You press your hand to the glowing surface of the wall...
+~
+E
+rpress~
+$n presses $s hand against the glowing wall...
+~
+E
+melt~
+the wall melts away, revealing a passage to the north.
+~
+!
+0 0 0
+A
+~
+~
+wait( 1 );
+if( is_open( room, north ) ) {
+  close( room, north );
+  send_to_room( #closes, room );
+  send_to_room( #rcloses, find_room( 40006 ) );
+  }
+~
+E
+closes~
+The wall to the north flows together in a sea of light, closing the
+passageway.
+~
+E
+rcloses~
+The wall to the south flows together in a sea of light, closing the
+passageway.
+~
+!
+1 0 1
+1309 9 1509949540 3 0
+-1
+S
+
+#40006
+At the South End of a Small Chapel~
+Rows of pews stretch before you to the north, leading toward a small
+pulpit at the north end of the room.  Windows of coloured glass are inset
+into the dark granite walls, letting light filter in.  The wall to the
+south glows with a pale white light.
+~
+[Merior] pew action?
+[Phule] is a kneel social
+[Stile] l south - the  is open
+~
+301465605 0 7 0
+D0
+~
+~
+0 -1 40007 10 10 5
+D2
+~
+~
+203 -1 40005 10 10 5
+E
+white glow section south wall light~
+The light grows dim, then intensely bright in a cycle of white
+fluorescence.  You can see a small handprint in the center of the wall.
+~
+E
+windows coloured glass~
+While not cut into any particular shape, the windows are nonetheless of
+intricate design.  A great artist was at work when the stained glass was
+made into the patterns you see.
+~
+E
+pews rows north~
+The pews are wooden, yet appear to have no seats.  Perhaps they are meant
+to be knelt at, not seated in.
+~
+A
+~
+~
+wait( 1 );
+if( is_open( room, south ) ) {
+  close( room, south );
+  send_to_room( #closes, room );
+  send_to_room( #rcloses, find_room( 40005 ) );
+  }
+~
+E
+closes~
+The wall to the south flows together in a sea of light, closing the
+passageway.
+~
+E
+rcloses~
+The wall to the north flows together in a sea of light, closing the
+passageway.
+~
+!
+1 0 4
+A
+press touch push~
+south wall section~
+if( is_open( room, south ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #press, ch );
+  act_notchar( #rpress, ch );
+  send_to_room( #melt, room );
+  open( room, south );
+  send_to_room( #opens, find_room( 40005 ) );
+  }
+~
+E
+already~
+The glowing section of wall is already open.
+~
+E
+opens~
+The glowing section of wall to the north melts away...
+~
+E
+press~
+You press your hand to the glowing surface of the wall...
+~
+E
+rpress~
+$n presses $s hand to the glowing surface of the wall...
+~
+E
+melt~
+the wall melts away, revealing a passage to the south.
+~
+!
+0 0 0
+A
+break smash~
+windows glass~
+act_tochar( #no, ch );
+~
+E
+no~
+You can't seem to break the glass!?
+~
+!
+0 0 0
+-1
+S
+
+#40007
+At the North End of a Small Chapel~
+You are on a small dais overlooking a dark, granite-walled room.  A small
+side door leads east, and an open archway leads off of the dais to the
+west.  Rows of pews approach the dais, stretching from its edge to the
+far end of the chapel to the south.
+~
+[Merior] first sentence makes it sound like the chapel IS in the south, but you're in it
+~
+301465605 0 7 0
+D1
+small side door~
+small side door east~
+391 1262 40015 10 10 5
+D2
+~
+~
+0 -1 40006 10 10 5
+D3
+~
+~
+0 -1 40014 10 10 5
+E
+pews rows south~
+The pews are wooden, yet appear to have no seats.  Perhaps they are meant
+to be knelt at, not seated in.
+~
+1310 9 1509949540 3 0
+-1
+S
+
+#40008
+A Dark Hallway Within a Dark Keep~
+The hallway bends to the north and west here.  To the north the hallway
+continues into utter darkness offering no hints as to what lies in here. 
+The walls are quite bare being nothing more than black granite with the
+occasional crack in the stonework.  Off to the west a dim light faintly
+illuminates the hallway.
+~
+nomob
+~
+301465612 0 6 0
+D0
+~
+~
+0 -1 40016 10 10 5
+D3
+~
+~
+0 -1 40003 10 10 5
+A
+~
+~
+if( mob_in_room( 1309, room ) ) {
+  if( find_skill( ch, sneak ) > 0 ) {
+    act_tochar( #sneak, ch );
+    continue;
+    }
+  act_tochar( #halt, ch );
+  act_notchar( #rhalt, ch );
+  }
+else
+  continue;
+~
+E
+halt~
+You try to step past the pikeman, but he deftly maneuvers himself in
+front of you.
+~
+E
+rhalt~
+$n tries to step past the pikeman, but the pikeman deftly maneuvers
+himself in front of $m.
+~
+E
+sneak~
+You sneak past the pikeman.
+~
+!
+3 0 1
+1309 9 1509949540 3 0
+-1
+S
+
+#40009
+A Dark Hallway Within a Dark Keep~
+The hall bends to the north and east here, disappearing into shadow in
+either direction.  The cold granite walls are dark grey and lifeless,
+seeming to drain both the light and the heat from the room.  A small
+statue of some kind stands in the southwest corner.  Something is just
+not right about it.
+~
+nomob
+~
+301465612 0 6 0
+D0
+~
+~
+0 -1 40010 10 10 5
+D1
+~
+~
+0 -1 40004 10 10 5
+A
+~
+~
+if( mob_in_room( 1309, room ) ) {
+  if( find_skill( ch, sneak ) > 0 ) {
+    act_tochar( #sneak, ch );
+    continue;
+    }
+  act_tochar( #halt, ch );
+  act_notchar( #rhalt, ch );
+  }
+else
+  continue;
+~
+E
+halt~
+You try to step past the dark pikeman, but he deftly maneuvers himself in
+front of you.
+~
+E
+rhalt~
+$n tries to step past the dark pikeman, but the pikeman deftly maneuvers
+himself in front of $m.
+~
+E
+sneak~
+You sneak past the pikeman.
+~
+!
+3 0 1
+1309 9 1509949540 3 0
+1709 17 1509949540 -2 0
+-1
+S
+
+#40010
+A Dark Hallway Within a Dark Keep~
+The air within the hall is not still or stifling, yet something about it
+is very oppressive.  The dark grey granite of the walls are made even
+darker by the lack of torches in the wall.  In fact, there aren't even
+any sconces on the walls at all.  Apparently whomever built the citadel
+did not think that light was necessary.  The hall continues north and
+south, while a small wooden door leads east.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40011 10 10 5
+D1
+small wooden door~
+small wooden door~
+391 1262 40025 10 10 5
+D2
+~
+~
+0 -1 40009 10 10 5
+A
+knock~
+door~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #none, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+if( is_open( room, east ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+act_tochar( #knock, ch );
+act_notchar( #rnock, ch );
+if( mob_in_room( 1316, find_room( 40025 ) ) ) {
+  if( random( 0, 2 ) == 2 ) {
+    send_to_room( #come, room );
+    unlock( room, east );
+    }
+  else
+    send_to_room( #away, room );
+  }
+else
+  send_to_room( #none, room );
+~
+E
+knock~
+You knock on the door.
+~
+E
+rnock~
+$n knocks on the door.
+~
+E
+come~
+From beyond the door you hear a click as the door is unlocked.
+~
+E
+away~
+From beyond the door you hear only silence.
+~
+E
+none~
+It seems as if no one is home.
+~
+E
+already~
+The door is open.
+~
+!
+0 0 0
+-1
+S
+
+#40011
+A Dark Hallway Within a Dark Keep~
+Eyeslits in the west wall offer a view of the outside world beyond the
+walls of the dark keep.  While the dark granite walls of the hall
+continue to the north and south, a small wooden door beckons to the east. 
+No torches hang upon the walls of the hall, strange somehow, yet fitting
+to the somber mood of the citadel.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40012 10 10 5
+D1
+small iron door~
+small iron door~
+391 1262 40026 10 10 5
+D2
+~
+~
+0 -1 40010 10 10 5
+E
+eyeslits~
+The odd angle of the eyeslits, very nearly straight up, offers a view
+only of the dark clouds hanging outside the citadel.
+~
+A
+knock~
+door~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #none, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+if( is_open( room, east ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+act_tochar( #knock, ch );
+act_notchar( #rnock, ch );
+if( mob_in_room( 1312, find_room( 40026 ) ) ) {
+  if( random( 0, 2 ) == 2 ) {
+    send_to_room( #come, room );
+    unlock( room, east );
+    }
+  else
+    send_to_room( #away, room );
+  }
+else
+  send_to_room( #none, room );
+~
+E
+knock~
+You knock on the door.
+~
+E
+rnock~
+$n knocks on the door.
+~
+E
+come~
+From beyond the door you hear a click as the door is unlocked.
+~
+E
+away~
+From beyond the door you hear only silence.
+~
+E
+none~
+It seems as if no one is home.
+~
+E
+already~
+The door is open.
+~
+!
+0 0 0
+1308 9 1509949540 3 0
+-1
+S
+
+#40012
+A Dark Hallway Within a Dark Keep~
+This long hall of dark grey granite heads north and south.  A door inset
+in the east wall offers entrance to a small private chamber of some kind. 
+The stones of the hall's floor are worn smooth, yet feel strangely cool
+beneath your feet.  A narrow eyeslit in the west wall offers a view out
+of the citadel.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40013 10 10 5
+D1
+small wooden door~
+small wooden door~
+391 1262 40021 10 10 5
+D2
+~
+~
+0 -1 40011 10 10 5
+E
+eyeslit~
+The odd angle of the eyeslit, very nearly straight up, offers a view only
+of the dark clouds hanging outside the citadel.
+~
+A
+knock~
+door~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #none, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+if( is_open( room, east ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+act_tochar( #knock, ch );
+act_notchar( #rnock, ch );
+if( mob_in_room( 1310, find_room( 40021 ) ) ) {
+  if( random( 0, 2 ) == 2 ) {
+    send_to_room( #come, room );
+    unlock( room, east );
+    }
+  else
+    send_to_room( #away, room );
+  }
+else
+  send_to_room( #none, room );
+~
+E
+knock~
+You knock on the door.
+~
+E
+rnock~
+$n knocks on the door.
+~
+E
+come~
+From beyond the door you hear a click as the door is unlocked.
+~
+E
+away~
+From beyond the door you hear only silence.
+~
+E
+none~
+It seems as if no one is home.
+~
+E
+already~
+The door is open.
+~
+!
+0 0 0
+-1
+S
+
+#40013
+The End of a Dark Hall Within a Dark Keep~
+The long granite hall comes to a dead end here.  Where the hall should
+seemingly continue to the north, a candlestick is set into the stone wall. 
+The stone of the north wall is somewhat different than the dark grey
+granite of the hall, but only slightly, as if there was supposed to be a
+match.  The hall continues for some distance to the south.
+~
+pull candle
+[Phule] nomob
+~
+301465612 0 6 0
+D0
+north wall~
+wall~
+234 1262 40047 10 10 5
+D2
+~
+~
+0 -1 40012 10 10 5
+D5
+~
+~
+235 -1 40020 10 10 5
+E
+candlestick north wall~
+The candlestick is attached to some kind of swivel.  Maybe it acts as a
+lever??  In any case further inspection is probably warranted.
+~
+A
+pull twist turn push yank~
+candlestick lever~
+act_tochar( #pull, ch );
+act_notchar( #rpull, ch );
+if( rflag( reset0, room ) ) {
+  send_to_room( #trap, room );
+  transfer_all( room, find_room( 40020 ) );
+  send_to_room( #falls, find_room( 40020 ) );
+  }
+else {
+  send_to_room( #opens, room );
+  send_to_room( #south, find_room( 40047 ) );
+  open( room, north );
+  }
+~
+E
+pull~
+You pull the candlestick.
+~
+E
+rpull~
+$n pulls the candlestick.
+~
+E
+trap~
+The candlestick was trapped!!  A pit opens below you and you are sent
+hurtling downard...
+~
+E
+falls~
+Someone falls in from above.
+~
+E
+opens~
+The wall to the north swings open.
+~
+E
+south~
+The wall to the south swings open.
+~
+!
+0 0 0
+A
+inspect~
+candlestick~
+i = random( 1, 4 );
+j = find_skill( ch, inspect );
+if( j > i )
+  act_tochar( #notice, ch );
+else
+  act_tochar( #bah, ch );
+~
+E
+bah~
+Bah, there isn't anything suspicious about the candlestick.  Pulling it
+probably opens the north wall or something.
+~
+E
+notice~
+The candlestick is a trap!!  Pulling it as it is will open a giant pit
+below you, but if untrapped it should open the wall to the north.
+~
+!
+0 0 0
+A
+untrap~
+candlestick~
+if( !rflag( reset0, room ) )
+  act_tochar( #already, ch );
+else {
+  act_tochar( #try, ch );
+  act_notchar( #rtry, ch );
+  if( find_skill( ch, untrap ) < 1 ) {
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    acode( room, 1 );
+    end;
+    }
+  else {
+    act_tochar( #succ, ch );
+    act_notchar( #rsucc, ch );
+    remove_rflag( reset0, room );
+    }
+  }
+~
+E
+already~
+The candlestick has already been untrapped.
+~
+E
+try~
+You try to untrap the candlestick...
+~
+E
+rtry~
+$n tries to untrap the candlestick...
+~
+E
+fail~
+You clumsy oaf!!  Your arm catches on the candlestick...
+~
+E
+rfail~
+$n's expression becomes blank and $e seems very surprised...
+~
+E
+succ~
+You disarm the trap, you clever thief you.
+~
+E
+rsucc~
+$n successfully disarms the trap on the candlestick!!
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #close, room );
+close( room, north );
+send_to_room( #closes, find_room( 40047 ) );
+~
+E
+close~
+The stone wall to the north swings shut.
+~
+E
+closes~
+The stone wall to the south swings shut.
+~
+!
+1 0 1
+-1
+S
+
+#40014
+Above a Granite Stairwell~
+A large set of granite stairs descends down and into a damp hallway.  An
+open archway leads east onto a small dais of some sort.  What exactly the
+purpose of the dais is or the nature of the room in which it is set
+cannot be determined from this vantage.  From below you can hear the
+sound of dripping water.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 40007 10 10 5
+D5
+~
+~
+0 -1 40024 10 10 5
+-1
+S
+
+#40015
+A Small Side Room~
+The north and east walls of this small room are made of cold, dark
+granite, while the south and west walls are wooden.  This room is bare,
+completely devoid of furnishings.  A small wooden door leads west, out of
+the side room.
+~
+[Merior] anything on the wooden walls?
+[Phule] "This room is bare, completely devoid of funishings"
+[Merior] furnishings dont include walls to me :P
+~
+301465605 0 6 0
+D1
+secret door~
+secret~
+399 1262 40019 10 10 5
+D3
+door~
+~
+391 -1 40007 10 10 5
+E
+east wall~
+You barely detect the outlines of a secret door.
+~
+1311 9 1509949540 3 0
+-1
+S
+
+#40016
+A Dark Hallway Within a Dark Keep~
+Darkness covers the hallway like a blanket, allowing very little of your
+own light source to illuminate your path.  An archway in the dark granite
+wall to the west leads toward a small alcove, shrouded in shadows.  The
+hall continues to the north and south.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40017 10 10 5
+D2
+~
+~
+0 -1 40008 10 10 5
+D3
+alcove~
+~
+0 -1 40027 10 10 5
+-1
+S
+
+#40017
+A Dark Hallway Within a Dark Keep~
+A dead silence covers the area only broken by the echoing sound of your
+own footsteps.  A small gust of winds blows down the hallway every few
+moments chilling you to the bone, yet no visible source of where it
+could emanate from are within sight.  Off to the west lies a small alcove
+while the hallway continues to the north and south.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40018 10 10 5
+D2
+~
+~
+0 -1 40016 10 10 5
+D3
+~
+~
+0 -1 40028 10 10 5
+-1
+S
+
+#40018
+A Dark Hallway Within a Dark Keep~
+The dark hall comes to its seeming end here, approaching the base of a
+massive spiral staircase to the north.  A small wooden door lies in the
+grey granite wall to the west, leading into what appears to be a small
+room of some kind.  The hall continues in cold darkness to the south.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40019 10 10 5
+D2
+~
+~
+0 -1 40017 10 10 5
+D3
+small wooden door~
+small wooden door~
+391 1262 40029 10 10 5
+A
+knock~
+door~
+if( !rflag( reset0, room ) ) {
+  act_tochar( #none, ch );
+  end;
+  }
+remove_rflag( reset0, room );
+if( is_open( room, west ) ) {
+  act_tochar( #already, ch );
+  end;
+  }
+act_tochar( #knock, ch );
+act_notchar( #rnock, ch );
+if( mob_in_room( 1317, find_room( 40029 ) ) ) {
+  if( random( 0, 2 ) == 2 ) {
+    send_to_room( #come, room );
+    unlock( room, west );
+    }
+  else
+    send_to_room( #away, room );
+  }
+else
+  send_to_room( #none, room );
+~
+E
+knock~
+You knock on the door.
+~
+E
+rnock~
+$n knocks on the door.
+~
+E
+come~
+From beyond the door you hear a click as the door is unlocked.
+~
+E
+away~
+From beyond the door you hear only silence.
+~
+E
+none~
+It seems as if no one is home.
+~
+E
+already~
+The door is open.
+~
+!
+0 0 0
+-1
+S
+
+#40019
+A Dark Hallway - Below The Spiral Stair~
+Lying in the center of the room is a large, greyish colored stone
+staircase that spirals up and out of view.  Two torches hang on the
+eastern wall shedding barely enough light to make out the outline of the
+walls.  To the south the hallway continues into darkness.
+~
+nomob
+~
+301465612 0 6 0
+D2
+~
+~
+0 -1 40018 10 10 5
+D3
+secret door~
+secret door~
+399 1262 40015 10 10 5
+D4
+~
+~
+0 -1 40030 10 10 5
+E
+wall west~
+You barely detect the outlines of a secret door.
+~
+A
+~
+~
+if( mob_in_room( 1309, room ) ) {
+  if( find_skill( ch, sneak ) > 0 ) {
+    act_tochar( #sneak, ch );
+    continue;
+    }
+  act_tochar( #halt, ch );
+  act_notchar( #rhalt, ch );
+  }
+else
+  continue;
+~
+E
+halt~
+You try to step past the pikeman, but he deftly blocks your path.
+~
+E
+rhalt~
+$n tries to step past the pikeman, but the pikeman deftly blocks $s path.
+~
+E
+sneak~
+You sneak past the pikeman.
+~
+!
+3 0 24
+1309 9 1509949540 3 0
+-1
+S
+
+#40020
+A Small Prison Cell Within a Dark Keep~
+Lit by torchlight from the adjoining guard room to the south, this small
+cell could almost be called cozy if it were not for the thick iron bars
+locking you in.  Piles of hay lay scattered about, offering places to
+rest, suggesting your wait could be a long one indeed.  Inscribed into
+the wall by some long forgotten hand is the phrase: "welcome home." The
+bars are wide enough set that you can probably look through it and see
+what lies in the guard room beyond.
+~
+taunt guard
+~
+301465653 0 6 0
+D2
+gate of iron bars~
+gate iron bars~
+391 1262 40022 10 10 5
+D4
+~
+~
+235 -1 40013 10 10 5
+A
+l lo loo look~
+south through bars room next beyond guard room~
+if( mob_in_room( 1309, find_room( 40022 ) ) )
+  act_tochar( #see, ch );
+else
+  act_tochar( #noth, ch );
+~
+E
+see~
+You see a guard sitting in the next room, eyeing you cautiously.
+~
+E
+noth~
+You don't see anyone in the guard room.
+~
+!
+0 0 0
+A
+taunt~
+guard~
+if( mob_in_room( 1309, find_room( 40022 ) ) ) {
+  act_tochar( #taunt, ch );
+  act_notchar( #rtaunt, ch );
+  open( room, south );
+  send_to_room( #yell, room );
+  }
+else
+  act_tochar( #noth, ch );
+~
+E
+noth~
+There is no guard to taunt!!
+~
+E
+taunt~
+You taunt the guard mercilessly, and in a rage he throws open your cell.
+~
+E
+rtaunt~
+$n taunts the guard, and in a rage the guard opens the cell!!
+~
+E
+yell~
+@b@W"Oh yeah!?  Come out here and get what's coming to ya!!"@n you hear
+the guard yell.
+~
+!
+0 0 0
+-1
+S
+
+#40021
+A Small Private Room Within a Dark Keep~
+A small fireplace to the east offers light and a small amount of warmth
+to this small room.  However the heat from the crackling flames seems to
+disippate all too fast, absorbed by the cold granite walls of the room. 
+The floor, on the other hand, is carpeted with a thick, plush velvet
+material.  A small, circular altar stands in the center of the room, but
+does not look to be sacrificial in nature.  To the west, a small wooden
+door offers an exit to the room.
+~
+cleric
+[Merior] should there be some kind of action here?
+[Phule] can sacrifice things, don't know what else to do
+~
+301466628 0 5 0
+D3
+small wooden door~
+small wooden door~
+391 1262 40012 10 10 5
+E
+fireplace~
+The fire crackles, but it appears to have no fuel.  As if by some strange
+magic, it burns clean on the granite floor of the fireplace.
+~
+1768 49 1509949540 -2 0
+1282 81 1509949500 -2 0
+1310 9 1509949540 3 0
+-1
+S
+
+#40022
+The Guard Room~
+A half-burnt torch lights the room with its flickering glow.  A row of
+iron bars marks a prison cell door to the north.  A small table is here,
+along with a rickety old chair.  To the north and west are small prison
+cells.  Also, a dank hallway leads away from the cells to the east.
+~
+table (w/ cheese), chair
+~
+301465605 0 6 0
+D0
+gate of iron bars~
+gate iron bars~
+391 1262 40020 10 10 5
+D1
+~
+~
+0 -1 40023 10 10 5
+D3
+cell door~
+cell door~
+407 3322 40037 10 10 5
+E
+torch~
+It is set in a lever of some kind.
+~
+A
+pull~
+torch~
+if( is_open( room, north ) )
+  act_tochar( #noth, ch );
+else {
+  send_to_room( #opens, find_room( 40020 ) );
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, north );
+  }
+~
+E
+noth~
+You pull the torch, but as the prison cell is already open nothing
+happens.
+~
+E
+opens~
+The prison door swings open!
+~
+E
+pull~
+You pull on the torch, and the prison door swings open.
+~
+E
+rpull~
+$n pulls on the torch, and the prison door swings open.
+~
+!
+0 0 0
+1309 9 1509949540 3 0
+1700 49 1509949540 -2 0
+1584 81 1509949540 -2 0
+1754 17 1509949540 -2 0
+-1
+S
+
+#40023
+A Dank, Dark Hall Within a Dark Keep~
+Water drips down and runs along the dark granite walls of this dank
+hallway.  To the west, a flicker of torchlight signals the presence of a
+small room.  To the north, you can see the base of a massive stairway
+leading up and out of the damp hall.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40024 10 10 5
+D3
+~
+~
+0 -1 40022 10 10 5
+-1
+S
+
+#40024
+Below a Granite Stairwell~
+A large set of granite stairs ascends up and out of this damp hall.  To
+the south, you can make out only darkness and the sound of dripping water. 
+An old shattered bottle lies in the corner, perhaps the last remnants of
+a vast wine collection, or perhaps just a mess not yet cleaned up.
+~
+~
+301465604 0 9 0
+D2
+~
+~
+0 -1 40023 10 10 5
+D4
+~
+~
+0 -1 40014 10 10 5
+E
+bottle~
+The pieces are tiny and sharp.
+~
+1308 137 1509949540 3 0
+-1
+S
+
+#40025
+A Small Private Chamber Filled With Incense~
+This room is dark, but filled with a light, sweet-smelling incense.  A
+large, thick mat offers a place to rest or meditate in comfort, inhaling
+the relaxing mists of the incense.  A small wooden door leads west and
+out of the chamber.
+~
+~
+301465604 0 9 0
+D3
+small wooden door~
+~
+391 1262 40010 10 10 5
+1316 9 1509949540 3 0
+1691 17 1509949540 -2 0
+-1
+S
+
+#40026
+A Small, Dark Private Chamber~
+No light fills this room with its glow, no fire warms the chill of the
+granite stone from which it is made.  The walls are covered with scorch
+marks, as if someone has been practicing fireball spells in this room.  A
+small iron door to the west offers an exit to the room.  A dark mirror
+swirls with purple mists.
+~
+~
+301465604 0 9 0
+D3
+small iron door~
+small iron door~
+391 1262 40011 10 10 5
+E
+mirror~
+The mirror's dark surface is dark, and purple mists swirl within them. 
+Perhaps it was a portal or link to another dimension, forgetfully and
+foolishly left open...
+~
+A
+touch~
+mirror~
+act_tochar( #touch, ch );
+act_notchar( #rtouch, ch );
+if( rflag( reset0, room ) ) {
+  if( random( 0, 5 ) < 3 ) {
+    send_to_room( #shatter, room );
+    i = 3d50+30;
+    dam_message( ch, i, "the shower of glass" );
+    inflict( ch, ch, i, "a shattering mirror" );
+    }
+  else {
+    send_to_room( #swirl, room );
+    mload( 616, room );
+    }
+  }
+~
+E
+touch~
+You touch a tentative hand to the surface of the mirror...
+~
+E
+rtouch~
+$n touches a tentative hand to the surface of the mirror...
+~
+E
+shatter~
+@b@YThe mirror shatters in a shower of crystalline shards!!@n
+~
+E
+swirl~
+@b@GThe mists of the mirror begin to swirl...
+~
+E
+noth~
+Nothing happens.
+~
+!
+0 0 0
+1312 9 1509949540 3 0
+-1
+S
+
+#40027
+A Dark Alcove Within a Dark Citadel~
+This small alcove is bare except for the ever-present black granite walls. 
+Looking around the room you notice that the walls absorb the light,
+providing only about a foot of visibility.  The room is incredibly cold.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 40016 10 10 5
+1308 9 1509949540 3 0
+-1
+S
+
+#40028
+A Dark Alcove Within a Dark Citadel~
+The alcove is empty, filled only with the still, chill air of the citadel. 
+The dark granite stones seem almost alive, inhaling light and warmth,
+exhaling darkness and cold.  To the east you can see a hall, but no
+torchlight flickers to light its somber lengths.
+~
+~
+301465604 0 9 0
+D1
+~
+~
+0 -1 40017 10 10 5
+1308 9 1509949540 3 0
+-1
+S
+
+#40029
+A Small, Private Room Within a Dark Citadel~
+This room does not look as if it were built for comfort. The cold granite
+of the walls are oppressively chill, and the hard stone floor does not
+give any comfort at all.  A simple wooden cot rests in the corner, with
+no blanket or padding in sight.  A small wooden door leads east and into
+a long hall.
+~
+~
+301465604 0 9 0
+D1
+small wooden door~
+small wooden door~
+391 1262 40018 10 10 5
+E
+cot~
+The cot looks very uncomfortable.
+~
+1317 9 1509949540 3 0
+-1
+S
+
+#40030
+On The Spiral Stair Within a Dark Keep~
+A lone torch hangs upon the northern wall shedding a reddish light which
+barely illuminates the stone stair in the center of the room.  The room
+is deathly quiet and not even the flicker of the torches flame can be
+heard.  Off to the west you can faintly make out a dark passage.
+~
+~
+301465604 0 6 0
+D3
+~
+~
+0 -1 40031 10 10 5
+D5
+~
+~
+0 -1 40019 10 10 5
+-1
+S
+
+#40031
+On The Spiral Stair Within a Dark Keep~
+The stairs twist and wind there way around the darkness of the keep
+slanting downwards to the east and heading upwards to the south.  A thick
+blanket of darkness covers the area seeming as if some sort of magic is
+blocking all forms of light from penetrating this forbidden place.  A
+landing leads off the stairway to the west, towards a large, domed
+chamber.
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 40030 10 10 5
+D2
+~
+~
+0 -1 40032 10 10 5
+D3
+~
+~
+0 -1 40043 10 10 5
+1308 9 1509949540 3 0
+1317 9 1509949515 3 0
+-1
+S
+
+#40032
+On The Spiral Stair Within a Dark Keep~
+The black granite walls along the edges of the spiral stair take on a
+shiny appearence in the light, seeming as if they were polished to a
+glossy, mirrorlike surface Every few moments a loud rumbling sound echoes
+down the staircase causing it shake slightly.  A flash of light blinds
+you momentarily and it appears to be coming from the east somewhere.
+~
+[Dalthas] Period after surface
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 40031 10 10 5
+D1
+~
+~
+0 -1 40033 10 10 5
+1312 9 1509949540 3 0
+-1
+S
+
+#40033
+On The Spiral Stair Within a Dark Keep~
+Flashes of lightning and claps of thunder penetrate the darkness and
+silence of the keep coming from somewhere above you.  Looking up you see
+the stairs wind up to the outside while stormclouds hover just above the
+edge of the stairs.
+~
+~
+301465604 0 6 0
+D3
+~
+~
+0 -1 40032 10 10 5
+D4
+~
+~
+0 -1 40034 10 10 5
+-1
+S
+
+#40034
+On the Battlements - Above the Spiral Stair~
+The roar of thunder here is deafening, causing you to cover your ears in
+pain.  Brilliant streaks of lightning arc just above your head
+momentarily illuminating the area.  A strong wind rips through the area
+almost knocking you over creating a chaotic frenzy.  The battlement
+continues to the north and south while the spiral stair leads downwards,
+back into the keep itself.
+~
+nomob
+~
+301465608 0 9 0
+D0
+~
+~
+0 -1 40035 10 10 5
+D2
+~
+~
+0 -1 40038 10 10 5
+D5
+~
+~
+0 -1 40033 10 10 5
+-1
+S
+
+#40035
+On the Battlements of a Dark Citadel~
+This is the northeast corner of the top of the dark citadel, the dark
+granite stones of its construction holding firm against a seige of
+lightning, thunder, wind, and rain.  The dark storm rages overhead,
+swirling into a frenzy of nature's power.  You can continue along the
+battlement to the south and to the west, around a massive dais of
+obsidian to the southwest.
+~
+~
+301465600 0 9 0
+D2
+~
+~
+0 -1 40034 10 10 5
+D3
+~
+~
+0 -1 40041 10 10 5
+1311 9 1509949540 3 0
+1308 9 1509949515 3 0
+-1
+S
+
+#40036
+In the Eye of the Storm Atop a Dark Citadel~
+Dark clouds swirl into a frenzy of lightning and thunder here at the apex
+of the dark citadel.  Strong winds whip across you, threatening to lift
+and hurl you off the battlements.  A massive dais of obsidian has been
+constructed here, high atop the citadel, a gigantic perch for some great
+beast.
+~
+nomob
+~
+301465608 0 9 0
+D3
+~
+~
+0 -1 40044 10 10 5
+1320 9 1509949540 3 0
+-1
+S
+
+#40037
+A Small Prison Cell Within a Dark Keep~
+The quarters of this prison cell are so close, it seems as if the walls
+are pressing in on you.  A thin trickle of water drips continuously from
+the cracked stone ceiling and the large, rusty cell door looks like it
+might fall off its hinges at any moment.  The cell's floor is covered
+with dirt and filth.  Scratched into the floor, beyond the dirt, is an
+incomplete diagram.
+~
+~
+301469749 0 9 0
+D1
+cell door~
+cell door~
+407 3322 40022 10 10 5
+E
+incomplete diagram~
+The diagram that has been etched into the floor is about two-thirds
+complete.  When finished, it looks like it should be a circle inscribed
+within a triangle.  Runes and glyphs decorate the rim of the finished
+portions of the circle.
+~
+E
+cell door~
+Made of iron, the cell door looks about ready to fall off its hinges.  A
+large, bluish sigil is drawn on its surface.  The edges of the sigil are
+charred and blackened.  The lock on the cell door is fairly complex and
+has several runes scratched into its surface.
+~
+A
+2 custom~
+belt demonic fortitude~
+mob = mob_in_room( 2237, room );
+if( mob_in_room( 2237, room ) )
+  if( rflag( reset0, room ) )
+  if( has_obj( 3322, ch ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #take, ch );
+  act_notchar( #rtake, ch );
+continue;
+  }
+else
+  tell( mob, ch, #tell );
+else
+  tell( mob, ch, #cant );
+else
+  continue;
+~
+E
+take~
+Donnic the lanky goblin takes the key from you first.
+~
+E
+rtake~
+Donnic the lanky goblin takes a key from $n first.
+~
+E
+tell~
+Without the cell door key I won't help you!
+~
+E
+cant~
+I can't bother with you just now. I'm planning my escape!
+~
+!
+0 0 0
+A
+~
+~
+if( !rflag( reset0, room ) ) {
+set_rflag( reset0, room );
+act_room( #run, ch );
+junk_mob( mob_in_room( 2237, room ) );
+continue;
+}
+else
+continue;
+~
+E
+run~
+Donnic rushes past you, cackling madly about freedom.
+~
+!
+3 0 2
+2237 9 1509949540 3 0
+-1
+S
+
+#40038
+On the Battlements of a Dark Citadel~
+Chaos whirls about in the form of dark clouds, bringing lightning and
+wind around to bear in a tumultous barrage of nature's bared fury.  The
+dark granite of the walls of the citadel stand firm against the assault,
+although each thunderclap rocks the keep and threatens to smash it apart.
+~
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 40034 10 10 5
+D3
+~
+~
+0 -1 40042 10 10 5
+1311 9 1509949540 3 0
+1308 9 1509949540 3 0
+-1
+S
+
+#40041
+On the Battlements of a Dark Citadel~
+A massive storm rages all about you, centered on the giant obsidian dais
+to the south.  You stand on the battlements of a mighty citadel,
+overlooking a drop of several hundred feet to the north.  Lightning
+crackles and several bolts strike the dark granite walls, but they show
+no signs of damage or wear.  You can continue along the battlements to
+the east or west.
+~
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 40035 10 10 5
+D3
+~
+~
+0 -1 40046 10 10 5
+1312 9 1509949515 3 0
+-1
+S
+
+#40042
+On the Battlements of a Dark Citadel~
+High atop the dark citadel, the battlements overlook a few hundred feet
+of empty air above the hard ground below.  To the north, a massive
+obsidian dais rises in the center of the citadel.  Around you and the
+rest of the citadel, a raging storm of electricity hurls itself against
+the dark granite.
+~
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 40038 10 10 5
+D3
+~
+~
+0 -1 40045 10 10 5
+1312 9 1509949540 3 0
+1308 9 1509949540 3 0
+-1
+S
+
+#40043
+A Large Chamber Within a Dark Citadel~
+A grandiose chamber looms around you, stretching far to the west and
+south.  Murals are painted with precise detail on the domed marble
+ceiling, and bookshelves line the walls.  The floor of the chamber is
+also white marble, polished clean and remarkably free from wear.  To the
+east, a spiral staircase extends a small arm to offer access up to the
+battlements and down onto the ground floor of the citadel.
+~
+murals, bookshelves
+~
+301465604 0 8 0
+D1
+~
+~
+0 -1 40031 10 10 5
+E
+murals paintings ceiling~
+The paintings are fantastic.  Myriad dragons do battle, both magical and
+claw to claw.
+~
+E
+bookshelves bookshelf~
+All the books lie out of reach, but many look old, rare, and expensive. 
+It is quite a collection.
+~
+1310 9 1509949490 3 0
+1316 9 1509949540 3 0
+-1
+S
+
+#40044
+On the Battlements of a Dark Citadel~
+A long ramp leads up to a massive obsidian dais to the east and into the
+very eye of the swirling storm which rages around you.  Flashes of
+lightning ripple and the deafening crashes of thunder surround you,
+amongst the pitch black clouds and powerful winds.  The citadel holds
+firm against the storm, as it shows no sign of wear.  Perhaps after all
+it is the citadel feeding the storm, not the storm devouring the citadel.
+~
+no_mob
+~
+301465608 0 9 0
+D0
+~
+~
+0 -1 40046 10 10 5
+D1
+~
+~
+0 -1 40036 10 10 5
+D2
+~
+~
+0 -1 40045 10 10 5
+A
+~
+~
+if( mob_in_room( 1320, room ) ) {
+  if( find_skill( ch, sneak ) > 5 ) {
+    act_tochar( #sneak, ch );
+    continue;
+    }
+  act_tochar( #halt, ch );
+  act_notchar( #rhalt, ch );
+  }
+else
+  continue;
+~
+E
+sneak~
+You sneak past the dark lord.
+~
+E
+halt~
+The dark lord halts you with an outstretched hand.  You cannot pass him.
+~
+E
+rhalt~
+$n tries to pass the dark lord, but is turned back.
+~
+!
+0 0 0
+1310 9 1509949540 3 0
+-1
+S
+
+#40045
+On the Battlements of a Dark Citadel~
+Darkness and cloud surround you, interrupted by peals of lightning and
+crashes of thunder.  The dark granite of the battlements provide support
+against the battering winds and rain.  To the northeast rises a dark
+obsidian dais, unapproachable from this position.  A walkway leads around
+the edge of the battlements to the east and north.
+~
+~
+301465600 0 9 0
+D0
+~
+~
+0 -1 40044 10 10 5
+D1
+~
+~
+0 -1 40042 10 10 5
+1308 9 1509949540 3 0
+1310 9 1509949540 3 0
+-1
+S
+
+#40046
+On the Battlements of a Dark Citadel~
+Chaos rages in the form of billowing columns of dark clouds which swirl
+about on powerful winds.  The dark granite of the battlements stand firm
+against the relentless pounding of rain, thunder, and lightning, as sure
+a defense against the violent apparition of nature as the citadel's walls
+are against those who seek to besiege it.  A walkway leads east and south
+along the edge of the top of the citadel, around a massive dias of
+obsidian to the southeast.
+~
+~
+301465600 0 9 0
+D1
+~
+~
+0 -1 40041 10 10 5
+D2
+~
+~
+0 -1 40044 10 10 5
+1308 9 1509949490 3 0
+1308 9 1509949515 3 0
+1310 9 1509949540 3 0
+-1
+S
+
+#40047
+The Room of the Darkgem~
+This circular room is focused on a small pedestal in the centre of its
+dark embrace.  A small beam of violet light shines down on the top of the
+pedestal, illuminating it and casting its obsidian surface with a glow of
+mystical qualities.  A small candlestick hangs on the south wall.
+~
+[Merior] the room is focused?
+- i dont like the term - rooms dont focus - they have no eyes
+[Phule] but the focus of the room is the pedestal
+[Phule] hence the room is focused on the pedestal
+[Phule] and cameras don't have eyes yet they focus
+~
+301465612 0 9 0
+D2
+south wall~
+wall~
+234 -1 40013 10 10 5
+E
+candlestick south wall~
+The candlestick is attached to some kind of swivel.  Maybe it acts as a
+lever of some kind.
+~
+A
+pull~
+candlestick~
+if( mob_in_room( 1310, room ) ) {
+  act_tochar( #trap, ch );
+  end;
+  }
+if( mob_in_room( 1308, room ) ) {
+  act_tochar( #trap, ch );
+  end;
+  }
+if( rflag( reset0, room ) ) {
+  act_tochar( #trap, ch );
+  end;
+  }
+else {
+  act_tochar( #pull, ch );
+  act_notchar( #rpull, ch );
+  open( room, south );
+  send_to_room( #opens, find_room( 40013 ) );
+  }
+~
+E
+pull~
+You pull the candestick, and the wall to the south swings open.
+~
+E
+rpull~
+$n pulls the candlestick, and the wall to the south swings open.
+~
+E
+trap~
+A trap has been set off in the failed theft of the darkgem.  The
+candlestick does not respond.
+~
+E
+opens~
+The wall to the north swings open.
+~
+!
+0 0 0
+A
+~
+~
+close( room, south );
+send_to_room( #close, room );
+send_to_room( #closes, find_room( 40013 ) );
+~
+E
+close~
+The wall to the south swings shut.
+~
+E
+closes~
+The wall to the north swings open.
+~
+!
+1 0 4
+A
+steal~
+darkgem~
+obj = obj_in_room( 1772, room );
+if( obj ) {
+  act_tochar( #try, ch );
+  act_notchar( #rtry, ch );
+  i = random( 4, 100 );
+  j = find_skill( ch, steal );
+  if( j > i ) {
+    act_tochar( #success, ch );
+    act_notchar( #rsucc, ch );
+    junk_obj( obj, 1 );
+    obj_to_char( oload( 1772 ), ch );
+    }
+  else {
+    act_tochar( #fail, ch );
+    act_notchar( #rfail, ch );
+    junk_obj( obj, 1 );
+    remove_rflag( reset0, room );
+    wait( 2 );
+    send_to_room( #arrive, room );
+    mload( 1308, room );
+    i = random( 1, 5 );
+    if( i > 3 )
+      mload( 1310, room );
+    mob = mob_in_room( 1308, room );
+    if( mob )
+      attack( mob, ch, 3d20+30, "viscious strike" );
+    attack( mob, ch, 3d20+30, "viscious strike" );
+    set_rflag( reset0, room );
+    }
+  }
+else
+  act_tochar( #dope, ch );
+~
+E
+try~
+You sneak up to the pedestal and try to steal the darkgem.
+~
+E
+rtry~
+$n sneaks up to the pedestal and tries to steal the darkgem.
+~
+E
+success~
+SUCCESS!!!  You grab the darkgem and clutch it greedily to your chest...
+~
+E
+rsucc~
+$n SUCCEEDS!!!  He has the darkgem in his clutches!!
+~
+E
+fail~
+FAILURE!!!  The darkgem disappears and a loud alarm is sounded...
+~
+E
+rfail~
+$n FAILED in his steal attempt, the clumsy oaf!!  The gem disappears and
+a loud alarm is sounded...
+~
+E
+dope~
+You can't steal something that isn't there!!
+~
+E
+arrive~
+Guards arrive to answer the alarms!!!
+~
+!
+0 0 0
+1771 17 1509949540 -2 0
+1772 17 1509949540 -2 0
+-1
+S
+
+#0
+

@@ -1,0 +1,3393 @@
+#AREA
+Vertical Passage~
+Rodric Adder Florian~
+~
+
+0 0
+0
+#ROOMS
+
+#26500
+Vertical Passageway~
+A passageway, cut through solid granite, climbs at an almost completely
+vertical angle.  The bottom of the this long passage can be seen just
+below.  Spikes made of cast iron have been nailed into the sides of the
+granite shaft, providing slim but sturdy hand holds for climbing up or
+down the vertical passage.  You cannot see the top of the passage from
+here.
+~
+*H
+[Graewulf] When I slip off the rungs (room26500) and fall it states "You loose your footing"  It should say "You lose your footing"
+~
+301465612 11 6 0
+D4
+~
+~
+0 -1 26501 10 10 5
+D5
+~
+~
+1024 -1 2537 10 10 5
+A
+~
+~
+ch = rand_player( room );
+if( !can_fly( ch ) ) {
+  send_to_char( #char, ch );
+  dam_message( ch, 5, "The fall" );
+  inflict( ch, mob, 5, "falling" );
+  act_notchar( #room, ch );
+  transfer( ch, find_room( 2537 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+char~
+You loose your footing and fall to the floor below.
+~
+E
+room~
+$n looses their footing and falls to the floor below.
+~
+E
+arr~
+$n comes plummeting down from above, landing hard on the ground.
+~
+!
+2 20 0
+A
+2 sleep~
+~
+act_tochar( "You attempt to sleep, but lose your grip and fall.", ch );
+act_notchar( "$n releases $s grip and plummets downward!", ch );
+transfer( ch, find_room( 2537 ) );
+act_notchar( "$n comes plummeting in from above to land hard on the ground!", ch );
+dam_message( ch, 5, "The fall" );
+inflict( ch, mob, 5, "falling" );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+-1
+S
+
+#26501
+Vertical Passageway~
+A vertical passageway continues up and down as far as you are able to see. 
+Tunneled from grey granite, the passageway is little more than a mining
+shaft.  Set into the shaft's rough, irregular sides are a series of cast
+iron spikes.  The spikes are spaced evenly apart, like the rungs of a
+ladder.
+~
+*H
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26502 10 10 5
+D5
+~
+~
+0 -1 26500 10 10 5
+A
+~
+~
+ch = rand_player( room );
+if( !can_fly( ch ) ) {
+  send_to_char( #fall, ch );
+  dam_message( ch, 10, "The fall" );
+  inflict( ch, mob, 10, "falling" );
+  act_notchar( #fall2, ch );
+  transfer( ch, find_room( 2537 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+fall~
+You loose your footing and fall to the floor below.
+~
+E
+fall2~
+$n looses their footing and falls to the floor below.
+~
+E
+arr~
+$n comes plummeting down from above, landing hard on the ground.
+~
+!
+2 40 0
+A
+2 sleep~
+~
+act_tochar( "You attempt to sleep, but lose your grip and fall.", ch );
+act_notchar( "$n releases $s grip and plummets downward!", ch );
+transfer( ch, find_room( 2537 ) );
+act_notchar( "$n comes plummeting in from above to land hard on the ground!", ch );
+dam_message( ch, 10, "The fall" );
+inflict( ch, mob, 10, "falling" );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+A
+~
+~
+ch = rand_player( room );
+act_tochar( #drip, ch );
+~
+E
+drip~
+A single drop of water falls on your nose from somewhere above.
+~
+!
+2 150 0
+-1
+S
+
+#26502
+Vertical Passageway~
+A rough, vertical passage stretches up and down here.  Cut from grey
+granite, the passageway resembles a mining shaft, though you can see
+little evidence of mining, ore, or gems down its length.  Cast iron
+spikes, like the rungs of a ladder, have been hammered into the side of
+the cavernous shaft.
+~
+*H
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26503 10 10 5
+D5
+~
+~
+0 -1 26501 10 10 5
+A
+~
+~
+if( !can_fly( ch ) ) {
+  if( find_skill( ch, climb ) < random( 4, 8 ) ) {
+    if( random( 1, 10 ) < 5 ) {
+      send_to_char( #char, ch );
+      act_notchar( #room, ch );
+      transfer( ch, find_room( 2537 ) );
+      act_notchar( #arr, ch );
+      dam_message( ch, 15, "The fall" );
+      inflict( ch, mob, 15, "falling" );
+      }
+    else
+      send_to_char( #almost, ch );
+    }
+  }
+~
+E
+char~
+You loose your footing and fall to the floor far below.
+~
+E
+room~
+$n loses $s footing and falls to the floor far below.
+~
+E
+arr~
+$n comes plummeting down from above, landing hard on the ground.
+~
+E
+almost~
+You almost slip and fall!
+~
+!
+1 -1 63
+A
+2 sleep~
+~
+act_tochar( "You attempt to sleep, but lose your grip and fall.", ch );
+act_notchar( "$n releases $s grip and plummets downward!", ch );
+transfer( ch, find_room( 2537 ) );
+act_notchar( "$n comes plummeting in from above to land hard on the ground!", ch );
+dam_message( ch, 15, "The fall" );
+inflict( ch, mob, 15, "falling" );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+A
+~
+~
+ch = rand_player( room );
+act_tochar( #breeze, ch );
+~
+E
+breeze~
+A faint, chilly draft blows in from above, brushing past your cheek.
+~
+!
+2 150 0
+-1
+S
+
+#26503
+Vertical Passageway~
+This vertical passageway, cut through solid granite, leads up and down
+quite a ways.  You are unable to see either the top or bottom of the
+shaft from here.  A series of iron spikes nailed into the side of the
+mining shaft provide evenly spaced hand holds to cling to.  On the west
+side of the shaft, which is no more than six feet wide, there are a
+series of trailing scratch marks.
+~
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26504 10 10 5
+D5
+~
+~
+0 -1 26502 10 10 5
+A
+~
+~
+ch = rand_player( room );
+if( !can_fly( ch ) ) {
+  send_to_char( #fall, ch );
+  dam_message( ch, 20, "The fall" );
+  inflict( ch, mob, 20, "falling" );
+  act_notchar( #fall2, ch );
+  transfer( ch, find_room( 2537 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+fall~
+You loose your footing and fall to the floor far below.
+~
+E
+fall2~
+$n looses their footing and falls to the floor far below.
+~
+E
+arr~
+$n comes plummeting down from above, landing hard on the ground.
+~
+!
+2 30 0
+A
+2 sleep~
+~
+act_tochar( "You attempt to sleep, but lose your grip and fall.", ch );
+act_notchar( "$n releases $s grip and plummets downward!", ch );
+transfer( ch, find_room( 2537 ) );
+act_notchar( "$n comes plummeting in from above to land hard on the ground!", ch );
+dam_message( ch, 20, "The fall" );
+inflict( ch, mob, 20, "falling" );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+A
+~
+~
+ch = rand_player( room );
+act_tochar( #blow, ch );
+~
+E
+blow~
+A faint breeze from above brushes past your cheek.
+~
+!
+2 150 0
+-1
+S
+
+#26504
+Vertical Passageway~
+What looks to be an old, forgotten mining shaft leads up and down at a
+nearly vertical angle here.  Cast iron spikes, like the rungs of a
+ladder, jut out from the side of the granite rock shaft and provide
+sturdy, if rusty, hand holds to aid in the ascent or descent of this
+passageway.  There is no evidence, aside from the shaft itself, that
+mining ever took place within this passageway.
+~
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26505 10 10 5
+D5
+~
+~
+0 -1 26503 10 10 5
+A
+~
+~
+ch = rand_player( room );
+if( !can_fly( ch ) ) {
+  send_to_char( #fall, ch );
+  dam_message( ch, 20, "The fall" );
+  inflict( ch, mob, 20, "falling" );
+  act_notchar( #fall2, ch );
+  transfer( ch, find_room( 2537 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+fall~
+You loose your footing and fall to the floor far below.
+~
+E
+fall2~
+$n looses their footing and falls to the floor far below.
+~
+E
+arr~
+$n comes plummeting down from above, landing hard on the ground.
+~
+!
+2 40 0
+A
+2 sleep~
+~
+act_tochar( "You attempt to sleep, but lose your grip and fall.", ch );
+act_notchar( "$n releases $s grip and plummets downward!", ch );
+transfer( ch, find_room( 2537 ) );
+act_notchar( "$n comes plummeting in from above to land hard on the ground!", ch );
+dam_message( ch, 20, "The fall" );
+inflict( ch, mob, 20, "falling" );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+-1
+S
+
+#26505
+Vertical Passageway~
+The passageway seems to come to a stopping point just above.  There are
+but a few more iron spikes set into the granite walls to go before the
+top can be reached, though the bottom of the old mining shaft is a very
+long way down from here.  Many of the iron rungs have begun to rust and
+all of them look slippery with moisture.
+~
+*H
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26506 10 10 5
+D5
+~
+~
+0 -1 26504 10 10 5
+A
+~
+~
+ch = rand_player( room );
+if( !can_fly( ch ) ) {
+  send_to_char( #fall, ch );
+  dam_message( ch, 30, "The fall" );
+  inflict( ch, mob, 30, "falling" );
+  act_notchar( #fall2, ch );
+  transfer( ch, find_room( 2537 ) );
+  act_notchar( #arr, ch );
+  }
+~
+E
+fall~
+You loose your footing and fall to the floor far below.
+~
+E
+fall2~
+$n looses their footing and falls to the floor far below.
+~
+E
+arr~
+$n comes plummeting down from above, landing hard on the floor.
+~
+!
+2 30 0
+A
+2 sleep~
+~
+act_tochar( "You attempt to sleep, but lose your grip and fall.", ch );
+act_notchar( "$n releases $s grip and plummets downward!", ch );
+transfer( ch, find_room( 2537 ) );
+act_notchar( "$n comes plummeting in from above to land hard on the ground!", ch );
+dam_message( ch, 30, "The fall" );
+inflict( ch, mob, 30, "falling" );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+1 0 48
+-1
+S
+
+#26506
+A Small Cavern~
+A small cavern of grey-green limestone rises around you.  At its greatest
+height, the cavern is no higher than twenty feet tall.  Stalactites hang
+from the ceiling, with their tips barely touching some stalagmites that
+rise from the floor.  A five-foot wide shaft has been cut into the center
+of the cavern, through an intrusion of grey granite.  The small cavern
+extends to the north as well.
+~
+*H
+~
+301465612 0 6 0
+D0
+~
+~
+0 -1 26507 10 10 5
+D5
+~
+~
+0 -1 26505 10 10 5
+A
+~
+~
+if( can_fly( ch ) ) 
+  continue;
+if( is_player( ch )  )
+  continue;
+~
+E
+wont_go~
+$n refuses to attempt to climb down a sheer wall.
+~
+!
+3 -1 32
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 32
+-1
+S
+
+#26507
+A Small Cavern~
+Though small, this limestone cavern looks quite capable of suiting the
+travel of several people abreast.  Dripstone formations such as
+stalagmites and stalactites rise from the floor and hang from the ceiling
+respectively.  The limestone walls have been smoothed over time by the
+passage of rivulets of water that creep down the walls.  The cavern
+extends both to the north and south.
+A large boulder lies against the western wall.
+~
+*H
+[Starshine] no loop_follower code
+*is intensional, so that leader can check for reset without having to
+drag the entire group.  Also, it promotes those being 'dragged' to wake
+up once in a while and do SOMETHING.
+*CF
+~
+301465612 0 6 0
+D0
+~
+~
+0 -1 26508 10 10 5
+D2
+~
+~
+0 -1 26506 10 10 5
+A
+open push move~
+large boulder~
+if( rflag( reset0, room ) ) {
+  send_to_char( #moveboulder, ch );
+  act_notchar( #moveboulder2, ch );
+  remove_rflag( reset0, room );
+  };
+else
+  send_to_char( #alreadyopen, ch );
+~
+E
+moveboulder~
+You push the boulder aside, revealing a small hole in the wall.
+~
+E
+moveboulder2~
+$n pushes the boulder aside, revealing a small hole in the wall.
+~
+E
+alreadyopen~
+You can't seem to push the boulder back over the hole.
+~
+!
+0 0 0
+A
+climb enter~
+hole 1 west~
+if( !rflag( reset0, room ) ) {
+  send_to_char( #message1, ch );
+  act_notchar( #message2, ch );
+  transfer( ch, find_room( 27750 ) );
+  act_notchar( #arr, ch );
+  }
+else
+  send_to_char( #message3, ch );
+~
+E
+message1~
+You climb into the small hole.
+~
+E
+message2~
+$n climbs into the small hole.
+~
+E
+message3~
+You must move the boulder before you can fit into the hole.
+~
+E
+arr~
+$n comes climbing through the hole.
+~
+!
+0 0 0
+A
+1 look~
+hole~
+if( rflag( reset0, room ) )
+act_tochar( #desc, ch );
+else
+act_tochar( #desc2, ch );
+~
+E
+desc~
+There is a small hole here on the western wall.  It is covered by a large
+boulder.  Once you've moved the boulder, you could probably enter the
+hole.  
+~
+E
+desc2~
+There is a small hole here in the western wall.  At one time, it looks to
+have been blocked by a boulder, though now the boulder is nowhere near it. 
+You could probably enter the hole.
+~
+!
+0 0 0
+A
+1 look~
+boulder~
+if( rflag( reset0, room ) )
+act_tochar( #desc, ch );
+else
+act_tochar( #desc2, ch );
+~
+E
+desc2~
+The boulder inside the cavern looks clearly out of place.  Scrapes along
+the floor give evidence that it has recently been moved.
+~
+E
+desc~
+The boulder looks somewhat out of place around the cavern.  It looks as
+if it might conceal something behind it.  
+~
+!
+0 0 0
+-1
+S
+
+#26508
+A Small Cavern~
+This small cavern has been formed of limestone.  A few small,
+needle-sharp stalactites hang from the ceiling around the edges of an
+artifical shaft.  The shaft cuts upward into the cavern's ceiling at a
+steep angle. Iron spikes have been hammered into the side of the shaft.
+~
+*H
+~
+301465612 11 5 0
+D2
+~
+~
+0 -1 26507 10 10 5
+D4
+~
+~
+1024 -1 26509 10 10 5
+A
+~
+~
+if( !is_exhausted( ch ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #rclimb, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+climb~
+You manage to climb up the iron spikes set into the shaft.
+~
+E
+rclimb~
+$n climbs up the iron rungs, but not without difficultly.
+~
+!
+3 0 16
+-1
+S
+
+#26509
+Vertical Passageway~
+This passageway is completely vertical and continues upward.  It has been
+cut artifically into solid granite at a steep angle, proving a shaft
+through to the cavern below.  Iron spikes have been hammered into the
+walls of the granite shaft, imitating the rungs of a ladder.
+~
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26510 10 10 5
+D5
+~
+~
+1024 -1 26508 10 10 5
+A
+~
+~
+if( !is_exhausted( ch ) ) {
+  act_tochar( #climb, ch );
+  act_notchar( #rclimb, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+climb~
+With some difficultly, you manage to climb the iron rungs.
+~
+E
+rclimb~
+$n climbs the iron rungs, but not without difficultly.
+~
+!
+3 0 48
+-1
+S
+
+#26510
+Vertical Passageway~
+Cut through solid granite, this passageway is cramped and the quarters
+are tight.  The passageway is also completely vertical.  Iron spikes have
+been hammered into the sides of the steep shaft, providing a way to climb
+up or down its length.  A small alcove, little more than a hole in the
+granite shaft, lies to the west, within reach from the iron rungs.
+~
+~
+301465612 11 5 0
+D3
+~
+~
+0 -1 26550 10 10 5
+D4
+~
+~
+0 -1 26511 10 10 5
+D5
+~
+~
+0 -1 26509 10 10 5
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+A
+~
+~
+if( !is_exhausted( ch ) ) {
+  act_tochar( #swing, ch );
+act_notchar( #rswing, ch );
+  continue;
+  }
+else
+  continue;
+~
+E
+swing~
+You swing off the iron rungs, into a hole in the granite shaft.
+~
+E
+rswing~
+$n leaps off the iron rungs into the small alcove.
+~
+!
+3 0 8
+59 9 1509949540 3 0
+59 9 1509949540 3 0
+-1
+S
+
+#26511
+Vertical Passageway~
+A steep shaft has been dug vertically through solid granite.  Set into
+the sides of the shaft are a series of cast iron spikes that provide hand
+holds up and down the otherwise treacherous climb.  The bottom of the
+passage looks far enough down to warrant caution.  From here, you cannot
+make out the top of the vertical passage.
+~
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26512 10 10 5
+D5
+~
+~
+0 -1 26510 10 10 5
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+-1
+S
+
+#26512
+Vertical Passageway~
+Cut into solid granite, a vertical passage continues for quite a distance
+so that you can neither see the top nor the bottom of the shaft.  Cast
+iron spikes have been hammered into the sides of the shaft, making it
+look like a makeshift ladder.  A few of the iron rungs are missing,
+leaving but holes in the granite shaft facing.
+~
+*H
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26513 10 10 5
+D5
+~
+~
+0 -1 26511 10 10 5
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+-1
+S
+
+#26513
+Vertical Passageway~
+Constricting like a python, this vertical passage is much more narrow
+here than it is as it continues below.  Dug through solid grey granite,
+this shaft is extremely steep.  Iron spikes nailed into the sides of the
+shaft are the only hand holds available on its slick surfaces.  Up above,
+you can see what looks to be a cavern.
+~
+~
+301465612 11 5 0
+D4
+~
+~
+1024 -1 26514 10 10 5
+D5
+~
+~
+0 -1 26512 10 10 5
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 48
+-1
+S
+
+#26514
+A Small Cavern~
+Formed from limestone, this cavern looks completely natural and untouched
+by man.  The only exception to this is a square-cut shaft in the center
+of the cavern that leads downward in an almost complete, vertical angle. 
+The sides of the shaft are smooth and slick.  The ceiling of the cavern
+hangs fairly low, barely fifteen feet above the floor at its highest
+point.  The cavern stretches to the north.
+~
+~
+301465612 11 5 0
+D0
+~
+~
+0 -1 26515 10 10 5
+D5
+~
+~
+1024 -1 26513 10 10 5
+A
+~
+~
+act_room( #water, ch );
+~
+E
+water~
+Faintly, from somewhere within the cavern, you hear the drip of water.
+~
+!
+2 2345 0
+A
+~
+~
+acode( find_room( 26509 ), 1 );
+continue;
+~
+!
+3 0 32
+59 9 1509949540 3 0
+-1
+S
+
+#26515
+A Small Cavern~
+The remains of a campfire are the only evidence that anyone has ever
+visited this place.  Though seemingly empty, the cavern looks like it
+once had a purpose.  The walls have clearly been artificially tunneled or
+dug out with sharp instruments.  The small cavern stretches to the north
+and south.
+~
+*H
+~
+301465612 11 6 0
+D0
+~
+~
+0 -1 26516 10 10 5
+D2
+~
+~
+0 -1 26514 10 10 5
+E
+campfire~
+The ashes look to have been here quite some time.
+~
+59 9 1509949540 3 0
+-1
+S
+
+#26516
+A Small Cavern~
+This cavern seems to be naturally made.  There is little evidence of
+anyone passing, though the passageway leading up was certainly made for a
+reason.  
+~
+~
+301465612 11 5 0
+D2
+~
+~
+0 -1 26515 10 10 5
+D4
+~
+~
+0 -1 26517 10 10 5
+-1
+S
+
+#26517
+Vertical Passageway~
+The iron rung you are grabbing onto shudders for a moment, like it is
+about to pull out of the wall, you quickly grab another rung, and
+continue your climbing.  
+~
+[Merior] more
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26518 10 10 5
+D5
+~
+~
+0 -1 26516 10 10 5
+-1
+S
+
+#26518
+Vertical Passageway~
+A cold breeze comes down from above.  It looks like the darkness lifts a
+little up above you, but below you is only solid black.
+~
+[Merior] more description
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26519 10 10 5
+D5
+~
+~
+0 -1 26517 10 10 5
+-1
+S
+
+#26519
+Vertical Passageway~
+The passageway leads down into the darkness as far as you can see.  From
+above you feel a cool breeze.  You smile faintly, hoping you dont have a
+long way to go until you are out of this blasted passageway.
+~
+[Merior] no opinions like smiling etc... find stuff to see to write about
+~
+301465612 11 5 0
+D4
+~
+~
+0 -1 26520 10 10 5
+D5
+~
+~
+0 -1 26518 10 10 5
+-1
+S
+
+#26520
+The Cave~
+This looks like a normal cave, but there is a set of rungs leading down a
+vertical tunnel, which probably leads to a mine of some sort.  To the
+north you can see light shining through the cave entrance, and you feel
+the cold wind blowing into the cave.  
+~
+no mob
+ogre size to keep horses out
+[Merior] skip the guess about mines
+~
+301465612 11 5 0
+D0
+~
+~
+0 -1 26521 10 10 5
+D5
+~
+~
+0 -1 26519 10 10 5
+-1
+S
+
+#26521
+Cave Entrance~
+You are standing just inside the entrance to a small cave.  The strong
+wind outside blows snowflakes inside the cave.  It is very cold here. 
+The cave continues to the south.  
+~
+[Merior] more description, less weather
+~
+301465604 11 6 0
+D0
+~
+~
+0 -1 26522 10 10 5
+D2
+~
+~
+0 -1 26520 10 10 5
+-1
+S
+
+#26522
+Snowy Plateau~
+This area is more of a plateau than a trail.  It is bitterly cold, and
+the strong wind only makes it worse.  Mountains are visible as far as the
+eye can see.  Directly to the south, a broken cliff rises into the
+mountains, in which you think you might spy a cave opening.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26523 10 10 5
+D2
+~
+~
+0 -1 26521 10 10 5
+E
+cliff~
+The cliff face is rough and broken, and you can almost make out what
+might be the remains of an ancient road/staircase within the snow-covered
+rubble of the cliff.  It might be possible to climb up the cliff and see
+what lies beyond.
+~
+E
+3 opening cave mouth~
+Near the base of the rough cliff to the south, you can make out the black
+opening of a cave mouth, probably nothing more than a shallow crevice
+that might provide some small amount of protection from the elements.
+~
+A
+climb~
+up cliff~
+if( can_fly( ch ) ) {
+    send_to_char( #fly, ch );
+    act_notchar( #flying, ch );
+    transfer( ch, find_room( 47785 ) );
+    act_notchar( #flying2, ch );
+    end;
+    }
+  if( find_skill( ch, climb ) > random( -1, 7 ) ) {
+    send_to_char( #succ, ch );
+    act_notchar( #osucc, ch );
+    transfer( ch, find_room( 47785 ) );
+    act_notchar( #odrop, ch );
+    }
+  else {
+    send_to_char( #fail, ch );
+    act_notchar( #failed, ch );
+    end;
+    }
+  loop( followers ) {
+    ch = rch;
+    acode( room, 1 );
+    }
+~
+E
+failed~
+$n tries to climb up the slope but fails.
+~
+E
+fail~
+You try to climb up the slope but fail.
+~
+E
+flying2~
+$n comes flying up the slope.
+~
+E
+flying~
+$n flies up the slope.
+~
+E
+fly~
+You fly up the slope.
+~
+E
+odrop~
+$n comes climbing up the slope.
+~
+E
+osucc~
+$n climbs up the slope.
+~
+E
+succ~
+You climb up the slope.
+~
+!
+0 0 0
+-1
+S
+
+#26523
+Snowy Bluff~
+You are walking along the high mountain bluff.  The snow here is piled
+up high, the temperature never gets high enough for it to melt.  You can
+see mountains as far into the distance as you can see.  
+~
+[Merior] needs some work
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26524 10 10 5
+D2
+~
+~
+0 -1 26522 10 10 5
+-1
+S
+
+#26524
+Snowy Bluff~
+You stand on a narrow trail which winds its way between sheer rock walls,
+high in the mountains above the snowline.  To the north, the ground leads
+downward toward a large mountainous plateau, while the trail becomes
+increasingly faint as it winds its way through ever-deepening banks of
+snow to the north.  Every now and then, a pale gray rock or stone peeks
+out of the snow cover to mark the trail.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26525 10 10 5
+D2
+~
+~
+0 -1 26523 10 10 5
+A
+~
+~
+send_to_char( #down, ch );
+continue;
+~
+E
+down~
+You head down, back toward the plateau.
+~
+!
+3 -1 1
+-1
+S
+
+#26525
+High Mountain Trail~
+Mountains rise up around you on all sides.  To the north, their walls
+open up a bit onto a high mountain plateau, while to the south they close
+in on the trail, forcing you to proceed with care along the narrow trail. 
+The trail climbs up above the permafrost line to the south, heading up
+into the highest, icy reaches of the mountain range.
+~
+action up? snow
+random action
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26526 10 10 5
+D2
+~
+~
+0 -1 26524 10 10 5
+A
+~
+~
+send_to_room( #snow, room );
+~
+E
+snow~
+It is snowing.
+~
+!
+2 400 0
+A
+~
+~
+send_to_char( #up, ch );
+continue;
+~
+E
+up~
+You follow the trail up.
+~
+!
+3 -1 4
+244 9 1509949540 3 0
+-1
+S
+
+#26526
+High Mountain Trail~
+Snowflakes cloud your vision as you travel along this trail.  You can
+barely make out the markings of a trail leading north and south.  There
+is a cliff immediately west of here.  It looks climbable.  
+~
+[Draynath] don't see others climbing up here
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26527 10 10 5
+D1
+~
+~
+0 -1 26557 10 10 5
+D2
+~
+~
+0 -1 26525 10 10 5
+E
+cliff~
+This cliff looks climbable.
+~
+A
+climb~
+cliff~
+send_to_char( #climb, ch );
+wait( 2 );
+transfer( ch, find_room( 12585 ) );
+act_notchar( #climbs, ch );
+~
+E
+climb~
+You climb the cliff.
+~
+E
+climbs~
+~
+E
+climbs~
+$n climbs up the cliff.
+~
+!
+0 0 0
+-1
+S
+
+#26527
+High Mountain Trail~
+Almost no vegetation grows here in the cold, rocky ground.  All about
+you, the scenery is breathtaking, with lines of mountains towering over
+this spot, itself already quite high in the mountains.  The trail is
+narrow here, and only a few stone markers allow you to follow it through
+the area as it leads north and south.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26551 10 10 5
+D1
+~
+~
+0 -1 26528 10 10 5
+D2
+~
+~
+0 -1 26526 10 10 5
+D3
+~
+~
+0 -1 26558 10 10 5
+2505 9 1509949540 3 0
+-1
+S
+
+#26528
+In the Mountains~
+The mountains here are rough and unwelcoming.  To the north looms Cairn
+Mountain, and you see a trail pass by as well.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26529 10 10 5
+D1
+~
+~
+0 -1 26555 10 10 5
+D2
+~
+~
+0 -1 26557 10 10 5
+D3
+~
+~
+0 -1 26527 10 10 5
+-1
+S
+
+#26529
+High Mountain Trail~
+The snow combined with the heavy wind makes a deadly combination.  It is
+extremely cold. Your only thoughts are only on following this trail to
+whatever shelter there might be.  
+~
+r/w
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 26530 10 10 5
+D2
+~
+~
+0 -1 26528 10 10 5
+D3
+~
+~
+0 -1 26551 10 10 5
+-1
+S
+
+#26530
+High Mountain Junction~
+Dominating the view to the north is the great Cairn Mountain, the giant
+peak for which this mountain range is named.  It towers over the
+landscape, impressing all with its grandeur.  Three roads lead away from
+this fork.  To the north, the Cairn Mountain Road enters the mountain
+range proper.  To the east, the Mountain Road leads down below the snow
+line, and back toward the forested slopes and the Great North Road. 
+forested slopes.  To the west, the High Mountain Trail leads across the
+plateau.
+~
+~
+301465600 12 6 0
+D0
+~
+~
+0 -1 26531 10 10 5
+D1
+~
+~
+0 -1 28049 10 10 5
+D2
+~
+~
+0 -1 26555 10 10 5
+D3
+~
+~
+0 -1 26529 10 10 5
+587 17 1509949540 -2 0
+-1
+S
+
+#26531
+Cairn Mountain Road~
+The road climbs into the mountains here, cutting its way across steep
+snowy passes with a surety borne out of superior dwarven engineering. 
+Despite the cold and hazardous conditions, your progress is steady, and
+you may follow the road up, and further into the Cairn Mountains, or
+south toward a large, open plateau.
+~
+~
+301465600 12 6 0
+D2
+~
+~
+0 -1 26530 10 10 5
+D4
+~
+~
+0 -1 26532 10 10 5
+244 9 1509949540 3 0
+-1
+S
+
+#26532
+Cairn Mountain Road~
+The road, though covered with snow, plods its way through the mountains. 
+Despite great crevasses and sheer rock walls, the road navigates the area
+with little trouble, thanks to immense stone supports and great cuts
+into the mountainside.  Cairn Mountain looms over you to the north, and
+you may follow the road east or down.
+~
+~
+301465600 12 6 0
+D1
+~
+~
+0 -1 26533 10 10 5
+D5
+~
+~
+0 -1 26531 10 10 5
+-1
+S
+
+#26533
+Cairn Mountain Road~
+The road clings to a steep mountainside, with great banks of snow
+collecting along its edges.  A cold fierce wind comes down from the
+mountaintops making you shiver.  You may continue north and west.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 26534 10 10 5
+D3
+~
+~
+0 -1 26532 10 10 5
+244 9 1509949540 3 0
+-1
+S
+
+#26534
+Cairn Mountain Road, Junction~
+The road runs along the curve of a steep mountain here, leading down and
+south.  A small trail branches off from the main road as well, leading
+further up into the snow and ice.  Despite the snow and ice, the road is
+easy to follow.  A large sign is posted alongside the edge of the road.
+~
+sign
+~
+301465600 5 6 0
+D2
+~
+~
+0 -1 26533 10 10 5
+D4
+~
+~
+0 -1 26537 10 10 5
+D5
+~
+~
+0 -1 26535 10 10 5
+E
+sign~
+----------------------
+         (( East to Goblin Caves ))
+           ----------------------
+           | |
+           | |
+           | |
+           |_|
+~
+-1
+S
+
+#26535
+Cairn Mountain Road~
+The road makes its way between two immense mountains which rise thousands
+of feet above you to the east and west.  Despite the snow cover, several
+large stone markers signal the way for you to follow the road, north or
+up and south.  The trail heads up to the south into a pass between two
+mountains and simply goes north at about the same height.  There are many
+booted tracks easily seen in the snow covered trail heading both north
+and south.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 26559 10 10 5
+D4
+~
+~
+0 -1 26534 10 10 5
+-1
+S
+
+#26536
+Cairn Mountain Road - Junction and Obelisk~
+The trail becomes quite flat and wide here and looks like someone has
+made the effort to cut into the side of the mountain in order to keep the
+trail level here.  There are marker stones on both sides of the trail
+here which makes it easy to follow despite all the snow.  To the east is
+the entrance to a cave.  It is quite big and you see a number of booted
+tracks entering and leaving the cave, even though there is a lot of snow
+and ice around.  A single great dark stone stands planted in the snow
+here, a marker suggesting permanence and power to all who pass by.
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 33000 10 10 5
+D1
+~
+~
+0 -1 27000 10 10 5
+D2
+~
+~
+0 -1 26563 10 10 5
+D3
+~
+~
+0 -1 26564 10 10 5
+755 9 1509949540 3 0
+-1
+S
+
+#26537
+High Mountain Trail~
+Before dropping down to the west this area gives you a good view of the
+trail that leads through the pass and heads off down to the south. 
+Leading east the trail starts to climb a little further along to the
+west.  There are many tracks easily visible in the light snow that covers
+the trail.  
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 26538 10 10 5
+D5
+~
+~
+0 -1 26534 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#26538
+High Mountain Trail~
+Still climbing to the east the trail continues up, to the west it winds
+along the mountain before dropping further along.  Light snow and ice
+covers the trail but it is not too dangerous.  
+~
+~
+301465600 5 6 0
+D0
+~
+~
+0 -1 26553 10 10 5
+D3
+~
+~
+0 -1 26537 10 10 5
+D4
+~
+~
+0 -1 26539 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#26539
+High Mountain Trail~
+The trail continues east into a cave and to the west leads down the
+mountain.  The trail is quite narrow and although there is quite a bit of
+ice and snow on the mountain, the trail is free of any snow here.  There
+are many tracks of booted feet and bits and pieces of broken equipment
+and weapons that litter the side of the trail.
+~
+connects west to 65500
+~
+301465608 5 6 0
+D1
+~
+~
+0 -1 26540 10 10 5
+D3
+~
+~
+0 -1 65500 10 10 5
+D5
+~
+~
+0 -1 26538 10 10 5
+-1
+S
+
+#26540
+Before a Sinister Cave~
+You stand on a path that leads directly towards a dark and sinister cave. 
+The entrance to the cave is somewhat small, requiring those larger than a
+tall human to bend their heads as they enter.  Jagged stones and the
+bones of small animals litter the ground outside the cave.  There seems
+to be nothing alive left here, even the scrubby plants that once grew
+nearby have been stripped from this area.  You can enter the cave to the
+east or head west down a mountain trail.
+~
+[Rue] GOBLIN CAVE SHOULD START HERE
+[Starshine] make a separate area?
+~
+301465600 0 6 0
+D1
+~
+~
+0 -1 26541 10 10 5
+D3
+~
+~
+0 -1 26539 10 10 5
+E
+stones bones~
+The stones appear to have been chipped at in an attempt to sharpen them. 
+The ones you see here are useless and shattered.  The bones are of small
+animals, rabbits and the like.  They have been picked clean and gnawed at.
+~
+E
+cave~
+The cave looms sinister, the overhanging stone and its angle makes
+the inside quite dark.
+~
+E
+plants~
+What plants that once grew here are now nothing more than clusters of dry and dessicated sticks and gnawed-off stubble.
+~
+A
+~
+~
+if( size( ch ) > 4 )
+continue;
+~
+E
+to_char~
+@GYou duck your head as you $t into the small mouth of the cave.@n 
+~
+E
+to_room~
+@G$n ducks $s head as he $t into  the cave mouth.@n
+~
+!
+3 0 2
+A
+~
+~
+continue;
+~
+!
+3 0 2
+A
+search~
+bones jagged stones~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou dig around in the bones and stones but find nothing useful.@n
+~
+E
+rmsearch~
+@G$n picks around in the bones and stones.@n
+~
+!
+0 0 0
+-1
+S
+
+#26541
+Dark Cave~
+The cave is tight and cramped.  Stalactites and stalagmites force you to
+pay attention as you move and the uneven floor makes footing difficult. 
+In one of the depressions in the floor, a small puddle has formed.  To
+the west the cave opens up to the outside world and to the east it
+continues deeper into the earth.
+~
+[Starshine] dummy action search/get guano?
+no, not that much of it here
+[Starshine] added the dummy action :p
+~
+301465604 0 5 0
+D1
+~
+~
+0 -1 26542 10 10 5
+D3
+~
+~
+0 -1 26540 10 10 5
+E
+stalactites stalagmites~
+The stalactites and stalagmites crowd the already skinny tunnel.  Most
+are quite large, reaching nearly to the floor or the ceiling.  Guano from
+bats dots the stalagmites and the floor.
+~
+E
+guano~
+The guano looks like normal bat guano.  Small spatterings of it dot the
+floor and the stalagmites.
+~
+A
+~
+~
+if( size( ch ) > 4 )
+  continue;
+~
+E
+to_char~
+@GYou duck your head as you $t out of the cave.@n
+~
+E
+to-room~
+@G$n ducks $s head as $e $t out of the cave.@n
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+duck~
+@GYou duck your head as you leave the cave.@n
+~
+E
+rmduck~
+@G$n ducks $s head as $e leaves the cave.@n
+~
+!
+3 0 8
+A
+~
+~
+send_to_room( #drip, room );
+~
+E
+drip~
+@GA drip of water trickles down one of the stalactites, pauses for a
+moment, then plunges into the puddle on the floor with a tiny splash.@n
+~
+!
+2 50 0
+A
+~
+~
+~
+E
+wind~
+@RA cold breeze whisks by you from the east, a deep groaning sound carried
+with it.@n 
+~
+!
+2 25 0
+A
+~
+guano~
+send_to_char( #guano, ch );
+act_notchar( #oguano, ch );
+~
+E
+guano~
+There is nothing that can possibly be hidden in the tiny spatters of guano.
+~
+E
+oguano~
+$n bends down to look at the guano, but straightens as there is really
+nothing more to see.
+~
+!
+9 0 0
+3095 17 1509949540 -2 25
+227 9 1509949540 3 0
+-1
+S
+
+#26542
+Dark Cave~
+The narrow tunnel splits into three here, one each heading north, south
+and west.  A crudely stacked pile of stone has been piled against the
+east wall.  The floor of the cave is uneven, descending a little to the
+south side.  The tunnel north heads upwards slightly and you would have
+to climb a small shelf to continue in that direction.
+~
+[Starshine] dummy action search pile/stone
+added
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 26547 10 10 5
+D2
+~
+~
+0 -1 26543 10 10 5
+D3
+~
+~
+0 -1 26541 10 10 5
+E
+pile stone stack~
+This stack of stones leans against the east wall of the cave.  It is
+about three feet high and is mortared together by a sticky brownish
+substance.  There appears to be no obvious purpose for the stones.
+~
+E
+shelf north~
+The small rock shelf is no higher than two feet at its tallest.  The
+edge has been worn smooth by the passage of time.  The uneven floor has
+many little bumps, shelves and ledges.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou carefully $t down the slight incline.@n 
+~
+!
+3 0 4
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t out of the room, heading over the small ledge.@n 
+~
+E
+to_room~
+@G$n $t north, going over the ledge.@n
+~
+!
+3 0 1
+A
+search get take move~
+pile stones rocks~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou carefully search the pile of stone, but find nothing interesting about
+it.  The mortar holds as strongly as cement.@n 
+~
+E
+rmsearch~
+@G$n inspects the pile of stone.@n
+~
+!
+0 0 0
+-1
+S
+
+#26543
+Dark Tunnel~
+The main tunnel slopes gently down from the north.  The floor smoothes
+out and converges with the south wall in a graceful curve.  Along the
+south wall, a large stalagmite reaches up into a large hole in the
+ceiling, partially obscured by the tiny stalactites that hang around its
+mouth.  The tunnel curves to head east as well as north here.
+~
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 26542 10 10 5
+D1
+~
+~
+0 -1 26545 10 10 5
+D4
+stone~
+~
+1259 -1 26544 10 10 5
+E
+ceiling hole stalagmite~
+Because of its position and that of the stalagmite you can't see up into
+the hole very well.  It is, however, a fairly large hole.  The stalagmite
+is thick and has small notches hacked into its surface in such a way that
+the pillar looks climbable.
+~
+E
+2 stalactites mouth~
+All you can tell is that small stalactites hang around the mouth of the
+hole in the ceiling.  You cannot see anything more of the hole or the
+liquid that must have been present or still might be present to create
+these formations.
+~
+E
+curve floor smooth~
+For some reason, the floor here is smooth, and converges seamlessly with
+the southern wall.  You cannot tell if the floor was created in this
+condition or whether it has been worn down to its present state.
+~
+A
+climb~
+rock crevice up~
+act_tochar( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 26544 ) );
+act_notchar( #arrive, ch );
+~
+E
+to_char~
+@GWith some difficulty you manage to climb up the stalagmite.@n
+~
+E
+to_room~
+@G$n crawls up the stalagmite and disappears into the ceiling.@n
+~
+E
+arrive~
+@G$n arrives from below, panting with effort.@n
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou carefully $t up the slight slope.@n
+~
+E
+rmslope~
+@G$n carefully $t up the slight slope.@n
+~
+!
+3 0 1
+-1
+S
+
+#26544
+A Cramped Alcove~
+You are in a cramped but spacious cave.  Piles of small bones litter the
+floor, as do heaps of rotting rags.  The ceiling is low, making it
+difficult to move around much.  In the center of the floor is a large
+hole, with the tip of a large stalagmite protruding through it.
+The hole appears to be the only way out.
+~
+[Starshine] dummy action search/get piles/bones/heaps/rags?
+[Starshine] added extra heaps/rags
+[Starshine] add extra tip and action get tip? could be a cute item...
+tip is a thick stalagmite, not useful at all
+added search that loads leather cord
+~
+301596676 0 5 0
+D5
+stone~
+~
+1259 -1 26543 10 10 5
+E
+bones piles~
+These small piles of bones have been picked clean of flesh.  They are
+small, about the size a rat or bat might have.
+~
+E
+hole floor stalagmite~
+The stalagmite pokes up through a large hole in the floor.  It looks like
+you could easily climb down the stalagmite to the level below you.
+~
+E
+rags heaps~
+Dirty and rotting rags and bits of cloth and other soft materials cover
+the floor of this alcove.  Some of the rags for heaps, while others form
+depressions, giving you the impression that before you are several nests.
+~
+A
+climb clamber~
+hole stalagmite down~
+act_tochar( #down, ch );
+act_notchar( #rmdown, ch );
+transfer( ch, find_room( 26543 ) );
+act_notchar( #arrives, ch );
+~
+E
+down~
+@GYou clamber down the stalagmite in the floor.@n
+~
+E
+rmdown~
+@G$n climbs down through the hole in the floor.@n
+~
+E
+arrives~
+@G$n arrives, climbing down the stalagmite.@n
+~
+!
+0 0 0
+A
+search~
+bones piles heaps junk rags rotting~
+if( is_player( ch ) ) {
+  act_tochar( #bones, ch );
+  act_notchar( #rmbones, ch );
+  wait( 1 );
+  i = 1d20;
+  if( rflag( reset1, room ) ) {
+    if( i < 1 ) {
+      obj = oload( 621 );
+      obj_to_char( obj, ch );
+      act_tochar( #got, ch );
+      act_notchar( #rmgot, ch );
+      remove_rflag( reset1, room );
+      end;
+      }
+    act_tochar( #not, ch );
+    act_notchar( #rmnot, ch );
+    remove_rflag( reset1, room );
+    }
+  else {
+    act_tochar( #not, ch );
+    act_notchar( #rmnot, ch );
+    }
+  }
+~
+E
+bones~
+@GYou carefully search the bones and rags on the floor.@n
+~
+E
+rmbones~
+@G$n searches through the junk on the floor.@n
+~
+E
+got~
+@GAfter a careful search you find a leather cord!@n
+~
+E
+rmgot~
+@G$n pulls an old leather cord from one of the piles of rags.@n
+~
+E
+not~
+@GAfter a long search you give up.@n
+~
+E
+rmnot~
+@G$n gives up $s search.@n
+~
+!
+0 0 0
+227 9 1509949540 3 0
+227 9 1509949455 3 0
+227 9 1509949455 3 0
+-1
+S
+
+#26545
+Bottom of a Dark Shaft~
+You are in a small cul-de-sac in a dark tunnel.  Above you a shaft coils
+up into darkness, curving so that you cannot see what is above you.  A
+thick layer of guano covers the floor, signs that bats are nearby.  A
+small tunnel winds westward, otherwise, crawling up into the shaft is
+your only option.
+~
+[Starshine] action search/get/scoop guano
+[Starshine] added extra darkness.
+added search
+~
+301465668 0 5 0
+D3
+~
+~
+0 -1 26543 10 10 5
+D4
+~
+~
+0 -1 26546 10 10 5
+E
+shaft above ceiling 1 up~
+The tight shaft curves up and into darkness.  It is wide enough to climb.
+~
+E
+guano layer~
+Sticky bat guano is spattered all over the floor.  A large enough
+quantity to make you think many bats roost nearby.  The guano has been
+disturbed recently, it appears that large handfuls have been scooped
+away.
+~
+E
+darkness~
+Peering at it reveals nothing. You see...darkness.
+~
+A
+~
+~
+if( !can_fly( ch ) )
+  continue;
+~
+E
+to_char~
+@GYou pull yourself up and into the shaft, pressing your shoulders and
+legs against the sides as you inch up, finally coming to the flat surface
+of a small cave.@n 
+~
+E
+to_room~
+@G$n climbs up into the shaft, inching $s way up.@n
+~
+!
+3 0 16
+A
+scan~
+~
+act_tochar( #scan, ch );
+~
+E
+scan~
+@GThe tunnel is too twisty to see very far.@n
+~
+!
+0 0 0
+A
+scoop get~
+guano~
+act_tochar( #scoop, ch );
+act_notchar( #rmscoop, ch );
+~
+E
+scoop~
+@GThe guano that is here is solid as hard-packed earth, there is none
+left that appears easy to take.@n 
+~
+E
+rmscoop~
+@G$n examines the guano.@n
+~
+!
+0 0 0
+A
+search~
+guano~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@YYou search the old, dry guano, but find nothing valuable.@n
+~
+E
+rmsearch~
+@G$n spends a few moments searching the guano.@n
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+!
+3 0 16
+227 9 1509949540 3 0
+-1
+S
+
+#26546
+Dark Shaft - Bat Roost~
+You are in a cave at the end of a twisting shaft.  The walls and ceiling
+of the cave are rough, providing good holds for the bats to roost on. 
+Guano spatters the floor of the cave.  The only way out of here is
+through the winding tunnel that leads down.
+~
+[Starshine] room desc: it's too dark to see the floor of the cave, right...? or does the twisting shaft provide some 'floor'? if so, please indicate when climbing up from room 26545.
+[Starshine] added extra shaft down
+fixed description of movement so it is obvious you are in a small cave.
+[Kwee] not sure ents should fit up here.
+~
+301465604 0 5 0
+D5
+~
+~
+0 -1 26545 10 10 5
+E
+rough walls holds ceiling~
+The irregular stone of the walls and ceiling provide good holds for the
+bats to hang from.  The stone is rough to the touch, and appears to be so
+naturally.
+~
+E
+shaft down~
+The walls of the shaft are rough, creating a not so straight and smooth
+way down.  The roughness of the walls will help in your descent to the
+cave floor.
+~
+A
+~
+~
+if( !can_fly( ch ) )
+continue;
+~
+E
+to_char~
+@GYou creep down the shaft carefully.@n
+~
+E
+to_room~
+@G$n slowly creeps down the shaft.@n
+~
+!
+3 0 32
+A
+~
+~
+continue;
+~
+!
+3 0 32
+229 9 1509949540 3 0
+229 9 1509949540 3 0
+229 9 1509949540 3 0
+229 9 1509949540 3 0
+229 9 1509949540 3 0
+-1
+S
+
+#26547
+Dark Cave~
+The rounded and bumpy natural walls of this cave leave much to the
+imagination.  There are many niches and hidden places that are difficult
+to see into.  In the center of the floor there is a small bowl-shaped
+depression filled with water.  Water trickles down the walls of the cave,
+filling the bowl slowly.  To your south, the tunnel continues, dropping
+down a small ledge as it heads south.  Two more tunnels lead into
+darkness, one to the east and one to the north.
+~
+[Rue] room east is gnome size ( Vnum: 26549 )
+~
+301465604 0 5 0
+D0
+~
+~
+0 -1 26548 10 10 5
+D1
+~
+~
+0 -1 26549 10 10 5
+D2
+~
+~
+0 -1 26542 10 10 5
+E
+bowl depression~
+In the center of the floor is a small puddle of water, situated in a deep
+bowl-shaped depression.  The bowl appears to be a few inches deep, but it
+is hard to tell because of the murky water.
+~
+E
+niches hidden~
+The convoluted stone of the walls hides many small nooks and crannies. 
+There is one to the east that is large enough for a small person to enter.
+~
+E
+trickle~
+The trickle of water seeps from near the ceiling of the cave, making its
+way into the small bowl by dripping down the west wall.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t down the ledge.@n
+~
+E
+to_room~
+@G$n $t down the ledge.@n
+~
+!
+3 0 4
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou squeeze into the small niche, a tight squeeze even for you!@n
+~
+E
+to_room~
+@G$n squeezes into a niche with some difficulty.@n
+~
+!
+3 0 2
+A
+drink~
+bowl puddle water~
+interpret( ch, "drink" );
+~
+!
+0 0 0
+A
+search~
+water bowl depression murky~
+act_tochar( #murky, ch );
+act_notchar( #rmmurky, ch );
+~
+E
+murky~
+@GYou feel around in the dirty water, but find nothing hidden in it.@n
+~
+E
+rmmurky~
+@G$n splashes around in the water with $s hands.@n
+~
+!
+0 0 0
+A
+~
+~
+~
+E
+water~
+@GA large @Bdroplet of water@n trickles down the west wall.@n
+~
+!
+2 50 0
+819 17 1509949540 -2 0
+-1
+S
+
+#26548
+Dark Cave - By a Rockfall~
+The cave is blocked by a massive rockfall to the north.  Heavy stones and
+boulders are littered all over the cave, with shattered bases of
+stalagmites and stalactites dotting the floor and ceiling.  The walls of
+the cave are curved and natural, almost slick to the touch despite the
+thick layer of dust that covers them.  You can follow the tunnel south.
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 26547 10 10 5
+E
+rockfall cave-in boulders stones~
+The massive stones and boulders that make up this cave-in are jammed
+tightly against each other.  You doubt even the strongest ogre could move
+a single stone.
+~
+E
+stalagmites stalactites bases~
+The remains of ancient stalactites and stalagmites can still be seen on
+the ceiling and floor here.  They were probably shattered when the
+cave-in happened.
+~
+E
+dust smooth walls~
+The walls and floor of the cave are covered in a thick layer of gritty
+dust.  You can see the prints of several creatures in the dust.
+~
+E
+prints~
+The prints are humanoid, but small in size.  The appear to have been left
+by someone barefoot.  As you look at the prints you realize that there
+are hundreds of them in the dust.
+~
+A
+move get open dig~
+rocks boulders rockfall cave-in~
+act_tochar( #grunt, ch );
+act_notchar( #rmgrunt, ch );
+~
+E
+grunt~
+@GYou grunt and pull with all your might, but cannot move a single stone.@n
+~
+E
+rmgrunt~
+@G$n grunts and heaves at the rockfall, but fails to budge any of the
+stones.@n 
+~
+!
+0 0 0
+227 9 1509949540 3 0
+-1
+S
+
+#26549
+Dark Cave - Small Niche~
+The walls of this tight niche have been worn smooth.  The stone is a
+rich-brown color, almost pearlescent in hue.  The quarters are quite
+cramped in here, making it difficult to even turn around.  Aside from the
+obvious wear on the stone, this niche appears to be quite natural in
+origin.  The only way out is west towards a larger cave.
+~
+[Kharas] A large wooden pole, with a sharpened tip pot hardened by fire.    *what is a tip pot?*
+~
+301465604 0 3 0
+D3
+~
+~
+0 -1 26547 10 10 5
+E
+smooth stone pearlescent~
+Something has rubbed the stone smooth over time.  As you pass your hand
+over it you feel the cool stone that has never seen the light of day.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GWith some effort you manage to wiggle yourself out of the niche.@n
+~
+!
+3 0 8
+227 137 1509949540 3 0
+-1
+S
+
+#26550
+A Small Alcove~
+This small chamber is barely two meters square.  Cut out of grey granite,
+this alcove is neither natural nor crude.  Its corners are exact and
+precisely cut.  The sole purpose of the chamber appears to be for
+storage, though the only thing within it is a small, wooden chest.  To
+the east, through a hole in the wall, you can see the iron rungs of a
+makeshift ladder imbedded in the sides of a shaft.
+~
+~
+301465608 0 5 0
+D1
+~
+~
+0 -1 26510 10 10 5
+A
+~
+~
+if( !is_exhausted( ch ) ) {
+act_tochar( #run, ch );
+act_notchar( #rrun, ch );
+continue;
+}
+else
+continue;
+~
+E
+run~
+Getting a running start, you jump east and grab onto the iron rungs.
+~
+E
+rrun~
+$n jumps east and grab onto the iron rungs.
+~
+!
+3 0 2
+118 49 1509949540 -2 0
+26 81 1509949465 -2 0
+6 81 1509949450 -2 0
+12 81 1509949450 -2 0
+12 81 1509949450 -2 0
+12 81 1509949450 -2 0
+1039 81 1509949450 -2 0
+998 81 1509949445 -2 0
+3028 81 1509949445 -2 0
+2696 81 1509949445 -2 0
+59 9 1509949540 3 0
+-1
+S
+
+#26551
+High Mountain Trail~
+A small trail skirts the sheer wall of a great mountain to the north of
+here.  To the south, a rocky plateau opens up before you.  The trail
+leads west up a slope, and east to where it seems to meet yet another
+trail which crisscrosses the plateau.
+~
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 26529 10 10 5
+D2
+~
+~
+0 -1 26527 10 10 5
+D3
+~
+~
+0 -1 26552 10 10 5
+-1
+S
+
+#26552
+High Mountain Trail~
+The ground is rough and rocky here, with high mountains to the north
+rising far above your head.  To the north, a small path weaves its way up
+a steep slope, between immense boulders and the odd stand of withered,
+weathered vegetation.
+
+A small sign is planted in the ground here.
+~
+w is 43268
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26569 10 10 5
+D1
+~
+~
+0 -1 26551 10 10 5
+D2
+~
+~
+0 -1 26558 10 10 5
+D3
+~
+~
+0 -1 43268 10 10 5
+E
+sign~
+North - (this has been obliterated by scratches)
+West - Black Hills Valley, Orlumber (Under Construction)
+East - Kha-Da
+~
+-1
+S
+
+#26553
+Side Path~
+This is a small byway to the main path.  It doesn't appear to go anywhere
+and it only exists as someone or something uses it to cook meals.  The
+remains of an old fire is here with many worthless bones scattered about.
+~
+[Silas] sentence order?
+~
+301465601 5 9 0
+D1
+~
+~
+0 -1 26554 10 10 5
+D2
+~
+~
+0 -1 26538 10 10 5
+E
+bones~
+Most of them appear to be from small animals such as rabbits and goats,
+though you notice one that looks suspiciously human.  Whatever ate the
+creatures obviously cooks them over the fire.
+~
+-1
+S
+
+#26554
+Faerie Ring~
+This portion of the hillside consists of rocky but level ground.  The
+whole area is devoid of plant life, save for a moss that grows out of the
+cracks of the rocks.  Some old stones have been arranged into a perfect
+circle around a patch of dirt.
+~
+[Marek] Acode 3 requires a quest item, a rare plant, and a few common items. Also, acode resets the room, so it can't be used constantly.
+~
+301465611 5 9 0
+D3
+~
+~
+0 -1 26553 10 10 5
+E
+4 rocks 5 stones 4 circle ring~
+The stones seem to be giving off some sort of warmth that nurtures the
+soil.
+~
+E
+moss~
+The moss is dull orange and is the same temperature as the rocks it grows
+on.
+~
+A
+plant put bury~
+seed valerian~
+obj = has_obj( 15, ch );
+if( obj ) {
+  send_to_char( #plant, ch );
+  act_notchar( #others1, ch );
+  junk_obj( obj, 1 );
+  if( doing_quest( ch, 22 ) ) {
+    wait( 2 );
+    if( cflag( 13, ch ) ) {
+      act_tochar( #ok, ch );
+      set_cflag( 14, ch );
+      }
+    else send_to_char( #why, ch );
+      }
+  }
+else
+  send_to_char( #no, ch );
+~
+E
+plant~
+You plant a valerian seed in the warm soil.
+~
+E
+others1~
+$n plants a small white seed in the soil.
+~
+E
+no~
+You have nothing to plant.
+~
+E
+ok~
+@bAfter planting the seed safely where Alslaad told you to you feel a
+compelling need to return to Selentrina.  @n 
+~
+E
+why~
+Having planted the seed you realize you don't know if this is the right
+place or now.
+~
+!
+0 0 0
+A
+plant bury~
+blue sapphire tear~
+if( random( 1, 10 ) == 1 )
+  remove_rflag( reset2, room );
+if( !rflag( reset2, room ) )
+  if( !mob_in_room( 1580, room ) )
+  if( has_obj( 1791, ch ) ) {
+  act_tochar( #plant, ch );
+  act_notchar( #rplant, ch );
+  obj = has_obj( 1791, ch );
+  junk_obj( obj, 1 );
+  wait( 2 );
+  act_room( #effect1, ch );
+  wait( 2 );
+  act_room( #effect2, ch );
+  wait( 2 );
+  act_room( #effect3, ch );
+  wait( 2 );
+  mload( 1580, room );
+  mob = mob_in_room( 1580, room );
+  interpret( mob, "em bows his head, brushing his horn to the ground. " );
+  }
+else
+  act_tochar( #nohave, ch );
+else 
+  act_tochar( #already, ch );
+else
+  act_tochar( #nofullmoon, ch );
+~
+E
+plant~
+Kneeling beside the faerie ring, you carefully plant a fragile sapphire
+tear in its center.
+~
+E
+rplant~
+$n kneels by the faerie ring and plants a fragile, sapphire tear 
+at its center.
+~
+E
+effect1~
+The sapphire tear sinks into the earth and the faerie ring begins to
+thrum with power.
+~
+E
+effect2~
+From within the center of the faerie ring, a sapphire blue mist begins
+to arise.
+~
+E
+effect3~
+When the mist clears, a unicorn stallion stands within the ring of
+stones!
+~
+E
+nohave~
+You do not have anything to plant within the faerie ring.
+~
+E
+already~
+The unicorn stallion has already been summoned.
+~
+E
+nofullmoon~
+Planting the tear is not an option.  The time is not right.  The moon is
+not full.
+~
+!
+0 0 0
+A
+perform~
+ritual~
+if( !has_obj( 2579, ch ) ){
+  act_tochar( #no_book, ch );
+  end;
+  }
+if( rflag( reset1, room ) ) {
+  remove_rflag( reset1, room );
+  send_to_char( #start, ch );
+  act_notchar( #ostart, ch );
+  wait( 3 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( !has_obj( 5, ch ) ){
+    act_tochar( #no_cup, ch );
+    end;
+    }
+  act_notchar( #cup1, ch );
+  act_tochar( #cup, ch );
+  wait( 2 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( !has_obj( 79, ch ) ){
+    act_tochar( #no_flint, ch );
+    end;
+    }
+  interpret( ch, "ponder" );
+  wait( 1 );
+  send_to_char( #cut, ch );
+  act_notchar( #ocut, ch );
+  wait( 1 );
+  dam_message( ch, 75d1, "The sacrificial cut" );
+  inflict( ch, mob, 75d1, "ritual self-mutilation" );
+  wait( 3 );
+  if( !char_in_room( ch, room ) )
+    end;
+  send_to_char( #cut2, ch );
+  act_notchar( #ocut2, ch );
+  wait( 3 );
+  if( !char_in_room( ch, room ) )
+    end;
+  if( !has_obj( 1674, ch ) ){
+    act_tochar( #no_night, ch );
+    end;
+    }
+  send_to_char( #stir, ch );
+  act_notchar( #ostir, ch );
+  wait( 3 );
+  send_to_char( #stir2, ch );
+  act_notchar( #ostir2, ch );
+  obj = has_obj( 1674, ch );
+  junk_obj( obj, 1 );
+  wait( 4 );
+  if( !char_in_room( ch, room ) )
+    end;
+  send_to_char( #pour, ch );
+  act_notchar( #opour, ch );
+  wait( 2 );
+  if( !char_in_room( ch, room ) )
+    end;
+  send_to_char( #door, ch );
+  act_notchar( #odoor, ch );
+  wait( 2 );
+  loop( all_in_room ) {
+    transfer( rch, find_room( 3629 ) );
+    act_notchar( #odrop-d, rch );
+    }
+  end;
+  }
+act_tochar( #nope, ch );
+~
+E
+start~
+You lay out the ancient tome where you can easily read the instructions.
+~
+E
+ostart~
+$n lays out an ancient tome where $e can easily read the instructions.
+~
+E
+cup~
+Peering at the book's instructions, you ready a bronze cup and take a deep
+breath.
+~
+E
+cup1~
+Peering at the book's instructions, $n readies a bronze cup and takes a
+deep breath.
+~
+E
+cut~
+Bracing yourself, you produce a piece of sharp flint and cut yourself
+deeply along your forearm.
+~
+E
+ocut~
+$n braces $mself, then produces a piece of sharp flint and cuts $mself
+deeply along $s forearm.
+~
+E
+cut2~
+Shaking, you pour your own blood into the heavy cup.
+~
+E
+ocut2~
+Shaking, $n pours $s own blood into the heavy cup.
+~
+E
+stir~
+You stir the blood in the cup with a thin stem of nightshade.
+~
+E
+ostir~
+$n stirs the blood in the cup with a thin stem of nightshade.
+~
+E
+stir2~
+The nightshade quickly dissolves in the blood in a most unnatural way.
+~
+E
+ostir2~
+The nightshade quickly dissolves in the blood in a most unnatural way.
+~
+E
+pour~
+Carefully, you pour out a measure of your blood on each of the stones in
+the circle.
+~
+E
+opour~
+Carefully, $n pours out a measure of $s blood on each of the stones in
+the circle.
+~
+E
+door~
+As you complete the ritual and gather up your things, a mist-shrouded
+doorway opens before you, and you walk towards it, as though in a dream.
+~
+E
+odoor~
+A mist-shrouded doorway opens before you, and you walk towards it as
+though in a dream.
+~
+E
+odrop-d~
+$n steps into the circle through a shimmering doorway.
+~
+E
+nope~
+The circle's magic has already been expended.
+~
+E
+no_book~
+You need the instruction in order to perform this ritual!
+~
+E
+no_cup~
+You need a bronze cup for this ritual!
+~
+E
+no_flint~
+You need a piece of flint for this ritual!
+~
+E
+no_night~
+You need a stem of nightshade for this ritual!
+~
+!
+0 0 0
+-1
+S
+
+#26555
+In the Mountains~
+You stand in a rocky, mountainous area.  To the west, a small trail makes
+its way between the boulders and frozen ground.  An immense range of
+mountains loom off in the distance to the north, while the rocky uplands
+continue to the south and west.
+~
+rewrite this
+name of mountains? plateau
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26530 10 10 5
+D2
+~
+~
+0 -1 26556 10 10 5
+D3
+~
+~
+0 -1 26528 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#26556
+In the Mountains~
+The ground is rocky here, with large boulders strewn about here and
+there, the remnants of glacial movements long past.  A great range of
+mountains looms far in the distance to the north, while to the south and
+west the ground rises steadily toward an equally great, craggy ring of
+peaks.  To the southeast, you see the ground gradually fall away and,
+below a cliff, you spy the treetops of a forest below you.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26555 10 10 5
+D3
+~
+~
+0 -1 26557 10 10 5
+205 9 100 3 0
+-1
+S
+
+#26557
+In the Mountains~
+Several large boulders dominate the area about you, their great forms
+jutting out from the rocky curves of the nearby mountains.  To the north
+and west, you spy a trail pick its way through the rough terrain as the
+ground rises steadily to the south.  To the north, several large
+mountains tower over you.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26528 10 10 5
+D1
+~
+~
+0 -1 26556 10 10 5
+D3
+~
+~
+0 -1 26526 10 10 5
+205 8 1509949540 3 0
+-1
+S
+
+#26558
+In the Mountains~
+Little grows on the cold, stoney ground here, and a few mounds of frozen
+blue-white snow and ice lend color to an otherwise bleary grey landscape. 
+To the south, a ring of mountains loom above you, their cragginess
+mimicing that of the peaks which enclose the plateau to the north.
+~
+[Valkyrie] mimicking 
+[Valkyrie] stony
+[Valkyrie] mimicking
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26552 10 10 5
+D1
+~
+~
+0 -1 26527 10 10 5
+205 9 100 3 0
+-1
+S
+
+#26559
+Cairn Mountain Road~
+Large marker stones line the edge of the road here, making it easy to
+follow the road despite the layer of snow which covers the ground.  The
+road follows a pass between two great mountains, and you see many booted
+tracks in the snow-covered ground which follow this path.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26560 10 10 5
+D2
+~
+~
+0 -1 26535 10 10 5
+-1
+S
+
+#26560
+Cairn Mountain Road~
+Large marker stones line the edge of the road here, making it easy to
+follow the road despite the layer of snow which covers the ground.  The
+road follows a pass between two great mountains, and you see many booted
+tracks in the snow-covered ground which follow this path.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26561 10 10 5
+D2
+~
+~
+0 -1 26559 10 10 5
+-1
+S
+
+#26561
+Cairn Mountain Road~
+Large marker stones line the edge of the road here, making it easy to
+follow the road despite the layer of snow which covers the ground.  The
+road follows a pass between two great mountains, and you see many booted
+tracks in the snow-covered ground which follow this path.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26562 10 10 5
+D2
+~
+~
+0 -1 26560 10 10 5
+-1
+S
+
+#26562
+Cairn Mountain Road~
+Large marker stones line the edge of the road here, making it easy to
+follow the road despite the layer of snow which covers the ground.  The
+road follows a pass between two great mountains, and you see many booted
+tracks in the snow-covered ground which follow this path.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26563 10 10 5
+D2
+~
+~
+0 -1 26561 10 10 5
+-1
+S
+
+#26563
+Cairn Mountain Road~
+Large marker stones line the edge of the road here, making it easy to
+follow the road despite the layer of snow which covers the ground.  The
+road follows a pass between two great mountains, and you see many booted
+tracks in the snow-covered ground which follow this path.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26536 10 10 5
+D2
+~
+~
+0 -1 26562 10 10 5
+D3
+~
+~
+0 -1 26565 10 10 5
+-1
+S
+
+#26564
+Cairn Mountain Valley~
+You stand near the bottom of a great valley in the mountains.  On all
+sides, a great ring of steep, snow-covered mountains tower above you,
+their barren rock faces whipped and worn by a constant torrent of wind. 
+To the south, the highest of the mountains loom, mute, indifferent, and
+ageless.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26566 10 10 5
+D1
+~
+~
+0 -1 26536 10 10 5
+D2
+~
+~
+0 -1 26565 10 10 5
+D3
+~
+~
+0 -1 26567 10 10 5
+205 9 1509949540 3 0
+1974 17 1509949540 -2 0
+-1
+S
+
+#26565
+Cairn Mountain Valley~
+You stand near the bottom of a great valley in the mountains.  On all
+sides, a great ring of steep, snow-covered mountains tower above you,
+their barren rock faces whipped and worn by a constant torrent of wind. 
+To the south, the highest of the mountains loom, mute, indifferent, and
+ageless.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26564 10 10 5
+D1
+~
+~
+0 -1 26563 10 10 5
+D3
+~
+~
+0 -1 26568 10 10 5
+-1
+S
+
+#26566
+Cairn Mountain Valley~
+You stand near the bottom of a great valley in the mountains.  On all
+sides, a great ring of steep, snow-covered mountains tower above you,
+their barren rock faces whipped and worn by a constant torrent of wind. 
+To the south, the highest of the mountains loom, mute, indifferent, and
+ageless.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 33000 10 10 5
+D2
+~
+~
+0 -1 26564 10 10 5
+-1
+S
+
+#26567
+Cairn Mountain Valley~
+You stand near the bottom of a great valley in the mountains.  On all
+sides, a great ring of steep, snow-covered mountains tower above you,
+their barren rock faces whipped and worn by a constant torrent of wind. 
+To the south, the highest of the mountains loom, mute, indifferent, and
+ageless.
+~
+~
+301465600 5 9 0
+D1
+~
+~
+0 -1 26564 10 10 5
+D2
+~
+~
+0 -1 26568 10 10 5
+-1
+S
+
+#26568
+Cairn Mountain Valley~
+You stand near the bottom of a great valley in the mountains.  On all
+sides, a great ring of steep, snow-covered mountains tower above you,
+their barren rock faces whipped and worn by a constant torrent of wind. 
+To the south, the highest of the mountains loom, mute, indifferent, and
+ageless.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26567 10 10 5
+D1
+~
+~
+0 -1 26565 10 10 5
+205 9 1509949540 3 0
+795 17 1509949540 -2 0
+-1
+S
+
+#26569
+Small Mountain Path~
+A small path cuts across this barren slope, weaving between oppressive,
+rocky forms indifferent to your presence in this forsaken place.  The
+ground leads down to the south, toward a large plateau and some sort of
+road, while the path continues west, leading toward the base of a steep
+slope.
+~
+[Urtal] needs re-writing
+~
+301465600 5 9 0
+D2
+~
+~
+0 -1 26552 10 10 5
+D3
+~
+~
+0 -1 26570 10 10 5
+E
+rocky forms~
+The rocky forms loom ominously over the path, leaving shadows and
+blocking the view.
+~
+-1
+S
+
+#26570
+Small Mountain Path - Steep Slope~
+The small path winds its way between gigantic rock formations, heading
+north to cut between two oddly-shaped boulders, then turning sharply
+across a small rocky plain to the east.  Even to the untrained eye it is
+apparent that many small feet have recently travelled this way in both
+directions.
+~
+[Urtal] rd done
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26571 10 10 5
+D1
+~
+~
+0 -1 26569 10 10 5
+E
+oddly-shaped boulders~
+The boulders seem to be covered with strange scratch marks, in a
+repetitive pattern which seems almost to be a crude type of
+writing...perhaps a warning of some kind...
+~
+-1
+S
+
+#26571
+Small Mountain Path - Atop a Steep Slope~
+The path winds its way across the inhospitable terrain, the wind whipping
+across you and blasting your face with its frigid zephyrs.  The huge
+rocky cliffs of the Cairn Mountains rise above you on all sides,
+particularly to the east, where the formations reach dizzying heights,
+disappearing into the clouds high above.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26572 10 10 5
+D2
+~
+~
+0 -1 26570 10 10 5
+-1
+S
+
+#26572
+Small Mountain Path - Narrow Shelf~
+You are on a narrow shelf in the Cairn Mountains, freezing winds whipping
+against you as you cling to the rocky cliff face to the east for support. 
+Off the edge of the path to the west is a great vertical drop, leading
+down toward distant, forested slopes in a tumble of rocky shelves,
+boulders and jagged terrain.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26573 10 10 5
+D2
+~
+~
+0 -1 26571 10 10 5
+-1
+S
+
+#26573
+Small Mountain Path - Narrow Shelf~
+You are on a narrow shelf in the Cairn Mountains, freezing winds whipping
+against you as you cling to the rocky cliff face to the east for support. 
+Off the edge of the path to the west is a great vertical drop, leading
+down toward distant, forested slopes in a tumble of rocky shelves,
+boulders and jagged terrain.
+~
+~
+301465600 5 9 0
+D0
+~
+~
+0 -1 26574 10 10 5
+D2
+~
+~
+0 -1 26572 10 10 5
+205 9 1509949540 3 0
+-1
+S
+
+#26574
+Small Mountain Path~
+The small path winds its way between great rock walls here, passing
+through a narrow gorge which shelters you from the chill winds which
+batter the heights of the Cairn Mountains.  To the east, you see the
+trail enter a dark cleft, while south of here the trail becomes more
+exposed, crossing a narrow ledge.
+~
+rewrite
+~
+301465600 5 6 0
+D1
+~
+~
+0 -1 12006 10 10 5
+D2
+~
+~
+0 -1 26573 10 10 5
+-1
+S
+
+#0
+

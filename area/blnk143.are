@@ -1,0 +1,6026 @@
+#AREA
+Shadowy Forest~
+Terek Olah~
+Shadowy Forest~
+
+20 0
+0
+#ROOMS
+
+#74000
+Shadowy Forest - Fog-Covered Trail~
+Dozens of dark trees overhang this small trail here; their massive
+branches nearly blocking the way.  Dry leaves are scattered about the
+dark earth causing a cracking sound to echo throughout the woods
+everytime you step.  A dense fog rolls across the path, swirling and
+spiraling up everytime a small breeze blows through the trees.  Despite
+the thick fog the trail to the north is free from it, giving you a clear
+view out of the forest.  To the south the trail continues through the
+winding trees, heading into darkness.
+~
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 22028 10 10 5
+D2
+~
+~
+0 -1 74001 10 10 5
+E
+dark trees~
+Tall trees line the edges of the trail, creating an eerie, ominous presence.
+~
+E
+massive branches~
+The branches are as thick and long as an ogre's arm.  They extend from
+the tree and form a mesh-like pattern, obstructing the trail and force
+you to watch your step.
+~
+E
+dry leaves dark earth~
+The brown-red leaves are very dry and have fallen in great numbers from
+the trees above, as well as the ferns and bushes below.
+~
+E
+dense fog~
+The fog is very thick, so thick that you can almost feel its texture.  It
+makes it difficult for you to see much of anything distant.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@CYou proceed through the fog to the north and as you exit the forest the
+sensation of many eyes watching over you drifts away.
+~
+!
+3 0 1
+2151 9 1509949540 3 0
+-1
+S
+
+#74001
+Shadowy Forest - Fog-Covered Trail~
+The fog here is unnaturally thick making it difficult to see your
+surroundings.  Large, dark trees line the path here and while most of
+them stand erect, a few have become weak and started leaning over the
+path, causing you to duck beneath them to continue on.  Peering through
+the fog you can occasionally see a small, dark shape moving through it,
+but it quickly vanishes before you can identify it.  To the north and
+south the trail continues through the neverending darkness of the forest.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74000 10 10 5
+D2
+~
+~
+0 -1 74002 10 10 5
+E
+fog~
+The fog is a smoky-white color.  Its surprising thickness almost allows
+you to feel its texture.  It gives off no recognizable scent and makes it
+difficult to clearly see things around you.
+~
+E
+large dark trees~
+The trees are immense and rise high into the sky.  Their long, dark
+branches and numerous leaves prevent most light from passing through and
+onto the trail.
+~
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( !is_player( ch ) )
+  end;
+if( is_player( ch ) ) {
+  if( random( 1, 3 ) == 1 ) {
+    ch = rand_player( room );
+    i = 1d5+5;
+    act_tochar( #arrow, ch );
+    act_notchar( #arrow1, ch );
+    dam_message( ch, i, "The flurry of tiny arrows" );
+    inflict( ch, mob, i, "walking into an ambush" );
+    }
+  }
+~
+E
+arrow~
+@BAs you enter the room you hear a twig snap and when you spin around to
+see where the sound came from several dozen tiny arrows fly out from
+within the fog and towards you!
+~
+E
+arrow1~
+@BAs $n enters the room you hear a twig snap and when $e spins around to
+see where the sound came from several dozen tiny arrows fly out from
+within the fog and towards $m!
+~
+!
+1 0 5
+A
+~
+~
+room = find_room( 74001 );
+send_to_room( #wind, room );
+~
+E
+wind~
+@CA strong breeze blows through the forest causing the sound of rustling
+leaves to echo all around you.
+~
+!
+4 500 0
+2151 9 1509949540 3 0
+-1
+S
+
+#74002
+Shadowy Forest - Fog-Covered Trail~
+Dozens of broken twigs and branches litter the trail before you, each
+snapped in half as if many feet had crossed over them.  The dark soil is
+covered with footprints but none are recognizable due to time taking its
+toll on the trail.  Against the edge of the trail to the south a rusted
+iron pike, covered in spots of dried blood, leans against one of the
+massive dark trees.  The trail continues to swerve through the dense
+forest to the north and west from here.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74001 10 10 5
+D3
+~
+~
+0 -1 74003 10 10 5
+E
+broken twigs branches~
+The twigs and branches are a dark brown color.  They lie randomly along
+the trail and cover much of it.
+~
+E
+dark soil footprints~
+The soil is soft, moist, and give off a slightly foul smell.  The
+plethora of varying footprints within the soil indicates that many have
+travelled through here before.
+~
+E
+rusted iron pike spots dried blood~
+Many dried, red bloodstains dot the tip of the pike.  The great number of
+stains indicate the the pike served its combat-oriented purpose.  The tip
+of the short, rusty iron pike is blunt, and its handle has been partially
+snapped.
+~
+E
+massive trees~
+The trees are wide and extend up to great heights, testament to the many
+years they have stood here.  Their bark is very dark and look extremely
+strong.
+~
+A
+get take grab~
+iron pike~
+act_tochar( #break, ch );
+act_notchar( #break1, ch );
+~
+E
+break~
+@WYou try to grab the iron pike but it quickly breaks into small pieces.
+~
+E
+break1~
+@W$n tries to grab the iron pike but it quickly breaks into small pieces.
+~
+!
+0 0 0
+-1
+S
+
+#74003
+Shadowy Forest - Fog-Covered Trail~
+Scattered about the forest trail are hundreds of tiny bleached-white
+bones, no larger than the size of your index finger.  Pieces of torn
+leather and cloth hang from the branches of the overhanging trees, each
+slowly wavering in the gentle breeze.  From somewhere deep inside the
+forest you can hear the sound of rustling leaves, as if someone were
+moving through the trees.  To the east and west the trail continues
+through the fog-filled forest.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74002 10 10 5
+D3
+~
+~
+0 -1 74004 10 10 5
+E
+tiny bleached-white bones~
+The minute bones look old and brittle.  They appear to be of some tiny
+creature, but you can't tell for sure.
+~
+E
+torn leather cloth~
+Hole-filled and ripped to pieces, small leather and cloth articles of
+clothing that could fit someone of dwarvish stature, gently wave in the
+area.  Bloodstains cover most of the clothes, symbols of previous
+struggles here.
+~
+E
+branches overhanging trees~
+Immense dark trees surround the trail.  Their long branches weave their
+way through the air and forming a mesh-like pattern above and to the
+sides of the trail.
+~
+-1
+S
+
+#74004
+Shadowy Forest - Fog-Covered Trail~
+Large, thick trees criss-cross the trail here, blocking the trail's
+course to the south.  Small piles of smooth stones lie just off the path
+to the north and west.  Hanging from one of the tree branches above you
+is a set of weathered wood chimes which gently clack together filling the
+still air with their odd music.  The trail continues through the forest
+to the east from here, heading through the dense fog.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74003 10 10 5
+D2
+~
+~
+171 -1 74005 10 10 5
+E
+large thick trees~
+The dark trunks of the trees are exceedingly wide, and their roots
+protrude from the ground, making it difficult to head south.
+~
+E
+1 north 1 west small piles smooth stone~
+The piles have been laid out in a rectangular pattern bending around the
+trail.  They stand about four feet high and consist of smooth, gray and
+black pieces of stone.  Upon closer inspection bird droppings and thin
+scratches can be seen on the stone.
+~
+E
+branches weathered wood chimes~
+Long, thin branches extend from the immense trees within the forest.  A
+set of chimes hang from the branches.  Two-foot cylindrical wooden tubes
+partially encase the top of the metal chimes.  The chimes are a little
+tarnished and shake non-rhythmically.
+~
+E
+1 east dense fog~
+The fog is thick and prevents you from seeing very far through it.
+~
+A
+move clear~
+south tree trunks~
+if( is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+act_tochar( #clear, ch );
+act_notchar( #clear1, ch );
+open( room, south );
+~
+E
+clear~
+@WWith all your strength you slowly move the tree trunks off from the
+path, clearing the way to the south.
+~
+E
+clear1~
+@WWith all $s strength $n slowly moves the tree trunks off from the path,
+clearing the way to the south.
+~
+E
+open~
+The tree trunks have already been moved off the path.
+~
+!
+0 0 0
+A
+~
+~
+room = find_room( 74004 );
+send_to_room( #chime, room );
+~
+E
+chime~
+@CA stiff wind blows through the trees, causing the chimes to clack
+together filling the air with their eerie music.
+~
+!
+2 650 0
+A
+get take grab~
+stones~
+act_tochar( #nope, ch );
+act_notchar( #nope1, ch );
+~
+E
+nope~
+@WYou attempt to take one of the large stones but find it too heavy to
+move.
+~
+E
+nope1~
+@W$n attempts to take one of the large stones but finds it too heavy to
+move.
+~
+!
+0 0 0
+-1
+S
+
+#74005
+Shadowy Forest - Fog-Covered Trail~
+The dark soil of the path gives way to small patches of grass and moss. 
+Tiny white flowers dot the edges of the trail, giving the dull, dark
+scenery of the forest some color.  Swaying in the breeze from the
+branches of the trees are small, ornate wood carvings, each different
+from the other.  To the north the trail is barred by several tree trunks
+which have fallen over but to the south it remains clear.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+171 -1 74004 10 10 5
+D2
+~
+~
+0 -1 74006 10 10 5
+E
+white flowers~
+These small white flowers remind you wild daisies which grow commonly
+near the town of Pennan.  The center of the flowers are a bright yellow
+color which stands out against the dark background of the forest.  The
+sweet smell of honey wafts up from the flowers and fills the air about
+you.
+~
+E
+ornate wood carvings~
+These minature ornaments have been carved into the shape of dancing
+faeries and gnomes in play.  Each carving is suspended from a tree branch
+from a fine silk rope which glistens as it slowly turns in the breeze. 
+One carving stands out from the others; it has been carved in the shape
+of a tiny faerie hovering over the body of a sea sprite.
+~
+E
+tree trunks~
+Set down across the path as if intentional and not by pure accident, the
+tree trunks completely block passage to the north.  Thick vines grow over
+the trunks and seem to hold them together.  It may be possible to move
+them off the path but seems unlikely you could due to their weight.
+~
+A
+move clear~
+tree trunks~
+if( is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+act_tochar( #clear, ch );
+act_notchar( #clear1, ch );
+open( room, north );
+~
+E
+clear~
+@WWith all your strength you slowly move the tree trunks off from the
+path, clearing the way to the south.
+~
+E
+clear1~
+@WWith all $s strength $n slowly moves the tree trunks off from the path,
+clearing the way to the south.
+~
+E
+open~
+The tree trunks have already been moved off the path.
+~
+!
+0 0 0
+2151 9 1509949540 3 0
+-1
+S
+
+#74006
+Shadowy Forest - Fog-Covered Trail~
+The fog on this portion of the trail has become extremely thick, dropping
+visibility down to a few inches in front of you.  Peering through the fog
+you can just barely make out the skeletal form of trees which line the
+trail and act as your only landmark to keep you from straying off it. 
+The ground is covered in mounds of damp leaves which quietly rustle as
+you tread across them.  The trail looks as though it continues to the
+north and west from here, but the fog makes it difficult to be sure.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74005 10 10 5
+D3
+~
+~
+0 -1 74007 10 10 5
+E
+damp leaves mounds~
+Several mounds of damp leaves have been scattered about the trail in a
+disorderly fashion.  From within the piles wafts a putrid smell like that
+of decaying flesh.  Beneath a few of the piles you can see something
+gleaming in the light.
+~
+A
+search~
+mounds leaves~
+if( !is_player( ch ) )
+  end;
+if( is_player( ch ) ) {
+  if( random( 1, 50 ) == 1 ) {
+    act_tochar( #found, ch );
+    act_notchar( #found1, ch );
+    obj_to_char( oload( 3160 ) );
+    }
+  else {
+    act_tochar( #nada, ch );
+    act_notchar( #nada1, ch );
+    }
+  }
+~
+E
+found~
+@YYou search through the mound of leaves and find a tiny bracelet hidden
+at the bottom.
+~
+E
+found1~
+@Y$n searches through the mound of leaves and finds a tiny bracelet
+hidden at the bottom.
+~
+E
+nada~
+@YYou search through the mound of leaves but find nothing.
+~
+E
+nada1~
+@Y$n searches through the mound of leaves but finds nothing.
+~
+!
+0 0 0
+-1
+S
+
+#74007
+Shadowy Forest - Fog-Covered Trail~
+The air is thick and musty here, as if you were in a deep underground
+cavern.  The thick clouds of fog continually roll in from the depths of
+the forest, obscuring everything except for the faint outlines of the
+trees lining the trail.  Lying diagonally across the path is a splintered
+tree trunk which is covered in a thick green slime.  A slight breeze
+blows through the area, causing the leaves of the treetops above you to
+rain droplets of dew down upon your head.  The trail continues through
+the seemingly never-ending fog to the east and west.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74006 10 10 5
+D3
+~
+~
+0 -1 74008 10 10 5
+E
+tree trunk~
+This massive tree trunk has been turned a charcoal-black color and
+splintered badly, as if struck with a bolt of lightning.  The entire
+surface of the wood is covered in a thick green slime which slowly runs
+down the length of the tree.
+~
+E
+green slime~
+The slime is incredibly thick, like molasses, and emanates an odor easily
+comparable to that of sulfur.  Trapped within the green liquid you can
+see several insects, some of which cling to life and struggle to escape
+it.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You carefully navigate across the large tree trunk and continue down the
+foggy trail.
+~
+!
+3 0 10
+-1
+S
+
+#74008
+Shadowy Forest - Fog-Covered Trail~
+Large, charred tree trunks litter the forest floor beneath your feet
+here, nearly blocking this small trail.  Despite the dense fog you can
+clearly see bits and pieces of shattered bones lying upon the pitch-black
+soil.  The large, twisting branches of the trees around you come within a
+few inches above your head causing movement to be slow and tiring as you
+continually have to move and duck around the obstructions.  The trail
+continues into the dense fog to the east while to the south the path
+becomes more clear as the fog dissipates.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74007 10 10 5
+D2
+~
+~
+0 -1 74009 10 10 5
+E
+large charred tree trunks forest floor 1 down~
+Blackened tree trunks over four feet in diameter appear uprooted here. 
+Their barks have been burnt, and many slash marks cover them.
+~
+E
+dense fog~
+The thick fog pervades this entire trail, making it very difficult to
+clearly see anything far away.
+~
+E
+bleach-white shattered bones pitch-black soil~
+Small, broken bone fragments of some unrecognizable creature jut up
+through the hard soil.  They lie randomly along the edges of the trail,
+most deeply immersed within it.
+~
+E
+large twisting branches trees~
+The branches are as thick as an ogre's thigh and are a dark brown-black
+color.  They cover and overlook the trail in surreal and contorted shapes.
+~
+A
+~
+~
+send_to_room( #twig, room );
+~
+E
+twig~
+Off in the distance you hear several twigs snap, as if something were
+moving through the forest.
+~
+!
+2 1000 0
+2151 9 1509949540 3 0
+-1
+S
+
+#74009
+Shadowy Forest - Fog-Covered Trail~
+A massive stone marker rises up directly in the center of the trail here. 
+Etched into its face are several intricate runes which border several
+lines of ancient text.  Resting around the base of the obelisk are
+several humanoid skulls covered in a thick red substance.  The trees
+bordering the sides of the trail here have begun to space out, offering a
+better glimpse into the surrounding forest.  To the south of here the fog
+appears to have dissipated while to the north it is so dense that you
+cannot even see what lies in that direction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74008 10 10 5
+D2
+~
+~
+0 -1 74010 10 10 5
+E
+stone marker intricate runes ancient text obelisk~
+This giant obsidian marker is covered in ancient runes and glyphs which
+glow with an unearthly yellow light.  The runes surround several lines of
+arcane text which is just barely visible.  Peering closely at the the
+text to manage to make out a few of the letters which look like this:
+@W/||\ //| -|- =_=_\ ./|=_|.@n 
+~
+E
+base humanoid skulls red substance~
+Each of the skulls lying at the foot of the marker appear to be from
+various humanoids.  A thick layer of blood covers each of the skulls and
+slowly runs down their surfaces and onto the ground.
+~
+E
+1 east 1 west trees sides forest~
+The trees tower over you, twisting and turning in an eerie, sinister
+pattern.  Their branches grow higher here, affording you a view through
+the east and west.  You notice lots of overgrown shrubs and vegetation
+rowing tightly together making travel in those directions impossible.
+~
+-1
+S
+
+#74010
+Before a Massive Clearing in the Forest~
+Spanning out to the south of the trail here is a massive clearing within
+the forest.  Only a light fog fills the air, causing visibility in the
+clearing to be a bit better than on the trail.  Peering into the clearing
+you spot several small thatched huts on the edge of the trail.  Towering
+up from what appears to be the center of the clearing is a massive black
+tree.  The trail to the north is covered in a dense fog which limits
+visibility down to an arm's length.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74009 10 10 5
+D2
+~
+~
+0 -1 74011 10 10 5
+E
+fog~
+The thick fog pervades the trail, blurring your vision.
+~
+E
+massive black tree~
+Even from this far away, the gigantic tree towers over the others.  Its
+long, black branches and abundant foliage impressively cloak the area
+around and below it.
+~
+E
+small thatched huts~
+The huts are barely visible from this vantage pont.  They resemble
+tan-colored warts along the tree-infested landscape.
+~
+-1
+S
+
+#74011
+Shadowy Forest - Muddy Trail~
+Puddles of foul-smelling water litter this small muddy trail within the
+forest.  The reddish-colored mud is incredibly mushy and deep, causing
+your feet to sink down about twelve inches with every step you take. 
+Bits of moldy straw line the edge of the path, covered in an odorous
+green slime.  The branches which hang above your head occasionally shake
+in the slight breeze, causing droplets of dew to shower down upon the
+trail.  To the north the trail heads into the thickness of the forest
+while to the east, west and south it continues its course through the
+massive clearing.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74010 10 10 5
+D1
+~
+~
+0 -1 74034 10 10 5
+D2
+~
+~
+0 -1 74035 10 10 5
+D3
+~
+~
+0 -1 74012 10 10 5
+E
+puddles foul-smelling water~
+Shallow puddles of opaque liquid lie scattered all along the trail.  The
+liquid in them reeks, conjuring up a smell of rotten eggs mixed with
+cooked cabbage.
+~
+E
+reddish-colored mud~
+The mud is exceedingly soft and encompasses the entire trail.  Many
+footprints can be detected within it -- possibly of animals which roam
+the area.
+~
+E
+bits moldy straw edge odorous green slime~
+Long strands of decaying, light-brown straw lie in a narrow pile on the
+edges of the trail.  A thick, slimy green film partially covers the straw. 
+It gives off an almost unbearable odor.
+~
+E
+branches~
+The dark brown branches attached to the towering trees of the forest are
+scattered with water droplets.  They form a web-like pattern and block
+out view of much of the sky.
+~
+E
+droplets dew~
+Cool and clear, the dew droplets line the trail and cause it to be even
+soggier.
+~
+2151 9 1509949540 3 0
+-1
+S
+
+#74012
+Shadowy Forest - Muddy Trail~
+You are at a wide, cleared path along this strangely tranquil forest. 
+The immense trees that surround you soar high in the air, blocking out
+most of the light from above.  As you continue along the trail, the soft,
+slushy mud seems to release a slightly pungent smell.  To the east, the
+trail widens, reaching what looks like an intersection; while to the
+west, the sloppy path continues for a remarkable distance.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74011 10 10 5
+D3
+~
+~
+0 -1 74013 10 10 5
+E
+1 north 1 south immense surrounding trees~
+Looking up at the trees, you note their exceedingly dark bark.  The
+great height of the trees blocks out most any light that may come from
+the sky.  The dark color and the lack of light combine to form an eerie
+presence.  Who knows what may lurk around there.
+~
+E
+soft slushy mud~
+The mud is soft, reddish, and gooey.  A slightly foul smell emanates from
+them, making travel along here somewhat nauseating.
+~
+-1
+S
+
+#74013
+Shadowy Forest - Muddy Trail~
+Ferns and shrubs grow tightly together beside the dark, imposing trees to
+the north.  Silence mainly prevails along the sloppy trail, with an
+occasional gust of wind brushing against the tree leaves being the only
+disturbance to the relatively peaceful domain.  Off to the southeast and
+southwest, many small thatched huts, which look weather-worn due to the
+toll of time, have been erected randomly throughout the forest.  A path
+has been cleared southward to reach the huts.  The path also continues to
+the east and west.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74012 10 10 5
+D2
+~
+~
+0 -1 74046 10 10 5
+D3
+~
+~
+0 -1 74014 10 10 5
+E
+1 north ferns shrubs~
+Densely compacted, broad-leafed ferns and overgrown shrubs fill the
+northern landscape, sealing off possible progress in that direction.
+~
+E
+dark imposing trees leaves~
+The trees rise many feet high into the air, blocking out most any
+possible light from the sky.  Their bark is a blackish-brownish color and
+looks exceedingly thick and sturdy.
+~
+E
+southeast southwest small thatched huts~
+The huts look like tiny mushrooms from this distance, as they dot your
+southern view of the horizon.
+~
+-1
+S
+
+#74014
+Shadowy Forest - Muddy Trail~
+Gentle breezes from the dense forest to the north provide the trail with
+a cool atmosphere.  Littering the soggy ground are piles of dried leaves
+which, when combined with the mud on the trail, form a slightly foul
+scent.  The breeze carries the scent to your nostrils making travel along
+the trail rather unpleasant.  Off to the distant west is an enormous log
+that dominates most of the landscape in that direction.  The trail also
+extends eastward.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74013 10 10 5
+D3
+~
+~
+0 -1 74015 10 10 5
+E
+1 north dense forest~
+The forest is filled with towering dark trees which grow closely beside
+one another.  Dense foliage below the trees prevents possible passage
+into that part of the forest.
+~
+E
+soggy ground mud~
+The mud is an orange and red color and is extremely soft.  It emits a
+strange, rank smell.
+~
+E
+piles dried leaves~
+The piles of brown, dried up leaves lie in two feet tall heaps at the
+edges of the trail.
+~
+E
+enormous log~
+The log is probably fifty feet long, but it is difficult to judge its
+actual size from this vantage point.  Mushrooms and moss have made their
+home on the log, growing abundantly along its dead bark.
+~
+A
+search~
+piles dried leaves~
+act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+search~
+@WYou carefully search through the piles of dried leaves but fail to find
+anything.
+~
+E
+search1~
+@W$n carefully searches through the piles of dried leaves but fails to
+find anything.
+~
+!
+0 0 0
+-1
+S
+
+#74015
+Shadowy Forest - Muddy Trail~
+A gigantic fallen log lies horizontally to the west, sealing off normal
+passage in that direction.  Blanketing the decaying bark of the log are
+many rows of mushrooms and large patches of moss.  They seem to be
+thriving, evinced by the abundance and astoundingly large size of the
+mushrooms and dark-green moss.  In addition, many colonies of tiny
+insects can be seen crawling their away below and along the ridges of the
+log's bark.  The trail continues to wind its way to the east and south
+around the log.
+~
+[Merior] maybe add ants popping?
+[Olah] as a random acode or mob?
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74014 10 10 5
+D2
+~
+~
+0 -1 74016 10 10 5
+E
+gigantic fallen log decaying bark~
+The log is of the same type of wood of the many enormous trees that grow
+to the north within the dense, dark forest.  It extends over fifty feet
+north-west, and over six feet from the ground.  Its bark is dark grey and
+still looks pretty solid.
+~
+E
+rows mushrooms large patches dark-green moss~
+The mushrooms have grown to the size of a human fist.  Their tops are
+tan, and spores appear to float above them.  The moss is also
+strange-looking, giving off a glowing dark-green color.  The patches of
+moss are about a foot thick.
+~
+E
+colonies tiny insects~
+Many small red ants and pillbugs crawl quickly along and below the log,
+oblivious to their surroundings.  They form a long, thin line, resembling
+a fast-moving string of a spindle.
+~
+A
+get take grab pick~
+mushroom~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #get, ch );
+  act_notchar( #get1, ch );
+  obj_to_char( oload( 885 ), ch );
+  }
+else
+  act_tochar( #none, ch );
+~
+E
+get~
+@RYou carefully pick one of the large mushrooms from among the patch.
+~
+E
+get1~
+@R$n carefully picks one of the large mushrooms from among the patch.
+~
+E
+none~
+All the mushrooms have already been picked.
+~
+!
+0 0 0
+A
+get take grab pick~
+moss~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #moss, ch );
+  act_notchar( #moss1, ch );
+  obj_to_char( oload( 244 ), ch );
+  }
+else
+  act_tochar( #picked, ch );
+~
+E
+moss~
+@GYou carefully remove a patch of the moss which is growing among the
+mushrooms.
+~
+E
+moss1~
+@G$n carefully removes a patch of the moss which is growing among the
+mushrooms.
+~
+E
+picked~
+It appears that someone has already picked up the moss.
+~
+!
+0 0 0
+2155 9 1509949540 3 0
+2153 9 1509949540 3 0
+-1
+S
+
+#74016
+Shadowy Forest - Muddy Trail~
+You have to be rather careful in maneuvering your way around this trail,
+as several shallow pools of dirty, foul-smelling water have randomly
+formed.  Many twigs and leaves gently float upon the surfaces of the
+pools, having fallen from the surrounding trees to the east and west.  So
+many of the twigs and leaves have accumulated that they nearly conceal
+the pools' surfaces.  Peering through the towering trees and plants to
+the east, you can spot some small thatched huts.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74015 10 10 5
+D2
+~
+~
+0 -1 74017 10 10 5
+E
+puddle shallow pools dirty foul-smelling water~
+The pools range from a couple of feet across to as large as five feet in
+diameter.  Where twigs and leaves do not cover the pools' surfaces, you
+can detect a black liquid within them.  The liquid seems to give off a
+rotten odor that resembles week-old meat.
+~
+E
+twigs leaves~
+The dark-brown twigs are short and light, and therefore able to float on
+the thick liquid of the pools.  Many red-brown leaves float below and
+beside the twigs.  They vary from maple leafs to fern leafs.
+~
+E
+1 east small thatched huts~
+The trees and plants have grown so abundantly that it's difficult to see
+past them, let alone move through them.  What you can make out, however,
+are rows of thatched huts that are so small that they could only house
+small inhabitants.
+~
+E
+1 west towering surrounding trees west~
+Tall trees rise high in the air and grow closely together.  Their barks
+are thick, solid-looking, and are a very dark brown-black color.  Growing
+densely below the trees are numerous bushes and ferns, which give off a
+pleasant smell -- a noticeable contrast to the rotten-smelling pools
+of water nearby.
+~
+A
+search~
+puddle pools water~
+act_tochar( #filth, ch );
+act_notchar( #filth2, ch );
+~
+E
+filth~
+@WYou move your hands along the bottom of the filthy pools of water but
+find nothing of value within them.
+~
+E
+filth2~
+@W$n move $s hands along the bottom of the filthy pools of water but
+finds nothing of 
+~
+!
+0 0 0
+3095 17 1509949540 -2 37
+-1
+S
+
+#74017
+Shadowy Forest - Muddy Trail~
+A massive wall of vegetation grows to the west.  It consists of long,
+light-green strands of ivy which wind their way closely within a
+profusion of large ferns and thick bushes, impeding progress in that
+direction.  The trail forks off in three different directions.  To the
+east, the trail appears to be drier, but also narrower; while travel
+north and south looks messy due to increased moisture on the ground.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74016 10 10 5
+D1
+~
+~
+0 -1 74043 10 10 5
+D2
+~
+~
+0 -1 74018 10 10 5
+D3
+~
+~
+235 -1 74048 10 10 5
+E
+1 west massive wall vegetation ivy~
+The vegetation is exceedingly dense, and many sharp thorns grow along the
+branches of the bushes there.  The tangled vines which grow abundantly
+along the bushes and ferns extend up and rest along the branches of the
+towering trees above you.  The vines, along with the other plants, form
+an intricate wall which covers much of everything to the west.
+~
+A
+cut~
+wall vegetation ivy 1 west~
+if( is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+act_tochar( #cut, ch );
+act_notchar( #cut1, ch );
+Wait( 4 );
+act_tochar( #finish, ch );
+act_notchar( #finish1, ch );
+open( room, west );
+~
+E
+cut~
+@WYou begin to carefully cut away the dense vegetation to the west.
+~
+E
+cut1~
+@W$n begins to carefully cut away the dense vegetation to the west.
+~
+E
+finish~
+@WAfter several minutes of constant cutting you finally remove enough of
+the vegetation to allow passage to the west.
+~
+E
+finish1~
+@WAfter several minutes of constant cutting $N finally removes enough of
+the vegetation to allow passage to the west.
+~
+E
+open~
+The vegetation has already been cut away.
+~
+!
+0 0 0
+2153 9 1509949540 3 0
+-1
+S
+
+#74018
+Shadowy Forest - Muddy Trail~
+You notice the lack of light able to pass through the towering trees of
+the forest.  Many plants, like the ones in the dense foliage to the west,
+have still managed to flourish here.  Perhaps the soil is rich with
+nutrients, or perhaps the plants have somehow adapted well to their dark
+environs.  To the east, past a short, ivy-covered wooden fence and a few
+trees, lies a small thatched hut that looks weather-beaten and worn.  The
+trail continues to the north and south, weaving its way through the
+forest.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74017 10 10 5
+D2
+~
+~
+0 -1 74019 10 10 5
+E
+trees~
+The trees tower above you.  Their branches extend a good distance through
+the sky to form a canopy which blocks out much of the light able to pass
+through.
+~
+E
+1 west plants dense foliage~
+Numerous leafy bushes and vines crowd the area west of the trail.  Their
+leaves are dark green, despite the little amounts of sunlight that passes
+through the forest here.
+~
+E
+soil~
+The soil along the trail is red and muddy, but the soil on which the
+plants grow is a dark brown-black color.
+~
+E
+1 east small thatched hut~
+You can see only parts of a thatched hut from here.  What little you do
+see reveals a hut that has seen years of abuse from the elements.  Many
+holes dot its roof, and the added weight of leaves and branches make it
+appear ready to collapse soon.
+~
+E
+1 east ivy-covered wooden fence~
+To the east stands a fence draped in long strands of dark green ivy. 
+Made of a dull gray wood, the fence is a few feet tall and covers the
+length of the trail here before circling the front and back of the hut. 
+Its wood has mostly chipped away, and mud and bird stains can be seen
+through the ivy.
+~
+-1
+S
+
+#74019
+Shadowy Forest - Muddy Trail~
+The trail bends its way north and east around the dense foliage to the
+southwest.  Growing abundantly to the south and west of the trail are
+thick, thorny bushes entangled with long vines that almost completely
+overtake the bushes.  Beyond the bushes are tall trees with trunks as
+wide as two ogres.  The dark branches of the trees form a complex canopy. 
+Combined with the overgrowing bushes, the branches form a web-like
+pattern cloaking anything that may exist beyond them.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74018 10 10 5
+D1
+~
+~
+0 -1 74020 10 10 5
+E
+south 1 west thick thorny bushes vines dense foliage southwest~
+Forming an immense barrier to the south and west of you are huge bushes
+with long, thin branches.  A multitude of sharp-looking thorns line the
+branches, warning any possible intruders of the painful consequences of
+heading through them.  Dark green vines curl their way through and around
+the bushes, as though tying them together into one big block of
+vegetation.
+~
+E
+trees trunks branches~
+Each of them have rough, dark brown barks and grow several feet apart
+from one another.  Extending from the trunks are branches that seem to
+intertwine with other branches.  They block out most of the light able to
+pass through from above.
+~
+2155 9 1509949540 3 0
+2153 9 1509949540 3 0
+-1
+S
+
+#74020
+Shadowy Forest - Muddy Trail~
+A thin layer of red-brown leaves is slightly more visible along this
+portion of the trail.  Some of the leaves have become deeply immersed
+within the mud, while the rest have risen above the muddy surface to form
+small soggy piles.  The piles look like miniature knolls and give off a
+wretched odor.  Passage to the north and south seems improbable due to
+the abundant overgrowth of plants in those directions.  The trail is
+relatively clear to the east and west, however.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74021 10 10 5
+D3
+~
+~
+0 -1 74019 10 10 5
+E
+layer red-brown leaves piles~
+Broad leaves the size of a human's hand have accumulated along the trail. 
+They lie in an unorganized manner, and each is covered in clumps of gooey
+mud.
+~
+E
+mud~
+The mud is thick and scarlet red.  A smell reminiscent of a pair of
+unwashed socks worn by a troll seems to originate from it.
+~
+E
+1 north 1 south overgrowth plants~
+Ferns, shrubs, and bushes grow abundantly to the north and south of the
+trail.  Their dark greens leaves overlap one another forming a thick
+barrier blocking out travel through them.
+~
+A
+search~
+piles leaves~
+act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+search~
+@WYou sift through the piles of soggy leaves but find nothing.
+~
+E
+search1~
+@W$n sifts through the piles of soggy leaves but finds nothing.
+~
+!
+0 0 0
+-1
+S
+
+#74021
+Shadowy Forest - Muddy Trail~
+An occasional calm breeze from the forest to the south feels like someone
+whispering gently in your face.  Towering dark trees grow closely there,
+their branches intermingling with one another to form an impassable
+barrier.  On the ground, you can detect the outlines of many leaves which
+have been submerged within the mud.  Several of the leaves still clutter
+the surface of the trail, indicating that those had recently fallen from
+the trees all around you.  A small footpath has been cleared to the
+north; while the trail continues through the forest to the east and west.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74039 10 10 5
+D1
+~
+~
+0 -1 74022 10 10 5
+D3
+~
+~
+0 -1 74020 10 10 5
+E
+towering dark trees branches~
+The trees rise many feet in the air, dwarfing your presence.  Their
+trunks are round, probably around eight feet in diameter, and their bark
+is rough and brown-black.  Their branches extend for a great distance
+across the air, as if reaching out to something.
+~
+E
+ground leaves mud~
+Wet, mud-covered leaves lie randomly along the soggy ground.
+~
+-1
+S
+
+#74022
+Shadowy Forest - Muddy Trail~
+You can barely make out a thatched hut through the maze of trees and
+bushes to the north.  Some of the bushes are thorny, while others appear
+more harmless.  The bushes have grown so closely near one another that
+they prevent normal access through them.  Extensive strands of
+olive-green ivy hang tightly from the long dark branches of the trees and
+block out part of the trail.  Moss also grows along the barks of several
+of the trees, covering about a quarter of their trunks.  The muddy trail
+continues through the vines to the east and west.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74023 10 10 5
+D3
+~
+~
+0 -1 74021 10 10 5
+E
+1 north thatched hut~
+Although you can't see the hut too well through the dense foliage, you
+still are able to notice how worn the hut looks.  Many piles of leaves
+cover the roof of the hut, and gaping holes lie all along its exterior.
+~
+E
+maze trees bushes~
+The bark of the immense trees is a brown-black which establishes a dark
+atmosphere to the forest.  Their sheer size and numbers dominate the
+landscape.  Growing abundantly below them are leafy bushes.  The bushes
+have grown so abundantly, in fact, that they make the area below the
+trees appear like a sea of dark green leaves.
+~
+E
+olive-green ivy long dark branches~
+The strands of ivy wrap tightly around the branches like a large snake
+coiled powerfully around its helpless victim.  Their ends droop from the
+branches causing you to brush them aside if you wish to pass through them.
+~
+E
+moss~
+Gray and light green moss about half an inch thick grow in random clumps
+along the sides of the trees.  The moss on the trees resembles patches of
+wool on a sheep that hasn't been completely sheared.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You carefully push aside the thick ivy vines and proceed along the muddy
+trail.
+~
+!
+3 0 10
+-1
+S
+
+#74023
+Shadowy Forest - Muddy Trail~
+Thick green vines drape down from the tree branches above, causing you to
+have to continually push them aside to see what lies in front of you. 
+Small white flowers grow along the edge of the trail adding a touch of
+color to the dull, dark scenery of the forest.  The entire southern edge
+of the trail here is lined with towering pine trees which stand huddled
+close together.  Between two of the pine trees to the south a dense wall
+of vegetation has has sprung up.  Off to the northeast and northwest
+several small thatched huts rest along the interior of the clearing.  The
+trail continues to the east, west and north from here, through the vast
+forest.
+~
+[Terek] Move Veg to the south
+south is 74079
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74045 10 10 5
+D1
+~
+~
+0 -1 74024 10 10 5
+D2
+~
+~
+235 -1 74079 10 10 5
+D3
+~
+~
+0 -1 74022 10 10 5
+E
+thick green vines branches~
+The leafy vines curl around the branches of the trees like sleeping
+snakes.  Their ends dangle from the branches and clutter the trail.
+~
+E
+small white flowers edge~
+Each of the flowers has several white petals.  Thin yellow pistils and
+stamens can be seen in their center.  The flowers grow in a linear
+fashoin and line the sides of the trail.
+~
+E
+towering pine trees~
+The trees stand an immeasurable distance high in the air.  Their pine
+needles clutter the area below them.  Emanating from them is a fresh,
+minty scent.
+~
+E
+1 south dense wall vegetation~
+Many thick vines, leaves, and shrubbery grow directly to the south of you. 
+They are tightly spaced with additional layers of greenery behind them. 
+The multitude of branches and leaves intertwine in a haphazard fashion to
+form the dense wall.
+~
+E
+northeast northwest thatched huts~
+Small, weather-worn huts have been erected to the northeast and northwest
+of the trail.  Time and the elements haven't been kind to the huts as you
+notice many holes on the roofs and walls of the huts, as well as broken
+wood and piles of straw resting at the base of the huts.
+~
+A
+1 south~
+~
+if( !is_open( room, south ) )
+act_tochar( #bounce, ch );
+act_notchar( #bounce1, ch );
+if( is_open( room, south ) )
+continue;
+~
+E
+bounce~
+You attempt to walk through the thick vegetation to the south but quickly
+find it to be impossible.
+~
+E
+bounce1~
+$n attempts to walk through the thick vegetation to the south but quickly
+finds it to be impossible.
+~
+!
+0 0 0
+A
+hack chop cut clear~
+1 south dense wall vegetation~
+if( is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( !is_open( room, south ) ) {
+  act_tochar( #chop, ch );
+  act_notchar( #chop1, ch );
+  Wait( 3 );
+  act_tochar( #chop2, ch );
+  act_notchar( #chop3, ch );
+  Wait( 3 );
+  act_tochar( #finish, ch );
+  act_notchar( #finish1, ch );
+  open( room, south );
+  }
+~
+E
+chop~
+@WYou begin to hack away at the dense vegetation to the south, hoping to
+cut a path through it.
+~
+E
+chop1~
+@W$n begins to hack away at the dense vegetation to the south, hoping to
+cut a path through it.
+~
+E
+chop2~
+@WYou continue to slash away at the thick vines and entangled branches
+although your efforts seem in vain.
+~
+E
+chop3~
+@W$n continues to slash away at the thick vines and entangled branches
+although $s efforts seem in vain.
+~
+E
+finish~
+@WJust when you think you cannot chop anymore you strike a tremendous blow
+which knocks nearly all the vegetation away, revealing a dim path where
+the vegetation just stood.
+~
+E
+finish1~
+@WSweat beads from $n's brow and $e looks extremely tired but just as it
+looks as though $e is going to pass out $e strikes a tremendous blow upon
+the thick vines which knocks nearly all the vegetation away revealing a
+dim path where the vegetation just stood.
+~
+E
+open~
+The vegetation has already been cut away.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You push aside the thick draping vines and continue through the forest.
+~
+!
+3 0 11
+A
+pick take grab get~
+flower tiny white~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #flower, ch );
+  act_notchar( #flower1, ch );
+  obj_to_char( oload( 1124 ), ch );
+  }
+else
+  act_tochar( #picked, ch );
+~
+E
+flower~
+@WYou carefully pick one of the small white flowers growing along the
+edge of the trail.
+~
+E
+flower1~
+@W$n carefully picks one of the small white flowers growing along the
+edge of the trail.
+~
+E
+picked~
+All of the flowers have been picked.
+~
+!
+0 0 0
+2151 9 1509949540 3 0
+-1
+S
+
+#74024
+Shadowy Forest - Muddy Trail~
+A gust of wind passes once in a while through the trail, disrupting the
+apparent serenity of the forest.  The resulting rustling of the leaves of
+the near-by trees and ferns provides the only noticeable sounds within
+this dark forest.  Focusing your gaze upward, you marvel at the
+tremendous heights the trees have reached.  Their branches and leaves
+criss-cross to prevent you from accurately determining how high the trees
+have grown.  Red, mud-covered leaves lie randomly along the trail as it
+extends eastward and westward.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74025 10 10 5
+D3
+~
+~
+0 -1 74023 10 10 5
+E
+trees ferns branches~
+The trees have grown to enormous heights with trunks as round as several
+ogre bellies, abundant dark green leaves, and numerous branches that
+extend in all directions.  Ferns grow directly below the trees; most
+growing around the base of the trees.  Their leaves are broad and overlap
+with the leaves of other ferns that grow closely with one another.
+~
+E
+red mud-covered leaves~
+Many leaves have fallen from the trees above and have collected a lot of
+mud while lying on the trail.
+~
+-1
+S
+
+#74025
+Shadowy Forest - Muddy Trail~
+Wet, broad, dark-red leaves cover the ground, forming small, mud-stained
+piles along the trail.  The roots of some of the larger trees from the
+south jut through the mud and form one or two foot high hurdles, forcing
+you to go around or over them.  Through the branches of immense trees and
+overgrown bushes to the northeast and northwest stand a few thatched huts
+that seem ready to collapse at any moment.  A narrow footpath has been
+cleared to allow passage northward between the huts.  Albeit not as
+obstacle-free, the trail also continues to the east and west.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74042 10 10 5
+D1
+~
+~
+0 -1 74026 10 10 5
+D3
+~
+~
+0 -1 74024 10 10 5
+E
+wet broad dark-red leaves piles~
+The leaves are about the size of a human's hand.  They have fallen into
+large mounds on the ground that resemble small domed huts made of leaves
+and mud.
+~
+E
+ground~
+The ground is soft and wet, making it difficult for someone to walk
+through without getting himself or herself messy.
+~
+E
+roots~
+The long, thick roots curl out of the base of the trees like boas.  Some
+form small arches, while others slope up and down several times.
+~
+E
+branches immense larger trees~
+Towering trees surround you.  Their dark branches extend from high above,
+weaving their way across the sky to form an intricate mesh.
+~
+E
+overgrown bushes~
+The bushes are very leafy and grow closely to one another.  Many grow
+tightly near and around the base of the tall trees, thus preventing
+normal travel through them.
+~
+E
+northeast northwest thatched huts~
+You can barely make out the thatched huts from this distance.  Still, you
+are able to notice how worn they are due to the lack of straw on the
+roofs, gaps in many parts of the huts, and fallen beams.
+~
+A
+search~
+leaves piles~
+act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+search~
+@WYou search through the piles of leaves but find nothing.
+~
+E
+search1~
+@W$n searches through the piles of leaves but finds nothing.
+~
+!
+0 0 0
+-1
+S
+
+#74026
+Shadowy Forest - Muddy Trail~
+Massive splintered tree trunks lie haphazard across the trail, causing
+you to have to hop over them to proceed.  A large puddle of steaming
+brown water covers the trail.  Bubbles rise to the surface of the puddle
+and burst open, releasing a foul-smelling smoke which causes you to choke
+and gag.  Lying scattered around the edge of the water are several helms
+and spears; each covered in layers of flaky copper-brown rust.  The trail
+continues its course to the east and west, around the outskirts of the
+clearing.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74027 10 10 5
+D3
+~
+~
+0 -1 74025 10 10 5
+E
+massive splintered tree trunks~
+Uprooted by some powerful force, the dark brown tree trunks jut up
+through the muddy trail making it difficult to traverse through.  The
+interior wood of the trunks is tan with numerous rings.
+~
+E
+large puddle steaming brown water~
+The puddle lies many feet across.  The depth of the puddle is unknown
+since it looks rather unwise to dip your feet into it.
+~
+E
+bubbles~
+Most of the bubbles which form to the surface are big.  They are usually
+about the size of a dwarf's clenched fist.
+~
+E
+edge helms spears~
+Worn and decrepit, helms made to fit someone with a small round head sit
+at the edge of the puddle.  Each is rusted, while some of them have dents
+and holes pierced through them.  Beside the helms are small wooden spears
+with blunt, rusty tips.  Blood and mud cover the handles and blades of
+the weapons.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+You carefully hop over the fallen tree trunks and proceed along the trail.
+~
+!
+3 0 10
+A
+get take grab~
+helms spears~
+act_tochar( #take, ch );
+act_notchar( #take1, ch );
+~
+E
+take~
+@WYou attempt to take some of the spears and helms from their resting
+place but they quickly crumble in your hand.
+~
+E
+take1~
+@W$n attempts to take some of the spears and helms from their resting
+place but they quickly crumble in $s hand.
+~
+!
+0 0 0
+A
+search~
+puddle~
+i = 2d5+10;
+act_tochar( #burn, ch );
+act_notchar( #burn1, ch );
+dam_message( ch, i, "The extremely hot water" );
+inflict( ch, mob, i, "being burned to death" );
+~
+E
+burn~
+@RYou stick your hand into the bubbling pool of water and burn yourself
+badly.
+~
+E
+burn1~
+@R$n sticks $s hand into the bubbling pool of water and burns $mself
+badly.
+~
+!
+0 0 0
+-1
+S
+
+#74027
+Shadowy Forest - Muddy Trail~
+The strong smell of decaying flesh fills the air along the trail here. 
+Splintered tree trunks lie scattered about the trail, covered in a thick
+layer of mud.  Partially buried beneath the mud are several shortswords;
+each broken in half and covered in rust.  Clinging to the branches of the
+surrounding trees are several pieces of tattered blood-stained cloth.  A
+small break in the trees to the east allows you a view across the Sea of
+Stars.  The trail curves to the north and west here, proceeding along the
+forest clearing.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74028 10 10 5
+D3
+~
+~
+0 -1 74026 10 10 5
+E
+splintered tree trunks~
+Uprooted by some powerful force, the dark brown tree trunks jut up
+through the muddy trail making it difficult to traverse through.  The
+interior wood of the trunks is tan with numerous rings.
+~
+E
+layer mud~
+The mud is a scarlet red color and exceedingly soft.
+~
+E
+shortswords~
+Split in two and covered in mud, the shortswords are no longer be of any
+use.  Each is very rusted, having not been repaired nor wielded for quite
+some time it appears.
+~
+E
+branches trees pieces tattered blood-stained cloth~
+Long branches extend from the towering trees around you.  Swaying back
+and forth out of your reach on one of the branches are the remnants of a
+small piece of cloth that was once white.  Holes probably due to moths
+and weapon piercings fill the flimsy cloth.  Bloodstains, mud stains, and
+bird droppings also soil the cloth.
+~
+E
+Sea of Stars view~
+The clear blue waters and lines of waves can be glimpsed through the
+break in the trees.  The water seems to continue on for many miles
+spanning the entire eastern horizon.
+~
+A
+get take grab~
+shortswords~
+act_tochar( #break, ch );
+act_notchar( #break1, ch );
+~
+E
+break1~
+@W$n tries to pry one of the shortswords free but only manages to break
+off a piece off it.
+~
+E
+break~
+@WYou try to pry one of the shortswords free but only manage to break off
+a piece off it.
+~
+!
+0 0 0
+A
+get take grab~
+cloth~
+act_tochar( #fail, ch );
+act_notchar( #nfail, ch );
+~
+E
+fail~
+@WYou attempt to grab the cloth, but find they are too far away from your
+reach.@n 
+~
+E
+nfail~
+@W$n attempts to grab the cloth, but can't reach it.@n
+~
+!
+0 0 0
+2155 9 1509949540 3 0
+2153 9 1509949540 3 0
+-1
+S
+
+#74028
+Shadowy Forest - Muddy Trail~
+Piled up in the center of the trail here are the corpses of several
+gnomes; each still retaining bits of their leather armor upon their
+bodies.  Lying scattered about the pile of bodies are several
+blood-stained pikes and halberds which still have bits of decaying flesh
+attached to their blades.  A small mound of damp leaves lying just off
+the eastern side of the path poorly covers the decaying remains of what
+looks like a faerie.  The trail wanders off to the north and south from
+here through the vast forest.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74029 10 10 5
+D2
+~
+~
+0 -1 74027 10 10 5
+E
+corpses gnomes leather armor bodies pile~
+The mutilated decomposing corpses of gnomes have been prominently
+displayed here.  Maggots and worms crawl along their flesh and slowly
+wither away what little remains of it.
+~
+E
+blood-stained pikes halberds decaying flesh blades~
+The tips of the pikes and halberds are now rusty and dull.  Bloodstains
+can be seen all along the tips and blades of each weapon.  Small pieces
+of skin and hair lie on and beside the weapons as well.
+~
+E
+mound damp leaves eastern side decaying remains faerie~
+The mound of leaves is barely half a foot tall.  Like a funeral shroud,
+the leaves cover the tiny body of a creature with humanoid appearances.  A
+few broken, transluscent wings lie beside it.
+~
+A
+search~
+gnome corpses bodies~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #ear, ch );
+  act_notchar( #ear1, ch );
+  obj_to_char( oload( 3237 ), ch );
+  }
+else
+  act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+ear~
+@CYou search through the bodies of the gnomes and find a decaying ear
+buried amongst them.
+~
+E
+ear1~
+@C$n searches through the bodies of the gnomes and finds a decaying ear
+buried amongst them.
+~
+E
+search~
+@CYou search through the bodies of the gnomes but fail to find anything.
+~
+E
+search1~
+@C$n searches through the bodies of the gnomes but fails to find anything.
+~
+!
+0 0 0
+-1
+S
+
+#74029
+Shadowy Forest - Muddy Trail~
+A massive puddle spans the width of the trail here, making travel around
+it impossible.  Bubbles and ripples run across the surface of the puddle,
+as if something beneath it were swimming and breathing.  Floating in the
+center of the massive pool of water is a small greenish-colored dress, no
+larger than your fist.  To the west the trail appears to be drier than
+here, while to the north and south it remains damp and thick with mud.
+~
+~
+301465601 13 9 0
+D0
+~
+~
+0 -1 74030 10 10 5
+D2
+~
+~
+0 -1 74028 10 10 5
+D3
+~
+~
+0 -1 74044 10 10 5
+E
+massive puddle pool water~
+Dark, thick, cool water fills the expansive but relatively shallow puddle
+which has formed along the trail here.
+~
+E
+bubbles ripples surface~
+Bubbles as small as a grain of sand and as big as a gnome's eyeball float
+along the surface of the dark water.  Several ripples can also been seen,
+caused probably by something below.
+~
+E
+center small greenish-colored dress~
+The dress is totally soaked in the dark water and contains many tiny
+holes and cuts.
+~
+A
+get take grab~
+tiny greenish-colored dress~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #dress, ch );
+  act_notchar( #dress1, ch );
+  obj_to_char( oload( 1991 ),ch );
+  }
+else
+  act_tochar( #gone, ch );
+~
+E
+dress~
+@WYou reach into the puddle and take the tiny sea-green dress.
+~
+E
+dress1~
+@W$n reaches into the puddle and takes the tiny sea-green dress.
+~
+E
+gone~
+Someone has already taken the dress away.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #bubble, room );
+~
+E
+bubble~
+@RBig, round bubbles rise to the surface of the puddle, then burst with a
+loud *POP*@n 
+~
+!
+2 100 0
+A
+~
+puddle pool water~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+@WYou search through the puddle of water, but find nothing interesting.@n
+~
+E
+nnada~
+@W$n searches through the puddle of water, but finds nothing.@n
+~
+!
+9 0 0
+2155 9 1509949540 3 0
+3095 17 1509949540 -2 0
+-1
+S
+
+#74030
+Shadowy Forest - Muddy Trail~
+Tiny mounds of white sand dot the surface of the trail here, standing out
+against the blood-red mud.  The stiff breeze which blows through the
+trees carries with it the scent of salt water and seaweed.  As the trees
+sway back and forth along the eastern edge of the trail you can
+occasionally catch a glimpse of waves crashing against the shoreline of a
+beach.  Directly to the west, partially obscured by thick vines hanging
+down from the trees, is a small thatched hut.  The trail continues to
+weave around the forest to the north and south from here.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74031 10 10 5
+D2
+~
+~
+0 -1 74029 10 10 5
+E
+mounds white sand surface~
+The mounds are bleached white and rise a few inches high.  Their shape
+resembles ant hills.
+~
+E
+blood-red mud~
+The mud is a solid red color and slushy.  A strong, pungent smell
+emanates from it.
+~
+E
+trees eastern edge~
+Enormous trees along the eastern side of the trail tower over you.  Their
+vine-covered branches loom ominously, as though ready to grab you.
+~
+E
+1 east waves shoreline beach~
+The dark, foamy edge of the sandy shoreline to east of you, below the
+trail, rhythmically moves east and west like sandpaper rubbing against a
+tan wooden board.
+~
+E
+1 west thick vines small thatched hut~
+Thick strands of light green vines hang from the branches like resting
+snakes.  Combined with the abundance of leaves and the interweaving
+patterns caused by the tree branches, the vines manage to block out most
+of the view to the west.  However, you can still manage to detect a
+thatched hut in that direction, but it appears rather rundown and
+weatherbeaten.  You can't see any way to reach the huts from here.
+~
+-1
+S
+
+#74031
+Shadowy Forest - Muddy Trail~
+Lying scattered about the trail here, almost concealed beneath the mud,
+are several tiny swords, shields, and helmets, each covered in dried
+blood.  Tiny fragments of bleached white bone stick out from beneath the
+mud like jagged sword edges.  Between a pair of immensely large trees on
+the eastern edge of the trail, you notice a small tunnel heading out of
+the forest although it is far too small for anyone larger than a faerie
+to enter.  The trail continues to the west and south from here, heading
+around the dark forest.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 74030 10 10 5
+D3
+~
+~
+0 -1 74032 10 10 5
+E
+mud~
+The mud is reddish and very soggy.  A slightly pungent smell emanates
+from it.
+~
+E
+immensely large trees~
+Standing over fifty feet in the air, the two trees are positioned beside
+one another like a pair of guardians, ominously overseeing passersby.
+~
+E
+tiny swords shields helmets dried blood~
+Thin sharp blades of small swords with handles, only wieldable by someone
+the size of an ordinary mouse, lie in heaps here beside miniature shields
+and helmets.  Dark red blood stains dot the items, and some of the stains
+look fresh.  Most of the items are very worn looking, with slash marks
+all across them.
+~
+E
+tiny fragments bleached white bone~
+The bones are no larger than a gnome's pinky.  They are very thin and
+brittle.  The whiteness of the bone fragments is marred only by the
+reddish color of the mud in which they remain embedded.
+~
+E
+1 east small tunnel eastern edge~
+Barely five inches across, a tiny opening with the dense green foliage
+lies to the east.  It appears to be a tunnel, but is too dark to
+determine where and how far it would lead.
+~
+A
+~
+swords shields helmets blood~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the shields, swords, and helmets, but find nothing
+interesting.
+~
+E
+nnada~
+$n searches through the shields, swords, and helmets, but finds nothing.
+~
+!
+9 0 0
+A
+~
+fragments bleached white bone~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the bone fragments but find nothing interesting.
+~
+E
+nnada~
+$n searches through the bone fragments but finds nothing.
+~
+!
+9 0 0
+A
+enter~
+tunnel~
+act_tochar( #cant, ch );
+~
+E
+cant~
+@WTry as you might, you are far too large to enter the tunnel.
+~
+!
+0 0 0
+2153 9 1509949540 3 0
+2155 9 1509949540 3 0
+-1
+S
+
+#74032
+Shadowy Forest - Muddy Trail~
+Overturned logs lie scattered about the trail here, acting as a barricade. 
+Small, flat-leafed bushes, each covered in bright orange berries, sprout
+up along the edges of the trail.  Gazing up above you into the entangled
+branches of the tree, you catch a glimpse of a rickety tree house almost
+hidden amongst the leaves.  The east-west trail continues to snake its
+way around the outskirts of the clearing.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74031 10 10 5
+D3
+~
+~
+0 -1 74033 10 10 5
+E
+logs~
+Lying haphazardly on top of another are long, splintered logs.  Most of
+their barks have peeled, revealing the termite eaten insides.  The logs
+have been placed in random spots along the trail, forcing you to travel
+around and sometimes over them.
+~
+E
+small flat-leafed bushes bright orange berries edges~
+The bushes grow densely together.  Emanating from them is a pleasant
+smell.  Many orange berries grow within the bushes -- their color so
+bright compared to the dark surrounding scenery that they almost seem to
+glow.
+~
+E
+rickety trees house branches leaves~
+Tree houses made of cracked wooden planks rest high above you.  The dense
+foliage of the trees prevent you making out much more of the houses.
+~
+A
+climb~
+trees~
+act_tochar( #fail, ch );
+~
+E
+fail~
+The trees are too tall, and you can see no way of climbing them
+successfully.
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+You carefully avoid the logs and continue on.
+~
+!
+3 0 10
+-1
+S
+
+#74033
+Shadowy Forest - Muddy Trail~
+Thick, thorn-covered vines drape down from the trees above, nearly
+obscuring your field of vision to the south and east.  A horrid stench
+like that of decomposing flesh emanates from the puddles which dot the
+trail's surface.  Far off to the southwest you can just barely make out a
+large black tree rising up from the center of the clearing.  To the
+southeast and southwest small thatched huts dot the forest landscape;
+thei brown-yellow straw standing out against the black background.  The
+trail continues in all directions from here except to the north where the
+dense foilage bars passage.
+~
+[Jocelyn] thei brown-yellow straw standing out against the black background.  The
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74032 10 10 5
+D2
+~
+~
+0 -1 74047 10 10 5
+D3
+~
+~
+0 -1 74034 10 10 5
+E
+trees forest~
+The trees rise high in the air.  A plethora of leaves and vines hang from
+the branches, obscuring the view of much of the forest around you.
+~
+E
+puddles~
+The puddles are usually a few feet wide and a foot deep.  Red and black
+liquid fill the puddles and appear to give off a foul odor.
+~
+E
+thick thorn-covered vines~
+Long green vines hang from the branches like thorny tree snakes.  They
+loop around into a complex mesh that partially blocks out the view around
+you.
+~
+E
+southwest large black tree~
+The massive black tree can still be seen from this site.  Its impressive
+branches rise high above the branches of other trees and completely
+dwarfs them.
+~
+E
+southeast southwest small thatched brown-yellow straw~
+The huts look rather small and less than impressive.  Any powerful gusts
+of wind could probably blow down the stalks of straw that make up the
+huts.
+~
+-1
+S
+
+#74034
+Shadowy Forest - Muddy Trail~
+Hundreds of damp, brown leaves litter the ground and mingle with the
+reddish colored mud of the trail.  The dense formation of trees lying
+just off the trail to the north has begun to invade the clearing as you
+notice tiny saplings growing in the mud.  Leaning against a tree to the
+south, covered in thick poison ivy vines, is a tiny skeleton, no more
+than five inches tall.  The trail continues through the deep mud to the
+east and west from here.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74033 10 10 5
+D3
+~
+~
+0 -1 74011 10 10 5
+E
+damp brown leaves~
+The leaves lie in tall heaps.  Most are mud-stained and crinkled.
+~
+E
+reddish colored mud~
+The mud is soft and slushy, encompassing the entire trail.
+~
+E
+1 north dense formation trees~
+The trees grow over fifty feet in the air.  Extending from the trunks are
+long, dark branches which form criss-cross patterns, blocking out most of
+the possible light from above.  Many leaves drape from the branches
+and often rain down onto the trail below you.
+~
+E
+poison ivy vines~
+The ivy is a very dark green and wraps its long strands around a
+miniature skeleton like worms devouring a dead body.
+~
+E
+tiny miniature skeleton~
+The skeleton is very small and fragile looking.  It is ivory white and
+resembles a tiny humanoid.  You notice stab wounds on its brittle skull
+and fractures all across its arm and leg bones.
+~
+-1
+S
+
+#74035
+Shadowy Forest - Small Footpath Between Huts~
+Small thatched huts lie just off the footpath to the east and west here;
+their thatch roofs emanating an overpowering stench of moldy straw.  A
+small wooden fence, no higher than two feet, stands on each side of the
+footpath.  The dirt upon the trail is a deep red color due to the lack of
+sunlight the forest floor has seen.  Dominating the center of the
+clearing to the south is a massive black tree whose branches hang just
+above your head here.  The footpath continues to the north and south from
+here.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74011 10 10 5
+D2
+~
+~
+0 -1 74036 10 10 5
+E
+1 east 1 west small thatched huts roofs straw~
+The huts that lie to the east and west of you look to be in a serious
+state of disrepair.  Wide gaps have formed along the sides of the huts,
+and their straw roofs look worn and unable to provide much protection
+from the weather.
+~
+E
+small wooden fence~
+On the eastern and western edge of the footpath are short wooden fences
+covered in moss and mold.  The wooden boards of the fences are chipped
+and broken perhaps due to years of abuse from the elements.
+~
+E
+dirt~
+The red dirt is soft and slushy and gives off a slightly pungent odor.
+~
+E
+1 south center clearing massive black tree branches~
+With its enormous branches, thick green leaves, and massive trunk, the
+black tree stands imperiously to the south of you.  It towers above all
+other trees, and its branches extend in all directions, as though
+sheltering or commanding everything around it.
+~
+E
+moss mold~
+The green moss and light-brown mold along the wooden fences are abundant,
+almost completely covering the fences.
+~
+-1
+S
+
+#74036
+Before a Dark and Sinister Black Tree~
+Towering before you is a massive black, sinister-looking tree with
+branches as round as a halfling after a good meal.  The tree is covered
+in scars as if an attempt was made to chop it down but to little avail. 
+The leaves of the tree are a sickly black color and ooze a thick, black
+sap which drops to the ground where it has collected in large puddles. 
+Around the base of the tree a thick brown moss has begun to grow although
+none of it has grown over the tree's bark.  Small footpaths span out in
+all directions around you, working their way through the clearing.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74035 10 10 5
+D1
+~
+~
+0 -1 74040 10 10 5
+D2
+~
+~
+0 -1 74045 10 10 5
+D3
+~
+~
+0 -1 74037 10 10 5
+E
+base thick brown moss~
+A thick ring of dark brown moss grows around the base of the tree, near
+its massive roots.  The moss is about a foot high and blankets the ground
+around the tree for a length of a few feet.
+~
+E
+leaves~
+The leaves are broad and fill much of the sky above, rustling
+rhythmically with the occasional gusts of wind.
+~
+E
+thick black sap large puddles~
+The puddles of sap have scattered at various places along the ground here. 
+The oily sap is solid black, but glistens in the light.
+~
+A
+climb~
+up tree~
+act_tochar( #climb, ch );
+act_notchar( #climb1, ch );
+transfer( ch, find_room( 74052 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+climb~
+@WYou grab hold of a nearby branch and slowly pull yourself up the
+massive black tree.
+~
+E
+climb1~
+@W$n grabs hold of a nearby branch and slowly pulls $mself up the
+massive black tree.
+~
+E
+arrive~
+@WThe branches of the tree begin to shake as you notice $n come climbing
+up from below.
+~
+!
+0 0 0
+2151 9 1509949540 3 0
+2151 9 1509949540 3 0
+-1
+S
+
+#74037
+Shadowy Forest - Small Footpath Between Huts~
+The soil along the footpath here is extremely moist, like that of a
+temperate swamp.  Small puddles of sickly-brown water dot the trail from
+which a smell, like that of an unwashed body, emanates.  Two small
+thatched huts, each in a serious state of disrepair, rest just off the
+path here, one to the north and the other to the south.  Resting against
+the side wall of the southern hut is an over-turned wagon within which
+are several bales of hay and rickety boards.  The path continues to the
+west between more thatched huts, and to the east where an extremely large
+black tree rises up from the clearing.
+~
+~
+301465601 3 7 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74075 10 10 5
+D1
+~
+~
+0 -1 74036 10 10 5
+D2
+small thatch door~
+small thatch door~
+131 -1 74076 10 10 5
+D3
+~
+~
+0 -1 74038 10 10 5
+E
+soil~
+Soft and red-brown, the soil is sloppy due to excessive moisture and
+constant treading.
+~
+E
+small puddles sickly-brown water~
+The puddles appear randomly across the footpath.  The brown, muddy liquid
+is opaque, but you can see rippling patterns along their surface.
+~
+E
+1 north 1 south small thatched huts~
+The huts are worn and weather-beaten.  Each is shaped in a dome-like
+pattern, as though the roof has sunk within the walls of the hut.  Leaves
+and branches have collected on the roofs, and noticeable gaps can be
+detected all along the hut.
+~
+E
+over-turned wagon bales hay rickety boards~
+The wagon is small and meant to be pushed by someone as short as a dwarf. 
+The bales of hay that have been deposited from the wagon appear thin and
+mud-covered.  They lie haphazardly beside the wagon.  Resting on top of
+the hay are wooden planks.  The planks have been chipped and contain many
+holes probably due to termites.
+~
+E
+1 east large black tree~
+The enormous black tree dominates the view to the east.  Its trunk is
+massive, and its long, numerous branches extend all around the forest, as
+though commanding everything around it.
+~
+3095 17 1509949540 -2 0
+-1
+S
+
+#74038
+Shadowy Forest - Intersection of Footpaths~
+Shoved to the four corners of this intersection, adjacent to the thatched
+huts, are small stacks of damp, decaying wood.  Now cracked and filled
+with holes, they appear to be leftovers from the window shutters and
+doors of the small huts and from picket fences which now only partly
+surround the huts.  Several leaves have also collected along the ground,
+having probably fallen from the tall trees to the west and a massive
+black tree to the far east, then carried here by the wind.  The footpaths
+continue in all four directions.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74046 10 10 5
+D1
+~
+~
+0 -1 74037 10 10 5
+D2
+~
+~
+0 -1 74039 10 10 5
+D3
+~
+~
+0 -1 74043 10 10 5
+E
+small stacks damp decaying wood~
+The stacks stand a few feet tall in a rather crooked manner.  The wooden
+planks which make up stacks are cracked, and the moisture from the
+environment has caused some of their shapes to become a little warped.
+~
+E
+small thatched huts~
+The huts are worn and weather-beaten.  Each is shaped in a dome-like
+pattern, as though the roof has sunk within the walls of the hut.  Leaves
+and branches have collected on the roofs and noticeable gaps can be
+detected all along the hut.
+~
+E
+picket fences~
+The fences form a circular border around the huts, but sporadic gaps due
+to missing wooden boards can be seen.  Bird droppings, scratches, and
+splintered wood indicate the deterioration of the fences.
+~
+E
+leaves~
+The leaves are broad, and most are dry and red.  Mud from the ground has
+collected on most of the leaves.
+~
+E
+massive black tree~
+The tree dominates the view to the distant east.  Even from this
+distance, you notice the enormous size of its trunk, thick limbs and
+branches, and plethora of leaves.
+~
+-1
+S
+
+#74039
+Shadowy Forest - Small Footpath Between Huts~
+Cluttered along the soft soil of the footpath are various debris.  Broken
+remnants of the picket fences to the east and west of you have been blown
+or tossed onto the path, as well as the decaying remains of some small,
+possibly humanoid creature.  The smell is overwhelming, and even more so
+when a breeze from the southern part of the forest carries it to your
+face.  You can travel around the debris and head south or north along the
+footpath.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74038 10 10 5
+D2
+~
+~
+0 -1 74021 10 10 5
+E
+broken remnants~
+The wooden boards of picket fences have been broken into smaller pieces
+and have begun to rot.  They have been dispersed into random spots on the
+path.  A few white paint chips still linger near the boards.
+~
+E
+soft soil~
+The soil is red and a little soggy.
+~
+E
+1 east 1 west picket fences~
+The fences surround the huts in a discontinuous manner.  Many pieces
+stand crookedly, and each of them is in serious need of repair.
+~
+E
+decaying remains humanoid creature~
+A rotten stench emanates from the remains of some poor creature.  Its
+head has been decapitated and rests beside the bones of its fingers. 
+Dried blood covers most of the remains.  Torn clothing which has been
+ripped apart and eaten away hangs loosely from the rotting body.
+~
+-1
+S
+
+#74040
+Shadowy Forest - Small Footpath Between Huts~
+Broken planks of wood litter the small space between the thatched huts
+here, remnants of the shutters which once adorned the windows.  An
+overwhelming stench of decaying flesh fills the air here although you
+cannot detect the source of the odor.  Resting against the wall of the
+southern hut is a broken down wagon filled with moldy straw and dirt. 
+Directly to the west a massive black tree dominates the center of the
+clearing while to the east the footpath continues through the rows of
+small huts.
+~
+~
+301465601 3 7 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74071 10 10 5
+D1
+~
+~
+0 -1 74041 10 10 5
+D2
+small thatch door~
+small thatch door~
+131 -1 74072 10 10 5
+D3
+~
+~
+0 -1 74036 10 10 5
+E
+broken planks wood~
+The planks have been chopped into smaller pieces of various sizes.  Most
+are filled with holes and covered in mud.
+~
+E
+1 north 1 south thatched huts~
+The huts are worn and weather-beaten.  Each is shaped in a dome-like
+pattern, as though the roof has sunk within the walls of the hut.  Leaves
+and branches have collected on the roofs, and noticeable gaps can be
+detected all along the huts.
+~
+E
+wall southern hut broken down wagon modly straw dirt~
+A small, rusty wagon with a gaping hole on its bottom has been placed
+beside the hut to the south.  Bales of hay and straw have mostly fallen
+through the hole, but some still remain within the wagon.  Red bits of
+dirt have gathered on the hay, and moisture has begun to collect on them.
+~
+E
+1 west massive black tree~
+The massive tree dominates the view to the west.  Its trunk is very wide,
+about the girth of ten trolls.  Many leaf-filled branches extend across
+the forest, creating a huge canopy and sheltering much of the light from
+above.
+~
+-1
+S
+
+#74041
+Shadowy Forest - Intersection of Footpaths~
+The ground here is littered with small piles of shattered bone fragments;
+each partially covered with a thick orange moss.  Lying off the edge of
+each corner of the intersection are the remains of small wooden fences
+which are now nothing more than weathered and warped planks of wood.  A
+stiff breeze constantly blows through the treetops, causing the branches
+to sway and crack as if they could break free at any moment.  Off to the
+west you can just make out a large black tree jutting up from the center
+of the clearing.  Footpaths span out in all directions from here,
+continuing through the massive clearing.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74047 10 10 5
+D1
+~
+~
+0 -1 74044 10 10 5
+D2
+~
+~
+0 -1 74042 10 10 5
+D3
+~
+~
+0 -1 74040 10 10 5
+E
+ground piles shattered bone fragments orange moss~
+The bone fragments are very small and looks to be that of a short
+humanoid.  Cuts and other marks still remain on some of the bones.  Moss
+grows on each of the bones, giving them a strange texture.
+~
+E
+corner remains wooden fences weathered warped planks~
+Broken remnants of picket fences stand crookedly at the corners of the
+intersection.  Most are bent and cracked due to the elements, and repair
+of the fences has obviously been neglected.
+~
+E
+treetops branches~
+The branches of the towering trees above criss-cross and block out much
+of the light from above.  Leaves and ivy hang from them, dangling and
+shaking with the wind.
+~
+E
+large black tree~
+A tree so large that it seems to envelop the area can be seen to the
+distant west.  Its branches rise high above the huts and other trees, as
+though commanding or overseeing everything which inhabits this forest.
+~
+-1
+S
+
+#74042
+Shadowy Forest - Small Footpath Between Huts~
+Several barrels have been stacked upon along the edges of the footpath
+here; each broken open revealing a clear liquid within them.  An
+overwhelming scent of pure alcohol emanates from within the barrels
+causing your eyes to tear-up and burn.  Tucked in between a few of the
+barrels are moth-eaten burlap sacks within which you can see small strips
+of rotted meat.  Imprinted into the dark soil are several humanoid-
+looking footprints, no larger than two inches long.  The trail continues
+its course through the forest to the north and south from here.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74041 10 10 5
+D2
+~
+~
+0 -1 74025 10 10 5
+E
+barrels edges~
+Placed into three by three configurations, the barrels sit neatly beside
+the footpath.  The barrels, each about three feet tall, are round and
+made of a dark brown wood that looks worn and battered.  Rusty iron bands
+still hold together the girth of the barrels, but barely so as the wood
+of the barrels appears wet and ready to crack under the pressure of their
+alcoholic contents.
+~
+E
+moth-eaten burlap sacks~
+The mostly empty sacks are small and filled with holes.  A rotten stench
+seems to originate from where they have been placed.
+~
+E
+strips rotted meat~
+Thin slices of meat are contained in the sacks.  White and green mold now
+grow and on the meat, which gives off an almost unbearable smell.
+~
+E
+dark soil humanoid-looking footprints~
+The soil is pretty soft here, allowing you to be able to detect the
+imprints of a tiny feet along the muddy ground.  The footprints seem to
+scatter off in random directions and are separated by varying lengths --
+some a few inches apart, while others are several feet apart.  It's as
+though whatever created the footprints were skipping along and gliding
+through the air.
+~
+-1
+S
+
+#74043
+Shadowy Forest - Small Footpath Between Huts~
+The stench of decaying meat engulfs this room, like a dark cloud which
+doesn't want to dissipate.  Looking at the ground, you notice small
+mounds, each about a foot high.  Partially buried within one of the
+mounds are tiny bits of stale meat and miniature bones that are
+unrecognizable.  Directly to the north and south of you are
+decrepit-looking thatched huts.  Not enough straw covers the roof of the
+huts, leaving noticeable gaps and little protection from the elements. 
+The narrow footpath broadens as it extends to the east and to the west.
+~
+~
+301465601 3 7 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74077 10 10 5
+D1
+~
+~
+0 -1 74038 10 10 5
+D2
+small thatch door~
+small thatch door~
+131 -1 74078 10 10 5
+D3
+~
+~
+0 -1 74017 10 10 5
+E
+small mounds~
+The mounds consist of mud that has been pushed aside by natural forces or
+perhaps by some creatures.  They range from half a foot to several feet
+high and resemble stalagmites.
+~
+E
+tiny bits stale meat~
+The meat is black-brown, and bits of mold have started to grow on it.  It
+seems to be the main source of the wretched odor here. 
+~
+E
+miniature bones~
+Fragile bones of some small humanoid, as well as tiny bones of some
+creature the size of a large insect, have gathered within the mound. 
+~
+E
+1 south 1 north decrepit-looking thatched huts~
+The huts are worn and weather-beaten.  Each is shaped in a dome-like
+pattern, as though the roof has sunk within the walls of the hut.  Leaves
+and branches have collected on the roofs and noticeable gaps can be
+detected all along the huts.
+~
+-1
+S
+
+#74044
+Shadowy Forest - Small Footpath Between Huts~
+Lying just off the path to the north and south of here are small thatched
+huts.  The huts are in a serious state of disrepair as their roofs are
+riddled with holes and their doors about ready to fall off their
+makeshift hinges.  Resting just off the sides of the tiny homes are small
+gardens, each surrounded by a broken-down wooden fence.  To the northwest
+and southwest, more huts can be clearly seen resting beneath the branches
+of a massive black tree.  The small footpath continues to the east and
+west of here, continuing its course through the forest.
+~
+~
+301465601 3 7 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74073 10 10 5
+D1
+~
+~
+0 -1 74029 10 10 5
+D2
+small thatch door~
+small thatch door~
+131 -1 74074 10 10 5
+D3
+~
+~
+0 -1 74041 10 10 5
+E
+1 north 1 south small thatched huts tiny homes~
+The huts are worn and weather-beaten.  Each is shaped in a dome-like
+pattern, as though the roof has sunk within the walls of the hut.  Leaves
+and branches have collected on the roofs, and noticeable gaps can be
+detected all along the huts.
+~
+E
+broken-down wooden fence~
+Standing bent around each hut is a worn, splintered fence.  Bird
+droppings, holes, and moss litter the fences whose maintenance has been
+neglected for quite some time it seems.
+~
+E
+massive black tree~
+To the distant west is a large black tree that seems to shelter the huts
+and everything else below it.  Its branches and leaves blanket the region
+and filter out much of the light from the sky.
+~
+E
+small gardens~
+The gardens have obviously not been tended to lately.  Weeds have
+overtaken the soil there, and significant agricultural plants no longer
+grow there now.
+~
+-1
+S
+
+#74045
+Shadowy Forest - Small Footpath Between Huts~
+Lying directly in the center of the path here is a small wagon which has
+been turned over on its side.  The former contents of the wagon lie
+scattered about around it, ranging from bales of hay to iron-banded
+barrels.  A simple small thatched hut lies on each side of the footpath
+here.  Each hut seems to be the source of the strong scent of moldy hay. 
+To the north a massive black tree rises up from the center of the
+clearing; its massive branches spreading out in every direction.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74036 10 10 5
+D2
+~
+~
+0 -1 74023 10 10 5
+E
+small wagon center~
+This wagon is small and seems made for a short humanoid to push around. 
+The wheels are covered in thick gobs of mud, and the inordinate amount of
+rust suggests that the wagon is no longer of any use.
+~
+E
+contents bales hay iron-banded barrels~
+Several bales of hay and straw lie strewn beside a small wagon.  Sitting
+on top of the hay are some barrels.  Most of the barrels have their
+wooden siding cracked into various smaller boards and have been emptied
+of their contents.
+~
+E
+1 east 1 west simple small thatched hut side~
+The huts look worn and weather-beaten.  Each is shaped in a dome-like
+pattern, as though the roof has sunk within the walls of Leaves and
+branches have collected on the roofs, and noticeable gaps can be detected
+all along the hut.
+~
+E
+1 north massive black tree clearing~
+The enormous black tree dominates the view to the north.  Its trunk is
+massive, and its long, numerous branches extend all around the forest, as
+though commanding everything around it.
+~
+A
+~
+contents wagon bales hay iron-banded barrels~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+@WYou search through the contents of the wagon, but find nothing of
+interest.@n 
+~
+E
+nnada~
+@W$n searches the contents of the wagon, but finds nothing.@n
+~
+!
+9 0 0
+-1
+S
+
+#74046
+Shadowy Forest - Small Footpath Between Huts~
+Cracked, gray wooden fences form discontinuous lines along the eastern
+and western sides of this narrow footpath.  The fences are oddly-bent,
+and most have collapsed from the strain of the weather and perhaps some
+other outside forces.  Several dark trees grow to enormous heights within
+the fences, sheltering the worn little huts closely like watchful
+guardians.  The footpath widens and reaches an intersection to the south,
+and a fork to the north.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74013 10 10 5
+D2
+~
+~
+0 -1 74038 10 10 5
+E
+cracked gray wooden fences discontinuous lines eastern western sides~
+The fences form a porous border along the sides of the footpath.  Bird
+droppings, scratches, and splintered wood indicate the deterioration of
+the fences.
+~
+E
+dark trees~
+Immense trees have populated beside the huts.  Their branches extend
+through the forest as though reaching out to someone or something.
+~
+E
+worn little huts~
+Fragile-looking and very small, the huts stand unevenly as though ready
+to collapse soon.  Many leaves have fallen on their roofs, and many gaps
+can be seen along the exterior of the thatched huts.
+~
+A
+~
+~
+send_to_room( #enter, find_room( 74058 ) );
+if( mob_in_room( 2152, find_room( 74058 ) ) ) {
+  act_tochar( #arrow, ch );
+  loop( all_in_room ) {
+    i = random( 1, 2 );
+    if( is_player( rch ) ) {
+      if( i == 1 ) {
+        dam_message( rch, 2d5+8, "a tiny arrow" );
+        inflict( rch, mob, 2d5+8, "a tiny arrow" );
+        }
+      else {
+        act_tochar( #miss, ch );
+        act_notchar( #nmiss, ch );
+        }
+      }
+    }
+  }
+~
+E
+enter~
+@WSomeone can be detected moving directly below you.@n
+~
+E
+arrow~
+@BAs you enter the room, a barrage of tiny arrows suddenly comes flying
+at you from above.!@n 
+~
+E
+miss~
+A tiny arrow @rmisses@n you.
+~
+E
+nmiss~
+A tiny arrow @ymisses@n $n.
+~
+!
+1 0 5
+-1
+S
+
+#74047
+Shadowy Forest - Small Footpath Between Huts~
+Stacks of leaves have accumulated to the east and west of the footpath
+next to the thatched huts.  Surrounding the huts are fragile, worn picket
+fences.  They lie bent and in a broken, discontinuous circular pattern
+around each hut.  Some of the cracked wooden planks of the fences in the
+corner have been placed haphazardly into a jumbled pile.  Red mud stains
+the pile, and a foul odor seems to emanate strongly from within it.  The
+footpath continues through the two huts to the north and south.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74033 10 10 5
+D2
+~
+~
+0 -1 74041 10 10 5
+E
+stacks leaves~
+The stacks of dried leaves stand over three feet high and resemble small
+red and brown hills.  The leaves are moist and stained with the red mud
+found along the trail.
+~
+E
+1 east 1 west thatched huts~
+The small huts look worn and weather beaten.  Gaps and loose straw
+exemplify the continued deterioration of the huts.
+~
+E
+picket fences circular pattern~
+The fences still have a little white paint on it.  Some have fallen to
+the ground, while others stand tilted at varying angles.  The wooden
+pieces of the fence surround each hut, perhaps having once provided a
+viable protection from outside forces.
+~
+E
+red mud~
+The mud is a blood red color and leaves a slightly foul smell.
+~
+A
+~
+~
+send_to_room( #enter, find_room( 74055 ) );
+if( mob_in_room( 2152, find_room( 74055 ) ) ) {
+  act_tochar( #arrow, ch );
+  loop( all_in_room ) {
+    i = random( 1, 2 );
+    if( is_player( rch ) ) {
+      if( i == 2 ) {
+        dam_message( rch, 2d5+8, "a tiny arrow" );
+        inflict( rch, mob, 2d5+8, "a tiny arrow" );
+        }
+      else {
+        act_tochar( #miss, ch );
+        act_notchar( #nmiss, ch );
+        }
+      }
+    }
+  }
+~
+E
+enter~
+@WSomeone can be detected moving directly below you.@n
+~
+E
+arrow~
+@BAs you enter the room, a barrage of tiny arrows suddenly comes flying
+at you from the tree above!@n 
+~
+E
+miss~
+A tiny arrow @rmisses@n you.
+~
+E
+nmiss~
+A tiny arrow @ymisses@n $n.
+~
+!
+1 0 5
+-1
+S
+
+#74048
+Shadowy Forest - Overgrown Trail~
+Tall, thick grass and long, snake-like vines cover this narrow dirt trail. 
+The branches of the dark trees rest low to the ground here, causing you
+to continually duck your head to avoid bumping into one.  The ground,
+although appearing to be dry, has a moist, swamp-like feeling to it and
+every step you take causes a squishing sound to echo throughout the
+silent woods.  To the east a dense wall of vegetation hangs down from the
+branches of the trees, making travel in that direction nearly impossible. 
+The trail looks passable through the overgrowth to the south.
+~
+~
+301465609 3 9 0
+D1
+~
+~
+235 -1 74017 10 10 5
+D2
+~
+~
+0 -1 74049 10 10 5
+E
+grass~
+Dark blue-green in color, the grass has grown abnormally tall here.  Most
+of the blades are moist and rustle when the wind blows.
+~
+E
+vines~
+The vines grow wildly all along the trail.  Their abundant dark green
+leaves are broad and cover much of the ground.
+~
+E
+branches dark trees~
+The thick limbs of the enormous trees around you stretch over the path
+like tentacles.  They obstruct movement along this plant-filled trail,
+but are apparently oblivious to the difficulty they cause to travellers.
+~
+E
+dense wall vegetation 1 east~
+Many vines, branches, and leaves grow densely and closely to one another,
+forming a thick, complex mesh to the east.  Not much can be see through
+the wall of vegetation except an additional layer of vines and leaves.
+~
+E
+ground~
+Grass and vines creep up through the soft dirt here.
+~
+A
+cut~
+1 east vegetation wall~
+if( is_open( room, east ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+act_tochar( #cut, ch );
+act_notchar( #cut1, ch );
+Wait( 4 );
+act_tochar( #finish, ch );
+act_notchar( #finish1, ch );
+open( room, east );
+~
+E
+cut~
+@WYou begin to cut away at the dense wall of vegetation to the east.
+~
+E
+cut1~
+@W$n begins to cut away at the dense wall of vegetation to the east.
+~
+E
+finish~
+@WAfter several minutes of cutting you finally clear enough of the
+vegetation away to proceed east.
+~
+E
+finish1~
+@WAfter several minutes of cutting $n finally clears enough of the
+vegetation away to proceed east.
+~
+E
+open~
+The vegetation has already been cut away.
+~
+!
+0 0 0
+-1
+S
+
+#74049
+Shadowy Forest - Overgrown Trail~
+Thick, waist-high grass covers this portion of the trail here, causing
+you to carefully push it aside to see what lies in front of you.  Large
+slabs of grey slate, resembling tombstones, lie scattered in heaps about
+the trail.  The trees bordering the edges of the trail have grown
+extremely close to each other, completely blocking your view into the
+rest of the forest.  From behind the rows of the trees you can hear the
+constant sound of leaves rustling and twigs snapping.  The trail
+continues to snake its way to the north and south from here.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74048 10 10 5
+D2
+~
+~
+0 -1 74050 10 10 5
+E
+thick waist-high grass~
+Tall blades of dark green grass stretch high into the air along the trail
+here.  Most grow in tight clumps, making it somewhat tough to wade
+through them.
+~
+E
+slabs grey slate heaps~
+Heavy, dull grey slate stones in the shape of headstones lie cracked
+along the trail.  Some have etchings on them, but erosion of the stone
+has made it too difficult to decipher what they once said.  They have
+been scattered randomly on the ground, perhaps tossed violently there.
+~
+E
+trees~
+Trees which tower high in the sky surround you.  Their long, twisting
+branches and numerous leaves form a large canopy above and around the
+vicinity.
+~
+A
+~
+~
+act_tochar( #grass, ch );
+continue;
+~
+E
+grass~
+You push the tall grass aside and continue onward.
+~
+!
+3 0 5
+A
+~
+slabs slate heaps~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+@WYou search the slabs of grey slate, but find nothing interesting.@n
+~
+E
+nnada~
+@W$n searches the slabs of grey slate, but finds nothing.@n
+~
+!
+9 0 0
+-1
+S
+
+#74050
+Shadowy Forest - Dead End Along the Overgrown Trail~
+The trail comes to an abrupt halt here, blocked to the south by several
+fallen tree trunks and dense vegetation.  The soft dark soil beneath your
+feet is covered in two inch deep footprints made by something carrying a
+heavy load.  Along the eastern and western edges of the trail walls of
+thorns have sprung up and wrapped themselves around the low-hanging
+branches of the trees, creating an impenetrable barrier.  The trail leads
+north from here, deeper into the dark forest.
+~
+~
+301465609 3 9 0
+D0
+~
+~
+0 -1 74049 10 10 5
+D3
+~
+~
+235 -1 74051 10 10 5
+E
+tree trunks dense vegetation 1 south~
+Huge, uprooted trunks clutter the south.  Many shrubs and vines now grow
+along and around the trunks.  The plant life seems to prosper there, as
+they have grown so abundantly that they have formed an impassable barrier
+southward.
+~
+E
+soft dark soil~
+The soil is brown-black and a little soggy due to the moist atmosphere of
+the forest.  Some footprints can be detected as well.
+~
+E
+deep footprints~
+Deep, but not very wide footprints are easily visible along the soil here. 
+The footprints look as though they came from something the size of a
+dwarf or gnome.  They seem to head off in all sorts of different
+directions, but some disappear off to the west.
+~
+E
+1 west thorn walls~
+A thick, multi-layered wall of large, jagged thorns has formed to the
+west.  The multitude of thorns jut out menacingly, as though ready to
+prick anyone trying to head through them.
+~
+A
+cut chop hack~
+1 west thorn walls~
+if( is_open( room, west ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( !is_open( room, west ) ) {
+  act_tochar( #cut, ch );
+  act_notchar( #cut1, ch );
+  open( room, west );
+  }
+~
+E
+open~
+It appears that someone has already cut down the wall of thorns.
+~
+E
+cut~
+@WYou quickly hack your way through the wall of thorns to the west,
+clearing a path through them.
+~
+E
+cut1~
+@W$n quickly hacks $s way through the wall of thorns to the west,
+clearing a path through them.
+~
+!
+0 0 0
+-1
+S
+
+#74051
+Shadowy Forest - Before a Crude Stone Altar~
+Resting in the center of this small clearing is a black stone altar
+surrounded by blood-red colored stones.  At the foot of the altar are
+several dozen humanoid skulls which have been stripped of their lower jaw
+bone and covered with a thick red substance.  Thick walls of thorns,
+within which are several entangled humanoid remains, lie along the
+outskirts of the clearing.  Above you the tree tops utterly block out all
+light which dares try to enter this forsaken forest.
+~
+~
+301466633 3 9 0
+D1
+~
+~
+235 -1 74050 10 10 5
+E
+black stone altar blood-red colored stones~
+This altar stands several feet high with round red stones circling its
+base.  It's constructed of a solid back stone which shows few signs of
+wear and tear.  At the middle of the altar is a nest-like counter filled
+with charred branches that are now too flimsy to be of any use.
+~
+E
+foot humanoid skulls bone red substance~
+The skulls are jawless, and some are cracked.  You notice cuts and holes
+demonstrating that some of their poor owners had been bludgeoned badly. 
+Gooey red ooze has drenched itself on top of and within the skulls.  The
+skulls are humanoid, but smaller than a normal human's and a little
+thicker.
+~
+E
+1 east 1 west walls thorns~
+Huge, multi-layered walls filled with sharp thorns surround you.  The
+tips of some of the thorns are covered in blood, a testament to the
+dangers of attempting to pass through them.  An even more auspicious
+example of the dangers are the trapped bones of a few unfortunate
+travellers.
+~
+E
+entangled humanoid remains~
+The bones and decayed flesh of some unsuspecting explorers lie trapped
+within the wall of thorns.  The remains dangle off the thorns and
+occasionally shake with the breeze which passes by.
+~
+A
+~
+~
+if( mob_in_room( 87, room ) )
+  end;
+if( is_follower( ch ) )
+  end;
+if( !is_player( ch ) )
+  end;
+if( is_player( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_room( #wind, ch );
+    close( room, east );
+    Wait( 4 );
+    act_room( #spectre, ch );
+    mload( 87, room );
+    mob = mob_in_room( 87, room );
+    victim = ch;
+    attack_weapon( mob, victim, 3d5+15, "rushing strike" );
+    open( room, east );
+    }
+  }
+~
+E
+wind~
+@CUpon entering the clearing a fierce wind begins to rip around the area
+followed by a sinister howl.
+~
+E
+spectre~
+@CThe wind begins to die down and suddenly the image of a gnomish ranger
+fades into view and wails:@n @W"No living being shall leave this forest
+alive!"@n 
+~
+!
+1 0 2
+A
+cut chop hack~
+1 east walls thorns~
+if( is_open( room, east ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #open, ch );
+  act_notchar( #nopen, ch );
+  open( room, east );
+  }
+~
+E
+nada~
+The wall of thorns has already been cleared.
+~
+E
+open~
+@WYou quickly hack your way through the wall of thorns to the east,
+clearing a path through them.@n 
+~
+E
+nopen~
+@W$n quickly hacks $s way through the wall of thorns to the east,
+clearing a path through them.@n 
+~
+!
+0 0 0
+A
+get take grab search~
+humanoid skulls~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( is_player( ch ) ) {
+    i = random( 1, 20 );
+    if( i == 7 ) {
+      act_tochar( #skull, ch );
+      act_notchar( #nskull, ch );
+      obj_to_char( oload( 2226 ), ch );
+      end;
+      }
+    }
+  }
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+skull~
+@WYou search through the skulls and take one.@n
+~
+E
+nskull~
+@WYou search through the skulls and take one.@n
+~
+E
+nada~
+@WYou search through the skulls, but don't find any worth taking.@n
+~
+E
+nnada~
+@W$n searches through the skulls, but doesn't take any.@n
+~
+!
+0 0 0
+-1
+S
+
+#74052
+On a Crude Wooden Platform Within the Black Tree~
+This large, makeshift platform has been crudely slapped together with
+rickety boards.  Every time a small breeze blows through the trees, the
+platform shakes and rattles as if at any moment it could give way and
+send you tumbling to the forest floor below.  Nailed against the thick
+trunk in the center of the platform is a small set of wooden steps which
+lead up towards the top of the tree.  To the east, west and south large,
+thick branches spread out over the clearing.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 74053 10 10 5
+D2
+~
+~
+0 -1 74065 10 10 5
+D3
+~
+~
+0 -1 74056 10 10 5
+D4
+~
+~
+0 -1 74059 10 10 5
+E
+wooden steps~
+The steps are a little cracked, but look sturdy enough to use to climb
+further up the tree.  The steps seem designed for someone with small
+feet, however, so would probably require some care when stepping on them.
+~
+E
+platform~
+The platform stretches over fifteen feet diagonally.  It consists of worn
+wooden boards connected to several branches by rusty, bent nails.
+~
+A
+climb~
+down~
+act_tochar( #climb, ch );
+act_notchar( #climb1, ch );
+transfer( ch, find_room( 74036 ) );
+act_notchar( #arrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+climb~
+@WYou carefully grab hold of the surrounding branches and lower yourself
+down the tree.
+~
+E
+climb1~
+@W$n carefully grabs hold of the surrounding branches and lowers $mself
+down the tree.
+~
+E
+arrive~
+@WThe branches of the black tree shake slightly and you look up to see $n
+climbing down from within it.
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #breeze, room )
+~
+E
+breeze~
+@CA strong breeze blows through the tree, causing the platform to shake
+violently.
+~
+!
+2 500 0
+A
+~
+~
+act_tochar( #up, ch );
+continue;
+~
+E
+up~
+You leave the platform and crawl up the trunk.
+~
+!
+3 0 16
+2154 9 1509949540 3 0
+-1
+S
+
+#74053
+Along a Thick Dark Branch~
+The branch shows serious signs of mistreatment; someone has attempted to
+saw through half the branch making it very weak and unstable.  Several
+rickety wooden boards hang off the edge of the branch, possibly the
+remains of a catwalk which used to be here.  Small gaps in the leaves
+allow a clear view to the forest floor below and the thatched huts which
+dot the landscape.  To the north the branch thins out a bit as it
+stretches over the forest.  A wooden platform has been erected around
+the trunk to the west.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74054 10 10 5
+D3
+~
+~
+0 -1 74052 10 10 5
+E
+leaves~
+The leaves are broad and dark green.  They grow plentifully along the
+sides of the branches and make loud rustling noises whenever the branches
+shake.
+~
+E
+thatched huts~
+The huts look like small toadstools from up here.  Holes can be seen all
+along the tops of the huts.
+~
+E
+rickety wooden boards edge~
+About a foot wide and several feet long, the boards hang precariously
+along the edge of the branch.  A few nails line the ends of each board
+and manage to keep each board secured -- however long is anyone's guess.
+~
+-1
+S
+
+#74054
+Along a Thick Dark Branch~
+Most of this section of the branch is covered in a thick grey moss which
+emanates a strong odor of sulfur.  The lush green leaves all around you
+sway gently in the breeze, able to let in any small beam of sunlight that
+might shine through.  Above you, high up in the tree top, are several
+small tree houses which are just barely visible through the dense foilage. 
+A small wooden platform has been erected at the edge of the branch to the
+east.  the south the branch heads back towards the trunk of the dark tree.
+~
+[Belgar] room desc last sentence.
+~
+301465601 3 7 0
+D1
+~
+~
+0 -1 74055 10 10 5
+D2
+~
+~
+0 -1 74053 10 10 5
+E
+thick grey moss~
+The moss is about an inch think.  Some clear droplets of water still
+reside among the leaflets within the moss.
+~
+E
+lush green leaves~
+The leaves are everpresent.  They clutter the edges of this branch, as
+well as hang abundantly from nearby branches.
+~
+E
+1 up tree houses~
+A small house constructed out of pine wood stands somewhere above you
+upon several thick branches.  It's hard to make out any more details of
+the house from this angle.
+~
+-1
+S
+
+#74055
+Well-Hidden Ambush Platform~
+This small platform has been erected at the perfect ambush site; the
+forest floor beneath you can be clearly seen yet anyone moving down below
+would not see you through the thick foilage.  Lying scattered about the
+platform are several tiny quivers each containing a score of arrows with
+steel tips.  A small crate the size of a ring box sits next to the
+quivers within which are several flasks of oil and tiny strips of cloth. 
+The branch continues to the west, proceeding back to the trunk.
+~
+[Merior] is this lots of little platforms or one big one?  seems a bit
+confusing 
+[Olah] one big one in middle. 2 hidden ones on edge as secret/ambush hideouts
+~
+301465601 3 5 0
+D3
+~
+~
+0 -1 74054 10 10 5
+E
+tiny quivers arrows~
+Miniature leather quivers about the size of a thimble lie in disarray
+along the platform.  Pin-sized arrows with needle-sharp tips lie within
+and beside the quivers.  It's obvious whoever left behind these items was
+extremely small.
+~
+E
+crate flasks strips cloth~
+The wooden crate has been opened to reveal several utility items.  The
+flasks are about the size of human fingertips, and their metallic
+exteriors look oily.  Minute pieces of cloth lies next to the flask. 
+Some have been used as evidenced by tiny red stains on them.
+~
+A
+~
+~
+if( random( 1, 5 ) == 1 ) {
+  i = 2d5+10;
+  act_tochar( #plummet, ch );
+  act_notchar( #plummet1, ch );
+  transfer( ch, find_room( 74047 ) );
+  act_tochar( #land, ch );
+  act_notchar( #land1, ch );
+  dam_message( ch, i, "The terrible fall" );
+  inflict( ch, mob, i, "falling out of a tree" );
+  }
+~
+E
+plummet~
+@YAs you edge your way along the tree branch it suddenly breaks and sends
+you plummeting down to the forest floor!
+~
+E
+plummet1~
+@YAs $n edges $s way along the tree branch it suddenly breaks, sending
+him plummeting toward the forest floor!
+~
+E
+land~
+@YYour fall comes to abrupt halt as you finally slam into the hard forest
+floor with an echoing@n @R*THUMP*.@n
+~
+E
+land1~
+@YYou hear a loud snap above you and look up to see $n come plummeting
+down from the tree above coming to rest on the hard forest floor with an
+echoing@n @R*THUMP*@n
+~
+!
+1 0 8
+A
+l look~
+1 down forest floor~
+if( num_in_room( find_room( 74047 ) ) > 0 )
+  act_tochar( #someone, ch );
+else
+  act_tochar( #floor, ch );
+~
+E
+someone~
+You can make out the red, leaf-filled ground of the forest floor. 
+Someone is moving down there but you can't make out who or what it is.
+~
+E
+floor~
+You can make out the red, leaf-filled ground of the forest floor.
+~
+!
+0 0 0
+A
+get take grab~
+quivers arrows~
+act_tochar( #nada, ch );
+~
+E
+nada~
+The quivers and arrows are far too small to be of any use to you.
+~
+!
+0 0 0
+A
+get take grab search~
+crate flasks cloth~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+@WYou search through the crate containing flasks and cloth, but find
+nothing worth taking.@n 
+~
+E
+nnada~
+@W$n searches through the crate containing flasks and cloth, but doesn't
+take antyhing.@n 
+~
+!
+0 0 0
+2152 9 1509949540 3 0
+-1
+S
+
+#74056
+Along a Thick Dark Branch~
+The remains of a small wooden platform rest along this section of the
+branch; its rickety boards on the verge of breaking in two.  Small wooden
+wind chimes have been hung from the surrounding branches which gently tap
+together as a breeze blows through the tree; creating an eerie music
+which echoes through the tree.  The dense foliage all around you blocks
+out all light whatsoever that tries to enter the forest and only a few
+small gaps allow a glimpse down to the forest floor below.  The branch
+begins to thin out to the north as it advances to its edge.  To the east
+a rickety wooden platform has been erected around the trunk.
+~
+~
+301465601 3 7 0
+D0
+~
+~
+0 -1 74057 10 10 5
+D1
+~
+~
+0 -1 74052 10 10 5
+E
+rickety boards~
+The boards are cracked and dark gray.  Splinters along the edges of the
+boards make them appear fragile and unsteady.
+~
+E
+wind chimes~
+Hollow, cylindrically shaped wind chimes dangle above you, just slightly
+out of your reach.  Each set of wind chimes consists of six or seven
+wooden cylinders that have small holes on each end to allow the wind to
+whistle through them.  The cylinders are only several inches long and
+their wooden exteriors look to be in fine condition compared to the
+wooden boards lying around.
+~
+E
+platform~
+Several wooden boards lie along this branch to create a loose, worn
+platform.  The nails of the boards barely keep the boards connected to
+the branch.
+~
+-1
+S
+
+#74057
+Along a Thick Dark Branch~
+The thick branch beneath you shakes and bends with every tiny step you
+take, as if at any moment it could snap and send you tumbling down to the
+ground below.  The large, dark leaves here are covered with tiny strands
+of spider's webbing which twinkle in the light.  Above you the branches
+sway to and fro in the gentle breeze that blows through the tree.  The
+branch continues to the west where it appears to thin out and to the
+south where it widens as it nears the trunk.
+~
+~
+301465601 3 7 0
+D2
+~
+~
+0 -1 74056 10 10 5
+D3
+~
+~
+0 -1 74058 10 10 5
+E
+leaves spider's webbing strands~
+The leaves continue to grow in dense patches above and beside you.  Thin
+films of white webbing coat some of the patches, and you can detect the
+tiny remains of insects trapped within.
+~
+A
+search take get~
+webbing~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+@WYou search through the spider's webbing, but end up with nothing but a
+sticky mess.@n 
+~
+E
+nnada~
+@W$n searches through the spider's webbing, but ends up with nothing but
+a sticky mess.@n 
+~
+!
+0 0 0
+-1
+S
+
+#74058
+At the Edge of a Thick Dark Branch~
+This branch is quite thin, just barely wide enough to allow you to crawl
+on it and just strong enough to hold your weight.  The surrounding leaves
+of the branches make this a perfect ambush spot for someone to attack
+anyone walking in the forest below, since it seems highly unlikely that
+they could see you hiding up here.  A small gap in the leaves allows an
+almost clear view of the thatched huts below.  The branch continues to
+head back to the main trunk to the east from here.
+~
+~
+301465601 3 5 0
+D1
+~
+~
+0 -1 74057 10 10 5
+E
+leaves~
+Numerous dark green leaves the size of a human hand grow in dense patches
+on each branch.
+~
+E
+thatched huts~
+You can see the gap-filled tops of the thatched huts from this vantage
+point.  Leaves clutter their roofs and also collect around their bases.
+~
+A
+~
+~
+if( random( 1, 5 ) == 2 ) {
+  i = 2d5+10;
+  act_tochar( #plummet, ch );
+  act_notchar( #plummet1, ch );
+  transfer( ch, find_room( 74046 ) );
+  act_tochar( #land, ch );
+  act_notchar( #land1, ch );
+  dam_message( ch, i, "The terrible fall" );
+  inflict( ch, mob, i, "falling out of a tree" );
+  }
+~
+E
+plummet~
+@YAs you edge your way along the tree branch it suddenly breaks and sends
+you plummeting down to the forest floor!
+~
+E
+plummet1~
+@YAs $n edges $s way along the tree branch it suddenly breaks, sending
+him plummeting toward the forest floor!
+~
+E
+land~
+@YYour fall comes to abrupt halt as you finally slam into the hard forest
+floor with an echoing@n @R*THUMP*.@n 
+~
+E
+land1~
+@YYou hear a loud snap above you and look up to see $n come plummeting
+down from the tree above coming to rest on the hard forest floor with an
+echoing@n @R*THUMP*@n 
+~
+!
+1 0 2
+A
+l look~
+1 down forest below~
+if( num_in_room( find_room( 74046 ) ) > 0 )
+  act_tochar( #someone, ch );
+else
+  act_tochar( #forest, ch );
+~
+E
+someone~
+You can see someone below, but can't seem to make out who or what is down
+there.
+~
+E
+forest~
+You can see the red, muddy ground below.
+~
+!
+0 0 0
+2152 9 1509949540 3 0
+-1
+S
+
+#74059
+On a Small Wooden Staircase~
+This small staircase was obviously not built for a human-sized creature
+as the steps are no more than a foot wide.  On either side of you the
+thick, dark branches of the tree rise up around you; their large leaves
+utterly blocking out all views of the surrounding forest.  Barely visible
+through the dense foilage you notice two small tree houses resting to the
+north and south of you here.  Below you a crude wooden platform has been
+set up around the base of the trunk.  The staircase continues to wind its
+way up and down from here.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74063 10 10 5
+D2
+~
+~
+0 -1 74064 10 10 5
+D4
+~
+~
+0 -1 74060 10 10 5
+D5
+~
+~
+0 -1 74052 10 10 5
+E
+thick dark branches leaves~
+Branches that could be mistaken for enormous dragon tails extend on both
+sides of this staircase.  Thick patches of leaves grow abundantly on
+them, populating the surrounding area in dark green foliage.
+~
+E
+1 north 1 south tree houses~
+The tree houses are in poor condition.  Their gray wooden boards are
+cracked and decrepit.  Narrow openings to the north and south allow
+entrance into the little houses.
+~
+A
+~
+~
+act_tochar( #stair, ch );
+continue;
+~
+E
+stair~
+You carefully maneuver along the staircase.
+~
+!
+3 0 48
+-1
+S
+
+#74060
+On a Small Wooden Staircase~
+Parts of the staircase here have broken free from the trunk they wrap
+around, leaving wide gaps which cause you to occasionally have to hop
+across to reach the next step.  The thick branches around you jut across
+the staircase creating even more obstacles for you to overcome as you
+proceed along it.  Through a small gap in the leaves you catch a quick
+glimpse of the forest floor beneath you which seems miles away from this
+vantage point.  The staircase continues up and down from here, winding
+its way around the thick trunk.
+~
+~
+301465601 3 9 0
+D4
+~
+~
+0 -1 74061 10 10 5
+D5
+~
+~
+0 -1 74059 10 10 5
+E
+thick branches~
+The branches are long and plentiful here.  Each extends through the area
+around you like a fish net, making it difficult to avoid them.
+~
+E
+leaves forest floor~
+The forest floor looks like a red, rye-covered bread crust from this
+vantage point.
+~
+A
+~
+~
+act_tochar( #stair, ch );
+continue;
+~
+E
+stair~
+You carefully maneuver along the staircase.
+~
+!
+3 0 48
+-1
+S
+
+#74061
+At the Top of the Black Tree~
+From the top of the tree here you get a clear view of all the surrounding
+area of the forest.  To the east, you can see the expanse of the Sea of
+Stars.  Off to the southeast, the town of Medienne can be clearly seen
+resting just outside a lush, green forest.  To the west Chiiron can be
+plainly seen and its citizens are but tiny ants as they move throughout
+the city.  Directly to the south of here is a dense wall of vegetation
+that clings to the massive branches of the trees.  Below you lies a small
+set of wooden steps which descend toward to the base of the tree.
+~
+[Terek] Chop leaves to south to King's Room
+[Belgar] in look branch, extwentyd -> extend
+~
+301465601 3 9 0
+D2
+~
+~
+235 -1 74062 10 10 5
+D5
+~
+~
+0 -1 74060 10 10 5
+E
+1 south dense wall vegetation~
+Numerous vines and leaves grow to the south to form a dense wall of
+vegetation.  The vines curl through the bed of leaves like ornamental
+ribbon around a gift box.
+~
+E
+massive branches~
+Branches thicker and rounder than dwarven barrels of stout extwentyd in
+every direction here.  Each branch is extremely long and reaches out from
+the tree's main trunk for at least twenty feet.
+~
+A
+cut chop hack clear~
+1 south dense wall vegetation~
+if( is_open( room, south ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #cut, ch );
+  act_notchar( #cut1, ch );
+  open( room, south );
+  }
+~
+E
+cut~
+@WYou carefully cut away the wall of vegetation to the south revealing
+the entrance into a small tree house.
+~
+E
+cut1~
+@W$n carefully cuts away the wall of vegetation to the south revealing
+the entrance into a small tree house.
+~
+E
+nada~
+The wall of vegetation has already been cleared.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #stair, ch );
+continue;
+~
+E
+stair~
+You carefully maneuver along the staircase.
+~
+!
+3 0 32
+2154 9 1509949540 3 0
+-1
+S
+
+#74062
+Within a Lavishly-Decorated Tree House~
+This large tree house has been elegantly decorated with fine silk
+tapestries and and finely carved furniture.  Resting against the southern
+wall is a small wooden table a mere five inches tall covered in stacks of
+paper.  A small, gold-plated throne with red rubies embedded into the
+backboard and arm rests in the center of the room.  Hanging from the
+eastern wall is an enormous silk tapestry depicting black-skinned faeries
+battling tiny sea-green colored sprites on a vast beach.  A thick wall of
+vegetation covers the entire northern wall of the tree house.
+~
+[Terek] Dark Faerie King
+~
+301465601 3 9 0
+D0
+~
+~
+235 -1 74061 10 10 5
+E
+silk tapestry eastern wall~
+This enormous silk tapestry depicts a frantic battle between
+black-skinned dark faeries and delicate sea-green sprites.  The battle is
+held upon a sandy beach which resembles the beach near Chiiron.  Each
+side hurls missiles at the other while footmen lock themselves in fierce
+combat with spears and swords.  Hovering behind the dark faerie's lines
+is a abnormally tall faerie who grasps a glistening steel sword which
+drips with fresh blood.
+~
+E
+gold-plated throne~
+This small throne is made up of several pure gold plates hammered onto a
+maple wood frame.  Set into the backboard and arms of the throne are
+several dozen glistening red rubies cut into the shape of a tiny shields. 
+Soft, red velvet pads rest along the interior of the chair and a silk
+banner bearing the mark of the gnomish city of Orlumber upon its surface
+hangs down from the backboard.
+~
+E
+1 north northern wall thick vegetation~
+The vegetation is incredibly thick and covers every inch of the northern
+wall.  Thick ivy vines and razor-sharp thorns mingle with one another and
+appear to be overtaking the remaining walls of the tree house.
+~
+E
+small wooden table~
+This small table is carved from a single slab of solid maple and has had
+tiny carvings of faeries in flight etched across its surface.  Resting
+atop the table are several stacks of yellowed paper upon which you can
+barely make out writing.
+~
+E
+stacks paper~
+Sifting through the papers you find a few which are still legible and
+reading them you see that they contain an outline for an attack on the
+city of Chiiron.  Several more papers depict underground tunnels beneath
+Chiiron with the statement "They'll never see us coming from here!"
+written beneath them.
+~
+A
+cut chop hack clear~
+1 north northern wall thick vegetation~
+if( is_open( room, north ) )
+  act_tochar( #nada, ch );
+else {
+  act_tochar( #cut, ch );
+  act_notchar( #cut1, ch );
+  open( room, north );
+  }
+~
+E
+cut~
+@WYou carefully cut away the vegetation upon the northern wall, clearing
+a path out of the tree house.
+~
+E
+cut1~
+@W$n carefully cuts away the vegetation upon the northern wall, clearing
+a path out of the tree house.
+~
+E
+nada~
+The thick wall of vegetation to the north has already been cleared.
+~
+!
+0 0 0
+2156 9 1509949540 3 0
+-1
+S
+
+#74063
+Within a Broken-Down Tree House~
+Broken and splintered wooden boards litter the floor of this small tree
+house.  The walls, ceiling and parts of the floor have broken away
+leaving wide gaps which you could easily fall through if not careful. 
+Still hanging from the western wall are two sets of shelves upon which
+rest rusty cups and small candle holders.  The doorframe to the south
+leans at an awkward angle and appears very unstable, as if it could
+collapse at any moment, sending the tree house crashing to the ground
+below.
+~
+~
+301465605 0 5 0
+D2
+~
+~
+0 -1 74059 10 10 5
+E
+broken splintered wooden boards floor~
+The dull gray boards are loosely attached to the branch serving as the
+foundation to this house.  Rusty and bent nails connect the floorboards,
+but look ready to pop off with excessive movement on the boards.
+~
+E
+walls~
+The walls are made of an oak wood that has been eaten away by termites. 
+Pieces of the wood have peeled off, thinning away any protection the
+walls might provide to the house.
+~
+E
+ceiling~
+The ceiling is rather low.  Worn wooden beams still manage to support it. 
+Thick cobwebs have accumulated at the corners of the beams and walls.
+~
+E
+western wall shelves rusty cups candle holders~
+The shelves span half of the western wall.  A film of dust covers them. 
+Empty cups and wax-filled candle holders are the only items still resting
+on the shelves.  The cups were once silver but now almost completely
+covered in rust.  The candle holders are made of a dull glass, their
+candles burnt out long ago.
+~
+E
+1 south doorframe~
+The narrow doorframe is bent to the left in the shape of a rhombus.  The
+wooden boards around it leaning awkwardly, as though trying to rest
+against something to the left.
+~
+2154 9 1509949540 3 0
+-1
+S
+
+#74064
+Within a Broken-Down Tree House~
+This small tree housed is in a serious state of disrepair; its floor
+boards have become loose and its walls just barely support the weight of
+the roof.  Lying in a heap in the center of the room are several broken
+chairs and tables.  Hanging from the southern wall is the tattered
+remains of a silk tapestry although time and weather have erased what
+image used to be upon it.  A narrow opening in the northern wall marks the
+only exit out of the tree housed.
+~
+~
+301465605 0 5 0
+D0
+~
+~
+0 -1 74059 10 10 5
+E
+floor boards~
+The floor boards rest loosely along the house's supporting branches. 
+Rusty nails line each of the boards, but many of the nails have become
+bent and loosely connected.
+~
+E
+walls~
+The wooden boards comprising the walls are cracked and splintered.  Many
+have holes in them, probably due to termites or the elements.
+~
+E
+roof~
+The roof is supported by several wooden beams which are attached from the
+walls to the ceiling.  Some of the beams are splintered, and the nails
+attached to them are loose.  Cobwebs rest at the corners of the beams and
+ceiling.
+~
+E
+center heap broken chairs tables~
+Barely recognizable wooden furniture bits have collected into a pile at
+the middle of the room.  Legs and armrests of chairs and tops of tables
+have been smashed violently into smaller bits.  The wooden pieces can
+only serve as kindle now.
+~
+E
+southern wall tattered remains silk tapestry~
+What was once a fine tapestry has now become a moth-eaten piece of fabric. 
+Holes and cuts mar its intriguing design.  Studying the tapestry more
+carefull, you can make out depictions of enchanting, winged creatures and
+an array of bright colors along the design.
+~
+2154 9 1509949540 3 0
+-1
+S
+
+#74065
+Along a Weak and Decaying Branch~
+Several cracks have formed along the tan-colored branch here.  The bark
+covering part of the branch has been eaten away and only small pieces of
+it remain.  Portions of the branch have broken away leaving large gaps
+along its edge, further weakening it.  To the south, the branch forks out
+in different directions as it expands over the forest.  A wooden platform
+has been erected to the north of you around the tree.
+~
+~
+301465601 3 6 0
+D0
+~
+~
+0 -1 74052 10 10 5
+D2
+~
+~
+0 -1 74066 10 10 5
+E
+bark~
+The bark has become thin and light gray.  It has a soft texture and feels
+moist and pliable.
+~
+E
+gaps~
+Some of the gaps are as wide as a human foot, making it imperative that
+you watch your step along the branch.
+~
+E
+cracks~
+The cracks run almost the entire length of the branch.  Each crack is
+almost a centimeter wide.
+~
+E
+wooden platform~
+The platform is about fifteen feet diagonally across.  It consists of
+worn, wooden boards attached to several branches by some rusty nails.
+~
+-1
+S
+
+#74066
+Fork in the Weak and Decaying Branch~
+The branch forks off to the east and west from here, thinning out
+considerably as it spreads over the forest.  Bits of the bark from the
+branch have broken free, revealing tan wood riddled with termite
+holes.  Hanging from a few of the upper branches of the tree are the
+remains of small wooden platforms; now nothing more than rickety planks
+of wood.  Clearly visible off to the north a bit is a small wooden
+platform which has been built around the trunk of the tree.
+~
+~
+301465601 3 6 0
+D0
+~
+~
+0 -1 74065 10 10 5
+D1
+~
+~
+0 -1 74069 10 10 5
+D3
+~
+~
+0 -1 74067 10 10 5
+E
+bark~
+The tree's bark is dark brown.  On the edge of this branch, a part of the
+bark has been peeled off and shakes occasionally, as though it's ready to
+fall down at any moment.
+~
+E
+wooden platforms rickety planks~
+Small rectangular pieces of wood remain on various branches around here. 
+Most of the wooden planks are cracked and very worn-looking.  Some rusty
+nails have managed to keep them attached, although the planks still hang
+from the branches rather unsteadily.
+~
+A
+~
+~
+if( random( 1, 5 ) == 1 ) {
+  i = 2d5+10;
+  act_tochar( #plummet, ch );
+  act_notchar( #plummet1, ch );
+  transfer( ch, find_room( 74023 ) );
+  act_tochar( #land, ch );
+  act_notchar( #land1, ch );
+  dam_message( ch, i, "The terrible fall" );
+  inflict( ch, mob, i, "falling out of a tree" );
+  }
+~
+E
+plummet~
+@YAs you edge your way along the tree branch it suddenly breaks and sends
+you plummeting down to the forest floor!
+~
+E
+plummet1~
+@YAs $n edges $s way along the tree branch it suddenly breaks, sending
+him plummeting toward the forest floor!
+~
+E
+land~
+@YYour fall comes to abrupt halt as you finally slam into the hard forest
+floor with an echoing@n @R*THUMP*.@n
+~
+E
+land1~
+@YYou hear a loud snap above you and look up to see $n come plummeting
+down from the tree above coming to rest on the hard forest floor with an
+echoing@n @R*THUMP*@n
+~
+!
+1 0 11
+2152 9 1509949540 3 0
+-1
+S
+
+#74067
+Along a Weak and Decaying Branch~
+The branch beneath your feet constantly bends and quivers violently with
+every minute movement you make.  An army of termites scurry across the
+decaying bark of the branch, gnawing away at what little wood remains. 
+Throughout the leaves of the surrounding branches you notice that several
+spiders have made their home here; their delicate silken webs glistening
+when light breaks through the tree top and strikes them.  To the south
+the branch thins out considerably, becoming but a mere twig.  To the east
+the branch widens a bit as it reaches a fork in itself.
+~
+~
+301465601 3 6 0
+D1
+~
+~
+0 -1 74066 10 10 5
+D2
+~
+~
+0 -1 74068 10 10 5
+E
+army termites decaying bark~
+The bark continues to wither away as the multitude of tiny termites
+constantly eat through it.  They seem content with what they are doing
+and don't react to your presence.
+~
+E
+leaves spiders silken webs~
+Broad and dark green, the leaves grow abundantly all along the branches. 
+Intricately woven spider webs have formed among many of the leaves. 
+Their webs are fine yet sticky, having managed to ensnare a few insects
+within them.
+~
+A
+get take grab~
+army termites~
+act_tochar( #fail, ch );
+act_notchar( #nfail, ch );
+i = random( 3, 8 );
+if( find_stat( ch, dex ) < i ) {
+  act_tochar( #fall, ch );
+  act_notchar( #nfall, ch );
+  transfer( ch, find_room( 74022 ) );
+  dam_message( ch, 2d5+10, "the nasty fall" );
+  inflict( ch, mob, 2d5+10, "falling off a massive tree" );
+  act_notchar( #land, ch );
+  end;
+  }
+~
+E
+fail~
+@WYou attempt to take some termites, but they quickly elude your grasp.@n
+~
+E
+nfail~
+@W$n attempts to take some termites, but isn't quick enough to get
+them.@n 
+~
+E
+fall~
+@WSuddenly, you lose your balance on the branch!@n
+~
+E
+nfall~
+@WSuddenly, $n loses $s balance on the branch and slips off it!@n
+~
+E
+land~
+@W$n lands down from the tree above.@n
+~
+!
+0 0 0
+-1
+S
+
+#74068
+At the Edge of a Flimsy Branch~
+The branch here is fairly thin; averaging no more than seven inches
+across.  With every gust of wind that blows through the tree the branch
+sways and bends uneasily, as if at any moment it could snap beneath the
+weight of your body.  The foliage is quite thin along the surrounding
+branches, giving you a clear glimpse to the surrounding forest.  Through
+a gap in the leaves you spy a large waterfall pouring off a cliff to the
+southeast.  The branch extends to the north from here, heading back
+towards the trunk.
+~
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 74067 10 10 5
+E
+foliage leaves~
+Many dark green leaves grow along this branch and the branches above and
+around you, although not as abundantly as in other parts of the tree.
+~
+E
+waterfall cliff southeast~
+From this distance, the waterfall resembles a transluscent white veil
+that flaps quietly against the cliff.  A film of mist sprays from the
+cascading waterfall.
+~
+2152 9 1509949540 3 0
+-1
+S
+
+#74069
+Along a Weak and Decaying Branch~
+The branch thins out as it extends further south.  It seems to have a
+difficult time trying to support any weight as it sways gently when
+buffetted by a gust of wind.  Several scratches on the side of its bark
+appear to have come from below.  Judging by the location and small size
+of the scratches, they were probably caused by arrows hitting the branch
+from below.  The scratches along the branch reveal a light yellow-colored
+interior.  Broad leaves grow all along the branch, and many more blanket
+the area above you.  Some of the leaves are a yellow-green color and
+appear less than healthy.  The branch also looks passable westward.
+~
+~
+301465601 3 6 0
+D2
+~
+~
+0 -1 74070 10 10 5
+D3
+~
+~
+0 -1 74066 10 10 5
+E
+broad leaves~
+The leaves grow abundantly on the branches here and on the ones above you. 
+The leaves on this branch, however, appear to be losing their dark green
+color.
+~
+E
+bark scratches~
+The bark is rough and dark brown.  Moisture droplets can be seen all
+along the bark, as well as scratch and cut marks.  Most of the marks
+appear localized near the bottom edge of the branches.  The marks are
+tiny, probably only a centimeter in length, and not very deep.
+~
+-1
+S
+
+#74070
+At the Edge of a Flimsy Branch~
+You are on the thin tip of a dark gray branch of the great tree.  The
+branch doesn't appear able to support much weight on it and looks ready
+to break from any quick, sudden movements.  Many yellow-green leaves grow
+at its southern edge, drooping lazily to the ground below.  The ground
+looks pretty far from here, and you think it would be wise to maintain
+your balance as best you can to prevent any disastrous fall.  The branch
+thickens if you carefully move north.
+~
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 74069 10 10 5
+E
+southern edge yellow-green leaves~
+The leaves seem to have lost a lot of their green pigmentation.  Each is
+about the size of a human hand and grows densely at the southern tip of
+this branch.
+~
+E
+ground~
+Past the plethora of dark green leaves, you can make out the leaf-filled
+ground.  You are unable to see much of anything else that lies down
+there, however.
+~
+A
+jump~
+~
+act_tochar( #jump, ch );
+act_notchar( #njump, ch );
+send_to_room( #break, room );
+wait( 1 );
+loop( all_in_room ) {
+  if( is_player( rch ) ) {
+    transfer( rch, find_room( 74024 ) );
+    act_tochar( #fall, ch );
+    act_notchar( #nfall, ch );
+    dam_message( rch, 5d5+10, "the long fall" );
+    inflict( rch, mob, 5d5+10, "falling off a branch" );
+    interpret( rch, "sit" );
+    }
+  }
+~
+E
+jump~
+@CYou jump up and down on the branch.@n
+~
+E
+njump~
+@C$n jumps up and down on the branch.@n
+~
+E
+break~
+@CThe branch suddenly snaps from the pressure of the jump!@n
+~
+E
+fall~
+@CYou come falling down from the branch and land with a big @R*THUMP*@n
+~
+E
+nfall~
+@C$n comes falling down from the branch above and lands with a big
+@R*THUMP*@n 
+~
+!
+0 0 0
+2152 9 1509949540 3 0
+-1
+S
+
+#74071
+Within a Small Thatched Hut~
+Shattered fragments of book shelves and chairs lie in disorganized heaps
+all around this hut.  Their wooden parts have been mostly cracked and
+chewed away by termites.  Along the floor beside the fragile-looking
+walls of the room are layers of dried leaves and small twigs.  Blood
+drops seem to have soaked on some of them.  Judging by the thickness and
+moisture, the blood appears to have been spilled fairly recently.  A
+thatch door that barely hangs on its hinges lies to the south.
+~
+[Merior] this death is recent, other rooms indicate was a while ago - be
+consistent?
+[Olah] no gnomish corpse here tho, just shows that the cleric faerie who
+occupies this room has been up to no good with sacrifices or something
+weird 
+~
+301465605 0 6 0
+D2
+small thatch door~
+small thatch door~
+131 -1 74040 10 10 5
+E
+fragments shelves chairs wooden parts heaps~
+Splintered wooden bits of dusty shelves and small furniture have formed
+small hills around the floor of the hut.  Most of the wooden parts appear
+to have been smashed by weapons, as many cut marks can be detected.  An
+powerful force had undoubtedly passed by here to have been able to cause
+so much wreckage.
+~
+E
+floor layers dried leaves twigs~
+Much of the floor is covered in thin layers of maple, oak, and various
+other leaves from the trees outside.  They make a crunching sound
+whenever someone steps on them.  Small twigs lie upon and between the
+leaves as well.  Most of them have been snapped into shorter pieces.
+~
+E
+blood drops~
+The red blood marks are about a foot in diameter and appear fresh.
+~
+A
+search~
+floor leaves twigs~
+if( random( 1, 30 ) == 1 ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #found, ch );
+    act_notchar( #found1, ch );
+    obj_to_char( oload( 3236 ), ch );
+    }
+  }
+act_tochar( #nothing, ch );
+act_notchar( #nothing1, ch );
+~
+E
+found~
+@WYou search through the twigs and leaves scattered about the floor and
+discover a small doll covered in grime.
+~
+E
+found1~
+@W$n searches through the twigs and leaves scattered about the floor and
+discovers a small doll covered in grime.
+~
+E
+nothing~
+@WYou search through the twigs and leaves scattered about the floor of
+the hut but find nothing.
+~
+E
+nothing1~
+@W$n searches through the twigs and leaves scattered about the floor of
+the hut but finds nothing.
+~
+!
+0 0 0
+2157 9 1509949540 3 0
+-1
+S
+
+#74072
+Within a Small Thatched Hut~
+A dusty, cluttered bookshelf rests against the southern wall.  Many dried
+leaves line the edges of the shelf.  Leaves also carpet the moist ground,
+some of which lie in small piles as though providing the shoddily built
+hut with comfortable places to rest.  Lying against the western wall past
+several piles of leaves is a small bed in which only someone the size of
+a human child could fit.  Two of the legs on the bed are missing, causing
+the bed to tilt awkwardly.  A strong, pungent smell seems to originate
+from somewhere near the bed.  Set against the northern wall is a thatch
+door leading outside to the forest.
+~
+~
+301465605 0 6 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74040 10 10 5
+E
+dusty cluttered bookshelf southern~
+The dull gray wood of the shelves are crooked and splintered.  Layers of
+dust have settled along the edges of the wood.  Piles of leaves have also
+collected, making the shelf look more like a place to store leaves rather
+than a bookshelf.
+~
+E
+dried leaves piles ground shelf~
+Piles of red-green leaves lie scattered along the shelf and ground of the
+hut.  Most of the leaves are dry and crumble into tiny pieces when
+touched or stepped on.
+~
+E
+small bed western~
+Dust covers the crooked little bed at the corner of the hut.  The bed
+stands unevenly due to a missing pair of legs.  Its other two legs do not
+look to be in too fine a shape either, splinters and holes demonstrating
+their state of disrepair.  The bed's headboard seems to be in the best
+condition.  It is heart-shaped with a few scratches being its only
+blemish.
+~
+A
+search~
+bookshelf~
+act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+search~
+@WYou search the surface of the bookshelf but fail to find anything.
+~
+E
+search1~
+@W$n searches the surface of the bookshelf but fails to find anything.
+~
+!
+0 0 0
+A
+search~
+leaves~
+act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+search~
+@WYou search through the pile of leaves but find nothing.
+~
+E
+search1~
+@W$n searches through the pile of leaves but finds nothing.
+~
+!
+0 0 0
+A
+sit rest~
+bed~
+act_tochar( #cant, ch );
+~
+E
+cant~
+The bed looks too fragile for you to rest upon.
+~
+!
+0 0 0
+2158 9 1509949540 3 0
+-1
+S
+
+#74073
+Within a Small Thatched Hut~
+The putrid smell of decaying flesh fills the air of this small hut.  A
+long wooden table, covered in slabs of rotted meat and fish, rests along
+the length of the eastern wall.  A crude stone fireplace, covered in a
+thick layer of black soot, stands against the northern wall; a mound of
+half-burnt logs still visible within it.  Tucked into the northwestern
+corner of the room next to the fireplace is a small bed, suited for
+someone the size of the gnome.  Set into the southern wall is a small
+thatch door leading out of the hut.
+~
+table with decayed food on it as objects?
+[Merior] make some of the things - bed, table, etc objects so you can
+play with them, otherwise make them actions 
+[Olah] can't load a bed here without making it a totally new one cause
+will see the object descrip before the extra one 
+~
+301465605 0 6 0
+D2
+small thatch door~
+small thatch door~
+131 -1 74044 10 10 5
+E
+slabs rotted meat fish~
+Chewed up bits of decayed meat and trout litter the table and give off a
+very unpleasant odor.
+~
+E
+crude stone fireplace thick layer black soot northern wall~
+The fireplace is made of rectangular, rough gray stone that has been
+placed in a oval pattern.  Almost an inch of soot has collected within
+much of the neglected fireplace.
+~
+E
+mound half-burnt logs~
+The logs have started to collect dust here.  Their barks have the dark
+color similar to the trees outside.
+~
+E
+northwestern corner small bed~
+The little bed looks fluffy and soft, but its wooden legs appear fragile
+and ready to snap if enough enough force is exerted on it.
+~
+2157 9 1509949540 3 0
+1353 17 1509949540 -2 0
+-1
+S
+
+#74074
+Within a Small Thatched Hut~
+This small hut is completely barren save for a small mound of hay which
+has broken free from the walls and ceiling.  Most of the ceiling has
+fallen apart, leaving behind small sheets of thatch and the wooden beams
+they rest upon.  Lying partially buried beneath the dirt floor are
+several small plates and a few iron cups; each covered in large flakes of
+rust.  Set into the northern wall is a small thatch door which hangs
+loosely from the door frame due to busted hinges.
+~
+~
+301465605 0 6 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74044 10 10 5
+E
+mounds hay~
+Three foot tall hills of hay have collected in sporadic areas of this hut. 
+Mud and moisture have attached to the hay, causing it to appear darker
+and dirtier.
+~
+E
+walls~
+The walls are flimsy and contain many gaps.  A lot of straw and mud has
+fallen from them and collected into small mounds.
+~
+E
+ceiling sheets thatch wooden beams~
+The ceiling is virtually non-existent as only thatch and beams remain
+above.  Time and the elements must have taken their toll and stripped
+away the layers of thatch that once protected this hut.
+~
+E
+dirt floor~
+The floor is red-brown and slightly moist.  Parts of it are clumpy and
+covered in moss.
+~
+E
+plates iron cups flakes rust~
+The plates have lost all of their luster and no longer show the gloss of
+silver.  Dirt from the ground and several scratches also mar its surface. 
+Beside the plates are small iron cups that are chipped and dented.  The
+rims of the cup have been broken off into a V-like shape.  Rust has peeled
+off the cups and plates and litter the area around them.
+~
+A
+~
+plates iron cups flakes rust~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 9 ) == 7 ) {
+    act_tochar( #cup, ch );
+    act_notchar( #ncup, ch );
+    obj_to_char( oload( 1448 ), ch );
+    end;
+    }
+  }
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+cup~
+@WYou search through the plates and cups and find a cup that's still usable.@n
+~
+E
+ncup~
+@W$n searches through the plates and cups and takes a cup.@n
+~
+E
+nada~
+@WYou search through the plates and cups, but find nothing interesting.@n
+~
+E
+nnada~
+@W$n searches through the plates and cups, but finds nothing.@n
+~
+!
+9 0 0
+2158 9 1509949540 3 0
+-1
+S
+
+#74075
+Within a Small Thatched Hut~
+Piles of straw from the roof and walls have been dispersed along the
+earthen floor.  Leaves and over-turned tables and chairs rest awkwardly
+upon the straw piles.  One of the round wooden tables lies upside down
+and is stained with blood on each of its legs.  The chairs lie crookedly
+on the floor and against the straw walls, which have wide gaps and allow
+wind to pass through them.  Most of the gnome-sized chairs are missing
+legs and are split into smaller pieces.  A small door set against the
+southern wall leads to the outside.
+~
+~
+301465605 0 6 0
+D2
+small thatch door~
+small thatch door~
+131 -1 74037 10 10 5
+E
+piles straw earthen floor~
+Filthy piles of light brown straw lie strewn across the floor.  Most are
+stained in mud and give off an unpleasant odor.
+~
+E
+round wooden overturned tables blood~
+The tables appear to have been shoved violently as they lie unevenly upon
+the piles of straw.  Most have broken legs and contain marks probably
+made by spears and other weapons.  The legs of the upside down table are
+half-stained in dark red blood, which is still moist suggesting a recent
+struggle occurred here.
+~
+E
+gnome-sized chairs~
+The small chairs are made from a solid oak wood and made to be sat on by
+someone of small, humanoid stature.  Each has some blemish to it, such as
+broken legs, armrests, chips, cuts, or cracks.
+~
+E
+walls~
+The walls look flimsy with many gaps here and there.
+~
+E
+leaves~
+Broad, red leaves blown in from the outside cover parts of the floor.
+~
+2157 9 1509949540 3 0
+-1
+S
+
+#74076
+Within a Small Thatched Hut~
+Broken furniture, ranging from chairs to tables, litters the earth floor
+of this small hut.  The walls and ceiling of the hut are in a serious
+state of disrepair as several areas of the thatch give way to gaping
+holes.  Hanging from the western wall is a torn silk tapestry; its fine
+silk now threadbare and covered in grime.  Resting in the southeast
+corner of the room, propped up between the walls is a dwarf-sized
+skeleton covered in a grey moss.  A small door set into the northern wall
+leads out of the hut.
+~
+~
+301465605 0 6 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74037 10 10 5
+E
+broken furniture chairs tables~
+Chopped up wooden boards clutter the floor.  Each has been broken up
+into smaller bits and stained in blood.
+~
+E
+earth floor~
+The floor is covered with a lot of debris, but you can make out its
+red-brown color and its moist, but hard texture.
+~
+E
+walls~
+The thatch walls look flimsy, almost unable to support the weight they
+carry.  Holes can be found up and down the walls.
+~
+E
+ceiling~
+Bits of straw hang loosely from the ceiling above.  Wide gaps can be seen
+all across the roof, probably accounting for some of the moisture on the
+floor.
+~
+E
+torn silk tapestry~
+This once fine tapestry depicting some sort of tranquil landscape has now
+become a barely recognizable piece of fabric.  Splotches of a sickly
+green substance dot the thin silk, and parts of its edges have been
+chewed away.  The cut pieces of the tapestry droop downward, revealing
+holes and the thatch wall behind them.
+~
+E
+southeast dwarf-sized skeleton grey moss~
+The skeleton sits hunched over in the corner of the hut.  It appears to
+be of a short humanoid.  On the back of its round skull, which droops to
+the side, are several holes the size of a small blade of grass.  Some
+clumps of a grey moss grow along the arm and leg bones, indicating that
+the skeleton's owner probably died a long time ago.
+~
+2158 9 1509949540 3 0
+-1
+S
+
+#74077
+Within a Small Thatched Hut~
+This small hut seems relatively undisturbed; all of the furniture is
+intact and neatly set about the room.  Resting in the northeast corner of
+the room is a small bed barely large enough to fit a dwarf-sized man.  A
+large walnut bookcase stands against the western wall, covered in bits of
+moldy hay and some green slime.  Lying in the northwest corner of the
+room are the decomposing remains of a small gnome; his greyish-colored
+skin covered in old bruises and blood stains.  A small thatch door,
+riddled with gaps in its straw, has been set into the southern wall.
+~
+[Merior] if room is so long disused, shouldnt decomposing gnome have lost
+his skin?
+~
+301465605 0 6 0
+D2
+small thatch door~
+small thatch door~
+131 -1 74043 10 10 5
+E
+bed~
+This small bed is made up of a soft straw mattress covered in now
+moth-eaten velvet blankets.  The blankets are covered in dirt and grime,
+testament to the disuse they have fallen into.  At the top of the bed is
+a small duck feather pillow which is covered in dried blood stains.
+~
+E
+walnut bookcase~
+This beautiful carved bookcase is made from the finest walnut you have
+ever laid eyes on.  Along its sides are carvings depicting gnomes
+frolicking in happy abandon.  Along its shelves are tiny bits of torn
+paper, the only visible remains of the books which at one time sat here. 
+Bits of moldy hay rest along the top of the bookcase, emanating a foul
+stench.  An unidentifiable green slime has also collected atop the
+bookcase which slowly drops down its sides.
+~
+E
+decomposing remains gnome~
+This small gnome seems to have met a horrible death as his
+greyish-colored skin is scarred with many black and blue bruises.  Large
+open gashes cover his torso and head, still containing small pockets of
+blood.  Most of his skull is intact except for its center which has been
+crushed by some tremendous force.
+~
+2157 9 1509949540 3 0
+-1
+S
+
+#74078
+Within a Small Thatched Hut~
+Broken pieces of furniture that would fit someone of gnome-sized stature
+lie scattered on the dirt floor.  Numerous leaves have collected on the
+furniture, most likely having fallen through the large gaps in the straw
+roof of the hut.  At one end of the hut is a pile of cracked skulls with
+spear marks around them.  The skulls reveal that their small humanoid
+owners had been brutally bludgeoned, stabbed, and charred.  A small door,
+dotted with small holes, lies to the north and leads to the outside.
+~
+~
+301465605 0 6 0
+D0
+small thatch door~
+small thatch door~
+131 -1 74043 10 10 5
+E
+broken pieces furniture~
+Scattered wooden pieces of arm rests, legs of chairs and tables, and
+crushed wooden boards litter the floand.  The furniture pieces have been
+smashed and violently ripped apart.  A fandce as powerful and destructive
+as a tandnado must have gone through this hut to have wreaked so much
+havoc here.
+~
+E
+dirt floor~
+The floor is a little moist, but still firm.  Although cluttered with a
+lot of junk, you can make out its red-brown color.
+~
+E
+leaves~
+The leaves lie in thin layers all across the room.  They are broad,
+red-green, and most are still soft and moist.  They must have fallen
+through the gaps along the hut and accumulated gradually.
+~
+E
+large gaps straw roof~
+The gaps along the roof range from several inches to a few feet in width.
+~
+E
+pile cracked skulls~
+Most of the skulls look fairly old.  The jaws are no longer connected to
+most of them, and you can see holes and gashes on almost all of them. 
+Black, warped marks can be detected along the forehead and sides of some
+of the skulls as well.
+~
+A
+search~
+pile cracked skulls~
+act_tochar( #search, ch );
+act_notchar( #search1, ch );
+~
+E
+search~
+@WYou search through the pile of cracked skulls but find nothing.
+~
+E
+search1~
+@W$n searches through the pile of cracked skulls but find nothing.
+~
+!
+0 0 0
+2158 9 1509949540 3 0
+-1
+S
+
+#74079
+Shadowy Forest - Before a Dense Wall of Thorns~
+Rising up before you to the south is a massive wall of sharp thorns, each
+dripping a gooey black substance which sizzles as it hits the ground. 
+Lying at the base of the thorn wall are several small piles of bone
+fragments, no more than an inch long.  Small sets of what appear to be
+animal tracks have been imprinted into the dark, damp soil beneath your
+feet, heading off to the north.  On either side of you, the trees of the
+forest have grown so close together as to block travel in those
+directions.  To the north a dense wall of vegetation dangles from the
+tree branches above.
+~
+[Terek] Either Walk through em or cut em down
+Bones are sprite bones
+north is 74023, south is 74080 
+[Olah] get hurt if going south and/or if south isn't open by thorns?
+~
+301465601 3 9 0
+D0
+~
+~
+235 -1 74023 10 10 5
+D2
+~
+~
+235 -1 74080 10 10 5
+E
+1 south massive wall sharp thorns gooey black substance~
+Growing in a rectangular configuration to the south is a wall of thorny
+branches.  The gray and brown branches extend over ten feet from the
+ground.  They resemble long, bony fingers with sharp fingernails.  Thorns
+as round as a spool and as sharp as a needle jut out from the branches. 
+Dripping slowly, but continuously, from them is a thick, black substance. 
+The substance is viscous and opaque, although you can see a few air
+bubbles in it.
+~
+E
+ground sets animal tracks soil~
+You can see animal tracks on the moist brown soil.  They seem to come from
+south past the wall of thorns and head toward the north.
+~
+E
+base piles bone fragments~
+The bones are ghostly white and thin as a needle.  Some of the bones have
+been snapped into even tinier pieces.  Miniature humanoid skulls rest on
+top of the bone piles.
+~
+E
+side trees~
+Towering trees grow closely to the sides of the trail.  Their trunks are
+as round as the bellies of six well-fed dwarves, and their leaves as
+plentiful as ants in an anthill.
+~
+E
+1 north dense wall vegetation branches~
+To the north are numerous vines and dense shrubs.  The vines form a thick
+curtain.  Some of them have even grown long enough to curl their way
+around the dense shrubs.
+~
+A
+hack chop cut clear~
+1 north vegetation branches~
+if( is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( !is_open( room, north ) ) {
+act_tochar( #chop, ch );
+act_notchar( #chop1, ch );
+Wait( 3 );
+act_tochar( #chop2, ch );
+act_notchar( #chop3, ch );
+Wait( 3 );
+act_tochar( #finish, ch );
+act_notchar( #finish1, ch );
+open( room, north );
+}
+~
+E
+chop~
+@WYou begin to hack away at the dense vegetation to the north, hoping to
+cut a path through it.
+~
+E
+chop1~
+@W$n begins to hack away at the dense vegetation to the north, hoping to
+cut a path through it.
+~
+E
+chop2~
+@WYou continue to slash away at the thick vines and entangled branches
+although your efforts seem in vain.
+~
+E
+chop3~
+@W$n continues to slash away at the thick vines and entangled branches
+although $s efforts seem in vain.
+~
+E
+finish~
+@WJust when you think you cannot chop anymore you strike a tremendous blow
+which knocks nearly all the vegetation away, revealing a dim path where
+the vegetation just stood.
+~
+E
+finish1~
+@WSweat beads from $n's brow and $e looks extremely tired but just as it
+looks as though $e is going to pass out $e strikes a tremendous blow upon
+the thick vines which knocks nearly all the vegetation away revealing a
+~
+E
+open~
+The vegetation has already been cut away.
+~
+!
+0 0 0
+A
+hack chop cut clear~
+1 south wall thorns~
+if( is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( !is_open( room, south ) ) {
+  i = 1d5+5;
+  act_tochar( #cut, ch );
+  act_notchar( #cut1, ch );
+  dam_message( ch, i, "The sharp thorns" );
+  inflict( ch, mob, i, "bleeding to death" );
+  Wait( 3 );
+  act_tochar( #cut2, ch );
+  act_notchar( #cut3, ch );
+  open( room, south );
+  }
+~
+E
+open~
+The wall of thorns to the south has already been cut down.
+~
+E
+cut~
+@WYou begin to cut away the massive wall of thorns to the south all the
+while cutting your hands on the sharp thorns.
+~
+E
+cut1~
+@W$n begins to cut away the massive wall of thorns to the south all the
+while cutting $s hands on the sharp thorns.
+~
+E
+cut2~
+@WFinally you place a final blow against the wall of thorns causing it to
+drop to the ground, revealing a small trail to the south.
+~
+E
+cut3~
+@WFinally $n places a final blow against the wall of thorns causing it to
+drop to the ground, revealing a small trail to the south.
+~
+!
+0 0 0
+-1
+S
+
+#74080
+Shadowy Forest - Silent Path~
+This small dirt trail is covered with several thousand multi-colored
+leaves.  The trees lining the edge of the path are a mixture between the
+black trees which dominate the forest and some healthy-looking oak trees
+whose bark is a rich brown color.  A gentle breeze blows through the path
+here causing the trees to bend and sway gracefully yet no sound issues
+forth from them as they tap each other.  To the north, a dense wall of
+gleaming black thorns has formed, while to the south, the path continues
+unhindered.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+235 -1 74079 10 10 5
+D2
+~
+~
+0 -1 74081 10 10 5
+E
+multi-colored leaves~
+Leaves of varying hues and color patterns have fallen into scattered
+heaps along the trail.  Most are red and brown, but some are yellow,
+orange, or striped in purple.
+~
+E
+trees~
+Dominating the area are immense trees, whose branches form an extensive
+net-like canopy above you.
+~
+E
+1 north dense wall gleaming black thorns~
+Many dark gray branches have formed a multi-layered barrier to the north. 
+Needle-sharp thorns menacingly protrude from the branches.
+~
+A
+cut hack chop clear~
+1 north wall thorns~
+if( is_open( room, north ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( !is_open( room, north ) ) {
+  i = 1d5+5;
+  act_tochar( #cut, ch );
+  act_notchar( #cut1, ch );
+  dam_message( ch, i, "The sharp thorns" );
+  inflict( ch, mob, i, "bleeding to death" );
+  Wait( 3 );
+  act_tochar( #cut2, ch );
+  act_notchar( #cut3, ch );
+  open( room, north );
+  }
+~
+E
+open~
+The wall of thorns to the north has already been cut down.
+~
+E
+cut~
+@WYou begin to cut away the massive wall of thorns to the north all the
+while cutting your hands on the sharp thorns.
+~
+E
+cut1~
+@W$n begins to cut away the massive wall of thorns to the north all the
+while cutting $s hands on the sharp thorns.
+~
+E
+cut2~
+@WFinally you place a final blow against the wall of thorns causing it to
+drop to the ground, revealing a small trail to the south.
+~
+E
+cut3~
+@WFinally $n places a final blow against the wall of thorns causing it to
+drop to the ground, revealing a small trail to the south.
+~
+!
+0 0 0
+-1
+S
+
+#74081
+Shadowy Forest - Silent Path~
+Hundreds of large walnuts have been scattered about the leaf-covered path
+here, crunching silently as you step across them.  The remains of a white
+marble bench lie just off the path to the south; now overgrown with thick
+ivy vines.  Above you the tree tops sway gently in the slight breeze,
+causing bits of light to occasionally reach the forest floor.  The path
+continues to the north and east from here, among the silence of the trees.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 74080 10 10 5
+D1
+~
+~
+0 -1 74082 10 10 5
+E
+walnuts~
+The hard, rough, brown-black shells of walnuts the size of human eyeballs
+lie strewn across the ground.  Most have been cracked into smaller
+pieces, and their soft insides lie rotting.
+~
+E
+1 south white marble bench ivy vines~
+What was once a smooth white bench made of marble lies covered in vines
+to the south of you.  One of the arm rests has fallen off the side of the
+bench, and you notice many cracks along its seat and legs.
+~
+A
+~
+walnuts~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  if( random( 1, 3 ) == 2 ) {
+    act_tochar( #walnut, ch );
+    act_notchar( #nwalnut, ch );
+    obj_to_char( oload( 1136 ), ch );
+    end;
+    }
+  }
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+walnut~
+@WYou search through the walnuts and take one that's still in edible
+condition.@n
+~
+E
+nwalnut~
+@W$n searches through the walnuts and takes one of them.@n
+~
+E
+nada~
+@WYou search through the walnuts but don't find any worth taking.@n
+~
+E
+nnada~
+@W$n searches through the walnuts but doesn't take any.@n
+~
+!
+9 0 0
+3247 17 1509949540 -2 0
+-1
+S
+
+#74082
+Shadowy Forest - Silent Path~
+Almost hidden amongst the overgrowth around you, you notice several large
+statues carved in the form of gnomish warriors dressed for battle.  Time
+and weather have taken their toll on the statues; many of them are
+missing arms, and several slabs of stone have been chipped away.  Thick
+ivy vines have grown over just about everything along the path here
+including the trees, allowing no light to reach this part of the trail. 
+To the east a massive waterfall can be clearly seen pouring off a cliff,
+yet no sounds issue forth from the raging water.
+~
+[Merior] was this once a gnomish spot?
+~
+301465600 3 9 0
+D1
+~
+~
+0 -1 74083 10 10 5
+D3
+~
+~
+0 -1 74081 10 10 5
+E
+overgrowth~
+An abundance of shrubs, bushes, and ferns grow to the side of the path. 
+The large number of plants and their close proximity make it difficult to
+move through them.
+~
+E
+statues gnomish warriors~
+Eroded statues of gnomes stand behind the overgrowth.  Each is about four
+feet tall and give a scornful-looking yet proud pose.  Bird droppings
+cover the gray stone statues, and oddly enough, make the expressions on
+each statue look even more irked.
+~
+E
+ivy vines~
+Long, leafy vines drape over the branches on the trees above.  They seem
+to continually curl up and down, blocking most the light from above.
+~
+E
+trees~
+The trees tower over you.  Their thick, rough trunks and long, twisting
+branches dominate the view around you.
+~
+E
+1 east massive waterfall cliff water~
+You can spot a clear waterfall to the east.  Its sheen glistens, and a
+light mist flows from it.  No detectable sounds can be heard from the
+cascading water.
+~
+A
+clean clear~
+statues~
+act_tochar( #statue, ch );
+act_notchar( #nstatue, ch );
+~
+E
+statue~
+@WYou attempt to clean the statue but soon realize that it's too
+difficult to do.@n 
+~
+E
+nstatue~
+@W$n attempts to clean the statue but fails.@n
+~
+!
+0 0 0
+-1
+S
+
+#74083
+Shadowy Forest - Before a Shimmering Waterfall~
+Cascading down off a rocky cliff face to the east is a magnificent
+waterfall of crystal clear water.  At the base of the cliff is a large
+clear pool of water surrounded by pearly-white stones where the waterfall
+deposits its liquid.  The trees surrounding the trail have spaced out
+quite a bit, allowing small rays of sunlight to shine in, reflecting off
+the mist of the waterfall and creating a beautiful rainbow.  Next to the
+pool of water are several small white marble benches, allowing travellers
+a place to rest a moment.  To the west the trail continues back into the
+dense forest.
+~
+[Terek] Enter Waterfall
+~
+301465601 3 9 0
+D1
+~
+~
+235 -1 74084 10 10 5
+D3
+~
+~
+0 -1 74082 10 10 5
+E
+pool water liquid base pearly-white stones~
+This pool of crystal clear water is ringed by several pearly-white stones
+which hold the water back.  Glistening at the bottom of the water are
+several shiny objects which appear to be just within reach.  Occasionally
+you can see a small golden-colored fish swim through the water and than
+dart into a dark hole along the bottom.
+~
+E
+waterfall~
+The splendid waterfall deposits liquid that is nearly transparent.  The
+liquid glistens and sparkles in a kaleidoscope of colors.  Remarkably,
+the falling water doesn't make the splashing sounds that you would expect.
+~
+E
+1 east rocky cliff face~
+The cliff rises many hundred feet above you.  Bits of its tan-colored
+rock have eroded away, but it still retains a rough, rugged texture.
+~
+E
+trees~
+Immense trees grow off the trail here.  However, they are separated a
+little further here than in other parts of the forest, so they don't
+appear to dominate the view around you quite as much.
+~
+A
+search~
+pool water liquid~
+if( !is_player( rch ) )
+  end;
+if( is_player( rch ) ) {
+  if( random( 1, 15 ) == 1 ) {
+    if( rflag( reset0, room ) ) {
+      remove_rflag( reset0, room );
+      act_tochar( #coin, ch );
+      act_notchar( #coin1, ch );
+      obj_to_char( oload( 16 ), ch );
+      end;
+      }
+    }
+  }
+else {
+  act_tochar( #no, ch );
+  act_notchar( #no1, ch );
+  }
+~
+E
+coin~
+@YYou search through the cool water of the pool and grab hold of a small
+platinum coin which was resting at its bottom.
+~
+E
+coin1~
+@Y$n searches through the cool water of the pool and grabs hold of a
+small platinum coin which was resting at its bottom.
+~
+E
+no~
+@YYou search through the cool water of the pool but fail to find anything.
+~
+E
+no1~
+@Y$n searches through the cool water of the pool but fails to find anything.
+~
+!
+0 0 0
+A
+enter go~
+waterfall~
+act_tochar( #jump, ch );
+act_notchar( #jump1, ch );
+transfer( ch, find_room( 74084 ) );
+act_notchar( #appear, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 2 );
+  }
+~
+E
+jump~
+@CYou take a running start and jump through the raging waterfall.
+~
+E
+jump1~
+@C$n takes a running start and jumps through the raging waterfall.
+~
+E
+appear~
+@CWater splashes all over you as $n comes flying through the waterfall,
+drenched head to toe.
+~
+!
+0 0 0
+3249 17 1509949540 -2 0
+3249 17 1509949540 -2 0
+3249 17 1509949540 -2 0
+-1
+S
+
+#74084
+Behind a Shimmering Waterfall~
+The loud roaring of the waterfall to the west echoes around the smooth
+stone walls of this dark cavern.  Lying partially entombed beneath the
+stone floor are several humanoid skeletons; each covered in ages of dust. 
+Erected in the center of the room is a large stone altar composed of
+slabs of white marble.  Scattered about the surface of the altar are
+several handfuls of dried white flower petals which emanate a strong
+scent of honey.  Hammered into the walls with steel spikes are several
+white sconces; each containing a torch covered in several layers of
+cobwebs.  Mounds of large stones have been piled of against the eastern
+side of the cave, apparently from a cave-in which occurred some time ago.
+~
+~
+301465985 11 9 0
+D1
+~
+~
+235 -1 74085 10 10 5
+D3
+~
+~
+235 -1 74083 10 10 5
+E
+1 west waterfall~
+You can see the water flow down swiftly from behind its mist.  The gentle
+cascading looks so pleasant and inviting.
+~
+E
+1 east mounds stones~
+Huge mounds of stones lie to the east.  The brownish bits of rubble rest
+on top of one another in a sloped, tight formation.  However, they appear
+light enough to dig through.
+~
+E
+walls~
+The dark brown stone walls are dusty and smooth.
+~
+E
+floor~
+The floor contains several layers of dust.  None of the moisture from the
+waterfall seems to have made their way to the floor here.
+~
+E
+humanoid skeletons dust~
+The bones of short humanoid creatures rest in a small pile along the
+ground, apparently undisturbed for many years.  Filmy layers of dust have
+collected on the skeletons, and you notice scratch marks on the chest,
+shoulder, and leg bones of some of them.
+~
+E
+center altar~
+A decorated altar stands about a foot tall at the center.  It has a
+smooth marble basin which is probably used to place offerings in.
+~
+E
+flower petals~
+Pressed and wrinkled, the flowers must have been placed around the altar
+a few moons ago.  The sweet smell from the flowers give this room a
+somewhat pleasant feel to it.
+~
+E
+sconces torch cobwebs~
+The sconces are dusty, and the spikes used to hang them are tarnished. 
+The torches within them appear mostly used up, their last flames snuffed
+up long ago.
+~
+A
+enter go~
+1 west waterfall~
+act_tochar( #jump, ch );
+act_notchar( #jump1, ch );
+transfer( ch, find_room( 74083 ) );
+act_notchar( #appear, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 1 );
+  }
+~
+E
+jump~
+@CYou take a running start and than hurl yourself through the waterfall.
+~
+E
+jump1~
+@C$n takes a running start and than hurls $mself through the waterfall.
+~
+E
+appear~
+@CA blurry form can be seen behind the waterfall and suddenly $n comes
+flying through it, drenched head to toe.
+~
+!
+0 0 0
+A
+move clear dig~
+1 east mounds stones rubble~
+if( is_open( room, east ) ) {
+  act_tochar( #clear, ch );
+  end;
+  }
+if( !is_open( room, east ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #move1, ch );
+  open( room, east );
+  }
+~
+E
+clear~
+The mound of stone has already been cleared.
+~
+E
+move~
+@WYou carefully clear away enough of the large stones to reveal the
+entrance to a brightly-lit cave.@n
+~
+E
+move1~
+@W$n carefully clears away enough the large stones to reveal the entrance
+to a brightly-lit cave.@n 
+~
+!
+0 0 0
+-1
+S
+
+#74085
+Within a Brightly Lit Cavern~
+Several dozen blazing torches have been set into golden sconces all along
+the walls of this small cavern.  A small campfire rests in the center of
+the room, heating the room and lighting it brightly.  Scattered all about
+the cavern are small bedrolls and cooking utensils.  Painted across the
+walls are several large murals depicting an army of dark faeries in
+fierce combat with tiny sea sprites atop a sandy cliff.  Cut into the
+cavern's ceiling is a small vent hole from which a small amount of light
+enters.  A large mound of stone rubble lies against the western wall of
+the cavern.
+~
+[Terek] Rainbow Faeries are allies to the sea sprites, she came here
+[Terek] Looking for her sea-sprite friend who vanished and got attacked
+[Terek] And therefore its quest time.
+~
+301465601 11 9 0
+D3
+~
+~
+235 -1 74084 10 10 5
+E
+torches sconces~
+The semi-circular sconces are shiny gold and show little tarnish.  They
+are firmly set against the wall by steel rivets.  The torches burn
+brightly within the sconces.  Combined with the reflective material of
+the sconces, the torches seem to provide even more light to the room.
+~
+E
+walls murals~
+Bright colors have been used to depict various battles between small,
+winged faeries and sprites with webbed feet.  Most show the faeries
+victorious, smugly standing on top of the corpses of the defeated sprites.
+~
+E
+bedrolls cooking utensils~
+The bedrolls are made of a thin, blue fabric.  They look to be only able
+to fit someone shorter than a foot.  Beside the bedrolls are tiny spoons,
+forks, and bowls that still contain bits of food in them.  All of the
+utensils could fit in the palm of your hand.
+~
+E
+ceiling vent hole~
+The round hole in the ceiling looks to be the size of a halfling's finger. 
+It seems to be the main source of fresh air for this room.
+~
+E
+1 west mound stone rubble~
+To the west are brownish bits of rubble which rest on top of one another
+in a cone-like, tight formation.
+~
+A
+clear move dig~
+1 west mound stone rubble~
+if( is_open( room, west ) ) {
+  act_tochar( #clear, ch );
+  end;
+  }
+if( !is_open( room, west ) ) {
+  act_tochar( #move, ch );
+  act_notchar( #move1, ch );
+  open( room, west );
+  }
+~
+E
+clear~
+The mound of stone has already been cleared.
+~
+E
+move~
+@WYou carefully clear away the mound of stones, revealing the entrance to
+a dark cave.
+~
+E
+move1~
+@W$n carefully clears away the mound of stones, revealing the entrance to
+a dark cave.
+~
+!
+0 0 0
+A
+~
+~
+if( is_follower( ch ) )
+  end;
+if( !is_player( ch ) )
+  end;
+if( is_player( ch ) )
+  act_room( #enter, ch );
+~
+E
+enter~
+@WUpon entering the cave you immediatly notice a wounded rainbow faerie
+lying in a pool of her own blood upon the floor.  Her tiny body quakes
+and shivers as if afflicted with some type of poison.
+~
+!
+1 0 8
+64 9 1509949540 3 0
+1112 17 1509949540 -2 0
+-1
+S
+
+#0
+

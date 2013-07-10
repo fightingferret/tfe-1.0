@@ -1,0 +1,4301 @@
+#AREA
+Sos-kul~
+Ssstra Sssar Derna~
+~
+
+0 0
+0
+#ROOMS
+
+#30750
+West Gate of Sos-Kul~
+A large gate made of wood and bamboo, bound together with vines, is set
+into the western wall of a giant pallisade that appears to enclose the
+entire area.  A crudely constructed guard house stands to the north, while
+to the east, a simple, yet lively village opens up before you.  To the
+left of the pallisade gate is a large @Gcrank@n made from a log.  A
+narrow path runs along the side of the wooden pallisade just to the south.
+~
+*H
+~
+301465665 1 7 0
+D0
+guard house door~
+"guard house door" door~
+131 -1 30753 10 10 5
+D1
+'copper door' door'~
+'copper door' door'~
+0 -1 30751 10 10 5
+D2
+~
+~
+0 -1 30814 10 10 5
+D3
+pallisade gate~
+"pallisade gate" gate~
+195 -1 30752 10 10 5
+E
+1 west gate~
+The gate made from the trunks of several trees, and is set with a rather
+clever counter-weight arrangement which closes it when the crank is
+released.  
+~
+E
+crank~
+This rusty old crank is connected to a frayed rope, which runs through a
+pulley, and opens the gate.  It would seem that turning it might open the
+gate to the west.
+~
+A
+open~
+gate~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n trys to move the gate, but fails miserabely.
+~
+E
+char~
+You try and move the gate, but you just can't budge it.
+~
+!
+0 0 0
+A
+turn~
+crank~
+if( is_open( room, west ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, west );
+send_to_room( #rm, find_room( 30752 ) );
+}
+~
+E
+rm~
+The massive gate slowly opens.
+~
+E
+to_all~
+The gate opens without a sound.
+~
+E
+to_room~
+$n turns the crank.
+~
+E
+to_char~
+You turn the crank.
+~
+E
+nothing~
+Nothing happens.
+~
+!
+0 0 0
+A
+release~
+crank~
+if( !is_open( room, west ) )
+  send_to_char( #nothing, ch );
+else {  
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch, obj );
+  act_room( #to_all, ch, obj );
+  close( room, west );
+send_to_room( #oth, find_room( 30752) );
+}
+~
+E
+oth~
+The gate slams shut, with a bang that echos off into the swamp.
+~
+E
+to_all~
+The gate closes with a bang!      
+~
+E
+to_room~
+$n releases the crank.
+~
+E
+to_char~
+You release the crank.
+~
+E
+nothing~
+You push the lever, but nothing happens.
+~
+!
+0 0 0
+A
+~
+~
+wait( 2 );
+if( is_open( room, west ) ) {
+  send_to_room( #rm, room );
+  send_to_room( #oth, find_room( 30752) );
+  close( room, west );
+  }
+continue;
+~
+E
+oth~
+The gate slowly swings shut.
+ 
+~
+E
+rm~
+The massive gate slowly closes as you enter.
+~
+!
+1 1 8
+452 9 1509949540 3 0
+-1
+S
+
+#30751
+Sos-Kul Road~
+A path covered with crushed rock winds its way between two rows of huts
+that stand to the north and south.  Judging from the simplicity and
+design of the small abodes, you get the impression that the road running
+between them is probably one of their greatest technicalogical
+achievements - and its not really much of a road!  A hut, built better
+than most, stands to the south and has several weapons leaning against
+its side.  An overgrown field of swamp grass lies to the north.
+~
+*H
+~
+301465664 1 8 0
+D1
+~
+~
+0 -1 30755 10 10 5
+D2
+~
+~
+0 -1 30754 10 10 5
+D3
+~
+~
+0 -1 30750 10 10 5
+E
+weapons~
+The weapons are all spears, of varying quality.
+~
+A
+10 rikeralpha~
+weapon spear~
+mob = mob_in_room( 456, find_room( 30754 ) );
+if( mob ) {
+  if( is_fighting( mob ) )
+    end;
+  obj_to_char( oload( 3005 ), ch );
+  act_notchar( #get, ch );
+  act_room( #keeper, ch );
+  send_to_room( #keep, find_room( 30754 ) );
+  transfer( mob, find_room( 30751 ) );
+  attack( mob, ch, 0d0, "bash" );
+  }
+~
+E
+get~
+$n gets one of the spears leaning against the southern building.
+~
+E
+keep~
+The weaponcrafter runs out the north door yelling something.    
+~
+E
+keeper~
+@bThe weaponcrafter comes running out yelling, '@GStop Thief!@b'
+~
+!
+0 0 0
+A
+~
+~
+if( !char_in_room( ch, find_room( 30751 ) ) ) {
+  if( mob_in_room( 456, find_room( 30751 ) ) )
+    transfer( mob, find_room( 30754 ) );
+  }
+~
+!
+2 0 0
+-1
+S
+
+#30752
+West Gate of Sos-Kul~
+The land around the swamps here is unusually dry and slightly elevated,
+providing a perfect place for the village which occupies it.  Obviously
+well-maintained and upkept, the pallisade surrounding the village to the
+east stands out against the decay and rot of the swamp you see in other
+directions.  A massive gate built from wood, bamboo, and thorny vines is
+set into the pallisade wall.  The wall itself continues north and south.
+~
+*H
+~
+301465609 1 6 0
+D0
+~
+~
+0 -1 30791 10 10 5
+D1
+pallisade gate~
+"pallisade gate" gate~
+195 -1 30750 10 10 5
+D2
+~
+~
+0 -1 30792 10 10 5
+D3
+~
+~
+0 -1 31022 10 10 5
+E
+gate 1 east~
+The gate made from the trunks of several trees looks crude but carefully
+constructed and could stand up against things a lot bigger than you.  
+~
+A
+knock bash bang tap~
+gate 1 east~
+if( !is_open( room, east ) ) {
+  if( reputation( ch, Stahl ) > 0 ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    open( room, east );
+    send_to_room( #arr, find_room( 30750 ) );
+    }
+  else {
+    send_to_char( #fail, ch );
+    act_notchar( #failed, ch );
+    }
+}
+else
+  send_to_char( #already!, ch );
+~
+E
+already!~
+How much more open do you want it?
+~
+E
+room~
+You watch as the gate slowly opens.
+~
+E
+failed~
+$n bangs on the gate.  After a minute a guard appears and scowls at
+$m.  You hear someone beyond shout "Go away, vermin ssscum!"
+~
+E
+fail~
+The gate guard peers between the bars at you and hisses. You hear
+someone on the other side say "Go away, vermin ssscum!!!"
+~
+E
+arr~
+You see a guard open the gate for someone on the outside.
+~
+E
+room~
+$n bangs on the gate.  After a minute a guard appears and looks $m
+over before going away again.   
+~
+E
+char~
+After a short time a guard appears on the other side of the gate and
+stares straight at you.  After a moment, he hisses, turns away and
+the gate begins to open.
+~
+!
+0 0 0
+A
+~
+~
+wait( 2 );
+if( is_open( room, east ) ) {
+  send_to_room( #rm, room );
+  send_to_room( #oth, find_room( 30750) );
+  close( room, east );
+  }
+continue;
+~
+E
+oth~
+The gate slowly swings shut.
+ 
+~
+E
+rm~
+The gate slowly closes as you exit Sos-kul.
+~
+!
+1 -1 2
+-1
+S
+
+#30753
+Guard House~
+Built from split logs, mud, and crude, rusty nails, this shack is very
+small.  So small, in fact, that it barely has room enough to stand in. 
+The only things within the ramshackle, wooden building are a few old,
+straw pallets.  This wooden hut has several holes along its west and
+south walls, through which you can see a large pallisage and gate.
+A small door to the south is the only exit from this cramped guard house.
+~
+~
+301465669 0 6 0
+D2
+guard house door~
+"guard house door" door~
+131 -1 30750 10 10 5
+E
+"straw pallet" pallet~
+Yes, they do appear to be straw sleeping pallets.
+~
+452 9 1509949540 3 0
+452 9 1509949540 3 0
+-1
+S
+
+#30754
+Weaponcrafter's Home~
+Put together for pieces of straw and large dollops of mud, this small hut
+does little but provide basic shelter.  The roof of the hut is sagging
+and looks like it leaks and the floor is a simple dirt floor.  The west
+and east side walls of the hut have smooth, clay walls.  A few murals,
+each depicting life in the swamp, have been painted upon the sun-baked
+white clay.  A few axes and spears rest atop a makeshift wooden counter. 
+They look fairly well-crafted and newly forged.
+~
+*H
+~
+301469767 0 6 0
+D0
+~
+~
+0 -1 30751 10 10 5
+E
+grindstone~
+This is a small, pedel-driven grindstone used to sharpen the stone and
+scale heads of axes and spears.  It may also be used to repair damaged
+weapons.  
+~
+456 9 1509949540 3 0
+3005 17 1509949540 -1 0
+3006 17 1509949540 -1 0
+3014 17 1509949540 -1 0
+3000 17 1509949450 -1 0
+3007 17 1509949515 -1 0
+3008 17 1509949490 -1 0
+3028 17 1509949540 -1 0
+-1
+S
+
+#30755
+Sos-Kul Road~
+A widening road, which is probably the only one Sos-kul sports, stretches
+from west to east here.  The surface of the road is covered in crushed
+rock.  Just off to the sides of the road stand two simple thatch and mud
+huts.  The northern hut has a carved totem pole standing outside of it. 
+The southern hut has a hide shield mounted to a stick standing beside it.
+~
+*H
+~
+301465673 1 8 0
+D0
+~
+~
+0 -1 30757 10 10 5
+D1
+~
+~
+0 -1 30873 10 10 5
+D2
+~
+~
+0 -1 30756 10 10 5
+D3
+~
+~
+0 -1 30751 10 10 5
+E
+structures~
+Both of the structures are in very good repair, considering the general
+nature of the town.  The one to the north is festooned with various
+pieces of equipment, while the one to the south has broken bits of armor
+hanging all over it.  
+~
+E
+armor~
+The are several pieces of cloth and hide armor, most of which are torn or
+broken.  
+~
+E
+equipment~
+Several pieces of old broken equipment lie in front of the building to
+the north.  
+~
+-1
+S
+
+#30756
+Armorer's Hut~
+The inside of this thatch and mud hut is in a state of total disarray. 
+Unfinished or incomplete pieces of armor litter the dirt floor, as do
+several loose scales and strips of hide.  A couple of simple wooden racks
+made from blackened stumps sit towards the back of the hut.  A few pieces
+of finished armor rest atop the stumps.  The hut has no door, just a
+doorway to the north.
+~
+*H
+~
+335024199 0 6 0
+D0
+~
+~
+0 -1 30755 10 10 5
+573 9 1509949540 3 0
+2180 17 1509949540 -1 0
+2001 17 1509949540 -1 0
+2021 17 1509949540 -1 0
+2080 17 1509949540 -1 0
+2041 17 1509949540 -1 0
+514 17 1509949465 -1 0
+2002 17 1509949465 -1 0
+2022 17 1509949465 -1 0
+2042 17 1509949465 -1 0
+2081 17 1509949465 -1 0
+2101 17 1509949465 -1 0
+1109 17 1509949540 -1 0
+-1
+S
+
+#30757
+Home of the Animal Speaker~
+Though the outside of this hut is made of mud and thatch, the inside has
+been lined with cloth.  A thick, green vine grows in abundance here,
+providing the room with natural ground cover.  Peeking out from between
+the vines, you can see several pairs of eyes.  Just outside of the hut,
+you can see a carved totem pole.  Mounted to its back is a sign.
+~
+why set to safe?  Has a specific aedit attack code for him, so I thought
+he was supposed to be killable.  Oh well, I switched it back to safe and
+currently derailed the attack until this is resolved.  -Talis
+*H
+~
+301473863 0 6 0
+D2
+~
+~
+0 -1 30755 10 10 5
+D5
+ground~
+~
+503 -1 30758 10 10 5
+E
+sign~
+Animals are our friends!
+~
+A
+~
+~
+end;
+act_room( #imm_note, ch );
+mob = mob_in_room( 571, room );
+if( !is_fighting( mob ) ) {
+  act_room( #atta, ch );
+  attack( mob, ch, 0d0, "charge");
+  interpret( mob, "bash");
+  }
+continue;
+~
+E
+atta~
+$n tries to attack one of the animals here.
+
+@bSpeaker to animals screams in rage and attacks $n.@n
+~
+E
+imm_note~
+This used to be trigger attack.
+It was removed when the room was made safe.
+~
+!
+0 0 0
+571 9 1509949540 3 0
+572 9 1509949540 3 0
+107 9 1509949540 3 0
+-1
+S
+
+#30758
+Sos-Kul Pet Farm~
+You are standing in a very spacious room.  The floors and walls are all
+sulphurous smelling rock that glows a soft red.  The heat here is nearly
+unbearable.  While you can see several shackles and chains laying limp on
+the floor, more than you can count are already occupied by innumerable
+creatures.  Yes, this is pet hell.
+~
+*H
+~
+301473863 1 8 0
+D4
+~
+~
+503 -1 30757 10 10 5
+118 9 1509949540 3 0
+1 9 1509949540 3 0
+107 9 1509949540 3 0
+196 9 1509949540 3 0
+-1
+S
+
+#30759
+A Lizardman Abode~
+This is a small, but comfortable hut, with a clean hard-packed clay
+floor, and sturdy walls.  The occupant has definitely put some time into
+this place.  The walls are smooth mud, painted elaborately with scenes of
+hunting and worship.  There is some crude wooden furniture here, a table
+and a few chairs.  In one corner is a pile of blankets and animal skins
+that functions as a bed.
+~
+*H
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 30873 10 10 5
+-1
+S
+
+#30760
+Sos-Kul Road~
+A road paved with crushed white rock curves gently, going east to west
+through the vilalge.  An elaborate building build of stone stands to the
+north, just off the road.  Outside its front, mounted atop two
+criss-crossed poles, are flowing banners of brightly dyed cloth.  A
+narrow, dirt path branches off of the paved road and passes between some
+huts to the south.
+~
+*H
+~
+301465673 1 8 0
+D0
+entrance to the home~
+"entrance to the home" north entrance~
+131 -1 30761 10 10 5
+D1
+~
+~
+0 -1 30763 10 10 5
+D2
+~
+~
+0 -1 30809 10 10 5
+D3
+~
+~
+0 -1 30873 10 10 5
+E
+north structure building~
+The building to the north is very elaborate for this village.  The mud
+that composes the walls has been smoothed and dyed a brilliant red.  
+~
+E
+building~
+This building is by far in the best condition you have seen in this
+entire town.  That, and the fact that there are two heads mounted on
+spikes convince you that someone important must live here.  
+~
+E
+heads~
+These two dead men must have commited a major crime, to rate a punishment
+like this.  
+~
+-1
+S
+
+#30761
+Warleader's Home~
+The ceiling and walls of this abode are built of thick, black stone,
+rather than mud or thatch like the rest of the village.  The floor, though,
+is still made of dirt.  Mounted to the walls are a cornucopia of weapons,
+banners, and hunting trophies.  A wide door is set into the northern wall. 
+An emblem of a strong and fierce lizardman is attached to its surface.
+To the south, through the open doorway, you can see a paved street.
+~
+*H
+~
+301465669 0 6 0
+D0
+wide door~
+wide door~
+407 452 30762 10 10 5
+D2
+outer entrance~
+"outer entrance" south outer~
+131 -1 30760 10 10 5
+E
+weapons~
+Along the west wall stand the the spears and axes of all the previous
+warleaders of Sos-Kul.  
+~
+E
+banners~
+The banners are made from various animal hides, which have been dyed and
+stained.  
+~
+E
+trophies~
+Most of the trophies appear to be severed body parts from fallen
+enemies.  
+~
+E
+walls~
+You can't see the walls.  There is too much stuff in the way!
+~
+A
+~
+2~
+if( random( 1, 6 ) < 2 ) {
+  if( !has_obj( 452, mob_in_room( 476, room ) ) ) 
+    obj_to_char( oload( 452 ), mob_in_room( 476, room ));
+  }
+~
+E
+busy~
+The hunter tells you '@bThe Warleader is too busy to see anyone.@n'
+~
+E
+ok~
+The hunter says '@bThe warmaster can see you now, but only for a moment.@n'
+~
+E
+badrep~
+The hunter says roughly '@bWe do not want you here.@n'
+~
+!
+2 10 0
+A
+~
+~
+close( room, north );
+continue;
+~
+!
+3 2 4
+A
+~
+~
+if( is_player( ch ) ) {
+  if( is_open( room, north ) ) {
+    if( done_quest( ch, 15 ) )
+      continue;
+    else {
+mob = mob_in_room( 476, room );
+act_tochar( #scr, ch, obj, mob );
+act_notchar( #rscr, ch, obj, mob );
+wait( 1 );
+      tell( mob, ch, #cant );
+      }
+    }
+  else
+    continue;
+  }
+else
+  continue;
+~
+E
+cant~
+I cannot let you into visit the warleader, not until you are ready.  You
+must prove yourself to me first by completing a minor task.
+~
+E
+scr~
+$N scrutinizes you, seemingly for the first time.
+~
+E
+rscr~
+$N scrutinizes $n, seemingly for the first time.
+~
+!
+3 0 1
+476 9 1509949540 3 0
+452 9 1509949540 3 0
+-1
+S
+
+#30762
+Warleader's Audience Chamber~
+This stone room is an audience chamber, of sorts.  Situated in the middle
+of the room is a polished stone seat carved into the shape of a rising
+skliss.  In a semi-circle on either side of the elaborate chair are
+several smaller, wooden chairs.  Rugs and tapestries woven from dried
+vines and grass hang from the walls.  The only way out of this chamber is
+through a wide door to the south.
+~
+*H
+~
+301465677 0 6 0
+D2
+wide door~
+wide door~
+407 -1 30761 10 10 5
+E
+chairs~
+They are normal wooden chairs.  Each one has a different tribe symbol,
+indicating that each tribe has one advisor to the warleader.  
+~
+E
+throne~
+This huge throne appears to have been carved from a single piece of
+basalt.  It has no decorations at all, since something this impressive
+apparently doesn't need any.  
+~
+A
+~
+16~
+send_to_room( "hiusdfdssdssds", room );
+~
+!
+6 16 0
+A
+open~
+door 1 south~
+open( room, south );
+act_tochar( "Ok.", ch );
+~
+!
+0 0 0
+479 9 1509949540 3 0
+415 17 1509949445 -2 0
+-1
+S
+
+#30763
+Sos-Kul Road~
+Sos-kul's only road continue's here, curving to the east and west.  Its
+surface has been covered in tiny bits of white rock, giving it a regal,
+almost sophisticated look that seems out of place so deep in the swamps. 
+The huts and tents which sprout up here and to the east are more like
+residences than places of business.  To the distant east you can see a
+well.
+~
+*H
+~
+301465665 1 8 0
+D1
+~
+~
+0 -1 30765 10 10 5
+D2
+~
+~
+0 -1 30764 10 10 5
+D3
+~
+~
+0 -1 30760 10 10 5
+-1
+S
+
+#30764
+A Lizardman's Home~
+This simple tent is a perfect example of the unassuming lives the
+lizardmen live.  The tent has been sewn from an amalgum of wild animal
+skins and the ground is jsut a dirt floor.  The walls of the tent are
+decorated with scences of hunting and unusual rituals.  Opening to the
+north, the tent's flaps have been permanently sewn open.
+~
+*H
+~
+301465669 0 6 0
+D0
+~
+~
+0 -1 30763 10 10 5
+E
+scenes~
+The paintings show lizardmen hunting fantastic creatures out of bad
+dreams and rituals of dance and disguise.
+~
+-1
+S
+
+#30765
+Sos-Kul Road~
+The crushed white rock paving the surface of the road here is starting to
+were thin, as though this part of the village sees more traffic than the
+others.  Continuing west to east, the road passes between two houses. 
+While the house to the south is just a basic, lizardman tent dwelling,
+the abode to the north is different.  The northern tent's outer surface
+is overgrown with dead vines.
+~
+*H
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30766 10 10 5
+D1
+~
+~
+0 -1 30768 10 10 5
+D2
+~
+~
+0 -1 30767 10 10 5
+D3
+~
+~
+0 -1 30763 10 10 5
+-1
+S
+
+#30766
+Abandoned House~
+The interior of this tent is in a state of decay.  The animal skins it
+has been sewn from have started to rot.  This seems strange, because
+otherwise, the abode is much more sophisticated than what you might
+expect a lizardman to have.  Within it are several pieces of well-crafted
+and finely polished pieces of furniture.  A few of the pieces of
+furniture have been overturned though, as if some type of struggle took
+place here.  The tent's falgs open out to the south, onto Sos-kul's only
+road.
+~
+*H
+~
+301465677 0 6 0
+D2
+~
+~
+0 -1 30765 10 10 5
+-1
+S
+
+#30767
+A Lizardman's Home~
+Though of simply design, this tent is quite functional and spacious.  It
+has been fashioned together from strips of hide and animal skins.  The
+ground is hard, packed earth that has been dusted clean.  Clearly half
+the floor is covered in a layer of straw.  In one corner of the tent, the
+straw is thicker and looks to have been used recently as a bed.
+~
+*H
+~
+301465677 0 6 0
+D0
+~
+~
+0 -1 30765 10 10 5
+-1
+S
+
+#30768
+West Side of Sos-kul Square~
+A large clearing, part of the village square, expands outward here.  This
+appears to be the western edge of it.  To the west, you can see the edge
+of a road paved with crushed bits of white rock.  A short, stone well
+lies just to the east, in the center of the square.  The entire clearing
+is hard packed earth that has been swept clean and kept free of weeds.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30815 10 10 5
+D1
+~
+~
+0 -1 30769 10 10 5
+D2
+~
+~
+0 -1 30816 10 10 5
+D3
+~
+~
+0 -1 30765 10 10 5
+-1
+S
+
+#30769
+Center of Sos-Kul Square~
+A large clearing of hard-packed earth spreads outward in all directions,
+serving as a square or meeting area for the village.  Directly in the
+middle of the square is a short stone @Gwell@n filled with murky water. 
+Off to the west and east a ways, you can see the village's only road; its
+surface, paved in crushed white rock, has a near gleam to it.  Standing a
+far distance to the north, you can see a shrine or temple built from
+white stone.
+~
+*well done by acodes.
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30772 10 10 5
+D1
+~
+~
+0 -1 30770 10 10 5
+D2
+~
+~
+0 -1 30771 10 10 5
+D3
+~
+~
+0 -1 30768 10 10 5
+A
+drink fill~
+well cup bottle vial waterskin wineskin chalice bucket bowl keg~
+if( !obj_in_room( 82, room ) )
+act_tochar( #cant, ch );
+else
+continue;
+~
+E
+cant~
+Until the well's small bucket is raised, that might be quite difficult.
+~
+!
+0 0 0
+A
+1 look~
+well~
+if( !obj_in_room( 82, room ) )
+act_tochar( #desc, ch );
+else
+act_tochar( #des2, ch );
+~
+E
+desc~
+The well looks mildly deep and its murky waters are far below the surface. 
+Built of stone, the short well has a wooden roof standing over it, along
+with a hoist for a bucket.  Currently, the bucket is down in the well.
+~
+E
+des2~
+The well looks mildly deep and its murky waters are far below the surface. 
+Built of stone, the short well has a wooden roof standing over it, along
+with a hoist for a bucket.  The bucket has been raised and rests on the
+edge of the well.
+~
+!
+0 0 0
+A
+raise turn crank lower~
+crank bucket well~
+if( obj_in_room( 82, room ) ) {
+act_tochar( #lower, ch );
+act_notchar( #rlower, ch );
+junk_obj( obj_in_room( 82, room ), 1 );
+}
+else {
+act_tochar( #raise, ch );
+act_notchar( #rraise, ch );
+obj_to_room( oload( 82 ), room );
+}
+~
+E
+lower~
+@gTurning the wooden crank, you lower the bucket down into the well.
+~
+E
+raise~
+@gYou turn the wooden crank, raising the bucket out of the well.@n
+~
+E
+rraise~
+@g$n turns the wooden crank, raising the bucket out of the well.@n
+~
+E
+rlower~
+@g$n turns the wooden crank, raising the bucket out of the well.@n
+~
+!
+0 0 0
+452 9 1509949540 3 0
+-1
+S
+
+#30770
+Sos-Kul Square~
+This is part of a large clearing of earthen ground that stretches to the
+north, west, and south, forming a meeting square for the village.  At its
+center, directly to the west, you can see a short stone well.  The ground
+slopes to the east and becomes a lot more moist and even muddy in several
+places.  The boggy swamp has started reclaiming the paved white road to
+the east.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30818 10 10 5
+D1
+~
+~
+0 -1 30778 10 10 5
+D2
+~
+~
+0 -1 30819 10 10 5
+D3
+~
+~
+0 -1 30769 10 10 5
+-1
+S
+
+#30771
+South Side of Sos-Kul Square~
+This large clearing of hard-packed earth has been carefully manicured and
+kept free of loose dirt.  As it extends to the north if forms a large,
+central area, which the village probably uses as a meeting grounds.  A
+roadway extends south from the square and leads towards a pallisade gate. 
+Dirently to the north, at the center of the town square, you can see a
+short stone well.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30769 10 10 5
+D1
+~
+~
+0 -1 30819 10 10 5
+D2
+~
+~
+0 -1 30773 10 10 5
+D3
+~
+~
+0 -1 30816 10 10 5
+-1
+S
+
+#30772
+North Side of Sos-Kul Square~
+This looks like the northern part of a vast clearing.  There is a small,
+unpaved road leading north from the square, which has heavy ruts carved
+into its hard-packed, earthen surface.  The road itself leads up to the
+doors of a shrine or temple built of white stone.  A stone well, barely
+waist high to a halfling, stands at the square's center to the south. 
+Other parts of the meeting grounds lies off to the west and east.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30775 10 10 5
+D1
+~
+~
+0 -1 30818 10 10 5
+D2
+~
+~
+0 -1 30769 10 10 5
+D3
+~
+~
+0 -1 30815 10 10 5
+572 9 1509949540 3 0
+-1
+S
+
+#30773
+South Gate Road~
+Weeds grow tall and wild around the edges of the road which extends south. 
+A wide path branches off of the road here and heads west while a much
+smaller pathway leads east.  To the north, you can see the village square. 
+The road going south halts abruptly before a gate set at the edge of
+encroaching swampland.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30771 10 10 5
+D1
+~
+~
+0 -1 30862 10 10 5
+D2
+~
+~
+0 -1 30774 10 10 5
+D3
+~
+~
+0 -1 30805 10 10 5
+-1
+S
+
+#30774
+The South Gate~
+A pallisade made of split logs forms a barrier around the village to the
+south, protecting it from harm.  A large gate is set into its middle.  A
+guard house rests up against the pallisade to the east, overlooking the
+gate.  Beside the gate, set into the pallisade wall, is a heavy mechanism
+with a @Gcrank@n.  Through small cracks between the logs, you can see the
+boggy swamp beyond.  The village of Sos-Kul opens up before you to the
+north.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30773 10 10 5
+D1
+"guard house door" door~
+"guard house door" door~
+1 -1 30788 10 10 5
+D2
+pallisade gate~
+"pallisade gate" gate~
+195 -1 30789 10 10 5
+E
+crank~
+This rusty old crank is connected to a frayed rope, which runs through a
+pulley, and opens the gate.  
+~
+A
+turn~
+crank~
+if( is_open( room, south ) )
+ send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, south );
+}
+~
+E
+to_all~
+The gate opens without a sound.
+~
+E
+to_room~
+$n turns the crank.  
+~
+E
+to_char~
+You turn the crank.
+~
+E
+nothing~
+Nothing happens.
+~
+!
+0 0 0
+A
+release~
+crank~
+if( !is_open( room, south ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch, obj );
+  act_room( #to_all, ch, obj );
+  close( room, south );
+}
+~
+E
+to_all~
+The gate closes with a bang!
+~
+E
+to_room~
+$n releases the crank. 
+~
+E
+to_char~
+You release the crank.
+~
+E
+nothing~
+The crank hasn't been turned.
+~
+!
+0 0 0
+A
+open~
+gate~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n trys to move the gate, but fails miserabely.
+~
+E
+char~
+You try and move the gate, but you just can't budge it.
+~
+!
+0 0 0
+452 9 1509949540 3 0
+-1
+S
+
+#30775
+The Path to the Holy Shrine~
+A small path stretches north from the village square of hard-packed earth
+that lies to the south.  Not a single weed, errant flower, or blade of
+grass clutters the small path.  It has the look of being religiously
+tended to.  The path is so well-traveled, though, that you cannot make
+out any tracks in the dusty trail.  At the end of of the pathway, to the
+north, stands an open air temple built of white stone.
+~
+*H
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30776 10 10 5
+D2
+~
+~
+0 -1 30772 10 10 5
+-1
+S
+
+#30776
+The Holy Shrine of Sst'rasa~
+This open stone temple is made from cut pieces of white stone.  At its
+heart stands a groved block of basalt that is clearly an altar of some
+sort.  Standing atop a pedestal of marble in an alcove to the eastern
+wall is a golden statue of a fierce lizardman.  A faint glow surrounds
+the statue and shoots forth from the alcove, illuminates the temple.  To
+the north, butressed up against the stone temple's open walls, stands a
+small hut made of mud and thatch.  A well-traveled road leads south from
+the temple into the village square.
+~
+*H
+~
+301465801 1 6 0
+D0
+stone door~
+"stone door"~
+131 -1 30777 10 10 5
+D2
+~
+~
+0 -1 30775 10 10 5
+E
+slab~
+This enormous basalt slab measures over seven feet long, by 4 feet wide. 
+It is obviously used for sacrifices, as there are several grooves cut
+into it, to channel the blood of the victim to the statue set in the
+wall.  
+~
+A
+disable~
+statue~
+if( obj_in_room( 390, room ) ) {
+  if( race( ch ) == lizardman ) {
+    if( find_stat( ch, piety ) > 100 ) {
+      act_tochar( #sin, ch );
+      act_notchar( #almost, ch );
+      end;
+      }
+    }
+  act_tochar( #whoops, ch );
+  act_notchar( #ouch, ch );
+  mob = mob_in_room( 449, room );
+  if( !mob )
+    mob = mload( 449, room );
+  attack( mob, ch, 0d0, "charge");
+  }
+continue;
+~
+E
+ouch~
+@bWhen $n grabs the statue, there is a thunderclap as an avatar of
+Sst'rasa appears to destroy the one who desecrated his shrine.  
+~
+E
+whoops~
+@bWhen you grab the statue, the spear it wields pricks your hand.
+@R
+A single drop of blood falls to the ground, and as it hits, there is a
+clap of thunder, as a HUGE lizardman explodes into being from nowhere!
+~
+E
+almost~
+$n starts to reach for the statue, but suddenly stops.
+~
+E
+sin~
+You start to reach to take the statue, but realize how much of a sin
+that would be, and stop yourself.
+~
+!
+0 0 0
+A
+disable~
+~
+if( is_fighting( ch ) )
+  send_to_char( #char, ch );
+else
+  continue;
+~
+E
+flee~
+You aren't fighting anyone.
+~
+E
+char~
+The power of Sst'rasa prevents you from leaving.
+~
+!
+0 0 16
+A
+disable~
+statue~
+send_to_char( #char, ch );
+~
+E
+char~
+You can't sacrifice Sst'rasa's statue to Sst'rasa.
+~
+!
+0 0 0
+A
+~
+~
+if( mob_in_room( 449, room ) ) {
+  if( !is_fighting( mob_in_room( 449, room ) ) ) {
+    send_to_room( #vanish, room );
+    send_to_room( #flash, room );
+    junk_mob( mob_in_room( 449, room ) );
+    }
+  }
+~
+E
+flash~
+@b@YThere is a flash of lightning in the distance.
+~
+E
+vanish~
+@bThe avatar raises his hands and cries out.  Moments later, he is struck
+by a blinding bolt of lightning.  When you can see again, all that
+remains is a cloud of smoke, and a charred circle on the ground.  
+~
+!
+4 1000 0
+390 17 1509949540 -2 0
+-1
+S
+
+#30777
+Home of the Shaman~
+This small thatch hut, which is being held together with a more than
+generous amount of mud, leads up against the walls of a white stone
+shrine to the south.  The interior of this hut is fulled with animal
+skins, skulls, and bones.  A variety of unusual, dried plants hang from
+the ceiling as well.  At the back of the room rest several bamboo cages
+containing thin, cowering animals.  The hut's floor is covered in straw;
+some of which has been piled up into a bed.
+~
+*H
+~
+301469765 0 6 0
+D2
+stone door~
+"stone door"~
+131 -1 30776 10 10 5
+E
+cages~
+These cages contain various small animals.  They huddle in the back of
+their prisons, and shiver fearfully.  
+~
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+You hear a plop, and something sizzles in the back of the room.
+~
+!
+2 50 0
+A
+~
+~
+send_to_room( #room, room );
+~
+E
+room~
+A small furry animal escapes from its cage, and almost makes it out of
+the room before the shaman catches it.
+~
+!
+2 50 0
+489 9 1509949540 3 0
+-1
+S
+
+#30778
+Sos-Kul Road~
+The road continues to the east and west from here.  On both sides of the
+road are rather poor looking houses.  The ground is very soft here, and
+many of the footprints that have been left behind have filled with ground
+water.  The ground continues to slope down to the east, becoming even
+wetter and more unstable.  
+~
+*H
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30779 10 10 5
+D1
+~
+~
+0 -1 30781 10 10 5
+D2
+~
+~
+0 -1 30780 10 10 5
+D3
+~
+~
+0 -1 30770 10 10 5
+-1
+S
+
+#30779
+A Broken Down Hovel~
+This house is little more than a collection of wooden planks and animal
+skins, which look like they might keep the rain out.  There is a pile of
+damp straw in one corner that is obviously used for sleeping.  Except for
+that, there is little else to the wooden shack.  It has no door, but
+through its doorway to the south you can see the road.
+~
+*H
+~
+335020101 0 6 0
+D2
+~
+~
+0 -1 30778 10 10 5
+D5
+wooden trapdoor~
+wooden trapdoor~
+431 62 30790 10 10 5
+-1
+S
+
+#30780
+Orphan's Hut~
+This simple mud and thatch hut has several holes in its ceiling.  Puddles
+of water collect along the dirt floor from a recent rain.  The hut has no
+door or barrier blocking its northern entrance.  Piles of straw have been
+lumped together into makeshift pallets all along the back of the hut.  A
+battered wooden chest that has no lid stands between two of the straw
+sleeping mats.
+~
+The orphans of the village live here. k
+*H
+~
+335020101 0 6 0
+D0
+~
+~
+0 -1 30778 10 10 5
+E
+mats~
+The small bags filled with swamp grasses serve as a sleeping mat for the
+orphans who live here.
+~
+575 9 1509949540 3 0
+575 9 1509949540 3 0
+575 9 1509949540 3 0
+575 9 1509949540 3 0
+-1
+S
+
+#30781
+Sos-Kul Road~
+Though a road stretches from the west to the east, as it progresses, it
+becomes less of a road.  It starts out as being a road well-paved with
+bits of crushed white rock, but as it continues east, the road slants and
+most of the rock has been worn away.  The further east the village
+creeps, the more wet the ground gets.  Two decrepit abodes stand just off
+the road to the north and south.
+~
+*H
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30782 10 10 5
+D1
+~
+~
+0 -1 30784 10 10 5
+D2
+~
+~
+0 -1 30783 10 10 5
+D3
+~
+~
+0 -1 30778 10 10 5
+-1
+S
+
+#30782
+A Miserable Little Shanty~
+This little shack looks like a nice, healthy gust of wind is all that it
+would take to send it into the hereafter.  The ceiling has several holes
+in it and the ground is very moist.  While the shack's bottom is lined
+with straw, it does little to absorb the dampness.  A single, overturned
+chair is the shack's only piece of furniture.  From the amount of mold
+growing upon the chair and straw, it is very likely that this place has
+been abandoned for quite some time.
+~
+*H
+~
+335020101 0 6 0
+D2
+~
+~
+0 -1 30781 10 10 5
+-1
+S
+
+#30783
+Homely Home~
+Though the outside of this abode is ramshackle and decrepit, the interior
+of this place has a comfortable elegance to it.  There are several pieces
+of handmade furniture situated about the one-room house, as well as a
+small firepit and a large rock that functions as a table.  in one corner
+of the home is a neat pile of soft straw.  The owner of this home has
+made the most of the materials on hand in the swamp.
+~
+*H
+~
+335020101 0 6 0
+D0
+~
+~
+0 -1 30781 10 10 5
+574 9 1509949540 3 0
+-1
+S
+
+#30784
+Sos-Kul Road~
+The road coursing like a river from the west to east ends here, in front
+a pallisade gate to the east.  The ground is wet and boggy; the swamp is
+trying very hard to reclaim this part of the village it appears.  A muddy
+path branches from the roads end and heads south.  To the north is a
+run-down building.  The door has been torn off its hinges and the place
+looks abandoned.
+~
+*H
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30849 10 10 5
+D1
+~
+~
+0 -1 30785 10 10 5
+D2
+~
+~
+0 -1 30846 10 10 5
+D3
+~
+~
+0 -1 30781 10 10 5
+-1
+S
+
+#30785
+The East Gate of Sos-Kul~
+A pallisade of wood stands to the east, protecting the village from both
+predation and invasion.  The ground is very wet and frothy.  An old,
+small tent built of animal hides stands to the north, and to the west,
+the village opens before you.  At the side of the gate, there is a
+wooden @Gcrank@n, which looks to open the gate.
+~
+*H
+~
+301465665 1 8 0
+D0
+"guard house door" door~
+"guard house door" door~
+1 -1 30786 10 10 5
+D1
+pallisade gate~
+"pallisade gate" gate~
+195 -1 30787 10 10 5
+D3
+~
+~
+0 -1 30784 10 10 5
+E
+crank~
+This rusty old crank is connected to a frayed rope, which runs through a
+pulley, and opens the gate.  It would seem that turning it might make the
+gate open to the east.
+~
+A
+open~
+gate~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+~
+E
+room~
+$n trys to move the gate, but fails miserabely.
+~
+E
+char~
+You try and move the gate, but you just can't budge it.
+~
+!
+0 0 0
+A
+turn~
+crank~
+if( is_open( room, east ) )
+ send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch );
+  act_room( #to_all, ch );
+  open( room, east );
+}
+~
+E
+to_all~
+The gate opens without a sound.
+~
+E
+to_room~
+$n strains at the crank, slowly opening the gate.
+~
+E
+to_char~
+Using all your strength you turn the crank.
+~
+E
+nothing~
+Nothing happens.
+~
+!
+0 0 0
+A
+release~
+crank~
+if( !is_open( room, east ) )
+  send_to_char( #nothing, ch );
+else {
+  send_to_char( #to_char, ch );
+  act_notchar( #to_room, ch, obj );
+  act_room( #to_all, ch, obj );
+    close( room, east );
+}
+~
+E
+to_all~
+The gate closes with a bang!
+~
+E
+to_room~
+$n releases the crank.
+~
+E
+to_char~
+You release the crank.
+~
+E
+nothing~
+You push the lever, but nothing happens.
+~
+!
+0 0 0
+-1
+S
+
+#30786
+Hunter's Tent~
+A single shaft of splintering wood supports this tent of sewn animal hide. 
+The flaps of the tent have been tied open, leaving a clear southern view
+of the pallisade gate.  On the floor of the tent, a strange pattern has
+been etched in the dirt.  A few painted rocks and sticks lie within the
+etched pattern.
+~
+*H
+~
+335020101 0 6 0
+D2
+"tent flap" flap~
+"tent flap" flap~
+1 -1 30785 10 10 5
+E
+pattern~
+The pattern is three interlocking circles surrounded by a larger circle. 
+Three colored rocks rest in the three circles.
+~
+E
+game~
+The game is a pattern of three interlocking circles surrounded by a
+larger circle.  Three colored rocks sit in the three inner circles.
+~
+452 9 1509949540 3 0
+452 9 1509949540 3 0
+-1
+S
+
+#30787
+Outside the East Gate~
+A tall wooden pallisade wraps around a village which lies to the west. 
+You can see parts of it through the spaces between its logs.  A large
+gate is set directly in the center of the pallisade walls here. 
+Spreading outward to the east and south lies a vast lake.  Several rocks
+clutter the ground.  The rocks look like they were dug out someplace else
+and placed here to provide a standing surface off of the lake.
+~
+*H
+~
+301465608 3 9 0
+D0
+~
+~
+0 -1 31070 10 10 5
+D1
+~
+~
+0 -1 31021 10 10 5
+D2
+~
+~
+0 -1 31043 10 10 5
+D3
+pallisade gate~
+"pallisade gate" gate~
+195 -1 30785 10 10 5
+A
+knock bash bang tap~
+gate 1 west~
+if( !is_open( room, west ) ) {
+  if( reputation( ch, Stahl ) > 0 ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    open( room, west );
+    send_to_room( #arr, find_room( 30785 ) );
+    }
+  else {
+    send_to_char( #fail, ch );
+    act_notchar( #failed, ch );
+    }
+}
+else
+  send_to_char( #already!, ch );
+~
+E
+already!~
+How much more open do you want it?
+~
+E
+room~
+You watch as the gate slowly opens.
+~
+E
+failed~
+$n bangs on the gate.  After a minute a guard appears and scowls at
+$m.  You hear someone beyond shout "Go away, vermin ssscum!"
+~
+E
+fail~
+The gate guard peers between the bars at you and hisses. You hear
+someone on the other side say "Go away, vermin ssscum!!!"
+~
+E
+arr~
+You see a guard open the gate for someone on the outside.
+~
+E
+room~
+$n bangs on the gate.  After a minute a guard appears and looks $m
+over before going away again.   
+~
+E
+char~
+After a short time, a guard appears on the other side of the gate and
+stares straight at you.  After a moment, he hisses, turns away and
+the gate begins to open.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #wade, ch );
+act_notchar( #wader, ch );
+continue;
+~
+E
+wader~
+$n wades into the water to the north.
+~
+E
+wade~
+You wade into the water to the north.
+~
+!
+3 0 1
+A
+~
+~
+act_tochar( #wade, ch );
+act_notchar( #wader, ch );
+continue;
+~
+E
+wader~
+$n wades into the water to the south.
+~
+E
+wade~
+You wade into the water to the south.
+~
+!
+3 2 4
+A
+~
+~
+act_tochar( #wade, ch );
+act_notchar( #wader, ch );
+continue;
+~
+E
+wader~
+$n wades into the water to the east.
+~
+E
+wade~
+You dive into the lake to the east.
+~
+!
+3 1 2
+-1
+S
+
+#30788
+Guard House~
+Built from split logs, mud, and crude, rusty nails, this shack is very
+small.  So small, in fact, that it barely has room enough to stand in. 
+The only things within the ramshackle, wooden building are a few old,
+straw pallets.  This wooden hut has several holes along its west and
+south walls, through which you can see a large pallisage and gate.
+The guard house has no door; instead it lies open to the west.
+~
+The hunters need to hit harder..good armor soaks up 2d6+1 - S
+*H
+~
+301465669 0 6 0
+D3
+"guard house door" door~
+"guard house door" door~
+1 -1 30774 10 10 5
+452 9 1509949540 3 0
+452 9 1509949540 3 0
+-1
+S
+
+#30789
+Outside the South Gate~
+The south gate of Sos-Kul is not an impressive sight to behold.  The
+moss-covered stakes of wood used to form the outer defenses of the
+village are partially decayed and look to be in a general state of
+disrepair.  The gate itself looks to be the only part kept in good
+condition; it is made from hard wood reinforced with strong vines. 
+Rising above the gate is a pair of watchtowers with several arrow slits
+at various angles.  Several kinds of fungi climb up the wood, threatening
+to completely cover up the defense holes.  Paths slink away from the gate
+in every other direction.
+~
+put rextras on all of the key words in here
+*H
+~
+301465608 1 6 0
+D0
+pallisade gate~
+"pallisade gate" gate~
+195 -1 30774 10 10 5
+D1
+~
+~
+0 -1 30866 10 10 5
+D2
+~
+~
+0 -1 31020 10 10 5
+D3
+~
+~
+0 -1 30803 10 10 5
+A
+knock bang bash tap~
+gate 1 north~
+if( !is_open( room, north ) ) {
+  if( reputation( ch, Stahl ) > 0 ) {
+    send_to_char( #char, ch );
+    act_notchar( #room, ch );
+    open( room, north );
+    send_to_room( #arr, find_room( 30774 ) );
+    }
+  else {
+    send_to_char( #fail, ch );
+    act_notchar( #failed, ch );
+    }
+}
+else
+  send_to_char( #already!, ch );
+~
+E
+already!~
+How much more open do you want it?
+~
+E
+room~
+You watch as the gate slowly opens.
+~
+E
+failed~
+$n bangs on the gate.  After a minute, a guard appears and scowls at
+$m.  You hear someone beyond shout "Go away, vermin ssscum!"
+~
+E
+fail~
+The gate guard peers between the bars at you and hisses. You hear
+someone on the other side say "Go away, vermin ssscum!!!"
+~
+E
+arr~
+You see a guard open the gate for someone on the outside.
+~
+E
+room~
+$n bangs on the gate.  After a minute, a guard appears and looks $m
+over before going away again.   
+~
+E
+char~
+After a short time, a guard appears on the other side of the gate and
+stares straight at you.  After a moment, he hisses, turns away and
+the gate begins to open.
+~
+!
+0 0 0
+-1
+S
+
+#30790
+Beneath a Broken Down Hovel~
+This small room looks completely different from the broken down hovel
+just above.  The walls are cut from blocks of smooth, grey stone and the
+floor has been carefully tiled with tiny interlocking pentagonel ceramic
+pieces.  In addition to the fine craftsmanship of the walls and floor,
+this room houses an array of elegant furniture.
+~
+*H
+~
+335020101 0 9 0
+D4
+wooden trapdoor~
+wooden trapdoor~
+431 62 30779 10 10 5
+2184 9 1509949540 3 0
+-1
+S
+
+#30791
+Outside the Walls of Sos-Kul~
+You are on a path that follows the wall of Sos-Kul.  The wall to your
+east is composed of some kind of large thorny vine.  To the south, you
+can see a gate to the village, while the wall continues to the north. 
+~
+vine/wall rextra - D (possibly duplicate for every other room or
+something?) 
+~
+301465608 1 6 0
+D0
+~
+~
+0 -1 30828 10 10 5
+D2
+~
+~
+0 -1 30752 10 10 5
+D3
+~
+~
+0 -1 31087 10 10 5
+-1
+S
+
+#30792
+Outside the walls of Sos-Kul~
+You are following a strip of dry ground between the wall of the village
+and the swamp.  To the east, is an impenetrable wall composed of large
+thorny vines, while the swamp continues everywhere else.
+~
+~
+301465609 1 6 0
+D0
+~
+~
+0 -1 30752 10 10 5
+D2
+~
+~
+0 -1 30793 10 10 5
+D3
+~
+~
+0 -1 31086 10 10 5
+-1
+S
+
+#30793
+Outside the walls of Sos-Kul~
+The wall of thorns is looking a bit overgrown here.  There are long vines
+creeping out over the path which continues to the north and south.  To
+the south, you can see a large willow tree.
+~
+~
+301465609 1 6 0
+D0
+~
+~
+0 -1 30792 10 10 5
+D2
+~
+~
+0 -1 30794 10 10 5
+-1
+S
+
+#30794
+Outside the Walls of Sos-Kul~
+The vines here have grown so much that you have to fight through them to
+continue.  You finally make it past, but not without gaining some large
+scratches.  A path continues to the east and south around a large willow
+tree.  There is also a small path leading off to the west through some
+tall, mishapen plants.
+~
+rextras on various things in room desc - D
+~
+301465609 1 6 0
+D0
+~
+~
+0 -1 30793 10 10 5
+D1
+~
+~
+0 -1 30795 10 10 5
+D2
+~
+~
+0 -1 30825 10 10 5
+D3
+~
+~
+0 -1 25518 10 10 5
+A
+~
+~
+send_to_char( #char, ch );
+act_notchar( #room, ch );
+dam_message( ch, 1, "the sharp thorn" );
+inflict( ch, mob, 1, "the sharp thorn" );
+~
+E
+room~
+$n winces in pain.
+ 
+~
+E
+char~
+You feel a sharp pain in your side.
+ 
+~
+!
+1 -1 15
+-1
+S
+
+#30795
+Outside the Walls of Sos-Kul~
+The vines here are becoming overgrown and the wall is starting to
+encroach on the tree's space.  The wall continues west and south, while
+to the southwest you can see a large willow tree.  A pile of hemmed vines
+lies at your feet.
+~
+~
+301465609 1 6 0
+D2
+~
+~
+0 -1 30796 10 10 5
+D3
+~
+~
+0 -1 30794 10 10 5
+A
+~
+~
+if( mob_in_room( 540, room ) ) 
+send_to_room( #prune, room );
+~
+E
+prune~
+The child hacks at a large vine and it falls at your feet.
+~
+!
+2 25 0
+540 9 1509949540 3 0
+-1
+S
+
+#30796
+Outside the Walls of Sos-Kul~
+The thorny wall turns north here to avoid a large willow tree.  To the
+east, the thorns continue to protect the village.  A small path leads
+into the depths of the swamp to the south, crossing into a sandy path
+filled with bamboo plants.
+~
+~
+301465609 1 6 0
+D0
+~
+~
+0 -1 30795 10 10 5
+D1
+~
+~
+0 -1 30797 10 10 5
+D2
+~
+~
+0 -1 25545 10 10 5
+D3
+~
+~
+0 -1 30825 10 10 5
+-1
+S
+
+#30797
+Outside the Walls of Sos-Kul~
+The vines here are neatly trimmed, as if someone has been tending them. 
+You catch movement in the vines and catch a glimpse of a snake slithering
+inside the mass of vines.  The path you are walking on continues to the
+east and west.  To the south, a forest of bamboo stands somewhat aloof.
+~
+snake rextra - D
+aedit kill snake or something to that affect - D
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30798 10 10 5
+D3
+~
+~
+0 -1 30796 10 10 5
+-1
+S
+
+#30798
+Outside the Walls of Sos-Kul~
+The narrow path you have been following continues east and west.  In the
+distance to the west, you see a large tree.  The thorny vines which make
+up the wall of Sos-kul lies along the north edge of the path.  To the
+south, a line of bamboo plants rise into the air.
+~
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30799 10 10 5
+D3
+~
+~
+0 -1 30797 10 10 5
+-1
+S
+
+#30799
+Outside the Walls of Sos-Kul~
+You are following a narrow path around the vine walls of the village of
+Sos-Kul.  The wall is to your north, while the swamp stretches out to the
+south, edged by a line of bamboo shoots.  The path continues to the east
+and west along the wall.
+~
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30800 10 10 5
+D3
+~
+~
+0 -1 30798 10 10 5
+-1
+S
+
+#30800
+Outside the Walls of Sos-Kul~
+The path is starting to get wetter to the east, where you can see it
+disappear under a thin layer of mud.  To the east, you see the path Along
+the north side of the path, the wall of Sos-kul stretches to the east and
+west, while to the south, the swamp encroaches upon the path, ringed by
+several large clumps of bamboo.
+~
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30801 10 10 5
+D3
+~
+~
+0 -1 30799 10 10 5
+-1
+S
+
+#30801
+Outside the Walls of Sos-Kul~
+The path you are following is being reclaimed by the swamp here.  The
+ground is wet and muddy and makes slurping sounds as you wade through
+it.  To the north is the wall of vines and to the south is the swamp. 
+The path continues east and west.  
+~
+aedit random SLURP! :) - D
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30802 10 10 5
+D2
+~
+~
+0 -1 31140 10 10 5
+D3
+~
+~
+0 -1 30800 10 10 5
+-1
+S
+
+#30802
+Outside the Walls of Sos-Kul~
+The path is starting to get wetter here, as opposed to the east.  To the
+west, you see the path disappear under a thin layer of mud.  The wall of
+thorns is to your north and to the south is the swamp.
+~
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30803 10 10 5
+D3
+~
+~
+0 -1 30801 10 10 5
+-1
+S
+
+#30803
+Outside the Walls of Sos-Kul~
+You are following a narrow strip of dry ground between the wall of the
+village and the swamp.  The path and wall seem to continue forever to the
+east and west.  To the north is an impenetrable wall composed of large
+thorny vines, while to the south is the swamp.
+~
+~
+301465609 1 6 0
+D1
+~
+~
+0 -1 30789 10 10 5
+D3
+~
+~
+0 -1 30802 10 10 5
+-1
+S
+
+#30804
+Tight Path Through the Swamp~
+Thick vines and thistle have been beaten down, and meshed into the ground
+providing some semblance of a path.  Even while standing on the trampled
+vegetation your feet sink slightly into the swampy mud that these plants
+thrive in.  The path is just larger then two horses walking abreast and
+appears to have been made in the not so distant past.  The vines and
+plants thicken to the west, though the tight path you are on does
+continue in that direction, while to the east you break off onto the main
+trail around Sos-Kul.
+~
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 30831 10 10 5
+D3
+~
+~
+0 -1 30823 10 10 5
+E
+vines thistle vegetation plants~
+Intertwined vines and thistle are meshed together creating the walls that
+surround this plowed path.  The vegetation all appears to be quite
+healthy, thus the path you are on is in great danger of being overrun and
+consumed by the plants once again.
+~
+-1
+S
+
+#30805
+Wide Path at Boneshapers Hut~
+The inhabitants of this village might think of this wide path as a
+street, but it is little more than a stretch of ground cleared of rock
+and grass.  The road, which leads from north to south, passes between
+ramshackle huts and tents constructed from odds and ends.  Directly to
+the south stands a fairly large hut whose exterior framework is composed
+of pale bones bleached white from the sun.  Animal skins have been
+stretched tightly over the frame, turning the structure into a grisly
+style of tent.  A pathway continues onward to the west and east as well.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30816 10 10 5
+D1
+~
+~
+0 -1 30773 10 10 5
+D2
+~
+~
+0 -1 30824 10 10 5
+D3
+~
+~
+0 -1 30806 10 10 5
+-1
+S
+
+#30806
+Wide Path~
+The path looks to be well traveled, as it is hard packed and dusty.  As
+it stretches to the west and east, the path gently like a lazing anaconda. 
+Crude huts and tents stand on either side of the path.  The entrance to
+one such abode stands open to the north.  It is a small leather tent with
+a carved totem of hunted animals standing outside of it.
+~
+*H
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 30805 10 10 5
+D2
+~
+~
+0 -1 30820 10 10 5
+D3
+~
+~
+0 -1 30807 10 10 5
+A
+~
+~
+i = random( 1, 7 );
+if( i < 2)
+  act_tochar( #dust, ch );
+wait(1);
+if( i < 2)
+  interpret( ch, "sneeze");
+~
+E
+dust~
+The dust from the road gets in your nose.
+~
+!
+1 -1 10
+452 9 1509949490 3 0
+-1
+S
+
+#30807
+Wide Path~
+A wide pathway meanders gently from east to west here, cutting a path
+between the back of a hut and an open field.  The hut is a simple one,
+made of thatch and mud and has no entrance on this side.  The field, on
+the other hand, is more remarkable.  Jutting up out of the overgrown
+space of swampland stand the charred remains of some building.  Vines and
+grasses as tall as a dwarf coil about the structure like pythons claiming
+a juicy mouse for their own.
+~
+*H
+~
+301465664 1 9 0
+D1
+~
+~
+0 -1 30806 10 10 5
+D2
+~
+~
+0 -1 30821 10 10 5
+D3
+~
+~
+0 -1 30808 10 10 5
+-1
+S
+
+#30808
+Wide Path~
+A wide dirt path runs roughly east-west here, between two rows of simple
+mud and thatch huts.  A space just large enough to squeeze through lies
+bewteen two of the huts to the north.  Directly to the south stands an
+unusual structure of living vines.  There seems to be no way inside it
+from this vantage.  The canopy of greenery is dome-shaped and at least
+twenty feet tall.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30809 10 10 5
+D1
+~
+~
+0 -1 30807 10 10 5
+D3
+~
+~
+0 -1 30810 10 10 5
+E
+building south s so sou structure~
+The building is set up against the outer wall, in fact it is a part of
+the outer wall.  The vines that compose the outer wall have been woven
+into the shape of a large building.  You think you see an entrance to the
+west.  
+~
+-1
+S
+
+#30809
+Small Path Between Two Huts~
+This pathway connects the paved gravel road to the north with a wide dirt
+path to the south.  On either side of this narrow, connecting path stand
+tiny huts.  The huts are built so close together that there is litle or
+no space between them.  To the far south rises a domed structure composed
+of a canopy of green vines.
+~
+*H
+~
+301465665 1 6 0
+D0
+~
+~
+0 -1 30760 10 10 5
+D2
+~
+~
+0 -1 30808 10 10 5
+-1
+S
+
+#30810
+Path Before Living Building~
+To the south is an entrance to the most amazing structure you have ever
+seen.  It is a building with walls and roof of living vines.  The vines
+are well tended and look as if they had been woven together as they grew
+to make the building.  The path continues east and west.
+~
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 30808 10 10 5
+D2
+~
+~
+0 -1 30822 10 10 5
+D3
+~
+~
+0 -1 30811 10 10 5
+-1
+S
+
+#30811
+Wide Path~
+The path widens out here, to form a small meeting place.  There are
+benches along the south side of the path, centered around a small firepit. 
+A few lizardmen are resting on the benches while cooking the meat of some
+animal over a small fire.  A small foot path leads south to a sturdy
+looking stone hut.
+~
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 30810 10 10 5
+D2
+~
+~
+0 -1 30874 10 10 5
+D3
+~
+~
+0 -1 30812 10 10 5
+501 17 1509949540 -2 0
+-1
+S
+
+#30812
+Wide Path~
+The path flows between a mud hut to the north and a leather tent to the
+south.  The path looks well used, as there are many footprints in the
+dust.  To the west you can see a mass of vines that composes the outer
+wall, while the path continues to the east through a line of tents and
+huts.  
+~
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 30811 10 10 5
+D2
+~
+~
+0 -1 30817 10 10 5
+D3
+~
+~
+0 -1 30813 10 10 5
+-1
+S
+
+#30813
+Bend in Path~
+The path bends here since the outer wall does.  The path becomes narrow
+to the north, while to the east it widens out and continues for quite a
+while.  
+~
+[Cedric] crank "looks to open gate"
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30814 10 10 5
+D1
+~
+~
+0 -1 30812 10 10 5
+-1
+S
+
+#30814
+Narrow Path along the Wall~
+You are following a narrow path that flows between the wall on the west
+and the weaponcrafter on the east.  The thorny wall looks recently
+trimmed, as there is a large pile of cut off vines here.  
+~
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30750 10 10 5
+D2
+~
+~
+0 -1 30813 10 10 5
+E
+pile vines~
+You see a large pile of vines that have been cut off of the wall.  You
+think you see something move inside the pile.  
+~
+A
+move~
+vines pile~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #snake, ch );
+  mob = mob_in_room( 210, room );
+  if( mob )
+    attack( mob, ch, 0d0, "bite" );
+  else
+    mload( 210, room );
+  }
+~
+E
+snake~
+You move the pile of vines to the side, exposing a snake.
+~
+!
+0 0 0
+-1
+S
+
+#30815
+Northwest Corner of Sos-Kul Square~
+This is the northwest corner of the village's square.  The ground is
+nothing but hard-packed earth that has been swept clean of dirt and
+debris.  The border of the square is formed by an empty field to the
+north, and by a small hut to the west.  To the southeast stands a squat
+well of stone.
+~
+*H
+~
+301465665 1 5 0
+D1
+~
+~
+0 -1 30772 10 10 5
+D2
+~
+~
+0 -1 30768 10 10 5
+E
+west hut~
+You see a small hut made from mud and straw.  It looks relativly 
+unmaintained.  
+~
+-1
+S
+
+#30816
+Southwest Corner of Sos-Kul Square~
+This is the southwest corner of the village square.  To the northeast,
+you see the entire square of Sos-Kul, with a well in the center.  The
+corner of the village square is defined by the hut to the west, and a
+path to the south.  The path leading south is very wide and leads up to
+the threshold of a bone-white mud hut.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30768 10 10 5
+D1
+~
+~
+0 -1 30771 10 10 5
+D2
+~
+~
+0 -1 30805 10 10 5
+-1
+S
+
+#30817
+Leatherworker's Tent~
+The tent itself is constructed of an array of tanned skins of different
+and exotic kinds.  The fur was left on the inside, leaving the outside
+smooth and waterproof.  To one side hangs a great Gr'ulsk skin, fur
+glinting scarlet in the firelight which casts the rest of the tent into
+warm comfort.
+~
+they?  You don't have to do them now, but i would hope to see new
+interesting items in these shops.  Add them over time if you want? 
+Feelers removed.  -Kiian.
+~
+335024199 1 6 0
+D0
+~
+~
+0 -1 30812 10 10 5
+569 9 1509949540 3 0
+2123 17 1509949470 -1 0
+2080 17 1509949470 -1 0
+2001 17 1509949480 -1 0
+6 17 1509949490 -1 0
+20 17 1509949460 -1 0
+2180 17 1509949470 -1 0
+2021 17 1509949540 -1 0
+2041 17 1509949540 -1 0
+2101 17 1509949540 -1 0
+-1
+S
+
+#30818
+Northeast Corner of Sos-Kul Square~
+This looks to be the northeast most part of a large area of hard-packed
+dirt used as the village's meeting square.  A stone bench sits on the
+ground, offering its stony comfort to passerbys.  A dirt path extends
+from the village square and runs north while to the west and south lie
+other parts of the meeting grounds.  Southwest of here, you can see a
+short, stone well.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30851 10 10 5
+D2
+~
+~
+0 -1 30770 10 10 5
+D3
+~
+~
+0 -1 30772 10 10 5
+E
+bench~
+A plain stone bench.
+~
+508 9 1509949540 3 0
+501 17 1509949540 -2 0
+-1
+S
+
+#30819
+Southeast Corner of Sos-Kul Square~
+This looks to be the southeast corner of Sos-Kul's meeting square.  Its
+corner is defined by a lone orphan of a hut to the east and a field of
+mud too muddy and liquid to pass through to the south.  The village looks
+wetter the further east you go.  A short well constructed from grey stone
+stands directly in the center of the square, to the northwest.
+~
+*H
+~
+301465665 1 9 0
+D0
+~
+~
+0 -1 30770 10 10 5
+D3
+~
+~
+0 -1 30771 10 10 5
+A
+south | s~
+~
+act_tochar( #mud, ch );
+~
+E
+mud~
+You decide against wading through the mud, as there is a dry path to the
+west that goes in the same direction.  
+~
+!
+0 0 0
+-1
+S
+
+#30820
+Huntmaster's tent~
+This is where the people of the village come to barter for food caught by
+the hunters if they don't want to get their own.  This is also where the
+hunters can come to drop off their kills for cleaning.  
+~
+you need to add some "nice" and neat code in here for buying or trading
+food/else and for giving him dead animal corpses for him to
+"skin"/trade/barter for other corpses or to make skins (may want to use a
+cflag?) - D 
+~
+301469765 1 6 0
+D0
+~
+~
+0 -1 30806 10 10 5
+568 9 1509949540 3 0
+437 17 1509949540 -1 0
+-1
+S
+
+#30821
+Overgrown Field~
+As you walk around, you sink in mud and ooze.  You can see charred
+remains of a building that appears to have burnt down not too long ago. 
+It is covered in places by tendrils of swamp plants, though, as the swamp
+has begun to reclaim territory here inside the walls.
+~
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 30807 10 10 5
+-1
+S
+
+#30822
+Place of Visions~
+The inside of the tent is covered with cloth, as if the vines grew around
+a large tent.  In the center of the room is a small firepit, currently
+unlit.  There is a flap to the east hanging in the exit to a smaller
+room.  The surface of the tent has been painted with murals and writings
+depicting battles between men and fearsome creatures from the swamp,
+among other things.  
+~
+~
+301465669 1 6 0
+D0
+~
+~
+0 -1 30810 10 10 5
+D1
+~
+~
+0 -1 30827 10 10 5
+E
+murals writings~
+Upon looking closer you notice other details about the murals.  The
+battles depicted are historic battles telling of the founding of the
+village.  There are other murals telling of great hunts, and of the
+growing of the village wall.  One mural catches your eye, it depicts a
+great disaster, buildings toppling, ground sinking back into the swamp,
+and the formation of the lake that almost engulfed the village.  
+~
+A
+light~
+4 firepit pit~
+act_tochar( #no, ch );
+~
+E
+no~
+You bend down to light the firepit and the master of visions comes over
+and stops you saying '@b@GThe pit must only be lit during a ceremony.@n'
+
+~
+!
+0 0 0
+A
+2 list sell~
+~
+mob = mob_in_room( 579, room );
+if( mob_in_room( 579, room ) )
+tell( mob, ch, #no );
+else
+continue;
+~
+E
+no~
+I am not interested in buying or selling goods.
+~
+!
+0 0 0
+579 9 1509949540 3 0
+-1
+S
+
+#30823
+Tight Path Approaching a Towering Cliff~
+A large, towering cliff can be seen sporadically through the vegetation
+that surrounds the beaten path that you are traipsing down.  The cliff
+does not appear accessible currently due to the dense vegetation
+surrounding you, though it could possibley merge with the path further
+to the west.  The vines and thistle that have been matted down into the
+spongy ground appear to be regaining their strength and once again
+beginning to overgrow this twisting path.
+~
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 30804 10 10 5
+D3
+~
+~
+0 -1 30875 10 10 5
+E
+vegetation vines plants~
+Intertwined vines and thistle are meshed together creating the walls that
+surround this plowed path.  The vegetation all appears to be quite
+healthy, thus the path you are on is in great danger of being overrun and
+consumed by the plants once again.
+~
+E
+cliff~
+The cliff can only be seen in spots where the vegetation is slighty less
+sparse than the normal mesh.  The cliff is not far away from your
+position, though it may as well be on the other side of the world, for it
+would take quite a feat to reach it from this spot.
+~
+-1
+S
+
+#30824
+Boneshaper's Hut~
+This is the home of the boneshaper.  He creates useful objects out of
+bones brought back by the hunters.  He is evidently proud of his work, as
+there are many statues and other items carved from bone here.  
+~
+how about writing mob descs that exceed one single line?
+~
+301469767 1 5 0
+D0
+~
+~
+0 -1 30805 10 10 5
+567 9 1509949540 3 0
+429 17 1509949490 -1 0
+-1
+S
+
+#30825
+At Large Willow Tree~
+The wall of thorns grows around this area, giving a large willow tree
+room to grow.  The tree is very large and looks to be hundreds of years
+old.  Branches hang overhead.  Around the southern part of the tree,
+large bamboo shoots climb towards the sky.
+~
+branches/tree/willow rextras - D
+change "up" to climb tree? - D
+~
+301465609 1 6 0
+D0
+~
+~
+0 -1 30794 10 10 5
+D1
+~
+~
+0 -1 30796 10 10 5
+D4
+~
+~
+0 -1 30826 10 10 5
+-1
+S
+
+#30826
+In the Willow Tree~
+You are on a mass of branches in the willow tree.  The tree is teeming
+with life.  There are various kinds of animals up here.  You are unable
+to see through the countless branches which hang down, but below, the
+ground seems dangerously far away.
+~
+~
+301465609 1 6 0
+D5
+~
+~
+0 -1 30825 10 10 5
+420 9 1509949540 3 0
+215 9 1509949540 3 0
+-1
+S
+
+#30827
+Place of Visions~
+This is a small alcove off of the main room.  There is no roof here and
+you can see the sky.  There is a much larger firepit as well as some
+benches set here, making it seem very peaceful.
+~
+~
+301465665 1 6 0
+D3
+~
+~
+0 -1 30822 10 10 5
+A
+light | firepit fire pit~
+~
+act_tochar( #no, ch );
+~
+E
+no~
+You bend down to light the firepit and the master of visions comes over
+and stops you saying '@b@GThis pit is only used for large ceremonies.  If
+you wish to perform a ritual, use the firepit in the main room.@n' 
+~
+!
+0 0 0
+-1
+S
+
+#30828
+Outside the Walls of Sos-Kul~
+You are walking down a narrow path that runs between the wall of Sos-Kul
+and the K'ssk swamp.  The wall continues to the north, while to the south
+the path widens out.  
+~
+~
+301465608 1 6 0
+D0
+~
+~
+0 -1 30829 10 10 5
+D2
+~
+~
+0 -1 30791 10 10 5
+-1
+S
+
+#30829
+Outside the Walls of Sos-Kul~
+The path turns here to follow a curve in the outer wall.  Suddenly, you
+notice that what you thought was vines growing over a wall of some kind
+is really just a woven tangle of vines.  It seems that the vines
+themselves actually make up the wall of Sos-kul.
+~
+wall/vines rextra - D
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30830 10 10 5
+D2
+~
+~
+0 -1 30828 10 10 5
+-1
+S
+
+#30830
+Outside the Walls of Sos-Kul~
+The path you are following continues along the wall surrounding Sos-kul. 
+Opposite to the wall is K'ssk swamp.  You are unable to see over or
+through the mass of vines which make up the wall surrounding Sos-kul.
+~
+~
+301465608 1 6 0
+D0
+~
+~
+0 -1 30831 10 10 5
+D3
+~
+~
+0 -1 30829 10 10 5
+-1
+S
+
+#30831
+Outside the Walls of Sos-Kul~
+The swamp has cleared out to the north here allowing you your first
+glimpse of the tremendous cliff that rings the swamp valley to the north.
+A tight, twisting path has been plowed through the dense vegetation to
+the west.  From a glimpse, it appears that the cut through the vines and
+weeds leads directly to a soaring cliff.  To the south, Sos-kul stands
+like an island within the K'ssk swamp.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30832 10 10 5
+D2
+~
+~
+0 -1 30830 10 10 5
+D3
+~
+~
+0 -1 30804 10 10 5
+-1
+S
+
+#30832
+Outside the Walls of Sos-Kul~
+You are following a narrow path between the wall of Sos-Kul and the
+swamp.  The swamp looks impenetrable, with all the vines hanging between
+the trees.  
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30833 10 10 5
+D3
+~
+~
+0 -1 30831 10 10 5
+-1
+S
+
+#30833
+Outside the Walls of Sos-Kul~
+The path continues along between the swamp and the village wall.  A
+little to the east, the wall turns north for some reason.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30834 10 10 5
+D3
+~
+~
+0 -1 30832 10 10 5
+218 9 1509949540 3 0
+-1
+S
+
+#30834
+Outside the Walls of Sos-Kul~
+The wall turns north here for some unknown reason.  Maybe if you were on
+the other side of the wall you would know.  Unfortunately, you are unable
+to peek a view through the vine wall which protects Sos-Kul from the
+encroaching swamp.
+~
+~
+301465608 1 6 0
+D0
+~
+~
+0 -1 30835 10 10 5
+D3
+~
+~
+0 -1 30833 10 10 5
+-1
+S
+
+#30835
+Outside the Walls of Sos-Kul~
+The wall has become very straight to the east, running straight as an
+arrow for quite a distance.  To the south, the path appears to wind its
+way between the wall and the swamp.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30836 10 10 5
+D2
+~
+~
+0 -1 30834 10 10 5
+-1
+S
+
+#30836
+Outside the Walls of Sos-Kul~
+As you walk along, you notice that the swamp maintains a constant
+distance from the wall.  It's almost as if someone or something keeps
+this path trimmed back.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30837 10 10 5
+D3
+~
+~
+0 -1 30835 10 10 5
+-1
+S
+
+#30837
+Outside the Walls of Sos-Kul~
+The plants to the north are a little less dense here, allowing passage
+into the swamp.  To the south, the wall with its intertwining vine
+branches is just as inpenetrable as ever.
+~
+[Lansharra] impenetrable
+[Lansharra] impenetrable
+north to raiders
+~
+301465608 1 6 0
+D0
+~
+~
+0 -1 31172 10 10 5
+D1
+~
+~
+0 -1 30838 10 10 5
+D3
+~
+~
+0 -1 30836 10 10 5
+-1
+S
+
+#30838
+Outside the Walls of Sos-Kul~
+The wall on the south is neatly trimmed and woven, but on the north side,
+the same type of thorny vines are quickly overtaking the rest of the
+plant life in the swamp.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30839 10 10 5
+D3
+~
+~
+0 -1 30837 10 10 5
+-1
+S
+
+#30839
+Outside the Walls of Sos-Kul~
+The wall became extremely overgrown here at one point and managed to grow
+across the path.  Now you are walking down a trampled path between two
+walls of neatly woven vines.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30840 10 10 5
+D3
+~
+~
+0 -1 30838 10 10 5
+-1
+S
+
+#30840
+Outside the Walls of Sos-Kul~
+The vines that compose the wall have been neatly woven together here,
+almost like a basket.  As a consequence, they grow into each other
+instead of out and over the path.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30841 10 10 5
+D3
+~
+~
+0 -1 30839 10 10 5
+-1
+S
+
+#30841
+Outside the Walls of Sos-Kul~
+The wall has become very straight to the west, running straight as an
+arrow for quite a distance.  It also bends to the south here, enclosing
+Sos-Kul within its enormous vine walls.  The path trails along side the
+path in both directions.
+~
+~
+301465608 1 6 0
+D2
+~
+~
+0 -1 30842 10 10 5
+D3
+~
+~
+0 -1 30840 10 10 5
+-1
+S
+
+#30842
+Outside the Walls of Sos-Kul~
+The wall turns north here, and seems to have thickened a bit.  It is
+starting to look overgrown in areas, and could use a trim.  You can
+barely see a small hole burrowing underneath the wall to the west.
+~
+be sure to fix the room down from here! - D
+whoever this belonged to, it really needed work.  I touched it up just a
+bit to make it at least tollerable.  -Talis 
+~
+301465608 1 6 0
+D0
+~
+~
+0 -1 30841 10 10 5
+D1
+~
+~
+0 -1 30843 10 10 5
+D5
+~
+~
+234 -1 30845 10 10 5
+E
+hole~
+A small break in the wall where a little trickle of water snakes through
+the muck into the darkness beyond.  If you aren't against squirming
+through the mire on the ground you could probably squirm through the hole.
+~
+A
+enter go crawl 2 squirm~
+hole crack break~
+act_tochar( #ch, ch );
+act_notchar( #rm, ch );
+transfer( ch, find_room( 30845 ) );
+act_notchar( #arr, ch );
+~
+E
+rm~
+$n squeezes into the hole in the vines.
+~
+E
+ch~
+You squeeze into the hole, gaining a few scratches in the process. 
+~
+E
+arr~
+$n comes crawling in from the hole under the wall.
+~
+!
+0 0 0
+-1
+S
+
+#30843
+Outside the Walls of Sos-Kul~
+This is a narrow path that follows the wall of the village.  The swamp to
+your north looks dark and forbidding.  You can hear the swamp life moving
+around in there, but you can't see anything but trees and vines.  The
+path continues to the east and west.
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 30844 10 10 5
+D3
+~
+~
+0 -1 30842 10 10 5
+-1
+S
+
+#30844
+Outside the Walls of Sos-Kul~
+You are walking along a path that seems to follow the village wall of
+Sos-Kul.  The wall continues to the east and west.  In the distance to
+the east, you can see a mirror smooth lake.  
+~
+~
+301465608 1 6 0
+D1
+~
+~
+0 -1 31085 10 10 5
+D3
+~
+~
+0 -1 30843 10 10 5
+-1
+S
+
+#30845
+In a Den Within The Wall of Sos-Kul~
+You are in a small den that exists within the walls of Sos-Kul. 
+Apparently, some large animal has taken up residence here.  A small
+trickle of water runs straight through the middle of the den.  A hole in
+the wall apears to be the only means of exit.
+~
+water, den rextras - D
+aedit drink water - D
+aedit cli up or up - D
+i put a rudimentary action here...you need to fix it - D
+~
+301596684 1 4 0
+D4
+~
+~
+234 -1 30842 10 10 5
+E
+hole exit~
+A narrow break in the wall low to the ground.  To squeeze through it you
+would need to crawl through the muck that covers the floor.
+~
+A
+2 squeeze 2 squirm crawl go~
+1 up hole out exit~
+act_tochar( #climbing, ch );
+act_notchar( #rclimbing, ch );
+transfer( ch, find_room( 30842 ) );
+act_notchar( #arr, ch );
+~
+E
+climbing~
+You squeeze back through the hole in the wall, thoroughly covering
+yourself in the muck and mire in the process.
+~
+E
+rclimbing~
+$n squeezes back through the hole in the wall, getting $mself thoroughly
+covered in the muck and the mire in the process.
+~
+E
+arr~
+$n, completed soiled in dripping mire, comes squirming out of a hole in
+the wall.
+~
+!
+0 0 0
+15 9 1509949540 3 0
+-1
+S
+
+#30846
+Muddy Path~
+You are in a little muddy spot between the huts.  There are mud huts in
+all directions except north.  The huts are well made, and to the south
+the hut looks a little strange.  Looking closer you see the outside of
+the hut is straw, held close to the underlying mud with an old net.  
+~
+~
+301465665 1 8 0
+D0
+~
+~
+0 -1 30784 10 10 5
+D1
+~
+~
+0 -1 30847 10 10 5
+D2
+~
+~
+0 -1 30848 10 10 5
+-1
+S
+
+#30847
+Fisherman's Home~
+This is the home of one of the village fisherman.  Fish are an important
+source of food for the village, so this man is highly regarded within the
+tribe.  The fisherman is not here now, and must be out in the lake.
+~
+~
+335020101 1 6 0
+D3
+~
+~
+0 -1 30846 10 10 5
+-1
+S
+
+#30848
+Netmaker's hut.~
+This hut is very well made, with smoothed walls and a hard packed floor. 
+There are a few nets of varying sizes here, used for fishing and
+trapping.  The nets vary in size from small ones that could only catch a
+fish, to huge ones that could be strung through the swamp to catch
+passing animals.
+~
+~
+335020101 1 6 0
+D0
+~
+~
+0 -1 30846 10 10 5
+589 9 1509949540 3 0
+-1
+S
+
+#30849
+Run-down Building~
+Though constructed from sheets of wood and logs split in half, this abode
+has the look of long being abandoned.  Its only door has been torn off
+its hinges and hangs limply off the building's exterior just to the south. 
+If there were ever any furniture within the building, it has long been
+carried off.  The house has a definite slant to the north.  There is an
+adjacent chamber to the north that appears to be partly flooded with
+water.
+~
+*H
+~
+301465673 1 6 0
+D0
+~
+~
+0 -1 30850 10 10 5
+D2
+~
+~
+0 -1 30784 10 10 5
+E
+trash~
+Pieces of ripped paper and debris from the swamp that have blown in the
+open door.
+~
+E
+1 north~
+A plain wooden door.~
+-1
+S
+
+#30850
+Abandoned house~
+This is obviously the source of the smell in the house.  Parts of corpses
+in various states of decay are scattered about the room.  In the northen
+half of the room, the floor has fallen away to reveal a dark pool of
+water below.  The pool surface is moving as if from a current, or perhaps
+something moving in it.  
+~
+~
+335020109 1 6 0
+D2
+door~
+door~
+0 -1 30849 10 10 5
+E
+floor~
+The swamp has eaten away the floor supports and the northern section has fallen into a dark pool of water.
+~
+E
+pool~
+The pool of water in the north half of the room roils as if a current
+pushes it, or something is moving about just below the surface.  
+~
+E
+corpses~
+Parts of some unrecognizable animals are scattered about showing LARGE
+teethmarks in them.  
+~
+E
+1 south~
+A plain wooden door.~
+A
+~
+~
+if( !is_fighting( ch ) ) {
+  if( rflag( reset0, room ) ) {
+    junk_mob( mob_in_room(607, room ));
+    wait( 5 );
+    send_to_room( #critter, room );
+    mob = mload(607, room );
+    remove_rflag( reset0, room );
+    if( find_stat( ch, level ) < 90 )
+      attack( mob, ch, 4d4, "vicious bite");
+    end;
+    }
+  }
+~
+E
+critter~
+A monstrous crocodile explodes from the pool!!!
+~
+!
+1 0 4
+-1
+S
+
+#30851
+Dirt Path~
+This path leads off to the east through a maze of huts and tents.  There
+are tents inhabited by Lizardmen families along the path.  The families
+share a cooking fire in a ring of rocks set up between the tents.  
+~
+re-write
+[Rastralcaz] 2nd line Lizardmen -> Lizardman, I think.  Depends on your preference in grammar I believe.
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 30852 10 10 5
+D2
+~
+~
+0 -1 30818 10 10 5
+E
+fire~
+A small cooking fire is burning in a protective ring of stones between
+the tents.  A spit is set up for cooking over the fire.  
+~
+E
+tents~
+The tents along the path are the temporary structures common to the
+lizardmen.  They are made of skins of the Sosstas, large animals that eat
+the swamp plants.  Children play in and around the tents, and their
+parents go about the business of living.  
+~
+-1
+S
+
+#30852
+Dirt Path~
+The path bends to the north here.  To the north the path goes further
+into low areas, becoming muddy and squishy underfoot.  The town center is
+to the west and south along the path and there are tents along the path
+on the way there.
+~
+~
+301465664 2 9 0
+D0
+~
+~
+0 -1 30854 10 10 5
+D3
+~
+~
+0 -1 30851 10 10 5
+-1
+S
+
+#30853
+End of path~
+The path comes to an end here, in the middle of nowhere.  To the north,
+through the trees you can see the thorn wall.  There are trees about you,
+thinly clumped in the soft muddy ground.  
+~
+~
+301465664 3 9 0
+D1
+~
+~
+0 -1 30854 10 10 5
+E
+trees~
+The trees have dark, rough bark and gnarled branches.  The needles are
+flattened and sharp and hurt when brushed up against.  
+~
+107 9 1509949540 3 0
+-1
+S
+
+#30854
+Intersection Among Tents~
+You have come to an intersection in the paths that wind through the tents
+in this part of town.  There are few tents here, and the trees grow
+closer together.  To the north you can just make out the village wall
+past the tents and trees.
+~
+tents?  what tents?  describe them perhaps, rather than have them pop out
+of nowhere.
+~
+301465664 3 9 0
+D1
+~
+~
+0 -1 30859 10 10 5
+D2
+~
+~
+0 -1 30852 10 10 5
+D3
+~
+~
+0 -1 30853 10 10 5
+107 9 1509949540 3 0
+-1
+S
+
+#30859
+Dirt trail~
+There are no more tents here and no citizens pass by the area, as if
+something scares them away. The path continues east and west from here. 
+To the south is a door that is an entrance to what might be a small hut. 
+Small creatures flit from tree to tree just out of your vision.  You feel
+like you are being watched.
+~
+~
+301465664 3 9 0
+D1
+~
+~
+0 -1 30860 10 10 5
+D2
+door~
+door~
+131 -1 30861 10 10 5
+D3
+~
+~
+0 -1 30854 10 10 5
+-1
+S
+
+#30860
+Muddy Shore~
+The path you have been following ends here at a pool of water.  Across
+the water you see the outer village wall rising up through the pool.  Not
+many people have set up tents around here, probably due to the moistness
+of the ground.  
+~
+~
+301465664 3 9 0
+D3
+~
+~
+0 -1 30859 10 10 5
+E
+wall~
+Across the water you can see a thorny mass of plants grown together to
+form a wall.
+~
+E
+pool~
+A pool of muddy water lies before you.  It roils occasionally like
+something swim about under its surface.
+~
+A
+east e~
+~
+send_to_char( #e, ch );
+~
+E
+e~
+You quickly get lost in the trackless trees.  You wander for a few
+minutes under the dark branches as the trees seem to mock you.  Suddenly,
+you stumble out of the trees onto the very same spot you left and count
+yourself lucky.
+~
+!
+0 0 0
+-1
+S
+
+#30861
+A Small Hut~
+This small hut is cluttered with junk, various odds and ends collected by
+an obvious packrat.  A small table sits in the corner of the room with
+some strange device made of pulleys and strings on it.  There is a
+sleeping pallet in another corner.  The only exit is the door to the
+north.
+~
+It is hard to justify or imagine an old lizardman's hand attacks doing
+that much damage.
+*H
+*H
+~
+301465665 0 6 0
+D0
+door~
+door~
+131 -1 30859 10 10 5
+E
+junk~
+Peices of metal, wheels, pulleys, scraps of cloth and paper lay scattered
+on the floor and every possible flat surface.  There is nothing that
+seems of value in the junk.  
+~
+E
+table~
+The table is a simple wooden table with some strange device on it.
+~
+E
+device~
+The device is a framework with pulleys and gears and strings connecting
+them all.  It is like nothing you've ever seen before, and has no obvious
+purpose.  It appears to be very fragile.  
+~
+A
+take get touch~
+device~
+send_to_room( #device, room );
+~
+E
+device~
+The device looks so precarious and fragile, you decide you better not touch it.
+~
+!
+0 0 0
+A
+~
+~
+set_rflag( reset0, room );
+continue;
+~
+!
+3 0 1
+604 9 1509949540 3 0
+-1
+S
+
+#30862
+Small Path~
+A small path leads in from a road to the west and continues about its way
+to the east.  A large patch of ground to the north looks very muddy. 
+Piles of dirt have been dumped over part of the patch in an apparent
+attempt to make the muddy area drier.  Rotten branches cover the small
+path, providing traction through the mud.
+~
+~
+301465665 1 8 0
+D1
+~
+~
+0 -1 30863 10 10 5
+D3
+~
+~
+0 -1 30773 10 10 5
+-1
+S
+
+#30863
+Small Path~
+Cut branches pave a small path that stretches west to east here.  They
+alone would prevent slippage in the mud, which looks quite deep.  The
+path ends at the entrance to an old hut to the east, which leans to one
+side.  To the west, in the distance, you can see the road which leads to
+the south gate.  A muddy tend lies off the small path to the south.
+~
+*H
+~
+301465673 1 8 0
+D1
+~
+~
+0 -1 30864 10 10 5
+D2
+~
+~
+0 -1 30865 10 10 5
+D3
+~
+~
+0 -1 30862 10 10 5
+452 9 1509949490 3 0
+-1
+S
+
+#30864
+Small Hut~
+This small mud hut has been built upon a single large rock.  The only
+problem is, the rock appears to be sinking down into the muddy ground. 
+Nevertheless, most of the hut's floor is dry and the ceiling looks quite
+well-built.  A bolt of cloth made from woven hair rests in one corner of
+the hut and a small loom stands in another.  Behind the loom is a short
+stool.  Though the hut has no door, its only egress lies through its west
+wall.
+~
+*H
+~
+335020101 1 6 0
+D3
+~
+~
+0 -1 30863 10 10 5
+A
+kill kil ki k~
+old woman~
+mob = mob_in_room(  607, room );
+if( mob ) {
+  act_tochar( #gesture, ch );
+  attack( mob, ch, 2d4, "bite");
+wait( 5);
+  mob = mob_in_room( 673, room );
+  if( mob )
+    attack( mob, ch, 2d4, "sharp claw");
+  }
+continue;
+~
+E
+gesture~
+The old woman gestures and the crocodile leaps to attack you.
+~
+!
+0 0 0
+673 9 1509949540 3 0
+607 9 1509949540 3 0
+-1
+S
+
+#30865
+Muddy Tent~
+This animal hide tent has the look of being abandoned shortly after being
+pitched.  The bottom of the tent has rotten way and is filled with mud. 
+The only thing which is in good condition is a brass lantern, which hangs
+from the tent's one support pole.  It looks as though the nearby lake
+rose in level and flooded the tent.  A small pathway of mud and branches
+lies just to the north.
+~
+*H
+~
+335020101 1 6 0
+D0
+~
+~
+0 -1 30863 10 10 5
+-1
+S
+
+#30866
+Muddy Path Along Village Wall~
+This section of the wall is about five feet lower than the spot outside
+the gate to the west.  The ground here is very muddy, as if it was
+recently flooded.  The ground slopes down to the east, becoming even
+muddier.
+~
+~
+301465608 1 9 0
+D1
+~
+~
+0 -1 30867 10 10 5
+D3
+~
+~
+0 -1 30789 10 10 5
+-1
+S
+
+#30867
+Muddy Path Along Village Wall~
+You are squishing through a trail of mud that squeezes between the
+village wall to the north, and the inpenetrable swamp to the south.  The
+path looks like it widens out to the east.
+~
+~
+301465608 1 9 0
+D1
+~
+~
+0 -1 30868 10 10 5
+D3
+~
+~
+0 -1 30866 10 10 5
+-1
+S
+
+#30868
+Muddy Path Along Village Wall~
+The path from the west widens out into a large plain of mud which
+continues to the northeast.  Across the mud you can see the edge of a
+lake.  There is tall grass growing in large clumps through the mud,
+looking very healthy.
+~
+~
+301465608 1 9 0
+D0
+~
+~
+0 -1 30869 10 10 5
+D1
+~
+~
+0 -1 31052 10 10 5
+D3
+~
+~
+0 -1 30867 10 10 5
+E
+mud grass~
+The grass is growing out of mounds in the mud, and reaches about 2 feet tall.
+~
+-1
+S
+
+#30869
+Muddy Path Along Village Wall~
+The wall forms a corner here, hemming in this little patch of mud.  You
+cringe at the smell of the mud as it wafts to your nose.  Considering how
+deep the mud is, you would guess that the ground is just as muddy on the
+inside of the wall.
+~
+~
+301465608 1 9 0
+D1
+~
+~
+0 -1 31047 10 10 5
+D2
+~
+~
+0 -1 30868 10 10 5
+-1
+S
+
+#30870
+Overgrown Field~
+Under Construction
+~
+~
+301465600 2 9 0
+D0
+~
+~
+0 -1 30821 10 10 5
+-1
+S
+
+#30873
+Sos-Kul Road~
+Though not exactly straight, a wide road courses from west to east, like
+a meandering river.  The surface of the road has been paved in mostly
+white, crushed rock.  The road also appears to have a downward slope
+toward the east.  An empty field of tall swamp grass grows thickly to the
+north.  Just off of the paved road to the south stands a small mud hut.
+~
+*H
+~
+301465665 1 9 0
+D1
+~
+~
+0 -1 30760 10 10 5
+D2
+~
+~
+0 -1 30759 10 10 5
+D3
+~
+~
+0 -1 30755 10 10 5
+-1
+S
+
+#30874
+Stone Storage Hut~
+Slabs of cut stone lean against one another, creating a very sturdy and
+water-proof hut.  A partition of stone devides the hut in two halves.  A
+small window is cut into the partition, providing a way to conduct
+conversations or business with the stern lizardman behind it.  A single
+stone bench rests on the hut's dirt floor.
+~
+*H
+*add banker
+~
+335022149 0 5 0
+D0
+~
+~
+0 -1 30811 10 10 5
+E
+window hole wall~
+Glancing through the window cut in the stone partition wall, you can see
+a lizardman on the otherside.  Beyond him you can see piles of crates,
+barrels, bags and boxes.  In one corner of the back room you can see a
+small table covered with clay tablets, presumably for record keeping
+purposes.
+~
+1319 17 1509949540 -2 0
+-1
+S
+
+#30875
+Tight Path Approaching a Towering Cliff~
+The meandering path appears to be approaching a large cliff that can be
+occasionally seen through the dense vegetation.  The vines and plants
+surrounding this path have begun to recapture the land that was taken
+away from them by whatever force plowed through here not so long ago. 
+The path seems to widen as it approaches the cliffs to the west, and as
+it curves slightly to the east.
+~
+[Starshine] room size - really don't want horses here?
+thought by making the room smaller would make the rdes about the plants re-capturing the path make more sense.
+~
+301465600 1 5 0
+D1
+~
+~
+0 -1 30823 10 10 5
+D3
+~
+~
+0 -1 30876 10 10 5
+E
+cliff~
+The cliff is nearly accessible through the tight mesh of vines that
+stands between you and the cliff.  It seems to be quite clear that the
+path will lead to the base of the granite cliff.
+~
+E
+vegetation vines plants~
+Intertwined vines and thistle are meshed together creating the walls that
+surround this plowed path.  The vegetation all appears to be quite
+healthy, thus the path you are on is in great danger of being overrun and
+consumed by the plants once again.
+~
+-1
+S
+
+#30876
+Tight Path Alongside the Cliff Face~
+The cliff walls now lie partially exposed through the dense vegetation
+that surrounds the path.  A tight, curving path has been plowed through
+the vegetation, though the damaged vegetation now seems to be recovering
+and once again destroying the path alongside the cliffs.  The path, just
+slightly larger then two horses walking abreast, continues to both the
+east and west.  Soaring cliffs can be seen converging to the west, while
+the path disappears beneath shadows to the east.
+~
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 30875 10 10 5
+D3
+~
+~
+0 -1 30877 10 10 5
+E
+cliff wall~
+The cliff is made mostly from what appears to be granite, thought streaks
+running through the rock hints at other minute amounts of minerals. 
+Still partially blocked by the vines that line this path, the cliff does
+not appear to be anything other than a normal rock face.
+~
+E
+vegetation vines~
+Intertwined vines and thistle are meshed together creating the walls that
+surround this plowed path.  The vegetation all appears to be quite
+healthy, thus the path you are on is in great danger of being overrun and
+consumed by the plants once again.
+~
+-1
+S
+
+#30877
+Junction of Towering Cliffs~
+You have come to the junction of two towering cliffs, barring your way in
+all directions, save a curving path to the east.  A large horse drawn
+wagon sits at the foot of the cliffs, seemingly having come to rest due
+to a shattered wheel.  The cliff to the north appears to have been
+damaged by some cataclysmic force, stress fractures covering the rocky
+heights in its entirety.  Mysteriously though, the cliff face to the west
+does not have even a single noticeable blemish on its surface.  The
+natural vegetation appears to be recovering from the damage of wagon
+wheels rolling over it, and in fact is now beginning to creep up and grow
+around the wagon itself.  A deep crevice can be seen within the northern
+wall of the cliff, heading into darkness.
+~
+~
+301465600 1 6 0
+D1
+~
+~
+0 -1 30876 10 10 5
+E
+crevice~
+A tight, twisting crevice has been opened up in the cliff face to the
+north.  The crevice appears to be large enough to traverse, though what
+lies beyond is not yet evident.
+~
+E
+vegetation vines plants~
+Intertwined vines and thistle are meshed together creating the walls that
+surround this plowed path.  The vegetation all appears to be quite
+healthy, thus the path you are on is in great danger of being overrun and
+consumed by the plants once again.
+~
+A
+enter~
+door wagon~
+act_tochar( #enter1, ch );
+act_notchar( #enter2, ch );
+transfer( ch, find_room( 67524 ) );
+act_notchar( #arrival, ch );
+~
+E
+enter1~
+You step up and into the small living area of the wagon.
+~
+E
+enter2~
+$n steps up and into the small living area of the wagon.
+~
+E
+arrival~
+$n enters the room, having stepped through the small doorway.
+~
+!
+0 0 0
+A
+enter~
+crevice 1 northern cliff fracture~
+act_tochar( #enter1, ch );
+act_notchar( #enter2, ch );
+wait( 2 );
+transfer( ch, find_room( 67500 ) );
+act_notchar( #arrival, ch );
+~
+E
+enter1~
+You crawl into the dark crevice in the cliff face and hope it is not a
+one-way trip.
+~
+E
+enter2~
+$n crawls into the dark crevice in the cliff face.
+~
+E
+arrival~
+Crawling forth on $s knees, $n emerges from the dark crevice.
+~
+!
+0 0 0
+2983 17 1509949540 -2 0
+-1
+S
+
+#0
+

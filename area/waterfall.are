@@ -1,0 +1,1315 @@
+#AREA
+Chiiron Waterfall~
+Aurelian (Rev. Rue )~
+~
+
+0 0
+0
+#ROOMS
+
+#25000
+Outside the North Gate of Chiiron~
+A small path leads north, up a hillside and towards an open area with a
+pond at the base of a large cliff.  To the west, a small dirt path heads
+off into a meadow.  Dominating the area, however, is the square gatehouse
+which guards the @enorth gate of Chiiron@n.  Its weathered towers are covered
+with the marks of many a siege, but you know that should the gates close,
+all peaceful folk need to do is @eknock@n and find sanctuary within.
+~
+~
+301465608 2 6 0
+D0
+~
+~
+0 -1 25001 10 10 5
+D1
+~
+~
+0 -1 40509 10 10 5
+D2
+gate~
+gate south~
+195 -1 935 10 10 5
+D3
+~
+~
+0 -1 40507 10 10 5
+E
+path pond cliff 1 north~
+The small path leads from the gates of Chiiron towards a large pond at
+the base of a cliff.  The pond is a good size, and you can see a
+waterfall that cascades down the cliff and fills the pond.
+~
+E
+tower square~
+The massive stone tower climbs fully twenty feet into the sky.  It
+provides good protection to those that man its walls, thick battlements
+providing cover.
+~
+E
+meadow 1 west~
+The dirt path leads to the west through a small meadow and clearing. A dark forest encroaches upon the western edge of the meadow and clearing.
+~
+E
+1 east~
+Hills to the east follow the city wall to the edge of a small stream.
+~
+E
+ad~
+The massive wood gates of Chiiron are closed.  They are formed of thick
+beams of wood and wrapped in heavy bands of iron.  They appear to have
+withstood several sieges over the years.
+~
+A
+knock pound bash bang~
+gate 1 south~
+if( is_open( room, south ) ) {
+  act_tochar( #open, ch );
+  end;
+  }
+if( reputation( ch, Secomber ) > 0 ) {
+  send_to_char( #char, ch );
+  act_notchar( #room, ch );
+  act_room( #all, ch );
+  open( room, south );
+  };
+else {
+  send_to_char( #fail, ch );
+  act_notchar( #failed, ch );
+  };
+~
+E
+failed~
+$n bangs on the gates.  A minute later a guard shows up on looks $n over
+before saying "Go back to your caves." 
+~
+E
+fail~
+You bang on the gate.
+A gate guard comes and looks you over before telling you to "Go back to
+your caves!"
+~
+E
+all~
+The gate opens with a grinding of gears.
+~
+E
+room~
+$n bangs on the gate.  A guard comes and looks $m over and then goes
+back and pulls a lever on the inside.  
+~
+E
+char~
+A guard comes and looks you over for a minute then goes and pulls a lever
+on the inside.  
+~
+E
+open~
+The gate is already open.
+~
+!
+0 0 2
+A
+close shut~
+gate 1 south~
+if( is_open( room, south ) ) {
+  act_tochar( #close, ch );
+  act_notchar( #rclose, ch );
+  close( room, south );
+  }
+~
+E
+close~
+@GYou signal to a passing guard to close the gate.@n
+@GThe gate closes with a grinding of gears.@n
+~
+E
+rclose~
+@GThe gate closes with a grinding of gears.@n
+~
+!
+0 0 0
+A
+look l~
+south gate s~
+if( !is_open( room, south ) ) {
+  act_tochar( #gate, ch );
+  end;
+  }
+else
+  act_tochar( #open, ch );
+~
+E
+gate~
+@GThe massive wood gates of Chiiron are closed.  They are formed of thick
+beams of wood and wrapped in heavy bands of iron.  They appear to have
+withstood several sieges over the years.  @n 
+~
+E
+open~
+@GThe gates are open.@n
+~
+!
+0 0 0
+-1
+S
+
+#25001
+Southwest of a Pool~
+The dirt path you are on leads north and south.  To the south you see the
+walls of Chiiron.  Off to the west side of the path is a large grassy
+meadow, that eventually gives way to forest.  A little ways to the north
+a thundering waterfall roars down the face of a cliff.  Just to your
+northeast is a large pond whose edges come right up to the pathway here,
+making the ground a little damp.
+~
+~
+301465600 4 8 0
+D0
+~
+~
+0 -1 25002 10 10 5
+D1
+~
+~
+0 -1 25009 10 10 5
+D2
+~
+~
+0 -1 25000 10 10 5
+D3
+~
+~
+0 -1 40508 10 10 5
+197 9 1509949540 3 0
+197 9 1509949490 3 0
+-1
+S
+
+#25002
+West of a Pool~
+A high granite cliff rears up to your west, curving around in a
+semicircle far to the northeast.  Sparse vegetation clings to the wall,
+growing in small clefts in the weather-beaten stone.  A number of granite
+boulders have fallen down the cliff over the ages, becoming buried in the
+soggy dirt.  To the south a small path cuts through a grassy area, while
+to the north you can follow along the cliff face towards a waterfall.  To
+your immediate east sits a small pond in a depression in the ground.
+~
+~
+301465600 4 8 0
+D0
+~
+~
+0 -1 25003 10 10 5
+D1
+~
+~
+0 -1 25010 10 10 5
+D2
+~
+~
+0 -1 25001 10 10 5
+E
+boulders~
+These boulders are large chunks of granite.  You think moving any of them
+would be impossible.
+~
+E
+pond pool 1 east~
+Thick reeds grow around the small pool. only about one hundred feet in
+diameter.  It appears the waterfall feeds the pond.
+~
+E
+1 south path~
+A path leads south through a grassy area to the gates of Chiiron.
+~
+E
+1 west~
+A forebodingly steep cliff face rises to the west, preventing any movement in that direction.
+~
+E
+1 north waterfall~
+The waterfall roars loudly, sounding as if it was thundering next to your ear when in fact it is pouring down the cliff face to the north.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t east into the cool water of the pond.@n
+~
+!
+3 0 2
+197 9 1509949540 3 0
+197 9 1509949490 3 0
+197 9 1509949465 3 0
+-1
+S
+
+#25003
+West of the Waterfall~
+The cliff sweeps around from the west, joining a waterfall just east of
+here.  Near the waterfall, and all along the clefts of the cliff, lush
+plants grow and thrive.  To the southeast you see a large pond filled
+with reeds.  To the east you must cross a small stream that heads
+southwest into a pool.
+~
+~
+301465600 4 8 0
+D1
+~
+~
+0 -1 25004 10 10 5
+D2
+~
+~
+0 -1 25002 10 10 5
+E
+waterfall~
+The waterfall drops over the cliff above in a curtain of water and
+spray.  Thundering down from above it is quite loud this close.  Peering
+through the mist you think you can see something.  
+~
+E
+plants lush~
+Small plants and mosses grow thickly along the cliff face.  The moist
+conditions from the mist of the waterfall give them an excellent supply
+of water.
+~
+E
+cliff 1 north 1 west~
+Cliffs rise into the skies to your north and east, looming darkly.  The
+uneven face of the cliff is unclimbable, but serves as places from which
+myriad plants have taken root.
+~
+A
+~
+~
+send_to_room( #mist, room );
+~
+E
+mist~
+@GA light spray of @bmist@n from the waterfall dews your body as it
+floats through the air.@n 
+~
+!
+2 50 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou carefully hop from stone to stone and cross the water.@n
+~
+E
+to_room~
+@G$n begins hopping from stone to stone to cross the water.@n
+~
+!
+3 0 2
+280 17 1509949470 -2 0
+189 17 1509949490 -2 0
+280 17 1509949470 -2 0
+-1
+S
+
+#25004
+East of the Waterfall~
+A steep cliff face dotted with thriving greenery blocks movement to the
+north.  Thundering down the cliff is a great waterfall, its waters
+emptying into a large pond that is just to the south.  To the east and
+west the face of the cliff continues, curving gently in a semicircle. 
+The water from the waterfall heads south into the pond.  To move west you
+must cross the small stream.
+~
+[Rue] CODE FIVE MUST STAY CODE FIVE
+~
+301465609 4 6 0
+D0
+~
+~
+234 -1 25012 10 10 5
+D1
+~
+~
+0 -1 25006 10 10 5
+D2
+~
+~
+0 -1 25010 10 10 5
+D3
+~
+~
+0 -1 25003 10 10 5
+E
+waterfall~
+The water of the falls pours over the edge of the cliff from above and
+crashes down, throwing up billows of mist before draining south into a
+larger pool.
+~
+E
+cliff rock face 1 north~
+The rock face of the cliff is sheer, many plants and bushes grow in small
+clefts along its face.  The cliff is too steep to climb.
+~
+E
+bushes~
+There are a few bushes that grow along the base of the cliff.  They
+thrive in the damp soil, fed by the waters of the waterfall.
+~
+A
+smell sniff~
+~
+act_tochar(#to_char, ch );
+act_notchar( #to_room, ch );
+wait( 2 );
+act_tochar( #to_char2, ch );
+act_notchar( #to_room2, ch );
+~
+E
+to_room~
+@G$n pauses, sniffing the air carefully.@n
+~
+E
+to_char~
+@GYou stop and begin sniffing the air, searching for the source of the
+horrible smell.@n
+~
+E
+to_room2~
+@GAfter a few moments, $n stops in front of a tangle
+of bushes at the base of the cliff.@n 
+~
+E
+to_char2~
+@GYou sniff the air carefully, and locate the source as behind a few
+bushes at the base of the cliff.@n
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #mist, room );
+~
+E
+mist~
+@GA light spray of @bmist@n dews your body as it floats through the air.@n
+~
+!
+2 50 0
+A
+~
+~
+send_to_room( #stench, room );
+~
+E
+stench~
+@GA horrible stench wafts through the misty air.@n
+~
+!
+2 50 0
+A
+move~
+bushes~
+act_tochar( #search, ch );
+act_notchar( #rmsearch, ch );
+~
+E
+search~
+@GYou search the bushes, pushing the leafy branches out of the way for a
+few minutes before you find a small tunnel hidden behind one of them. 
+The smell seems to be coming from inside the tunnel.@n
+~
+E
+rmsearch~
+@G$n searches the bushes for a few minutes, pushing the thick greenery
+aside as $n looks.@n
+~
+!
+9 0 0
+A
+enter crawl~
+tunnel crevice~
+act_tochar( #tunnel, ch );
+act_notchar( #rmtunnel, ch );
+transfer( ch, find_room( 25012 ) );
+act_notchar( #tunarrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 5 );
+  }
+~
+E
+tunnel~
+@GYou push through the bushes and crawl into the tunnel.@n
+~
+E
+rmtunnel~
+@G$n pushes through the bushes and disappears.@n
+~
+E
+tunarrive~
+@G$n crawls in from the south tunnel.@n
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou hop from stone to stone until you reach the other side of the water.@n
+~
+E
+to_room~
+@G$n begins hopping from stone to stone to cross the water.@n
+~
+!
+3 0 8
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t south into the cool water.@n
+~
+!
+3 0 4
+-1
+S
+
+#25005
+Small Ledge~
+A small, narrow ledge leads in from the north and widens as it reaches
+the mouth of a cave which opens to the south.  Judging from the torrent
+of water pouring down in front of the cave's mouth, it looks to be
+positioned right behind a waterfall.  Light, refracting off and through
+the water splays playful patterns of color upon the uneven walls.  A
+tight tunnel branches off to the east from the narrow ledge.
+~
+[Rue] LEAVE OGRE SIZED
+[Rue] DONE
+~
+301465601 0 5 0
+D0
+~
+~
+0 -1 2500 10 10 5
+D1
+~
+~
+0 -1 25012 10 10 5
+E
+patterns walls~
+The patterns of light playing upon the walls swirl wildly at the whim of
+the fast moving water.  Light blue mingles with dark blue, reds merge
+with yellows into delightful oranges.  The images on the wall look like
+works of art
+~
+E
+waterfall mouth 1 south~
+The waterfall blocks the way south, the fast moving water thundering in
+your ears.  Light, only, seems to have found its way past that torrent of
+water...
+~
+A
+~
+~
+act_tochar( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+@G$n walks up to the sleeting water before changing $s mind and walking
+back.@n 
+~
+E
+to_char~
+@GYou consider trying to walk through the falling water but decide
+against it.  It's just coming down too strong.@n 
+~
+!
+3 0 4
+A
+~
+~
+ch = rand_player( room );
+act_tochar( #water, ch );
+~
+E
+water~
+The sound of the thundering waterfall crashing over the cave's mouth is
+almost deafening.
+~
+!
+2 150 0
+419 17 1509949540 -2 0
+-1
+S
+
+#25006
+Northeast of a Pool~
+The cliff sweeps around from the east to meet the thundering waterfall. 
+The ground and cliff are damp with mist, the bare rocks slick with the
+moisture.  Very little vegetation manages to grow here despite the damp
+conditions; only sparse grasses cling to the cliff face.  There are
+several large, craggy boulders here.  To the south you see a small bridge
+in the distance.
+~
+~
+301465600 4 6 0
+D2
+~
+~
+0 -1 25007 10 10 5
+D3
+~
+~
+0 -1 25004 10 10 5
+E
+burrows~
+The burrows are a few inches in diameter, but you see no tracks leading
+into them.  Maybe they are abandoned.
+~
+E
+boulders craggy~
+The boulders are about as big as two gnomes huddled together.  They
+appear to have fallen down from the cliff face a long time ago, and now
+have little burrows underneath them where small animals of some sort
+must live.
+~
+E
+south bridge~
+The small bridge seems to span a stream leaving the pond to the southwest.
+~
+E
+grasses~
+Small clumps of grass cling to cracks in the cliff side.  They appear to
+be normal grasses.
+~
+A
+smell sniff~
+~
+send_to_char( #to_char, ch );
+~
+E
+to_char~
+@GYou cannot identify the smell but is seems to be coming from the
+west.@n 
+~
+!
+0 0 0
+A
+~
+~
+send_to_room( #mist, room );
+~
+E
+mist~
+@GA thick @Bmist@n of water sprays over you.@n
+~
+!
+2 50 0
+A
+reach search feel~
+burrows holes~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #snake, ch );
+  act_notchar( #rmsnake, ch );
+  mob = mload( 210, room );
+  attack( mob, ch, 1d3+1, "forked tongue" );
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+snake~
+@RYou put your hand in the hole, searching around, when suddenly a snake
+pops out of one of the nearby burrows and bites at you!@n
+~
+E
+rmsnake~
+@R$n kneels down, and sticks $s hand in one of the
+burrows, and begins feeling around.@n
+~
+E
+nothing~
+@GYou feel around, but find nothing inside the burrow.@n
+~
+!
+0 0 0
+280 17 1509949490 -2 0
+189 17 1509949465 -2 0
+78 17 1509949465 -2 0
+-1
+S
+
+#25007
+East of a Pool~
+A large pinnacle of stone juts out of the cliff face to the east.  Small
+grasses and plants try to eke out a living on the craggy stone.  Small
+scrubby plants dot the area, but otherwise there is little greenery in
+this dusty and rock-strewn area.  To your west, a reed-filled pond sits
+in a small depression, fed by a large waterfall that cascades down the
+cliff to your northwest.  To the south a small wooden bridge passes over
+a stream that leaves the pond.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 25006 10 10 5
+D2
+~
+~
+0 -1 25017 10 10 5
+D3
+~
+~
+0 -1 25010 10 10 5
+E
+pinnacle 1 east~
+The pinnacle is grey stone, and is quite craggy.  The small plants that
+grow in the cracks are stunted, and seem to be barely surviving.
+There are plenty of hand and footholds if you wanted to try and climb it.
+~
+E
+cliff~
+The cliff is comprised of a grey granite, weathered deeply and covered
+with splits and cracks.  The cliff forms a semicircle, curving around to
+your northwest and past a large waterfall in that direction.  Small
+plants dot the cliff face, growing in the tiniest of cracks.
+~
+E
+bridge 1 south~
+This old wooden bridge spans the small stream leaving the pond and
+heading off to the southeast.  The bridge appears sturdy, although its
+wood is worn by the passage of many feet.
+~
+E
+scrubby plants grasses~
+The few plants that manage to cling to life here seem to be struggling. 
+The ground is rocky and surprisingly dry for being so close to a major
+source of water.
+~
+A
+climb clamber~
+pinnacle up cliff~
+act_tochar( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 25011 ) );
+act_notchar( #arrive, ch );
+~
+E
+to_room~
+@G$n climbs up the craggy pinnacle.@n
+~
+E
+to_char~
+@GThe pinnacle is quite easy to climb because of the multitude of handholds.@n
+~
+E
+arrive~
+@G$n climbs up from below.@n
+~
+!
+0 0 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t south onto the bridge.@n
+~
+!
+3 0 4
+A
+~
+~
+if( mob_in_room( 200, find_room( 25011  ) ) ) {
+find_room( 25007 );
+send_to_room( #squawk, room );
+}
+~
+E
+squawk~
+@GHigh above you, you hear the squawkings of a crow.@n
+~
+!
+2 50 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t into the waters west.@n
+~
+!
+3 0 8
+78 17 1509949490 -2 0
+-1
+S
+
+#25009
+South of a Pool~
+You stand atop a small hill just north of Chiiron.  A large waterfall
+thunders into a small pond at the base of the hill to your north.  The
+ground here is grassy, and provides a good view of the gently curving
+cliff side and waterfall.  A path leads down the hill to the south.  To
+your east a deep gully cut by a small stream prevents movement, but you
+can see a bridge in the distance that spans the gap.  Far to the west,
+after a small meadow, you can see the forest's edge.
+~
+~
+301465600 4 6 0
+D0
+~
+~
+0 -1 25010 10 10 5
+D2
+~
+~
+128 -1 40509 10 10 5
+D3
+~
+~
+0 -1 25001 10 10 5
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t south down the gentle slope.@n
+~
+E
+to_room~
+@G$n $t south down the gentle slope.@n
+~
+!
+3 -1 4
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t into the cool waters to the north.@n
+~
+!
+3 0 1
+-1
+S
+
+#25010
+In a Pool~
+The small pond is only about two feet deep, and is intensely cold.  To
+the north, a large waterfall cascades down the grey-stone cliffside,
+filling the pond with its waters.  A small stream empties out of the pond
+to the southeast, cutting under a small bridge you can see that way. 
+Tall reeds grow around the edges of the pond, and some bamboo.
+~
+~
+301465609 6 6 0
+D0
+~
+~
+0 -1 25004 10 10 5
+D1
+~
+~
+0 -1 25007 10 10 5
+D2
+~
+~
+0 -1 25009 10 10 5
+D3
+~
+~
+0 -1 25002 10 10 5
+E
+reeds bamboo~
+Tall green reeds grow from the waters of the pond, their shoots finding
+purchase in the rich mud of the pool.  Amongst the reeds, bamboo stalks
+are beginning to grow as well.
+~
+A
+cut chop take grab~
+bamboo reeds stalks~
+if( is_player( ch ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_tochar( #char, ch );
+    act_notchar( #room, ch );
+    }
+  else {
+    remove_rflag( reset0, room );
+    act_tochar( #chfind, ch );
+    act_notchar( #rmfind, ch );
+    obj_to_char( oload( 280 ), ch );
+    }
+  }
+~
+E
+char~
+@GAfter a brief search through the stalks of reeds, you determine that none
+of them are worth taking.@n
+~
+E
+room~
+@G$n searches through the reeds, but doesn't find any worth taking.@n
+~
+E
+chfind~
+@GYou cut off a nice-looking stalk of bamboo.@n 
+~
+E
+rmfind~
+@G$n cuts off a nice-looking stalk of bamboo.@n
+~
+!
+0 0 0
+198 137 1509949465 3 0
+1513 17 1509949540 -2 0
+198 9 1509949490 3 0
+198 9 1509949465 3 0
+197 9 1509949465 3 0
+197 9 1509949465 3 0
+1123 49 1509949540 -2 0
+1124 81 1509949490 -2 0
+-1
+S
+
+#25011
+Atop the Pinnacle - Near a Crow's Nest~
+You are near the top of the steep pinnacle.  Thankfully there are plenty
+of handholds that make it quite easy to climb down.  The view is
+spectacular; you can see the bustling town of Chiiron to the south, and
+the awe inspiring rugged nature of the mountains rising to the north. 
+Just to the east you see a large graveyard, littered with tombstones and
+a large mausoleum.  To your west the forest spreads out as far as you can
+see.  You can only go down from here.
+~
+~
+301465609 4 5 0
+E
+Chiiron~
+From here you can almost see the people walking along the streets of
+Chiiron.  As towns go, it is quite small, but well-fortified.  You can
+see the guardsmen walking along the battlements.
+~
+E
+graveyard~
+The graveyard sits atop a hillside just to your southeast.  A thick fog
+seems to blanket it, giving you only scattered glimpses of the overgrown
+weeds and ancient tombstones.
+~
+E
+forest~
+Tall pine trees grow in a thick forest just to the west of Chiiron.  You
+can see a small trail heading west into the forest, but it quickly
+disappears.  Far off in the distance to the west you think you can see
+some smoke on the horizon.
+~
+E
+mountains cliff~
+The cliff to the north quickly gives way to a high mountain range.  The
+tops are covered in snow, and the mountains are quite jagged and filled
+with sharp peaks.
+~
+A
+climb clamber~
+down pinnacle~
+act_tochar( #to_char, ch );
+act_notchar( #to_room, ch );
+transfer( ch, find_room( 25007 ) );
+act_notchar( #arrive, ch );
+~
+E
+to_room~
+@G$n climbs down the pinnacle to the east side of the pool.@n
+~
+E
+to_char~
+@GYou climb down the pinnacle easily.@n
+~
+E
+arrive~
+@G$n climbs down from the pinnacle.@n
+~
+!
+0 0 0
+A
+1 down~
+~
+act_tochar( #to_char, ch );
+act_notchar( #to_room, ch );
+~
+E
+to_room~
+@G$n goes to step out into thin air and then suddenly thinks twice.@n
+~
+E
+to_char~
+@GYou go to take one step out into thin air on your way down and suddenly
+realize that going 'down' might just get you there a little too quickly. 
+You probably want to climb down instead.@n
+~
+!
+0 0 0
+A
+get take~
+key all~
+mob = mob_in_room( 200, room );
+if( mob ) {
+  send_to_room( #attack, room );
+  attack( mob, ch, 1d5+1, "sharp beak" );
+  end;
+  }
+else
+  continue;
+~
+E
+attack~
+@GThe crow flies in to defends its nest!@n
+~
+!
+0 0 0
+200 9 1509949540 3 0
+400 49 1509949540 -2 0
+1293 81 1509949455 -2 0
+-1
+S
+
+#25012
+Tight Tunnel~
+This tunnel is little more than a tight crevice in the rock.  The crevice
+turns sharply, heading west towards a widening area, and runs south into
+a tightening tunnel.  To the west, a torrent of water crashes down from
+above, leaving you precious little space to continue that direction.  A
+tight crevice leads south.
+~
+no mob
+[Rue] THIS ROOM TO REMAIN OGRE SIZED
+[Rue] DONE
+[Lansharra] need to have more going south keywords
+[Rue] the room description calls it CREVICE
+~
+301465609 4 5 0
+D2
+~
+~
+234 -1 25004 10 10 5
+D3
+~
+~
+0 -1 25005 10 10 5
+E
+1 west~
+West is a cave behind a waterfall.  Light playing through the water
+sprays the walls of the cave with a surreal light show.
+~
+E
+1 south tunnel~
+The crevice narrows to a tight tunnel to the south, which seems just
+large enough to allow you to pass on through to the outside.
+~
+A
+sniff smell~
+~
+send_to_room( #stench, room );
+~
+E
+stench~
+@GA horrible stench wafts in from the west.@n
+~
+!
+2 200 0
+A
+~
+~
+send_to_room( #stench, room );
+~
+E
+stench~
+@GThe rank, fetid smell of decay wafts in from the west.@n
+~
+!
+2 150 0
+A
+~
+~
+send_to_room( #mist, room );
+~
+E
+mist~
+A haze of @bmist@n floats in from the waterfall to the west.
+~
+!
+2 50 0
+A
+enter crawl~
+crevice~
+act_tochar( #tunnel, ch );
+act_notchar( #rmtunnel, ch );
+transfer( ch, find_room( 25004 ) );
+act_notchar( #tunarrive, ch );
+loop( followers ) {
+  ch = rch;
+  acode( room, 4 );
+  }
+~
+E
+tunnel~
+@GYou crawl out through the tight tunnel.@n
+~
+E
+rmtunnel~
+@G$n crawls out through the tunnel.@n
+~
+E
+tunarrive~
+@G$n crawls out from behind one of the bushes.@n
+~
+!
+0 0 0
+-1
+S
+
+#25017
+Small Wooden Bridge~
+You are on a small wooden bridge that leads roughly north and south. 
+Below you, a small stream flows eastward, fed from the pond to your
+northwest.  After the stream cuts under the bridge it turns sharply and
+heads southeast.  To the north is a huge curved cliff-face, supporting a
+large waterfall and a variety of vegetation.  Off a good distance to the
+south you see the high stone walls of Chiiron.
+~
+[Rue] south is 40510
+~
+301465608 4 5 0
+D0
+~
+~
+0 -1 25007 10 10 5
+D2
+~
+~
+0 -1 40510 10 10 5
+D5
+~
+~
+0 -1 25025 10 10 5
+E
+bridge~
+This small wooden bridge arches gracefully over the small stream gurgling
+below.  The timber it is made of is quite sturdy, and despite an
+occasional creak, the bridge seems quite strong.
+~
+E
+stream~
+The small stream gurgles gently as it heads under the bridge.  Large
+boulders and stones litter the gully through which it runs, providing
+ample space for the wildlife to sun themselves.
+~
+A
+~
+~
+act_room( #creak, ch );
+~
+E
+creak~
+@GThe bridge creaks under your weight.@n
+~
+!
+2 50 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t north off the small bridge.@n
+~
+E
+to_room~
+@G$n $t north off the small bridge.@n
+~
+!
+3 0 1
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou lower yourself over the side of the bridge and drop down to the
+stream below.@n
+~
+E
+to_room~
+@G$n climbs over the side of the bridge and drops into the stream below.@n
+~
+!
+3 0 32
+A
+~
+~
+if( mob_in_room( 692, find_room( 25025  ) ) ) {
+  find_room( 25017 );
+  send_to_room( #croak, room );
+  }
+~
+E
+croak~
+@YYou hear a loud croaking sound from beneath the brdige.@n
+~
+!
+2 50 0
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou $t south off the small bridge.@n
+~
+E
+to_room~
+@G$n $t south off the bridge.@n
+~
+!
+3 0 4
+-1
+S
+
+#25025
+Under a Small Bridge~
+You stand in the shallow waters of a gurgling stream, its waters gently
+lapping about your feet.  A wooden bridge vaults overhead, and large
+boulders and stones are littered about in the shallow gully.  The shallow
+water of the stream meanders around the boulders, creating small eddies
+and whirls of water.  You can climb up to the bridge easily, but the
+other directions look impassable.
+~
+~
+301465600 13 5 0
+D4
+~
+~
+0 -1 25017 10 10 5
+E
+bridge~
+The wooden bridge is covered with webs from spiders hoping to catch a
+passing bug or two for a meal.
+~
+E
+boulders rocks stones~
+Rounded granite stones litter the floor of the gully here, worn away by
+water over many thousands of years.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@GYou climb out from underneath the bridge.@n
+~
+E
+to_room~
+@G$n climbs out from under the bridge.@n
+~
+!
+3 -1 16
+A
+get cultivate pick grab~
+value web webbing spider~
+if( is_player( ch ) ) {
+  act_tochar( #web, ch );
+  act_notchar( #rmweb, ch );
+  wait( 1 );
+  i = 1d20;
+  if( rflag( reset1, room ) ) {
+    if( i < 11 ) {
+      obj = oload( 81 );
+      obj_to_char( obj, ch );
+      act_tochar( #gotweb, ch );
+      act_notchar( #rmgotweb, ch );
+      remove_rflag( reset1, room );
+      end;
+      }
+    act_tochar( #noweb, ch );
+    act_notchar( #rmnoweb, ch );
+    remove_rflag( reset1, room );
+    }
+  else
+    act_tochar( #nowebs, ch );
+  }
+~
+E
+web~
+@GYou reach for the webs, seeing if you can gather some.@n
+~
+E
+rmweb~
+@G$n reaches under the bridge, trying to collect a web.@n
+~
+E
+gotweb~
+@GYou manage to collect a web intact.@n
+~
+E
+rmgotweb~
+@GAfter a few moments, $n comes away with a piece of web.@n
+~
+E
+noweb~
+You badly mangle the webbing; it is useless.
+~
+E
+rmnoweb~
+$n badly mangles the web, making it useless.
+~
+E
+nowebs~
+There are no webs left to gather.
+~
+E
+rmnowebs~
+$n searches fruitlessly for something under the bridge.
+~
+E
+nowebs~
+There are no more webs.
+~
+!
+0 0 0
+692 137 1509949540 3 0
+197 137 1509949465 3 0
+-1
+S
+
+#0
+

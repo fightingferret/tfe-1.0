@@ -1,0 +1,2518 @@
+#AREA
+Beach at Sea of Stars~
+Athyle, Cromm (Rev. Merior, Olah)~
+Beach at Sea of Stars~
+
+3 0
+0
+#ROOMS
+
+#22000
+At the End of the Beach Path~
+To the west, you can see a narrow path which has been beaten into the
+fine sand that passes between two dunes.  The path halts abruptly as it
+abuts a wide, sandy beach.  The sand, stretching in all directions, is
+fine-grained; brightly golden in color away from the water's edge, darker
+gold where waves have crested upon the shore.  The air hangs heavy with
+the tang of saltwater and the unmistakeable smell of fish.  Eastward, in
+the distance, lie the azure waters of the Sea of Stars.
+~
+[Maleus] Izlaz sa plaze!
+~
+301465600 10 6 0
+D0
+~
+~
+0 -1 22003 10 10 5
+D1
+~
+~
+0 -1 22001 10 10 5
+D2
+~
+~
+0 -1 22020 10 10 5
+D3
+~
+~
+0 -1 21039 10 10 5
+E
+beach sand golden~
+The beach spreads out before you, far-ranging in scope.  Its granules are
+fine, loosely packed, and shift with each step upon its golden surface. 
+Pieces of driftwood, long strands of dark green seaweed, the shell of a
+long-dead crab, lie scattered about, dark blotches upon the sand.
+~
+180 9 1509949540 3 0
+189 17 1509949465 -2 0
+78 17 1509949490 -2 0
+-1
+S
+
+#22001
+Sandy Beach at the Sea~
+Underfoot, the chill waters of the undulating sea lap the shore, ebbing
+with the tides.  Left behind as offerings upon the sand are pieces of
+driftwood and broken, useless shells.  Small holes are scattered across
+the sand, similar to those made by burrowing clams.
+~
+~
+301465600 10 6 0
+D0
+~
+~
+0 -1 22005 10 10 5
+D1
+~
+~
+0 -1 22002 10 10 5
+D2
+~
+~
+0 -1 22012 10 10 5
+D3
+~
+~
+0 -1 22000 10 10 5
+E
+driftwood wood sand shell broken hole~
+The golden sand is littered with tiny bits of driftwood and broken
+shells, too small to be of any use.  You can see small holes in its moist
+surface like those made by clams trying to get fresh air.
+~
+A
+dig~
+sand clam hole~
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 1331, room ) ) {
+    mob = mload( 1331, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #nest, ch );
+  act_notchar( #nests, ch );
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+nest~
+You dig in the sand, and manage to find a clam!
+~
+E
+nests~
+You see $n dig in the sand, and uproot a clam!
+~
+E
+nothing~
+You dig in the sand, but find nothing.
+~
+E
+nope~
+You see $n dig in the sand, but come up empty-handed.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+The icy water laps at your ankles as you move into the sea.
+~
+!
+3 0 2
+180 9 1509949540 3 0
+78 17 1509949515 -2 0
+1324 17 1509949465 -2 0
+-1
+S
+
+#22002
+In the Surf~
+The rolling waves relentlessly seek the golden beach, its chill water
+lapping your ankles as it moves west.  Serpentine strings of seaweed and
+bouyant fragments of driftwood are carried and deposited by the icy water. 
+Just to your west, damp sand fades to dry; darkly the Sea of Stars
+stretches off to your east, disappearing into the distant horizon.
+~
+~
+301465600 13 6 0
+D1
+~
+~
+0 -1 22034 10 10 5
+D2
+~
+~
+0 -1 22010 10 10 5
+D3
+~
+~
+0 -1 22001 10 10 5
+E
+water seaweed driftwood~
+The cold water is dark, barely revealing its floating treasures.  As it
+recedes, you can see long strands of dark green seaweed intertwined with
+weathered branches of driftwood.
+~
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large wave comes sweeping over your head!
+~
+!
+2 100 0
+182 9 1509949540 3 0
+-1
+S
+
+#22003
+Entrance to a Small Alcove~
+To your west lies a small alcove which has been worn into the high cliffs. 
+Bits of twigs and sandstone lie at the foot of the cliffs, their
+appearance no mystery.  The beach stretches north and south for quite
+some distance; not far to your east lies the Sea of Stars.
+~
+~
+301465601 10 6 0
+D0
+~
+~
+0 -1 22041 10 10 5
+D1
+~
+~
+0 -1 22005 10 10 5
+D2
+~
+~
+0 -1 22000 10 10 5
+D3
+~
+~
+0 -1 22004 10 10 5
+E
+twigs~
+Small twigs from trees growing high on the cliffs have fallen to the foot
+of the cliff.  Tiny green leaves are turning brown and shrivelling.
+~
+E
+sandstone~
+Bits of sandstone have been weathered off the cliffs and have fallen to
+the ground in the alcove.
+~
+78 17 1509949515 -2 0
+1324 17 1509949540 -2 0
+-1
+S
+
+#22004
+Small Alcove~
+This little alcove is totally protected from the elements.  You are
+surrounded on all sides, except the east, by the stone walls.  The sand
+here is quite dirty, and bits of burned wood seem to have been mixed into
+it.  The surface of the sand is also marked by large indentations, about
+the size made by humans sitting on its soft surface.
+~
+~
+301465600 10 6 0
+D1
+~
+~
+0 -1 22003 10 10 5
+E
+sand indentations~
+The indentations appear to be the same size and shape as those made by
+human-sized creatures sitting in the sand.
+~
+E
+sand burned wood bits~
+Evidence of previous campfires is clear.  Bits of burned wood have been
+stirred into the sand, and the sand is no longer golden.
+~
+1324 17 1509949540 -2 0
+1358 17 1509949540 -2 0
+-1
+S
+
+#22005
+Sandy Beach at the Sea~
+To the east lies the vastness of the Sea of Stars, its dark blue hiding a
+multitude of life.  Here the sand is moist and covered with bits of
+seaweed as well as fragments of shells but you can see small holes in
+the sand about the same size as those made by clams.  You can walk along
+the shoreline north and south or move to a drier spot to your west.
+~
+~
+301465600 10 6 0
+D0
+~
+~
+0 -1 22006 10 10 5
+D2
+~
+~
+0 -1 22001 10 10 5
+D3
+~
+~
+0 -1 22003 10 10 5
+E
+sand seaweed shell hole~
+The moist sand is littered with bits of seaweed and broken shells,
+remnants of high tide.  You can see tiny holes in the sand like those
+made by clams seeking fresh air.
+~
+A
+dig~
+sand clam hole~
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 1331, room ) ) {
+    mob = mload( 1331, room );
+    remove_rflag( reset0, room );
+    }
+  act_tochar( #nest, ch );
+  act_notchar( #nests, ch );
+  }
+else {
+  act_tochar( #nothing, ch );
+  act_notchar( #nope, ch );
+  }
+~
+E
+nest~
+You dig in the sand, and find a small clam!
+~
+E
+nests~
+You see $n dig in the sand and find a small clam!
+~
+E
+nothing~
+You dig in the sand, but find nothing of interest.
+~
+E
+nope~
+You see $n dig in the sand, and then stop.
+~
+!
+0 0 0
+A
+get take move~
+seaweed seashell shell~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The bits of seaweed and shells are not worth taking.
+~
+!
+0 0 0
+180 9 1509949540 3 0
+182 9 1509949540 3 0
+-1
+S
+
+#22006
+Sandy Beach at the Sea~
+Dark blue water ebbs and flows just to your east as the Sea of Stars
+tries to meet the land.  The sand at your feet is slightly damp, as if
+the tide were slowly ebbing.  You can see imprints of many different size
+and types of feet in the moist sand.
+~
+~
+301465600 10 6 0
+D0
+~
+~
+0 -1 22009 10 10 5
+D1
+~
+~
+0 -1 22007 10 10 5
+D2
+~
+~
+0 -1 22005 10 10 5
+D3
+~
+~
+0 -1 22041 10 10 5
+E
+imprint footprint feet sand~
+The damp sand is littered with dozens of footprints.  You can recognize
+several: a dog, a sea gull and several different-sizes of humanoids.
+~
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+The icy water creeps up your legs as you move into the sea.
+~
+!
+3 0 2
+1324 17 1509949540 -2 0
+78 17 1509949515 -2 0
+-1
+S
+
+#22007
+In the Surf~
+Waves lap gently around your feet, the cold water chills your feet and
+will rapidly move to the rest of your body.  Seaweed moves in from the
+east and begins to twist itself around your feet, then suddenly the water
+reverses and it moves back to sea.  Half a dozen large, jagged rocks lie
+to your south and east, making those directions appear hazardous to
+travel.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 22008 10 10 5
+D3
+~
+~
+0 -1 22006 10 10 5
+E
+jagged rock~
+Each rock is larger than a pair of desert ogres, and is covered with
+dozens of long, sharp spikes.  Although they appear natural, they serve a
+clear purpose: to keep anyone from moving in that direction.
+~
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large wave comes sweeping over your head!
+~
+!
+2 100 0
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A small slippery fish jumps out, then back into the sea.
+~
+!
+2 50 0
+A
+1 east 1 south~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The rocks appear far too dangerous, and common sense will not let you
+proceed.
+~
+!
+0 0 0
+181 9 1509949540 3 0
+183 9 1509949540 3 0
+-1
+S
+
+#22008
+In the Surf~
+To your west is the dry beach, while to the north and east are the high,
+steep cliffs which border the sea.  Standing here for any length of time
+will allow the icy water to penetrate your clothing, freezing first your
+feet and eventually your entire body.
+~
+~
+301465600 13 9 0
+D2
+~
+~
+0 -1 22007 10 10 5
+D3
+~
+~
+0 -1 22009 10 10 5
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A small slippery fish jumps out, then back into the sea.
+~
+!
+2 25 0
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large wave comes sweeping over your head!
+~
+!
+2 100 0
+181 9 1509949540 3 0
+183 9 1509949540 3 0
+1324 17 1509949515 -2 0
+-1
+S
+
+#22009
+Sandy Beach at the Sea~
+You are in the middle of a sandy beach, right at the edge of the water. 
+Just a few more inches to the east and you will find yourself in the
+water, though here it is warm and dry.  A large piece of driftwood has
+been washed onto the sand here, much of it embedded in the soft sand.
+~
+~
+301465600 10 6 0
+D1
+~
+~
+0 -1 22008 10 10 5
+D2
+~
+~
+0 -1 22006 10 10 5
+D3
+~
+~
+0 -1 22040 10 10 5
+E
+piece driftwood wood sand~
+The soft golden sand seems to have swallowed the bulk of a large piece of
+driftwood.
+~
+A
+dig get take move~
+sand driftwood wood~
+act_tochar( #nope, ch );
+act_notchar( #nomove, ch );
+~
+E
+nope~
+You try to pull out the driftwood, but it is stuck tight.
+~
+E
+nomove~
+You see $n tug on the driftwood, but is unable to move it.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+The icy water creeps up your legs as you move into the sea.
+~
+!
+3 0 2
+180 9 1509949540 3 0
+1324 17 1509949465 -2 0
+1410 17 1509949465 -2 0
+-1
+S
+
+#22010
+In the Surf~
+You are in the cold, frigid waters of the sea.  The tide is rather strong
+here and pulls at your feet.  The sounds of the violent crashing of the
+waves fills the area, and the salty smell is inescapable.  To the west is
+the moist, sandy shore; while to the east, the water deepens.
+~
+~
+301465600 13 6 0
+D0
+~
+~
+0 -1 22002 10 10 5
+D1
+~
+~
+0 -1 22035 10 10 5
+D2
+~
+~
+0 -1 22011 10 10 5
+D3
+~
+~
+0 -1 22012 10 10 5
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large wave comes splashing over your head.
+~
+!
+2 100 0
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A small slippery fish jumps out, then back into the sea.
+~
+!
+2 25 0
+180 9 1509949540 3 0
+183 9 1509949540 3 0
+1324 17 1509949465 -2 0
+1410 17 1509949490 -2 0
+-1
+S
+
+#22011
+In the Surf~
+The sounds of crashing waves and sea gulls off in the distance dominate
+the area.  The water is very cold here and you notice how opaque it is,
+as you are unable to see much of anything below its surface.  Off to the
+west is a sandy shoreline, an escape from the chilling waters of the sea.
+~
+[Terek] South use to be 22014
+~
+301465600 13 6 0
+D0
+~
+~
+0 -1 22010 10 10 5
+D1
+~
+~
+0 -1 22036 10 10 5
+D2
+~
+~
+0 -1 22032 10 10 5
+D3
+~
+~
+0 -1 22013 10 10 5
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large wave comes crashing over your head!
+~
+!
+2 100 0
+180 9 1509949540 3 0
+181 9 1509949540 3 0
+-1
+S
+
+#22012
+Sandy Beach at the Sea~
+This strip of sand runs along the straight coastline of the Sea of Stars,
+its golden color reflecting that of the sandstone cliffs off to the west. 
+The tide creeps within inches of your feet, then slowly moves back again,
+to join the mass of icy water.
+~
+~
+301465600 10 6 0
+D0
+~
+~
+0 -1 22001 10 10 5
+D1
+~
+~
+0 -1 22010 10 10 5
+D2
+~
+~
+0 -1 22013 10 10 5
+D3
+~
+~
+0 -1 22020 10 10 5
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+The icy water laps at your ankles as you move into the water.
+~
+!
+3 0 2
+78 17 1509949490 -2 0
+-1
+S
+
+#22013
+Sandy Beach at the Sea~
+You find yourself upon the sands of a golden beach, close to the
+shoreline.  The water laps gently at the sand just to your east, another
+inch and you will get wet.  The sand is littered with seashells and
+seaweed.
+~
+~
+301465600 10 6 0
+D0
+~
+~
+0 -1 22012 10 10 5
+D1
+~
+~
+0 -1 22011 10 10 5
+D2
+~
+~
+0 -1 22029 10 10 5
+D3
+~
+~
+0 -1 22031 10 10 5
+E
+sand sea shell seaweed~
+The golden sand has bits of seaweed and broken shells sprinkled about its
+surface.  The bits seem hardly big enough to bother with.
+~
+A
+get take~
+sand sea shell seaweed bits~
+act_tochar( #nope, ch );
+~
+E
+nope~
+Nothing is worth taking here.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #go, ch );
+continue;
+~
+E
+go~
+The icy water chills you as you move into the sea.
+~
+!
+3 0 2
+182 9 1509949540 3 0
+78 17 1509949490 -2 0
+-1
+S
+
+#22014
+In the Surf~
+The waves crash violently and with a loud cacophony.  However, the
+crashing occurs rhythmically and feels almost serene.  Many little things
+float by, but are carried off too fast for you to determine what they
+were.  Looking west, you notice a small alcove, closed off in all
+directions.  The water gets much deeper if you head east.
+~
+~
+301467648 13 6 0
+D0
+~
+~
+0 -1 22033 10 10 5
+D1
+~
+~
+0 -1 22039 10 10 5
+D2
+~
+~
+0 -1 22016 10 10 5
+D3
+~
+~
+0 -1 22015 10 10 5
+E
+1 west alcove~
+To the west is a small cave in the cliff, possibly hollowed out by the
+violent waves.
+~
+E
+1 north beach~
+North a ways is a beach, which seems to be composed of golden sand which
+sparkles in the light.
+~
+E
+1 east 1 south surf~
+Ocean and rough waves extend as far as the eye can see.
+~
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A large wave comes sweeping over you!
+~
+!
+2 100 0
+A
+~
+~
+send_to_room( #to_all, room );
+~
+E
+to_all~
+A small fish jumps out, then back into the sea.
+~
+!
+2 50 0
+182 9 1509949540 3 0
+181 9 1509949540 3 0
+1324 17 1509949490 -2 0
+-1
+S
+
+#22015
+Small Sandy Alcove~
+This little alcove is totally protected from the elements.  You are
+surrounded on all sides, except to the east by sheer cliffs.  This seems
+to be a nice place to rest.  The numerous markings upon the ground
+indicate that many others have rested here as well.  The smoking remains
+of a fire still smolder at the center.
+~
+dying campfire object is here....obviously isn't working since oprogs aren't working at the moment
+[Starshine] random acode - waves lap at the entrance to the alcove? sound? hmm...come to think of it a general area sound - roar of the waves - would be nice. haven't seen that yet.
+~
+301465600 10 6 0
+D1
+~
+~
+0 -1 22014 10 10 5
+E
+sheer cliffs~
+The tan-colored cliffs soar to tremendous heights and offer nice
+protection from the elements.
+~
+E
+markings ground~
+The markings are round and deep-set, revealing that some people and
+animals have used this place as a shelter.
+~
+182 9 1509949540 3 0
+180 9 1509949540 3 0
+184 9 1509949540 3 0
+78 17 1509949540 -2 0
+1410 17 1509949540 -2 0
+2837 17 1509949445 -2 0
+1357 17 1509949540 -2 0
+-1
+S
+
+#22016
+In the Surf~
+The massive waves arrive from the east and crash violently with the
+enormous rocks along the base of the towering cliff to the west.  White
+foam splash through the rocks and fill the sky with drops of seawater. 
+Short strands of seaweed and pebbles float along the surface of the water
+and quickly brush by you.
+~
+~
+301465600 13 6 0
+D0
+~
+~
+0 -1 22014 10 10 5
+D1
+~
+~
+0 -1 22042 10 10 5
+D2
+~
+~
+0 -1 22017 10 10 5
+E
+massive waves~
+The waves reach over ten feet tall before dissipating against the rocky
+shore to the west.
+~
+E
+enormous rocks base~
+Heaps of black and brown rocks at least the size of a dwarf lie closely
+together near the base of the cliff.
+~
+E
+towering cliff 1 west~
+The cliff rises for many feet in the air and dominates most of the view
+of the west.
+~
+E
+white foams~
+The foams are thick like syrup and milky white.
+~
+E
+drops seawater~
+The seawater is a clear blue and very cold.
+~
+E
+short strands seaweed pebbles surface~
+Dark-green seaweed strands that are several inches long float back and
+forth along the cold water.  Tiny pebbles also drift along, probably
+chipped bits of the rocks to the west, but most eventually sink below the
+surface of the sea.
+~
+A
+~
+~
+acode( find_room( 22014 ), 1 );
+~
+!
+2 100 0
+1324 17 1509949490 -2 0
+-1
+S
+
+#22017
+In the Surf~
+You are now chest deep in the sea, and the waves are crashing over you.  It
+would be fatal to go any farther without a boat.  You can feel strange
+things brushing your feet and every once in a while you feel something
+slippery.  To the west the water becomes shallow as it skims along the
+edges of the rocky cliffs.
+~
+[Terek] For other purpopses, 22017 use to be west
+[Olah] will fix up this room descrip when i get a chance
+~
+301465600 6 6 0
+D0
+~
+~
+0 -1 22016 10 10 5
+D3
+~
+~
+0 -1 74750 10 10 5
+E
+cliffs edges rocky~
+The cliffs rise high overhead, pounded by the harsh waves.
+~
+A
+climb~
+cliff 1 up~
+act_tochar( #climb, ch );
+~
+E
+climb~
+There is no way to climb the cliff.
+~
+!
+0 0 0
+A
+~
+~
+act_tochar( #pull, ch );
+~
+E
+pull~
+Slippery seaweed brushes against your legs, threatening to pull you under.
+~
+!
+2 50 0
+182 9 1509949540 3 0
+-1
+S
+
+#22018
+Along a small cliff.~
+You are hanging off the face of a small cliff.  Along the walls are many
+small notches to aid you in your climb upward.  Just above you, you can
+see a small ledge.  As you get closer to your As you get closer to your
+destination gulls start to swoop in for the attack.
+~
+[Calliope] As you get closer to your is repeated twice
+~
+335020040 1 6 0
+D4
+~
+~
+0 -1 22019 10 10 5
+-1
+S
+
+#22019
+Along a small cliff.~
+Under Construction.
+~
+[Calliope] this room connects to a room in the dark forests. #1023.
+~
+301465600 1 6 0
+D4
+~
+~
+0 -1 1023 10 10 5
+D5
+~
+~
+0 -1 22018 10 10 5
+-1
+S
+
+#22020
+Sandy Beach~
+Tall cliffs rise up to your west, their sandstone surfaces pocked with
+age.  There are no apparent handholds nor any visible way up.  You can
+see small plants growing in the slowly weathering surface and small bits
+of stone lie on the sand by your feet.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 22000 10 10 5
+D1
+~
+~
+0 -1 22012 10 10 5
+D2
+~
+~
+0 -1 22031 10 10 5
+E
+1 west sandstone cliff~
+Tiny holes dot the tan cliffs, but are far too small to be used as
+handholds.  The weather-worn sandstone climbs far above you, and out of
+sight.
+~
+E
+plants~
+Tiny tufts of green grow in the sandstone above your reach.
+~
+A
+1 up climb~
+~
+act_tochar( #nope, ch );
+~
+E
+nope~
+You are unable to get a hand-hold and cannot climb the sheer cliff.
+~
+!
+0 0 0
+78 17 1509949490 -2 0
+-1
+S
+
+#22021
+Along the Northern Slope of a Sandy Cliff~
+Several thick vines grow from the side of the cliff and extend a good
+distance down toward the beach.  You also see some holes and cracks on
+the cliff, none wider than a human finger, however.  Many firm,
+light-brown rocks line the ground, and some have formed a stairway
+leading further up the cliff.  Clumps of sand lightly cover part of the
+rocks and sparkle in the light.
+~
+[Olah]  climb down to room 21013 
+[Olah] up is 22022
+~
+301465600 1 9 0
+E
+thick vines~
+The vines are leafy and as thick as boas.  They seem solidly attached
+to the cliff and stable enough to be used to climb down the cliff.
+~
+E
+holes cracks~
+Holes that resemble small dents line the side of the cliff.  A few cracks
+connect to the holes like rivers that reach a lake.  The cracks are only
+an inch wide, and you can't determine if anything lies within them.
+~
+E
+firm light-brown rocks clumps sand ground~
+Sand fills the area between the rocks, as well as covering most of them. 
+Most of the rocks are cubical and hard, while firmly entrenched within
+the ground.
+~
+A
+climb~
+1 down vines~
+if( find_skill( ch, climb ) > 0 ) {
+  act_tochar( #climb, ch );
+  act_notchar( #nclimb, ch );
+  transfer( ch, find_room( 21013 ) );
+  act_notchar( #arrive, ch );
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  transfer( ch, find_room( 21013 ) );
+  dam_message( ch, 2d5+5, "the painful fall" );
+  inflict( ch, mob, 2d5+5, "falling off a cliff" );
+  act_notchar( #nfall, ch );
+  }
+~
+E
+climb~
+@YYou carefully grab hold of one of the vines and slowly climb down the
+face of the cliff.
+~
+E
+nclimb~
+@Y$n carefully grabs hold of one of the vines and slowly climbs down the
+face of the cliff.
+~
+E
+arrive~
+@YSeveral small pebbles pelt you from above as you see $n slowly lowering
+$mself down the cliff with the use of a vine.
+~
+E
+fail~
+@RYou attempt to climb down the cliff, but lose your grip and start to
+fall!@n 
+~
+E
+nfail~
+@R$n attempts to climb down the cliff, but loses $s grip and starts to
+fall!@n 
+~
+E
+nfall~
+@R$n falls from the cliff above!@n
+~
+!
+0 0 0
+A
+climb~
+1 up~
+if( find_skill( ch, climb ) > 0 ) {
+  act_tochar( #up, ch );
+  act_notchar( #up1, ch );
+  transfer( ch, find_room( 22022 ) );
+  act_notchar( #arrive, ch );
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #fail1, ch );
+  }
+~
+E
+up~
+@YYou carefully work work your fingers into the cracks and slowly pull
+yourself up the face of the cliff.
+~
+E
+up1~
+@Y$n carefully works $s fingers into the cracks and slowly pulls $mself
+up the face of the cliff.
+~
+E
+arrive~
+@YYou hear some low grunts and groans and look down to see $n slowly
+pulling $mself over the edge of the cliff.
+~
+E
+fail~
+You attempt to climb up the cliff but fail.
+~
+E
+fail1~
+$n attempts to climb up the cliff, but slides back down.
+~
+!
+3 0 16
+A
+~
+cracks~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the cracks but find nothing.
+~
+E
+nnada~
+$n searches through the cracks but finds nothing.
+~
+!
+9 0 0
+A
+move push open~
+rocks~
+act_tochar( #fail, ch );
+act_notchar( #nfail, ch );
+~
+E
+fail~
+You attempt to move the rocks, but find that they won't budge.
+~
+E
+nfail~
+$n attempts to move the rocks, but can't get them to budge.
+~
+!
+0 0 0
+A
+fly~
+1 down~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #nfly, ch );
+  transfer( ch, find_room( 21013 ) );
+  act_notchar( #arrive, ch );
+  }
+else
+  act_tochar( #cant, ch );
+~
+E
+fly~
+You fly down the cliff.
+~
+E
+nfly~
+$n flies down the cliff.
+~
+E
+arrive~
+$n flies in from above.
+~
+E
+cant~
+You don't know how to fly.
+~
+!
+0 0 0
+A
+fly~
+1 up~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #nfly, ch );
+  transfer( ch, find_room( 22022 ) );
+  act_notchar( #narrive, ch );
+  }
+else {
+  act_tochar( #cant, ch );
+  act_notchar( #ncant, ch );
+  }
+~
+E
+fly~
+You fly up the cliff.
+~
+E
+nfly~
+$n flies up the cliff.
+~
+E
+narrive~
+$n flies in from below.
+~
+E
+cant~
+You don't know how to fly.
+~
+E
+ncant~
+$n doesn't know how to fly.
+~
+!
+0 0 0
+-1
+S
+
+#22022
+Before the Edge of a Steep Cliff~
+You are at the start of a narrow trail which continues south along the
+massive sandstone cliff.  A few cracks can be seen along the side of the
+cliff to the north and east, probably caused by years of exposure to rain
+and wind.  Hanging against the cliff is a thick branch that holds a large
+nest.  Several rocks jut up from the ground to form a set of steps by the
+eastern side of the trail and leads downward.
+~
+down is 22021
+~
+301465600 1 9 0
+D2
+~
+~
+0 -1 22023 10 10 5
+E
+cracks~
+The cracks are no wider than a gnome's finger.  You can't make out if
+anything lies behind them.
+~
+E
+branch nest~
+The branch extends over five feet across and is located too far out of
+reach even for a long-armed troll.  A nest that that is large enough to
+fit an eagle rests atop the branch.  The nest consists of numerous gray
+twigs and various dried leaves.
+~
+E
+rocks~
+The rocks are mostly flat and a few feet wide.  Each is a light-brown
+color and looks securely entrenched within the ground; you could step
+upon one without fear of the rocks suddenly loosening.
+~
+A
+climb~
+cliff 1 down~
+if( find_skill( ch, climb ) > 0 ) {
+  act_tochar( #down, ch );
+  act_notchar( #down1, ch );
+  transfer( ch, find_room( 22021 ) );
+  act_notchar( #arrive, ch );
+  }
+else {
+  act_tochar( #fail, ch );
+  act_notchar( #nfail, ch );
+  transfer( ch, find_room( 22021 ) );
+  act_notchar( #nfall, ch );
+  dam_message( ch, 2d5+5, "the painful fall" );
+  inflict( ch, mob, 2d5+5, "falling off a cliff" );
+  }
+~
+E
+down~
+@YYou carefully lower yourself over the edge of the cliff and slide down
+its sheer face.
+~
+E
+down1~
+@Y$n carefully lowers $mself over the edge of the cliff and slides down
+its sheer face.
+~
+E
+arrive~
+@YSeveral pebbles assail you from above as you see $n come sliding down
+the cliff face and finally coming to rest next to you.@n 
+~
+E
+fail~
+@RYou attempt to climb down the edge of the cliff, but lose your balance
+and start to fall!@n 
+~
+E
+nfail~
+@R$n attempts to climb down the edge of the cliff, but loses $s balance
+and falls!@n 
+~
+E
+nfall~
+@R$n falls down from the cliff above!@n
+~
+!
+0 0 32
+A
+~
+cracks~
+act_tochar( #nada, ch );
+act_notchar( #nnada, ch );
+~
+E
+nada~
+You search through the cracks but find nothing.
+~
+E
+nnada~
+$n searches through the cracks but finds nothing.
+~
+!
+9 0 0
+A
+move push open~
+rocks~
+act_tochar( #rock, ch );
+act_notchar( #nrock, ch );
+~
+E
+rock~
+You attempt to move the rocks but they won't budge.
+~
+E
+nrock~
+$n attempts to move the rocks, but is unable to budge them.
+~
+!
+0 0 0
+A
+fly~
+1 down~
+if( can_fly( ch ) ) {
+  act_tochar( #fly, ch );
+  act_notchar( #nfly, ch );
+  transfer( ch, find_room( 22021 ) );
+  act_notchar( #narrive, ch );
+  }
+else {
+  act_tochar( #cant, ch );
+  act_notchar( #ncant, ch );
+  }
+~
+E
+fly~
+You fly down the cliff.
+~
+E
+nfly~
+$n flies down the cliff.
+~
+E
+narrive~
+$n flies in from above.
+~
+E
+cant~
+You don't know how to fly.
+~
+E
+ncant~
+$n doesn't know how to fly.
+~
+!
+0 0 0
+-1
+S
+
+#22023
+A Sandy Trail Along the Cliffs~
+The trail curls around the massive cliff and continues to the north and
+west.  Soft, golden sand covers the trail in several thin layers.  The
+sand granules along the upper layer have been lifted off the ground by a
+constant stream of air to form a low-lying vortex.  The sounds of
+wildlife and crashing waves can be faintly heard from the beach directly
+below you to the south and east.
+~
+~
+301465600 1 9 0
+D0
+~
+~
+0 -1 22022 10 10 5
+D3
+~
+~
+0 -1 22024 10 10 5
+E
+soft golden sand granules layers~
+The sand granules are barely noticeable individually, but form a rich,
+brilliant color when clumped together.  The gentle breezes which pass by
+here help carry up the upper layer of the sand to form swirling patterns
+along the ground.
+~
+E
+1 south 1 east beach~
+You can make out the golden shoreline that caresses the water.  Waves
+crash near the shore before reaching the moistened sand of the beach,
+then sliding back -- all in a soothing, rhythmic pattern.
+~
+E
+massive cliff~
+The sandstone cliff rises a great distance above you.  Cracks can be seen
+along its side, revealing its continuing erosion.
+~
+A
+climb~
+massive cliff~
+acode( find_room( 22026 ), 1 );
+~
+!
+0 0 0
+A
+get take grab~
+sand granules~
+if( rflag( reset0, room ) ) {
+  remove_rflag( reset0, room );
+  act_tochar( #sand, ch );
+  act_notchar( #nsand, ch );
+  obj_to_char( oload( 1410 ), ch );
+  end;
+  }
+act_tochar( #nada, ch );
+~
+E
+sand~
+You take one of the sand granules.
+~
+E
+nsand~
+$n takes one of the sand granules.
+~
+E
+nada~
+The sand granules are too clumped together to find any individual piece
+worth taking.
+~
+!
+0 0 0
+-1
+S
+
+#22024
+A Sandy Trail Along the Cliffs~
+Tiny grains of sand line the ground and form circular patterns along the
+winding trail.  Along the edges of the trail are small light-brown
+pebbles which probably have fallen from the mighty cliffs that rise from
+the north and west.  Growing at the southeast corner of the trail before
+the ledge that overlooks the beach many feet below are a few large but
+barren bushes.  The trail weaves its way to the south and east.
+~
+~
+301465600 1 9 0
+D1
+~
+~
+0 -1 22023 10 10 5
+D2
+~
+~
+0 -1 22025 10 10 5
+E
+grains sand ground circular patterns~
+The sand grains are barely visible, but form detectable shapes when
+aggregrated into clumps on the ground.  The sand clumps create circles
+due to occasional gusts of wind that swirl the sand into circular
+patterns.
+~
+E
+light-brown pebbles~
+The pebbles are no larger than a button on a baby's shirt.  Each pebble
+is the same light-brown color as the massive cliffs that dominate the
+north and west.
+~
+E
+mighty cliffs~
+The sandstone cliffs tower over you and rise for a great distance upward. 
+Cracks can be seen on the sides of the cliffs, revealing its continuing
+erosion.
+~
+E
+southeast corner barren bushes~
+Thin gray branches extend upward to form large bushes to the southeast. 
+Most of their bark has peeled off, and leaves and berries no longer grow
+along the branches.
+~
+E
+beach~
+You can make out the golden sand that make up the beach by the sea. 
+Water flows back and forth to cover and uncover the moistened sand.
+~
+A
+get take grab~
+pebbles light-brown~
+if( random( 1, 10 ) == 1 ) {
+  if( rflag( reset0, room ) ) {
+    remove_rflag( reset0, room );
+    act_tochar( #get, ch );
+    act_notchar( #get1, ch );
+    obj_to_char( oload( 78 ), ch );
+    obj_to_char( oload( 78 ), ch );
+    obj_to_char( oload( 78 ), ch );
+    }
+  }
+else
+  act_tochar( #nope, ch );
+act_notchar( #nope1, ch );
+~
+E
+get~
+@WYou sift through the pebbles a grab a handful of some nice-looking ones.
+~
+E
+get1~
+@W$n sifts through the pebbles a grabs a handful of some nice-looking
+ones.
+~
+E
+nope~
+@WAs you reach for some of the small pebbles they quickly tumble off the
+cliff face and land with a clatter on the rocks below.
+~
+E
+nope1~
+@W$n attempts to take some of the small pebbles on the trail but they
+quickly tumble off the cliff and land with a clatter on the rocks below.
+~
+!
+0 0 0
+-1
+S
+
+#22025
+A Sandy Trail Along the Cliffs~
+Twisting and turning like a slithering reptile, the trail continues along
+the cliff and seems to straighten itself out when it extends westward. 
+The wind is particularly strong here, constantly pounding against your
+body as though prodding it to head west.  Peering over the ledge to the
+south and east, you can catch a glimpse of the golden shoreline beside
+the Sea of Stars.
+~
+~
+301465600 1 9 0
+D0
+~
+~
+0 -1 22024 10 10 5
+D3
+~
+~
+0 -1 22026 10 10 5
+E
+1 south 1 east golden shoreline Sea of Stars~
+Sand the color of polished gold lines the ground where the sea touches
+the shore.  The crashing of the waves can still be heard up here,
+although it sounds more like a soft whistling from this distance.
+~
+E
+cliff~
+The sandstone cliff dominates the northwestern view.  Holes and cracks
+have formed along the sandstone cliff due to continued erosion.
+~
+-1
+S
+
+#22026
+A Sandy Trail Along the Cliffs~
+The sand-covered path continues in an east-west direction through the
+sandstone cliffs.  To the south, overlooking the rocky ledge of the
+cliff, is the clear blue water of the Sea of Stars.  To the north, the
+cliff rises many feet above you.  A few branches have managed to grow
+along the side of the cliffs, their leaves rustling with the constant
+gusts of wind that arrives from the east.
+~
+~
+301465600 1 9 0
+D1
+~
+~
+0 -1 22025 10 10 5
+D3
+~
+~
+0 -1 22027 10 10 5
+E
+1 south clear blue water Sea of Stars~
+The glistening surface of the Sea of Stars lies over a hundred feet from
+where you are standing.  The crests of the waves along the sea form an
+uneven, diagonal, multi-linear pattern that continues across the horizon
+for as far as your eyes can see.
+~
+E
+branches leaves side cliffs~
+A few branches extend from the sides of the weathered, sandstone cliff, a
+little above your reach.  The leaves that grow from them are dark green
+and constantly shaking.
+~
+A
+climb~
+north cliff~
+act_tochar( #nope, ch );
+act_notchar( #nope1, ch );
+~
+E
+nope~
+@WScanning the surface of the mighty cliff wall you realize there are no
+hand or footholds to assist you in a climb, making it impossible to scale
+the cliff.
+~
+E
+nope1~
+@W$n walks up to the northern cliff face and attempts to climb it but
+quickly finds it to be impossible.
+~
+!
+0 0 0
+-1
+S
+
+#22027
+A Sandy Trail Along the Cliffs~
+Small clumps of golden sand occasionally brush against your knees,
+carried along by the constant sea breeze that originates from the east. 
+Littering the northern edge of the trail are small twigs partially
+covered in specks of dirt.  The twigs rest near the foot of a gray,
+leafless bush whose thin branches shake quietly with each passing wind. 
+The trail extends a greater distance to the east, and widens to the west.
+~
+~
+301465600 1 9 0
+D1
+~
+~
+0 -1 22026 10 10 5
+D3
+~
+~
+0 -1 22028 10 10 5
+E
+clumps golden sand~
+Sparkling intensely in the light, the golden sand swirls around the
+ground in loose, tiny clumps no bigger than the eyes of an ant.
+~
+E
+northern edge twigs specks dirt~
+The twigs are as long as a human finger and seem to have snapped off the
+bush nearby.  Most of their light brown bark have peeled away, replaced
+by a dull gray wood.  Tan-wooded specks of dirt have collected on the
+twigs that have rolled around on the sandy ground.
+~
+E
+gray leafless bush branches~
+This bush looks to be dying, as no leaves nor any berries seem to be able
+to grow on it any longer.  Numerous thin, light-gray branches extend from
+its center -- each ready to snap off as a breeze continuously passes by
+them.
+~
+-1
+S
+
+#22028
+Before a Vast Shadowy Forest~
+Spanning out toward you to the south, over the mighty cliffs overlooking
+the Sea of Stars, is a vast forest of dark, shadowy trees.  From within
+the forest you can see a dense layer of fog obscuring everything within
+it except for the faint outline of the trees.  No sound can be heard from
+within the forest; no birds chirp and not even the slight breeze blowing
+through the trees causes any sound to issue forth.  To the east a sandy
+trail heads along the edges of the cliffs as it works its way back down
+towards the beach by the Sea of Stars while to the south a small trail
+works its way into the dense forest.
+~
+~
+301465608 1 9 0
+D1
+~
+~
+0 -1 22027 10 10 5
+D2
+~
+~
+0 -1 74000 10 10 5
+E
+cliffs~
+Rocky cliffs that rise many feet high make passage along this trail a
+little precarious.  The mighty waves of the sea below crash against the
+rocky bottom of the cliff like the roar of a waterfall.
+~
+E
+trees~
+Even from this distance, the immense size of the trees of the forest
+looks impressive.  Dark brown-black branches and numerous leaves form a
+criss crossing pattern that hides most of whatever lies within them.
+~
+E
+1 south dense layer fog~
+The fog rolls through the trail to the south for quite some distance. 
+The incredible thickness of the fog prevents you from seeing things
+clearly through it.
+~
+A
+~
+~
+continue;
+~
+E
+to_char~
+@CYou advance into the deep fog of the forest to your south and suddenly
+are overcome by a eerie sensation of being watched.
+~
+!
+3 0 4
+-1
+S
+
+#22029
+Sandy Beach at the Sea~
+Water gently moves towards the beach, bringing with it bits of sand and
+broken shells.  The golden sands at your feet stretch north and south,
+littered with seaweed and broken shells.  You can see the outlines of
+footprints of various-sized creatures as well as many different types of
+humanoids left in the damp sand.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 22013 10 10 5
+D1
+~
+~
+0 -1 22032 10 10 5
+D2
+~
+~
+0 -1 22030 10 10 5
+E
+sands seaweed shells footprints~
+The moist sand has tiny fragments of seaweed and shells sprinkled on its
+surface.  More striking are the large footprints made by a humanoid about
+the size of a troll.
+~
+A
+get take~
+sand sand seaweed shells~
+acode( find_room( 22013 ), 1 );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 22013 ), 2 );
+continue;
+~
+!
+3 0 2
+1410 17 1509949490 -2 0
+-1
+S
+
+#22030
+Sandy Beach at the Sea~
+The sand is golden brown and very soggy.  Seawater arrives from the east
+and rhythmically covers and uncovers the sand, like a blanket being
+slipped and unslipped over a bed.  Small pebbles and seashells are
+brought to the shore from the waves and most get submerged within the
+sand.  Thick brush grows wildly to the west and seals off movement there.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 22029 10 10 5
+D1
+~
+~
+0 -1 22033 10 10 5
+E
+sand~
+The sand is very moist.  You can make out footprints of birds and
+humanoids which have passed by.  Some of the footprints eventually
+disappear with each wave that arrives.
+~
+E
+thick brush~
+The brush grow densely together and to a height of over six feet.
+~
+E
+small pebbles seashells~
+The pebbles are tiny, about the size of a piece of corn.  Some are
+colored pink, blue, or brown.  Broken bits of white and peach-colored
+seashells are lie beside the pebbles.  Most of the pebbles and seashells
+are buried within the sand.
+~
+A
+get take~
+seashells~
+acode( find_room( 22013 ), 1 );
+~
+!
+0 0 0
+A
+~
+~
+acode( find_room( 22013 ), 2 );
+continue;
+~
+!
+3 0 2
+A
+move push~
+brush bush west~
+act_tochar( #search, ch );
+act_notchar( #osearch, ch );
+~
+E
+search~
+You search the bush thoroughly and see nothing unusual about it.
+~
+E
+osearch~
+$n examines the bush thoroughly but doesn't find anything.
+~
+!
+9 0 0
+78 17 1509949540 -2 0
+-1
+S
+
+#22031
+Sandy Beach~
+The sandstone cliffs form a small sheltered area here, allowing you to
+move only north or east.  Large chunks of sandstone have fallen from the
+cliffs above you, providing solid, though hard, places to rest.  A small
+depression in the western cliff has been filled by a bird's nest.
+~
+[Rue] Djuka died here, first mort after pwipe of 5-22-98
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 22020 10 10 5
+D1
+~
+~
+0 -1 22013 10 10 5
+E
+1 western cliff sandstone depression~
+The soft, tan sandstone is marked by numerous small holes formed by the
+weather.  A depression has been formed in its west wall which is large
+enough to house a reasonably large bird's nest.  Several chunks of
+sandstone have fallen from the cliffs onto the sand.
+~
+A
+get search move inspect~
+nest~
+if( rflag( reset0, room ) ) {
+  if( !mob_in_room( 1180, room ) )
+    mob = mload( 1180, room );
+  remove_rflag( reset0, room );
+  act_tochar( #nest, ch );
+  act_notchar( #nests, ch );
+  mob = mob_in_room( 1180, room );
+  victim = ch;
+  attack_weapon( mob, victim, 1d3+5, "swift peck" );
+  }
+else {
+  act_tochar( #empty, ch );
+  act_notchar( #nada, ch );
+  }
+~
+E
+nest~
+You reach in the nest and disturb a large gull!
+~
+E
+nests~
+You see $n reach into the nest and disturb a large bird!
+~
+E
+empty~
+You search the nest, and find nothing of interest.
+~
+E
+nada~
+You see $n search the nest, but find nothing.
+~
+!
+0 0 0
+A
+get take grab move search~
+chunk sandstone rock boulder~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The chunks of sandstone are quite large and look quite worthless.
+~
+!
+0 0 0
+A
+climb~
+cliff boulder~
+act_tochar( #nope, ch );
+~
+E
+nope~
+The cliffs are too steep to climb.
+~
+!
+0 0 0
+400 17 1509949540 -2 0
+78 17 1509949515 -2 0
+-1
+S
+
+#22032
+In the Surf~
+The foamy white wave crests which slowly build up from the eastern waters
+quickly dissipate as they crash here, eventually reaching the sandy shore
+to the east.  Some light-green seaweed is carried with the waves and
+softly passes by your feet.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 22011 10 10 5
+D1
+~
+~
+0 -1 22037 10 10 5
+D2
+~
+~
+0 -1 22033 10 10 5
+D3
+~
+~
+0 -1 22029 10 10 5
+E
+light-green seaweed~
+The seaweed is long and stringy.  It looks like it was part of a bigger
+piece of kelp and was broken off and carried on by the powerful waves.
+~
+A
+get take~
+seaweed~
+act_tochar( #take, ch );
+act_notchar( #otake, ch );
+~
+E
+take~
+The seaweed is swept away again before you can grab it.
+~
+E
+otake~
+$n bends down to grab a piece of seaweed, but it is swept away before $e
+can get it.
+~
+!
+0 0 0
+971 9 1509949540 3 0
+-1
+S
+
+#22033
+In the Surf~
+You are in the waters of the sea.  The water is cold and dark, but not
+that deep here.  A sandy shoreline can be seen to the west, moistened by
+the waves which come crashing from here.  Looking to the north, east, and
+south, you only see more and more water.
+~
+~
+301465600 13 9 0
+D0
+~
+~
+0 -1 22032 10 10 5
+D1
+~
+~
+0 -1 22038 10 10 5
+D2
+~
+~
+0 -1 22014 10 10 5
+D3
+~
+~
+0 -1 22030 10 10 5
+E
+1 west shoreline~
+Sparkly pinkish sand forms an inviting-looking shore to the west.
+~
+E
+1 north 1 east 1 south~
+The coastal ocean continues that way.
+~
+A
+random~
+~
+acode( find_room( 22014 ), 1 );
+~
+!
+0 100 0
+180 9 1509949540 3 0
+-1
+S
+
+#22034
+In the Surf~
+The waves are none too gentle here and use your body as a breakwater. 
+Further to the east the water is very cold and very deep, the shore lies
+a little way to your west.  A large piece of driftwood floats by, just
+out of your reach.
+~
+~
+301465600 13 9 0
+D1
+~
+~
+0 -1 74505 10 10 5
+D2
+~
+~
+0 -1 22035 10 10 5
+D3
+~
+~
+0 -1 22002 10 10 5
+E
+driftwood~
+This large piece of weathered wood appears to have come from an icalah
+tree.
+~
+181 9 1509949540 3 0
+971 9 1509949540 3 0
+-1
+S
+
+#22035
+In the Surf~
+The waves flow monotonously from east to the west forming very tall
+crests.  The water is chilly and blue.  Bubbles begin to rise from below
+before eventually bursting when they reach the surface.  The sea seems to
+shallow out to the west and a shore can be detected in the distance.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 22034 10 10 5
+D1
+~
+~
+0 -1 74504 10 10 5
+D2
+~
+~
+0 -1 22036 10 10 5
+D3
+~
+~
+0 -1 22010 10 10 5
+E
+bubbles~
+Round and clear, the bubbles are about the size of a human thumb.  They
+making a 'popping' noise when they burst.
+~
+183 9 1509949540 3 0
+-1
+S
+
+#22036
+In the Surf~
+The cold waters of the Sea of Stars continue for quite some distance
+across the eastern horizon.  The water is light blue, but its added depth
+and dark sandy floor prevent you from seeing much past its surface.  The
+waves continue to roll rhythmically, as they pass by you in an east-west
+direction.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 22035 10 10 5
+D1
+~
+~
+0 -1 74500 10 10 5
+D2
+~
+~
+0 -1 22037 10 10 5
+D3
+~
+~
+0 -1 22011 10 10 5
+182 9 1509949540 3 0
+971 9 1509949540 3 0
+-1
+S
+
+#22037
+In the Surf~
+The water glistens in the light, but its dark color prevents you from
+seeing much of anything below the surface.  Rippling patterns form all
+along the surface, the source of them most likely being tiny minnows
+which you can't make out due to the darkness of the sea.  To the far west
+is a sandy shore, while the sea continues to deepen to the east.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 22036 10 10 5
+D1
+~
+~
+0 -1 74546 10 10 5
+D2
+~
+~
+0 -1 22038 10 10 5
+D3
+~
+~
+0 -1 22032 10 10 5
+E
+rippling patterns surface~
+The rippling patterns look as though raindrops have landed on the
+water's surface.  They extend out in a circular pattern before
+disappearing.
+~
+183 9 1509949540 3 0
+-1
+S
+
+#22038
+In the Surf~
+The breeze is strong here and the waves uniformly high.  You can hear
+the sounds of the waves crashing as they reach the shore in the distant
+west.  Thick white foam can be seen on the water's surface, the remnants
+of the waves.  The frigid waters of the Sea of Stars continue much
+further to the east.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 22037 10 10 5
+D1
+~
+~
+0 -1 74547 10 10 5
+D2
+~
+~
+0 -1 22039 10 10 5
+D3
+~
+~
+0 -1 22033 10 10 5
+E
+thick white foam~
+The foam is filled with many bubbles the size of a human thumb.  Its
+white suds lie scattered upon the surface of much of the western part of
+the sea.
+~
+971 9 1509949540 3 0
+-1
+S
+
+#22039
+In the Surf~
+The water is chilly, and the passing breeze only helps to make it feel
+colder here.  All around you is more and more water, with many white
+foams and ripples along its glistening surface.  The waves seem to be
+rushing very hard from the south.  To the east, the water deepens, and
+you can see the sea extend for a tremendous distance in that direction.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 22038 10 10 5
+D1
+~
+~
+0 -1 74548 10 10 5
+D2
+~
+~
+0 -1 22042 10 10 5
+D3
+~
+~
+0 -1 22014 10 10 5
+E
+foams ripples surface~
+White suds randomly float along the shiny surface of the water.  Ripples
+also form and disperse into a circular, wave-like pattern in all
+directions.
+~
+182 9 1509949540 3 0
+-1
+S
+
+#22040
+Sandy Beach at the Sea~
+Softly sculpted sandstone cliffs prevent your movement to the north or
+west.  Long vines grow down the side of the northern cliff, their dark
+leaves tickling the sides of the cliffs' sandstone.  Eastwards lie the
+waters of the Sea of Stars; south stretches the the beachy shoreline.
+~
+~
+301465600 10 9 0
+D1
+~
+~
+0 -1 22009 10 10 5
+D2
+~
+~
+0 -1 22041 10 10 5
+E
+1 north vines~
+Long, sturdy-looking green vines grow down the northern cliff.  You can
+just make out their tiny leaves, and might be able to reach them.
+~
+E
+sandstone cliff~
+Tall cliffs of light-colored sandstone soar to your north and west. 
+Harsh weather has caused them to start the weathering process.
+~
+-1
+S
+
+#22041
+Sandy Beach at the Sea~
+The air feels thick and salty, and the sound of rhythmic waves crashing
+can be heard from the east, where the water of the Sea of Stars just
+touches the shore.  To the west rises a sandstone cliff which appears
+weathered.  The beach extends further south for a good distance, and
+a little north before reaching the base of the cliff.
+~
+~
+301465600 10 9 0
+D0
+~
+~
+0 -1 22040 10 10 5
+D1
+~
+~
+0 -1 22006 10 10 5
+D2
+~
+~
+0 -1 22003 10 10 5
+E
+1 west sandstone cliff~
+Tall cliffs of tan sandstone rise to your west.  Their surface is marred
+by small holes caused by wind and erosion.
+~
+-1
+S
+
+#22042
+Sea of Stars~
+Small pieces of dark-green seaweed drift by, apparently originating from
+somewhere below.  They are carried along by the powerful waves and rapidly
+float off westward.  The waves rise very high from the east.  They
+resemble the wind-beaten sails of a great ship and make it very difficult
+to move in that direction.
+~
+~
+301465600 6 9 0
+D0
+~
+~
+0 -1 22039 10 10 5
+D3
+~
+~
+0 -1 22016 10 10 5
+D5
+~
+~
+0 -1 22043 10 10 5
+E
+dark-green seaweed~
+The short strands of seaweed look chewed up, probably from minnows.  Bits
+of it lie all along the surface of the water. 
+~
+E
+waves~
+The waves accumulate from the east and reach peaks over ten feet tall. 
+When they reach the shore and crash, they let out a tremendous noise.
+~
+183 9 1509949540 3 0
+-1
+S
+
+#22043
+Beneath the Waves of the Sea of Stars~
+You are near the surface of the sea.  Many bubbles stream up from the sea
+floor and some gently brush against your body.  Small bits of seaweed
+also continue to float their way up to the surface, along with tiny black
+rock pieces.  The rock pieces sting when they collide with your arms.
+~
+[Calliope] Add an action for the pebbles? Seems to call for it.
+[Starshine] action get/take seaweed/rock?  action when rock stings your
+arms, rather than room desc?
+~
+301465608 7 9 0
+D4
+~
+~
+0 -1 22042 10 10 5
+D5
+~
+~
+0 -1 22044 10 10 5
+E
+bubbles~
+Clear round bubbles ranging from the size of a grain of sand to a human
+eyeball quickly float up to the surface of the sea.
+~
+E
+seaweed small bits~
+The seaweed strands are only several inches long.  As they rise up to
+through the water, they resemble worms wiggling their way around.
+~
+E
+rock pieces tiny black~
+Bits of black rocks surrounded with algae float back and forth with the
+rhythmic motion of the sea.
+~
+A
+~
+~
+act_tochar( #rock, ch );
+act_notchar( #nrock, ch );
+dam_message( ch, 1d5+0, "a tiny pebble" );
+inflict( ch, mob, 1d5+0, "a tiny pebble" );
+~
+E
+rock~
+One of the pebbles quickly brushes against your body.
+~
+E
+nrock~
+One of the pebbles quickly brushes against $n's body.
+~
+!
+2 100 0
+-1
+S
+
+#22044
+Beneath the Waves of the Sea of Stars~
+It appears as though you are midway through the depths of the sea.  Tiny
+grains of sand swirl around, and a continuous stream of bubbles float
+upward towards the surface.  You can continue swimming down towards the
+sea's bottom or swim up and towards fresh air.
+~
+[Starshine] add acode hurt or peppered by grains of sand? doesn't need actual damage, just the flavor of sand swirling.
+~
+301465600 7 9 0
+D4
+~
+~
+0 -1 22043 10 10 5
+D5
+~
+~
+0 -1 22045 10 10 5
+E
+stream bubbles~
+The bubbles flow in rapid, linear patterns.  They range in size from a
+grain of sand to a human eyeball.
+~
+E
+grains sand~
+Each grain of sand is dark and gritty, but rather ordinary-looking.
+~
+-1
+S
+
+#22045
+Beneath the Waves of the Sea of Stars~
+You are near the bottom of the sea.  Looking closely down through the
+murky water, you can see thick clumps of dark seaweed.  Streams of
+bubbles rise from several of the clumps.  Some grains of sand
+occasionally swirl in a circular pattern around the seaweed clumps.
+~
+[Starshine] acode bubbles flow by you? sand chafes your cheeks? seaweed catches at your legs?
+[Starshine] why is this column here anyways? although i know it IS hard to do the whole ocean...
+[Starshine] just curious...
+ask terek...he added the rooms to connect to sea sprites
+~
+301465600 7 9 0
+D4
+~
+~
+0 -1 22044 10 10 5
+D5
+~
+~
+0 -1 22046 10 10 5
+E
+thick clumps dark seaweed~
+The seaweed clumps form a variety of odd shapes and wave rhythmically
+back and forth.
+~
+E
+streams bubbles~
+The bubbles flow in rapid, linear patterns.  They range in size from a
+grain of sand to a human eyeball.
+~
+E
+grains sand~
+The sand is dark brown and resemble dust particles.
+~
+-1
+S
+
+#22046
+Across the Floor of the Sea of Stars~
+You are at the expansive, sandy floor of the Sea of Stars.  An
+enormous, jagged rock has become embedded within the floor to the north. 
+A profusion of dark-green seaweed grows around the dark shadow of the
+rock, dominating any other plant life which might exist here.  Bubbles
+flow swiftly from some of the seaweed clumps.
+~
+Added and rewrote rooms from here to up and along the shore and 'In the
+Surf' 
+[Starshine] acode that seaweed tugs at your feet? brushes against you, etc?
+~
+301465600 7 9 0
+D2
+~
+~
+0 -1 56037 10 10 5
+D4
+~
+~
+0 -1 22045 10 10 5
+E
+enormous jagged rock~
+The rock is black and filled with algae.  It looks to be about the size
+of a boat which could fit three people.
+~
+E
+dark-green seaweed profusion clumps~
+The seaweed grows in thick clumps as it waves back and forth.
+~
+E
+bubbles~
+The bubbles range from the size of a grain of sand to a human eyeball. 
+They are abundant and flow rapidly, indicating that the seaweed flourish
+in this part of the sea floor.
+~
+-1
+S
+
+#0
+

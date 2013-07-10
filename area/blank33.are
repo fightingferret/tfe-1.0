@@ -1,0 +1,1294 @@
+#AREA
+Denai~
+Marek~
+~
+
+0 0
+3
+#ROOMS
+
+#36750
+Northwest parapet~
+You are at the northwest corner of Sarok-Toh.  Up above you is a large
+awning heading down from the keep wall to the courtyard south of here. 
+Birds of prey perch upon the high stone parapet directly above you.  The
+keep wall continues to your east.  There is a small stairway making its
+way up to a small entrance at the top.
+~
+ok how bout putting a stair up to the parapet in this corner
+the stair in the other 4 corners can be in ruins
+and then we can set up some good "views" from the parapet
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 36752 10 10 5
+D1
+~
+~
+0 -1 36751 10 10 5
+A
+climb~
+3 stairs 1 up~
+If( can_fly( ch ) ) 
+{
+send_to_char( #charfly, ch );
+act_notchar( #fly, ch );
+transfer( ch, find_room( 36797 ) );
+act_notchar( #inroom, ch );
+end;
+};
+If( is_mounted( ch ) )
+{
+send_to_char( #unmount, ch );
+end;
+};
+else 
+{
+send_to_char( #ascend, ch );
+act_notchar( #room, ch );
+transfer( ch, find_room( 36797 ) );
+act_notchar( #inroom, ch );
+};
+~
+E
+room~
+$n clambers up the dark stairway.
+~
+E
+ascend~
+You ascend the stairs.
+~
+E
+unmount~
+You must dismount first before ascending the stairs.
+~
+E
+inroom~
+$n arrives from the stairs.
+~
+E
+fly~
+$n flies up the dark stairway.
+~
+E
+charfly~
+You fly up the dark stairway.
+~
+!
+0 0 0
+-1
+S
+
+#36751
+Courtyard wall~
+You are at the north end of the courtyard.  A small, heavy door leads
+into the keep wall here.  To your east, you can see a small hut, and you
+spy a large gallows in the middle of the courtyard to your south.
+~
+entrance to the keep...small door heavy...limited access big guards
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36757 10 10 5
+D1
+~
+~
+0 -1 36760 10 10 5
+D2
+~
+~
+0 -1 36772 10 10 5
+D3
+~
+~
+0 -1 36750 10 10 5
+E
+1 heavy 1 door 1 north~
+A small heavy door is inset in the wall of the keep.  Inset in the stone
+above the door is the figure of a huge ebony serpent with sapphire eyes
+and ruby fangs dripping emerald venom.
+~
+-1
+S
+
+#36752
+Courtyard wall~
+You are standing near the western walls of the city.  To the east you can
+make out a large gallows, centered near the middle of the courtyard. 
+There is a small store south of here, owned by one of the last human
+inhabitants in this area, and you hear the cracking of a whip above the
+crowd of people striding past.
+~
+a sudden attack of a troll can be here?
+nah how bout one wandering drunk troll
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36753 10 10 5
+D1
+~
+~
+0 -1 36757 10 10 5
+D2
+~
+~
+0 -1 36750 10 10 5
+-1
+S
+
+#36753
+Under a small tent~
+You are standing under a large tent, held up by four poles, which lean
+against the western wall.  Several different kinds of leather weaponry
+and armor rest on the wooden stand before you.  Although barbaric, the
+citizens are very efficient in their slaughter of cattle.
+~
+another shack-store here most likely
+another salesman
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36755 10 10 5
+D1
+~
+~
+0 -1 36758 10 10 5
+D2
+~
+~
+0 -1 36752 10 10 5
+-1
+S
+
+#36754
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#36755
+Corner of the courtyard~
+As you make your way across the rocky courtyard, you spy bones lying in
+the corner.  While outsiders are attacked visciously in the wilds,
+strangers who make it to Sarok-Toh are afforded guest-right and are
+treated courteously.  The walls tower above you crowned with a parapet of
+dark stone.  Making its way along the side of the parapet is a small,
+heavily damaged stairway.  You can make out a door at the top.
+~
+put bones in as an rextra so players can look at bones and see that they are human
+add staircase to rextra
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36759 10 10 5
+D2
+~
+~
+0 -1 36753 10 10 5
+E
+bones~
+Crumbling after many years of decay, you can see that these were the
+bones of a human being.
+~
+A
+climb~
+3 stairs 1 up~
+act_tochar( #rubble, ch );
+~
+E
+rubble~
+The stairs are too ruinous to allow you up them.  Perhaps you should try
+another entrance.
+~
+!
+0 0 0
+-1
+S
+
+#36756
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#36757
+Gallows of Sarok-Toh~
+At the center of the courtyard you see an awesome device.  Made from the
+dense wood of a rowan, this gallows has a special feature appended.  A
+large pulley is connected to a battle axe directly below the platform,
+garroting the victim post-executioner style.  Many a contender to
+Trollish honor has fallen to this brutal device.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36758 10 10 5
+D1
+~
+~
+0 -1 36762 10 10 5
+D2
+~
+~
+0 -1 36751 10 10 5
+D3
+~
+~
+0 -1 36752 10 10 5
+-1
+S
+
+#36758
+Sarok-Tah Courtyard~
+You are standing at the edge of a large stone cistern.  Rainwater is
+allowed to flow in through a large awning running from the keep wall. 
+The only source of water for the city, two guards control the handing out
+of water to residents.
+~
+cistern here.
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36759 10 10 5
+D1
+~
+~
+0 -1 36763 10 10 5
+D2
+~
+~
+0 -1 36757 10 10 5
+D3
+~
+~
+0 -1 36753 10 10 5
+-1
+S
+
+#36759
+Kirok's Hut~
+You are at a small hut convieniently located near the entrance of
+Sarok-Tah, along the southern wall.  The smell of dead cattle looms in
+the background.  There is a variety of meats displayed here for you to
+choose from.
+~
+~
+301469697 3 9 0
+D1
+~
+~
+0 -1 36764 10 10 5
+D2
+~
+~
+0 -1 36758 10 10 5
+D3
+~
+~
+0 -1 36755 10 10 5
+35 17 1509949540 -2 0
+-1
+S
+
+#36760
+Trophy wall~
+Covered by dust and worn away by time, this desecrated hut is the city's
+main attraction.  Severed heads impaled by spears line the side of the
+keep wall to which the hut leans against.  On the walls hang necklaces
+made from the bones and teeth of men, and you cannot help to respect the
+barbarism of the Nethril.
+~
+keep wall ...maybe have some severed heads on poles
+uh desecrated hut makes no sense ... look up desicated in dictionary
+have other races besides humans represented
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36762 10 10 5
+D1
+~
+~
+0 -1 36761 10 10 5
+D3
+~
+~
+0 -1 36751 10 10 5
+-1
+S
+
+#36761
+Repair shed~
+This small shed, leaning up against the town walls, is a very popular
+site for weapons and armor repairs.  It is one of the only repair centers
+in miles, and trolls often hang out around here, watching with awe as
+the forger refines their damaged weaponry.
+~
+how bout a large lean-to on the wall here a storage shed of some sort
+please describe random goodies
+Perhaps a forge, armory, or weaponsmith here.  
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36765 10 10 5
+D3
+~
+~
+0 -1 36760 10 10 5
+-1
+S
+
+#36762
+Sarok-Tah Courtyard~
+~
+just a thought, but an arena would be a good city for a city such as this. 
+Joust tournaments and the like.  Jolly good place for it.
+possibly make it nearby.
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36763 10 10 5
+D1
+~
+~
+0 -1 36765 10 10 5
+D2
+~
+~
+0 -1 36760 10 10 5
+D3
+~
+~
+0 -1 36757 10 10 5
+-1
+S
+
+#36763
+Sarok-Tah Courtyard~
+~
+put cistern in nw corner of the courtyard...put reference to rain trap
+which fills it and put a small fountain in the center 
+certain mineral spell components only found in local mines
+trolls also attack caravans travelling pass
+trolls have a primitive honor attacking people in the wilds
+but honor bound to provide safety to guests at their hearth
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36764 10 10 5
+D1
+~
+~
+0 -1 36766 10 10 5
+D2
+~
+~
+0 -1 36762 10 10 5
+D3
+~
+~
+0 -1 36758 10 10 5
+-1
+S
+
+#36764
+Southern gate of Sarok-Tah~
+There are two fierce looking guards standing near the south gate,
+allowing passengers into the city.  The dry ground cracks beneath your
+feet as you walk down into the arid courtyard.  Trolls hurredly pass by
+you, headed to various places about the courtyard, where the few human
+inhabitants of Sarok-Tah sell their wares.  You can hear shouting to your
+west.
+~
+two guards will be here "ask guard" action 
+remove guards from rdesc
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36769 10 10 5
+D1
+~
+~
+0 -1 36767 10 10 5
+D2
+~
+~
+0 -1 36763 10 10 5
+D3
+~
+~
+0 -1 36759 10 10 5
+-1
+S
+
+#36765
+Courtyard wall~
+Stuck to the rough stone of the walls you can see four bloody spears upon
+which the body of a decapitated corpse is impaled, probably a victim of a
+group attack en route to the village.  To your north you can hear the
+clanking of a forge.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36766 10 10 5
+D2
+~
+~
+0 -1 36761 10 10 5
+D3
+~
+~
+0 -1 36762 10 10 5
+-1
+S
+
+#36766
+Courtyard wall~
+Empty carts line the courtyard, many with wheels rotted away from years of
+abuse.  To your west, you can see the courtyard, and you smell a foul
+odor coming from the north.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36767 10 10 5
+D2
+~
+~
+0 -1 36765 10 10 5
+D3
+~
+~
+0 -1 36763 10 10 5
+-1
+S
+
+#36767
+The southwest corner of Sarok-Toh~
+A deep fog settles over the towering granite parapet above, almost
+unrecognizable from a thick layer of mildew.  Twisted bushes and sparse
+field grass cover the ground, despite the rocky surface which the city
+rests upon.  You can hear people shouting in the area to your west.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 36766 10 10 5
+D3
+~
+~
+0 -1 36764 10 10 5
+-1
+S
+
+#36768
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+-1
+S
+
+#36769
+Entrance to a large fortress~
+You are at the archway to the village of Sarok-Tah. 
+~
+this room is inside the wall small twisty turny place to make attack hard
+Gate to city here.  Perhaps a riddle on the gate that must be solved to
+gain entry.
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 36764 10 10 5
+D3
+~
+~
+0 -1 36770 10 10 5
+-1
+S
+
+#36770
+Nothing~
+Under Construction.
+~
+under wall in killing zone/tunnel
+~
+301465601 3 5 0
+D0
+~
+~
+0 -1 36771 10 10 5
+D1
+~
+~
+0 -1 36769 10 10 5
+-1
+S
+
+#36771
+Nothing~
+Under Construction.
+~
+outside keep
+~
+301465601 3 9 0
+D0
+~
+~
+227 -1 35297 10 10 5
+D2
+~
+~
+0 -1 36770 10 10 5
+-1
+S
+
+#36772
+Keep Entrance~
+This is the entryway to the Keep of BlackAdder.  The walls, made from
+well-crafted stone with tight even joints, have stood the test of time. 
+The solid granite walls are faced with a yellow sandstone, swirled with
+dark brown hightlights.  Stout doors are set into the north and south
+walls, and are crafted from dark aged wood and bound with straps of iron. 
+The south door leads out to the courtyard while the north door leads
+deeper into the Keep.
+~
+strips of iron?
+test of time? ick.
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36751 10 10 5
+D2
+~
+~
+1 -1 36773 10 10 5
+705 9 1509949540 3 0
+-1
+S
+
+#36773
+Corridor in the Keep~
+This is a wide corridor that runs through the keep.  All of the main rooms
+lie off this hallway.  The corridor runs east and west here.  There are
+strong wooden doors to the south.  A strange mosaic is set in the floor,
+ebon, green, red, and blue tiles seemingly randomly placed.
+~
+I need to redo this one
+~
+301465601 3 9 0
+D0
+~
+~
+1 -1 36772 10 10 5
+D1
+~
+~
+0 -1 36774 10 10 5
+D2
+~
+~
+1 -1 36786 10 10 5
+D3
+~
+~
+0 -1 36785 10 10 5
+-1
+S
+
+#36774
+Keep Corridor~
+The inner walls here are made from yellow stone that looks like it might
+have been sandstone before it was compacted into the strong pieces that
+you see.  The floor is made from tiny tiles of ebon, blue, red, and green. 
+They form a complicated mosaic unfathomable to most onlookers.  The
+workmanship is unlike any dwarven or giant stonework you've seen.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36775 10 10 5
+D3
+~
+~
+0 -1 36773 10 10 5
+-1
+S
+
+#36775
+Corridor in the Keep~
+The corridor bends to the north and west here.  The yellow stone walls
+are clean and well-fitted.  The joints between stone are very precise but
+are heavily waterstained.  The corridor floor is composed ot thousands of
+small tiles of blue, ebon, red, and green.  There is a small door set
+into the eastern wall.
+~
+~
+301465601 3 9 0
+D1
+'small door'~
+'small door'~
+131 -1 36788 10 10 5
+D2
+~
+~
+0 -1 36776 10 10 5
+D3
+~
+~
+0 -1 36774 10 10 5
+-1
+S
+
+#36776
+Corridor in the Keep~
+The corridor runs north and south here.  The yellow stones that make up
+the walls and ceiling are very dense and tightly fitted.  The floor is a
+swirling mosaic of blue, ebon, red, and green tiles.  Each color comes in
+a multitude of shades and the pattern is continuous.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36775 10 10 5
+D1
+'oak door'~
+'oak door'~
+131 -1 36793 10 10 5
+D2
+~
+~
+0 -1 36777 10 10 5
+-1
+S
+
+#36777
+Corriodor in the Keep~
+The corridor changes direction here, leading off to the west and south. 
+The walls are made of glassy yellow stone and the joints are too
+well-made for human creation.  The floor is composed of numerous tiles of
+green, red, blue, and ebon.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36776 10 10 5
+D3
+~
+~
+0 -1 36778 10 10 5
+-1
+S
+
+#36778
+Corridor in the Keep~
+The corridor runs east and west here.  There are doors in both the
+northern and southern walls.  The walls are made from glassy yellowstone,
+the same color as can be found on the surrounding cliffs.  The floor is
+a complicated mosaic of blue, red, ebon, and green.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+1 -1 36787 10 10 5
+D1
+~
+~
+0 -1 36777 10 10 5
+D2
+~
+~
+1 -1 36789 10 10 5
+D3
+~
+~
+0 -1 36779 10 10 5
+-1
+S
+
+#36779
+Corridor in the Keep~
+The strands of colored mosaic reach from the west and the east meeting in
+the center of the corridor.  Red, blue, green and ebon tiles resolve into
+the opposed ebon heads of two serpents, sapphire eyes aglow and ruby
+fangs dripping emerald venom.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36778 10 10 5
+D3
+~
+~
+0 -1 36780 10 10 5
+-1
+S
+
+#36780
+Corridor in the Keep~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+1 -1 36781 10 10 5
+D1
+~
+~
+0 -1 36779 10 10 5
+D3
+~
+~
+0 -1 36782 10 10 5
+-1
+S
+
+#36781
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+1 -1 36780 10 10 5
+-1
+S
+
+#36782
+Corridor in the Keep~
+This is a corner in the main corridor of the keep.  The corridor runs
+east and south from here.  The walls have the same yellow glassy
+structure and the floor is covered in a tile mosaic.  A set of double
+doors is set in the western wall.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36783 10 10 5
+D1
+~
+~
+0 -1 36780 10 10 5
+D3
+'double doors'~
+'double doors'~
+131 -1 36790 10 10 5
+-1
+S
+
+#36783
+Corridor in the Keep~
+This section of the corridor runs north and south.  The corridor is not
+very long and you can see the corners both north and south of here.  The
+walls here are of a polished glassy yellow stone.  The floor underfoot
+feels smooth but is composed of many small tiles.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36784 10 10 5
+D2
+~
+~
+0 -1 36782 10 10 5
+-1
+S
+
+#36784
+Corridor in the Keep~
+The corridor turns here to run north and east.  The tiles underfoot are
+all ebon and greens and reds and blues.  The walls are made from a glassy
+yellow stone and there are no joints visible even though the grain varies
+from place to place.  There is a black oak door set into the southern
+wall.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+1 -1 36791 10 10 5
+D1
+~
+~
+0 -1 36785 10 10 5
+D2
+~
+~
+0 -1 36783 10 10 5
+-1
+S
+
+#36785
+Corridor in the Keep~
+A curious mosaic runs the length of the corridor east to west.  Lines of
+red, blue, green and ebon tiles twist and twine with no discernible
+pattern.  The walls of the corridor are of a curious yellow sandstone and
+become smoother and more polished as as one travels to the west.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36773 10 10 5
+D3
+~
+~
+0 -1 36784 10 10 5
+-1
+S
+
+#36786
+Guard Room~
+Simple beds and benches made of unpolished pine line the walls of the
+guardroom.  Above each bed is a small shelf for personal belongings.
+A large closed cabinet stands on the north wall.
+~
+add acode for cabinet..manacles and torture stuff
+acode for open cabinet
+acode for close cabinet
+acode for look in cabinet
+~
+301465601 3 9 0
+D0
+~
+~
+1 -1 36773 10 10 5
+E
+cabinet~
+Functional and unembellished this wide two-door wooden cabinet has seen
+years of rough abuse.  Well oiled hinges and locks indicate frequent use.
+~
+-1
+S
+
+#36787
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+1 -1 36778 10 10 5
+-1
+S
+
+#36788
+Kitchen~
+This is the kitchen that serves the Keep.  There are a number of different
+cooking appliances here.  Small wood-fired stoves, larger stoves for
+formal dinners, and a few open pits filled with sand.  The walls are
+covered with cast iron cookware and the cupboards are filled with
+earthenware and intriguing glass pots.  There are two doors leading from
+here, one in the west wall and one in the southern wall.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36792 10 10 5
+D3
+'small door'~
+'small door'~
+131 -1 36775 10 10 5
+-1
+S
+
+#36789
+Dining Room~
+This is the formal dining room of the keep.  The room is dominated by a
+single enormous table made from a brilliant reddish wood.  It is hard to
+divine how such a large table could be crafted from a single piece of
+wood.  Numerous chairs surround the table and seem to be made from the
+same type of wood.  There are cabinets along the walls containing all
+manner of china and stemware.  The door to the corridor leads west and
+there is more dining room to the north.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+1 -1 36778 10 10 5
+D2
+~
+~
+0 -1 36796 10 10 5
+-1
+S
+
+#36790
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+131 -1 36782 10 10 5
+-1
+S
+
+#36791
+Nothing~
+Under Construction.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+1 -1 36784 10 10 5
+-1
+S
+
+#36792
+Pantry~
+This small room holds the food stores for the Keep.  There are row upon
+row of metal shelves carrying supplies.  You can find earthen crocks full
+of honey, metal bins of grain, and other basics wrapped in wax paper.  In
+the back of the room several carcasses have been hung to cure.The only
+door leads north to the kitchen.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 36788 10 10 5
+-1
+S
+
+#36793
+Keep room~
+This is one of the guest suites in the Keep.  Each suite is maintained
+with all the care and attention to detail that can be given.  This common
+room has a fireplace, fresh logs, book shelves and a table.  There are
+plenty of books on the shelves and thick rugs underfoot.  A small oaken
+door leads west into the corridor and twin curtains are drawn north and
+south to separate the other rooms of the suite.
+~
+~
+301465601 3 9 0
+D1
+'curtain'~
+'curtain'~
+131 -1 36795 10 10 5
+D2
+~
+~
+0 -1 36794 10 10 5
+D3
+'oak door'~
+'oak door'~
+131 -1 36776 10 10 5
+-1
+S
+
+#36794
+Keep room~
+This is the sleeping area of the guest suite.  There are four large beds
+here and a small table along with a single closet for storage of gear and
+clothes.  There is a small privy off in one corner of the room.  The
+floor is covered with thick soft rugs and the walls are made of sturdy
+yellowish stone.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36793 10 10 5
+-1
+S
+
+#36795
+Keep room~
+The room here has a single large rug and a small fireplace in one end. 
+There is a pigeon hole desk along one wall and a goodly supply of
+parchment, inks, and quills.  Bookshelves along one wall supply history
+and more political writings.  Four overstuffed chairs and a small table
+are arranged in front of the fireplace.
+~
+~
+301465601 3 9 0
+D3
+'curtain'~
+'curtain'~
+131 -1 36793 10 10 5
+-1
+S
+
+#36796
+Dining Room~
+This is the northern section of the dining room.  The table extends into
+this half of the room but does not dominate it.  The head of the table is
+here with a large ornately carved chair for Lord BlackAdder to use during
+formal dinners.  The extreme northern end of the room contains a numbers
+of warming stands and braziers to keep food warm or prepare delicate
+entrees close to the table.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36789 10 10 5
+-1
+S
+
+#36797
+Northwest parapet~
+~
+describe view from here
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 36798 10 10 5
+D5
+~
+~
+0 -1 36750 10 10 5
+A
+down 1~
+~
+~
+!
+0 0 0
+-1
+S
+
+#36798
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36797 10 10 5
+D2
+~
+~
+0 -1 36799 10 10 5
+-1
+S
+
+#36799
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36798 10 10 5
+D2
+~
+~
+0 -1 36800 10 10 5
+-1
+S
+
+#36800
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36799 10 10 5
+D1
+~
+~
+0 -1 36801 10 10 5
+-1
+S
+
+#36801
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36802 10 10 5
+D3
+~
+~
+0 -1 36800 10 10 5
+-1
+S
+
+#36802
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36803 10 10 5
+D3
+~
+~
+0 -1 36801 10 10 5
+-1
+S
+
+#36803
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36804 10 10 5
+D3
+~
+~
+0 -1 36802 10 10 5
+-1
+S
+
+#36804
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36805 10 10 5
+D2
+~
+~
+0 -1 36803 10 10 5
+-1
+S
+
+#36805
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D0
+~
+~
+0 -1 36806 10 10 5
+D2
+~
+~
+0 -1 36804 10 10 5
+-1
+S
+
+#36806
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D2
+~
+~
+0 -1 36805 10 10 5
+D3
+~
+~
+0 -1 36807 10 10 5
+-1
+S
+
+#36807
+Northwest parapet~
+Under Construction.
+~
+~
+301465601 3 9 0
+D1
+~
+~
+0 -1 36806 10 10 5
+-1
+S
+
+#0
+

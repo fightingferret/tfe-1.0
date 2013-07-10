@@ -1,0 +1,593 @@
+#AREA
+Slime Caves~
+Zargon~
+~
+
+0 0
+0
+#ROOMS
+
+#6285
+Before a Dark Cave~
+You are just inside a cave, where the musty smell of fungus and rotting
+meat is blown out to be replaced by fresh cold air.  The bad smell comes
+from below where it looks like greenish slime covers the walls.  You can
+hear faint sounds coming from somewhere down there.  
+~
+no_mob
+adding newbie protection action.
+~
+301465613 0 6 0
+D3
+~
+~
+0 -1 28060 10 10 5
+D5
+~
+~
+0 -1 6286 10 10 5
+E
+1 down slime~
+Looking down and watching closely, you see the slime move!  It's
+definitely alive, and could present a danger.  
+~
+A
+~
+~
+if( find_stat( ch, level ) < 10 )
+act_tochar( #warn, ch );
+~
+E
+warn~
+From somewhere a voice intones: "The area below is dangerous.  Probably
+too dangerous for you." 
+~
+!
+1 0 8
+A
+~
+~
+if( is_player( ch ) )
+  if( has_obj( 2033, ch ) )
+  if( !cflag( 46, ch ) ) {
+  act_tochar( #wilt, ch );
+  junk_obj( has_obj( 2033, ch ) );
+  }
+else continue;
+  else continue;
+  else continue;
+~
+E
+wilt~
+A foul stench assaults your senses. It smells like rotten fruit.
+~
+!
+1 0 40
+-1
+S
+
+#6286
+Cave Under Hole~
+You have entered into a small, dark, cramped cave with some sort of slime
+living on the walls, and you feel something pulling at your mind, calling
+you to come deeper.  
+~
+~
+301465604 0 5 0
+D2
+~
+~
+0 -1 6287 10 10 5
+D4
+~
+~
+0 -1 6285 10 10 5
+A
+~
+~
+acode( find_room( 6285 ), 2 );
+~
+!
+1 0 20
+21 9 1509949540 3 0
+21 9 25 3 0
+-1
+S
+
+#6287
+Filthy Tunnel~
+There is a lot of slime covering the floor here.  The breathing is more
+of a steady pace now, and you can hear movement further down.  The slime
+seems to be sticking to your attire now and is quite disgusting.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 6286 10 10 5
+D2
+~
+~
+0 -1 6288 10 10 5
+A
+~
+~
+acode( find_room( 6285 ), 2 );
+~
+!
+1 0 5
+-1
+S
+
+#6288
+The Intersection of Tunnels~
+You have now come to an intersection in the cave.  To the east you hear
+the strange breathing getting louder as if something might be in the
+next room or possibly just down the way.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 6287 10 10 5
+D1
+~
+~
+0 -1 6290 10 10 5
+D2
+~
+~
+0 -1 6291 10 10 5
+D3
+~
+~
+0 -1 6289 10 10 5
+A
+~
+~
+acode( find_room( 6285 ), 2 );
+~
+!
+1 0 15
+21 9 1509949540 3 0
+21 9 25 3 0
+546 9 1509949540 3 0
+-1
+S
+
+#6289
+Filthy Tunnel~
+There is nothing here but more slime and crumbled rocks that lie at your
+feet.  The breathing grows much fainter now and the air becomes a bit
+less musty.  To the west you can see a break in the wall which has been
+used for a passage for some time.  
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 6288 10 10 5
+D3
+~
+~
+0 -1 6293 10 10 5
+546 9 1509949540 3 0
+-1
+S
+
+#6290
+The Entrance to Grunt's Abode~
+The walls of this cave tunnel are damp and sticky with slime.  To the
+east lies a large room; from what you can tell it looks like a massive
+beast resides.  The floor is thin dirt and your feet leave large prints
+in it.  
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 6292 10 10 5
+D3
+~
+~
+0 -1 6288 10 10 5
+E
+footprints prints dirt ground floor~
+You see other prints in the dirt.  You see one really large pair.  Maybe
+a large ogres or a giants.  
+~
+A
+~
+~
+acode( find_room( 6285 ), 2 );
+~
+!
+1 0 10
+546 9 1509949540 3 0
+-1
+S
+
+#6291
+Dingy Cavern~
+This room appears to be inhabited by someone, or something.  There is a
+small bed of dirty straw in the far corner, and the only other furniture
+is a small wooden table.  Torches that are mounted upon the walls cast
+eerie shadows which dance and flicker about the room.  
+~
+~
+301465605 0 6 0
+D0
+~
+~
+0 -1 6288 10 10 5
+24 9 1509949540 3 0
+26 17 1509949445 -2 0
+-1
+S
+
+#6292
+Grunt's Abode~
+This large area shows signs that it is inhabited by some large beast. 
+There are corpses of animals and humans a like strewn in one corner, with
+blood stains on the floor.  A firepit gives heat and light to the room.  
+~
+||Tr||
+[Starshine] what is acode 1?
+~
+301465605 5 6 0
+D3
+~
+~
+0 -1 6290 10 10 5
+D5
+trapdoor covered in skins~
+trapdoor covered in skins~
+235 -1 6300 10 10 5
+A
+~
+~
+if( mob_in_room( 2185, find_room( 6300 ) ) ) {
+  act_room( #getsout, ch );
+  junk_mob( mob_in_room( 2185, find_room( 6300 ) ) );
+  send_to_room( #out, find_room( 6300 ) );
+  }
+else
+  continue;
+~
+E
+getsout~
+A dirty, robed cleric rushes past you once she frees herself from the pit.
+~
+E
+out~
+The dirty, mud-streaked cleric finally manages to climb up out of the pit!
+~
+!
+1 0 32
+A
+cast~
+summon~
+act_tochar( "An unusual force prevents you from doing that.", ch );
+~
+!
+0 0 0
+30 9 1509949540 3 0
+246 17 1509949465 -2 0
+246 17 1509949465 -2 0
+-1
+S
+
+#6293
+Clean Tunnel~
+The slime is gone for the most part and the rock has become more
+refined.  The air here is much cleaner and the passage seems to be
+getting much larger.  To the west you can see some light.  
+~
+~
+301465604 0 6 0
+D1
+~
+~
+0 -1 6289 10 10 5
+D3
+~
+~
+0 -1 6294 10 10 5
+21 9 1509949540 3 0
+-1
+S
+
+#6294
+Clean Intersection~
+There is a well lit room just to the west where you can see at least one
+figure.  To the north the passage becomes dimmer and the slime seems to
+be gathering again.  
+~
+[Lansharra] well-lit
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 6296 10 10 5
+D1
+~
+~
+0 -1 6293 10 10 5
+D3
+~
+~
+0 -1 6295 10 10 5
+21 9 100 3 0
+546 9 1509949540 3 0
+-1
+S
+
+#6295
+Large Cavern~
+This area is much different than any of the others.  The room is almost
+spotless, and has a pleasent odor.  There are a couple piles of furs, and
+a fire which lights the room.  
+~
+~
+301465605 0 6 0
+D1
+~
+~
+0 -1 6294 10 10 5
+23 9 1509949540 3 0
+23 9 1509949540 3 0
+357 17 1509949540 -2 0
+23 9 1509949490 3 0
+23 9 1509949490 3 0
+246 17 1509949450 -2 0
+-1
+S
+
+#6296
+Filthy Tunnel~
+There is a lot of slime this direction, and the smell is getting worse. 
+The walls and ceiling drip with disgusting matter, and the air is putrid
+and foul.
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 6297 10 10 5
+D2
+~
+~
+0 -1 6294 10 10 5
+21 9 1509949540 3 0
+-1
+S
+
+#6297
+Filthy Intersection~
+The smell is becoming so horrible that you start feeling ill.  The
+passage is getting narrower to the north and the slime is becoming
+almost too difficult to walk through.  To the east you can see a dark
+crevice.  
+~
+~
+301465604 0 6 0
+D0
+~
+~
+0 -1 6299 10 10 5
+D1
+~
+~
+0 -1 6298 10 10 5
+D2
+~
+~
+0 -1 6296 10 10 5
+-1
+S
+
+#6298
+Clean Crevice~
+There is a natural vent in the center of this room.  The walls are clean
+and dry with no signs of slime.  In the corner you find a pile uncured
+furs which look like they make a crude bed, and across from that are a
+pile of bones.  
+~
+~
+301465604 0 6 0
+D3
+~
+~
+0 -1 6297 10 10 5
+E
+bed 3 furs~
+The fur skins look uncured, which means they have not been made soft, and
+cleaned properly.  They smell, and are coarse to the touch.  You cannot
+find anything interesting in them.
+~
+E
+pile~
+Which pile? Bones or fur?
+~
+E
+4 bones~
+The bones look like they have been collecting for some time.  A few look
+fresh.  Rummaging around in them you find some human, and dwarven ones,
+possibly a few elven and a goblins or two.  You find nothing else of
+interest.  
+~
+E
+floor vent~
+The vent is a raised hole with sloping sides, about a foot high.  It's
+about the size of your head, and from it rises hot dry air.  All you see
+down it is a dark hole twisting away.
+~
+A
+enter~
+vent hole~
+send_to_char( #char, ch );
+~
+E
+char~
+It's too small, by far.
+~
+!
+0 0 0
+25 9 1509949540 3 0
+-1
+S
+
+#6299
+Dead End of Filthy Tunnel~
+The slime has grown so thick here you cannot pass any farther.  There is
+a large amount of rotting flesh here, with humans, couple orcs, and a
+giant even.  You wonder how the slime attracts prey so successfully.  But
+you now see why the smell is so terrible around here.  
+~
+fist mold
+~
+301465604 0 6 0
+D2
+~
+~
+0 -1 6297 10 10 5
+E
+pile flesh humans orcs giants~
+It really looks gruesome, you wouldn't wanna put your hands in it.
+~
+A
+search examine~
+pile flesh humans orcs giants~
+i = random( 1, 50 );
+if( rflag( reset0, room ) ) {
+  if( i == 1 ) { 
+    act_tochar( #char, ch );
+    act_notchar( #room, ch );
+    obj_to_char( oload( 377 ), ch );
+    remove_rflag( reset0, room );
+    }
+  if( i > 1 ) { 
+    remove_rflag( reset0, room );
+    act_tochar( #nothing, ch );
+    }
+  }
+else
+  act_tochar( #nothing, ch );
+~
+E
+nothing~
+You search the pile, but find nothing of interest.
+~
+E
+room~
+$n digs through the pile of rotting flesh and finds a fist mold.
+~
+E
+char~
+Digging through the piles of rotting flesh you discover a fist mold.
+~
+!
+0 0 0
+22 9 1509949540 3 0
+-1
+S
+
+#6300
+Pit Beneath Grunt's Abode~
+The edges of this pit are coarse and uneven, as if it has been dug by
+hand.  Thin trails of slime cover parts of the walls, making a climb up
+out of it more than difficult.  Some thirty feet deep, the earthen pit is
+extremely damp and muddy.  The markings along the lower portion of the
+pit make it look as if someone has been trying to climb out of here.
+~
+~
+301465613 5 9 0
+D4
+~
+~
+235 -1 6292 10 10 5
+A
+~
+~
+mob = mob_in_room( 2185, room );
+tell( mob, ch, #no );
+wait( 1 );
+if( mob_in_room( 30, find_room( 6292 ) ) ) {
+  if( !rflag( reset0, room ) ) {
+    act_room( #bellow, ch );
+    set_rflag( reset0, room );
+    close( room, up );
+    send_to_room( #close, find_room( 6292 ) );
+    }
+  }
+~
+E
+no~
+No, don't come down here. He'll trap you too!
+~
+E
+bellow~
+You hear a beastly voice bellowing in laughter from up above.
+~
+E
+close~
+Grunt kicks the trapdoor shut and bellows in laughter.
+~
+!
+1 0 16
+A
+climb~
+1 up side pit~
+if( is_open( room, up ) ) {
+  if( find_skill( ch, climb ) > random( 4, 10 ) ) {
+    act_tochar( #up, ch );
+    act_notchar( #rup, ch );
+    continue;
+    }
+  else {
+    act_tochar( #slip, ch );
+    act_notchar( #rslip, ch );
+    }
+  }
+else
+  act_tochar( #noway, ch );
+~
+E
+up~
+You scramble up the side of the pit and reach the top.
+~
+E
+rup~
+$n scrambles up the side of the pit with great skill.
+~
+E
+slip~
+You try climbing out of the pit but slip and fall in the mud.
+~
+E
+rslip~
+$n tries climbing out of the pit but slips and falls in the mud.
+~
+E
+noway~
+Climbing up the pit is pointless. There is no way out.
+~
+E
+cleric~
+The mud-covered cleric jumps up out of the pit in a last desperate move
+and disappears.
+~
+!
+3 0 16
+2185 9 1509949540 3 0
+-1
+S
+
+#0
+
